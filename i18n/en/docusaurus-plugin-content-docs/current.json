@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.handbookSidebar.category.Erste Schritte": {
+    "message": "Getting started",
+    "description": "The label for category 'Erste Schritte' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Veranstaltung einrichten": {
+    "message": "Set up an event",
+    "description": "The label for category 'Veranstaltung einrichten' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Kassen & Geräte": {
+    "message": "Tills & Devices",
+    "description": "The label for category 'Kassen & Geräte' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Im Betrieb": {
+    "message": "During operation",
+    "description": "The label for category 'Im Betrieb' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Team & Verwaltung": {
+    "message": "Team & Administration",
+    "description": "The label for category 'Team & Verwaltung' in sidebar 'handbookSidebar'"
+  }
+}

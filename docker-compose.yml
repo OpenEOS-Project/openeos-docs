@@ -1,0 +1,39 @@
+# Production deployment for docs.openeos.de (Traefik + Let's Encrypt)
+#
+# Prerequisites on the server:
+#   - Traefik is running and attached to the external "frontend" network
+#   - Traefik has a "websecure" (443) entrypoint and an ACME/Let's Encrypt
+#     certresolver named "letsencrypt" (adjust the label below if yours differs)
+#
+# Deploy:
+#   docker compose pull && docker compose up -d
+#
+# Override the image if needed:
+#   echo "DOCS_IMAGE=ghcr.io/openeos-project/openeos-docs:latest" > .env
+
+services:
+  docs:
+    image: ${DOCS_IMAGE:-ghcr.io/openeos-project/openeos-docs:latest}
+    container_name: openeos-docs
+    restart: unless-stopped
+    networks:
+      - frontend
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=frontend"
+      # HTTPS router
+      - "traefik.http.routers.openeos-docs.rule=Host(`docs.openeos.de`)"
+      - "traefik.http.routers.openeos-docs.entrypoints=websecure"
+      - "traefik.http.routers.openeos-docs.tls=true"
+      - "traefik.http.routers.openeos-docs.tls.certresolver=letsencrypt"
+      # Service -> container port
+      - "traefik.http.services.openeos-docs.loadbalancer.server.port=80"
+
+networks:
+  frontend:
+    external: true

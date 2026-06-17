@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 40" width="170" height="40" role="img" aria-label="OpenEOS">
+  <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+    <path d="M7 6 L16 6 M7 6 L7 34 M7 34 L16 34"/>
+    <path d="M163 6 L154 6 M163 6 L163 34 M163 34 L154 34"/>
+  </g>
+  <text x="85" y="27" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="19" font-weight="800" fill="currentColor">openEOS</text>
+</svg>

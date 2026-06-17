@@ -1,0 +1,19 @@
+.git
+.github
+node_modules
+build
+.docusaurus
+.cache-loader
+
+# Playwright capture workspace – not part of the website
+_capture
+
+# Docker / compose artifacts
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Misc
+*.log
+.DS_Store
+.env.local

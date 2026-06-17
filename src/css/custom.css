@@ -1,0 +1,48 @@
+/**
+ * OpenEOS Handbuch – globales Styling.
+ * Farbwelt orientiert sich am dunklen Grün der OpenEOS-App.
+ */
+
+:root {
+  --ifm-color-primary: #2e7d32;
+  --ifm-color-primary-dark: #29712d;
+  --ifm-color-primary-darker: #266b2a;
+  --ifm-color-primary-darkest: #1f5823;
+  --ifm-color-primary-light: #338937;
+  --ifm-color-primary-lighter: #368f3a;
+  --ifm-color-primary-lightest: #3fa544;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-background-surface-color: #faf9f4;
+}
+
+/* Hellere Palette im Dark-Mode für bessere Lesbarkeit. */
+[data-theme='dark'] {
+  --ifm-color-primary: #6bbf6f;
+  --ifm-color-primary-dark: #54b558;
+  --ifm-color-primary-darker: #49b14e;
+  --ifm-color-primary-darkest: #3c9240;
+  --ifm-color-primary-light: #82c986;
+  --ifm-color-primary-lighter: #8dcd90;
+  --ifm-color-primary-lightest: #b0ddb2;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Screenshots dezent rahmen, damit sie sich vom Seitenhintergrund abheben. */
+.markdown img {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  margin: 0.5rem 0 1rem;
+}
+
+[data-theme='dark'] .markdown img {
+  border-color: var(--ifm-color-emphasis-300);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Etwas mehr Luft in der Sidebar-Kategorie. */
+.menu__list-item-collapsible {
+  font-weight: 600;
+}

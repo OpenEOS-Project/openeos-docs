@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /home/lukas/Dokumente/openeos/openeos-docs\\nnode -e '\\nconst fs=require(\\\"fs\\\");\\nconst Y=require(\\\"js-yaml\\\");\\nfor (const f of [\\\"./.github/workflows/deploy.yml\\\",\\\"./docker-compose.y...",
-  "error": "Exit code 1\nnode:internal/modules/cjs/loader:1423\n  throw err;\n  ^\n\nError: Cannot find module 'js-yaml'\nRequire stack:\n- /home/lukas/Dokumente/openeos/openeos-docs/[eval]\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n    at Module._load (node:internal/modules/cjs/loader:1226:37)\n    at TracingChannel.traceSync (node:diagnostics_...",
-  "timestamp": "2026-06-17T16:57:03.401Z",
-  "retry_count": 2
-}

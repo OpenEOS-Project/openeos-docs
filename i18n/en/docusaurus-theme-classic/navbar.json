@@ -1,18 +1,18 @@
 {
   "title": {
-    "message": "OpenEOS Manual",
+    "message": "",
     "description": "The title in the navbar"
   },
   "logo.alt": {
     "message": "OpenEOS",
     "description": "The alt text of navbar logo"
   },
-  "item.label.Handbuch": {
-    "message": "Manual",
-    "description": "Navbar item with label Handbuch"
-  },
   "item.label.Zur App": {
     "message": "Open the app",
     "description": "Navbar item with label Zur App"
+  },
+  "item.label.Dokumentation": {
+    "message": "Documentation",
+    "description": "Navbar item with label Dokumentation"
   }
 }

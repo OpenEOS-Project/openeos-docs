@@ -1,9 +1,17 @@
 /**
- * OpenEOS Handbuch – globales Styling.
- * Farbwelt orientiert sich am dunklen Grün der OpenEOS-App.
+ * OpenEOS Dokumentation – globales Styling.
+ * Orientiert sich an der OpenEOS-App (Untitled UI): Inter-Schrift,
+ * warmer cremefarbener Hintergrund, dunkelgrüne Akzente, runde Karten.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
+  /* Schrift wie in der App */
+  --ifm-font-family-base: 'Inter', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ifm-heading-font-weight: 700;
+
+  /* Grüne Markenfarbe */
   --ifm-color-primary: #2e7d32;
   --ifm-color-primary-dark: #29712d;
   --ifm-color-primary-darker: #266b2a;
@@ -11,10 +19,28 @@
   --ifm-color-primary-light: #338937;
   --ifm-color-primary-lighter: #368f3a;
   --ifm-color-primary-lightest: #3fa544;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
-  --ifm-background-surface-color: #faf9f4;
+  /* Warmer Hintergrund wie in der App + helle Karten */
+  --ifm-background-color: #f4f1ea;
+  --ifm-background-surface-color: #fffdf8;
+  --ifm-navbar-background-color: var(--openeos-navbar-bg);
+  --ifm-footer-background-color: #15402b;
+
+  /* Runde Ecken & dezente Töne */
+  --ifm-global-radius: 0.6rem;
+  --ifm-code-font-size: 92%;
+  --ifm-code-background: #efece2;
+  --ifm-color-emphasis-200: #e7e2d5;
+  --ifm-color-emphasis-300: #d9d3c4;
+  --ifm-toc-border-color: #e7e2d5;
+
+  /* Aktiver Sidebar-Eintrag im grünen Ton */
+  --ifm-menu-color-active: var(--ifm-color-primary-darkest);
+  --ifm-menu-color-background-active: #e4f0e4;
+  --ifm-menu-color-background-hover: #ecf4ec;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+  --openeos-navbar-bg: #15402b;
 }
 
 /* Hellere Palette im Dark-Mode für bessere Lesbarkeit. */
@@ -26,45 +52,57 @@
   --ifm-color-primary-light: #82c986;
   --ifm-color-primary-lighter: #8dcd90;
   --ifm-color-primary-lightest: #b0ddb2;
+
+  --ifm-background-color: #16170f;
+  --ifm-background-surface-color: #1d1f16;
+  --ifm-code-background: #24271c;
+  --ifm-menu-color-background-active: rgba(107, 191, 111, 0.14);
+  --ifm-menu-color-background-hover: rgba(107, 191, 111, 0.08);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Screenshots dezent rahmen, damit sie sich vom Seitenhintergrund abheben. */
+/* Display-Überschriften etwas enger gesetzt wie in der App. */
+.markdown h1,
+h1[class*='docTitle'],
+.markdown h2 {
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+/* Screenshots als gerahmte Karten. */
 .markdown img {
   border: 1px solid var(--ifm-color-emphasis-200);
   border-radius: 10px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--ifm-global-shadow-lw, 0 2px 14px rgba(0, 0, 0, 0.08));
   margin: 0.5rem 0 1rem;
 }
-
 [data-theme='dark'] .markdown img {
   border-color: var(--ifm-color-emphasis-300);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
-/* Etwas mehr Luft in der Sidebar-Kategorie. */
-.menu__list-item-collapsible {
-  font-weight: 600;
+/* Code-Blöcke & Tabellen als runde Karten. */
+.theme-code-block,
+.markdown pre {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+.markdown table {
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
 }
 
-/* ---- Dunkelgrüne Navigationsleiste (statt weiß) ---- */
-:root {
-  --openeos-navbar-bg: #15402b;
-}
-
+/* ---- Dunkelgrüne Navigationsleiste ---- */
 .navbar {
   background-color: var(--openeos-navbar-bg);
   --ifm-navbar-link-color: rgba(255, 255, 255, 0.92);
   --ifm-navbar-link-hover-color: #ffffff;
-  --ifm-navbar-background-color: var(--openeos-navbar-bg);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.25);
 }
-
-.navbar__title,
-.navbar__brand:hover .navbar__title {
+.navbar__title {
   color: #ffffff;
 }
-
 .navbar__link,
 .navbar__link:hover {
   color: var(--ifm-navbar-link-color);
@@ -72,19 +110,13 @@
 .navbar__link:hover {
   color: #ffffff;
 }
-
-/* Aktiver Locale-Dropdown / Items im geöffneten Menü bleiben dunkel lesbar */
 .navbar .dropdown__menu {
   --ifm-navbar-link-color: var(--ifm-font-color-base);
 }
-
-/* Icons in der Navbar (Dark-Mode-Umschalter, Hamburger) hell einfärben */
 .navbar .clean-btn,
 .navbar__toggle {
   color: #ffffff;
 }
-
-/* Mobiles Ausklapp-Menü ebenfalls dunkelgrün, damit das weiße Logo sichtbar bleibt */
 .navbar-sidebar {
   background-color: var(--openeos-navbar-bg);
 }
@@ -97,4 +129,23 @@
 .navbar-sidebar .menu__link--active {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Sidebar (Doku) im App-Stil: runde, grün hinterlegte Einträge ---- */
+.menu__list-item-collapsible,
+.menu__link {
+  border-radius: 8px;
+  font-weight: 500;
+}
+.menu__list-item-collapsible {
+  font-weight: 600;
+}
+.menu__link--active:not(.menu__link--sublist) {
+  font-weight: 600;
+}
+
+/* Primär-Buttons (Pagination etc.) leicht abgerundet. */
+.pagination-nav__link {
+  border-radius: var(--ifm-global-radius);
+  border-color: var(--ifm-color-emphasis-200);
 }

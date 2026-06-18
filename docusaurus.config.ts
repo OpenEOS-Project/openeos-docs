@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'OpenEOS Handbuch',
-  tagline: 'Das Anwenderhandbuch für das OpenEOS Kassensystem',
+  title: 'OpenEOS Dokumentation',
+  tagline: 'Die Anwenderdokumentation für das OpenEOS Kassensystem',
   favicon: 'img/favicon.png',
 
   future: {
@@ -59,7 +59,8 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Handbuch',
+      // No title text – the logo already reads "openEOS"
+      title: '',
       logo: {
         alt: 'OpenEOS',
         // White wordmark – the navbar has a dark green background in both modes
@@ -72,7 +73,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'handbookSidebar',
           position: 'left',
-          label: 'Handbuch',
+          label: 'Dokumentation',
         },
         {
           href: 'https://app.openeos.de',
@@ -89,7 +90,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Handbuch',
+          title: 'Dokumentation',
           items: [
             {label: 'Erste Schritte', to: '/'},
             {label: 'Veranstaltungen', to: '/veranstaltungen'},

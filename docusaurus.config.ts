@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'OpenEOS Handbuch',
   tagline: 'Das Anwenderhandbuch für das OpenEOS Kassensystem',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   future: {
     v4: true,
@@ -54,15 +54,18 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/openeos-social-card.png',
+    image: 'img/openeos-logo.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'OpenEOS Handbuch',
+      title: 'Handbuch',
       logo: {
         alt: 'OpenEOS',
-        src: 'img/logo.svg',
+        // White wordmark – the navbar has a dark green background in both modes
+        src: 'img/openeos-logo-white.png',
+        srcDark: 'img/openeos-logo-white.png',
+        height: 28,
       },
       items: [
         {

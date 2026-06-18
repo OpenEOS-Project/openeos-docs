@@ -19,3 +19,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 _capture/
+
+# OMC orchestration state (local only)
+.omc/

@@ -46,3 +46,55 @@
 .menu__list-item-collapsible {
   font-weight: 600;
 }
+
+/* ---- Dunkelgrüne Navigationsleiste (statt weiß) ---- */
+:root {
+  --openeos-navbar-bg: #15402b;
+}
+
+.navbar {
+  background-color: var(--openeos-navbar-bg);
+  --ifm-navbar-link-color: rgba(255, 255, 255, 0.92);
+  --ifm-navbar-link-hover-color: #ffffff;
+  --ifm-navbar-background-color: var(--openeos-navbar-bg);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.navbar__title,
+.navbar__brand:hover .navbar__title {
+  color: #ffffff;
+}
+
+.navbar__link,
+.navbar__link:hover {
+  color: var(--ifm-navbar-link-color);
+}
+.navbar__link:hover {
+  color: #ffffff;
+}
+
+/* Aktiver Locale-Dropdown / Items im geöffneten Menü bleiben dunkel lesbar */
+.navbar .dropdown__menu {
+  --ifm-navbar-link-color: var(--ifm-font-color-base);
+}
+
+/* Icons in der Navbar (Dark-Mode-Umschalter, Hamburger) hell einfärben */
+.navbar .clean-btn,
+.navbar__toggle {
+  color: #ffffff;
+}
+
+/* Mobiles Ausklapp-Menü ebenfalls dunkelgrün, damit das weiße Logo sichtbar bleibt */
+.navbar-sidebar {
+  background-color: var(--openeos-navbar-bg);
+}
+.navbar-sidebar .navbar__title,
+.navbar-sidebar .menu__link,
+.navbar-sidebar .navbar-sidebar__back {
+  color: rgba(255, 255, 255, 0.92);
+}
+.navbar-sidebar .menu__link:hover,
+.navbar-sidebar .menu__link--active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}

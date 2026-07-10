@@ -12,11 +12,12 @@ Im Bereich **Drucker** verwalten Sie Ihre Bondrucker sowie deren Vorlagen und Dr
 
 ## Drucker
 
-Im Reiter **Drucker** sehen Sie die Ihrer Organisation zugewiesenen Geräte.
+Im Reiter **Drucker** sehen Sie die Ihrer Organisation zugewiesenen Geräte. Jeder Drucker ist mit einem **Drucker-Agent** (dem OpenEOS Drucker-Agent auf einem Raspberry Pi oder Linux-Rechner) verknüpft, der den eigentlichen Druck übernimmt. Solange noch kein Drucker eingerichtet ist, erscheint hier ein entsprechender Hinweis.
 
-:::info[Einrichtung durch den Plattform-Administrator]
-Drucker werden vom **Plattform-Administrator** hinzugefügt und Ihrer Organisation zugewiesen. Solange noch keine Drucker zugewiesen sind, erscheint hier ein entsprechender Hinweis. Wenden Sie sich an Ihren Administrator, wenn Sie einen Drucker anbinden möchten.
-:::
+Ein Drucker-Agent kann auf zwei Wegen an Ihre Organisation angebunden werden:
+
+- **Vorab eingerichtet durch den Plattform-Administrator**: Der Agent wird mit einem festen Gerätetoken konfiguriert und ist damit von Anfang an Ihrer Organisation zugeordnet. Wenden Sie sich an Ihren Administrator, wenn Sie diesen Weg nutzen möchten.
+- **Selbstregistrierung des Agents**: Läuft ein Drucker-Agent ohne konfiguriertes Gerätetoken, meldet er sich beim Start selbstständig an und zeigt einen **Verifizierungscode** an (z. B. auf der lokalen Status-Seite oder im Log). Diesen Code geben Sie im OpenEOS-Dashboard ein, um den Agent Ihrer Organisation zuzuweisen. Danach steht der Agent im Reiter **Drucker** beim Anlegen eines neuen Druckers zur Auswahl.
 
 ## Vorlagen
 

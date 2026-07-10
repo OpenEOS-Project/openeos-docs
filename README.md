@@ -43,3 +43,19 @@ Die Screenshots wurden mit Playwright gegen <https://app.openeos.de> erzeugt
 (siehe Skripte in `_capture/`). Zum Neuerstellen Playwright-Chromium bzw. das
 System-Chromium nutzen und die Skripte ausführen; die Ergebnisse anschließend
 nach `static/img/screens/{de,en}/` kopieren.
+
+## Automatisches Deployment
+
+Nach jedem erfolgreichen Image-Build auf `main` aktualisiert ein Deploy-Job den
+Produktivserver per SSH (`docker compose pull && up -d`). Der Job ist inaktiv,
+bis die Repo-/Org-Variable `DEPLOY_ENABLED` auf `true` steht.
+
+| Variable / Secret | Beschreibung |
+|---|---|
+| `DEPLOY_ENABLED` (Variable) | `true` schaltet das Deployment scharf |
+| `DEPLOY_PATH` (Variable) | Optional — Compose-Verzeichnis auf dem Server (Default: `/srv/docker/<repo-name>`) |
+| `DEPLOY_SERVICE` (Variable) | Optional — einzelner Compose-Service; leer = ganze Compose-Datei |
+| `DEPLOY_HOST` (Secret) | Hostname/IP des Produktivservers |
+| `DEPLOY_USER` (Secret) | SSH-Benutzer (z. B. `openeos-deploy`) |
+| `DEPLOY_SSH_KEY` (Secret) | Privater SSH-Key des Deploy-Benutzers |
+| `DEPLOY_PORT` (Secret) | Optional — SSH-Port, Default 22 |

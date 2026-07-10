@@ -25,6 +25,10 @@ Sie erreichen den Bereich über **Standorte** in der Seitenleiste. Auch Standort
 
 Jeder Standort kann mit einem **Drucker** (für Küchen- oder Ausgabebons) und/oder einem **Display** verknüpft werden. Geht an der Kasse eine Bestellung ein, werden die Positionen automatisch an den jeweils zuständigen Standort weitergeleitet und dort gedruckt bzw. angezeigt.
 
+:::info[Standort-Display vs. Kundendisplay]
+Beachten Sie den Unterschied zwischen zwei Display-Rollen unter [Geräte](./geraete.md#kundendisplay): Ein **Standort-Display** zeigt die Bestellungen eines Produktionsstandorts (Küche, Bar, Ausgabe) – genau darum geht es auf dieser Seite. Ein **Kundendisplay** ist hingegen einer einzelnen Kasse zugeordnet und spiegelt deren Warenkorb für den Gast, unabhängig von Standorten.
+:::
+
 :::tip[Sinnvolle Aufteilung]
 Bilden Sie Ihre realen Ausgabestellen als Standorte ab. Eine klare Trennung von Speisen- und Getränkeausgabe beschleunigt die Abläufe spürbar.
 :::

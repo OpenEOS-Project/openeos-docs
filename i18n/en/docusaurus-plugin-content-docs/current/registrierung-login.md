@@ -46,11 +46,32 @@ After creating your account you will receive a confirmation email. Click the lin
 Confirm your email address promptly. Until the account is activated, some features may be restricted.
 :::
 
-## Logging in
+## Signing in
 
-At [app.openeos.de/login](https://app.openeos.de/login) you log in with your **email address** and **password**. The **Stay logged in** option keeps your session on the device — convenient for a dedicated till, but not recommended on shared devices.
+Go to [app.openeos.de/login](https://app.openeos.de/login). There are two ways in:
 
-![Login](/img/screens/en/login.png)
+### With a password
+
+Enter your email and password and choose **Sign in**. **Stay signed in** keeps the session on that device.
+
+### Without a password — by link
+
+Under the form is **"Rather not use a password? Request a link by email"**. You enter only your email address and receive a sign-in link. One click signs you in — the link is valid for **15 minutes** and works once.
+
+This is particularly handy on the day: anyone who cannot recall their password is still in within seconds.
+
+:::note An account with no password at all
+A password is not required. You can run an account entirely on sign-in links and set a password later in the settings.
+:::
+
+### Forgotten password
+
+**Forgot password?** sends you a reset link. Alternatively, just sign in with a link.
+
+### Other ways in from this page
+
+- **Use as device (till terminal)** — turns this device into a till, see [Connecting devices](./geraete.md)
+- **Use as display (monitor)** — turns this screen into a display, see [Setting up screens](./anzeigen.md)
 
 ## Switching the language
 

@@ -48,9 +48,30 @@ Bestätigen Sie Ihre E-Mail-Adresse zeitnah. Solange das Konto nicht aktiviert i
 
 ## Anmelden
 
-Unter [app.openeos.de/login](https://app.openeos.de/login) melden Sie sich mit **E-Mail-Adresse** und **Passwort** an. Mit der Option **Eingeloggt bleiben** bleibt Ihre Sitzung auf dem Gerät erhalten – praktisch für die feste Kasse, nicht empfehlenswert auf geteilten Geräten.
+Rufen Sie [app.openeos.de/login](https://app.openeos.de/login) auf. Es gibt zwei Wege hinein:
 
-![Anmeldung](/img/screens/de/login.png)
+### Mit Passwort
+
+E-Mail und Passwort eingeben, **Anmelden**. Mit **Eingeloggt bleiben** bleibt die Sitzung auf diesem Gerät bestehen.
+
+### Ohne Passwort — per Link
+
+Unter dem Formular steht **„Lieber ohne Passwort? Link per E-Mail anfordern"**. Sie geben nur Ihre E-Mail-Adresse ein und bekommen einen Anmeldelink zugeschickt. Ein Klick darauf meldet Sie an — der Link gilt **15 Minuten** und lässt sich nur einmal verwenden.
+
+Das ist besonders praktisch am Festtag: Wer sein Passwort gerade nicht parat hat, kommt trotzdem in Sekunden hinein.
+
+:::note Konto ganz ohne Passwort
+Ein Passwort ist nicht zwingend. Sie können ein Konto ausschließlich über Anmeldelinks nutzen und ein Passwort später jederzeit in den Einstellungen setzen.
+:::
+
+### Passwort vergessen
+
+**Passwort vergessen?** schickt Ihnen einen Link zum Zurücksetzen. Alternativ melden Sie sich einfach per Anmeldelink an.
+
+### Weitere Einstiege auf der Anmeldeseite
+
+- **Als Gerät verwenden (Kassen-Terminal)** — macht dieses Gerät zur Kasse, siehe [Geräte verbinden](./geraete.md)
+- **Als Anzeige verwenden (Monitor)** — macht diesen Bildschirm zur Anzeige, siehe [Anzeigen einrichten](./anzeigen.md)
 
 ## Sprache umstellen
 

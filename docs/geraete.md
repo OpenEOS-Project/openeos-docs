@@ -22,13 +22,20 @@ Beim Freigeben eines Geräts legen Sie fest, welche Rolle es einnimmt:
 
 Drucker-Agents (der OpenEOS Drucker-Agent) werden separat unter [Drucker](./drucker.md) verwaltet und erscheinen nicht in dieser Geräteliste.
 
-## Neues Gerät registrieren
+## Neues Gerät verbinden
 
-Auf der Geräte-Seite finden Sie einen **QR-Code** und einen **Registrierungslink** für Ihre Organisation. So koppeln Sie ein neues Gerät:
+Das Gerät zeigt eine Zahl, verknüpft wird sie in Ihrem Konto. Auf dem Gerät selbst brauchen Sie weder Zugangsdaten noch das Kürzel Ihrer Organisation.
 
-1. **Öffnen Sie den Link** auf dem Gerät oder scannen Sie den **QR-Code** mit der Kamera des Geräts.
-2. **Geben Sie einen Namen** für das Gerät ein (z. B. „Kasse Theke 1") und bestätigen Sie.
-3. **Geben Sie den angezeigten Code** in der Verwaltung ein, um das Gerät freizugeben.
+1. **Auf dem Gerät** öffnen Sie `app.openeos.de` und wählen unten **Als Gerät verwenden (Kassen-Terminal)** — bei einem Bildschirm stattdessen **Als Anzeige verwenden (Monitor)**.
+2. Das Gerät zeigt eine **sechsstellige Zahl**, darunter einen QR-Code als zweiten Weg.
+3. **In der Verwaltung** gehen Sie auf **Geräte** und geben die Zahl ein. Mit einem Telefon scannen Sie stattdessen den QR-Code — er führt direkt auf die Eingabemaske.
+4. Vergeben Sie einen **Namen** (z. B. „Kasse Theke 1") und wählen Sie den **Gerätetyp**.
+
+Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
+
+:::note Warum eine Zahl
+Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine sechsstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
+:::
 
 ![Geräte-Registrierung](/img/screens/de/device-register.png)
 

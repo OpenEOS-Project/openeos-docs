@@ -23,18 +23,16 @@ Dieses Handbuch führt Sie Schritt für Schritt durch die Anwendung – von der 
 
 ## Aufbau dieses Handbuchs
 
-Das Handbuch folgt dem typischen Ablauf:
+Das Handbuch ist ein Weg, kein Nachschlagewerk. Arbeiten Sie die Kapitel einmal von oben nach unten durch, und am Ende steht ein laufendes System:
 
-1. **Erste Schritte** – Konto registrieren, anmelden, Dashboard und Organisation verstehen.
-2. **Veranstaltung einrichten** – Event anlegen, Produkte und Kategorien pflegen, Pfand, Rabatte und Standorte konfigurieren.
-3. **Kassen & Geräte** – Geräte koppeln und Drucker einrichten.
-4. **Im Betrieb** – Bestellungen, Inventur und Auswertungen während und nach dem Fest.
-5. **Team & Verwaltung** – Mitglieder einladen, Schichtpläne erstellen und Einstellungen anpassen.
+1. **Konto und Organisation** – registrieren, anmelden, Verein anlegen.
+2. **Veranstaltung anlegen** – Fest anlegen, Sortiment pflegen, Standorte festlegen. Hier steht auch, **was es kostet** und wie Sie vorher kostenlos testen.
+3. **Geräte und Anzeigen** – Kassen verbinden, Bildschirme einrichten, Drucker anschließen.
+4. **Am Festtag** – verkaufen, Bestellungen im Blick behalten.
+5. **Nach dem Fest** – auswerten und abrechnen.
 
-:::tip[Erste Veranstaltung?]
-Wenn Sie OpenEOS zum ersten Mal nutzen, arbeiten Sie das Kapitel **Erste Schritte** und anschließend **Veranstaltung einrichten** der Reihe nach durch. Damit ist Ihre Kasse in wenigen Minuten startklar.
-:::
+Was Sie nur gelegentlich brauchen — Pfand, Rabatt-Bons, Mitglieder, Schichtpläne — steht unter **Nachschlagen**.
 
-:::note[Über die Screenshots]
-Alle Abbildungen in diesem Handbuch stammen aus einer Beispiel-Organisation („Musterverein e.V.") mit der Beispiel-Veranstaltung „Sommerfest 2026". Ihre eigenen Daten sehen entsprechend anders aus.
+:::tip Wenn Sie es eilig haben
+Für ein erstes Gefühl genügen die Kapitel 1 bis 3 und eine Testbestellung. Die Veranstaltung bleibt dabei im Testmodus und kostet nichts.
 :::

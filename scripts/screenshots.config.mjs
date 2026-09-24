@@ -61,7 +61,16 @@ export const AUFNAHMEN = [
   },
 
   // --- Sortiment ---
-  { datei: 'categories', pfad: '/categories' },
+  /* Kategorien haben keine eigene Seite mehr; der Dialog auf der
+     Produktseite hat sie abgeloest. */
+  {
+    datei: 'categories-dialog',
+    pfad: '/products',
+    async vorbereiten(seite) {
+      await seite.getByRole('button', { name: /Kategorien bearbeiten|Edit categories/i }).first().click();
+      await seite.waitForTimeout(1200);
+    },
+  },
   { datei: 'products', pfad: '/products' },
   { datei: 'stations', pfad: '/production-stations' },
 
@@ -70,6 +79,14 @@ export const AUFNAHMEN = [
     datei: 'devices',
     pfad: '/devices',
     hinweise: [{ auf: 'code, .app-card', text: 'Link und QR-Code für neue Geräte' }],
+  },
+  {
+    datei: 'device-verify',
+    pfad: '/devices/verify',
+    hinweise: [
+      { auf: '.verify-code-input, input#code', text: 'Die Zahl vom Gerät hier eintragen' },
+      { auf: 'button[type="submit"]', text: 'Gerät suchen und freigeben' },
+    ],
   },
   { datei: 'printers', pfad: '/printers' },
 
@@ -80,7 +97,6 @@ export const AUFNAHMEN = [
   { datei: 'discounts', pfad: '/discounts' },
   { datei: 'pfand', pfad: '/pfand' },
   // --- Dialoge: dieselbe Seite, einmal mit geöffnetem Formular ---
-  { datei: 'categories-dialog', pfad: '/categories', vorbereiten: dialogOeffnen },
   { datei: 'products-dialog', pfad: '/products', vorbereiten: dialogOeffnen },
   { datei: 'discounts-dialog', pfad: '/discounts', vorbereiten: dialogOeffnen },
   { datei: 'members-dialog', pfad: '/members', vorbereiten: dialogOeffnen },

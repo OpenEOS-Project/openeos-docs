@@ -8,7 +8,7 @@ description: Bestellung aufnehmen, kassieren und an Küche oder Theke weitergebe
 
 Diese Seite beschreibt den Ablauf an der Kasse selbst — also das, was Ihr Team am Abend des Festes tut. Wie ein Gerät überhaupt zur Kasse wird, steht unter [Geräte verbinden](./geraete.md).
 
-:::tip Vorher ausprobieren
+:::tip[Vorher ausprobieren]
 Solange die Veranstaltung im **Testmodus** steht, können Sie den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Beim Freischalten werden diese Testbestellungen gelöscht, Ihre Einrichtung bleibt. Oben im Bild sehen Sie dann den Hinweis „Testmodus — Bestellungen werden beim Aktivieren gelöscht".
 :::
 

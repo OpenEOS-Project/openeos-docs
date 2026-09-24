@@ -1,31 +1,31 @@
 ---
-sidebar_position: 7
+sidebar_position: 12
 title: Categories
-description: Group products into categories and color-code them.
+description: Structure your range — through the "Edit categories" dialog on the products page.
 ---
 
 # Categories
 
-**Categories** let you group your products — for example "Drinks" and "Food". Categories keep the till organised and can be colour-coded. You can reach this section via **Products → Categories** in the sidebar.
+Categories structure your range. At the till they appear as the left-hand column; tapping one shows its products. Typical ones are *Drinks*, *Food*, *Cakes*.
 
-![Categories overview](/img/screens/en/categories.png)
-
-## Create a category
-
-1. Click **Create category**.
-2. Fill in the fields:
-   - **Name** (required) — e.g. "Drinks"
-   - **Description** — optional additional text
-   - **Color** — colour identifier for the till view
-   - **Order** — controls how categories are sorted
-3. Click **Create**.
-
-![Create category](/img/screens/en/categories-dialog.png)
-
-## Order and colours
-
-The **Order** field determines the sequence in which categories appear at the till. Give frequently used categories a low number so they appear first. The **Color** helps till staff identify product groups more quickly.
-
-:::tip[Categories first, then products]
-Create your categories before your products. When [creating a product](./produkte.md) you can then assign it directly to the right category.
+:::info[No longer its own menu entry]
+Categories used to have their own entry in the navigation. They now live where they are needed: on the **products page**.
 :::
+
+## Editing categories
+
+1. Open **Products**.
+2. Choose **Edit categories** at the top.
+3. In the dialog you can add categories, rename them, reorder them or delete them.
+
+![The "Edit categories" dialog on the products page](/img/screens/en/categories-dialog.png)
+
+The order in the dialog is the order at the till. Put what sells most at the top — it saves your team a tap on every sale.
+
+## Assigning a category
+
+A product is given its category when it is created or edited, in the product dialog. A product always belongs to exactly one category.
+
+## Deleting
+
+A category can only be deleted once no products remain in it. Move those to another category first.

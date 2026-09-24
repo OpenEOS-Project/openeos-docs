@@ -60,7 +60,7 @@ Unter dem Formular steht **„Lieber ohne Passwort? Link per E-Mail anfordern"**
 
 Das ist besonders praktisch am Festtag: Wer sein Passwort gerade nicht parat hat, kommt trotzdem in Sekunden hinein.
 
-:::note Konto ganz ohne Passwort
+:::note[Konto ganz ohne Passwort]
 Ein Passwort ist nicht zwingend. Sie können ein Konto ausschließlich über Anmeldelinks nutzen und ein Passwort später jederzeit in den Einstellungen setzen.
 :::
 

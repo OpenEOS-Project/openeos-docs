@@ -36,3 +36,24 @@ Each detailed report can be downloaded via **Export CSV**. This lets you process
 :::tip[Post-event settlement]
 After the event, select the **All time** period and export top products and payment methods as CSV — this simplifies the final settlement and the summary report for the board.
 :::
+
+## Exporting as PDF
+
+**PDF export**, top right, produces a finished summary of the chosen period — for printing, for cashing up, or for the committee meeting.
+
+The PDF contains:
+
+- A **header** with organisation and period
+- **Headline figures**: revenue and number of orders
+- **Revenue by hour** as a bar chart, showing when the rush was
+- **Payment methods** with count, amount and share
+- **Top products** with quantity, revenue and average price
+- **Revenue by channel** (till, online shop)
+
+The file is named after the period, for example `openeos-auswertung-sommerfest-2026.pdf`, and downloads straight away. It is generated in the browser; with many orders that takes a moment, during which it reads *Generating…*.
+
+:::tip[For cashing up]
+Choose the **Event** period rather than *Today* if the event ran over several days — otherwise the other days are missing.
+:::
+
+Alongside the PDF there is **Export CSV** for working on in a spreadsheet.

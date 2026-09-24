@@ -20,12 +20,15 @@ The device shows a number and you link it from your account. On the device itsel
 
 1. **On the device**, open `app.openeos.de` and choose **Use as device (till terminal)** at the bottom — for a screen, **Use as display (monitor)** instead.
 2. The device shows a **six-digit number**, with a QR code beneath it as a second route.
-3. **In the admin area**, go to **Devices** and enter the number. With a phone, scan the QR code instead — it opens the entry form directly.
+3. **In the admin area**, go to **Devices** and enter the number.
+
+![Enter the number from the device and approve it](/img/screens/en/device-verify.png)
+ With a phone, scan the QR code instead — it opens the entry form directly.
 4. Give it a **name** ("Bar till 1", say) and choose the **device type**.
 
 The device then switches into the till or screen by itself.
 
-:::note Why a number
+:::note[Why a number]
 Nobody at a tablet has the organisation's short name to hand, and a TV rarely has a keyboard. A six-digit number can be read out and typed in — nothing more is needed.
 :::
 

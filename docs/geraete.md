@@ -45,7 +45,7 @@ Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernse
 
 Den Registrierungslink können Sie über **Kopieren** in die Zwischenablage übernehmen und z. B. per Nachricht an das Kassenpersonal verteilen.
 
-Im Freigabe-Dialog **„Gerät freigeben“** wählen Sie zusätzlich den **Gerätetyp** (Kasse, Display oder Admin) aus – diese Auswahl wird direkt bei der Freigabe gespeichert. Kassen starten dabei automatisch im Modus „Bedienung“ (Tischservice), Displays starten als Kundendisplay. Beides können Sie später jederzeit unter **Geräte → Gerät → Einstellungen** anpassen.
+Im Freigabe-Dialog **„Gerät freigeben“** wählen Sie zusätzlich den **Gerätetyp** (Kasse oder Anzeige) aus – diese Auswahl wird direkt bei der Freigabe gespeichert. Kassen starten dabei automatisch im Modus „Bedienung“ (Tischservice), Displays starten als Kundendisplay. Beides können Sie später jederzeit unter **Geräte → Gerät → Einstellungen** anpassen.
 
 ## Geräte verwalten
 

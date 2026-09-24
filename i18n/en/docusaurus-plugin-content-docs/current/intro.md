@@ -33,6 +33,6 @@ The handbook is a path, not a reference. Work through the chapters once from top
 
 What you need only occasionally — deposits, discount vouchers, members, rotas — sits under **Reference**.
 
-:::tip If you are in a hurry
+:::tip[If you are in a hurry]
 Chapters 1 to 3 and one test order are enough to get a feel for it. The event stays in test mode and costs nothing.
 :::

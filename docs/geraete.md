@@ -18,7 +18,6 @@ Beim Freigeben eines Geräts legen Sie fest, welche Rolle es einnimmt:
 
 - **Kasse** – mobile Kasse (POS) zur Erfassung von Bestellungen.
 - **Display** – Tablet oder Bildschirm, das entweder als [Kundendisplay](#kundendisplay) den Warenkorb einer Kasse spiegelt oder als Standort-Display Bestellungen für Küche, Bar oder Ausgabe anzeigt.
-- **Admin** – Gerät mit vollem Zugriff auf die Verwaltung, z. B. ein Tablet an der Rezeption.
 
 Drucker-Agents (der OpenEOS Drucker-Agent) werden separat unter [Drucker](./drucker.md) verwaltet und erscheinen nicht in dieser Geräteliste.
 
@@ -30,12 +29,15 @@ Das Gerät zeigt eine Zahl, verknüpft wird sie in Ihrem Konto. Auf dem Gerät s
 
 1. **Auf dem Gerät** öffnen Sie `app.openeos.de` und wählen unten **Als Gerät verwenden (Kassen-Terminal)** — bei einem Bildschirm stattdessen **Als Anzeige verwenden (Monitor)**.
 2. Das Gerät zeigt eine **sechsstellige Zahl**, darunter einen QR-Code als zweiten Weg.
-3. **In der Verwaltung** gehen Sie auf **Geräte** und geben die Zahl ein. Mit einem Telefon scannen Sie stattdessen den QR-Code — er führt direkt auf die Eingabemaske.
+3. **In der Verwaltung** gehen Sie auf **Geräte** und geben die Zahl ein.
+
+![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
+ Mit einem Telefon scannen Sie stattdessen den QR-Code — er führt direkt auf die Eingabemaske.
 4. Vergeben Sie einen **Namen** (z. B. „Kasse Theke 1") und wählen Sie den **Gerätetyp**.
 
 Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 
-:::note Warum eine Zahl
+:::note[Warum eine Zahl]
 Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine sechsstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
 :::
 

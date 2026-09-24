@@ -60,7 +60,7 @@ Under the form is **"Rather not use a password? Request a link by email"**. You 
 
 This is particularly handy on the day: anyone who cannot recall their password is still in within seconds.
 
-:::note An account with no password at all
+:::note[An account with no password at all]
 A password is not required. You can run an account entirely on sign-in links and set a password later in the settings.
 :::
 

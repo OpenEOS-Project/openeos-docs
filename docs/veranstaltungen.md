@@ -40,7 +40,7 @@ Eine neue Veranstaltung startet im **Testmodus**. Darin ist alles benutzbar — 
 
 Beim Freischalten werden die Testbestellungen gelöscht. **Ihre Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker müssen Sie nicht erneut anlegen.
 
-:::tip Unser Rat für das erste Fest
+:::tip[Unser Rat für das erste Fest]
 Richten Sie alles in Ruhe vorher ein und spielen Sie im Testmodus einen Durchgang durch: eine Bestellung an der Kasse aufnehmen, auf der Küchenanzeige quittieren, einen Bon drucken. Dann wissen Sie am Festtag, dass die Kette steht.
 :::
 

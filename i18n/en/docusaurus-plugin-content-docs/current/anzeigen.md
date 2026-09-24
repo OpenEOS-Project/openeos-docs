@@ -25,11 +25,14 @@ The route is the same as for a till — the device shows a number, and you link 
 2. The screen shows a **six-digit number** with a QR code beneath it.
 3. On another device, sign in to OpenEOS and go to **Devices → Connect device**.
 4. Enter the number. With a phone to hand, scan the QR code instead.
+
+![Enter the number from the device and approve it](/img/screens/en/device-verify.png)
+
 5. Give it a **name** (*Kitchen* or *North bar*, say) and choose the kind of screen.
 
 The screen then switches over by itself. Nothing more to do on it.
 
-:::note Why a number rather than credentials
+:::note[Why a number rather than credentials]
 A TV rarely has a keyboard attached, and nobody on site remembers the organisation's short name. A number can be read from across the room and typed in — that is all it takes.
 :::
 

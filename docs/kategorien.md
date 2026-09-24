@@ -1,31 +1,31 @@
 ---
-sidebar_position: 7
+sidebar_position: 12
 title: Kategorien
-description: Produkte in Kategorien gruppieren und farblich ordnen.
+description: Das Sortiment gliedern — über den Dialog „Kategorien bearbeiten" auf der Produktseite.
 ---
 
 # Kategorien
 
-Mit **Kategorien** gruppieren Sie Ihre Produkte – etwa „Getränke" und „Speisen". Kategorien sorgen an der Kasse für Übersicht und lassen sich farblich kennzeichnen. Sie erreichen den Bereich über **Produkte → Kategorien** in der Seitenleiste.
+Kategorien gliedern Ihr Sortiment. An der Kasse erscheinen sie als Spalte links; ein Tipp darauf zeigt die zugehörigen Produkte. Typisch sind *Getränke*, *Speisen*, *Kuchen*.
 
-![Kategorienübersicht](/img/screens/de/categories.png)
-
-## Kategorie erstellen
-
-1. Klicken Sie auf **Kategorie erstellen**.
-2. Füllen Sie die Felder aus:
-   - **Name** (Pflicht) – z. B. „Getränke"
-   - **Beschreibung** – optionaler Zusatz
-   - **Farbe** – Farbkennung der Kategorie für die Kassenansicht
-   - **Reihenfolge** – steuert die Sortierung der Kategorien
-3. Klicken Sie auf **Erstellen**.
-
-![Kategorie erstellen](/img/screens/de/categories-dialog.png)
-
-## Reihenfolge und Farben
-
-Über das Feld **Reihenfolge** bestimmen Sie, in welcher Reihenfolge die Kategorien an der Kasse erscheinen. Geben Sie häufig genutzten Kategorien eine niedrige Zahl, damit sie weiter vorn stehen. Die **Farbe** hilft dem Kassenpersonal, Produktgruppen schneller zu erkennen.
-
-:::tip[Erst Kategorien, dann Produkte]
-Legen Sie Ihre Kategorien vor den Produkten an. Beim [Anlegen eines Produkts](./produkte.md) können Sie es dann direkt der passenden Kategorie zuordnen.
+:::info[Kein eigener Menüpunkt mehr]
+Kategorien wurden früher über einen eigenen Eintrag in der Navigation gepflegt. Sie liegen jetzt dort, wo man sie braucht: auf der **Produktseite**.
 :::
+
+## Kategorien bearbeiten
+
+1. Öffnen Sie **Produkte**.
+2. Klicken Sie oben auf **Kategorien bearbeiten**.
+3. Im Dialog legen Sie neue Kategorien an, benennen bestehende um, ändern die Reihenfolge oder löschen sie.
+
+![Der Dialog „Kategorien bearbeiten" auf der Produktseite](/img/screens/de/categories-dialog.png)
+
+Die Reihenfolge im Dialog ist die Reihenfolge an der Kasse. Stellen Sie nach oben, was am häufigsten verkauft wird — das spart Ihrem Team an jedem Verkauf einen Tipp.
+
+## Kategorie zuweisen
+
+Ein Produkt bekommt seine Kategorie beim Anlegen oder Bearbeiten im Produktdialog. Ein Produkt gehört immer zu genau einer Kategorie.
+
+## Löschen
+
+Eine Kategorie lässt sich nur löschen, wenn keine Produkte mehr darin liegen. Weisen Sie diese vorher einer anderen Kategorie zu.

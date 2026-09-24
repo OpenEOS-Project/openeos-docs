@@ -8,7 +8,7 @@ description: Take an order, take payment, and pass it on to the kitchen or bar.
 
 This page covers what happens at the till itself — what your team does on the night. For how a device becomes a till in the first place, see [Connecting devices](./geraete.md).
 
-:::tip Try it first
+:::tip[Try it first]
 While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. Activating the event deletes those test orders but keeps your setup. A banner at the top reminds you: "Test mode — orders are deleted on activation".
 :::
 

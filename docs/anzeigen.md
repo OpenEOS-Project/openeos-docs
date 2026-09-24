@@ -25,11 +25,14 @@ Der Weg ist derselbe wie bei einer Kasse — das Gerät zeigt eine Zahl, verknü
 2. Der Bildschirm zeigt eine **sechsstellige Zahl** und darunter einen QR-Code.
 3. Melden Sie sich an einem anderen Gerät bei OpenEOS an und gehen Sie auf **Geräte → Gerät verbinden**.
 4. Geben Sie die Zahl ein. Wer ein Telefon zur Hand hat, scannt stattdessen den QR-Code.
+
+![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
+
 5. Vergeben Sie einen **Namen** (zum Beispiel *Küche* oder *Theke Nord*) und wählen Sie die Art der Anzeige.
 
 Danach wechselt der Bildschirm von selbst in die Anzeige. Sie müssen an ihm nichts mehr tun.
 
-:::note Warum eine Zahl statt Zugangsdaten
+:::note[Warum eine Zahl statt Zugangsdaten]
 An einem Fernseher hängt selten eine Tastatur, und das Kürzel der Organisation hat vor Ort niemand im Kopf. Die Zahl lässt sich aus einigen Metern ablesen und eintippen — mehr braucht es nicht.
 :::
 

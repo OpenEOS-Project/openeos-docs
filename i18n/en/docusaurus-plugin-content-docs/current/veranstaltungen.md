@@ -40,7 +40,7 @@ A new event starts in **test mode**. Everything works in it — tills, screens, 
 
 Activating deletes the test orders. **Your setup stays**: products, categories, prices, locations, devices and printers do not have to be entered again.
 
-:::tip Our advice for a first event
+:::tip[Our advice for a first event]
 Set everything up calmly beforehand and play one round through in test mode: take an order at the till, acknowledge it on the kitchen screen, print a ticket. Then you know on the day that the chain holds.
 :::
 

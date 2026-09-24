@@ -33,6 +33,6 @@ Das Handbuch ist ein Weg, kein Nachschlagewerk. Arbeiten Sie die Kapitel einmal 
 
 Was Sie nur gelegentlich brauchen — Pfand, Rabatt-Bons, Mitglieder, Schichtpläne — steht unter **Nachschlagen**.
 
-:::tip Wenn Sie es eilig haben
+:::tip[Wenn Sie es eilig haben]
 Für ein erstes Gefühl genügen die Kapitel 1 bis 3 und eine Testbestellung. Die Veranstaltung bleibt dabei im Testmodus und kostet nichts.
 :::

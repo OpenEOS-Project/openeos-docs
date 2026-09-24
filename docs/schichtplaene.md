@@ -90,6 +90,6 @@ Im Reiter **Anmeldungen** sehen Sie alle eingegangenen Helfer-Anmeldungen. Ist �
 
 ![Anmeldungen verwalten](/img/screens/de/shift-anmeldungen.png)
 
-:::tip Frühzeitig teilen
+:::tip[Frühzeitig teilen]
 Erstellen und veröffentlichen Sie den Schichtplan rechtzeitig und verteilen Sie den öffentlichen Link (z. B. per Messenger oder E-Mail), damit sich genügend Helfer eintragen. Über die [Berechtigungen](./mitglieder.md) können Sie einer Schichtleitung gezielt nur das Modul **Schichtpläne** freigeben.
 :::

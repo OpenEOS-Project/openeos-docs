@@ -36,3 +36,24 @@ Jede Detailauswertung lässt sich über **CSV exportieren** herunterladen. So k�
 :::tip[Abrechnung nach dem Fest]
 Wählen Sie nach dem Fest den Zeitraum **Gesamt** und exportieren Sie Top-Produkte und Zahlarten als CSV – das erleichtert die Endabrechnung und die Auswertung für den Vorstand.
 :::
+
+## Als PDF ausgeben
+
+Über **PDF-Export** oben rechts erzeugen Sie eine fertige Zusammenfassung des gewählten Zeitraums — geeignet zum Ausdrucken, für die Kassenabrechnung oder die Vorstandssitzung.
+
+Das PDF enthält:
+
+- **Kopf** mit Organisation und Zeitraum
+- **Kennzahlen**: Umsatz und Anzahl der Bestellungen
+- **Stunden-Umsatz** als Balkendiagramm — daran sehen Sie, wann der Andrang war
+- **Zahlarten** mit Anzahl, Betrag und Anteil
+- **Top-Produkte** mit Menge, Umsatz und Durchschnittspreis je Produkt
+- **Umsatz nach Kanal** (Kasse, Online-Shop)
+
+Die Datei heißt nach dem Zeitraum, etwa `openeos-auswertung-sommerfest-2026.pdf`, und lädt direkt herunter. Die Erstellung passiert im Browser; bei vielen Bestellungen dauert sie einen Moment, währenddessen steht *Wird erstellt…*.
+
+:::tip[Für die Abrechnung]
+Nehmen Sie den Zeitraum **Event** statt *Heute*, wenn das Fest über mehrere Tage ging — sonst fehlen die anderen Tage.
+:::
+
+Neben dem PDF gibt es **CSV exportieren** für die Weiterverarbeitung in einer Tabellenkalkulation.

@@ -12,17 +12,20 @@ You can reach this section via **Devices** in the sidebar.
 
 ![Device overview with QR code](/img/screens/en/devices.png)
 
-## Register a new device
+## Connecting a new device
 
-On the Devices page you will find a **QR code** and a **registration link** for your organisation. To pair a new device:
+The device shows a number and you link it from your account. On the device itself you need neither credentials nor your organisation's short name.
 
-1. **Open the link** on the device or scan the **QR code** with the device's camera.
-2. **Enter a name** for the device (e.g. "Till – Bar 1") and confirm.
-3. **Enter the displayed code** in the admin panel to approve the device.
+1. **On the device**, open `app.openeos.de` and choose **Use as device (till terminal)** at the bottom — for a screen, **Use as display (monitor)** instead.
+2. The device shows a **six-digit number**, with a QR code beneath it as a second route.
+3. **In the admin area**, go to **Devices** and enter the number. With a phone, scan the QR code instead — it opens the entry form directly.
+4. Give it a **name** ("Bar till 1", say) and choose the **device type**.
 
-![Device registration](/img/screens/en/device-register.png)
+The device then switches into the till or screen by itself.
 
-You can copy the registration link to the clipboard via **Copy** and distribute it to till staff, for example via a message.
+:::note Why a number
+Nobody at a tablet has the organisation's short name to hand, and a TV rarely has a keyboard. A six-digit number can be read out and typed in — nothing more is needed.
+:::
 
 ## Managing devices
 

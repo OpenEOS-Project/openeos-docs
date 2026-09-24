@@ -24,6 +24,30 @@ You can find this section via **Events** in the sidebar.
 
 ![Create event](/img/screens/en/events-dialog.png)
 
+## What an event costs
+
+OpenEOS is billed **per event day** — not per order, and not as a subscription. The amount appears right under the date range as you create it:
+
+> **Activating costs €60.00**
+> 3 days × €25.00 = €75.00, less 20% first-event discount
+> Trying it out is free — up to 25 orders in test mode.
+
+Change the dates and the amount follows.
+
+### Test first, pay later
+
+A new event starts in **test mode**. Everything works in it — tills, screens, printers, reporting — capped at **25 orders**. That way you can run the whole thing before any money changes hands.
+
+Activating deletes the test orders. **Your setup stays**: products, categories, prices, locations, devices and printers do not have to be entered again.
+
+:::tip Our advice for a first event
+Set everything up calmly beforehand and play one round through in test mode: take an order at the till, acknowledge it on the kitchen screen, print a ticket. Then you know on the day that the chain holds.
+:::
+
+### Paying
+
+Activation is paid **by card or direct debit**. The invoice arrives by email automatically and is also available under **Invoices**.
+
 ## Activating an event
 
 Newly created events are initially **inactive**. In the table you will find action buttons per row for **editing**, **activating**, managing, and **deleting** an event.

@@ -14,6 +14,8 @@ You can reach this section via **Devices** in the sidebar.
 
 ## Connecting a new device
 
+![The device shows a number and a QR code](/img/screens/en/device-pair.png)
+
 The device shows a number and you link it from your account. On the device itself you need neither credentials nor your organisation's short name.
 
 1. **On the device**, open `app.openeos.de` and choose **Use as device (till terminal)** at the bottom — for a screen, **Use as display (monitor)** instead.

@@ -17,6 +17,8 @@ Both need only a browser and power. No keyboard, no credentials, nothing to inst
 
 ## Connecting a screen
 
+![Pairing: number and QR code](/img/screens/en/device-pair.png)
+
 The route is the same as for a till — the device shows a number, and you link it from your account.
 
 1. On the screen, open **app.openeos.de** and choose **Use as display (monitor)** at the bottom.
@@ -48,9 +50,13 @@ Changes appear on the screen **straight away**. No need to walk over, nothing to
 
 ## The customer display in use
 
+![Customer display, idle](/img/screens/en/display-customer.png)
+
 While nothing is being rung up, the idle text stands there. As soon as a product is added at the paired till, the basket appears with lines and total — the guest reads along. After payment the screen returns to idle.
 
 ## The kitchen and bar screen in use
+
+![Station screen, idle](/img/screens/en/display-station.png)
 
 New orders appear as soon as they are paid for. Only what concerns that station is shown — the kitchen does not see drinks if those belong to the bar. Which product belongs to which station is set under [Locations](./standorte.md).
 

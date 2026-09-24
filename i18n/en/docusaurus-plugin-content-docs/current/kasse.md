@@ -14,6 +14,8 @@ While the event is in **test mode** you can run through the whole thing: up to 2
 
 ## The screen at a glance
 
+![The till: categories, products and basket](/img/screens/en/pos.png)
+
 The till has three columns:
 
 - **Left**, the categories of your range, for example *Drinks* and *Food*.

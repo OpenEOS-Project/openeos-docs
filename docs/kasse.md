@@ -14,6 +14,8 @@ Solange die Veranstaltung im **Testmodus** steht, können Sie den gesamten Ablau
 
 ## Der Bildschirm im Überblick
 
+![Die Kasse mit Kategorien, Produkten und Warenkorb](/img/screens/de/pos.png)
+
 Die Kasse ist in drei Spalten aufgeteilt:
 
 - **Links** die Kategorien Ihres Sortiments, zum Beispiel *Getränke* und *Speisen*.

@@ -17,6 +17,8 @@ Beide brauchen nur einen Browser und Strom. Tastatur, Zugangsdaten oder eine Ins
 
 ## Anzeige verbinden
 
+![Kopplung: Zahl und QR-Code](/img/screens/de/device-pair.png)
+
 Der Weg ist derselbe wie bei einer Kasse — das Gerät zeigt eine Zahl, verknüpft wird sie in Ihrem Konto.
 
 1. Öffnen Sie auf dem Bildschirm **app.openeos.de** und wählen Sie unten **Als Anzeige verwenden (Monitor)**.
@@ -48,9 +50,13 @@ Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige auswählen → Dars
 
 ## Die Kundenanzeige im Betrieb
 
+![Kundenanzeige im Leerlauf](/img/screens/de/display-customer.png)
+
 Solange nichts kassiert wird, steht der Begrüßungstext da. Sobald an der zugeordneten Kasse ein Produkt hinzugefügt wird, erscheint der Warenkorb mit Positionen und Gesamtsumme — der Gast liest mit, was gebucht wurde. Nach dem Bezahlen wechselt der Bildschirm zurück in den Leerlauf.
 
 ## Die Küchen- und Thekenanzeige im Betrieb
+
+![Stationsanzeige im Leerlauf](/img/screens/de/display-station.png)
 
 Neue Bestellungen erscheinen, sobald sie kassiert wurden. Gezeigt wird nur, was die jeweilige Station betrifft — die Küche sieht keine Getränke, wenn diese der Theke zugeordnet sind. Welches Produkt zu welcher Station gehört, legen Sie unter [Standorte](./standorte.md) fest.
 

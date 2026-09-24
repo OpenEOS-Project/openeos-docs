@@ -24,6 +24,8 @@ Drucker-Agents (der OpenEOS Drucker-Agent) werden separat unter [Drucker](./druc
 
 ## Neues Gerät verbinden
 
+![Das Gerät zeigt Zahl und QR-Code](/img/screens/de/device-pair.png)
+
 Das Gerät zeigt eine Zahl, verknüpft wird sie in Ihrem Konto. Auf dem Gerät selbst brauchen Sie weder Zugangsdaten noch das Kürzel Ihrer Organisation.
 
 1. **Auf dem Gerät** öffnen Sie `app.openeos.de` und wählen unten **Als Gerät verwenden (Kassen-Terminal)** — bei einem Bildschirm stattdessen **Als Anzeige verwenden (Monitor)**.
@@ -37,7 +39,7 @@ Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine sechsstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
 :::
 
-![Geräte-Registrierung](/img/screens/de/device-register.png)
+![Geräte-Registrierung](/img/screens/de/device-pair.png)
 
 Den Registrierungslink können Sie über **Kopieren** in die Zwischenablage übernehmen und z. B. per Nachricht an das Kassenpersonal verteilen.
 

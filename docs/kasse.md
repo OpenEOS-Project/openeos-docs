@@ -54,7 +54,11 @@ Teilzahlungen sind möglich; in der Übersicht steht dann, wie viel bereits beza
 
 ## Wenn die Verbindung abreißt
 
-Die Kasse nimmt Bestellungen auch ohne Netz entgegen und schickt sie nach, sobald die Verbindung zurück ist. Was Sie **nicht** übersehen sollten: Zeigt ein Gerät dauerhaft **Getrennt**, erreichen die Bestellungen Küche und Anzeigen nicht live. Prüfen Sie dann WLAN und Empfang am Standort des Geräts.
+Die Kasse braucht eine Verbindung. Fällt das WLAN aus, lässt sich **nicht** weiter kassieren — Bestellungen werden nicht zwischengespeichert und später nachgeschickt.
+
+Planen Sie das ein: Ein Zelt am Rand der Funkabdeckung ist der häufigste Grund für einen Stillstand an der Kasse. Prüfen Sie den Empfang **vor** dem Fest an jedem Standort, an dem später eine Kasse stehen soll.
+
+Zeigt ein Gerät dauerhaft **Getrennt**, erreichen die Bestellungen außerdem Küche und Anzeigen nicht live.
 
 ## Kasse abmelden
 

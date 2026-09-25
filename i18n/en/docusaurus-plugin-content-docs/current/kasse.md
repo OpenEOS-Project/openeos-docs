@@ -54,7 +54,11 @@ Part payments are possible; the overview then shows how much has already been pa
 
 ## When the connection drops
 
-The till keeps taking orders without a network and sends them on once it is back. What you should **not** overlook: a device permanently showing **Disconnected** is not reaching the kitchen or the screens live. Check the Wi-Fi and signal where that device stands.
+The till needs a connection. If the Wi-Fi drops you **cannot** keep selling — orders are not held locally and sent on later.
+
+Plan for it: a marquee at the edge of coverage is the commonest reason a till stops. Check the signal **before** the event at every spot where a till will stand.
+
+A device permanently showing **Disconnected** is also not reaching the kitchen or the screens live.
 
 ## Signing a till out
 

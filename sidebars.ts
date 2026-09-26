@@ -46,6 +46,19 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Selbst betreiben',
+      collapsed: true,
+      items: [
+        'selbst-betreiben/intro',
+        'selbst-betreiben/installation',
+        'selbst-betreiben/ersteinrichtung',
+        'selbst-betreiben/benutzer',
+        'selbst-betreiben/drucker',
+        'selbst-betreiben/betrieb',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Nachschlagen',
       collapsed: true,
       items: [

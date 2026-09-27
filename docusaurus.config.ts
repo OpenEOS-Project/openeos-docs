@@ -19,11 +19,16 @@ const config: Config = {
   organizationName: 'openeos',
   projectName: 'openeos-docs',
 
-  onBrokenLinks: 'warn',
+  /* Ein toter Link ist in einer Anleitung kein Schoenheitsfehler: Wer beim
+     Einrichten einem Verweis folgt und im Nichts landet, kommt nicht weiter.
+     Als Warnung ging das im Build-Protokoll unter — deshalb bricht der Build
+     jetzt ab, solange der Verweis nicht stimmt. */
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
 
   markdown: {
     hooks: {
-      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownLinks: 'throw',
     },
   },
 

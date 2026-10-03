@@ -29,6 +29,42 @@ async function dialogOeffnen(seite) {
   await seite.waitForTimeout(1000);
 }
 
+
+/**
+ * Leserliste der SumUp-Seite abfangen.
+ *
+ * Auf Staging stehen nur Demo-Zugangsdaten — die echte Abfrage bei SumUp
+ * scheiterte und zeigte eine Fehlermeldung im Bild. Ein gekoppelter Leser
+ * zeigt dagegen, wie die Seite im Betrieb aussieht.
+ */
+async function sumupLeserVortaeuschen(seite) {
+  await seite.route('**/sumup/readers', (route) =>
+    route.request().method() === 'GET'
+      ? route.fulfill({
+          contentType: 'application/json',
+          body: JSON.stringify({
+            data: [
+              {
+                id: 'rdr_doku',
+                name: 'Kasse Bar',
+                status: 'paired',
+                device: { identifier: 'SOLO-12345', model: 'solo' },
+                created_at: '2026-10-01T10:00:00Z',
+                updated_at: '2026-10-01T10:00:00Z',
+              },
+            ],
+          }),
+        })
+      : route.continue(),
+  );
+  await seite.route('**/sumup/readers/*/status', (route) =>
+    route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify({ data: { data: { status: 'ONLINE', battery_level: 84 } } }),
+    }),
+  );
+}
+
 export const AUFNAHMEN = [
   // --- Überblick ---
   { datei: 'dashboard', pfad: '/dashboard' },
@@ -162,12 +198,75 @@ export const AUFNAHMEN = [
       await seite.waitForTimeout(900);
     },
   },
+  // --- Integrationen ---
+  // Voraussetzung auf Staging: SumUp ist in der Testorganisation aktiv und
+  // hat Demo-Zugangsdaten (siehe README).
+  {
+    datei: 'integrations',
+    pfad: '/integrations',
+    hinweise: [
+      { auf: '.integration-card--button >> nth=0', text: 'Integration antippen: Beschreibung, Bilder, Aktivieren' },
+      { auf: 'a.app-sidebar__item--nested, .app-sidebar__item--nested', text: 'Aktive Integration in der Seitenleiste' },
+    ],
+  },
+  {
+    datei: 'integrations-sumup-info',
+    pfad: '/integrations',
+    async vorbereiten(seite) {
+      await seite.locator('.integration-card--button', { hasText: 'SumUp' }).first().click();
+      await seite.waitForTimeout(900);
+    },
+  },
+  {
+    datei: 'integrations-sumup',
+    pfad: '/integrations/sumup',
+    async vorbereiten(seite) {
+      await sumupLeserVortaeuschen(seite);
+      await seite.reload({ waitUntil: 'networkidle' });
+    },
+  },
+  {
+    datei: 'integrations-sumup-pair',
+    pfad: '/integrations/sumup',
+    async vorbereiten(seite) {
+      await sumupLeserVortaeuschen(seite);
+      await seite.reload({ waitUntil: 'networkidle' });
+      await seite.getByRole('button', { name: /leser koppeln|lesegerät koppeln|pair (card )?reader/i }).first().click();
+      await seite.waitForTimeout(800);
+    },
+  },
 ];
-
 
 
 /** Geräteansichten: kein Konto, sondern ein Gerätetoken im Speicher. */
 export const GERAETE_AUFNAHMEN = [
+  {
+    datei: 'pos-card',
+    pfad: '/device/pos',
+    token: 'dev_089dad7496ce4eddb84e489cab81ff7e',
+    geraeteklasse: 'pos',
+    // Mit zugewiesenem SumUp-Leser erscheint neben "Bar" die Kartenzahlung
+    // (SumUp muss in der Organisation aktiv sein).
+    async vorbereiten(seite) {
+      /* Die Kasse holt ihre Einstellungen beim Start vom Server und
+         ueberschreibt damit den Speicher — der Leser wird deshalb in die
+         Statusantwort eingetragen, nicht nur in den lokalen Speicher. */
+      await seite.route('**/devices/status', async (route) => {
+        const antwort = await route.fetch();
+        const json = await antwort.json();
+        json.data.settings = { ...(json.data.settings ?? {}), sumupReaderId: 'rdr_doku' };
+        await route.fulfill({ response: antwort, json });
+      });
+      await seite.reload({ waitUntil: 'networkidle' });
+      await seite.waitForTimeout(800);
+      const karten = seite.locator('.pos-product-scroll button');
+      for (const n of [0, 0, 1]) {
+        await karten.nth(n).click();
+        await seite.waitForTimeout(400);
+      }
+    },
+    hinweise: [{ auf: 'button:has-text("Karte"), button:has-text("Card")', text: 'Kartenzahlung über SumUp' }],
+  },
   {
     datei: 'pos',
     pfad: '/device/pos',

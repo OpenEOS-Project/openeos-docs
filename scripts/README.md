@@ -25,6 +25,15 @@ Entscheidend, und zweimal falsch gemacht:
 Auf Staging passt `tour-test-140624@example.com` (Organisation *TSV
 Musterstadt*).
 
+## Integrationen
+
+Die Bilder `integrations*` und `pos-card` setzen voraus, dass SumUp in der
+Testorganisation **aktiv** ist und Demo-Zugangsdaten hat (beliebiger
+`sup_sk_…`-Key, Merchant Code z. B. `MDOKU2026`). Die Kartenleser fragt das
+Skript nicht bei SumUp ab, sondern täuscht einen gekoppelten Leser vor.
+Dieselben Bilder liegen auch im Info-Fenster der Weboberfläche
+(`openeos-web/public/integrations/screenshots/sumup/`).
+
 ## Beschriftung
 
 In `screenshots.config.mjs` bekommt eine Aufnahme optional `hinweise`:

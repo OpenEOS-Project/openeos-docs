@@ -22,5 +22,9 @@
   "sidebar.handbookSidebar.category.Team & Verwaltung": {
     "message": "Team & Administration",
     "description": "The label for category 'Team & Verwaltung' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Integrationen": {
+    "message": "Integrations",
+    "description": "The label for category 'Integrationen' in sidebar 'handbookSidebar'"
   }
 }

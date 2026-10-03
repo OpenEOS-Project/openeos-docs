@@ -3,7 +3,7 @@
 ############################################
 # Stage 1 – Build the static Docusaurus site
 ############################################
-FROM node:22-alpine AS build
+FROM node:26-alpine AS build
 
 # pnpm via corepack
 RUN corepack enable && corepack prepare pnpm@11.5.0 --activate

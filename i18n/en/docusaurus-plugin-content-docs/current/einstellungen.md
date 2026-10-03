@@ -29,7 +29,7 @@ In the **Security** sub-section you change your password and manage further secu
 
 ## Organisation
 
-In the **Organisation** tab you manage your organisation's master data and options. It is divided into several sub-sections: **General**, **Contact**, **Billing address**, **Till (POS)**, and **SumUp**.
+In the **Organisation** tab you manage your organisation's master data and options. It is divided into several sub-sections: **General**, **Contact**, **Billing address** and **Till (POS)**.
 
 ### General
 
@@ -59,22 +59,9 @@ Here you control how the till behaves:
 
 ![Organisation settings – Till (POS)](/img/screens/en/settings-org-pos.png)
 
-### SumUp integration (card payments)
+### SumUp (card payments)
 
-The **SumUp** integration lets you connect your SumUp account to accept card payments and use SumUp card readers at the till.
-
-- **Credentials**
-  - **API key** – your SumUp API key (format `sup_sk_…`).
-  - **Merchant code** – your SumUp merchant code (e.g. `MXXXXXXXX`).
-- **Affiliate credentials** (optional, only for terminal checkout via the Solo Cloud API): **Affiliate key** and **App ID**.
-- Use **Test connection** to verify your credentials, and **Save** to apply them.
-- In the **Card readers** section you then connect your SumUp Solo devices. The credentials must be configured first.
-
-![Organisation settings – SumUp](/img/screens/en/settings-org-sumup.png)
-
-:::info[Where do I find my SumUp credentials?]
-Your API key and merchant code are available in your SumUp account (Developer / API section). Treat the API key like a password and do not share it.
-:::
+SumUp is no longer set up here but as an [integration](./integrationen/sumup.md): activate it under **Integrations**, then configure it on its own **SumUp** page.
 
 ## Appearance and language
 

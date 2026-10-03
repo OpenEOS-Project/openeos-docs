@@ -96,6 +96,14 @@ async function legende(bildPfad, marken) {
 async function aufnehmen(seite, eintrag, zielVerzeichnis, spracheCode) {
   const ziel = path.join(zielVerzeichnis, `${eintrag.datei}.png`);
 
+  /* Hinweisfenster (etwa "Das ist neu" nach einem Update) schliessen,
+     bevor aufgenommen wird — sonst liegt es ueber jedem Bild. */
+  const hinweis = seite.getByRole('button', { name: /^(Alles klar|Got it)$/ });
+  if (await hinweis.isVisible().catch(() => false)) {
+    await hinweis.click();
+    await seite.waitForTimeout(400);
+  }
+
   if (eintrag.vorbereiten) await eintrag.vorbereiten(seite);
   await seite.waitForTimeout(1200);
 

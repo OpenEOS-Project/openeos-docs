@@ -46,6 +46,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Integrationen',
+      collapsed: true,
+      items: ['integrationen/uebersicht', 'integrationen/sumup'],
+    },
+    {
+      type: 'category',
       label: 'Selbst betreiben',
       collapsed: true,
       items: [

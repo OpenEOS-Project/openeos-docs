@@ -6,15 +6,15 @@ description: Die Organisation als zentrale Klammer für Veranstaltungen, Produkt
 
 # Organisation
 
-In OpenEOS gehört alles zu einer **Organisation** – Ihrem Verein, Veranstalter oder Betrieb. Die Organisation ist die zentrale Klammer für Ihre Veranstaltungen, Produkte, Mitglieder, Geräte und Auswertungen.
+In OpenEOS gehört alles zu einer **Organisation** – deinem Verein, Veranstalter oder Betrieb. Die Organisation ist die zentrale Klammer für deine Veranstaltungen, Produkte, Mitglieder, Geräte und Auswertungen.
 
-Oben links in der Seitenleiste sehen Sie den Namen Ihrer aktiven Organisation sowie Ihre Rolle (z. B. **Administrator**).
+Oben links in der Seitenleiste siehst du den Namen deiner aktiven Organisation sowie deine Rolle (z. B. **Administrator**).
 
 ![Organisationseinstellungen](/img/screens/de/settings-organisation.png)
 
 ## Organisationsdaten pflegen
 
-Den Namen und weitere Stammdaten Ihrer Organisation verwalten Sie unter **Einstellungen → Organisation**. Der Organisationsname erscheint u. a. auf Rechnungen und Bons und kann jederzeit geändert werden.
+Den Namen und weitere Stammdaten deiner Organisation verwaltest du unter **Einstellungen → Organisation**. Der Organisationsname erscheint u. a. auf Rechnungen und Bons und kann jederzeit geändert werden.
 
 ## Datenmodell auf einen Blick
 
@@ -38,4 +38,4 @@ Organisation (Musterverein e.V.)
 
 ## Mehrere Organisationen
 
-Über die Auswahl oben links können Sie – sofern Sie mehreren Organisationen angehören – zwischen diesen wechseln. Jede Organisation hat ihre eigenen Daten, Mitglieder und Auswertungen.
+Über die Auswahl oben links kannst du – sofern du mehreren Organisationen angehörst – zwischen diesen wechseln. Jede Organisation hat ihre eigenen Daten, Mitglieder und Auswertungen.

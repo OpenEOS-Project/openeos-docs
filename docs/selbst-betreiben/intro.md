@@ -18,12 +18,12 @@ funktioniert dauerhaft ohne Internetverbindung nach außen.
 
 [agpl]: https://www.gnu.org/licenses/agpl-3.0.de.html
 
-## Was Sie dafür brauchen
+## Was du dafür brauchst
 
 | Was | Anforderung |
 |---|---|
 | **Server** | Linux mit Docker und Docker Compose. 2 CPU-Kerne, 4 GB RAM und 20 GB Platte reichen für ein Vereinsfest. |
-| **Vorkenntnisse** | Sie sollten eine Textdatei bearbeiten und Befehle in einer Konsole ausführen können. |
+| **Vorkenntnisse** | Du solltest eine Textdatei bearbeiten und Befehle in einer Konsole ausführen können. |
 | **Netz** | Die Kassen müssen den Server erreichen — im WLAN des Festplatzes oder über das Internet. |
 | **E-Mail** | Optional. Ohne Mailserver funktioniert alles, siehe [Benutzer anlegen](./benutzer.md). |
 
@@ -66,7 +66,7 @@ Redis ist **nicht** optional: der Server startet ohne erreichbaren Redis nicht.
 5. [Betrieb](./betrieb.md) — Sicherung, Aktualisierung, Fehlersuche
 
 :::tip[Lieber ohne eigenen Server?]
-Unter [app.openeos.de](https://app.openeos.de) betreiben wir OpenEOS für Sie —
+Unter [app.openeos.de](https://app.openeos.de) betreiben wir OpenEOS für dich —
 ohne Installation und mit Support. Die Abrechnung erfolgt dort je
 Veranstaltung. Das übrige Handbuch beschreibt diese Variante.
 :::

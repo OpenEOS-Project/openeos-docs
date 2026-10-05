@@ -90,7 +90,7 @@ The most common causes, in this order:
 4. **No location assigned** — without an assignment, no job is created.
 5. **Wrong USB IDs** — `lsusb` on the Pi shows the actual values.
 
-:::tip Printer agent in a container
+:::tip[Printer agent in a container]
 The agent can also be run with Docker; the USB device must then be
 passed through:
 

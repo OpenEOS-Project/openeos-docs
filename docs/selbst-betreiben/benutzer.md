@@ -68,7 +68,7 @@ in der `docker-compose.yml`, sonst erreichen sie den Container nicht.
 sudo docker compose up -d --force-recreate api
 ```
 
-:::warning Vorsicht bei der Umstellung
+:::warning[Vorsicht bei der Umstellung]
 Sobald `EMAIL_ENABLED=true` gesetzt ist, verschickt OpenEOS auch tatsächlich
 Mails — an die hinterlegten Adressen. Wenn Sie bis dahin mit erfundenen
 Adressen wie `admin@verein.local` gearbeitet haben, laufen diese Zustellungen

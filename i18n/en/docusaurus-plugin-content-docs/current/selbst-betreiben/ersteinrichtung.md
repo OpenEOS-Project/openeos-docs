@@ -26,7 +26,7 @@ Enter:
 
 One click on **Complete Setup**, and the account is ready.
 
-:::info The email address does not have to exist
+:::info[The email address does not have to exist]
 This first account counts as verified immediately — no email is sent and
 none is expected. An address such as `admin@verein.local` is fine, as long as
 you remember it: it is your login name.
@@ -60,7 +60,7 @@ it is not a limited trial, but a dry run. On activation,
 the orders recorded in test mode are deleted — so you can practise with the team
 without practice bookings ending up in the reports.
 
-:::warning Is OpenEOS asking for payment?
+:::warning[Is OpenEOS asking for payment?]
 If a purchase dialog or the message *„Veranstaltung ist noch nicht
 freigeschaltet“* (“event has not been unlocked yet”) appears when you activate, the installation is not running in Single Organization mode.
 Check:

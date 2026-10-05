@@ -21,6 +21,10 @@ const config: Config = {
 
   url: 'https://docs.openeos.de',
   baseUrl: '/',
+  /* Seiten werden als `seite.html` ausgegeben und ohne Schraegstrich
+     verlinkt. nginx liefert sie per `try_files $uri.html` direkt aus —
+     ohne den 301 auf `seite/`, der hinter dem Proxy auf http zeigte. */
+  trailingSlash: false,
 
   organizationName: 'openeos',
   projectName: 'openeos-docs',

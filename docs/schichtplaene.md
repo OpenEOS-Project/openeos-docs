@@ -16,8 +16,8 @@ Sie finden den Bereich über **Schichtpläne** in der Seitenleiste.
 
 Klicken Sie auf **Neuer Schichtplan**. Ein Assistent führt Sie in wenigen Schritten:
 
-1. **Event** – Wählen Sie optional die Veranstaltung, zu der der Plan gehört. So sehen die Helfer das Event auf der öffentlichen Seite. Sie können auch „Kein Event (eigenständiger Plan)" wählen.
-2. **Name & Beschreibung** – z. B. „Helferplanung Sommerfest 2026". Die Beschreibung erscheint später auf der öffentlichen Helfer-Seite.
+1. **Event** – Wählen Sie optional die Veranstaltung, zu der der Plan gehört. So sehen die Helfer das Event auf der öffentlichen Seite. Sie können auch „Kein Event (eigenständiger Plan)“ wählen.
+2. **Name & Beschreibung** – z. B. „Helferplanung Sommerfest 2026“. Die Beschreibung erscheint später auf der öffentlichen Helfer-Seite.
 3. **Erstellen** – der Plan wird angelegt und im Status **Entwurf** geöffnet.
 
 ![Schichtplan-Assistent: Event wählen](/img/screens/de/shifts-dialog.png)
@@ -44,7 +44,7 @@ Schichten (Zeitfenster) können Sie je Arbeit einzeln über das **Kalender-Symbo
 
 1. **Zeitraum** – Start- und Enddatum (bei verknüpftem Event vorausgefüllt).
 2. **Schichtverteilung** – Schichten pro Tag (z. B. 3 ≈ 4 Stunden pro Schicht) und optionale **Schichtüberlappung** (Zeit zur Übergabe).
-3. **Vorschau & Anpassen** – Sie sehen alle generierten Schichten je Tag und können einzelne abwählen, bevor Sie sie mit **„X Schichten für Y Arbeiten anlegen"** übernehmen.
+3. **Vorschau & Anpassen** – Sie sehen alle generierten Schichten je Tag und können einzelne abwählen, bevor Sie sie mit **„X Schichten für Y Arbeiten anlegen“** übernehmen.
 
 ![Schicht-Generator](/img/screens/de/shift-generator.png)
 
@@ -72,7 +72,7 @@ Veröffentlichen Sie erst, wenn Arbeiten und Schichten stehen. Änderungen sind 
 
 ## Der öffentliche Helfer-Bereich
 
-Über den öffentlichen Link gelangen Helfer **ohne Login** auf eine übersichtliche Seite mit Ihrem Logo, dem Zeitraum und allen Schichten. Pro Zeitfenster sehen sie je Arbeit, wie viele Plätze noch **frei** sind (z. B. „2 / 2 frei"). Zwischen **Karten-** und **Listenansicht** kann gewechselt werden.
+Über den öffentlichen Link gelangen Helfer **ohne Login** auf eine übersichtliche Seite mit Ihrem Logo, dem Zeitraum und allen Schichten. Pro Zeitfenster sehen sie je Arbeit, wie viele Plätze noch **frei** sind (z. B. „2 / 2 frei“). Zwischen **Karten-** und **Listenansicht** kann gewechselt werden.
 
 ![Öffentliche Helfer-Seite](/img/screens/de/public-helper.png)
 
@@ -86,7 +86,7 @@ Im Schritt **Deine Daten** trägt der Helfer **Name** und **E-Mail** (sowie opti
 
 ## Anmeldungen verwalten
 
-Im Reiter **Anmeldungen** sehen Sie alle eingegangenen Helfer-Anmeldungen. Ist „Bestätigung erforderlich" aktiv, bestätigen Sie sie hier. Über **Helfer manuell eintragen** können Sie auch selbst jemanden zu einer Schicht hinzufügen.
+Im Reiter **Anmeldungen** sehen Sie alle eingegangenen Helfer-Anmeldungen. Ist „Bestätigung erforderlich“ aktiv, bestätigen Sie sie hier. Über **Helfer manuell eintragen** können Sie auch selbst jemanden zu einer Schicht hinzufügen.
 
 ![Anmeldungen verwalten](/img/screens/de/shift-anmeldungen.png)
 

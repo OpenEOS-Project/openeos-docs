@@ -14,7 +14,7 @@ dauerhaft ausgesperrt.
 
 ## Ohne Mailserver (Normalfall)
 
-**Mitglieder → Mitglied hinzufügen**. Geben Sie zu einer Adresse, für die es
+**Mitglieder → Mitglied einladen**. Geben Sie zu einer Adresse, für die es
 noch kein Konto gibt, zusätzlich an:
 
 - **Vorname** und **Nachname**
@@ -48,7 +48,7 @@ Berechtigungen — die Kasse selbst läuft ohnehin über ein
 ## Mit eigenem Mailserver
 
 Ist ein Mailserver vorhanden, funktionieren zusätzlich Einladungen,
-„Passwort vergessen" und die Anmeldung per zugesandtem Link. Ergänzen Sie die
+„Passwort vergessen“ und die Anmeldung per zugesandtem Link. Ergänzen Sie die
 `.env` und starten Sie den Server neu:
 
 ```bash
@@ -68,11 +68,11 @@ in der `docker-compose.yml`, sonst erreichen sie den Container nicht.
 sudo docker compose up -d --force-recreate api
 ```
 
-:::warning Vorsicht bei der Umstellung
+:::warning[Vorsicht bei der Umstellung]
 Sobald `EMAIL_ENABLED=true` gesetzt ist, verschickt OpenEOS auch tatsächlich
 Mails — an die hinterlegten Adressen. Wenn Sie bis dahin mit erfundenen
 Adressen wie `admin@verein.local` gearbeitet haben, laufen diese Zustellungen
-ins Leere. Das ist harmlos, aber die Funktion „Passwort vergessen" hilft
+ins Leere. Das ist harmlos, aber die Funktion „Passwort vergessen“ hilft
 diesen Konten dann nicht weiter.
 :::
 

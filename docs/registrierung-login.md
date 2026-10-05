@@ -56,7 +56,7 @@ E-Mail und Passwort eingeben, **Anmelden**. Mit **Eingeloggt bleiben** bleibt di
 
 ### Ohne Passwort — per Link
 
-Unter dem Formular steht **„Lieber ohne Passwort? Link per E-Mail anfordern"**. Sie geben nur Ihre E-Mail-Adresse ein und bekommen einen Anmeldelink zugeschickt. Ein Klick darauf meldet Sie an — der Link gilt **15 Minuten** und lässt sich nur einmal verwenden.
+Unter dem Formular steht **„Lieber ohne Passwort? Link per E-Mail anfordern“**. Sie geben nur Ihre E-Mail-Adresse ein und bekommen einen Anmeldelink zugeschickt. Ein Klick darauf meldet Sie an — der Link gilt **15 Minuten** und lässt sich nur einmal verwenden.
 
 Das ist besonders praktisch am Festtag: Wer sein Passwort gerade nicht parat hat, kommt trotzdem in Sekunden hinein.
 

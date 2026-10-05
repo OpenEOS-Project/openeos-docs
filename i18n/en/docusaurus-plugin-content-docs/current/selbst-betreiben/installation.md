@@ -1,55 +1,55 @@
 ---
 sidebar_position: 2
 title: Installation
-description: Server, Datenbank und Dashboard mit Docker Compose einrichten.
+description: Set up the server, database and dashboard with Docker Compose.
 ---
 
 # Installation
 
-Diese Anleitung richtet einen vollständigen OpenEOS-Server ein. Alle Befehle
-laufen auf dem Server, auf dem OpenEOS später arbeitet.
+This guide sets up a complete OpenEOS server. All commands
+run on the server on which OpenEOS will later operate.
 
-## 1. Verzeichnis und Zugangsdaten
+## 1. Directory and credentials
 
 ```bash
 sudo mkdir -p /opt/openeos && cd /opt/openeos
 ```
 
-Drei Geheimnisse werden gebraucht. Erzeugen Sie sie **jetzt** und bewahren Sie
-sie auf — insbesondere `TWO_FACTOR_ENCRYPTION_KEY`: Geht er verloren, sind
-hinterlegte Zwei-Faktor-Geheimnisse nicht mehr entschlüsselbar.
+Three secrets are needed. Generate them **now** and keep them
+safe — especially `TWO_FACTOR_ENCRYPTION_KEY`: if it is lost,
+stored two-factor secrets can no longer be decrypted.
 
 ```bash
 umask 077
 cat > .env <<EOF
-# Betriebsart — das ist der entscheidende Schalter
+# Deployment mode — this is the decisive switch
 DEPLOYMENT_MODE=selfhosted
 
-# Adressen, unter denen Dashboard und Server erreichbar sind.
-# Im lokalen Netz die IP des Servers eintragen, sonst den Domainnamen.
+# Addresses at which the dashboard and server can be reached.
+# On a local network enter the server's IP, otherwise the domain name.
 APP_URL=http://192.168.1.50:3001
 API_URL=http://192.168.1.50:3000
 
-# Zugangsdaten
+# Credentials
 DATABASE_PASSWORD=$(openssl rand -base64 24 | tr -d '/+=')
 JWT_SECRET=$(openssl rand -base64 64 | tr -d '\n')
 TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 EOF
 ```
 
-Prüfen Sie die Datei und **tragen Sie Ihre eigenen Adressen ein**:
+Check the file and **enter your own addresses**:
 
 ```bash
 cat .env
 ```
 
-:::warning[Die Adressen müssen stimmen]
-`API_URL` ist die Adresse, unter der **der Browser der Kassen** den Server
-erreicht — nicht `localhost`. Steht dort `localhost`, funktioniert das
-Dashboard nur auf dem Server selbst, und jede Kasse im Netz bleibt leer.
+:::warning[The addresses must be correct]
+`API_URL` is the address at which **the tills' browser** reaches the server
+— not `localhost`. If it says `localhost`, the
+dashboard only works on the server itself, and every till on the network stays empty.
 :::
 
-## 2. Die Dienste beschreiben
+## 2. Describing the services
 
 ```bash
 cat > docker-compose.yml <<'EOF'
@@ -59,7 +59,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: openeos
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD fehlt}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD missing}
       POSTGRES_DB: openeos
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -93,14 +93,14 @@ services:
       APP_URL: ${APP_URL}
       DATABASE_HOST: postgres
       DATABASE_USER: openeos
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD fehlt}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD missing}
       DATABASE_NAME: openeos
-      # Migrationen laufen bei jedem Start automatisch mit
+      # Migrations run automatically on every start
       DATABASE_MIGRATIONS_RUN: 'true'
       REDIS_HOST: redis
-      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET fehlt}
-      TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY fehlt}
-      # Das Dashboard muss den Server aufrufen dürfen
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET missing}
+      TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY missing}
+      # The dashboard must be allowed to call the server
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'
     volumes:
@@ -116,7 +116,7 @@ services:
       - '3001:3000'
     environment:
       NODE_ENV: production
-      # Wird zur Laufzeit gelesen — das Abbild muss nicht neu gebaut werden
+      # Read at runtime — the image does not need to be rebuilt
       API_URL: ${API_URL}
     depends_on:
       - api
@@ -128,35 +128,35 @@ volumes:
 EOF
 ```
 
-## 3. Starten
+## 3. Starting
 
 ```bash
 sudo docker compose pull
 sudo docker compose up -d
 ```
 
-Der erste Start legt das Datenbankschema an. Das dauert einige Sekunden.
+The first start creates the database schema. This takes a few seconds.
 
-## 4. Prüfen, ob es läuft
+## 4. Checking that it is running
 
 ```bash
 curl http://localhost:3000/api/health
 ```
 
-Erwartete Antwort:
+Expected response:
 
 ```json
 {"data":{"status":"ok","timestamp":"…","uptime":12.3,"version":"…"}}
 ```
 
-Ob Datenbank und Redis wirklich erreichbar sind, verrät der ausführlichere
-Endpunkt:
+Whether the database and Redis are really reachable is revealed by the more
+detailed endpoint:
 
 ```bash
 curl http://localhost:3000/api/health/ready
 ```
 
-Und die Betriebsart:
+And the deployment mode:
 
 ```bash
 curl http://localhost:3000/api/setup/status
@@ -167,21 +167,21 @@ curl http://localhost:3000/api/setup/status
  "deployment":{"mode":"selfhosted","billingEnabled":false,"multiTenant":false}}}
 ```
 
-Steht dort `"mode":"saas"`, wurde `DEPLOYMENT_MODE` nicht übernommen — dann
-verlangt OpenEOS später Geld für die Freischaltung. Prüfen Sie die `.env` und
-starten Sie mit `sudo docker compose up -d --force-recreate api` neu.
+If it says `"mode":"saas"`, `DEPLOYMENT_MODE` was not picked up — in that case
+OpenEOS will later ask for payment to unlock events. Check the `.env` and
+restart with `sudo docker compose up -d --force-recreate api`.
 
-Weiter mit der [Ersteinrichtung](./ersteinrichtung.md).
+Continue with the [initial setup](./ersteinrichtung.md).
 
-## Mit eigener Domain und HTTPS
+## With your own domain and HTTPS
 
-Für den Betrieb über das Internet gehört ein Reverse-Proxy davor, der die
-Verschlüsselung übernimmt. Mit [Traefik](https://traefik.io) sieht das so aus —
-die Ports `3000:3000` und `3001:3000` entfallen dann:
+For operation over the internet, put a reverse proxy in front that handles
+encryption. With [Traefik](https://traefik.io) it looks like this —
+the ports `3000:3000` and `3001:3000` are then dropped:
 
 ```yaml
   api:
-    # ports: entfernen
+    # ports: remove
     networks: [frontend, default]
     labels:
       - 'traefik.enable=true'
@@ -189,13 +189,13 @@ die Ports `3000:3000` und `3001:3000` entfallen dann:
       - 'traefik.http.routers.openeos-api.entrypoints=websecure'
       - 'traefik.http.routers.openeos-api.tls.certresolver=letsencrypt'
       - 'traefik.http.services.openeos-api.loadbalancer.server.port=3000'
-      # Ohne feste Zuordnung brechen die WebSocket-Verbindungen der Kassen ab
+      # Without sticky sessions the tills' WebSocket connections drop
       - 'traefik.http.services.openeos-api.loadbalancer.sticky.cookie=true'
       - 'traefik.http.services.openeos-api.loadbalancer.sticky.cookie.name=io'
       - 'traefik.http.services.openeos-api.loadbalancer.sticky.cookie.secure=true'
 
   web:
-    # ports: entfernen
+    # ports: remove
     networks: [frontend, default]
     labels:
       - 'traefik.enable=true'
@@ -209,16 +209,16 @@ networks:
     external: true
 ```
 
-`APP_URL` und `API_URL` in der `.env` dann auf die `https://`-Adressen setzen.
+Then set `APP_URL` and `API_URL` in the `.env` to the `https://` addresses.
 
-:::info[Warum die feste Zuordnung?]
-Kassen, Displays und Drucker hängen an einer dauerhaften WebSocket-Verbindung.
-Ohne `sticky.cookie` verteilt der Proxy die Anfragen und die Verbindung
-scheitert — sichtbar wird das erst im Betrieb, wenn Bestellungen nicht mehr
-auf den Displays ankommen.
+:::info[Why sticky sessions?]
+Tills, displays and printers depend on a persistent WebSocket connection.
+Without `sticky.cookie` the proxy distributes the requests and the connection
+fails — this only becomes visible during operation, when orders no longer
+arrive on the displays.
 :::
 
-## Online-Shop (optional)
+## Online shop (optional)
 
 ```yaml
   shop:
@@ -228,12 +228,12 @@ auf den Displays ankommen.
       - '3004:3004'
     environment:
       NODE_ENV: production
-      # Achtung: hier MIT /api am Ende
+      # Note: here WITH /api at the end
       API_URL: ${API_URL}/api
 ```
 
-Zusätzlich muss die Shop-Adresse in `CORS_ORIGINS` des Servers stehen, mehrere
-durch Komma getrennt:
+In addition, the shop address must be listed in the server's `CORS_ORIGINS`,
+multiple entries separated by commas:
 
 ```bash
 CORS_ORIGINS: ${APP_URL},http://192.168.1.50:3004

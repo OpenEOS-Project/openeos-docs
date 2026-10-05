@@ -22,11 +22,11 @@ Tragen Sie ein:
 
 - **Vorname, Nachname, E-Mail-Adresse** des Administrators
 - **Passwort** — mindestens 8 Zeichen, mit Groß-, Kleinbuchstabe und Ziffer
-- **Name der Organisation** — Ihr Verein, z. B. „Musikverein Testdorf"
+- **Name der Organisation** — Ihr Verein, z. B. „Musikverein Testdorf“
 
 Ein Klick auf **Einrichtung abschließen**, und das Konto steht.
 
-:::info Die E-Mail-Adresse muss nicht existieren
+:::info[Die E-Mail-Adresse muss nicht existieren]
 Dieses erste Konto gilt sofort als bestätigt — es wird keine Mail versendet und
 keine erwartet. Eine Adresse wie `admin@verein.local` ist in Ordnung, solange
 Sie sie sich merken: Sie ist Ihr Anmeldename.
@@ -60,9 +60,9 @@ Er ist keine begrenzte Kostprobe, sondern ein Probelauf. Beim Aktivieren werden
 die im Testmodus erfassten Bestellungen gelöscht — so üben Sie mit dem Team,
 ohne dass Übungsbuchungen in der Auswertung landen.
 
-:::warning Verlangt OpenEOS Geld?
+:::warning[Verlangt OpenEOS Geld?]
 Erscheint beim Aktivieren ein Kauf-Dialog oder die Meldung *„Veranstaltung ist
-noch nicht freigeschaltet"*, läuft die Installation nicht im Einzelbetrieb.
+noch nicht freigeschaltet“*, läuft die Installation nicht im Einzelbetrieb.
 Prüfen Sie:
 
 ```bash

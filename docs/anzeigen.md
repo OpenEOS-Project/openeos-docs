@@ -45,7 +45,7 @@ Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige auswählen → Dars
 | **Hell / Dunkel** | Dunkel für abends im Zelt, hell bei Tageslicht |
 | **Schriftgröße** | *Groß* für Monitore, die weiter weg hängen |
 | **Überschrift** | Eigener Text in der Kopfzeile statt des Organisationsnamens |
-| **Begrüßungstext** | Was im Leerlauf steht, etwa „Wir freuen uns auf Ihre Bestellung" |
+| **Begrüßungstext** | Was im Leerlauf steht, etwa „Wir freuen uns auf Ihre Bestellung“ |
 | **Logo anzeigen** | Blendet das OpenEOS-Logo aus oder ein |
 | **Automatisch leeren** | Nach wie vielen Sekunden eine abgeschlossene Bestellung verschwindet |
 

@@ -33,7 +33,7 @@ Das Gerät zeigt eine Zahl, verknüpft wird sie in Ihrem Konto. Auf dem Gerät s
 
 ![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
  Mit einem Telefon scannen Sie stattdessen den QR-Code — er führt direkt auf die Eingabemaske.
-4. Vergeben Sie einen **Namen** (z. B. „Kasse Theke 1") und wählen Sie den **Gerätetyp**.
+4. Vergeben Sie einen **Namen** (z. B. „Kasse Theke 1“) und wählen Sie den **Gerätetyp**.
 
 Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 

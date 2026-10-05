@@ -1,5 +1,6 @@
 ---
 title: Integrationen
+sidebar_label: Überblick
 description: Anbindungen an andere Dienste aktivieren, einrichten und wieder abschalten.
 ---
 

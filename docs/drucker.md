@@ -27,7 +27,7 @@ Im Reiter **Vorlagen** legen Sie fest, wie Bons aussehen – etwa Küchenbon, Ge
 
 ## Bon-Workflows
 
-Im Reiter **Bon-Workflows** definieren Sie, welche Bons bei welchem Ereignis gedruckt werden – z. B. „Bei neuer Bestellung Küchenbon am Standort Küche drucken". So steuern Sie automatisiert, dass die richtigen Bons an der richtigen Stelle ausgegeben werden.
+Im Reiter **Bon-Workflows** definieren Sie, welche Bons bei welchem Ereignis gedruckt werden – z. B. „Bei neuer Bestellung Küchenbon am Standort Küche drucken“. So steuern Sie automatisiert, dass die richtigen Bons an der richtigen Stelle ausgegeben werden.
 
 ![Drucker – Bon-Workflows](/img/screens/de/printers-workflows.png)
 

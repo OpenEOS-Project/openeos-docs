@@ -1,7 +1,7 @@
 ---
 sidebar_position: 12
 title: Kategorien
-description: Das Sortiment gliedern — über den Dialog „Kategorien bearbeiten" auf der Produktseite.
+description: Das Sortiment gliedern — über den Dialog „Kategorien bearbeiten“ auf der Produktseite.
 ---
 
 # Kategorien
@@ -18,7 +18,7 @@ Kategorien wurden früher über einen eigenen Eintrag in der Navigation gepflegt
 2. Klicken Sie oben auf **Kategorien bearbeiten**.
 3. Im Dialog legen Sie neue Kategorien an, benennen bestehende um, ändern die Reihenfolge oder löschen sie.
 
-![Der Dialog „Kategorien bearbeiten" auf der Produktseite](/img/screens/de/categories-dialog.png)
+![Der Dialog „Kategorien bearbeiten“ auf der Produktseite](/img/screens/de/categories-dialog.png)
 
 Die Reihenfolge im Dialog ist die Reihenfolge an der Kasse. Stellen Sie nach oben, was am häufigsten verkauft wird — das spart Ihrem Team an jedem Verkauf einen Tipp.
 

@@ -43,7 +43,7 @@ Unter der Zwischensumme liegt **Rabatt-Bon hinzufügen**. Der Bon wird eingelese
 
 ## Auf Rechnung statt sofort kassieren
 
-Eine Veranstaltung kann statt der Sofortzahlung auf **Tisch-Betrieb** gestellt werden (in den Einstellungen der Veranstaltung unter *Bestellmodus*). Dann läuft es anders:
+Eine Veranstaltung kann statt der Sofortzahlung auf **Tisch-Betrieb** gestellt werden (im Dialog der Veranstaltung unter **Kassiermodus** → **Auf Deckel buchen**). Dann läuft es anders:
 
 1. Beim Start fragt die Kasse nach der **Tischnummer** — zum Beispiel `5` oder `A1`.
 2. Bestellungen dieses Tisches sammeln sich, statt einzeln kassiert zu werden.

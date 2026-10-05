@@ -3,28 +3,36 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.handbookSidebar.category.Erste Schritte": {
-    "message": "Getting started",
-    "description": "The label for category 'Erste Schritte' in sidebar 'handbookSidebar'"
+  "sidebar.handbookSidebar.category.1 · Konto und Organisation": {
+    "message": "1 · Account and organisation",
+    "description": "The label for category '1 · Konto und Organisation' in sidebar 'handbookSidebar'"
   },
-  "sidebar.handbookSidebar.category.Veranstaltung einrichten": {
-    "message": "Set up an event",
-    "description": "The label for category 'Veranstaltung einrichten' in sidebar 'handbookSidebar'"
+  "sidebar.handbookSidebar.category.2 · Veranstaltung anlegen": {
+    "message": "2 · Setting up an event",
+    "description": "The label for category '2 · Veranstaltung anlegen' in sidebar 'handbookSidebar'"
   },
-  "sidebar.handbookSidebar.category.Kassen & Geräte": {
-    "message": "Tills & Devices",
-    "description": "The label for category 'Kassen & Geräte' in sidebar 'handbookSidebar'"
+  "sidebar.handbookSidebar.category.3 · Geräte und Anzeigen": {
+    "message": "3 · Devices and displays",
+    "description": "The label for category '3 · Geräte und Anzeigen' in sidebar 'handbookSidebar'"
   },
-  "sidebar.handbookSidebar.category.Im Betrieb": {
-    "message": "During operation",
-    "description": "The label for category 'Im Betrieb' in sidebar 'handbookSidebar'"
+  "sidebar.handbookSidebar.category.4 · Am Festtag": {
+    "message": "4 · On the day",
+    "description": "The label for category '4 · Am Festtag' in sidebar 'handbookSidebar'"
   },
-  "sidebar.handbookSidebar.category.Team & Verwaltung": {
-    "message": "Team & Administration",
-    "description": "The label for category 'Team & Verwaltung' in sidebar 'handbookSidebar'"
+  "sidebar.handbookSidebar.category.5 · Nach dem Fest": {
+    "message": "5 · After the event",
+    "description": "The label for category '5 · Nach dem Fest' in sidebar 'handbookSidebar'"
   },
   "sidebar.handbookSidebar.category.Integrationen": {
     "message": "Integrations",
     "description": "The label for category 'Integrationen' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Selbst betreiben": {
+    "message": "Self-hosting",
+    "description": "The label for category 'Selbst betreiben' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.category.Nachschlagen": {
+    "message": "Reference",
+    "description": "The label for category 'Nachschlagen' in sidebar 'handbookSidebar'"
   }
 }

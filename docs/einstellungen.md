@@ -15,21 +15,21 @@ Unter **Einstellungen** verwalten Sie Ihre persönlichen Daten sowie die Einstel
 Der Reiter **Persönlich** ist in mehrere Unterbereiche gegliedert:
 
 - **Profil** – Profilbild, Vorname, Nachname und E-Mail-Adresse pflegen.
-- **Konto** – kontobezogene Einstellungen.
-- **Sicherheit** – Passwort ändern und Sicherheitsoptionen verwalten.
+- **Konto** – E-Mail-Adresse und Passwort ändern.
+- **Sicherheit** – Zwei-Faktor-Authentifizierung und angemeldete Sitzungen verwalten.
 - **Einstellungen** – persönliche Vorlieben wie das **Erscheinungsbild** (Hell/Dunkel).
 
 Änderungen übernehmen Sie jeweils über **Änderungen speichern**.
 
 ### Sicherheit
 
-Im Unterbereich **Sicherheit** ändern Sie Ihr Passwort und verwalten weitere Sicherheitsoptionen Ihres Kontos.
+Im Unterbereich **Sicherheit** richten Sie die Zwei-Faktor-Authentifizierung ein und behalten die Sitzungen Ihres Kontos im Blick. Ihr Passwort ändern Sie unter **Konto**.
 
 ![Einstellungen – Sicherheit](/img/screens/de/settings-security.png)
 
 ## Organisation
 
-Im Reiter **Organisation** verwalten Sie die Stammdaten und Optionen Ihrer Organisation. Er ist in mehrere Unterbereiche gegliedert: **Allgemein**, **Kontakt**, **Rechnungsadresse** und **Kasse (POS)**.
+Im Reiter **Organisation** verwalten Sie die Stammdaten Ihrer Organisation. Er ist in zwei Unterbereiche gegliedert: **Allgemein** und **Kontakt**.
 
 ### Allgemein
 
@@ -38,26 +38,19 @@ Grundlegende Informationen Ihrer Organisation:
 - **Logo** – wird auf der öffentlichen [Helferplan-Seite](./schichtplaene.md) und im Shop angezeigt (PNG, JPG oder WEBP, max. 5 MB).
 - **Name** – erscheint auf Rechnungen und Bons.
 - **Beschreibung** – optionaler Zusatztext.
+- **Keine Umsatzsteuer** – für Vereine und Kleinunternehmer nach § 19 UStG. Ist die Option an, tragen alle Produkte 0 % und es gibt keine Steuersatz-Auswahl.
 
 ![Organisationseinstellungen – Allgemein](/img/screens/de/settings-organisation.png)
 
-### Kontakt & Rechnungsadresse
+### Kontakt
 
-Unter **Kontakt** hinterlegen Sie die Kontaktdaten Ihrer Organisation, unter **Rechnungsadresse** die Adresse für Rechnungen. Diese Angaben werden u. a. für Belege und die Abrechnung verwendet.
+Unter **Kontakt** hinterlegen Sie Adresse, PLZ, Stadt, Land, Telefon und Website Ihrer Organisation.
 
-### Kasse (POS)
+Die Rechnungsadresse für die Abrechnung einer Veranstaltung geben Sie beim [Bezahlen der Veranstaltung](./veranstaltungen.md#bezahlen) an, nicht hier.
 
-Hier steuern Sie das Verhalten der Kasse:
+### Kassiermodus
 
-- **Zahlungsmodus**
-  - **Sofort bezahlen** – Bestellungen werden direkt beim Kassieren bezahlt.
-  - **Sammelrechnung** – Bestellungen werden gesammelt und am Ende zusammen bezahlt (Tab-Modus, z. B. für Tischbedienung).
-- **Weitere Optionen**
-  - **Tischnummer erforderlich** – bei jeder Bestellung muss eine Tischnummer angegeben werden.
-  - **Bon automatisch drucken** – nach jeder Bestellung wird automatisch ein Bon gedruckt.
-  - **Töne aktiviert** – akustische Signale bei neuen Bestellungen.
-
-![Organisationseinstellungen – Kasse (POS)](/img/screens/de/settings-org-pos.png)
+Ob an der Kasse sofort bezahlt oder auf einen Deckel gebucht wird, ist keine Einstellung der Organisation mehr, sondern wird je Veranstaltung festgelegt: im Dialog der [Veranstaltung](./veranstaltungen.md) unter **Kassiermodus** (**Sofort kassieren** oder **Auf Deckel buchen**). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#auf-rechnung-statt-sofort-kassieren).
 
 ### SumUp (Kartenzahlung)
 

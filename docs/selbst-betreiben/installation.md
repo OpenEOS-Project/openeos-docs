@@ -43,7 +43,7 @@ Prüfen Sie die Datei und **tragen Sie Ihre eigenen Adressen ein**:
 cat .env
 ```
 
-:::warning Die Adressen müssen stimmen
+:::warning[Die Adressen müssen stimmen]
 `API_URL` ist die Adresse, unter der **der Browser der Kassen** den Server
 erreicht — nicht `localhost`. Steht dort `localhost`, funktioniert das
 Dashboard nur auf dem Server selbst, und jede Kasse im Netz bleibt leer.
@@ -99,8 +99,8 @@ services:
       DATABASE_MIGRATIONS_RUN: 'true'
       REDIS_HOST: redis
       JWT_SECRET: ${JWT_SECRET:?JWT_SECRET fehlt}
-      TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?Schluessel fehlt}
-      # Das Dashboard muss den Server aufrufen duerfen
+      TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY fehlt}
+      # Das Dashboard muss den Server aufrufen dürfen
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'
     volumes:
@@ -146,7 +146,7 @@ curl http://localhost:3000/api/health
 Erwartete Antwort:
 
 ```json
-{"data":{"status":"ok","timestamp":"…","uptime":12.3,"version":"1.0.157"}}
+{"data":{"status":"ok","timestamp":"…","uptime":12.3,"version":"…"}}
 ```
 
 Ob Datenbank und Redis wirklich erreichbar sind, verrät der ausführlichere
@@ -211,7 +211,7 @@ networks:
 
 `APP_URL` und `API_URL` in der `.env` dann auf die `https://`-Adressen setzen.
 
-:::info Warum die feste Zuordnung?
+:::info[Warum die feste Zuordnung?]
 Kassen, Displays und Drucker hängen an einer dauerhaften WebSocket-Verbindung.
 Ohne `sticky.cookie` verteilt der Proxy die Anfragen und die Verbindung
 scheitert — sichtbar wird das erst im Betrieb, wenn Bestellungen nicht mehr

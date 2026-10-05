@@ -39,7 +39,7 @@ sudo crontab -e
 0 3 * * * cd /opt/openeos && docker compose exec -T postgres pg_dump -U openeos openeos | gzip > backups/db-$(date +\%F).sql.gz && find backups -name 'db-*.sql.gz' -mtime +14 -delete
 ```
 
-:::warning Eine Sicherung, die nie zurückgespielt wurde, ist keine
+:::warning[Eine Sicherung, die nie zurückgespielt wurde, ist keine]
 Spielen Sie die Sicherung einmal auf einem Testsystem ein, **bevor** Sie sie
 brauchen. Ein Fest ist der falsche Moment, um festzustellen, dass die Datei
 leer war.

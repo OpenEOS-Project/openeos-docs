@@ -90,7 +90,7 @@ Die häufigsten Ursachen, in dieser Reihenfolge:
 4. **Kein Standort zugeordnet** — ohne Zuordnung entsteht kein Auftrag.
 5. **USB-Kennungen falsch** — `lsusb` auf dem Pi zeigt die tatsächlichen Werte.
 
-:::tip Drucker im Container
+:::tip[Drucker im Container]
 Der Agent lässt sich auch mit Docker betreiben; das USB-Gerät muss dann
 durchgereicht werden:
 

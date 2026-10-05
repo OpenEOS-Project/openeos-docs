@@ -4,6 +4,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+/* Docusaurus baut jede Sprache einzeln und setzt dabei diese Variable.
+   Impressum und Datenschutz liegen auf der Website je Sprache unter
+   eigenem Pfad; Linkziele lassen sich ueber footer.json nicht uebersetzen. */
+const locale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'de';
+const websiteUrl = locale === 'en' ? 'https://openeos.de/en' : 'https://openeos.de';
+
 const config: Config = {
   title: 'OpenEOS Dokumentation',
   tagline: 'Die Anwenderdokumentation für das OpenEOS Kassensystem',
@@ -15,6 +21,10 @@ const config: Config = {
 
   url: 'https://docs.openeos.de',
   baseUrl: '/',
+  /* Seiten werden als `seite.html` ausgegeben und ohne Schraegstrich
+     verlinkt. nginx liefert sie per `try_files $uri.html` direkt aus —
+     ohne den 301 auf `seite/`, der hinter dem Proxy auf http zeigte. */
+  trailingSlash: false,
 
   organizationName: 'openeos',
   projectName: 'openeos-docs',
@@ -40,6 +50,22 @@ const config: Config = {
       en: {label: 'English'},
     },
   },
+
+  themes: [
+    [
+      // Suche ohne Fremddienst: der Index entsteht beim Build und liegt
+      // neben der Seite, gesucht wird im Browser.
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['de', 'en'],
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: '/',
+        highlightSearchTermsOnTargetPage: false,
+      },
+    ],
+  ],
 
   presets: [
     [
@@ -106,11 +132,18 @@ const config: Config = {
           title: 'OpenEOS',
           items: [
             {label: 'Zur App', href: 'https://app.openeos.de'},
-            {label: 'Website', href: 'https://openeos.de'},
+            {label: 'Website', href: websiteUrl},
+          ],
+        },
+        {
+          title: 'Rechtliches',
+          items: [
+            {label: 'Impressum', href: `${websiteUrl}/imprint`},
+            {label: 'Datenschutz', href: `${websiteUrl}/privacy`},
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} OpenEOS. Erstellt mit Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} OpenEOS`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,5 +1,6 @@
 ---
 title: Integrations
+sidebar_label: Overview
 description: Turn connections to other services on, set them up and switch them off again.
 ---
 

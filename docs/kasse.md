@@ -9,7 +9,7 @@ description: Bestellung aufnehmen, kassieren und an Küche oder Theke weitergebe
 Diese Seite beschreibt den Ablauf an der Kasse selbst — also das, was Ihr Team am Abend des Festes tut. Wie ein Gerät überhaupt zur Kasse wird, steht unter [Geräte verbinden](./geraete.md).
 
 :::tip[Vorher ausprobieren]
-Solange die Veranstaltung im **Testmodus** steht, können Sie den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Beim Freischalten werden diese Testbestellungen gelöscht, Ihre Einrichtung bleibt. Oben im Bild sehen Sie dann den Hinweis „Testmodus — Bestellungen werden beim Aktivieren gelöscht".
+Solange die Veranstaltung im **Testmodus** steht, können Sie den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Beim Freischalten werden diese Testbestellungen gelöscht, Ihre Einrichtung bleibt. Oben im Bild sehen Sie dann den Hinweis „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
 :::
 
 ## Der Bildschirm im Überblick
@@ -43,7 +43,7 @@ Unter der Zwischensumme liegt **Rabatt-Bon hinzufügen**. Der Bon wird eingelese
 
 ## Auf Rechnung statt sofort kassieren
 
-Eine Veranstaltung kann statt der Sofortzahlung auf **Tisch-Betrieb** gestellt werden (in den Einstellungen der Veranstaltung unter *Bestellmodus*). Dann läuft es anders:
+Eine Veranstaltung kann statt der Sofortzahlung auf **Tisch-Betrieb** gestellt werden (im Dialog der Veranstaltung unter **Kassiermodus** → **Auf Deckel buchen**). Dann läuft es anders:
 
 1. Beim Start fragt die Kasse nach der **Tischnummer** — zum Beispiel `5` oder `A1`.
 2. Bestellungen dieses Tisches sammeln sich, statt einzeln kassiert zu werden.

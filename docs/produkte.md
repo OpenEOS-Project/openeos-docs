@@ -9,7 +9,7 @@ description: Produkte anlegen, bepreisen, mit Icons versehen und per CSV importi
 Unter **Produkte** verwalten Sie das Sortiment Ihrer aktiven Veranstaltung – also alles, was an der Kasse verkauft wird. Jedes Produkt hat mindestens einen Namen und einen Preis und kann einer Kategorie zugeordnet werden.
 
 :::warning[Aktive Veranstaltung nötig]
-Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint der Hinweis „Kein aktives Event". Aktivieren Sie zuerst eine [Veranstaltung](./veranstaltungen.md).
+Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint der Hinweis „Kein aktives Event“. Aktivieren Sie zuerst eine [Veranstaltung](./veranstaltungen.md).
 :::
 
 ![Produktübersicht](/img/screens/de/products.png)
@@ -20,10 +20,10 @@ Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint 
 2. Füllen Sie die Felder aus:
    - **Name** (Pflicht)
    - **Kategorie** – Zuordnung zu einer [Kategorie](./kategorien.md)
-   - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft")
+   - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft“)
    - **Preis** (Pflicht)
 3. Optional: Laden Sie ein **Bild hoch** oder wählen Sie ein **Icon** aus der Icon-Bibliothek.
-4. Optional: Fügen Sie über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage" mit Auswahlmöglichkeiten).
+4. Optional: Fügen Sie über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
 5. Klicken Sie auf **Erstellen**.
 
 ![Produkt erstellen](/img/screens/de/products-dialog.png)

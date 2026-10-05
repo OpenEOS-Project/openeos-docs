@@ -14,7 +14,7 @@ dauerhaft ausgesperrt.
 
 ## Ohne Mailserver (Normalfall)
 
-**Mitglieder → Mitglied hinzufügen**. Geben Sie zu einer Adresse, für die es
+**Mitglieder → Mitglied einladen**. Geben Sie zu einer Adresse, für die es
 noch kein Konto gibt, zusätzlich an:
 
 - **Vorname** und **Nachname**

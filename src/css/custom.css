@@ -1,14 +1,19 @@
 /**
  * OpenEOS Dokumentation – globales Styling.
- * Orientiert sich an der OpenEOS-App (Untitled UI): Inter-Schrift,
+ * Orientiert sich an der OpenEOS-App: Geist und JetBrains Mono,
  * warmer cremefarbener Hintergrund, dunkelgrüne Akzente, runde Karten.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Schriften liegen im eigenen Build (npm-Pakete von Fontsource) — kein
+   Abruf bei Google oder einem anderen Dritten. */
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 
 :root {
   /* Schrift wie in der App */
-  --ifm-font-family-base: 'Inter', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ifm-font-family-base: 'Geist Variable', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
   --ifm-heading-font-weight: 700;
 
   /* Grüne Markenfarbe */
@@ -148,4 +153,13 @@ h1[class*='docTitle'],
 .pagination-nav__link {
   border-radius: var(--ifm-global-radius);
   border-color: var(--ifm-color-emphasis-200);
+}
+
+/* ---- Footer in Markengrün wie die Navigationsleiste ---- */
+.footer--dark {
+  --ifm-footer-background-color: var(--openeos-navbar-bg);
+  --ifm-footer-link-color: rgba(255, 255, 255, 0.82);
+  --ifm-footer-link-hover-color: #ffffff;
+  --ifm-footer-title-color: #ffffff;
+  --ifm-footer-color: rgba(255, 255, 255, 0.7);
 }

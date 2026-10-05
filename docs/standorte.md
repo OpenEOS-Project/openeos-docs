@@ -15,7 +15,7 @@ Sie erreichen den Bereich über **Standorte** in der Seitenleiste. Auch Standort
 ## Standort erstellen
 
 1. Klicken Sie auf **Standort erstellen**.
-2. Vergeben Sie einen Namen (z. B. „Küche", „Grill", „Getränkeausgabe").
+2. Vergeben Sie einen Namen (z. B. „Küche“, „Grill“, „Getränkeausgabe“).
 3. Ordnen Sie dem Standort die zugehörigen Produkte bzw. Kategorien zu.
 4. Speichern Sie den Standort.
 

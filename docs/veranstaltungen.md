@@ -16,7 +16,7 @@ Sie finden den Bereich über **Events** in der Seitenleiste.
 
 1. Klicken Sie auf **Veranstaltung erstellen**.
 2. Füllen Sie das Formular aus:
-   - **Name** (Pflicht) – z. B. „Sommerfest 2026"
+   - **Name** (Pflicht) – z. B. „Sommerfest 2026“
    - **Beschreibung** – optionaler Zusatztext
    - **Startdatum** und **Enddatum**
    - **Online-Shop aktivieren** – erlaubt Gästen die Online-Bestellung von Artikeln dieses Events

@@ -48,7 +48,7 @@ Berechtigungen — die Kasse selbst läuft ohnehin über ein
 ## Mit eigenem Mailserver
 
 Ist ein Mailserver vorhanden, funktionieren zusätzlich Einladungen,
-„Passwort vergessen" und die Anmeldung per zugesandtem Link. Ergänzen Sie die
+„Passwort vergessen“ und die Anmeldung per zugesandtem Link. Ergänzen Sie die
 `.env` und starten Sie den Server neu:
 
 ```bash
@@ -72,7 +72,7 @@ sudo docker compose up -d --force-recreate api
 Sobald `EMAIL_ENABLED=true` gesetzt ist, verschickt OpenEOS auch tatsächlich
 Mails — an die hinterlegten Adressen. Wenn Sie bis dahin mit erfundenen
 Adressen wie `admin@verein.local` gearbeitet haben, laufen diese Zustellungen
-ins Leere. Das ist harmlos, aber die Funktion „Passwort vergessen" hilft
+ins Leere. Das ist harmlos, aber die Funktion „Passwort vergessen“ hilft
 diesen Konten dann nicht weiter.
 :::
 

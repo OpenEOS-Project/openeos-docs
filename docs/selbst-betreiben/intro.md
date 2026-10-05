@@ -20,7 +20,7 @@ funktioniert dauerhaft ohne Internetverbindung nach außen.
 
 ## Was Sie dafür brauchen
 
-| | |
+| Was | Anforderung |
 |---|---|
 | **Server** | Linux mit Docker und Docker Compose. 2 CPU-Kerne, 4 GB RAM und 20 GB Platte reichen für ein Vereinsfest. |
 | **Vorkenntnisse** | Sie sollten eine Textdatei bearbeiten und Befehle in einer Konsole ausführen können. |

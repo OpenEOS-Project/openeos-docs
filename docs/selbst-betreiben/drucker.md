@@ -26,7 +26,7 @@ sudo nano /opt/openeos-printer-agent/config/config.yaml
 
 ## Die Konfiguration
 
-Entscheidend ist `server.url` — sie zeigt auf **Ihren** Server und endet
+Entscheidend ist `server.url` — sie zeigt auf **deinen** Server und endet
 **mit** `/api`:
 
 ```yaml
@@ -35,7 +35,7 @@ agent:
   name: 'Drucker Ausschank'
 
 server:
-  # Ihre eigene Installation, mit /api am Ende
+  # Deine eigene Installation, mit /api am Ende
   url: 'http://192.168.1.50:3000/api'
 
 printers:
@@ -67,8 +67,8 @@ sudo systemctl enable --now openeos-printer
 sudo systemctl status openeos-printer
 ```
 
-Der Agent meldet sich von selbst beim Server an. Geben Sie ihn dann im
-Dashboard unter **Drucker** frei und ordnen Sie ihn einem Standort zu — der
+Der Agent meldet sich von selbst beim Server an. Gib ihn dann im
+Dashboard unter **Drucker** frei und ordne ihn einem Standort zu — der
 Ablauf ist derselbe wie im [Drucker-Kapitel](/drucker) des Handbuchs.
 
 ## Wenn nichts ankommt

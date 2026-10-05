@@ -6,7 +6,7 @@ description: Persönliche Einstellungen und Organisationseinstellungen verwalten
 
 # Einstellungen
 
-Unter **Einstellungen** verwalten Sie Ihre persönlichen Daten sowie die Einstellungen Ihrer Organisation. Der Bereich ist in zwei Reiter gegliedert: **Persönlich** und **Organisation**.
+Unter **Einstellungen** verwaltest du deine persönlichen Daten sowie die Einstellungen deiner Organisation. Der Bereich ist in zwei Reiter gegliedert: **Persönlich** und **Organisation**.
 
 ![Einstellungen – Profil](/img/screens/de/settings.png)
 
@@ -19,21 +19,21 @@ Der Reiter **Persönlich** ist in mehrere Unterbereiche gegliedert:
 - **Sicherheit** – Zwei-Faktor-Authentifizierung und angemeldete Sitzungen verwalten.
 - **Einstellungen** – persönliche Vorlieben wie das **Erscheinungsbild** (Hell/Dunkel).
 
-Änderungen übernehmen Sie jeweils über **Änderungen speichern**.
+Änderungen übernimmst du jeweils über **Änderungen speichern**.
 
 ### Sicherheit
 
-Im Unterbereich **Sicherheit** richten Sie die Zwei-Faktor-Authentifizierung ein und behalten die Sitzungen Ihres Kontos im Blick. Ihr Passwort ändern Sie unter **Konto**.
+Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein und behältst die Sitzungen deines Kontos im Blick. Dein Passwort änderst du unter **Konto**.
 
 ![Einstellungen – Sicherheit](/img/screens/de/settings-security.png)
 
 ## Organisation
 
-Im Reiter **Organisation** verwalten Sie die Stammdaten Ihrer Organisation. Er ist in zwei Unterbereiche gegliedert: **Allgemein** und **Kontakt**.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er ist in zwei Unterbereiche gegliedert: **Allgemein** und **Kontakt**.
 
 ### Allgemein
 
-Grundlegende Informationen Ihrer Organisation:
+Grundlegende Informationen deiner Organisation:
 
 - **Logo** – wird auf der öffentlichen [Helferplan-Seite](./schichtplaene.md) und im Shop angezeigt (PNG, JPG oder WEBP, max. 5 MB).
 - **Name** – erscheint auf Rechnungen und Bons.
@@ -44,9 +44,9 @@ Grundlegende Informationen Ihrer Organisation:
 
 ### Kontakt
 
-Unter **Kontakt** hinterlegen Sie Adresse, PLZ, Stadt, Land, Telefon und Website Ihrer Organisation.
+Unter **Kontakt** hinterlegst du Adresse, PLZ, Stadt, Land, Telefon und Website deiner Organisation.
 
-Die Rechnungsadresse für die Abrechnung einer Veranstaltung geben Sie beim [Bezahlen der Veranstaltung](./veranstaltungen.md#bezahlen) an, nicht hier.
+Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Bezahlen der Veranstaltung](./veranstaltungen.md#bezahlen) an, nicht hier.
 
 ### Kassiermodus
 
@@ -54,9 +54,9 @@ Ob an der Kasse sofort bezahlt oder auf einen Deckel gebucht wird, ist keine Ein
 
 ### SumUp (Kartenzahlung)
 
-SumUp richten Sie nicht mehr hier ein, sondern als [Integration](./integrationen/sumup.md): unter **Integrationen** aktivieren und danach auf der eigenen Seite **SumUp** konfigurieren.
+SumUp richtest du nicht mehr hier ein, sondern als [Integration](./integrationen/sumup.md): unter **Integrationen** aktivieren und danach auf der eigenen Seite **SumUp** konfigurieren.
 
 ## Darstellung und Sprache
 
-- **Erscheinungsbild:** Über **Hell** und **Dunkel** stellen Sie den Anzeigemodus ein.
-- **Sprache:** Über das **Globus-Symbol** oben rechts wechseln Sie zwischen Deutsch (**DE**) und Englisch (**EN**).
+- **Erscheinungsbild:** Über **Hell** und **Dunkel** stellst du den Anzeigemodus ein.
+- **Sprache:** Über das **Globus-Symbol** oben rechts wechselst du zwischen Deutsch (**DE**) und Englisch (**EN**).

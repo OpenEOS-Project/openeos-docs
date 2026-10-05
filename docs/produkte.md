@@ -6,31 +6,31 @@ description: Produkte anlegen, bepreisen, mit Icons versehen und per CSV importi
 
 # Produkte
 
-Unter **Produkte** verwalten Sie das Sortiment Ihrer aktiven Veranstaltung – also alles, was an der Kasse verkauft wird. Jedes Produkt hat mindestens einen Namen und einen Preis und kann einer Kategorie zugeordnet werden.
+Unter **Produkte** verwaltest du das Sortiment deiner aktiven Veranstaltung – also alles, was an der Kasse verkauft wird. Jedes Produkt hat mindestens einen Namen und einen Preis und kann einer Kategorie zugeordnet werden.
 
 :::warning[Aktive Veranstaltung nötig]
-Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint der Hinweis „Kein aktives Event“. Aktivieren Sie zuerst eine [Veranstaltung](./veranstaltungen.md).
+Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint der Hinweis „Kein aktives Event“. Aktiviere zuerst eine [Veranstaltung](./veranstaltungen.md).
 :::
 
 ![Produktübersicht](/img/screens/de/products.png)
 
 ## Produkt erstellen
 
-1. Klicken Sie auf **Produkt erstellen**.
-2. Füllen Sie die Felder aus:
+1. Klicke auf **Produkt erstellen**.
+2. Fülle die Felder aus:
    - **Name** (Pflicht)
    - **Kategorie** – Zuordnung zu einer [Kategorie](./kategorien.md)
    - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft“)
    - **Preis** (Pflicht)
-3. Optional: Laden Sie ein **Bild hoch** oder wählen Sie ein **Icon** aus der Icon-Bibliothek.
-4. Optional: Fügen Sie über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
-5. Klicken Sie auf **Erstellen**.
+3. Optional: Lade ein **Bild hoch** oder wähle ein **Icon** aus der Icon-Bibliothek.
+4. Optional: Füge über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
+5. Klicke auf **Erstellen**.
 
 ![Produkt erstellen](/img/screens/de/products-dialog.png)
 
 ## Produktliste
 
-Die Tabelle zeigt pro Produkt **Name**, **Kategorie**, **Preis**, **Bestand** und **Status** (z. B. *Verfügbar*). Über die Aktions-Schaltflächen am Zeilenende **bearbeiten** oder **löschen** Sie ein Produkt.
+Die Tabelle zeigt pro Produkt **Name**, **Kategorie**, **Preis**, **Bestand** und **Status** (z. B. *Verfügbar*). Über die Aktions-Schaltflächen am Zeilenende **bearbeitest** oder **löschst** du ein Produkt.
 
 ## Bestandsverfolgung
 
@@ -44,20 +44,20 @@ So funktioniert die Bestandsverfolgung:
 
 ### Zusammenhang mit der Inventur
 
-Den Anfangsbestand und spätere Korrekturen erfassen Sie über das Modul **[Inventur](./inventur.md)**:
+Den Anfangsbestand und spätere Korrekturen erfasst du über das Modul **[Inventur](./inventur.md)**:
 
-1. **Anfangsbestand erfassen** – Legen Sie vor dem Fest eine Inventur an und tragen Sie die vorhandenen Mengen je Produkt ein. Dieser Wert erscheint anschließend in der Spalte **Bestand**.
-2. **Laufender Betrieb** – Während des Verkaufs zählt OpenEOS die verkauften Mengen vom Bestand ab. Sie sehen also jederzeit den rechnerisch verbleibenden Bestand.
-3. **Schlussinventur** – Nach dem Fest erfassen Sie den tatsächlich verbliebenen Bestand. Die Differenz zwischen erwartetem und gezähltem Bestand hilft, **Verbrauch und Schwund** nachzuvollziehen.
+1. **Anfangsbestand erfassen** – Lege vor dem Fest eine Inventur an und trage die vorhandenen Mengen je Produkt ein. Dieser Wert erscheint anschließend in der Spalte **Bestand**.
+2. **Laufender Betrieb** – Während des Verkaufs zählt OpenEOS die verkauften Mengen vom Bestand ab. Du siehst also jederzeit den rechnerisch verbleibenden Bestand.
+3. **Schlussinventur** – Nach dem Fest erfasst du den tatsächlich verbliebenen Bestand. Die Differenz zwischen erwartetem und gezähltem Bestand hilft, **Verbrauch und Schwund** nachzuvollziehen.
 
 :::tip[Bestand gezielt einsetzen]
-Führen Sie Bestände vor allem für Produkte, bei denen die Stückzahl wichtig ist (z. B. Getränkekisten, Pfandbecher). Für frei zubereitete Speisen können Sie die Bestandsführung weglassen, indem Sie keinen Anfangsbestand erfassen.
+Führe Bestände vor allem für Produkte, bei denen die Stückzahl wichtig ist (z. B. Getränkekisten, Pfandbecher). Für frei zubereitete Speisen kannst du die Bestandsführung weglassen, indem du keinen Anfangsbestand erfasst.
 :::
 
 ## Produkte importieren
 
-Statt jedes Produkt einzeln anzulegen, können Sie über **Importieren** mehrere Produkte gleichzeitig per **CSV-Datei** einlesen. Im Import-Dialog ordnen Sie die Spalten Ihrer Datei den OpenEOS-Feldern zu (Name, Preis, Kategorie usw.) und sehen vorab eine Vorschau, bevor der Import ausgeführt wird.
+Statt jedes Produkt einzeln anzulegen, kannst du über **Importieren** mehrere Produkte gleichzeitig per **CSV-Datei** einlesen. Im Import-Dialog ordnest du die Spalten deiner Datei den OpenEOS-Feldern zu (Name, Preis, Kategorie usw.) und siehst vorab eine Vorschau, bevor der Import ausgeführt wird.
 
 :::tip[Icons und Bilder]
-Produkte ohne Foto wirken mit einem passenden **Icon** aus der Bibliothek übersichtlicher an der Kasse. Wählen Sie beim Anlegen einfach **Icon wählen**.
+Produkte ohne Foto wirken mit einem passenden **Icon** aus der Bibliothek übersichtlicher an der Kasse. Wähle beim Anlegen einfach **Icon wählen**.
 :::

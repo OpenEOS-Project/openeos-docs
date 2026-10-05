@@ -25,7 +25,7 @@ sudo docker run --rm \
   tar czf /to/uploads-$(date +%F).tar.gz -C /from .
 ```
 
-Sichern Sie zusätzlich die Datei `.env` — ohne
+Sichere zusätzlich die Datei `.env` — ohne
 `TWO_FACTOR_ENCRYPTION_KEY` sind hinterlegte Zwei-Faktor-Geheimnisse nach
 einer Wiederherstellung wertlos.
 
@@ -40,8 +40,8 @@ sudo crontab -e
 ```
 
 :::warning[Eine Sicherung, die nie zurückgespielt wurde, ist keine]
-Spielen Sie die Sicherung einmal auf einem Testsystem ein, **bevor** Sie sie
-brauchen. Ein Fest ist der falsche Moment, um festzustellen, dass die Datei
+Spiele die Sicherung einmal auf einem Testsystem ein, **bevor** du sie
+brauchst. Ein Fest ist der falsche Moment, um festzustellen, dass die Datei
 leer war.
 :::
 
@@ -63,7 +63,7 @@ sudo docker compose up -d
 ```
 
 Datenbank-Migrationen laufen beim Start automatisch mit
-(`DATABASE_MIGRATIONS_RUN=true`). **Sichern Sie vorher die Datenbank** —
+(`DATABASE_MIGRATIONS_RUN=true`). **Sichere vorher die Datenbank** —
 Migrationen lassen sich nicht ohne Weiteres rückgängig machen.
 
 Nicht während einer laufenden Veranstaltung aktualisieren: Kassen verlieren
@@ -99,8 +99,8 @@ Fast immer ist `API_URL` falsch: Sie muss die Adresse enthalten, unter der
 curl -s http://192.168.1.50:3001/login | grep -o '__OPENEOS_RUNTIME_CONFIG__={[^<]*}'
 ```
 
-Steht dort nicht Ihre Serveradresse, korrigieren Sie `API_URL` in der `.env`
-und starten Sie neu:
+Steht dort nicht deine Serveradresse, korrigiere `API_URL` in der `.env`
+und starte neu:
 
 ```bash
 sudo docker compose up -d --force-recreate web
@@ -130,12 +130,12 @@ Dienstes `api` stehen.
 ## Datensparsamkeit
 
 Eine selbst betriebene Installation sendet **nichts** nach außen. Optionale
-Anbindungen bleiben aus, solange Sie keine Zugangsdaten hinterlegen:
+Anbindungen bleiben aus, solange du keine Zugangsdaten hinterlegst:
 Fehlerberichte (Sentry), Kartenzahlung (SumUp, PayPal) und der Mailversand.
 
 Eine Ausnahme, die man kennen sollte: Versendete E-Mails binden das
 OpenEOS-Logo von `openeos.de` ein. Das lädt der Browser des **Empfängers**,
-nicht Ihr Server — es betrifft also nur eingeschaltete Mailbenachrichtigungen.
+nicht dein Server — es betrifft also nur eingeschaltete Mailbenachrichtigungen.
 
 ## Hilfe
 

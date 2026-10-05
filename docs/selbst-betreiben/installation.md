@@ -15,7 +15,7 @@ laufen auf dem Server, auf dem OpenEOS später arbeitet.
 sudo mkdir -p /opt/openeos && cd /opt/openeos
 ```
 
-Drei Geheimnisse werden gebraucht. Erzeugen Sie sie **jetzt** und bewahren Sie
+Drei Geheimnisse werden gebraucht. Erzeuge sie **jetzt** und bewahre
 sie auf — insbesondere `TWO_FACTOR_ENCRYPTION_KEY`: Geht er verloren, sind
 hinterlegte Zwei-Faktor-Geheimnisse nicht mehr entschlüsselbar.
 
@@ -37,7 +37,7 @@ TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 EOF
 ```
 
-Prüfen Sie die Datei und **tragen Sie Ihre eigenen Adressen ein**:
+Prüfe die Datei und **trage deine eigenen Adressen ein**:
 
 ```bash
 cat .env
@@ -168,8 +168,8 @@ curl http://localhost:3000/api/setup/status
 ```
 
 Steht dort `"mode":"saas"`, wurde `DEPLOYMENT_MODE` nicht übernommen — dann
-verlangt OpenEOS später Geld für die Freischaltung. Prüfen Sie die `.env` und
-starten Sie mit `sudo docker compose up -d --force-recreate api` neu.
+verlangt OpenEOS später Geld für die Freischaltung. Prüfe die `.env` und
+starte mit `sudo docker compose up -d --force-recreate api` neu.
 
 Weiter mit der [Ersteinrichtung](./ersteinrichtung.md).
 

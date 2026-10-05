@@ -72,7 +72,7 @@ in the `docker-compose.yml`, otherwise they do not reach the container.
 sudo docker compose up -d --force-recreate api
 ```
 
-:::warning Take care when switching over
+:::warning[Take care when switching over]
 As soon as `EMAIL_ENABLED=true` is set, OpenEOS actually sends
 emails — to the stored addresses. If you have been working with made-up
 addresses such as `admin@verein.local` until then, those deliveries go

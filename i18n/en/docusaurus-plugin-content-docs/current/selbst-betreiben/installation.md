@@ -43,7 +43,7 @@ Check the file and **enter your own addresses**:
 cat .env
 ```
 
-:::warning The addresses must be correct
+:::warning[The addresses must be correct]
 `API_URL` is the address at which **the tills' browser** reaches the server
 — not `localhost`. If it says `localhost`, the
 dashboard only works on the server itself, and every till on the network stays empty.
@@ -211,7 +211,7 @@ networks:
 
 Then set `APP_URL` and `API_URL` in the `.env` to the `https://` addresses.
 
-:::info Why sticky sessions?
+:::info[Why sticky sessions?]
 Tills, displays and printers depend on a persistent WebSocket connection.
 Without `sticky.cookie` the proxy distributes the requests and the connection
 fails — this only becomes visible during operation, when orders no longer

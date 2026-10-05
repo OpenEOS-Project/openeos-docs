@@ -65,7 +65,7 @@ Redis ist **nicht** optional: der Server startet ohne erreichbaren Redis nicht.
 4. [Drucker anbinden](./drucker.md) — Bondruck einrichten
 5. [Betrieb](./betrieb.md) — Sicherung, Aktualisierung, Fehlersuche
 
-:::tip Lieber ohne eigenen Server?
+:::tip[Lieber ohne eigenen Server?]
 Unter [app.openeos.de](https://app.openeos.de) betreiben wir OpenEOS für Sie —
 ohne Installation und mit Support. Die Abrechnung erfolgt dort je
 Veranstaltung. Das übrige Handbuch beschreibt diese Variante.

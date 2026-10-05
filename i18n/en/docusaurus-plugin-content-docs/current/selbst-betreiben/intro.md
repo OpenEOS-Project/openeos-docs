@@ -65,7 +65,7 @@ Redis is **not** optional: the server does not start without a reachable Redis.
 4. [Connecting printers](./drucker.md) — set up receipt printing
 5. [Operation](./betrieb.md) — backups, updates, troubleshooting
 
-:::tip Rather not run your own server?
+:::tip[Rather not run your own server?]
 At [app.openeos.de](https://app.openeos.de) we run OpenEOS for you —
 with no installation and with support. Billing there is per
 event. The rest of the manual describes that variant.

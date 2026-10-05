@@ -43,7 +43,7 @@ Prüfen Sie die Datei und **tragen Sie Ihre eigenen Adressen ein**:
 cat .env
 ```
 
-:::warning Die Adressen müssen stimmen
+:::warning[Die Adressen müssen stimmen]
 `API_URL` ist die Adresse, unter der **der Browser der Kassen** den Server
 erreicht — nicht `localhost`. Steht dort `localhost`, funktioniert das
 Dashboard nur auf dem Server selbst, und jede Kasse im Netz bleibt leer.
@@ -211,7 +211,7 @@ networks:
 
 `APP_URL` und `API_URL` in der `.env` dann auf die `https://`-Adressen setzen.
 
-:::info Warum die feste Zuordnung?
+:::info[Warum die feste Zuordnung?]
 Kassen, Displays und Drucker hängen an einer dauerhaften WebSocket-Verbindung.
 Ohne `sticky.cookie` verteilt der Proxy die Anfragen und die Verbindung
 scheitert — sichtbar wird das erst im Betrieb, wenn Bestellungen nicht mehr

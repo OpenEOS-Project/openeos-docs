@@ -43,7 +43,7 @@ That completes the order. Anything bound for the kitchen or bar goes there immed
 
 ## Running tabs instead of paying at once
 
-An event can be switched from immediate payment to **table service** (in the event settings, under *Ordering mode*). Then it works differently:
+An event can be switched from immediate payment to **table service** (in the event dialog, under **Checkout mode** → **Run a tab**). Then it works differently:
 
 1. On start the till asks for a **table number** — `5` or `A1`, say.
 2. Orders accumulate against that table instead of being paid one by one.

@@ -14,32 +14,51 @@ dauerhaft ausgesperrt.
 
 ## Ohne Mailserver (Normalfall)
 
-**Mitglieder → Mitglied einladen**. Geben Sie zu einer Adresse, für die es
-noch kein Konto gibt, zusätzlich an:
+1. Öffnen Sie **Mitglieder** und klicken Sie auf **Mitglied hinzufügen**.
+2. Wechseln Sie im Dialog auf den Reiter **Konto direkt anlegen**.
+3. Geben Sie **Vorname**, **Nachname** und **E-Mail-Adresse** ein.
+4. Legen Sie ein **Startpasswort** fest und wiederholen Sie es unter
+   **Startpasswort bestätigen**. Es gelten dieselben Regeln wie bei der
+   Registrierung: mindestens 8 Zeichen, Groß- und Kleinbuchstaben sowie eine
+   Zahl.
+5. Wählen Sie Rolle und Berechtigungen (siehe unten) und klicken Sie auf
+   **Konto anlegen**.
 
-- **Vorname** und **Nachname**
-- ein **Startpasswort** (mind. 8 Zeichen, Groß-, Kleinbuchstabe, Ziffer)
+Das Konto gilt sofort als bestätigt und ist unmittelbar anmeldebereit; eine
+E-Mail wird nicht verschickt. Geben Sie das Startpasswort persönlich weiter.
+Die Person kann es nach der Anmeldung unter **Einstellungen → Konto** selbst
+ändern — erzwungen wird das nicht.
 
-Das Konto wird angelegt, gilt sofort als bestätigt und ist unmittelbar
-anmeldebereit. Geben Sie das Startpasswort persönlich weiter; die Person kann
-es danach unter **Einstellungen → Konto** selbst ändern.
+Konten direkt anlegen können nur **Administratoren**. Mitglieder mit der
+Berechtigung „Mitglieder“ sehen den Reiter nicht, können nur einladen und
+dabei weder die Administrator-Rolle noch Berechtigungen vergeben, die sie
+selbst nicht haben.
 
-Fehlt eines der drei Felder, meldet OpenEOS:
+Gibt es zu der Adresse bereits ein Konto, legt OpenEOS kein zweites an und
+meldet:
 
-> Zu dieser E-Mail-Adresse gibt es noch kein Konto. Bitte Vorname, Nachname und
-> ein Startpasswort angeben, um es anzulegen.
+> Zu dieser E-Mail-Adresse gibt es bereits ein Konto. Sie können es ohne
+> Startpasswort hinzufügen – das bisherige Passwort bleibt gültig.
 
-Existiert bereits ein Konto zu der Adresse, wird es der Organisation einfach
-hinzugefügt — Name und Passwort werden dann ignoriert.
+Klicken Sie dann auf **Vorhandenes Konto hinzufügen**. Das Konto wird mit der
+gewählten Rolle und den Berechtigungen in die Organisation aufgenommen; Name
+und Startpasswort aus dem Formular werden dabei nicht übernommen.
+
+:::note[Einladen ohne Mailserver]
+Der Reiter **Einladen** verschickt eine E-Mail mit einem Link, über den die
+Einladung angenommen wird. Ohne Mailversand kommt dieser Link nicht an —
+nutzen Sie dann **Konto direkt anlegen**.
+:::
 
 ### Rolle und Berechtigungen
 
-Beim Hinzufügen wählen Sie:
+In beiden Reitern wählen Sie:
 
-- **Administrator** — darf alles in der Organisation
-- **Mitglied** — sieht nur die Module, die Sie einzeln freischalten
-  (Produkte, Veranstaltungen, Geräte, Mitglieder, Schichtpläne, Rabatte,
-  Pfand, Auswertungen, Inventur)
+- den Schalter **Administrator** — darf alles in der Organisation
+- ohne den Schalter ein **Mitglied** — sieht nur die Module, die Sie unter
+  **Berechtigungen** einzeln freischalten
+  (Produkte, Veranstaltungen, Geräte, Mitglieder, Schichtpläne, Rabatt-Bons,
+  Pfand, Auswertung, Inventur)
 
 Für Helfer an der Kasse genügt in der Regel ein Mitglied ohne besondere
 Berechtigungen — die Kasse selbst läuft ohnehin über ein
@@ -47,7 +66,8 @@ Berechtigungen — die Kasse selbst läuft ohnehin über ein
 
 ## Mit eigenem Mailserver
 
-Ist ein Mailserver vorhanden, funktionieren zusätzlich Einladungen,
+Ist ein Mailserver vorhanden, funktionieren zusätzlich Einladungen per
+E-Mail (Reiter **Einladen** im Dialog **Mitglied hinzufügen**),
 „Passwort vergessen“ und die Anmeldung per zugesandtem Link. Ergänzen Sie die
 `.env` und starten Sie den Server neu:
 

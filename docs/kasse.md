@@ -6,10 +6,10 @@ description: Bestellung aufnehmen, kassieren und an Küche oder Theke weitergebe
 
 # An der Kasse verkaufen
 
-Diese Seite beschreibt den Ablauf an der Kasse selbst — also das, was Ihr Team am Abend des Festes tut. Wie ein Gerät überhaupt zur Kasse wird, steht unter [Geräte verbinden](./geraete.md).
+Diese Seite beschreibt den Ablauf an der Kasse selbst — also das, was dein Team am Abend des Festes tut. Wie ein Gerät überhaupt zur Kasse wird, steht unter [Geräte verbinden](./geraete.md).
 
 :::tip[Vorher ausprobieren]
-Solange die Veranstaltung im **Testmodus** steht, können Sie den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Beim Freischalten werden diese Testbestellungen gelöscht, Ihre Einrichtung bleibt. Oben im Bild sehen Sie dann den Hinweis „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
+Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Beim Freischalten werden diese Testbestellungen gelöscht, deine Einrichtung bleibt. Oben im Bild siehst du dann den Hinweis „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
 :::
 
 ## Der Bildschirm im Überblick
@@ -18,11 +18,11 @@ Solange die Veranstaltung im **Testmodus** steht, können Sie den gesamten Ablau
 
 Die Kasse ist in drei Spalten aufgeteilt:
 
-- **Links** die Kategorien Ihres Sortiments, zum Beispiel *Getränke* und *Speisen*.
+- **Links** die Kategorien deines Sortiments, zum Beispiel *Getränke* und *Speisen*.
 - **In der Mitte** die Produkte der gewählten Kategorie, jeweils mit Preis und einem **+**.
 - **Rechts** der Warenkorb mit Zwischensumme, Rabatt-Bons und dem Gesamtbetrag.
 
-Oben stehen der Name der Kasse, Ihre Organisation und die laufende Veranstaltung. Auf einem Telefon liegen die Spalten übereinander; der Warenkorb öffnet sich über die Leiste am unteren Rand, die Anzahl und Summe mitführt.
+Oben stehen der Name der Kasse, deine Organisation und die laufende Veranstaltung. Auf einem Telefon liegen die Spalten übereinander; der Warenkorb öffnet sich über die Leiste am unteren Rand, die Anzahl und Summe mitführt.
 
 ## Eine Bestellung aufnehmen
 
@@ -35,7 +35,7 @@ Die Bestellung ist damit abgeschlossen. Was an Küche oder Theke gehen muss, wir
 
 ### Rabatt-Bons
 
-Unter der Zwischensumme liegt **Rabatt-Bon hinzufügen**. Der Bon wird eingelesen oder eingegeben und zieht seinen Wert vom Gesamtbetrag ab. Wie Sie Bons ausgeben, steht unter [Rabatt-Bons](./rabatt-bons.md).
+Unter der Zwischensumme liegt **Rabatt-Bon hinzufügen**. Der Bon wird eingelesen oder eingegeben und zieht seinen Wert vom Gesamtbetrag ab. Wie du Bons ausgibst, steht unter [Rabatt-Bons](./rabatt-bons.md).
 
 ### Warenkorb verwerfen
 
@@ -47,7 +47,7 @@ Eine Veranstaltung kann statt der Sofortzahlung auf **Tisch-Betrieb** gestellt w
 
 1. Beim Start fragt die Kasse nach der **Tischnummer** — zum Beispiel `5` oder `A1`.
 2. Bestellungen dieses Tisches sammeln sich, statt einzeln kassiert zu werden.
-3. Unter **Offene Rechnungen** sehen Sie alle laufenden Tische mit ihrer Summe.
+3. Unter **Offene Rechnungen** siehst du alle laufenden Tische mit ihrer Summe.
 4. Am Ende wird der Tisch dort **bar oder mit Karte** abgerechnet und geschlossen.
 
 Teilzahlungen sind möglich; in der Übersicht steht dann, wie viel bereits bezahlt wurde.
@@ -56,10 +56,10 @@ Teilzahlungen sind möglich; in der Übersicht steht dann, wie viel bereits beza
 
 Die Kasse braucht eine Verbindung. Fällt das WLAN aus, lässt sich **nicht** weiter kassieren — Bestellungen werden nicht zwischengespeichert und später nachgeschickt.
 
-Planen Sie das ein: Ein Zelt am Rand der Funkabdeckung ist der häufigste Grund für einen Stillstand an der Kasse. Prüfen Sie den Empfang **vor** dem Fest an jedem Standort, an dem später eine Kasse stehen soll.
+Plane das ein: Ein Zelt am Rand der Funkabdeckung ist der häufigste Grund für einen Stillstand an der Kasse. Prüfe den Empfang **vor** dem Fest an jedem Standort, an dem später eine Kasse stehen soll.
 
 Zeigt ein Gerät dauerhaft **Getrennt**, erreichen die Bestellungen außerdem Küche und Anzeigen nicht live.
 
 ## Kasse abmelden
 
-**Abmelden** oben rechts löst das Gerät von der Organisation. Es muss danach [neu verbunden](./geraete.md) werden — das ist nichts, was man zwischendurch tut. Um nur den Bildschirm zu sperren, sperren Sie das Tablet selbst.
+**Abmelden** oben rechts löst das Gerät von der Organisation. Es muss danach [neu verbunden](./geraete.md) werden — das ist nichts, was man zwischendurch tut. Um nur den Bildschirm zu sperren, sperrst du das Tablet selbst.

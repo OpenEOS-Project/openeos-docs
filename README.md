@@ -23,7 +23,7 @@ pnpm start -- --locale en
 ```
 
 > Hinweis: Falls `pnpm run <cmd>` an einem pnpm-Dependency-Check scheitert,
-> rufen Sie den Befehl direkt über die lokale Binary auf, z. B.
+> ruf den Befehl direkt über die lokale Binary auf, z. B.
 > `./node_modules/.bin/docusaurus start`.
 
 ## Build

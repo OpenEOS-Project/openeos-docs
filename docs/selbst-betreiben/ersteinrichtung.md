@@ -22,7 +22,7 @@ Tragen Sie ein:
 
 - **Vorname, Nachname, E-Mail-Adresse** des Administrators
 - **Passwort** — mindestens 8 Zeichen, mit Groß-, Kleinbuchstabe und Ziffer
-- **Name der Organisation** — Ihr Verein, z. B. „Musikverein Testdorf"
+- **Name der Organisation** — Ihr Verein, z. B. „Musikverein Testdorf“
 
 Ein Klick auf **Einrichtung abschließen**, und das Konto steht.
 
@@ -62,7 +62,7 @@ ohne dass Übungsbuchungen in der Auswertung landen.
 
 :::warning Verlangt OpenEOS Geld?
 Erscheint beim Aktivieren ein Kauf-Dialog oder die Meldung *„Veranstaltung ist
-noch nicht freigeschaltet"*, läuft die Installation nicht im Einzelbetrieb.
+noch nicht freigeschaltet“*, läuft die Installation nicht im Einzelbetrieb.
 Prüfen Sie:
 
 ```bash

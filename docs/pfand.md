@@ -21,7 +21,7 @@ So können Sie z. B. nur beim Verkauf zum Mitnehmen Pfand verlangen, beim Tischs
 
 ## Pfand-Typ erstellen
 
-Klicken Sie auf **Pfand-Typ erstellen** und legen Sie einen Pfand-Typ an (z. B. „Mehrwegbecher" mit einem Pfandbetrag). Anschließend können Sie den Pfand-Typ Ihren Getränke- bzw. Geschirr-Produkten zuweisen.
+Klicken Sie auf **Pfand-Typ erstellen** und legen Sie einen Pfand-Typ an (z. B. „Mehrwegbecher“ mit einem Pfandbetrag). Anschließend können Sie den Pfand-Typ Ihren Getränke- bzw. Geschirr-Produkten zuweisen.
 
 ![Pfand-Typ erstellen](/img/screens/de/pfand-dialog.png)
 

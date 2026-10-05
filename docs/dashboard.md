@@ -33,4 +33,4 @@ Darunter listet der Bereich **Letzte Aktivitäten** Ihre neuesten Bestellungen u
 
 ## Aktive Veranstaltung
 
-Links in der Seitenleiste sehen Sie die aktuell **aktive Veranstaltung**. Viele Bereiche – etwa Produkte, Standorte und Inventur – beziehen sich immer auf das gerade aktive Event. Steht dort „Kein aktives Event", aktivieren Sie zunächst eine Veranstaltung (siehe [Veranstaltungen](./veranstaltungen.md)).
+Links in der Seitenleiste sehen Sie die aktuell **aktive Veranstaltung**. Viele Bereiche – etwa Produkte, Standorte und Inventur – beziehen sich immer auf das gerade aktive Event. Steht dort „Kein aktives Event“, aktivieren Sie zunächst eine Veranstaltung (siehe [Veranstaltungen](./veranstaltungen.md)).

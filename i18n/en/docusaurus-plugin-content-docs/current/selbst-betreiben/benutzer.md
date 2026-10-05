@@ -14,36 +14,48 @@ permanently locked out.
 
 ## Without a mail server (the normal case)
 
-**Members → Invite Member**. For an address that does not have an account
-yet, additionally enter:
+1. Open **Members** and click **Add member**.
+2. In the dialog, switch to the **Create account directly** tab.
+3. Enter **First name**, **Last name** and **Email address**.
+4. Set an **Initial password** and repeat it under **Confirm initial
+   password**. The same rules as for registration apply: at least 8
+   characters, upper- and lowercase letters, and a number.
+5. Choose role and permissions (see below) and click **Create account**.
 
-- **First name** and **last name**
-- a **starting password** (min. 8 characters, uppercase letter, lowercase letter, digit)
+The account counts as verified immediately and can sign in straight away; no
+email is sent. Hand over the initial password in person. The person can
+change it after signing in under **Settings → Account** — this is not
+enforced.
 
-The account is created, counts as verified immediately and can sign in
-straight away. Hand over the starting password in person; the person can
-then change it themselves under **Settings → Account**.
+Only **administrators** can create accounts directly. Members with the
+“Members” permission do not see the tab, can only invite, and cannot grant
+the administrator role or permissions they do not have themselves.
 
-If one of the three fields is missing, OpenEOS reports (the server currently
-returns this message in German only):
+If an account already exists for the address, OpenEOS does not create a
+second one and reports:
 
-> Zu dieser E-Mail-Adresse gibt es noch kein Konto. Bitte Vorname, Nachname und
-> ein Startpasswort angeben, um es anzulegen.
+> An account already exists for this email address. You can add it without an
+> initial password – its current password stays valid.
 
-(“There is no account for this email address yet. Please enter a first name,
-last name and a starting password to create it.”)
+Then click **Add existing account**. The account joins the organisation with
+the selected role and permissions; the name and initial password from the
+form are not applied.
 
-If an account already exists for the address, it is simply added to the organisation
-— name and password are then ignored.
+:::note[Inviting without a mail server]
+The **Invite** tab sends an email with a link that is used to accept the
+invitation. Without email delivery this link never arrives — use **Create
+account directly** instead.
+:::
 
 ### Role and permissions
 
-When adding, you choose:
+On both tabs you choose:
 
-- **Administrator** — may do everything in the organisation
-- **Member** — sees only the modules you enable individually
-  (Products, Events, Devices, Members, Shift plans, Discount vouchers,
-  Deposit, Reports, Inventory)
+- the **Administrator** switch — may do everything in the organisation
+- without the switch, a **member** — sees only the modules you enable
+  individually under **Permissions**
+  (Products, Events, Devices, Members, Shift Plans, Discount Vouchers,
+  Deposit (Pfand), Reports, Inventory)
 
 For helpers at the till, a member without special
 permissions is usually enough — the till itself runs via a
@@ -51,8 +63,9 @@ permissions is usually enough — the till itself runs via a
 
 ## With your own mail server
 
-If a mail server is available, invitations,
-“Forgot password?” and signing in via an emailed link also work. Extend the
+If a mail server is available, email invitations (the **Invite** tab in the
+**Add member** dialog), “Forgot password?” and signing in via an emailed link
+also work. Extend the
 `.env` and restart the server:
 
 ```bash

@@ -56,6 +56,9 @@ hinweise: [{ auf: '.pos-cart-col', text: 'Warenkorb mit Summe und Bezahlen' }]
 ```
 
 Daraus werden ein nummerierter Rahmen im Bild und eine Legende darunter.
+Die Nummer sitzt links neben dem Rahmen, sonst darüber; verdeckt sie dort
+Text (etwa bei großen Bereichen direkt unter einer Überschrift), setzt
+`marke: 'innen'` sie in die obere linke Ecke innerhalb des Rahmens.
 Die Nummern sollen den Schritten im Kapiteltext entsprechen — wenn du
 den Text umstellst, stell die Reihenfolge hier mit um.
 

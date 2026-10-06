@@ -412,6 +412,12 @@ export const AUFNAHMEN = [
   {
     datei: 'integrations',
     pfad: '/integrations',
+    /* Seit „Tische“ ist die Seitenleiste länger als das Bild: den Eintrag
+       der aktiven Integration in Sicht scrollen, sonst läge Marke 2 auf
+       dem Kontomenü darunter. */
+    async vorbereiten(seite) {
+      await seite.locator('.app-sidebar__item--nested').first().scrollIntoViewIfNeeded().catch(() => {});
+    },
     hinweise: [
       { auf: '.integration-card--button >> nth=0', text: { de: 'Integration antippen: Beschreibung, Bilder, Aktivieren', en: 'Tap an integration: description, pictures, activate' } },
       { auf: 'a.app-sidebar__item--nested, .app-sidebar__item--nested', text: { de: 'Aktive Integration in der Seitenleiste', en: 'Active integration in the sidebar' } },

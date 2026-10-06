@@ -67,11 +67,15 @@ async function beschriften(bildPfad, marken, skala) {
        Elementen genau den Text, um den es geht. Nur am Bildrand sitzt er
        innen an der oberen linken Ecke. */
     const r = 17 * skala;
-    const [cx, cy] = x >= 2 * r + 6 * skala
-      ? [x - r - 3 * skala, y + r]
-      : y >= 2 * r + 6 * skala
-        ? [x + r, y - r - 3 * skala]
-        : [x + r, y + r];
+    /* `marke: 'innen'` am Hinweis erzwingt die Ecke innen — fuer grosse
+       Bereiche, ueber denen Text steht, den die Marke sonst verdeckt. */
+    const [cx, cy] = m.marke === 'innen'
+      ? [x + r + 6 * skala, y + r + 6 * skala]
+      : x >= 2 * r + 6 * skala
+        ? [x - r - 3 * skala, y + r]
+        : y >= 2 * r + 6 * skala
+          ? [x + r, y - r - 3 * skala]
+          : [x + r, y + r];
     befehl.push(
       '-stroke', 'white', '-strokewidth', String(3 * skala), '-fill', '#0b7a3b',
       '-draw', `circle ${cx},${cy} ${cx + 15 * skala},${cy}`,
@@ -160,6 +164,7 @@ async function aufnehmen(seite, eintrag, zielVerzeichnis, sprache, ansicht) {
         const h = Math.min(hoehe - y - 3, Math.round(kasten.height) + 12);
         marken.push({
           text: textIn(hinweis.text, sprache.code),
+          marke: hinweis.marke,
           kasten: { x: x * skala, y: y * skala, w: w * skala, h: h * skala },
         });
       } else {

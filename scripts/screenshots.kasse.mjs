@@ -412,7 +412,8 @@ export const GERAETE_AUFNAHMEN = [
     startansicht: 'map',
     routen: kassenRouten(),
     hinweise: [
-      { auf: '.pos-floor .oe-floor, .oe-floor', text: { de: 'Tischplan aus der Verwaltung, Farben nach Status', en: 'Floor plan from the admin area, colored by status' } },
+      /* Marke innen: darüber stünde sie auf dem Untertitel „Tisch auf der Karte antippen“. */
+      { auf: '.pos-floor .oe-floor, .oe-floor', marke: 'innen', text: { de: 'Tischplan aus der Verwaltung, Farben nach Status', en: 'Floor plan from the admin area, colored by status' } },
       { auf: '.oe-floor__table.oe-floor__table--wait, .oe-floor__table[class*=wait]', text: { de: 'Wartet auf Bedienung: Gastbestellung oder fertiges Essen', en: 'Waiting for service: guest order or food ready' } },
     ],
   },

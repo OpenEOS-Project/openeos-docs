@@ -22,12 +22,16 @@ At the top you filter the report by **Event** and **Period**. Quick-select optio
 | **Orders** | Number of orders / items sold |
 | **Avg. order value** | Average per paid order |
 | **Deposit (balance)** | Deposit collected minus deposit refunded |
+| **Cancellation rate** | Share of cancelled orders |
 
 ## Detailed Reports
 
-- **Top products** – your highest-revenue products, sorted by revenue.
+- **Top products** – your best-selling products with quantity, revenue and average price, sorted by quantity.
+- **Top categories** – revenue per category.
 - **Payment methods** – breakdown of revenue by payment method.
-- **Hourly trend** – revenue per hour (0–23), ideal for identifying peak times.
+- **Revenue by channel** – till, online shop and QR order compared.
+- **Revenue by device** – which till took how much.
+- **Hourly breakdown** – revenue per hour (0–23), ideal for identifying peak times.
 
 ## Export
 
@@ -39,11 +43,11 @@ After the event, select the **All time** period and export top products and paym
 
 ## Exporting as PDF
 
-**PDF export**, top right, produces a finished summary of the chosen period — for printing, for cashing up, or for the committee meeting.
+**Export PDF**, top right, produces a finished summary of the chosen period — for printing, for cashing up, or for the committee meeting.
 
 The PDF contains:
 
-- A **header** with organisation and period
+- A **header** with organization and period
 - **Headline figures**: revenue and number of orders
 - **Revenue by hour** as a bar chart, showing when the rush was
 - **Payment methods** with count, amount and share
@@ -53,7 +57,7 @@ The PDF contains:
 The file is named after the period, for example `openeos-auswertung-sommerfest-2026.pdf`, and downloads straight away. It is generated in the browser; with many orders that takes a moment, during which it reads *Generating…*.
 
 :::tip[For cashing up]
-Choose the **Event** period rather than *Today* if the event ran over several days — otherwise the other days are missing.
+Choose **All time** (or **From**/**To** covering all event days) rather than *Today* if the event ran over several days — otherwise the other days are missing.
 :::
 
 Alongside the PDF there is **Export CSV** for working on in a spreadsheet.

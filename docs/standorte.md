@@ -15,18 +15,21 @@ Du erreichst den Bereich über **Standorte** in der Seitenleiste. Auch Standorte
 ## Standort erstellen
 
 1. Klicke auf **Standort erstellen**.
-2. Vergib einen Namen (z. B. „Küche“, „Grill“, „Getränkeausgabe“).
-3. Ordne dem Standort die zugehörigen Produkte bzw. Kategorien zu.
-4. Speichere den Standort.
+2. Vergib einen **Namen** (z. B. „Küche“, „Grill“, „Getränkeausgabe“), optional eine Beschreibung und eine **Farbe**.
+3. Wähle bei Bedarf einen **Folge-Standort**: Dorthin werden fertige Artikel weitergeleitet, etwa von der Küche an die Ausgabe.
+4. Wähle den **Drucker**, auf dem die Bons dieses Standorts landen.
+5. Klicke auf **Erstellen**.
 
 ![Standort erstellen](/img/screens/de/stations-dialog.png)
 
-## Zusammenspiel mit Druckern und Displays
+Welche Produkte zu einem Standort gehören, legst du nicht hier fest, sondern im Dialog der [Kategorie](./kategorien.md) oder des [Produkts](./produkte.md) im Feld **Standort**. Eine Angabe am Produkt geht der Kategorie vor.
 
-Jeder Standort kann mit einem **Drucker** (für Küchen- oder Ausgabebons) und/oder einem **Display** verknüpft werden. Geht an der Kasse eine Bestellung ein, werden die Positionen automatisch an den jeweils zuständigen Standort weitergeleitet und dort gedruckt bzw. angezeigt.
+## Zusammenspiel mit Druckern und Anzeigen
 
-:::info[Standort-Display vs. Kundendisplay]
-Beachte den Unterschied zwischen zwei Display-Rollen unter [Geräte](./geraete.md#kundendisplay): Ein **Standort-Display** zeigt die Bestellungen eines Produktionsstandorts (Küche, Bar, Ausgabe) – genau darum geht es auf dieser Seite. Ein **Kundendisplay** ist hingegen einer einzelnen Kasse zugeordnet und spiegelt deren Warenkorb für den Gast, unabhängig von Standorten.
+Jeder Standort kann einen **Drucker** (für Küchen- oder Ausgabebons) haben und auf einer **Küchen- bzw. Thekenanzeige** erscheinen. Geht an der Kasse eine Bestellung ein, werden die Positionen automatisch an den jeweils zuständigen Standort weitergeleitet und dort gedruckt bzw. angezeigt.
+
+:::info[Küchenanzeige oder Kundenanzeige]
+Beachte den Unterschied zwischen zwei Arten von [Anzeigen](./anzeigen.md): Eine **Küchen- bzw. Thekenanzeige** zeigt die Bestellungen eines Standorts (Küche, Bar, Ausgabe) – genau darum geht es auf dieser Seite. Eine **Kundenanzeige** ist hingegen einer einzelnen Kasse zugeordnet und spiegelt deren Warenkorb für den Gast, unabhängig von Standorten.
 :::
 
 :::tip[Sinnvolle Aufteilung]

@@ -38,24 +38,24 @@ An einem Fernseher hängt selten eine Tastatur, und das Kürzel der Organisation
 
 ## Aussehen festlegen
 
-Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige auswählen → Darstellung**.
+Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige anklicken → Einstellungen**. Unter **Display-Einstellungen** wählst du den **Anzeigemodus** (Kundendisplay oder Stationsanzeige) und dazu die **Kasse** bzw. den **Standort**. Darunter folgt **Aussehen & Inhalt**:
 
 | Einstellung | Wirkung |
 |---|---|
-| **Hell / Dunkel** | Dunkel für abends im Zelt, hell bei Tageslicht |
+| **Farbgebung** | **Dunkel** für abends im Zelt, **Hell** bei Tageslicht, **Nach Tageszeit** wechselt von selbst |
 | **Schriftgröße** | *Groß* für Monitore, die weiter weg hängen |
-| **Überschrift** | Eigener Text in der Kopfzeile statt des Organisationsnamens |
-| **Begrüßungstext** | Was im Leerlauf steht, etwa „Wir freuen uns auf deine Bestellung“ |
-| **Logo anzeigen** | Blendet das OpenEOS-Logo aus oder ein |
-| **Automatisch leeren** | Nach wie vielen Sekunden eine abgeschlossene Bestellung verschwindet |
+| **Kopfzeile** | Eigener Text in der Kopfzeile; leer bleibt der Name deines Vereins |
+| **Text im Ruhezustand** | Was im Leerlauf steht, etwa „Herzlich willkommen!“ |
+| **Logo anzeigen** | Blendet das Vereinslogo in der Kopfzeile ein oder aus |
+| **Erledigte ausblenden** | Nach wie vielen Sekunden eine abgeschlossene Bestellung verschwindet – oder **Stehen lassen** |
 
-Änderungen erscheinen **sofort** auf dem Bildschirm. Du musst nicht hingehen und nichts neu laden.
+Mit **Speichern** übernimmst du die Einstellungen. Änderungen erscheinen **sofort** auf dem Bildschirm. Du musst nicht hingehen und nichts neu laden.
 
 ## Die Kundenanzeige im Betrieb
 
 ![Kundenanzeige im Leerlauf](/img/screens/de/display-customer.png)
 
-Solange nichts kassiert wird, steht der Begrüßungstext da. Sobald an der zugeordneten Kasse ein Produkt hinzugefügt wird, erscheint der Warenkorb mit Positionen und Gesamtsumme — der Gast liest mit, was gebucht wurde. Nach dem Bezahlen wechselt der Bildschirm zurück in den Leerlauf.
+Solange nichts kassiert wird, steht der Text im Ruhezustand da. Sobald an der zugeordneten Kasse ein Produkt hinzugefügt wird, erscheint der Warenkorb mit Positionen und Gesamtsumme — der Gast liest mit, was gebucht wurde. Nach dem Bezahlen wechselt der Bildschirm zurück in den Leerlauf.
 
 ## Die Küchen- und Thekenanzeige im Betrieb
 

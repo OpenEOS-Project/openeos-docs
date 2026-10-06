@@ -12,7 +12,7 @@ Im Bereich **Drucker** verwaltest du deine Bondrucker sowie deren Vorlagen und D
 
 ## Drucker
 
-Im Reiter **Drucker** siehst du die deiner Organisation zugewiesenen Geräte. Jeder Drucker ist mit einem **Drucker-Agent** (dem OpenEOS Drucker-Agent auf einem Raspberry Pi oder Linux-Rechner) verknüpft, der den eigentlichen Druck übernimmt. Solange noch kein Drucker eingerichtet ist, erscheint hier ein entsprechender Hinweis.
+Im Reiter **Drucker** siehst du die deiner Organisation zugewiesenen Drucker. Jeder Drucker ist mit einem **Drucker-Agent** (dem OpenEOS Drucker-Agent auf einem Raspberry Pi oder Linux-Rechner) verknüpft, der den eigentlichen Druck übernimmt. Solange noch kein Drucker eingerichtet ist, steht hier **Noch keine Drucker registriert**.
 
 Ein Drucker-Agent kann auf zwei Wegen an deine Organisation angebunden werden:
 
@@ -27,10 +27,21 @@ Im Reiter **Vorlagen** legst du fest, wie Bons aussehen – etwa Küchenbon, Get
 
 ## Bon-Workflows
 
-Im Reiter **Bon-Workflows** definierst du, welche Bons bei welchem Ereignis gedruckt werden – z. B. „Bei neuer Bestellung Küchenbon am Standort Küche drucken“. So steuerst du automatisiert, dass die richtigen Bons an der richtigen Stelle ausgegeben werden.
+Im Reiter **Bon-Workflows** legst du fest, welche Bons automatisch gedruckt werden. Es gibt drei Bon-Arten, jede mit eigenem Schalter:
+
+- **Küchenbon** – bei neuen Bestellungen für die Küche. Wähle den **Modus**: **1 Bon pro Bestellung**, **1 Bon pro Produkt mit Barcode** oder **1 Bon pro Standort**.
+- **Bestellbon** – für den Ausgabebereich oder zur Bestellbestätigung.
+- **Kassenbon** – nach der Zahlung. Als **Auslöser** wählst du **Bei Zahlung**, **Bei Bestellungsabschluss** oder **Manuell**.
+
+Ist eine Bon-Art ausgeschaltet, steht dort **Diese Bons werden nicht automatisch gedruckt.** Für jede Bon-Art wählst du außerdem:
+
+- **Override-Drucker** – ein fester Drucker. Ohne Angabe gilt die **Routing-Kette**: Drucker des Produkt-Standorts, sonst des Kategorie-Standorts, sonst der Standard-Drucker des Geräts.
+- **Standard-Vorlage** – eine eigene [Vorlage](#vorlagen) oder die eingebaute.
+
+Mit **Speichern** übernimmst du die Einstellungen einer Bon-Art.
 
 ![Drucker – Bon-Workflows](/img/screens/de/printers-workflows.png)
 
 ## Zusammenspiel mit Standorten
 
-Drucker entfalten ihren Nutzen im Zusammenspiel mit [Standorten](./standorte.md): Bestellpositionen werden an den zuständigen Standort weitergeleitet und dort über die hinterlegte Vorlage und den passenden Workflow gedruckt.
+Drucker entfalten ihren Nutzen im Zusammenspiel mit [Standorten](./standorte.md): Bestellpositionen werden an den zuständigen Standort weitergeleitet und dort über die hinterlegte Vorlage und den passenden Bon-Workflow gedruckt. Den Drucker eines Standorts wählst du im Dialog des Standorts.

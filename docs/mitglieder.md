@@ -33,9 +33,9 @@ In der Übersicht siehst du pro Person Name, E-Mail, **Rolle**, freigeschaltete 
 
 Für Mitglieder lassen sich die folgenden Module einzeln freischalten:
 
-- **Produkte**
-- **Events**
-- **Geräte**
+- **Produkte** (dazu gehören auch die **Standorte**)
+- **Veranstaltungen** (dazu gehören auch die **Tische**)
+- **Geräte** (dazu gehören auch die **Drucker**)
 - **Mitglieder**
 - **Schichtpläne**
 - **Rabatt-Bons**
@@ -43,7 +43,7 @@ Für Mitglieder lassen sich die folgenden Module einzeln freischalten:
 - **Auswertung**
 - **Inventur**
 
-Nur freigeschaltete Module erscheinen in der Navigation des jeweiligen Mitglieds. So gibst du z. B. einer Schichtleitung nur die **Schichtpläne** frei, ohne Zugriff auf Auswertungen oder Geräte.
+Nur freigeschaltete Module erscheinen in der Navigation des jeweiligen Mitglieds. **Bestellungen** und das **Dashboard** sieht jedes Mitglied; **Rechnungen** und **Integrationen** bleiben Administratoren vorbehalten. So gibst du z. B. einer Schichtleitung nur die **Schichtpläne** frei, ohne Zugriff auf Auswertungen oder Geräte.
 
 :::tip[Prinzip der minimalen Rechte]
 Vergib nur die Berechtigungen, die jemand wirklich benötigt. Den Administrator-Vollzugriff sollten nur wenige, verantwortliche Personen erhalten.

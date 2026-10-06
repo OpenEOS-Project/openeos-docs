@@ -6,7 +6,7 @@ description: Persönliche Einstellungen und Organisationseinstellungen verwalten
 
 # Einstellungen
 
-Unter **Einstellungen** verwaltest du deine persönlichen Daten sowie die Einstellungen deiner Organisation. Der Bereich ist in zwei Reiter gegliedert: **Persönlich** und **Organisation**.
+Unter **Einstellungen** verwaltest du deine persönlichen Daten sowie die Einstellungen deiner Organisation. Du erreichst sie über das Menü unter deinem Namen unten links in der Seitenleiste. Der Bereich ist in zwei Reiter gegliedert: **Persönlich** und **Organisation**.
 
 ![Einstellungen – Profil](/img/screens/de/settings.png)
 
@@ -14,10 +14,10 @@ Unter **Einstellungen** verwaltest du deine persönlichen Daten sowie die Einste
 
 Der Reiter **Persönlich** ist in mehrere Unterbereiche gegliedert:
 
-- **Profil** – Profilbild, Vorname, Nachname und E-Mail-Adresse pflegen.
+- **Profil** – Profilbild, Vorname und Nachname pflegen. Die E-Mail-Adresse steht hier nur zur Ansicht.
 - **Konto** – E-Mail-Adresse und Passwort ändern.
 - **Sicherheit** – Zwei-Faktor-Authentifizierung und angemeldete Sitzungen verwalten.
-- **Einstellungen** – persönliche Vorlieben wie das **Erscheinungsbild** (Hell/Dunkel).
+- **Einstellungen** – **Erscheinungsbild** (Hell, Dunkel oder wie das System), **Sprache**, Benachrichtigungen und der **Rundgang** durch die Oberfläche zum erneuten Ansehen.
 
 Änderungen übernimmst du jeweils über **Änderungen speichern**.
 
@@ -29,7 +29,7 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 ## Organisation
 
-Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er ist in zwei Unterbereiche gegliedert: **Allgemein** und **Kontakt**.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat genau zwei Unterreiter: **Allgemein** und **Kontakt**.
 
 ### Allgemein
 
@@ -46,17 +46,19 @@ Grundlegende Informationen deiner Organisation:
 
 Unter **Kontakt** hinterlegst du Adresse, PLZ, Stadt, Land, Telefon und Website deiner Organisation.
 
-Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Bezahlen der Veranstaltung](./veranstaltungen.md#bezahlen) an, nicht hier.
+Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Bezahlen der Veranstaltung](./veranstaltungen.md) an, nicht hier.
 
-### Kassiermodus
+### Was du hier nicht mehr findest
 
-Ob an der Kasse sofort bezahlt oder auf einen Deckel gebucht wird, ist keine Einstellung der Organisation mehr, sondern wird je Veranstaltung festgelegt: im Dialog der [Veranstaltung](./veranstaltungen.md) unter **Kassiermodus** (**Sofort kassieren** oder **Auf Deckel buchen**). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#auf-rechnung-statt-sofort-kassieren).
+Frühere Versionen hatten weitere Unterreiter. Diese Einstellungen liegen jetzt dort, wo sie gebraucht werden:
 
-### SumUp (Kartenzahlung)
-
-SumUp richtest du nicht mehr hier ein, sondern als [Integration](./integrationen/sumup.md): unter **Integrationen** aktivieren und danach auf der eigenen Seite **SumUp** konfigurieren.
+- **Kassiermodus** (**Sofort kassieren** oder **Auf Deckel buchen**) und die **Tische** legst du je Veranstaltung fest, im Dialog der [Veranstaltung](./veranstaltungen.md). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#senden-oder-kassieren).
+- **SumUp** richtest du als [Integration](./integrationen/sumup.md) ein: unter **Integrationen** aktivieren und danach auf der eigenen Seite **SumUp** konfigurieren.
+- **Rechnungen** und die Rechnungsadresse findest du unter **Rechnungen** in der Seitenleiste bzw. beim Bezahlen der Veranstaltung.
 
 ## Darstellung und Sprache
 
-- **Erscheinungsbild:** Über **Hell** und **Dunkel** stellst du den Anzeigemodus ein.
-- **Sprache:** Über das **Globus-Symbol** oben rechts wechselst du zwischen Deutsch (**DE**) und Englisch (**EN**).
+Schneller als über die Einstellungen geht es über das Menü unter deinem Namen unten links:
+
+- **Erscheinungsbild:** **Hell**, **Dunkel** oder **System** (folgt deinem Gerät).
+- **Sprache:** **Deutsch** oder **English**.

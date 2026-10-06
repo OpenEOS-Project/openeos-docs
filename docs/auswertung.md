@@ -22,11 +22,15 @@ Oben filterst du die Auswertung nach **Veranstaltung** und **Zeitraum**. Für de
 | **Bestellungen** | Anzahl der Bestellungen / verkaufte Artikel |
 | **Ø-Bestellwert** | Durchschnitt pro bezahlter Bestellung |
 | **Pfand (Saldo)** | kassiertes minus ausgezahltes Pfand |
+| **Storno-Quote** | Anteil stornierter Bestellungen |
 
 ## Detailauswertungen
 
-- **Top-Produkte** – deine umsatzstärksten Produkte, sortiert nach Umsatz.
+- **Top-Produkte** – deine meistverkauften Produkte mit Menge, Umsatz und Durchschnittspreis, sortiert nach Menge.
+- **Top-Kategorien** – Umsatz je Kategorie.
 - **Zahlarten** – Aufschlüsselung des Umsatzes nach Zahlungsmethode.
+- **Umsatz nach Kanal** – Kasse, Online-Shop und QR-Bestellung im Vergleich.
+- **Umsatz je Kasse** – welches Gerät wie viel kassiert hat.
 - **Stundenverlauf** – Umsatz pro Stunde (0–23 Uhr), ideal um Stoßzeiten zu erkennen.
 
 ## Export
@@ -53,7 +57,7 @@ Das PDF enthält:
 Die Datei heißt nach dem Zeitraum, etwa `openeos-auswertung-sommerfest-2026.pdf`, und lädt direkt herunter. Die Erstellung passiert im Browser; bei vielen Bestellungen dauert sie einen Moment, währenddessen steht *Wird erstellt…*.
 
 :::tip[Für die Abrechnung]
-Nimm den Zeitraum **Event** statt *Heute*, wenn das Fest über mehrere Tage ging — sonst fehlen die anderen Tage.
+Nimm den Zeitraum **Gesamt** (oder **Von**/**Bis** über alle Festtage) statt *Heute*, wenn das Fest über mehrere Tage ging — sonst fehlen die anderen Tage.
 :::
 
 Neben dem PDF gibt es **CSV exportieren** für die Weiterverarbeitung in einer Tabellenkalkulation.

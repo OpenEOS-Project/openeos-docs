@@ -6,7 +6,7 @@ description: Das Sortiment gliedern — über den Dialog „Kategorien bearbeite
 
 # Kategorien
 
-Kategorien gliedern dein Sortiment. An der Kasse erscheinen sie als Spalte links; ein Tipp darauf zeigt die zugehörigen Produkte. Typisch sind *Getränke*, *Speisen*, *Kuchen*.
+Kategorien gliedern dein Sortiment. An der Kasse erscheinen sie als Spalte links (am Telefon als Leiste oben); ein Tipp darauf zeigt die zugehörigen Produkte. Typisch sind *Getränke*, *Speisen*, *Kuchen*. Über allen Kategorien steht an der Kasse **Favoriten**, sobald du Produkte als [Favorit](./produkte.md#favoriten) markierst.
 
 :::info[Kein eigener Menüpunkt mehr]
 Kategorien wurden früher über einen eigenen Eintrag in der Navigation gepflegt. Sie liegen jetzt dort, wo man sie braucht: auf der **Produktseite**.
@@ -21,6 +21,10 @@ Kategorien wurden früher über einen eigenen Eintrag in der Navigation gepflegt
 ![Der Dialog „Kategorien bearbeiten“ auf der Produktseite](/img/screens/de/categories-dialog.png)
 
 Die Reihenfolge im Dialog ist die Reihenfolge an der Kasse. Stelle nach oben, was am häufigsten verkauft wird — das spart deinem Team an jedem Verkauf einen Tipp.
+
+## Icon
+
+Jede Kategorie kann ein **Icon** bekommen: Im Dialog einer Kategorie öffnet das Feld **Symbol** dieselbe Icon-Auswahl wie bei den [Produkten](./produkte.md#icons). Die Kasse zeigt das Icon in der Kategorienleiste und bei allen Produkten der Kategorie, die kein eigenes Icon und kein Bild haben.
 
 ## Kategorie zuweisen
 

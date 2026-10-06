@@ -22,15 +22,35 @@ Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint 
    - **Kategorie** – Zuordnung zu einer [Kategorie](./kategorien.md)
    - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft“)
    - **Preis** (Pflicht)
-3. Optional: Lade ein **Bild hoch** oder wähle ein **Icon** aus der Icon-Bibliothek.
-4. Optional: Füge über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
-5. Klicke auf **Erstellen**.
+3. Optional: Wähle ein **Icon** oder lade ein **Bild hoch** (siehe [Icons und Bilder](#icons)).
+4. Optional: Schalte **Favorit** ein, damit das Produkt an der Kasse ganz oben steht (siehe [Favoriten](#favoriten)).
+5. Optional: Füge über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
+6. Klicke auf **Erstellen**.
 
 ![Produkt erstellen](/img/screens/de/products-dialog.png)
 
 ## Produktliste
 
-Die Tabelle zeigt pro Produkt **Name**, **Kategorie**, **Preis**, **Bestand** und **Status** (z. B. *Verfügbar*). Über die Aktions-Schaltflächen am Zeilenende **bearbeitest** oder **löschst** du ein Produkt.
+Die Tabelle zeigt pro Produkt **Name**, **Kategorie**, **Preis**, **Bestand** und **Status** (z. B. *Verfügbar*). Über die Aktions-Schaltflächen am Zeilenende **bearbeitest** oder **löschst** du ein Produkt. Der **Stern** in der Zeile macht ein Produkt zum Favoriten oder nimmt es wieder heraus.
+
+## Favoriten {/* #favoriten */}
+
+Was am häufigsten verkauft wird, markierst du als **Favorit** — mit dem Stern in der Produktliste oder dem Schalter **Favorit** im Produktdialog. An der Kasse erscheint dann ganz oben die Kategorie **Favoriten** mit genau diesen Produkten; beim ersten Öffnen ist sie gleich ausgewählt. So liegen Bier, Bratwurst und Pommes einen Tipp entfernt, egal in welcher Kategorie sie stehen.
+
+Gibt es keinen Favoriten, fehlt die Kategorie, und die Kasse beginnt mit der ersten Kategorie. Favoriten gelten für alle Kassen der Veranstaltung.
+
+## Icons und Bilder {/* #icons */}
+
+An der Kasse hat jedes Produkt ein kleines Bild in der Kachel. Dafür gibt es zwei Wege:
+
+- **Icon wählen** — öffnet die Icon-Auswahl mit Linien-Icons für Speisen und Getränke, Zahlung und Betrieb. Über die Suche findest du ein Icon mit deutschen oder englischen Begriffen, zum Beispiel „Bier“, „Pommes“ oder „Kaffee“.
+- **Bild hochladen** — ein Foto des Produkts. Es füllt die Fläche des Icons aus.
+
+Hat ein Produkt beides, zeigt die Kasse das Icon. Hat es keines von beiden, übernimmt sie das Icon seiner [Kategorie](./kategorien.md). Produkte, die noch Icons aus früheren Versionen haben, werden automatisch mit dem passenden neuen Icon angezeigt.
+
+![Icon-Auswahl mit Suche](/img/screens/de/products-icon-picker.png)
+
+Für die zweite Zeile der Kachel nimmt die Kasse die erste Zeile der **Beschreibung** — schreib dort zum Beispiel „0,5 l“ oder „im Brötchen“.
 
 ## Bestandsverfolgung
 
@@ -57,7 +77,3 @@ Führe Bestände vor allem für Produkte, bei denen die Stückzahl wichtig ist (
 ## Produkte importieren
 
 Statt jedes Produkt einzeln anzulegen, kannst du über **Importieren** mehrere Produkte gleichzeitig per **CSV-Datei** einlesen. Im Import-Dialog ordnest du die Spalten deiner Datei den OpenEOS-Feldern zu (Name, Preis, Kategorie usw.) und siehst vorab eine Vorschau, bevor der Import ausgeführt wird.
-
-:::tip[Icons und Bilder]
-Produkte ohne Foto wirken mit einem passenden **Icon** aus der Bibliothek übersichtlicher an der Kasse. Wähle beim Anlegen einfach **Icon wählen**.
-:::

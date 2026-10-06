@@ -24,7 +24,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '2 · Veranstaltung anlegen',
       collapsed: false,
-      items: ['veranstaltungen', 'kategorien', 'produkte', 'standorte'],
+      items: ['veranstaltungen', 'kategorien', 'produkte', 'standorte', 'tische'],
     },
     {
       type: 'category',

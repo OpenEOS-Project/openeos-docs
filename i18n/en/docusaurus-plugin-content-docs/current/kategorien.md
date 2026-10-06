@@ -24,7 +24,7 @@ The order in the dialog is the order at the till. Put what sells most at the top
 
 ## Icon
 
-Every category can have an **icon**: in a category's dialog the **Icon** field opens the same icon picker as for [products](./produkte.md#icons). The till shows the icon in the category bar and for every product in the category that has neither its own icon nor an image.
+Every category can have an **icon**: in a category's dialog the **Icon** field opens the icon picker with line icons — food and drinks come first, and the search understands English and German terms such as "beer" or "coffee". The till shows the icon in the category bar and for every product in the category that has neither its own [product icon](./produkte.md#icons) nor an image.
 
 ## Assigning a category
 

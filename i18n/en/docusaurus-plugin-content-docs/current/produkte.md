@@ -22,7 +22,7 @@ Products always belong to an event. If no event is active, the notice "No active
    - **Category** — assign the product to a [category](./kategorien.md)
    - **Description** — optional additional text (e.g. "Freshly tapped")
    - **Price** (required)
-3. Optional: choose an **icon** or upload an **image** (see [Icons and images](#icons)).
+3. Optional: choose a **product icon** or upload an **image** (see [Icons and images](#icons)).
 4. Optional: switch on **Favorite** so the product sits at the top of the till (see [Favorites](#favoriten)).
 5. Optional: use **+ Add group** to add option groups (e.g. "Side dish" with selectable options).
 6. Click **Create**.
@@ -43,12 +43,12 @@ Without any favorites the category is not shown and the till starts with the fir
 
 At the till every product has a small picture on its tile. There are two ways to set it:
 
-- **Choose icon** — opens the icon picker with line icons for food and drinks, payment and operations. The search finds icons by English or German terms, for example "beer", "fries" or "coffee".
+- **Choose product icon** — opens the picker with coloured product pictures: beer, shandy, wine and spritzers, soft drinks as glass or bottle, sausage, steak, burgers, fries, crêpes and more. Without a search they are grouped into drinks and food; the search finds them by English or German terms, for example "beer", "bratwurst" or "Pommes".
 - **Upload image** — a photo of the product. It fills the icon area.
 
-If a product has both, the till shows the icon. If it has neither, it uses the icon of its [category](./kategorien.md). Products that still carry icons from earlier versions are automatically shown with the matching new icon.
+If a product has both, the till shows the product icon. If it has neither, it uses the icon of its [category](./kategorien.md) — for coffee or cake, say, which have no product picture of their own. Products that still carry an icon from the previous version are shown with the matching product picture (beer as a glass of lager, bratwurst as a grilled sausage in a roll) or, if there is none, with the category icon.
 
-![Icon picker with search](/img/screens/en/products-icon-picker.png)
+![Product icon picker](/img/screens/en/products-icon-picker.png)
 
 For the second line of the tile the till uses the first line of the **description** — write "0.5 l" or "in a bun" there, for example.
 

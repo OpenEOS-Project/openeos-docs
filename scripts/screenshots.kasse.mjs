@@ -48,21 +48,23 @@ const TEXTE = {
   },
 };
 
-/* [id, Kategorie, de, en, Zeile 2 de, Zeile 2 en, Preis, Icon, Favorit, Extras] */
+/* [id, Kategorie, de, en, Zeile 2 de, Zeile 2 en, Preis, POS-Icon, Favorit, Extras]
+   POS-Icon: Produktbild aus @openeos/pos-icons; null = Icon der Kategorie
+   (für Kaffee, Kuchen und Eis gibt es kein Produktbild). */
 const SORTIMENT = [
-  ['pils', KAT_GETRAENKE, 'Pils', 'Lager', '0,5 l', '0.5 l', 4.5, 'beer', true, { becher: true }],
-  ['radler', KAT_GETRAENKE, 'Radler', 'Shandy', '0,5 l', '0.5 l', 4.0, 'beer', false, { becher: true }],
-  ['schorle', KAT_GETRAENKE, 'Apfelschorle', 'Apple spritzer', '0,5 l', '0.5 l', 3.5, 'bottle', true, { becher: true }],
-  ['cola', KAT_GETRAENKE, 'Cola', 'Cola', '0,33 l', '0.33 l', 3.0, 'soda', false, {}],
-  ['wasser', KAT_GETRAENKE, 'Wasser', 'Water', '0,5 l', '0.5 l', 2.5, 'water', false, {}],
-  ['wein', KAT_GETRAENKE, 'Weinschorle', 'Wine spritzer', '0,25 l', '0.25 l', 4.0, 'wine', false, { becher: true }],
-  ['kaffee', KAT_GETRAENKE, 'Kaffee', 'Coffee', 'Tasse', 'Cup', 2.5, 'coffee', false, {}],
-  ['bratwurst', KAT_SPEISEN, 'Bratwurst', 'Bratwurst', 'im Brötchen', 'in a bun', 4.0, 'sausage', true, { optionen: 'wurst' }],
-  ['currywurst', KAT_SPEISEN, 'Currywurst', 'Currywurst', 'mit Soße', 'with sauce', 4.5, 'sausage', false, { optionen: 'beilage' }],
-  ['pommes', KAT_SPEISEN, 'Pommes', 'Fries', 'Portion', 'Portion', 3.5, 'fries', true, { optionen: 'sosse' }],
-  ['steak', KAT_SPEISEN, 'Steak im Weck', 'Steak sandwich', 'Schweinenacken', 'Pork neck', 6.5, 'flame', false, { optionen: 'zutaten' }],
-  ['kuchen', KAT_SPEISEN, 'Kuchen', 'Cake', 'Stück', 'Slice', 3.0, 'cake', false, { bestand: 3 }],
-  ['eis', KAT_SPEISEN, 'Eis', 'Ice cream', 'Kugel', 'Scoop', 2.0, 'icecream', false, {}],
+  ['pils', KAT_GETRAENKE, 'Pils', 'Lager', '0,5 l', '0.5 l', 4.5, 'pils', true, { becher: true }],
+  ['radler', KAT_GETRAENKE, 'Radler', 'Shandy', '0,5 l', '0.5 l', 4.0, 'radler', false, { becher: true }],
+  ['schorle', KAT_GETRAENKE, 'Apfelschorle', 'Apple spritzer', '0,5 l', '0.5 l', 3.5, 'apfelschorle', true, { becher: true }],
+  ['cola', KAT_GETRAENKE, 'Cola', 'Cola', '0,33 l', '0.33 l', 3.0, 'cola', false, {}],
+  ['wasser', KAT_GETRAENKE, 'Wasser', 'Water', '0,5 l', '0.5 l', 2.5, 'wasser', false, {}],
+  ['wein', KAT_GETRAENKE, 'Weinschorle', 'Wine spritzer', '0,25 l', '0.25 l', 4.0, 'weinschorle', false, { becher: true }],
+  ['kaffee', KAT_GETRAENKE, 'Kaffee', 'Coffee', 'Tasse', 'Cup', 2.5, null, false, {}],
+  ['bratwurst', KAT_SPEISEN, 'Bratwurst', 'Bratwurst', 'im Brötchen', 'in a bun', 4.0, 'grillwurst-brot', true, { optionen: 'wurst' }],
+  ['currywurst', KAT_SPEISEN, 'Currywurst', 'Currywurst', 'mit Soße', 'with sauce', 4.5, 'currywurst', false, { optionen: 'beilage' }],
+  ['pommes', KAT_SPEISEN, 'Pommes', 'Fries', 'Portion', 'Portion', 3.5, 'pommes', true, { optionen: 'sosse' }],
+  ['steak', KAT_SPEISEN, 'Steak im Weck', 'Steak sandwich', 'Schweinenacken', 'Pork neck', 6.5, 'steak-brot', false, { optionen: 'zutaten' }],
+  ['kuchen', KAT_SPEISEN, 'Kuchen', 'Cake', 'Stück', 'Slice', 3.0, null, false, { bestand: 3 }],
+  ['eis', KAT_SPEISEN, 'Eis', 'Ice cream', 'Kugel', 'Scoop', 2.0, null, false, {}],
 ];
 
 const OPTIONEN = {
@@ -103,7 +105,7 @@ function produkte(sprache, eventId) {
     price: preis.toFixed(2),
     taxRate: 0,
     imageUrl: null,
-    icon: `oe:${icon}`,
+    icon: icon ? `pos-icon:${icon}` : null,
     isFavorite: fav,
     isActive: true,
     isAvailable: true,
@@ -288,7 +290,7 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
           const antwort = await route.fetch();
           const daten = await antwort.json();
           for (const k of daten.data) {
-            if (k.id === KAT_GETRAENKE) Object.assign(k, { name: t.getraenke, icon: 'oe:beer' });
+            if (k.id === KAT_GETRAENKE) Object.assign(k, { name: t.getraenke, icon: 'oe:soda' });
             if (k.id === KAT_SPEISEN) Object.assign(k, { name: t.speisen, icon: 'oe:utensils' });
           }
           return route.fulfill({ response: antwort, json: daten });

@@ -41,8 +41,6 @@ Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine sechsstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
 :::
 
-![Geräte-Registrierung](/img/screens/de/device-pair.png)
-
 Den Registrierungslink kannst du über **Kopieren** in die Zwischenablage übernehmen und z. B. per Nachricht an das Kassenpersonal verteilen.
 
 Im Freigabe-Dialog **„Gerät freigeben“** wählst du zusätzlich den **Gerätetyp** (Kasse oder Anzeige) aus – diese Auswahl wird direkt bei der Freigabe gespeichert. Kassen starten dabei automatisch im Modus „Bedienung“ (Tischservice), Displays starten als Kundendisplay. Beides kannst du später jederzeit unter **Geräte → Gerät → Einstellungen** anpassen.
@@ -55,7 +53,28 @@ Registrierte Geräte erscheinen in der Liste auf der Geräte-Seite. Dort behält
 Ein Gerät wird erst zur Kasse, wenn du es mit dem angezeigten Code **freigibst**. So verhinderst du, dass unbefugte Geräte Bestellungen erfassen.
 :::
 
-Unter **Geräte → Gerät → Einstellungen** änderst du jederzeit den Gerätetyp sowie – je nach Typ – den Bedienungsmodus einer Kasse („Bedienung“/„Theke“) oder den Display-Modus eines Displays.
+Unter **Geräte → Gerät → Einstellungen** änderst du jederzeit den Gerätetyp sowie – je nach Typ – die Einstellungen der Kasse oder den Display-Modus eines Displays.
+
+## Einstellungen einer Kasse
+
+![Einstellungen einer Kasse: Betriebsmodus, Standardbereich und PIN](/img/screens/de/device-settings.png)
+
+### Betriebsmodus {/* #betriebsmodus */}
+
+- **Bedienung** — die Kasse fragt vor jeder Bestellung nach dem Tisch, sofern die Veranstaltung mit Tischen arbeitet. Für Bedienungen, die mit Tablet oder Telefon von Tisch zu Tisch gehen.
+- **Feste Kasse** — keine Tischabfrage; alles wird an der Theke gebucht. Für Theke, Imbiss und Ausschank.
+
+Ob tatsächlich nach einem Tisch gefragt wird, entscheidet zusätzlich der Tischmodus der [Veranstaltung](./veranstaltungen.md#tische). Die Übersicht steht unter [Kasse](./kasse.md#start).
+
+### Standardbereich {/* #standardbereich */}
+
+Bei **Bedienung** kannst du der Kasse einen **Standardbereich** geben, etwa *Zelt A*. Die Kasse zeigt den Bereich dann im Kopf („Kasse 3 · Zelt A“) und öffnet ihn in der Tischliste und auf dem Tischplan zuerst. Hat der Bereich einen Tischplan, startet die Kasse beim ersten Mal mit der Karte. Ohne Standardbereich stehen die Bereiche in ihrer normalen Reihenfolge. Bereiche legst du unter [Tische](./tische.md) an.
+
+### PIN und Sperre {/* #pin-und-sperre */}
+
+Mit **PIN erforderlich** muss sich an der Kasse jede Person mit ihrer eigenen PIN anmelden. Die PINs (4 bis 6 Ziffern) verwaltest du je Mitglied unter [Mitglieder](./mitglieder.md). Die Kasse zeigt dann oben rechts, wer angemeldet ist, und mit dem Schloss daneben lässt sie sich sperren, ohne dass der Warenkorb verloren geht — siehe [Kasse](./kasse.md#pin-und-sperre).
+
+Ohne PIN ist die Kasse für jeden bedienbar, der das Gerät in der Hand hat.
 
 ## Kundendisplay
 

@@ -1,41 +1,45 @@
 ---
 sidebar_position: 4
-title: Organisation
-description: The organisation as the central container for events, products, and your team.
+title: Organization
+description: The organization as the central container for events, products, and your team.
 ---
 
-# Organisation
+# Organization
 
-In OpenEOS, everything belongs to an **organisation** — your club, event operator, or business. The organisation is the central container for your events, products, members, devices, and reports.
+In OpenEOS, everything belongs to an **organization** — your club, event operator, or business. The organization is the central container for your events, products, members, devices, and reports.
 
-In the top left of the sidebar you can see the name of your active organisation and your role (e.g. **Administrator**).
+In the top left of the sidebar you can see the name of your active organization and your role (e.g. **Administrator**).
 
-![Organisation settings](/img/screens/en/settings-organisation.png)
+![Organization settings](/img/screens/en/settings-organisation.png)
 
-## Managing organisation details
+## Managing organization details
 
-You manage the name and other master data of your organisation under **Settings → Organization**. The organisation name appears on invoices and receipts, among other places, and can be changed at any time.
+You manage the name and other master data of your organization under **Settings → Organization**. The organization name appears on invoices and receipts, among other places, and can be changed at any time.
 
 ## Data model at a glance
 
-OpenEOS is structured hierarchically. This model helps you understand why some settings apply per event and others apply to the whole organisation:
+OpenEOS is structured hierarchically. This model helps you understand why some settings apply per event and others apply to the whole organization:
 
 ```
-Organisation (Musterverein e.V.)
+Organization (Riverside Sports Club)
 ├── Members & Permissions
-├── Devices (tills) & Printers
-└── Event (e.g. Sommerfest 2026)
+├── Devices (tills, displays) & Printers
+├── Areas & Tables
+├── Deposit types & Discount vouchers
+├── Shift plans
+├── Integrations (e.g. SumUp)
+└── Event (e.g. Summer Festival 2026)
     ├── Categories & Products
-    ├── Locations (Kitchen, Bar, Serving station)
-    ├── Deposits & Discount vouchers
+    ├── Stations (Kitchen, Bar, Serving area)
+    ├── Which tables are used
     ├── Orders
-    └── Stock management & Reports
+    └── Inventory & Reports
 ```
 
 :::tip
-**Devices, printers, and members** belong to the organisation and are available across all events. **Products, categories, locations, and orders**, on the other hand, each relate to a specific event.
+**Devices, printers, tables, deposit types, discount vouchers and members** belong to the organization and are available across all events. **Products, categories, stations, and orders**, on the other hand, each relate to a specific event. Which areas with tables an event uses is set in the [event](./veranstaltungen.md).
 :::
 
-## Multiple organisations
+## Multiple organizations
 
-Using the selector in the top left, you can switch between organisations — provided you are a member of more than one. Each organisation has its own data, members, and reports.
+Using the selector in the top left, you can switch between organizations — provided you are a member of more than one. You can also create another one there via **New organization**. Each organization has its own data, members, and reports.

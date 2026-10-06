@@ -1,13 +1,13 @@
 ---
 sidebar_position: 3
 title: Initial setup
-description: Create the administrator and the organisation, and enable the first event.
+description: Create the administrator and the organization, and enable the first event.
 ---
 
 # Initial setup
 
 After the first start the installation is empty. The setup wizard creates
-the administrator and the organisation in a single step.
+the administrator and the organization in a single step.
 
 ## Opening the wizard
 
@@ -41,7 +41,7 @@ a mail server.
 ## What this account is allowed to do
 
 The administrator created this way manages the installation **completely**: the
-organisation, all events, devices, printers, members — and
+organization, all events, devices, printers, members — and
 additionally the technical areas (cleaning up the device list, assigning printers,
 unlocking locked-out users, viewing the log).
 

@@ -23,19 +23,23 @@ OpenEOS ist hierarchisch aufgebaut. Dieses Modell hilft zu verstehen, warum manc
 ```
 Organisation (Musterverein e.V.)
 ├── Mitglieder & Berechtigungen
-├── Geräte (Kassen) & Drucker
+├── Geräte (Kassen, Anzeigen) & Drucker
+├── Bereiche & Tische
+├── Pfand-Typen & Rabatt-Bons
+├── Schichtpläne
+├── Integrationen (z. B. SumUp)
 └── Veranstaltung (z. B. Sommerfest 2026)
     ├── Kategorien & Produkte
     ├── Standorte (Küche, Bar, Ausgabe)
-    ├── Pfand & Rabatt-Bons
+    ├── Welche Tische genutzt werden
     ├── Bestellungen
     └── Inventur & Auswertung
 ```
 
 :::tip
-**Geräte, Drucker und Mitglieder** gehören zur Organisation und stehen über alle Veranstaltungen hinweg zur Verfügung. **Produkte, Kategorien, Standorte und Bestellungen** beziehen sich dagegen jeweils auf eine konkrete Veranstaltung.
+**Geräte, Drucker, Tische, Pfand-Typen, Rabatt-Bons und Mitglieder** gehören zur Organisation und stehen über alle Veranstaltungen hinweg zur Verfügung. **Produkte, Kategorien, Standorte und Bestellungen** beziehen sich dagegen jeweils auf eine konkrete Veranstaltung. Welche Bereiche mit Tischen eine Veranstaltung nutzt, stellst du in der [Veranstaltung](./veranstaltungen.md) ein.
 :::
 
 ## Mehrere Organisationen
 
-Über die Auswahl oben links kannst du – sofern du mehreren Organisationen angehörst – zwischen diesen wechseln. Jede Organisation hat ihre eigenen Daten, Mitglieder und Auswertungen.
+Über die Auswahl oben links kannst du – sofern du mehreren Organisationen angehörst – zwischen diesen wechseln. Dort legst du über **Neue Organisation** auch eine weitere an. Jede Organisation hat ihre eigenen Daten, Mitglieder und Auswertungen.

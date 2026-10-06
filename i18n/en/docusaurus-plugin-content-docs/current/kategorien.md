@@ -6,7 +6,7 @@ description: Structure your range — through the "Edit categories" dialog on th
 
 # Categories
 
-Categories structure your range. At the till they appear as the left-hand column; tapping one shows its products. Typical ones are *Drinks*, *Food*, *Cakes*.
+Categories structure your range. At the till they appear as the left-hand column (as a bar at the top on a phone); tapping one shows its products. Typical ones are *Drinks*, *Food*, *Cakes*. Above all categories the till shows **Favorites** as soon as you mark products as [favorites](./produkte.md#favoriten).
 
 :::info[No longer its own menu entry]
 Categories used to have their own entry in the navigation. They now live where they are needed: on the **products page**.
@@ -21,6 +21,10 @@ Categories used to have their own entry in the navigation. They now live where t
 ![The "Edit categories" dialog on the products page](/img/screens/en/categories-dialog.png)
 
 The order in the dialog is the order at the till. Put what sells most at the top — it saves your team a tap on every sale.
+
+## Icon
+
+Every category can have an **icon**: in a category's dialog the **Icon** field opens the same icon picker as for [products](./produkte.md#icons). The till shows the icon in the category bar and for every product in the category that has neither its own icon nor an image.
 
 ## Assigning a category
 

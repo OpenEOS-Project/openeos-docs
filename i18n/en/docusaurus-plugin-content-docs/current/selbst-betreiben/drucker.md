@@ -68,7 +68,7 @@ sudo systemctl status openeos-printer
 ```
 
 The agent registers with the server on its own. Then approve it in the
-dashboard under **Printers** and assign it to a location — the
+dashboard under **Printers** and assign it to a station — the
 process is the same as in the [Printers chapter](/drucker) of the manual.
 
 ## If nothing arrives
@@ -87,7 +87,7 @@ The most common causes, in this order:
 2. **Server not reachable** — check from the Pi:
    `curl http://192.168.1.50:3000/api/health`
 3. **Printer not approved** — take care of it in the dashboard under *Printers*.
-4. **No location assigned** — without an assignment, no job is created.
+4. **No station assigned** — without an assignment, no job is created.
 5. **Wrong USB IDs** — `lsusb` on the Pi shows the actual values.
 
 :::tip[Printer agent in a container]

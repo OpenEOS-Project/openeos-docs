@@ -8,7 +8,7 @@ description: Create further accounts — with and without your own mail server.
 
 In Single Organization mode there is **no self-registration**. Accounts are created via
 member management. There are two reasons for this: a registration would create
-another organisation every time, and it requires working email
+another organization every time, and it requires working email
 delivery — without that, the new account would remain unverified and thus
 permanently locked out.
 
@@ -37,7 +37,7 @@ second one and reports:
 > An account already exists for this email address. You can add it without an
 > initial password – its current password stays valid.
 
-Then click **Add existing account**. The account joins the organisation with
+Then click **Add existing account**. The account joins the organization with
 the selected role and permissions; the name and initial password from the
 form are not applied.
 
@@ -51,7 +51,7 @@ account directly** instead.
 
 On both tabs you choose:
 
-- the **Administrator** switch — may do everything in the organisation
+- the **Administrator** switch — may do everything in the organization
 - without the switch, a **member** — sees only the modules you enable
   individually under **Permissions**
   (Products, Events, Devices, Members, Shift Plans, Discount Vouchers,

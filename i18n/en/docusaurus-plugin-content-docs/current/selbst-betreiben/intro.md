@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Overview
-description: Run OpenEOS on your own server — free of charge, without billing, with one organisation.
+description: Run OpenEOS on your own server — free of charge, without billing, with one organization.
 ---
 
 # Self-hosting OpenEOS
@@ -30,14 +30,14 @@ working permanently without any outbound internet connection.
 ## What Single Organization mode can do — and what it cannot
 
 **Fully included:** tills, orders, products and categories,
-locations, deposit, discount vouchers, inventory, shift plans, members with
+stations, deposit, discount vouchers, inventory, shift plans, members with
 permissions, receipt printing via ESC/POS printers, customer and kitchen displays,
 reports and the online shop.
 
 **Not included**, because it belongs to the hosted service:
 
 - Billing, Stripe, invoices — there is simply nothing to pay
-- Several organisations side by side (exactly one per installation)
+- Several organizations side by side (exactly one per installation)
 - Rental hardware and the support chat with us
 - Self-registration — accounts are created via member management
 
@@ -60,7 +60,7 @@ Redis is **not** optional: the server does not start without a reachable Redis.
 ## Your path through this guide
 
 1. [Installation](./installation.md) — set up and start the server
-2. [Initial setup](./ersteinrichtung.md) — create the administrator and the organisation
+2. [Initial setup](./ersteinrichtung.md) — create the administrator and the organization
 3. [Creating users](./benutzer.md) — further accounts, with and without a mail server
 4. [Connecting printers](./drucker.md) — set up receipt printing
 5. [Operation](./betrieb.md) — backups, updates, troubleshooting

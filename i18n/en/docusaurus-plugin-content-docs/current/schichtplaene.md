@@ -6,7 +6,7 @@ description: Create shift plans, generate shifts, publish them, and let voluntee
 
 # Shift Plans
 
-With **Shift Plans** you organise the volunteers for your event. You create jobs (e.g. bar, grill, setup/teardown), generate shifts from them, and publish a **public volunteer link** that lets helpers sign themselves up for open slots.
+With **Shift Plans** you organize the volunteers for your event. You create jobs (e.g. bar, grill, setup/teardown), generate shifts from them, and publish a **public volunteer link** that lets helpers sign themselves up for open slots.
 
 You'll find this section under **Shift Plans** in the sidebar.
 
@@ -14,82 +14,92 @@ You'll find this section under **Shift Plans** in the sidebar.
 
 ## 1. Create a shift plan
 
-Click **New shift plan**. A wizard walks you through a few steps:
+Click **New Shift Plan**. A dialog walks you through three steps:
 
-1. **Event** – Optionally select the event this plan belongs to. Helpers will see the event name on the public page. You can also choose "No event (standalone plan)".
-2. **Name & Description** – e.g. "Volunteer schedule Summer Festival 2026". The description appears later on the public volunteer page.
-3. **Create** – the plan is created and opens in **Draft** status.
+1. **Event** – Optionally select the event this plan belongs to. Helpers then see the event date right away. You can also choose **No event (standalone plan)**.
+2. **Name & description** – "Helper schedule" with the event name is suggested. The description appears later on the public volunteer page.
+3. **Create** – review your input and create the plan. It starts with the status **Draft**.
 
-![Shift plan wizard: select event](/img/screens/en/shifts-dialog.png)
+![New shift plan: choose the event](/img/screens/en/shifts-dialog.png)
 
-The detail view of a plan has four tabs: **Jobs**, **Calendar**, **Registrations**, and **Settings**. The **Publish** button and **PDF Export** are in the top right.
+A plan has four tabs: **Jobs**, **Calendar**, **Registrations** and **Settings**. The actions sit at the top right as icons: while it is a draft **Publish** and **PDF Export**, once published **Copy Link**, **PDF Export** and **Close**.
 
 ## 2. Add jobs
 
-A **job** is a task or station that needs volunteers. Click **Add job**:
+A **job** is a task or station that needs helpers. In the **Jobs** tab, click **+** (**Add Job**):
 
-- **Job** – one job per line (e.g. `Bar`, `Grill`, `Setup/Teardown`); all are created at once.
-- **Description** – optional public description for volunteers.
-- **Helpers per shift** – default value for all shifts of this job (can be overridden per shift).
+- **Job** – one job per line (e.g. `Set-up`, `Tear-down`); all of them are created at once.
+- **Description** – optional public description for helpers.
+- **Helpers per shift** – default for all shifts of this job (can be overridden per shift).
 
 ![Add job](/img/screens/en/shift-work-dialog.png)
 
-Afterwards you see your jobs as a list — initially without any shifts.
+The jobs are then listed one below the other, each with its shifts and how full they are (e.g. **1 / 2**). The pencil edits a job, the calendar icon adds a single shift to it.
 
-![Jobs in the shift plan](/img/screens/en/shift-detail.png)
+![Jobs with shifts in the shift plan](/img/screens/en/shift-detail.png)
 
 ## 3. Generate shifts
 
-You can add time slots per job individually using the **calendar icon** — or generate shifts for all jobs at once with the **Shift Generator**:
+You can create shifts (time slots) for each job individually via the **calendar icon** — or for all jobs at once with the **Shift generator for all jobs** (the wand next to **+**). It has four steps:
 
-1. **Period** – start and end date (pre-filled if the plan is linked to an event).
-2. **Shift distribution** – shifts per day (e.g. 3 ≈ 4 hours per shift) and an optional **shift overlap** (handover buffer).
-3. **Preview & adjust** – you see all generated shifts per day and can deselect individual ones before confirming with **"Create X shifts for Y jobs"**.
+1. **Select Dates** – start and end date (pre-filled if an event is linked).
+2. **Set Time Window** – start and end of the daily operating hours, optionally with **Times per day**. If a shift ends before it starts, it runs past midnight.
+3. **Configure Shifts** – **Shifts per Day** (e.g. 2 ≈ 4 hours per shift) and an optional **Shift Overlap** for handover.
+4. **Preview & Adjust** – all generated shifts per day. Untick individual shifts or change their times before applying them with **"Create X shifts for Y jobs"**.
 
-![Shift generator](/img/screens/en/shift-generator.png)
+![Shift generator: preview](/img/screens/en/shift-generator.png)
 
-## 4. Registration settings & public link
+The **Calendar** tab then shows all jobs and days as an overview, with how full each shift is and the names of the helpers signed up.
 
-In the **Settings** tab you define how volunteers sign up and find the public link:
+## 4. Settings & public link
 
-- **Public link** – `https://app.openeos.de/s/<plan>`. Use **Copy link** to share it with volunteers; **Preview** opens the public page.
+The **Settings** tab contains:
+
+- **General** – name and description, as helpers see them on the public page.
+- **Public link** – `https://app.openeos.de/s/<plan>`. Use **Copy Link** to share it with helpers and **Preview** to open the public page.
 - **Registration settings**:
-  - **Approval required** – registrations must be confirmed by an admin.
-  - **Multiple shifts** – volunteers may sign up for more than one shift.
-  - **Max shifts per person** – upper limit (0 = unlimited).
-  - **Reminder** – send a reminder a set number of days before the shift.
-  - **Verification reminders** – sent to volunteers who have not yet confirmed their email.
+  - **Require Approval** – registrations must be approved by you.
+  - **Multiple Shifts** – helpers may sign up for more than one shift.
+  - **Max Shifts per Person** – upper limit (0 = unlimited).
+  - **Reminder** – how many days before the shift a reminder goes out.
+  - **Verification reminders** – remind helpers who have not confirmed their email yet; with **Interval (hours)** and **Maximum number of reminders**.
 
 ![Shift plan settings with public link](/img/screens/en/shift-settings.png)
 
 ## 5. Publish
 
-While the plan is in **Draft** status it is only visible internally. Click **Publish** in the top right to release it — the status changes to **Published** and the public link becomes active.
+While the plan has the status **Draft**, it is only visible internally. Click **Publish** (paper plane) at the top right to release it — the status changes to **Published** and the public link becomes active. Later, **Close** (padlock) stops accepting registrations.
 
 :::tip
-Publish only once your jobs and shifts are in place. You can still make changes afterwards at any time.
+Publish only once jobs and shifts are in place. You can still make changes afterwards at any time.
 :::
 
-## The public volunteer area
+## The public volunteer page
 
-Via the public link, volunteers reach a clear page — **without logging in** — showing your logo, the period, and all shifts. For each time slot they see how many places are still **available** per job (e.g. "2 / 2 free"). They can switch between **card view** and **list view**.
+Via the public link, helpers reach a clear page **without logging in**, showing your organization's name, the dates, your description and all shifts. For each time slot they see, per job, how many places are still **free** (e.g. "2 /2 free"). They can switch between **Cards** and **List**.
 
 ![Public volunteer page](/img/screens/en/public-helper.png)
 
-Volunteers select the shifts they want (overlapping shifts are automatically blocked). A bar shows the number of selected shifts and takes them to the next step with **Continue**.
+Helpers tap the shifts they want; shifts that overlap with a selected one are locked and marked **Overlap**. A bar at the bottom shows how many shifts are selected and leads on with **Continue**.
 
-![Shift selection by volunteer](/img/screens/en/public-select.png)
+![Shift selection by a helper](/img/screens/en/public-select.png)
 
-In the **Your details** step, the volunteer enters their **name** and **email** (plus optionally **phone** and **notes**) and clicks **Sign up**. They then receive a **confirmation email** for their registration.
+In the **Your Details** step the helper enters their **name** and **email** (and optionally **phone** and **notes**) and clicks **Register**. They then receive an email and confirm their address in it — only then does the registration count. Via **Manage my shifts** at the bottom of the page, helpers can later request a link to view and adjust their shifts.
 
 ![Volunteer registration form](/img/screens/en/public-contact.png)
 
 ## Managing registrations
 
-In the **Registrations** tab you see all incoming volunteer registrations. If "Approval required" is active, you confirm them here. Use **Add volunteer manually** to add someone to a shift yourself.
+The **Registrations** tab shows all incoming registrations, each helper with their shifts and a status:
 
-![Manage registrations](/img/screens/en/shift-anmeldungen.png)
+- **Email pending** – the helper has not confirmed their address yet. The tick (**Mark as verified**) skips this, for example if you know them personally.
+- **Approval pending** – only with **Require Approval**: decide with **Approve** or **Reject**.
+- **Confirmed** – all done.
+
+The filters at the top narrow the list. **Send to all** emails all helpers; each registration also offers **Edit**, **Send Message** and **Delete**. The person icon at the top right (**Add helper manually**) lets you sign someone up yourself — even without an email address.
+
+![Managing registrations](/img/screens/en/shift-anmeldungen.png)
 
 :::tip[Share early]
-Create and publish the shift plan in good time, then distribute the public link (e.g. via messenger or email) so enough volunteers can sign up. Via [permissions](./mitglieder.md) you can grant a shift supervisor access to the **Shift Plans** module only.
+Create and publish the shift plan in good time and share the public link (e.g. via messenger or email) so that enough helpers sign up. Using [permissions](./mitglieder.md) you can give a shift supervisor access to the **Shift Plans** module only.
 :::

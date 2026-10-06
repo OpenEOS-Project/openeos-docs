@@ -22,15 +22,35 @@ Products always belong to an event. If no event is active, the notice "No active
    - **Category** — assign the product to a [category](./kategorien.md)
    - **Description** — optional additional text (e.g. "Freshly tapped")
    - **Price** (required)
-3. Optional: upload an **image** or choose an **icon** from the icon library.
-4. Optional: use **+ Add group** to add option groups (e.g. "Side dish" with selectable options).
-5. Click **Create**.
+3. Optional: choose an **icon** or upload an **image** (see [Icons and images](#icons)).
+4. Optional: switch on **Favorite** so the product sits at the top of the till (see [Favorites](#favoriten)).
+5. Optional: use **+ Add group** to add option groups (e.g. "Side dish" with selectable options).
+6. Click **Create**.
 
 ![Create product](/img/screens/en/products-dialog.png)
 
 ## Product list
 
-The table shows the **Name**, **Category**, **Price**, **Stock**, and **Status** (e.g. *Available*) for each product. Use the action buttons at the end of each row to **edit** or **delete** a product.
+The table shows the **Name**, **Category**, **Price**, **Stock**, and **Status** (e.g. *Available*) for each product. Use the action buttons at the end of each row to **edit** or **delete** a product. The **star** in the row makes a product a favorite or removes it again.
+
+## Favorites {/* #favoriten */}
+
+Mark what sells most as a **Favorite** — with the star in the product list or the **Favorite** switch in the product dialog. At the top of the till a **Favorites** category then appears with exactly these products; it is selected when the till is first opened. That way beer, bratwurst and fries are one tap away, whatever category they are in.
+
+Without any favorites the category is not shown and the till starts with the first category. Favorites apply to all tills of the event.
+
+## Icons and images {/* #icons */}
+
+At the till every product has a small picture on its tile. There are two ways to set it:
+
+- **Choose icon** — opens the icon picker with line icons for food and drinks, payment and operations. The search finds icons by English or German terms, for example "beer", "fries" or "coffee".
+- **Upload image** — a photo of the product. It fills the icon area.
+
+If a product has both, the till shows the icon. If it has neither, it uses the icon of its [category](./kategorien.md). Products that still carry icons from earlier versions are automatically shown with the matching new icon.
+
+![Icon picker with search](/img/screens/en/products-icon-picker.png)
+
+For the second line of the tile the till uses the first line of the **description** — write "0.5 l" or "in a bun" there, for example.
 
 ## Stock tracking
 
@@ -57,7 +77,3 @@ Track stock primarily for products where the unit count matters (e.g. crates of 
 ## Importing products
 
 Instead of creating each product individually, you can use **Import** to load multiple products at once via a **CSV file**. In the import dialogue you map the columns of your file to the OpenEOS fields (name, price, category, etc.) and see a preview before the import is executed.
-
-:::tip[Icons and images]
-Products without a photo look much tidier at the till with a suitable **icon** from the library. Simply click **Choose icon** when creating a product.
-:::

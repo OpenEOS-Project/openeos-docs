@@ -39,7 +39,7 @@ Mit **Verbindung testen** prüfst du die Angaben, mit **Speichern** übernimmst 
 ## 3. Kartenleser koppeln
 
 1. Den Kartenleser einschalten und mit dem Internet verbinden. Er zeigt einen Kopplungscode an.
-2. Unter **Kartenleser** auf **Kartenleser koppeln** klicken, den Code eingeben und dem Gerät einen Namen geben, z. B. „Kasse Bar“.
+2. Unter **Kartenleser** auf **Leser koppeln** klicken, den Pairing-Code eingeben und dem Gerät einen Namen geben, z. B. „Kasse Bar“.
 3. Der Leser erscheint in der Liste. Dort kannst du ihn umbenennen oder wieder entfernen.
 
 ![Kartenleser koppeln](/img/screens/de/integrations-sumup-pair.png)

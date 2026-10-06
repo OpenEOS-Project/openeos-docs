@@ -6,7 +6,7 @@ description: Alle Bestellungen der Organisation überwachen, filtern und nachver
 
 # Bestellungen
 
-Unter **Bestellungen** siehst du alle Bestellungen deiner Organisation im Überblick – unabhängig davon, ob sie an der Kasse, am Tisch oder online aufgegeben wurden. Der Bereich dient der Live-Überwachung während des Betriebs und der Nachverfolgung einzelner Vorgänge.
+Unter **Bestellungen** siehst du alle Bestellungen deiner Organisation im Überblick – unabhängig davon, ob sie an der Kasse, am Tisch oder online aufgegeben wurden. Jede Zeile zeigt Nummer, Tisch (falls vorhanden), Kanal und Kasse, Artikel, Status, Zahlung, Betrag und Zeit. Der Bereich dient der Live-Überwachung während des Betriebs und der Nachverfolgung einzelner Vorgänge.
 
 ![Bestellübersicht](/img/screens/de/orders.png)
 
@@ -25,10 +25,10 @@ Am oberen Rand siehst du zusammengefasst:
 
 Über die Auswahlfelder filterst du die Liste nach:
 
-- **Status** – z. B. offen, bezahlt, storniert
-- **Zahlungen** – nach Zahlungsmethode
-- **Kanäle** – Kasse, Tisch, Online-Bestellung
-- **Events** – nach Veranstaltung
+- **Status** – offen, in Bearbeitung, fertig, abgeschlossen oder storniert
+- **Zahlungen** – unbezahlt, teilweise bezahlt, bezahlt oder erstattet
+- **Kanäle** – **Bedienung** (am Tisch), **Bon-Kasse** (an der Theke) oder **Online**
+- **Veranstaltungen** – nach Veranstaltung
 
 Mit der **Aktualisieren**-Schaltfläche lädst du die Liste neu.
 

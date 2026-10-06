@@ -91,7 +91,7 @@ Tapping the row opens the table.
 2. **Tap items** — each tap adds another one to the cart; the number on the tile shows how many. The magnifier at the top right **searches** all items.
 3. **Change quantities** — in the cart with **−** and **+**. At one piece the minus turns into a bin.
 
-Each tile shows the first line of the description under the name (e.g. "0.5 l") and the icon on the right. Small marks at the bottom right tell you the item has **options** or comes with a **deposit**. When stock runs low the tile says "3 left"; sold-out items are greyed out.
+Each tile shows the first line of the description under the name (e.g. "0.5 l") and the product picture (or the category icon) on the right. Small marks at the bottom right tell you the item has **options** or comes with a **deposit**. When stock runs low the tile says "3 left"; sold-out items are greyed out.
 
 ### Options and notes
 

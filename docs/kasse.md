@@ -91,7 +91,7 @@ Ein Tipp auf die Zeile öffnet den Tisch.
 2. **Artikel antippen** — jeder Tipp legt einen weiteren in den Warenkorb; die Zahl auf der Kachel zeigt, wie viele es sind. Die Lupe oben rechts **sucht** über alle Artikel.
 3. **Menge ändern** — im Warenkorb mit **−** und **+**. Bei einem Stück wird aus dem Minus ein Papierkorb.
 
-Auf den Kacheln steht unter dem Namen die erste Zeile der Beschreibung (etwa „0,5 l“), rechts das Icon. Kleine Zeichen unten rechts sagen: Der Artikel hat **Optionen**, oder es kommt **Pfand** dazu. Wird der Bestand knapp, steht „noch 3“ auf der Kachel; ausverkaufte Artikel sind ausgegraut.
+Auf den Kacheln steht unter dem Namen die erste Zeile der Beschreibung (etwa „0,5 l“), rechts das Produktbild bzw. das Icon der Kategorie. Kleine Zeichen unten rechts sagen: Der Artikel hat **Optionen**, oder es kommt **Pfand** dazu. Wird der Bestand knapp, steht „noch 3“ auf der Kachel; ausverkaufte Artikel sind ausgegraut.
 
 ### Optionen und Notizen
 

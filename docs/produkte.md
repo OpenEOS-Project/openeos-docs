@@ -22,7 +22,7 @@ Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint 
    - **Kategorie** – Zuordnung zu einer [Kategorie](./kategorien.md)
    - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft“)
    - **Preis** (Pflicht)
-3. Optional: Wähle ein **Icon** oder lade ein **Bild hoch** (siehe [Icons und Bilder](#icons)).
+3. Optional: Wähle ein **Produkt-Icon** oder lade ein **Bild hoch** (siehe [Icons und Bilder](#icons)).
 4. Optional: Schalte **Favorit** ein, damit das Produkt an der Kasse ganz oben steht (siehe [Favoriten](#favoriten)).
 5. Optional: Füge über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
 6. Klicke auf **Erstellen**.
@@ -43,12 +43,12 @@ Gibt es keinen Favoriten, fehlt die Kategorie, und die Kasse beginnt mit der ers
 
 An der Kasse hat jedes Produkt ein kleines Bild in der Kachel. Dafür gibt es zwei Wege:
 
-- **Icon wählen** — öffnet die Icon-Auswahl mit Linien-Icons für Speisen und Getränke, Zahlung und Betrieb. Über die Suche findest du ein Icon mit deutschen oder englischen Begriffen, zum Beispiel „Bier“, „Pommes“ oder „Kaffee“.
+- **Produkt-Icon wählen** — öffnet die Auswahl mit farbigen Produktbildern: Bier, Radler, Wein und Schorlen, Softdrinks als Glas oder Flasche, Wurst, Steak, Burger, Pommes, Crêpes und mehr. Ohne Suche stehen sie nach Getränken und Speisen geordnet; die Suche findet sie mit deutschen oder englischen Begriffen, zum Beispiel „Pils“, „Bratwurst“ oder „fries“.
 - **Bild hochladen** — ein Foto des Produkts. Es füllt die Fläche des Icons aus.
 
-Hat ein Produkt beides, zeigt die Kasse das Icon. Hat es keines von beiden, übernimmt sie das Icon seiner [Kategorie](./kategorien.md). Produkte, die noch Icons aus früheren Versionen haben, werden automatisch mit dem passenden neuen Icon angezeigt.
+Hat ein Produkt beides, zeigt die Kasse das Produkt-Icon. Hat es keines von beiden, übernimmt sie das Icon seiner [Kategorie](./kategorien.md) — für Kaffee oder Kuchen etwa, für die es kein eigenes Produktbild gibt. Produkte, die noch ein Icon aus der Vorversion haben, zeigt die Kasse mit dem passenden Produktbild (etwa Bier als Pils, Bratwurst als Grillwurst im Brötchen) oder, wenn es keins gibt, mit dem Icon der Kategorie.
 
-![Icon-Auswahl mit Suche](/img/screens/de/products-icon-picker.png)
+![Auswahl der Produkt-Icons](/img/screens/de/products-icon-picker.png)
 
 Für die zweite Zeile der Kachel nimmt die Kasse die erste Zeile der **Beschreibung** — schreib dort zum Beispiel „0,5 l“ oder „im Brötchen“.
 

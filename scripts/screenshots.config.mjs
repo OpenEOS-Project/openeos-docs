@@ -688,7 +688,7 @@ export const AUFNAHMEN = [
     async vorbereiten(seite) {
       await seite.getByRole('button', { name: /^(Bearbeiten|Edit)$/ }).first().click();
       await seite.waitForTimeout(1000);
-      await seite.getByRole('button', { name: /Icon wählen|Icon ändern|Choose icon|Change icon/i }).first().click();
+      await seite.getByRole('button', { name: /Produkt-Icon (wählen|ändern)|(Choose|Change) product icon/i }).first().click();
       await seite.waitForTimeout(800);
     },
   },

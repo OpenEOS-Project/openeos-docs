@@ -1,12 +1,12 @@
 ---
 sidebar_position: 13
 title: Orders
-description: Monitor, filter, and track all orders in your organisation.
+description: Monitor, filter, and track all orders in your organization.
 ---
 
 # Orders
 
-Under **Orders** you get an overview of all orders in your organisation — regardless of whether they were placed at the point of sale, at a table, or online. The section is used for live monitoring during operations and for tracing individual transactions.
+Under **Orders** you get an overview of all orders in your organization — regardless of whether they were placed at the till, at a table, or online. Each row shows number, table (if any), channel and till, items, status, payment, amount and time. The section is used for live monitoring during operations and for tracing individual transactions.
 
 ![Orders overview](/img/screens/en/orders.png)
 
@@ -25,9 +25,9 @@ At the top you see a summary of:
 
 Use the filter controls to narrow the list by:
 
-- **Status** – e.g. open, paid, cancelled
-- **Payments** – by payment method
-- **Channels** – POS, table, online order
+- **Status** – open, in progress, ready, completed or cancelled
+- **Payments** – unpaid, partly paid, paid or refunded
+- **Channels** – **Table service**, **Counter** or **Online**
 - **Events** – by event
 
 Use the **Refresh** button to reload the list.

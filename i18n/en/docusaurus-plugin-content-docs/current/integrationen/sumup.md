@@ -32,14 +32,14 @@ On the **SumUp** page:
 - **Merchant code** – your SumUp merchant code (e.g. `MXXXXXXXX`).
 - **Affiliate key** and **App ID** – optional, only for terminal checkout via the Solo Cloud API.
 
-**Test connection** checks the details, **Save** stores them. Saved keys are only shown shortened afterwards (`****1234`).
+**Test Connection** checks the details, **Save** stores them. Saved keys are only shown shortened afterwards (`****1234`).
 
 ![SumUp settings](/img/screens/en/integrations-sumup.png)
 
 ## 3. Pair a card reader
 
 1. Switch the reader on and connect it to the internet. It shows a pairing code.
-2. Under **Card readers**, click **Pair card reader**, enter the code and give the device a name, e.g. "Bar till".
+2. Under **Card Readers**, click **Pair Reader**, enter the pairing code and give the device a name, e.g. "Bar till".
 3. The reader appears in the list, where you can rename or remove it.
 
 ![Pair a card reader](/img/screens/en/integrations-sumup-pair.png)
@@ -56,6 +56,6 @@ Once SumUp is active and a card reader is paired, the [till](../kasse.md) offers
 
 :::tip[Card payment not working?]
 - Is the integration marked **Active** under **Integrations**?
-- Does **Test connection** succeed? If not, enter the API key again.
+- Does **Test Connection** succeed? If not, enter the API key again.
 - Is the card reader switched on, online and listed as paired?
 :::

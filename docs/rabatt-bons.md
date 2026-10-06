@@ -15,14 +15,18 @@ Du findest den Bereich über **Rabatt-Bons** in der Seitenleiste.
 ## Rabatt-Bon erstellen
 
 1. Klicke auf **Rabatt-Bon erstellen**.
-2. Lege den Bon mit Bezeichnung und Rabattwert an.
-3. Speichere den Bon – er steht anschließend an der Kasse zur Auswahl.
+2. Gib einen **Namen** ein (z. B. „Helfer-Bon“) und optional eine Beschreibung.
+3. Wähle die **Art**:
+   - **Fester Betrag** – der eingetragene Betrag wird an der Kasse abgezogen.
+   - **Betrag bei Einlösung** – das Kassenpersonal gibt den Betrag beim Einlösen ein, etwa bei Gutscheinen mit aufgedrucktem Wert.
+4. Lass **Aktiv** an – nur aktive Bons sind an der Kasse auswählbar. Mit **Mehrfach pro Bestellung** darf derselbe Bon mehrmals auf eine Bestellung angewendet werden.
+5. Klicke auf **Erstellen**.
 
 ![Rabatt-Bon erstellen](/img/screens/de/discounts-dialog.png)
 
 ## Einlösen an der Kasse
 
-Beim Abschluss einer Bestellung wählt das Kassenpersonal den passenden Rabatt-Bon aus. Der Rabatt wird auf die Bestellung angerechnet und erscheint später in der [Auswertung](./auswertung.md).
+Rabatt-Bons wählt das Kassenpersonal im Kassieren-Fenster unter der Zahlart **Rabatt**. Der Rabatt wird auf die Bestellung angerechnet und erscheint später in der [Auswertung](./auswertung.md). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#kassieren).
 
 :::tip[Typische Anwendungsfälle]
 Rabatt-Bons eignen sich z. B. für Helferbons, Sponsoren-Gutscheine oder Sonderaktionen während des Festes.

@@ -13,20 +13,21 @@ This manual guides you through the application step by step — from registratio
 
 ## What you can do with OpenEOS
 
-- **Create events** and manage products, prices, and locations per event
+- **Create events** and manage products, prices, and stations per event
 - **Set up tills** on smartphones and tablets — no specialist hardware required
+- **Tables** laid out as a floor plan, opened, served and settled at the till
 - **Accept orders**, process payments, and forward them to the kitchen or serving station
 - **Manage deposits** — issue and collect deposit items at the till
 - **Print receipts** via ESC/POS printers with your own templates
 - **Export reports** on revenue, top products, and payment methods
-- **Organise your team and shifts** and assign permissions per module
+- **Organize your team and shifts** and assign permissions per module
 
 ## How this handbook is arranged
 
 The handbook is a path, not a reference. Work through the chapters once from top to bottom and you end up with a running system:
 
-1. **Account and organisation** – register, sign in, create your club.
-2. **Creating an event** – set up the event, enter your range, define locations. This is also where **what it costs** is explained, and how to test for free beforehand.
+1. **Account and organization** – register, sign in, create your club.
+2. **Creating an event** – set up the event, enter your range, define stations and tables. This is also where **what it costs** is explained, and how to test for free beforehand.
 3. **Devices and screens** – connect tills, set up displays, attach printers.
 4. **On the day** – sell, and keep an eye on orders.
 5. **After the event** – report and settle.

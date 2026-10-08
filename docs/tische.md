@@ -17,7 +17,7 @@ Bereiche und Tische gehören zur **Organisation**, nicht zu einer Veranstaltung.
 ![Die Seite „Tische“ mit Bereich, Werkzeugleiste und Tischplan](/img/screens/de/tables.png)
 
 1. **Bereiche** — jeder Bereich hat einen eigenen Reiter und eine eigene Karte. Daneben legst du mit **Bereich hinzufügen** weitere an.
-2. **Werkzeugleiste** — Tische und Deko hinzufügen, eine Serie anlegen, Raster und Einrasten schalten.
+2. **Werkzeugleiste** — Tische und Deko hinzufügen, eine Serie anlegen, Wände, Zonen und die Raumform zeichnen, Raster und Einrasten schalten.
 3. **Tischplan** — hier ziehst du Tische an ihren Platz.
 4. **Speicherstatus** und der Umschalter **Karte | Liste**.
 
@@ -62,7 +62,7 @@ Einen Tisch `12` kann es nur einmal geben — nicht in Zelt A und im Biergarten 
 
 ## Den Tischplan gestalten {/* #tischplan */}
 
-![Ein ausgewählter Tisch mit Eigenschaften rechts](/img/screens/de/tables-editor.png)
+![Tischplan mit Wänden, Zonen und Raumform; ein ausgewählter Tisch mit Eigenschaften rechts](/img/screens/de/tables-editor.png)
 
 Tippe oder klicke einen Tisch an, um ihn auszuwählen. Rechts erscheinen seine **Eigenschaften**:
 
@@ -78,7 +78,21 @@ Auf der Karte selbst gilt:
 
 - **Ziehen** verschiebt einen Tisch. Mit eingeschaltetem **Einrasten** springt er auf das Raster, das hält Reihen gerade.
 - Der **Griff unten rechts** ändert die Größe.
-- **Deko** fügt *Theke*, *Wand*, *Bühne* oder eine *Beschriftung* (z. B. „Eingang“) hinzu. Deko hilft dem Team, sich auf der Karte zurechtzufinden; an der Kasse kann man sie nicht antippen.
+- **Deko** fügt *Theke*, *Bühne* oder eine *Beschriftung* (z. B. „Eingang“) hinzu. Deko hilft dem Team, sich auf der Karte zurechtzufinden; an der Kasse kann man sie nicht antippen.
+
+### Wände, Zonen und Raumform {/* #waende-zonen */}
+
+Damit der Plan aussieht wie dein Zelt oder Saal, zeichnest du in der Werkzeugleiste unter **Zeichnen**:
+
+- **Wand** — als Linienzug: Tippe oder klicke Punkt für Punkt, auch um Ecken herum. Ein Doppelklick oder **Fertig** beendet die Wand, die Rücktaste nimmt den letzten Punkt zurück, Esc bricht ab. Ausgewählt stellst du rechts die **Stärke** ein.
+- **Zone** — eine Fläche mit Typ: **Küche**, **Gesperrter Bereich**, **Bar/Theke** oder **Sonstiges**. Du setzt mindestens drei Punkte und beendest mit Doppelklick, einem Tipp auf den ersten Punkt oder **Fertig**. Rechts änderst du **Typ** und **Beschriftung**. Zonen sind nur Darstellung — Tische gehören nicht zu einer Zone.
+- **Raumform** — der Umriss des Raums. Ohne Raumform ist die ganze Karte ein Rechteck. Du ziehst die Ecken an ihren Platz und fügst an den Kantenmitten neue Punkte ein, etwa für einen L-förmigen Saal. Außerhalb ist die Karte grau schraffiert. **Auf Rechteck zurücksetzen** macht das rückgängig.
+
+Beim Zeichnen rasten Punkte am Raster und an Winkeln von 0, 45 und 90 Grad ein, solange **Einrasten** an ist. Einen ausgewählten Punkt oder ein ganzes Element löschst du mit Entf.
+
+Gesperrte Bereiche sind schraffiert. Liegt ein Tisch **außerhalb der Raumform** oder **in einem gesperrten Bereich**, wird er markiert, und über der Karte steht zum Beispiel „Tisch A12 liegt außerhalb der Raumform oder in einem gesperrten Bereich. Die Kasse bietet ihn trotzdem an.“ Neue Tische setzt der Editor von selbst auf eine freie Stelle innerhalb des Raums.
+
+An der Kasse zeigt die [Karte](./kasse.md#karte) Wände, Zonen und Raumform genauso; antippen lässt sich dort nur ein Tisch.
 
 ### Mit der Tastatur
 
@@ -86,9 +100,9 @@ Auf der Karte selbst gilt:
 |---|---|
 | Pfeiltasten | Ausgewählten Tisch um ein Raster verschieben |
 | Umschalt + Pfeiltaste | Um fünf Raster verschieben |
-| Entf | Löschen (mit Rückfrage) |
+| Entf | Löschen (mit Rückfrage); beim Zeichnen den gewählten Punkt |
 | Strg + D (Mac: Cmd + D) | Duplizieren |
-| Esc | Auswahl aufheben |
+| Esc | Auswahl aufheben bzw. Zeichnen abbrechen |
 
 ### Speichern
 
@@ -109,12 +123,12 @@ Willst du einen Tisch nur vorübergehend aus der Kasse nehmen, schalte ihn auf *
 
 ## Am Telefon
 
-Die Karte bearbeitest du am Tablet oder PC. Auf einem schmalen Bildschirm zeigt die Seite die **Liste** und darunter eine Vorschau der Karte mit dem Hinweis „Karte am Tablet oder PC bearbeiten“. Tische anlegen, umbenennen, eine Serie anlegen und löschen geht auch dort.
+Die Karte bearbeitest du am Tablet oder PC. Auf einem schmalen Bildschirm zeigt die Seite die **Liste** und darunter eine Vorschau der Karte mit Wänden und Zonen und dem Hinweis „Karte am Tablet oder PC bearbeiten“. Tische anlegen, umbenennen, eine Serie anlegen und löschen geht auch dort.
 
 <img src="/img/screens/de/tables-phone.png" alt="Die Seite „Tische“ auf dem Telefon: Liste und darunter die Vorschau der Karte" width="320" />
 
 ## Wie es weitergeht
 
 1. In der [Veranstaltung](./veranstaltungen.md#tische) **Vordefinierte Tische** wählen und die Bereiche freigeben.
-2. Optional jeder Kasse unter [Geräte](./geraete.md#standardbereich) einen **Standardbereich** geben — dann öffnet sie diesen Bereich zuerst.
+2. Optional jeder Kasse unter [Geräte](./geraete.md#standardbereich) einen **Standardbereich** und die [Tischwahl](./geraete.md#tischwahl) (Nummer, Liste oder Karte) geben.
 3. An der [Kasse](./kasse.md#tisch-oeffnen) einen Tisch öffnen.

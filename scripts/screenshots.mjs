@@ -279,6 +279,12 @@ async function main() {
     // Geräteansichten: je Aufnahme ein frischer Kontext ohne Anmeldung.
     for (const eintrag of GERAETE_AUFNAHMEN) {
       if (nurDiese && !nurDiese.has(eintrag.datei)) continue;
+      /* Aufnahmen, die auf Staging etwas anlegen würden (Kopplungsseite),
+         laufen nur gegen eine lokale Oberfläche. */
+      if (eintrag.nurLokal && !/^https?:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/.test(BASIS)) {
+        console.log(`    ${eintrag.datei}.png übersprungen (nur lokal, APP_URL=http://localhost:…)`);
+        continue;
+      }
       const { kontext: geraeteKontext, ansicht } = await neuerKontext(browser, sprache, eintrag.ansicht);
       try {
         const geraeteSeite = await geraeteKontext.newPage();
@@ -289,16 +295,17 @@ async function main() {
         await geraeteSeite.evaluate((e) => {
           localStorage.clear();
           if (e.ohneToken) return;
-          // Version 2 des Gerätespeichers (Tischkontext und Startansicht).
+          /* Version 3 des Gerätespeichers: Tischkontext ja, Startansicht
+             nein — die Tischwahl steht seit 1.6 in den Geräteeinstellungen
+             (`settings.tableSelectView`) und kommt über die Routen. */
           localStorage.setItem('openeos-device', JSON.stringify({
             state: {
               deviceId: 'doku', deviceToken: e.token, status: 'verified',
               deviceClass: e.geraeteklasse, verificationCode: null,
               settings: e.einstellungen ?? {},
               table: e.tisch ?? null,
-              startView: e.startansicht ?? null,
             },
-            version: 2,
+            version: 3,
           }));
           for (const [schluessel, wert] of Object.entries(e.speicher ?? {})) {
             localStorage.setItem(schluessel, JSON.stringify(wert));
@@ -308,7 +315,6 @@ async function main() {
           token: eintrag.token,
           geraeteklasse: eintrag.geraeteklasse,
           einstellungen: eintrag.einstellungen,
-          startansicht: eintrag.startansicht,
           tisch: eintrag.tisch,
           speicher: typeof eintrag.speicher === 'function' ? eintrag.speicher(sprache.code) : eintrag.speicher,
         });

@@ -14,19 +14,19 @@ You'll find this section under **Shift Plans** in the sidebar.
 
 ## 1. Create a shift plan
 
-Click **New Shift Plan**. A dialog walks you through three steps:
+Click **Create shift plan** (at the top of the list of shift plans). A dialog walks you through three steps:
 
 1. **Event** – Optionally select the event this plan belongs to. Helpers then see the event date right away. You can also choose **No event (standalone plan)**.
 2. **Name & description** – "Helper schedule" with the event name is suggested. The description appears later on the public volunteer page.
 3. **Create** – review your input and create the plan. It starts with the status **Draft**.
 
-![New shift plan: choose the event](/img/screens/en/shifts-dialog.png)
+![Create shift plan: choose the event](/img/screens/en/shifts-dialog.png)
 
-A plan has four tabs: **Jobs**, **Calendar**, **Registrations** and **Settings**. The actions sit at the top right as icons: while it is a draft **Publish** and **PDF Export**, once published **Copy Link**, **PDF Export** and **Close**.
+The top of the page shows the plan's name, status and event, with the back button on the left. The actions sit on the right as labelled buttons: while it is a draft **PDF Export** and **Publish**, once published **Copy Link**, **PDF Export** and **Close plan**. Below, the plan has four tabs: **Jobs**, **Calendar**, **Registrations** and **Settings**.
 
 ## 2. Add jobs
 
-A **job** is a task or station that needs helpers. In the **Jobs** tab, click **+** (**Add Job**):
+A **job** is a task or station that needs helpers. In the **Jobs** tab, click **Add Job**:
 
 - **Job** – one job per line (e.g. `Set-up`, `Tear-down`); all of them are created at once.
 - **Description** – optional public description for helpers.
@@ -40,7 +40,7 @@ The jobs are then listed one below the other, each with its shifts and how full 
 
 ## 3. Generate shifts
 
-You can create shifts (time slots) for each job individually via the **calendar icon** — or for all jobs at once with the **Shift generator for all jobs** (the wand next to **+**). It has four steps:
+You can create shifts (time slots) for each job individually via the **calendar icon** — or for all jobs at once with the **Shift generator** (next to **Add Job**). It has four steps:
 
 1. **Select Dates** – start and end date (pre-filled if an event is linked).
 2. **Set Time Window** – start and end of the daily operating hours, optionally with **Times per day**. If a shift ends before it starts, it runs past midnight.
@@ -68,7 +68,7 @@ The **Settings** tab contains:
 
 ## 5. Publish
 
-While the plan has the status **Draft**, it is only visible internally. Click **Publish** (paper plane) at the top right to release it — the status changes to **Published** and the public link becomes active. Later, **Close** (padlock) stops accepting registrations.
+While the plan has the status **Draft**, it is only visible internally. Click **Publish** at the top right to release it — the status changes to **Published** and the public link becomes active. Later, **Close plan** stops accepting registrations.
 
 :::tip
 Publish only once jobs and shifts are in place. You can still make changes afterwards at any time.
@@ -96,7 +96,7 @@ The **Registrations** tab shows all incoming registrations, each helper with the
 - **Approval pending** – only with **Require Approval**: decide with **Approve** or **Reject**.
 - **Confirmed** – all done.
 
-The filters at the top narrow the list. **Send to all** emails all helpers; each registration also offers **Edit**, **Send Message** and **Delete**. The person icon at the top right (**Add helper manually**) lets you sign someone up yourself — even without an email address.
+The filters at the top narrow the list. **Send to all** emails all helpers; each registration also offers **Edit**, **Send Message** and **Delete**. **Add helper manually** at the top right lets you sign someone up yourself — even without an email address.
 
 ![Managing registrations](/img/screens/en/shift-anmeldungen.png)
 

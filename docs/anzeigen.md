@@ -22,8 +22,8 @@ Beide brauchen nur einen Browser und Strom. Tastatur, Zugangsdaten oder eine Ins
 Der Weg ist derselbe wie bei einer Kasse — das Gerät zeigt eine Zahl, verknüpft wird sie in deinem Konto.
 
 1. Öffne auf dem Bildschirm **app.openeos.de** und wähle unten **Als Anzeige verwenden (Monitor)**.
-2. Der Bildschirm zeigt eine **sechsstellige Zahl** und darunter einen QR-Code.
-3. Melde dich an einem anderen Gerät bei OpenEOS an und geh auf **Geräte → Gerät verbinden**.
+2. Der Bildschirm zeigt eine **sechsstellige Zahl** am Stück und darunter einen QR-Code.
+3. Melde dich an einem anderen Gerät bei OpenEOS an, geh auf **Geräte** und klick in der Karte **Neues Gerät registrieren** auf **Gerät verbinden**.
 4. Gib die Zahl ein. Wer ein Telefon zur Hand hat, scannt stattdessen den QR-Code.
 
 ![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
@@ -38,7 +38,12 @@ An einem Fernseher hängt selten eine Tastatur, und das Kürzel der Organisation
 
 ## Aussehen festlegen
 
-Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige anklicken → Einstellungen**. Unter **Display-Einstellungen** wählst du den **Anzeigemodus** (Kundendisplay oder Stationsanzeige) und dazu die **Kasse** bzw. den **Standort**. Darunter folgt **Aussehen & Inhalt**:
+Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige anklicken → Einstellungen**. In der Gruppe **Anzeige** wählst du den **Anzeigemodus**. Direkt darunter erscheint, was dazugehört:
+
+- **Kundendisplay** — die **Kasse**, deren Warenkorb gezeigt wird.
+- **Stationsanzeige** — der **Standort** aus der aktiven Veranstaltung und **Erledigte ausblenden**: nach 10, 30 oder 60 Sekunden, oder **Stehen lassen**.
+
+Welche Kasse bzw. welcher Standort zugeordnet ist, siehst du auch in der **Übersicht** des Geräts in der Kachel **Verknüpft mit** bzw. **Standort**. Darunter folgt die Gruppe **Aussehen & Inhalt**:
 
 | Einstellung | Wirkung |
 |---|---|
@@ -47,7 +52,6 @@ Jede Anzeige wird einzeln eingestellt: **Geräte → Anzeige anklicken → Einst
 | **Kopfzeile** | Eigener Text in der Kopfzeile; leer bleibt der Name deines Vereins |
 | **Text im Ruhezustand** | Was im Leerlauf steht, etwa „Herzlich willkommen!“ |
 | **Logo anzeigen** | Blendet das Vereinslogo in der Kopfzeile ein oder aus |
-| **Erledigte ausblenden** | Nach wie vielen Sekunden eine abgeschlossene Bestellung verschwindet – oder **Stehen lassen** |
 
 Mit **Speichern** übernimmst du die Einstellungen. Änderungen erscheinen **sofort** auf dem Bildschirm. Du musst nicht hingehen und nichts neu laden.
 
@@ -59,11 +63,20 @@ Solange nichts kassiert wird, steht der Text im Ruhezustand da. Sobald an der zu
 
 ## Die Küchen- und Thekenanzeige im Betrieb
 
-![Stationsanzeige im Leerlauf](/img/screens/de/display-station.png)
+![Stationsanzeige mit offenen und erledigten Bestellungen](/img/screens/de/display-station.png)
 
 Neue Bestellungen erscheinen, sobald sie kassiert wurden. Gezeigt wird nur, was die jeweilige Station betrifft — die Küche sieht keine Getränke, wenn diese der Theke zugeordnet sind. Welches Produkt zu welcher Station gehört, legst du unter [Standorte](./standorte.md) fest.
 
-Bei einem **Touchscreen** tippt die Küche eine fertige Bestellung an und quittiert sie damit. Sie verschwindet dann aus der Liste. Ohne Touch verschwindet sie nach der eingestellten Zeit von selbst.
+Die Bestellungen stehen in zwei Spalten: **Bedienungen** (an den Tisch) und **Abholung**. Jede Karte ist gleich aufgebaut: oben die Nummer, bei Bedarf **Eilt** oder **Hoch**, und wie lange die Bestellung schon wartet; darunter, wohin sie geht — **Tisch A11**, **Abholung**, **To-go** oder **Theke**, dazu gegebenenfalls der Name des Gasts. Darunter folgen die Positionen mit Notizen.
+
+Bei einem **Touchscreen** tippt die Küche bei jeder Position auf **Fertig**, sobald sie raus kann:
+
+- Die Position wird sofort abgehakt und durchgestrichen; nur sie wartet kurz auf die Bestätigung, die anderen bleiben bedienbar.
+- Sind alle Positionen einer Karte fertig, wird die Karte grün und bekommt das Zeichen **Erledigt**.
+- Was danach passiert, legt **Erledigte ausblenden** fest: Nach der eingestellten Zeit verschwindet die Karte. Mit **Stehen lassen** rutscht sie nach fünf Sekunden in einen abgeschwächten Bereich **Erledigt** am Ende der Spalte; dort bleiben die letzten sechs stehen.
+- Klappt die Fertigmeldung nicht, etwa ohne Verbindung, erscheint oben ein Hinweis „Position nicht als fertig gemeldet“. Tippe dann noch einmal.
+
+Eine Fertigmeldung lässt sich an der Anzeige nicht zurücknehmen. Fertige Positionen erscheinen an der Kasse unter [Serviert](./kasse.md#serviert).
 
 ## Verbindung prüfen
 

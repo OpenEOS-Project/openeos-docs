@@ -256,6 +256,13 @@ export const AUFNAHMEN = [
   {
     datei: 'device-verify',
     pfad: '/devices/verify',
+    routen: schreibschutz,
+    // Nur eintragen, nicht suchen: der Code ist eine Attrappe.
+    async vorbereiten(seite) {
+      await seite.locator('input#code').first().fill('573080');
+      await seite.locator('h1, h2').first().click().catch(() => {});
+      await seite.waitForTimeout(300);
+    },
     hinweise: [
       { auf: '.verify-code-input, input#code', text: { de: 'Die Zahl vom Gerät hier eintragen', en: 'Enter the number shown on the device' } },
       { auf: 'button[type="submit"]', text: { de: 'Gerät suchen und freigeben', en: 'Find and approve the device' } },
@@ -463,11 +470,11 @@ export const AUFNAHMEN = [
     vorbereiten: (seite) => schichtplanOeffnen(seite),
     hinweise: [
       {
-        auf: ['[aria-label="Link kopieren"], [aria-label="Copy Link"]', '[aria-label="Schließen"], [aria-label="Close"]'],
-        text: { de: 'Link kopieren, PDF-Export, Plan schließen (vor dem Veröffentlichen: Veröffentlichen)', en: 'Copy link, PDF export, close plan (before publishing: Publish)' },
+        auf: ['button:has-text("Link kopieren"), button:has-text("Copy Link"), button:has-text("PDF Export")', 'button:has-text("Plan schließen"), button:has-text("Close plan"), button:has-text("Veröffentlichen"), button:has-text("Publish")'],
+        text: { de: 'Link kopieren, PDF Export, Plan schließen (im Entwurf: Veröffentlichen)', en: 'Copy link, PDF export, close plan (as a draft: Publish)' },
       },
       {
-        auf: ['[aria-label="Schicht-Generator für alle Arbeiten"], [aria-label="Shift generator for all jobs"]', '[aria-label="Arbeit hinzufügen"], [aria-label="Add Job"]'],
+        auf: ['button:has-text("Schicht-Generator"), button:has-text("Shift generator")', 'button:has-text("Arbeit hinzufügen"), button:has-text("Add Job")'],
         text: { de: 'Schicht-Generator für alle Arbeiten und Arbeit hinzufügen', en: 'Shift generator for all jobs and add job' } },
       { auf: '[aria-label="Schicht hinzufügen"], [aria-label="Add Shift"]', text: { de: 'Einzelne Schicht zu einer Arbeit hinzufügen', en: 'Add a single shift to a job' } },
     ],
@@ -478,7 +485,7 @@ export const AUFNAHMEN = [
     routen: schreibschutz,
     async vorbereiten(seite, { sprache }) {
       await schichtplanOeffnen(seite);
-      await seite.locator('[aria-label="Arbeit hinzufügen"], [aria-label="Add Job"]').first().click();
+      await seite.locator('button:has-text("Arbeit hinzufügen"), button:has-text("Add Job")').first().click();
       await seite.waitForTimeout(600);
       const dialog = seite.locator('.modal__box');
       await dialog.locator('textarea').nth(0).fill(sprache === 'en' ? 'Set-up\nTear-down' : 'Aufbau\nAbbau');
@@ -494,7 +501,7 @@ export const AUFNAHMEN = [
     routen: schreibschutz,
     async vorbereiten(seite) {
       await schichtplanOeffnen(seite);
-      await seite.locator('[aria-label="Schicht-Generator für alle Arbeiten"], [aria-label="Shift generator for all jobs"]').click();
+      await seite.locator('button[title="Schicht-Generator für alle Arbeiten"], button[title="Shift generator for all jobs"]').click();
       await seite.waitForTimeout(600);
       const datum = seite.locator('input[type="date"]');
       await datum.nth(0).fill('2026-09-13');
@@ -569,8 +576,8 @@ export const AUFNAHMEN = [
     hinweise: [
       { auf: '.tables-areas', text: { de: 'Bereiche als Reiter, daneben „Bereich hinzufügen“', en: 'Areas as tabs, next to them “Add area”' } },
       {
-        auf: ['.tables-toolbar__group >> nth=0', '.tables-toolbar__group >> nth=1'],
-        text: { de: 'Werkzeuge: Tisch, Runder Tisch, Serie, Deko, Raster und Einrasten', en: 'Tools: table, round table, series, decor, grid and snap' },
+        auf: ['.tables-toolbar__group >> nth=0', '.tables-toolbar__group >> nth=2'],
+        text: { de: 'Werkzeuge: Tisch, Runder Tisch, Serie, Deko; Wand, Zone, Raumform; Raster und Einrasten', en: 'Tools: table, round table, series, decor; wall, zone, room shape; grid and snap' },
       },
       { auf: '.tables-floor', text: { de: 'Der Tischplan des Bereichs', en: 'The floor plan of the area' } },
       {
@@ -589,9 +596,9 @@ export const AUFNAHMEN = [
       await seite.waitForTimeout(800);
     },
     hinweise: [
+      { auf: '.tables-toolbar__group >> nth=1', text: { de: 'Zeichnen: Wand (Linienzug), Zone, Raumform', en: 'Draw: wall (line), zone, room shape' } },
       { auf: '.oe-floor__table[aria-pressed="true"]', text: { de: 'Ausgewählter Tisch, Griff unten rechts ändert die Größe', en: 'Selected table, the handle bottom right resizes it' } },
       { auf: '.tables-inspector', text: { de: 'Eigenschaften des Tisches', en: 'Properties of the table' } },
-      { auf: '.tables-inspector .oe-field:has(.tables-inspector__row)', text: { de: 'Drehen in 15°-Schritten oder um 90°', en: 'Rotate in 15° steps or by 90°' } },
     ],
   },
   {
@@ -676,15 +683,19 @@ export const AUFNAHMEN = [
       await seite.waitForLoadState('networkidle');
       await seite.getByRole('button', { name: /^(Einstellungen|Settings)$/ }).first().click();
       await seite.waitForTimeout(1000);
-      // Standardbereich gibt es nur im Modus Bedienung; nur anwählen, nicht speichern.
+      /* Tische gibt es nur im Betrieb „Bedienung“; nur anwählen, nicht
+         speichern. Die Tischwahl wird für das Bild auf „Karte“ gestellt. */
       await seite.locator('input[name="serviceMode"][value="table"]').check();
-      await seite.locator('.app-card:has(input[name="serviceMode"])').evaluate((el) => el.scrollIntoView({ block: 'center' }));
+      await seite.locator('.device-settings__dependent select').nth(1).selectOption('map').catch(() => {});
+      await seite.locator('.app-card:has(input[name="serviceMode"])').evaluate((el) => el.scrollIntoView({ block: 'start' }));
+      await seite.evaluate(() => window.scrollBy(0, -16));
       await seite.waitForTimeout(400);
     },
     hinweise: [
-      { auf: ['input[name="serviceMode"][value="table"]', 'label:has(input[name="serviceMode"][value="counter"])'], text: { de: 'Betriebsmodus: Bedienung oder Feste Kasse', en: 'Service mode: table service or counter' } },
-      { auf: '.app-card:has(input[name="serviceMode"]) select', text: { de: 'Standardbereich, den die Kasse zuerst zeigt', en: 'Default area the POS shows first' } },
-      { auf: '.app-card:has-text("PIN") .app-card__body', text: { de: 'PIN erforderlich', en: 'PIN required' } },
+      { auf: ['input[name="serviceMode"][value="table"]', 'label:has(input[name="serviceMode"][value="counter"])'], text: { de: 'Betrieb: Bedienung oder Feste Kasse', en: 'Operation: table service or counter' } },
+      { auf: '.device-settings__dependent select >> nth=0', text: { de: 'Tische: Standardbereich, den die Kasse zuerst zeigt', en: 'Tables: default area the POS shows first' } },
+      { auf: '.device-settings__dependent select >> nth=1', text: { de: 'Tischwahl an der Kasse: Automatisch, Nummer, Liste oder Karte', en: 'Table selection on the POS: automatic, number, list or map' } },
+      { auf: '.app-card:has-text("PIN") .app-card__body', text: { de: 'Sicherheit: PIN erforderlich', en: 'Security: PIN required' } },
     ],
   },
   {

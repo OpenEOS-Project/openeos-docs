@@ -113,11 +113,34 @@ Die Schichtplan-Bilder brauchen den Plan **„Helfer Sommerfest 2026“**
 Die Tisch-Bilder brauchen den Bereich **„Zelt A“** mit den Tischen
 A01–A12 und das Gerät **„Testkasse“**.
 
-## Noch nicht erfasst
+## Kopplungsseite nur lokal
 
-Alle Bilder unter `static/img/screens/` kommen aus dem Skript — bis auf
-eins, und das bewusst:
+Alle Bilder unter `static/img/screens/` kommen aus dem Skript. Eine
+Aufnahme läuft aber nie gegen Staging:
 
 - `device-pair` — die Kopplungsseite meldet beim Laden ein neues Gerät an
   (`/device/pair` bzw. `/device/register`). Auf Staging soll dabei kein
-  Gerät entstehen; das Bild bleibt deshalb, wie es ist.
+  Gerät entstehen. Die Aufnahme ist deshalb `nurLokal` und wird gegen
+  Staging übersprungen. Aufnehmen gegen eine lokal gebaute Oberfläche
+  (openeos-web, `pnpm build`), deren API ins Leere zeigt; die Aufnahme
+  beantwortet `/devices/init` und `/devices/status` selbst und bricht
+  alles andere ab:
+
+```bash
+API_URL=http://127.0.0.1:3999/api node_modules/.bin/next start -p 3947   # in openeos-web
+APP_URL=http://localhost:3947 ZUGANG="x:y" node scripts/screenshots.mjs --nur device-pair
+```
+
+## Stationsanzeige
+
+`display-station` stellt die Bestellungen der Küche nach und meldet drei
+Positionen als fertig (ebenfalls nachgestellt). So zeigt das Bild eine
+grüne Karte „Erledigt“ und eine abgehakte Position. Der Gerätestatus kommt
+echt von Staging (Token der Testkasse), Typ und Einstellungen werden für
+die Aufnahme auf eine Stationsanzeige umgeschrieben.
+
+## Tischwahl an der Kasse
+
+Seit 1.6 legt die Geräteeinstellung `tableSelectView` fest, ob die Kasse
+Nummer, Liste oder Karte zeigt. Die Kassenbilder setzen sie über
+`kassenRouten({ tischwahl: 'number' | 'list' | 'map' })`.

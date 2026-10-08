@@ -19,11 +19,19 @@ const KAT_GETRAENKE = 'b954460c-1b5b-4a38-901f-704bdeaf5fd8';
 const KAT_SPEISEN = 'cbca10f9-b9e0-405a-bf56-4da938616940';
 const BECHER = 'pfd_doku_becher';
 
+/* Herkunft der Anfrage zurückgeben: Staging oder eine lokale Oberfläche. */
+const cors = (route) => ({
+  'access-control-allow-origin': route.request().headers().origin ?? 'https://app.staging.openeos.de',
+  'access-control-allow-credentials': 'true',
+  'access-control-allow-headers': '*',
+  'access-control-allow-methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+});
+
 const json = (route, data, status = 200) =>
   route.fulfill({
     status,
     contentType: 'application/json',
-    headers: { 'access-control-allow-origin': 'https://app.staging.openeos.de', 'access-control-allow-credentials': 'true' },
+    headers: cors(route),
     body: JSON.stringify({ data }),
   });
 
@@ -234,8 +242,10 @@ function offeneBestellungen(sprache, eventId, tisch) {
  * modus: Kassiermodus der Veranstaltung (`tab` zeigt „Senden“).
  * pin: Gerät mit PIN — dann zeigt der Kopf den Bediener mit Schloss.
  * karte: SumUp-Leser zugewiesen.
+ * tischwahl: Geräteeinstellung „Tischwahl an der Kasse“ (`number`, `list`,
+ *   `map`); seit 1.6 gibt es an der Kasse keinen Umschalter mehr.
  */
-export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer = false } = {}) {
+export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer = false, tischwahl = null } = {}) {
   return async (seite, { sprache }) => {
     const t = TEXTE[sprache];
     let eventId = null;
@@ -260,6 +270,7 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
             requirePin: pin,
             defaultPrinterId: 'prn_doku',
             ...(karte ? { sumupReaderId: 'rdr_doku' } : {}),
+            ...(tischwahl ? { tableSelectView: tischwahl } : {}),
           };
           return route.fulfill({ response: antwort, json: daten });
         }
@@ -376,21 +387,107 @@ async function tischMitWarenkorb(seite, { sprache }) {
   await antippen(seite, sprache, 'schorle');
 }
 
+/* ---------- Stationsanzeige ---------- */
+
+const STATION_TEXT = {
+  de: { name: 'Küche', bratwurst: '2x Bratwurst', pommes: '3x Pommes', currywurst: '1x Currywurst', ohneSenf: '1x ohne Senf', speisen: 'Speisen', kunde: 'Erika B.' },
+  en: { name: 'Kitchen', bratwurst: '2x Bratwurst', pommes: '3x Fries', currywurst: '1x Currywurst', ohneSenf: '1x no mustard', speisen: 'Food', kunde: 'Erika B.' },
+};
+
+const STATION_EINSTELLUNGEN = {
+  displayMode: 'station',
+  stationId: 'st_doku',
+  display: { theme: 'light', scale: 'normal', showLogo: true, autoClearSeconds: 0 },
+};
+
+/** Offene Bestellungen der Küche: drei an Tischen, drei zum Abholen. */
+function stationsBestellungen(sprache) {
+  const t = STATION_TEXT[sprache];
+  const pos = (id, menge, name, minuten, kuechennotiz = null) => ({
+    id, productName: name, categoryName: t.speisen, quantity: menge, status: 'pending',
+    notes: null, kitchenNotes: kuechennotiz, options: {}, createdAt: vor(minuten),
+  });
+  const best = (nummer, minuten, extra, items) => ({
+    order: {
+      id: `ord_st_${nummer}`, orderNumber: `20260912-0${nummer}`, dailyNumber: nummer, tableNumber: null,
+      customerName: null, priority: 'normal', createdAt: vor(minuten), fulfillmentType: 'table_service',
+      source: 'pos', notes: null, ...extra,
+    },
+    items,
+  });
+  return [
+    best(415, 14, { tableNumber: 'A06', priority: 'rush' }, [
+      pos('itm_st_415_0', 2, produktName(sprache, 'steak'), 14),
+      pos('itm_st_415_1', 1, produktName(sprache, 'pommes'), 14),
+    ]),
+    best(417, 6, { tableNumber: 'A03' }, [
+      pos('itm_st_417_0', 2, produktName(sprache, 'bratwurst'), 6, t.ohneSenf),
+      pos('itm_st_417_1', 3, produktName(sprache, 'pommes'), 6),
+    ]),
+    best(419, 2, { tableNumber: 'A11' }, [
+      pos('itm_st_419_0', 1, produktName(sprache, 'currywurst'), 2),
+      pos('itm_st_419_1', 2, produktName(sprache, 'pommes'), 2),
+    ]),
+    best(416, 9, { fulfillmentType: 'counter_pickup', notes: 'To-go', priority: 'high' }, [
+      pos('itm_st_416_0', 1, produktName(sprache, 'steak'), 9),
+    ]),
+    best(418, 4, { fulfillmentType: 'counter_pickup', source: 'online', customerName: t.kunde }, [
+      pos('itm_st_418_0', 2, produktName(sprache, 'pommes'), 4),
+    ]),
+    best(420, 1, { fulfillmentType: 'counter_pickup' }, [
+      pos('itm_st_420_0', 2, produktName(sprache, 'currywurst'), 1),
+    ]),
+  ];
+}
+
+/**
+ * Stationsanzeige: Gerätestatus mit Einstellungen der Küche, Bestellungen
+ * und Fertigmeldungen nachgestellt. Wie die echte API liefert die Liste
+ * nach einer Fertigmeldung nur noch Offenes.
+ */
+async function stationsRouten(seite, { sprache }) {
+  const fertig = new Set();
+  await seite.route(/\/api\/(device-api|devices)\//, async (route) => {
+    const anfrage = route.request();
+    const pfad = new URL(anfrage.url()).pathname.replace(/^\/api/, '');
+    const methode = anfrage.method();
+    if (methode === 'OPTIONS') return route.fallback();
+    if (methode === 'GET' && (pfad === '/devices/status' || pfad === '/devices/me')) {
+      const antwort = await route.fetch();
+      const daten = await antwort.json();
+      daten.data.name = STATION_TEXT[sprache].name;
+      daten.data.deviceClass = 'display';
+      daten.data.settings = { ...STATION_EINSTELLUNGEN };
+      return route.fulfill({ response: antwort, json: daten });
+    }
+    if (methode === 'GET' && pfad === '/device-api/station/items') {
+      const offen = stationsBestellungen(sprache)
+        .map((b) => ({ ...b, items: b.items.filter((it) => !fertig.has(it.id)) }))
+        .filter((b) => b.items.length);
+      return json(route, offen);
+    }
+    const treffer = pfad.match(/^\/device-api\/station\/items\/([^/]+)\/ready$/);
+    if (methode === 'POST' && treffer) {
+      fertig.add(treffer[1]);
+      return json(route, { items: [{ id: treffer[1], status: 'ready', readyAt: new Date().toISOString() }] }, 201);
+    }
+    return route.fallback();
+  });
+}
+
 /** Geräteansichten: kein Konto, sondern ein Gerätetoken im Speicher. */
 export const GERAETE_AUFNAHMEN = [
   // --- Kasse: Startansicht in drei Varianten ---
   {
     ...KASSE,
     datei: 'pos-start',
-    startansicht: 'number',
-    routen: kassenRouten(),
+    routen: kassenRouten({ tischwahl: 'number' }),
     async vorbereiten(seite) {
       await seite.keyboard.press('5');
     },
     hinweise: [
       { auf: '.pos-head__ctx', text: { de: 'Kasse, Standardbereich und Veranstaltung', en: 'Till, default area and event' } },
       { auf: '.pos-head__stat', text: { de: 'Verbindung, Drucker und Uhrzeit', en: 'Connection, printer and time' } },
-      { auf: '.pos-start__mode', text: { de: 'Tischwahl: Nummer, Tische oder Karte', en: 'Choose a table by number, list or map' } },
       { auf: '.pos-start__pad', text: { de: 'Nummer eintippen und Tisch öffnen', en: 'Type the number and open the table' } },
       { auf: '.pos-without', text: { de: 'Ohne Tisch: Theke oder To-go', en: 'Without a table: counter or to-go' } },
       { auf: '.pos-open', text: { de: 'Offene Tische mit Betrag und Wartegrund', en: 'Open tables with amount and waiting reason' } },
@@ -399,8 +496,7 @@ export const GERAETE_AUFNAHMEN = [
   {
     ...KASSE,
     datei: 'pos-tables',
-    startansicht: 'list',
-    routen: kassenRouten(),
+    routen: kassenRouten({ tischwahl: 'list' }),
     hinweise: [
       { auf: '.pos-tablelist__area', text: { de: 'Tische des Bereichs mit Status und Betrag', en: 'Tables of the area with status and amount' } },
       { auf: '.oe-legend', text: { de: 'Legende: frei, offen, wartet auf Bedienung', en: 'Legend: free, open, waiting for service' } },
@@ -409,12 +505,12 @@ export const GERAETE_AUFNAHMEN = [
   {
     ...KASSE,
     datei: 'pos-floor',
-    startansicht: 'map',
-    routen: kassenRouten(),
+    routen: kassenRouten({ tischwahl: 'map' }),
     hinweise: [
       /* Marke innen: darüber stünde sie auf dem Untertitel „Tisch auf der Karte antippen“. */
       { auf: '.pos-floor .oe-floor, .oe-floor', marke: 'innen', text: { de: 'Tischplan aus der Verwaltung, Farben nach Status', en: 'Floor plan from the admin area, colored by status' } },
       { auf: '.oe-floor__table.oe-floor__table--wait, .oe-floor__table[class*=wait]', text: { de: 'Wartet auf Bedienung: Gastbestellung oder fertiges Essen', en: 'Waiting for service: guest order or food ready' } },
+      { auf: '.oe-floor [class*=zone], .oe-floor [data-zone]', text: { de: 'Zonen wie Küche oder Notausgang, dazu Wände und Raumform (nicht antippbar)', en: 'Zones such as kitchen or emergency exit, plus walls and room shape (not tappable)' } },
     ],
   },
   // --- Kasse: Bestellen, Optionen, Kassieren, Abschluss ---
@@ -505,14 +601,11 @@ export const GERAETE_AUFNAHMEN = [
     ...KASSE,
     datei: 'pos-switch',
     tisch: TISCH_A10,
-    routen: kassenRouten(),
+    routen: kassenRouten({ tischwahl: 'list' }),
     async vorbereiten(seite, { sprache }) {
       await antippen(seite, sprache, 'cola');
       await seite.locator('.pos-tablepill').click();
-      await seite.waitForTimeout(700);
-      const liste = blatt(seite).getByRole('button', { name: /^(Tische|Tables)$/ });
-      if (await liste.count()) await liste.first().click();
-      await seite.waitForTimeout(400);
+      await seite.waitForTimeout(900);
     },
   },
   {
@@ -536,14 +629,56 @@ export const GERAETE_AUFNAHMEN = [
     geraeteklasse: 'display',
     einstellungen: { displayMode: 'customer' },
   },
+  /* Stationsanzeige „Küche“ mit nachgestellten Bestellungen: zwei
+     Positionen werden fertig gemeldet (nachgestellt), damit das Bild die
+     Rückmeldung zeigt — eine Karte grün „Erledigt“, eine Position
+     abgehakt. */
   {
     datei: 'display-station',
     pfad: '/device/station',
     token: TOKEN_KASSE,
-    geraeteklasse: 'pos',
-    einstellungen: { serviceMode: 'station' },
+    geraeteklasse: 'display',
+    einstellungen: STATION_EINSTELLUNGEN,
+    routen: stationsRouten,
+    async vorbereiten(seite, { sprache }) {
+      // Positionen sind eindeutig benannt („3x Pommes“ gibt es nur an A03).
+      const fertig = (position) =>
+        seite.getByRole('button', { name: `${position}: ${sprache === 'de' ? 'Fertig' : 'Ready'}`, exact: true });
+      await seite.waitForTimeout(800);
+      await fertig(STATION_TEXT[sprache].bratwurst).click();
+      await seite.waitForTimeout(500);
+      await fertig(STATION_TEXT[sprache].pommes).click();
+      await seite.waitForTimeout(500);
+      await fertig(STATION_TEXT[sprache].currywurst).click();
+      await seite.waitForTimeout(300);
+    },
   },
-  /* `device-pair` wird nicht aufgenommen: Die Kopplungsseite legt beim
-     Laden ein wartendes Gerät auf Staging an. Das Bild bleibt, bis es
-     dafür eine nachgestellte Fassung gibt. */
+  /* Kopplungsseite: Sie legt beim Laden ein wartendes Gerät an. Deshalb
+     nur gegen eine lokale Oberfläche (`nurLokal`, APP_URL auf localhost)
+     und mit nachgestellter API — keine Anfrage verlässt den Browser. */
+  {
+    datei: 'device-pair',
+    pfad: '/device/pair?type=pos',
+    ohneToken: true,
+    nurLokal: true,
+    async routen(seite) {
+      await seite.route('**/api/**', (route) => {
+        const pfad = new URL(route.request().url()).pathname;
+        if (route.request().method() === 'OPTIONS') return route.fulfill({ status: 204, headers: cors(route) });
+        if (pfad.endsWith('/devices/init')) {
+          return json(route, { deviceId: 'doku', deviceToken: 'doku', verificationCode: '573080' }, 201);
+        }
+        if (pfad.endsWith('/devices/status')) return json(route, { status: 'pending', deviceId: 'doku' });
+        console.warn(`    abgefangen: ${route.request().method()} ${pfad}`);
+        return route.abort();
+      });
+    },
+    async vorbereiten(seite) {
+      await seite.waitForTimeout(1500);
+    },
+    hinweise: [
+      { auf: '.display-pair__code', text: { de: 'Diese Zahl in der Verwaltung eingeben', en: 'Enter this number in the admin area' } },
+      { auf: '.display-pair__qr', text: { de: 'Oder den QR-Code scannen', en: 'Or scan the QR code' } },
+    ],
+  },
 ];

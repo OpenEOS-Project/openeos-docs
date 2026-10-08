@@ -17,7 +17,7 @@ Areas and tables belong to the **organization**, not to an event. Your marquee i
 ![The Tables page with area, toolbar and floor plan](/img/screens/en/tables.png)
 
 1. **Areas** — each area has its own tab and its own map. **Add area** next to them creates more.
-2. **Toolbar** — add tables and decor, create a series, switch the grid and snapping.
+2. **Toolbar** — add tables and decor, create a series, draw walls, zones and the room shape, switch the grid and snapping.
 3. **Floor plan** — this is where you drag tables into place.
 4. **Save status** and the **Map | List** switch.
 
@@ -62,7 +62,7 @@ There can only be one table `12` — not in Tent A and in the beer garden at the
 
 ## Designing the floor plan {/* #tischplan */}
 
-![A selected table with its properties on the right](/img/screens/en/tables-editor.png)
+![Floor plan with walls, zones and room shape; a selected table with its properties on the right](/img/screens/en/tables-editor.png)
 
 Tap or click a table to select it. Its **properties** appear on the right:
 
@@ -78,7 +78,21 @@ On the map itself:
 
 - **Dragging** moves a table. With **Snap** switched on it jumps to the grid, which keeps rows straight.
 - The **handle at the bottom right** changes the size.
-- **Decor** adds a *Bar*, *Wall*, *Stage* or a *Label* (e.g. "Entrance"). Decor helps your team find their way on the map; it cannot be tapped at the till.
+- **Decor** adds a *Bar*, *Stage* or a *Label* (e.g. "Entrance"). Decor helps your team find their way on the map; it cannot be tapped at the till.
+
+### Walls, zones and room shape {/* #waende-zonen */}
+
+To make the plan look like your tent or hall, use the **Draw** tools in the toolbar:
+
+- **Wall** — drawn as a line: tap or click point by point, around corners too. A double-click or **Done** finishes the wall, Backspace removes the last point, Esc cancels. With the wall selected, you set its **Thickness** on the right.
+- **Zone** — an area with a type: **Kitchen**, **Blocked area**, **Bar** or **Other**. Place at least three points and finish with a double-click, a tap on the first point or **Done**. On the right you change **Type** and **Label**. Zones are for display only — tables do not belong to a zone.
+- **Room shape** — the outline of the room. Without one, the whole map is a rectangle. Drag the corners into place and insert new points at the edge midpoints, for an L-shaped hall for example. Outside the shape the map is greyed out and hatched. **Reset to rectangle** undoes it.
+
+While drawing, points snap to the grid and to angles of 0, 45 and 90 degrees as long as **Snap** is on. Delete removes a selected point or a whole element.
+
+Blocked areas are hatched. If a table lies **outside the room shape** or **in a blocked area**, it is flagged, and above the map you see something like "Table A12 is outside the room shape or in a blocked area. The POS still offers it." New tables are placed in a free spot inside the room automatically.
+
+At the till, the [map](./kasse.md#karte) shows walls, zones and the room shape the same way; only tables can be tapped there.
 
 ### With the keyboard
 
@@ -86,9 +100,9 @@ On the map itself:
 |---|---|
 | Arrow keys | Move the selected table by one grid step |
 | Shift + arrow key | Move by five grid steps |
-| Delete | Delete (asks first) |
+| Delete | Delete (asks first); while drawing, the selected point |
 | Ctrl + D (Mac: Cmd + D) | Duplicate |
-| Esc | Clear the selection |
+| Esc | Clear the selection or cancel drawing |
 
 ### Saving
 
@@ -109,12 +123,12 @@ If you only want to take a table out of the till for a while, set it to **inacti
 
 ## On a phone
 
-You edit the map on a tablet or computer. On a narrow screen the page shows the **list** and below it a preview of the map with the note "Edit the map on a tablet or computer. Here it is view only." Creating, renaming, creating a series and deleting tables also work there.
+You edit the map on a tablet or computer. On a narrow screen the page shows the **list** and below it a preview of the map, with walls and zones, and the note "Edit the map on a tablet or computer. Here it is view only." Creating, renaming, creating a series and deleting tables also work there.
 
 <img src="/img/screens/en/tables-phone.png" alt="The Tables page on a phone: list with the map preview below" width="320" />
 
 ## Next steps
 
 1. In the [event](./veranstaltungen.md#tische), choose **Predefined tables** and enable the areas.
-2. Optionally give each till a **default area** under [Devices](./geraete.md#standardbereich) — the till then opens that area first.
+2. Optionally give each till a **default area** and its [table selection](./geraete.md#tischwahl) (number, list or map) under [Devices](./geraete.md#standardbereich).
 3. [Open a table](./kasse.md#tisch-oeffnen) at the till.

@@ -14,19 +14,19 @@ Du findest den Bereich über **Schichtpläne** in der Seitenleiste.
 
 ## 1. Schichtplan erstellen
 
-Klicke auf **Neuer Schichtplan**. Ein Dialog führt dich in drei Schritten:
+Klicke auf **Schichtplan erstellen** (oben an der Liste der Schichtpläne). Ein Dialog führt dich in drei Schritten:
 
 1. **Veranstaltung** – Wähle optional die Veranstaltung, zu der der Plan gehört. So sehen die Helfer das Datum der Veranstaltung direkt. Du kannst auch **Keine Veranstaltung (eigenständiger Plan)** wählen.
 2. **Name & Beschreibung** – vorgeschlagen wird „Helferplanung“ mit dem Namen der Veranstaltung. Die Beschreibung erscheint später auf der öffentlichen Helferseite.
 3. **Erstellen** – Angaben prüfen und anlegen. Der Plan startet im Status **Entwurf**.
 
-![Neuer Schichtplan: Veranstaltung wählen](/img/screens/de/shifts-dialog.png)
+![Schichtplan erstellen: Veranstaltung wählen](/img/screens/de/shifts-dialog.png)
 
-Ein Plan gliedert sich in vier Reiter: **Arbeiten**, **Kalender**, **Anmeldungen** und **Einstellungen**. Oben rechts stehen die Aktionen als Symbole: im Entwurf **Veröffentlichen** und **PDF-Export**, nach dem Veröffentlichen **Link kopieren**, **PDF-Export** und **Schließen**.
+Oben auf der Seite stehen Name, Status und Veranstaltung des Plans, links daneben der Zurück-Knopf. Rechts stehen die Aktionen als beschriftete Knöpfe: im Entwurf **PDF Export** und **Veröffentlichen**, nach dem Veröffentlichen **Link kopieren**, **PDF Export** und **Plan schließen**. Darunter gliedert sich der Plan in vier Reiter: **Arbeiten**, **Kalender**, **Anmeldungen** und **Einstellungen**.
 
 ## 2. Arbeiten anlegen
 
-Eine **Arbeit** ist eine Aufgabe oder Station, für die Helfer gebraucht werden. Klicke im Reiter **Arbeiten** auf **+** (**Arbeit hinzufügen**):
+Eine **Arbeit** ist eine Aufgabe oder Station, für die Helfer gebraucht werden. Klicke im Reiter **Arbeiten** auf **Arbeit hinzufügen**:
 
 - **Arbeit** – pro Zeile eine Arbeit (z. B. `Aufbau`, `Abbau`); alle werden gleichzeitig angelegt.
 - **Beschreibung** – optionale öffentliche Beschreibung für Helfer.
@@ -40,7 +40,7 @@ Die Arbeiten stehen danach untereinander, jede mit ihren Schichten und der Beleg
 
 ## 3. Schichten erzeugen
 
-Schichten (Zeitfenster) legst du je Arbeit einzeln über das **Kalender-Symbol** an – oder für alle Arbeiten auf einmal mit dem **Schicht-Generator für alle Arbeiten** (Zauberstab neben **+**). Er führt in vier Schritten:
+Schichten (Zeitfenster) legst du je Arbeit einzeln über das **Kalender-Symbol** an – oder für alle Arbeiten auf einmal mit dem **Schicht-Generator** (neben **Arbeit hinzufügen**). Er führt in vier Schritten:
 
 1. **Zeitraum wählen** – Start- und Enddatum (bei verknüpfter Veranstaltung vorausgefüllt).
 2. **Zeitfenster festlegen** – Beginn und Ende der täglichen Betriebszeit, auf Wunsch mit **Zeiten pro Tag**. Endet eine Schicht vor ihrem Beginn, läuft sie über Mitternacht.
@@ -68,7 +68,7 @@ Im Reiter **Einstellungen** findest du:
 
 ## 5. Veröffentlichen
 
-Solange der Plan im Status **Entwurf** ist, ist er nur intern sichtbar. Klicke oben rechts auf **Veröffentlichen** (Papierflieger), um ihn freizugeben – der Status wechselt auf **Veröffentlicht** und der öffentliche Link wird aktiv. Mit **Schließen** (Schloss) nimmst du später keine Anmeldungen mehr an.
+Solange der Plan im Status **Entwurf** ist, ist er nur intern sichtbar. Klicke oben rechts auf **Veröffentlichen**, um ihn freizugeben – der Status wechselt auf **Veröffentlicht** und der öffentliche Link wird aktiv. Mit **Plan schließen** nimmst du später keine Anmeldungen mehr an.
 
 :::tip
 Veröffentliche erst, wenn Arbeiten und Schichten stehen. Änderungen sind aber auch danach jederzeit möglich.
@@ -96,7 +96,7 @@ Im Reiter **Anmeldungen** siehst du alle eingegangenen Anmeldungen, je Helfer mi
 - **Freigabe offen** – nur bei **Bestätigung erforderlich**: Mit **Bestätigen** oder **Ablehnen** entscheidest du.
 - **Bestätigt** – alles erledigt.
 
-Über die Filter oben grenzt du die Liste ein. **An alle senden** schreibt allen Helfern eine E-Mail; je Anmeldung gibt es außerdem **Bearbeiten**, **Nachricht senden** und **Löschen**. Mit dem Personen-Symbol oben rechts (**Helfer manuell eintragen**) trägst du selbst jemanden ein – auch ohne E-Mail-Adresse.
+Über die Filter oben grenzt du die Liste ein. **An alle senden** schreibt allen Helfern eine E-Mail; je Anmeldung gibt es außerdem **Bearbeiten**, **Nachricht senden** und **Löschen**. Mit **Helfer manuell eintragen** oben rechts trägst du selbst jemanden ein – auch ohne E-Mail-Adresse.
 
 ![Anmeldungen verwalten](/img/screens/de/shift-anmeldungen.png)
 

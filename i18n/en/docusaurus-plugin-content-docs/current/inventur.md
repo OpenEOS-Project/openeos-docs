@@ -16,7 +16,7 @@ Inventory is also tied to the active event. If needed, activate an [event](./ver
 
 ## Creating and counting a stocktake
 
-1. Click **New Stocktake**.
+1. Click **Create stocktake**.
 2. Enter a **name** ("End of day" with the date is suggested) and optional notes. All products with stock tracking are added to the list automatically.
 3. Click **Create & Start**.
 4. Enter the **counted** quantity for each product. Next to it you see the **expected** stock and the **difference**; each row can take a note. At the top you see how many products have been counted.

@@ -9,7 +9,7 @@ description: Tisch öffnen, bestellen, senden, kassieren — der Ablauf an der K
 Diese Seite beschreibt die Kasse selbst — also das, was dein Team am Festtag tut. Wie ein Gerät zur Kasse wird, steht unter [Geräte verbinden](./geraete.md); wie Tische und Tischplan entstehen, unter [Tische](./tische.md).
 
 :::tip[Vorher ausprobieren]
-Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann im Kopf **Testmodus** und einmal den Hinweis „Testmodus — Bestellungen werden beim Aktivieren gelöscht“. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt.
+Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt.
 :::
 
 ## Wie die Kasse startet {/* #start */}
@@ -21,7 +21,7 @@ Was du nach dem Einschalten siehst, hängt an zwei Einstellungen: am **Betriebsm
 | **Feste Kasse** | egal | der Bestellansicht — alles wird an der Theke gebucht |
 | **Bedienung** | Keine Tische (Thekenbetrieb) | der Bestellansicht — alles wird an der Theke gebucht |
 | **Bedienung** | Tischnummer frei eingeben | **Tisch öffnen** mit Ziffernblock |
-| **Bedienung** | Vordefinierte Tische | **Tisch öffnen** mit Nummer, Tischliste und Karte |
+| **Bedienung** | Vordefinierte Tische | **Tisch öffnen** mit der Tischwahl des Geräts: Nummer, Liste oder Karte |
 
 Ist die Kasse mit PIN eingerichtet, kommt davor der PIN-Bildschirm — siehe [Anmelden und sperren](#pin-und-sperre).
 
@@ -32,14 +32,22 @@ Oben steht immer dasselbe:
 - **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter die laufende Veranstaltung.
 - **Tisch** — in der Bestellansicht zeigt eine grüne Pille, für wen du gerade buchst: „Tisch A10“, „Theke“ oder „To-go“. Ein Tipp darauf öffnet [Tisch wählen](#tisch-wechseln).
 - **Status** — **Online** (grüner Punkt), **Verbinde …** oder **Keine Live-Daten** (gelb) und **Offline** (rot). Daneben der Bondrucker der Kasse mit Name, sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
-- **Mehr** (die drei Punkte) — Bestellverlauf, Offene Bestellungen, Pfand-Rückgabe, Kassenlade öffnen und Gerät abmelden. Es erscheint nur, was an dieser Kasse eingerichtet ist.
+- **Menü** (die drei Striche) — Bestellverlauf, Offene Bestellungen, Pfand-Rückgabe, Kassenlade öffnen, [Darstellung](#darstellung) und Gerät abmelden. Es erscheint nur, was an dieser Kasse eingerichtet ist.
 - **Bediener** — mit PIN die Initialen und der Name der angemeldeten Person, daneben das **Schloss**.
+
+Im Testmodus steht unter dem Kopf der Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
+
+### Hell oder dunkel {/* #darstellung */}
+
+Im **Menü** wählst du unter **Darstellung** zwischen **Hell**, **Dunkel** und **System** (folgt der Einstellung des Geräts). Die Wahl gilt nur für diese Kasse und wirkt sofort — abends im Zelt ist Dunkel angenehmer, in der Sonne Hell besser lesbar. Kundendisplay und Stationsanzeige stellst du getrennt unter [Anzeigen](./anzeigen.md) ein.
 
 ## Tisch öffnen {/* #tisch-oeffnen */}
 
 ![Startansicht: Tisch öffnen mit Ziffernblock und offenen Tischen](/img/screens/de/pos-start.png)
 
-Im Tischbetrieb beginnt jede Bestellung mit der Frage: Für welchen Tisch? Oben rechts wählst du unter **Tischwahl**, wie du den Tisch findest. Die Kasse merkt sich die Wahl.
+Im Tischbetrieb beginnt jede Bestellung mit der Frage: Für welchen Tisch? Wie du den Tisch findest — per **Nummer**, aus der **Liste** oder auf der **Karte** —, ist für jedes Gerät fest eingestellt: unter **Geräte → Gerät → Einstellungen** bei [Tischwahl an der Kasse](./geraete.md#tischwahl). An der Kasse selbst gibt es keinen Umschalter; sie zeigt immer genau diese Ansicht, beim Öffnen und unter [Tisch wählen](#tisch-wechseln). So kann die Bedienung im Zelt mit der Karte arbeiten und die Theke mit dem Ziffernblock.
+
+Arbeitet die Veranstaltung mit frei eingegebenen Tischnummern, zeigt jede Kasse den Ziffernblock.
 
 ### Nummer
 
@@ -48,7 +56,7 @@ Tippe die Tischnummer ein — am Bildschirm oder mit einer Tastatur — und dann
 - Bei **frei eingegebenen** Nummern nimmt die Kasse jede Eingabe bis fünf Zeichen.
 - Bei **vordefinierten** Tischen sucht sie den passenden Tisch: `5` findet `A05`. Passen mehrere (etwa `A05` und `B05`), erscheinen sie als Auswahl darunter. Gibt es keinen, steht dort „Kein Tisch „…““, und Öffnen geht nicht.
 
-### Tische
+### Liste
 
 ![Alle Tische des Bereichs mit Status und Betrag](/img/screens/de/pos-tables.png)
 
@@ -60,13 +68,13 @@ Alle freigegebenen Tische nach Bereichen, der Standardbereich der Kasse zuerst. 
 | grün | **offen** — es gibt Bestellungen, die noch nicht bezahlt sind, oder einen Warenkorb an dieser Kasse; dazu der offene Betrag |
 | gelb | **wartet auf Bedienung** — siehe [Offene Tische](#offene-tische) |
 
-### Karte
+### Karte {/* #karte */}
 
 ![Der Tischplan an der Kasse, Farben nach Status](/img/screens/de/pos-floor.png)
 
-Der [Tischplan aus der Verwaltung](./tische.md#tischplan) mit denselben Farben. Tippe den Tisch an, der geöffnet werden soll. Gibt es mehrere Bereiche, wählst du sie über Reiter oberhalb der Karte. Auf dem Telefon lässt sich die Karte seitlich wischen.
+Der [Tischplan aus der Verwaltung](./tische.md#tischplan) mit denselben Farben, dazu Wände, Zonen und die Raumform zur Orientierung. Tippe den Tisch an, der geöffnet werden soll. Gibt es mehrere Bereiche, wählst du sie über Reiter oberhalb der Karte. Auf dem Telefon lässt sich die Karte seitlich wischen.
 
-Die Karte wird nur angeboten, wenn ein freigegebener Bereich einen Plan hat. Beim ersten Start zeigt eine Kasse von selbst die Karte, wenn ihr Standardbereich einen Plan hat.
+Die Karte gibt es, sobald ein Bereich einen Tischplan hat. Steht die Tischwahl des Geräts auf **Automatisch**, zeigt die Kasse die Karte, wenn ihr Standardbereich einen Plan hat, sonst die Liste.
 
 ### Ohne Tisch: Theke und To-go
 
@@ -87,7 +95,7 @@ Ein Tipp auf die Zeile öffnet den Tisch.
 
 ![Bestellansicht mit Kategorien, Artikeln und Warenkorb](/img/screens/de/pos-order.png)
 
-1. **Kategorie wählen** — links. Ganz oben stehen die **Favoriten**, sofern in der Verwaltung welche markiert sind ([Produkte](./produkte.md#favoriten)).
+1. **Kategorie wählen** — links, jede mit ihrer Farbe und ihrem Icon aus der Verwaltung ([Kategorien](./kategorien.md)). Ganz oben stehen die **Favoriten**, sofern in der Verwaltung welche markiert sind ([Produkte](./produkte.md#favoriten)).
 2. **Artikel antippen** — jeder Tipp legt einen weiteren in den Warenkorb; die Zahl auf der Kachel zeigt, wie viele es sind. Die Lupe oben rechts **sucht** über alle Artikel.
 3. **Menge ändern** — im Warenkorb mit **−** und **+**. Bei einem Stück wird aus dem Minus ein Papierkorb.
 
@@ -121,16 +129,16 @@ Unten im Warenkorb stehen ein oder zwei Knöpfe. Welche, entscheidet der **Kassi
 
 | Kassiermodus | Knöpfe | So läuft es |
 |---|---|---|
-| **Sofort kassieren** | **Kassieren** | Bestellen und bezahlen in einem Zug. Erst mit dem Bezahlen entsteht die Bestellung und geht an Küche und Theke. |
+| **Sofort kassieren** | **Kassieren** | Bestellen und bezahlen in einem Schritt. Erst mit dem Bezahlen entsteht die Bestellung und geht an Küche und Theke. Einen Knopf **Senden** gibt es nicht. |
 | **Auf Deckel buchen** | **Senden** und **Kassieren** | **Senden** schickt die neuen Artikel an Küche und Theke, ohne zu kassieren; sie stehen danach unter *Gesendet*, und der Tisch ist offen. Später, oft nach mehreren Runden, kassierst du alles auf einmal. |
 
-**Kassieren** rechnet immer alles ab, was am Tisch offen ist: alle gesendeten, noch nicht bezahlten Bestellungen und die neuen Artikel. Neue Artikel werden dabei automatisch mitgesendet.
+**Kassieren** rechnet immer alles ab, was am Tisch offen ist: alle gesendeten, noch nicht bezahlten Bestellungen und die neuen Artikel. Neue Artikel und Zahlung werden **gemeinsam** gebucht: Bricht die Zahlung ab oder wird die Karte abgelehnt, entsteht keine Bestellung, und Küche und Theke bekommen nichts, was nicht bezahlt ist.
 
 Nach dem Senden bleibt der Tisch geöffnet, damit du weiter bestellen kannst. Nach dem Kassieren geht es zurück zu **Tisch öffnen**; an der Theke bleibt die leere Bestellansicht stehen.
 
 ### Offene Bestellungen an der Theke
 
-Wird **auf Deckel gebucht** und ohne Tisch verkauft (Feste Kasse oder Thekenbetrieb), gibt es keine Tische, unter denen offene Bestellungen stehen. Dafür gibt es im Mehr-Menü und am Warenkorb **Offene Bestellungen**: eine Liste aller offenen Bestellungen ohne Tisch. Du wählst eine oder mehrere aus und kassierst sie zusammen.
+Wird **auf Deckel gebucht** und ohne Tisch verkauft (Feste Kasse oder Thekenbetrieb), gibt es keine Tische, unter denen offene Bestellungen stehen. Dafür gibt es im Menü und am Warenkorb **Offene Bestellungen**: eine Liste aller offenen Bestellungen ohne Tisch. Du wählst eine oder mehrere aus und kassierst sie zusammen.
 
 ## Serviert {/* #serviert */}
 
@@ -140,7 +148,7 @@ Meldet die Küche oder die Theke Positionen eines Tisches als **fertig**, wird d
 
 ![Kassieren: Betrag, Zahlart, Gegeben und Rückgeld](/img/screens/de/pos-pay.png)
 
-**Kassieren** öffnet das Kassieren-Fenster. Links steht, was **zu zahlen** ist (mit dem enthaltenen Pfand), darunter die **Zahlart**.
+**Kassieren** öffnet das Kassieren-Blatt. Links steht, was **zu zahlen** ist (mit dem enthaltenen Pfand), darunter die **Zahlart**.
 
 ### Bar
 
@@ -149,7 +157,7 @@ Meldet die Küche oder die Theke Positionen eines Tisches als **fertig**, wird d
 - Ist eine Kassenlade angeschlossen, öffnet sie sich, sobald Bar gewählt ist.
 - **Zahlung abschließen** bucht die Zahlung.
 
-### Karte
+### Karte {/* #kartenzahlung */}
 
 Mit einem zugewiesenen SumUp-Kartenleser erscheint **Karte**. Du wählst ein **Trinkgeld** (kein, aufrunden, feste Beträge oder ein eigener Betrag) und tippst auf **Kartenzahlung starten**. Der Gast legt die Karte an den Leser; die Kasse wartet auf die Bestätigung. Mehr dazu unter [SumUp](./integrationen/sumup.md).
 
@@ -163,7 +171,7 @@ Sind [Rabatt-Bons](./rabatt-bons.md) eingerichtet, erscheint **Rabatt**. Du wäh
 
 ### Rechnung teilen
 
-Am Tisch gibt es unter den Zahlarten **Rechnung teilen**. Du wählst die Positionen aus, die ein Gast bezahlt — nach Bestellung oder nach Kategorie sortiert — und kassierst sie bar oder mit Karte. Das wiederholst du, bis nichts mehr offen ist. Neue, noch nicht gesendete Artikel werden vorher gesendet.
+Am Tisch gibt es unter den Zahlarten **Rechnung teilen**. Du wählst die Positionen aus, die ein Gast bezahlt — nach Bestellung oder nach Kategorie sortiert — und kassierst sie bar oder mit Karte. Das wiederholst du, bis nichts mehr offen ist. Beim Kassiermodus **Auf Deckel buchen** werden neue, noch nicht gesendete Artikel vorher gesendet. Bei **Sofort kassieren** gibt es *Rechnung teilen* nur für Bestellungen, die schon offen sind (etwa Gastbestellungen), und nicht, solange neue Artikel im Warenkorb liegen.
 
 Ohne SumUp-Leser bieten *Rechnung teilen* und *Offene Bestellungen* die Zahlart „Karte“ mit dem Zusatz *ext. Terminal* an: Du kassierst am eigenen Kartenterminal und buchst die Zahlung hier.
 
@@ -177,7 +185,7 @@ Nach dem Bezahlen zeigt die Kasse **Bezahlt** mit Betrag, Zahlart und Rückgeld 
 
 ![Tisch wählen mit allen Tischen und „Warenkorb mitnehmen“](/img/screens/de/pos-switch.png)
 
-Ein Tipp auf die Tisch-Pille im Kopf öffnet **Tisch wählen**: dieselben Tische wie beim Öffnen, der aktuelle umrandet, dazu Theke und To-go.
+Ein Tipp auf die Tisch-Pille im Kopf öffnet **Tisch wählen**: dieselbe Ansicht wie beim Öffnen (Nummer, Liste oder Karte, je nach Gerät), der aktuelle Tisch umrandet, dazu Theke und To-go.
 
 Wechselst du den Tisch, **parkt** die Kasse den Warenkorb des alten Tisches. Kommst du zurück, ist er wieder da. Geparkte Warenkörbe stehen unter **Offene Tische** mit „… Artikel nicht gesendet“. Hast du Artikel am falschen Tisch eingetippt, setzt du vor dem Wechsel den Haken bei **Warenkorb mitnehmen** — dann ziehen die neuen Artikel mit um. **Zur Tischübersicht** führt zurück zu **Tisch öffnen**.
 
@@ -195,13 +203,13 @@ Ohne PIN gibt es keinen Bediener und kein Schloss.
 
 ## Bestellverlauf {/* #bestellverlauf */}
 
-Im Mehr-Menü öffnet **Bestellverlauf** die Bestellungen der laufenden Veranstaltung, filterbar nach **Alle**, **Offen**, **Abgeschlossen** und **Storniert**. Dort kannst du Küchenbons und Quittung **nachdrucken** und eine Bestellung **stornieren** (mit optionalem Grund).
+Im **Menü** öffnet **Bestellverlauf** die Bestellungen der laufenden Veranstaltung, filterbar nach **Alle**, **Offen**, **Abgeschlossen** und **Storniert**. Dort kannst du Küchenbons und Quittung **nachdrucken** und eine Bestellung **stornieren** (mit optionalem Grund).
 
 ## Pfand {/* #pfand */}
 
 Hat ein Artikel [Pfand](./pfand.md), rechnet die Kasse es automatisch dazu — je nach Einstellung an der Theke, am Tisch oder bei beidem. Lässt ein Gast nur nachfüllen, stellst du im Optionen-Fenster der Zeile **Nachfüllen** ein; dafür fällt kein neues Pfand an.
 
-Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Mehr-Menü oder der Knopf oben im Warenkorb): Du zählst je Pfandart, wie viele zurückkommen, und wählst
+Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Menü oder der Knopf oben im Warenkorb): Du zählst je Pfandart, wie viele zurückkommen, und wählst
 
 - **Auszahlen** — der Gast bekommt das Geld bar zurück, die Kassenlade öffnet sich, oder
 - **Verrechnen** — der Betrag wird vom aktuellen Warenkorb abgezogen (nur, wenn gerade etwas im Warenkorb liegt).
@@ -213,7 +221,9 @@ Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Mehr
 Die Kasse passt sich der Bildschirmbreite an:
 
 - **Tablet quer und PC** — Kategorien links, Artikel in der Mitte, Warenkorb rechts.
-- **Telefon und Tablet hochkant** — die Kategorien liegen als Leiste oben, der Warenkorb ist unten eine grüne **Leiste** mit Anzahl und Summe. Ein Tipp darauf öffnet ihn von unten; nach unten wischen schließt ihn. Fenster wie Kassieren öffnen sich ebenfalls von unten.
+- **Telefon und Tablet hochkant** — die Kategorien liegen als Leiste oben, der Warenkorb ist unten eine grüne **Leiste** mit Anzahl und Summe. Ein Tipp darauf öffnet ihn von unten. Blätter wie Kassieren, Optionen oder Tisch wählen öffnen sich ebenfalls von unten.
+
+**Wischen zum Schließen:** Jedes Blatt — Warenkorb, Kassieren, Optionen, Tisch wählen — schließt du, indem du es am Griff oder Kopf nach unten ziehst (oder im Inhalt, wenn er ganz oben steht). Lässt du zu früh los, federt das Blatt zurück. Auf der Karte ist Wischen ausgeschaltet, damit du sie verschieben kannst.
 
 ## Wenn die Verbindung abreißt
 
@@ -229,4 +239,4 @@ Kassieren zwei Geräte gleichzeitig denselben Tisch, gewinnt das erste; das zwei
 
 ## Kasse abmelden
 
-**Gerät abmelden** im Mehr-Menü trennt das Gerät nach einer Rückfrage von der Organisation. Es muss danach [neu verbunden](./geraete.md) werden — das ist nichts für zwischendurch. Um die Kasse kurz zu verlassen, nutze das [Schloss](#pin-und-sperre).
+**Gerät abmelden** im Menü trennt das Gerät nach einer Rückfrage von der Organisation. Es muss danach [neu verbunden](./geraete.md) werden — das ist nichts für zwischendurch. Um die Kasse kurz zu verlassen, nutze das [Schloss](#pin-und-sperre).

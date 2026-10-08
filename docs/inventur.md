@@ -16,7 +16,7 @@ Auch die Inventur bezieht sich auf die aktive Veranstaltung. Aktiviere bei Bedar
 
 ## Inventur anlegen und zählen
 
-1. Klicke auf **Neue Inventur**.
+1. Klicke auf **Inventur erstellen**.
 2. Gib einen **Namen** ein (vorgeschlagen wird „Tagesabschluss“ mit Datum) und optional Notizen. Alle Produkte mit Bestandsverfolgung kommen automatisch in die Liste.
 3. Klicke auf **Erstellen & Starten**.
 4. Trage je Produkt die **gezählte** Menge ein. Daneben stehen der **erwartete** Bestand und die **Differenz**; eine Notiz ist je Zeile möglich. Oben siehst du, wie viele Produkte schon gezählt sind.

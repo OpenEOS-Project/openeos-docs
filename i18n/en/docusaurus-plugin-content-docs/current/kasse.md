@@ -9,7 +9,7 @@ description: Open a table, order, send, check out — how the till works on the 
 This page covers the till itself — what your team does on the day. For how a device becomes a till, see [Connecting devices](./geraete.md); for how tables and the floor plan are set up, see [Tables](./tische.md).
 
 :::tip[Try it first]
-While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows **Test mode** in its header and once the notice "Test mode — Orders will be deleted on activation". Activating the event deletes the test orders but keeps your setup.
+While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode — Orders will be deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup.
 :::
 
 ## How the till starts {/* #start */}
@@ -21,7 +21,7 @@ What you see after switching on depends on two settings: the device's **service 
 | **Counter** | any | the order view — everything is booked at the counter |
 | **Table Service** | No tables (counter service) | the order view — everything is booked at the counter |
 | **Table Service** | Enter table number freely | **Open table** with a keypad |
-| **Table Service** | Predefined tables | **Open table** with number, table list and map |
+| **Table Service** | Predefined tables | **Open table** with the device's table selection: number, list or map |
 
 If the till requires a PIN, the PIN screen comes first — see [Signing in and locking](#pin-und-sperre).
 
@@ -32,14 +32,22 @@ The top bar always shows the same things:
 - **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the running event.
 - **Table** — in the order view a green pill shows who you are booking for: "Table A10", "Counter" or "To go". Tapping it opens [Choose table](#tisch-wechseln).
 - **Status** — **Online** (green dot), **Connecting …** or **No live data** (yellow) and **Offline** (red). Next to it the till's receipt printer by name, if one is assigned, and the time. On narrower screens only the dot remains.
-- **More** (the three dots) — order history, open orders, deposit return, open cash drawer and sign out device. Only what is set up for this till appears.
+- **Menu** (the three lines) — order history, open orders, deposit return, open cash drawer, [appearance](#darstellung) and sign out device. Only what is set up for this till appears.
 - **Staff member** — with a PIN, the initials and name of whoever is signed in, with the **lock** next to it.
+
+In test mode the warning strip "Test mode — Orders will be deleted on activation" sits below the header.
+
+### Light or dark {/* #darstellung */}
+
+In the **Menu**, under **Appearance**, you choose **Light**, **Dark** or **System** (follows the device setting). The choice applies to this till only and takes effect at once — dark is easier on the eyes in an evening tent, light is easier to read in the sun. Customer and station displays are set separately under [Screens](./anzeigen.md).
 
 ## Opening a table {/* #tisch-oeffnen */}
 
 ![Start view: open a table with the keypad and open tables](/img/screens/en/pos-start.png)
 
-With table service every order starts with the question: which table? At the top right, under **Choose table by**, you pick how to find it. The till remembers your choice.
+With table service every order starts with the question: which table? How you find it — by **number**, from the **list** or on the **map** — is fixed per device: under **Devices → device → Settings** in [Table selection on the POS](./geraete.md#tischwahl). There is no switch at the till itself; it always shows exactly that view, both when opening a table and under [Choose table](#tisch-wechseln). That way staff in the tent can work with the map while the bar uses the keypad.
+
+If the event uses freely entered table numbers, every till shows the keypad.
 
 ### Number
 
@@ -48,7 +56,7 @@ Type the table number — on screen or with a keyboard — then tap **Open table
 - With **freely entered** numbers the till accepts anything up to five characters.
 - With **predefined** tables it looks for the matching table: `5` finds `A05`. If several match (say `A05` and `B05`), they appear as choices below. If none matches you see "No table “…”" and the table cannot be opened.
 
-### Tables
+### List
 
 ![All tables of the area with status and amount](/img/screens/en/pos-tables.png)
 
@@ -60,13 +68,13 @@ All enabled tables by area, the till's default area first. Each table shows its 
 | green | **open** — there are unpaid orders, or a cart on this till; plus the open amount |
 | yellow | **waiting for service** — see [Open tables](#offene-tische) |
 
-### Map
+### Map {/* #karte */}
 
 ![The floor plan at the till, colored by status](/img/screens/en/pos-floor.png)
 
-The [floor plan from the admin area](./tische.md#tischplan) with the same colors. Tap the table you want to open. If there are several areas, you switch between them with tabs above the map. On a phone the map can be swiped sideways.
+The [floor plan from the admin area](./tische.md#tischplan) with the same colors, plus walls, zones and the room shape for orientation. Tap the table you want to open. If there are several areas, you switch between them with tabs above the map. On a phone the map can be swiped sideways.
 
-The map is only offered if an enabled area has a plan. On its very first start a till shows the map by itself if its default area has a plan.
+The map is available once an area has a floor plan. If the device's table selection is **Automatic**, the till shows the map when its default area has a plan, otherwise the list.
 
 ### Without a table: counter and to go
 
@@ -87,7 +95,7 @@ Tapping the row opens the table.
 
 ![Order view with categories, items and cart](/img/screens/en/pos-order.png)
 
-1. **Choose a category** — on the left. At the very top are the **Favorites**, if any have been marked in the admin area ([Products](./produkte.md#favoriten)).
+1. **Choose a category** — on the left, each with its color and icon from the admin area ([Categories](./kategorien.md)). At the very top are the **Favorites**, if any have been marked in the admin area ([Products](./produkte.md#favoriten)).
 2. **Tap items** — each tap adds another one to the cart; the number on the tile shows how many. The magnifier at the top right **searches** all items.
 3. **Change quantities** — in the cart with **−** and **+**. At one piece the minus turns into a bin.
 
@@ -121,16 +129,16 @@ At the bottom of the cart there are one or two buttons. Which ones depends on th
 
 | Checkout mode | Buttons | How it works |
 |---|---|---|
-| **Pay immediately** | **Check out** | Order and pay in one go. The order is only created — and sent to the kitchen and bar — when it is paid. |
+| **Pay immediately** | **Check out** | Order and pay in one step. The order is only created — and sent to the kitchen and bar — when it is paid. There is no **Send** button. |
 | **Run a tab** | **Send** and **Check out** | **Send** passes the new items to the kitchen and bar without taking payment; they then appear under *Sent* and the table is open. Later, often after several rounds, you check out everything at once. |
 
-**Check out** always settles everything that is open at the table: all sent, unpaid orders plus the new items. New items are sent automatically along the way.
+**Check out** always settles everything that is open at the table: all sent, unpaid orders plus the new items. New items and the payment are booked **together**: if the payment is cancelled or the card is declined, no order is created, and the kitchen and bar get nothing that has not been paid.
 
 After sending, the table stays open so you can keep ordering. After checking out you go back to **Open table**; at the counter the empty order view stays.
 
 ### Open orders at the counter
 
-If you **run a tab** and sell without a table (Counter device or counter service), there are no tables to list open orders under. Instead, the More menu and the cart offer **Open orders**: a list of all open orders without a table. Select one or more and check them out together.
+If you **run a tab** and sell without a table (Counter device or counter service), there are no tables to list open orders under. Instead, the menu and the cart offer **Open orders**: a list of all open orders without a table. Select one or more and check them out together.
 
 ## Served {/* #serviert */}
 
@@ -140,7 +148,7 @@ When the kitchen or bar marks items of a table as **ready**, the table turns yel
 
 ![Check out: amount, payment method, tendered and change](/img/screens/en/pos-pay.png)
 
-**Check out** opens the checkout window. On the left is the **amount due** (with the deposit it includes), below it the **payment method**.
+**Check out** opens the checkout sheet. On the left is the **amount due** (with the deposit it includes), below it the **payment method**.
 
 ### Cash
 
@@ -149,7 +157,7 @@ When the kitchen or bar marks items of a table as **ready**, the table turns yel
 - If a cash drawer is connected, it opens as soon as cash is selected.
 - **Complete payment** books the payment.
 
-### Card
+### Card {/* #kartenzahlung */}
 
 With an assigned SumUp card reader, **Card** appears. Choose a **tip** (none, round up, fixed amounts or a custom amount) and tap **Start card payment**. The guest presents the card at the reader; the till waits for the confirmation. More under [SumUp](./integrationen/sumup.md).
 
@@ -163,7 +171,7 @@ If [discount vouchers](./rabatt-bons.md) are set up, **Discount** appears. Choos
 
 ### Split bill
 
-At a table, **Split bill** sits below the payment methods. You select the items one guest pays for — sorted by order or by category — and take payment in cash or by card. Repeat until nothing is left. New items that have not been sent yet are sent first.
+At a table, **Split bill** sits below the payment methods. You select the items one guest pays for — sorted by order or by category — and take payment in cash or by card. Repeat until nothing is left. With the **Run a tab** checkout mode, new items that have not been sent yet are sent first. With **Pay immediately**, *Split bill* is only offered for orders that are already open (guest orders, for example), and not while new items are in the cart.
 
 Without a SumUp reader, *Split bill* and *Open orders* offer "Card" with the hint *ext. terminal*: you take the payment on your own card terminal and record it here.
 
@@ -177,7 +185,7 @@ After payment the till shows **Paid** with the amount, method and change, and th
 
 ![Choose table with all tables and "Take cart along"](/img/screens/en/pos-switch.png)
 
-Tapping the table pill in the header opens **Choose table**: the same tables as when opening one, the current one outlined, plus Counter and To go.
+Tapping the table pill in the header opens **Choose table**: the same view as when opening one (number, list or map, depending on the device), the current table outlined, plus Counter and To go.
 
 When you switch tables, the till **parks** the cart of the old table. When you come back, it is there again. Parked carts show up under **Open tables** with "… items not sent". If you typed items in at the wrong table, tick **Take cart along** before switching — the new items then move with you. **Back to tables** returns to **Open table**.
 
@@ -195,13 +203,13 @@ Without a PIN there is no staff member and no lock.
 
 ## Order history {/* #bestellverlauf */}
 
-In the More menu, **Order history** opens the orders of the running event, filtered by **All**, **Open**, **Completed** and **Cancelled**. There you can **reprint** kitchen tickets and the receipt and **cancel** an order (with an optional reason).
+In the **Menu**, **Order history** opens the orders of the running event, filtered by **All**, **Open**, **Completed** and **Cancelled**. There you can **reprint** kitchen tickets and the receipt and **cancel** an order (with an optional reason).
 
 ## Deposit {/* #pfand */}
 
 If an item has a [deposit](./pfand.md), the till adds it automatically — depending on your settings at the counter, at the table or both. If a guest only wants a refill, set **Refill** in the line's options window; no new deposit is charged for it.
 
-For returned cups or bottles there is the **Deposit return** (More menu or the button at the top of the cart): count how many come back per deposit type and choose
+For returned cups or bottles there is the **Deposit return** (menu or the button at the top of the cart): count how many come back per deposit type and choose
 
 - **Pay out** — the guest gets the money back in cash, the cash drawer opens, or
 - **Offset** — the amount is deducted from the current cart (only if there is something in the cart).
@@ -213,7 +221,9 @@ For returned cups or bottles there is the **Deposit return** (More menu or the b
 The till adapts to the screen width:
 
 - **Tablet in landscape and PC** — categories on the left, items in the middle, cart on the right.
-- **Phone and tablet in portrait** — the categories are a bar at the top, the cart is a green **bar** at the bottom with the count and total. Tapping it opens the cart from below; swiping down closes it. Windows such as checkout also open from below.
+- **Phone and tablet in portrait** — the categories are a bar at the top, the cart is a green **bar** at the bottom with the count and total. Tapping it opens the cart from below. Sheets such as checkout, options or choose table also open from below.
+
+**Swipe to close:** you close any sheet — cart, checkout, options, choose table — by dragging it down by its handle or header (or by its content when that is scrolled to the top). Let go too early and the sheet springs back. Swiping is switched off on the map so that you can move it around.
 
 ## When the connection drops
 
@@ -229,4 +239,4 @@ If two devices check out the same table at the same time, the first one wins; th
 
 ## Signing out the till
 
-**Sign out device** in the More menu disconnects the device from the organization after asking first. It then has to be [connected again](./geraete.md) — not something to do in between. To leave the till for a moment, use the [lock](#pin-und-sperre).
+**Sign out device** in the menu disconnects the device from the organization after asking first. It then has to be [connected again](./geraete.md) — not something to do in between. To leave the till for a moment, use the [lock](#pin-und-sperre).

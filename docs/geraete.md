@@ -17,7 +17,7 @@ Du erreichst den Bereich über **Geräte** in der Seitenleiste.
 Beim Freigeben eines Geräts legst du fest, welche Rolle es einnimmt:
 
 - **Kasse** – mobile Kasse (POS) zur Erfassung von Bestellungen.
-- **Display** – Tablet oder Bildschirm, das entweder als [Kundendisplay](#kundendisplay) den Warenkorb einer Kasse spiegelt oder als Standort-Display Bestellungen für Küche, Bar oder Ausgabe anzeigt.
+- **Display** – Tablet oder Bildschirm, das entweder als [Kundendisplay](#kundendisplay) den Warenkorb einer Kasse spiegelt oder als [Stationsanzeige](#kundendisplay) Bestellungen für Küche, Bar oder Ausgabe anzeigt.
 
 Drucker-Agents (der OpenEOS Drucker-Agent) werden separat unter [Drucker](./drucker.md) verwaltet und erscheinen nicht in dieser Geräteliste.
 
@@ -28,8 +28,8 @@ Drucker-Agents (der OpenEOS Drucker-Agent) werden separat unter [Drucker](./druc
 Das Gerät zeigt eine Zahl, verknüpft wird sie in deinem Konto. Auf dem Gerät selbst brauchst du weder Zugangsdaten noch das Kürzel deiner Organisation.
 
 1. **Auf dem Gerät** öffnest du `app.openeos.de` und wählst unten **Als Gerät verwenden (Kassen-Terminal)** — bei einem Bildschirm stattdessen **Als Anzeige verwenden (Monitor)**.
-2. Das Gerät zeigt eine **sechsstellige Zahl**, darunter einen QR-Code als zweiten Weg.
-3. **In der Verwaltung** gehst du auf **Geräte** und gibst die Zahl ein.
+2. Das Gerät zeigt eine **sechsstellige Zahl** am Stück (etwa `573080`), darunter einen QR-Code als zweiten Weg.
+3. **In der Verwaltung** gehst du auf **Geräte**, klickst in der Karte **Neues Gerät registrieren** auf **Gerät verbinden** und gibst die Zahl ein. Du kannst sie auch einfügen, etwa aus einer Nachricht: Leerzeichen und Bindestriche lässt OpenEOS weg.
 
 ![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
  Mit einem Telefon scannst du stattdessen den QR-Code — er führt direkt auf die Eingabemaske.
@@ -53,37 +53,77 @@ Registrierte Geräte erscheinen in der Liste auf der Geräte-Seite. Dort behält
 Ein Gerät wird erst zur Kasse, wenn du es mit dem angezeigten Code **freigibst**. So verhinderst du, dass unbefugte Geräte Bestellungen erfassen.
 :::
 
-Unter **Geräte → Gerät → Einstellungen** änderst du jederzeit den Gerätetyp sowie – je nach Typ – die Einstellungen der Kasse oder den Display-Modus eines Displays.
+Ein Klick auf ein Gerät öffnet seine Seite. Oben stehen Name, Status (**Online**/**Offline**) und rechts **Sperren** und **Löschen**, darunter die Reiter **Übersicht**, **Einstellungen** und — bei Kassen — **Drucker**.
 
-## Einstellungen einer Kasse
+## Übersicht {/* #uebersicht */}
 
-![Einstellungen einer Kasse: Betriebsmodus, Standardbereich und PIN](/img/screens/de/device-settings.png)
+Die Kacheln oben in der **Übersicht** zeigen auf einen Blick, wofür das Gerät eingerichtet ist:
 
-### Betriebsmodus {/* #betriebsmodus */}
+- **Kasse** — **Betrieb** (*Bedienung* oder *Feste Kasse*), bei Bedienung darunter der Standardbereich und die Tischwahl, etwa „Bereich Zelt A · Tischwahl: Karte“. Daneben Bestellungen, Zahlungen und Umsatz des Geräts.
+- **Kundendisplay** — **Verknüpft mit**: die Kasse, deren Warenkorb das Display spiegelt.
+- **Stationsanzeige** — **Standort**: welche Station der Bildschirm zeigt.
+
+Fehlt die Zuordnung, steht dort „nicht zugewiesen“ und darunter der Link **In den Einstellungen festlegen**.
+
+## Einstellungen {/* #einstellungen */}
+
+Unter **Einstellungen** sind die Optionen nach Themen gegliedert. Was von einer Wahl abhängt, steht direkt darunter und erscheint erst, wenn die Wahl getroffen ist. Mit **Speichern** übernimmst du alles; eine Kasse oder Anzeige übernimmt die Änderung sofort, ohne neu zu laden.
+
+- **Allgemein** — **Name** und **Gerätetyp** (Kasse oder Anzeige). Der Typ bestimmt, welche Gruppen darunter erscheinen.
+
+### Einstellungen einer Kasse
+
+![Einstellungen einer Kasse: Betrieb mit Tischen, Zahlung und PIN](/img/screens/de/device-settings.png)
+
+| Gruppe | Was du einstellst |
+|---|---|
+| **Betrieb** | *Bedienung* oder *Feste Kasse*; bei Bedienung darunter **Tische** mit Standardbereich und Tischwahl |
+| **Zahlung** | den SumUp-Kartenleser dieser Kasse (sobald [SumUp](./integrationen/sumup.md) eingerichtet ist) |
+| **Sicherheit (PIN)** | **PIN erforderlich** |
+
+#### Betrieb {/* #betriebsmodus */}
 
 - **Bedienung** — die Kasse fragt vor jeder Bestellung nach dem Tisch, sofern die Veranstaltung mit Tischen arbeitet. Für Bedienungen, die mit Tablet oder Telefon von Tisch zu Tisch gehen.
 - **Feste Kasse** — keine Tischabfrage; alles wird an der Theke gebucht. Für Theke, Imbiss und Ausschank.
 
 Ob tatsächlich nach einem Tisch gefragt wird, entscheidet zusätzlich der Tischmodus der [Veranstaltung](./veranstaltungen.md#tische). Die Übersicht steht unter [Kasse](./kasse.md#start).
 
-### Standardbereich {/* #standardbereich */}
+#### Standardbereich {/* #standardbereich */}
 
-Bei **Bedienung** kannst du der Kasse einen **Standardbereich** geben, etwa *Zelt A*. Die Kasse zeigt den Bereich dann im Kopf („Kasse 3 · Zelt A“) und öffnet ihn in der Tischliste und auf dem Tischplan zuerst. Hat der Bereich einen Tischplan, startet die Kasse beim ersten Mal mit der Karte. Ohne Standardbereich stehen die Bereiche in ihrer normalen Reihenfolge. Bereiche legst du unter [Tische](./tische.md) an.
+Bei **Bedienung** erscheint unter der Wahl der Block **Tische**. Dort gibst du der Kasse einen **Standardbereich**, etwa *Zelt A*. Die Kasse zeigt den Bereich dann im Kopf („Kasse 3 · Zelt A“) und öffnet ihn in der Tischliste und auf dem Tischplan zuerst. Ohne Standardbereich stehen die Bereiche in ihrer normalen Reihenfolge. Bereiche legst du unter [Tische](./tische.md) an.
 
-### PIN und Sperre {/* #pin-und-sperre */}
+#### Tischwahl an der Kasse {/* #tischwahl */}
+
+Ebenfalls im Block **Tische** legst du fest, wie diese Kasse einen Tisch öffnet:
+
+| Tischwahl | Die Kasse zeigt beim Öffnen und unter „Tisch wählen“ … |
+|---|---|
+| **Automatisch** | die Karte, wenn der Standardbereich einen Tischplan hat, sonst die Liste |
+| **Nummer eingeben** | den Ziffernblock |
+| **Liste** | alle Tische als Kacheln, nach Bereichen |
+| **Karte** | den Tischplan (erst wählbar, wenn ein Bereich einen Tischplan hat) |
+
+An der Kasse gibt es dafür keinen Umschalter: Jede Kasse zeigt genau ihre Ansicht. So kann die Bedienung im Zelt mit der Karte arbeiten und die Theke mit dem Ziffernblock. Arbeitet die Veranstaltung mit **frei eingegebenen** Tischnummern, zeigt jede Kasse den Ziffernblock.
+
+#### PIN und Sperre {/* #pin-und-sperre */}
 
 Mit **PIN erforderlich** muss sich an der Kasse jede Person mit ihrer eigenen PIN anmelden. Die PINs (4 bis 6 Ziffern) verwaltest du je Mitglied unter [Mitglieder](./mitglieder.md). Die Kasse zeigt dann oben rechts, wer angemeldet ist, und mit dem Schloss daneben lässt sie sich sperren, ohne dass der Warenkorb verloren geht — siehe [Kasse](./kasse.md#pin-und-sperre).
 
 Ohne PIN ist die Kasse für jeden bedienbar, der das Gerät in der Hand hat.
 
-## Kundendisplay
+### Einstellungen einer Anzeige {/* #kundendisplay */}
 
-Ein Display kann in zwei Modi betrieben werden:
+| Gruppe | Was du einstellst |
+|---|---|
+| **Anzeige** | den **Anzeigemodus** und darunter, was dazugehört |
+| **Aussehen & Inhalt** | Farbgebung, Schriftgröße, Kopfzeile, Text im Ruhezustand, Logo |
 
-- **Kundendisplay** (`customer`) – ein Tablet, das dem Gast zugewandt ist und live den Warenkorb einer ausgewählten Kasse spiegelt. Dazu verknüpfst du unter **Geräte → Gerät → Einstellungen** das Kundendisplay mit der gewünschten **Kasse**; Positionen, Mengen und Summen erscheinen dann in Echtzeit, sobald an der Kasse eingegeben wird.
-- **Standort-Display** (`station`) – zeigt Bestellungen für einen [Produktionsstandort](./standorte.md) an, z. B. für Küche oder Ausgabe, und ist nicht an eine einzelne Kasse gekoppelt.
+Unter **Anzeige** wählst du den **Anzeigemodus**:
 
-Neu registrierte Displays starten standardmäßig als Kundendisplay und lassen sich jederzeit auf Standort-Display umstellen.
+- **Kundendisplay** — ein Tablet, das dem Gast zugewandt ist und live den Warenkorb einer Kasse spiegelt. Darunter wählst du die **Kasse**; Positionen, Mengen und Summen erscheinen dann in Echtzeit, sobald an der Kasse eingegeben wird.
+- **Stationsanzeige** — zeigt die Bestellungen eines [Standorts](./standorte.md), etwa Küche oder Ausgabe. Darunter wählst du den **Standort** aus der aktiven Veranstaltung und mit **Erledigte ausblenden**, wann fertige Bestellungen verschwinden.
+
+Neu registrierte Anzeigen starten als Kundendisplay. Mehr zu beiden Arten und zu **Aussehen & Inhalt** steht unter [Anzeigen einrichten](./anzeigen.md).
 
 ## Von der Kasse zur Bestellung
 

@@ -96,6 +96,32 @@ Richte alles in Ruhe vorher ein und spiele im Testmodus einen Durchgang durch: e
 
 Freigeschaltet wird per **Karte oder Lastschrift**. Die Rechnung kommt automatisch per E-Mail und liegt zusätzlich unter **Rechnungen** zum Herunterladen bereit.
 
+Im Bezahldialog steht auch, bis wann du kostenlos stornieren kannst.
+
+### Freischaltung stornieren {/* #stornieren */}
+
+Fällt die Veranstaltung aus oder hast du dich beim Datum vertan, kannst du die Freischaltung **bis 7 Tage vor Beginn kostenlos stornieren**. Du bekommst den vollen Betrag zurück. Voraussetzung: In der Veranstaltung gibt es noch **keine echten Bestellungen** — Testbestellungen zählen nicht.
+
+In der Liste der Veranstaltungen öffnet das Symbol **Freischaltung** (Abzeichen mit Haken) die Übersicht: Status, bezahlter Betrag und die genaue Frist, etwa *Kostenlos stornierbar bis Fr., 04.09.2026, 17:00*. **Freischaltung stornieren** fragt noch einmal nach und zeigt Betrag, Rückweg und Folgen. Stornieren dürfen Administratoren der Organisation.
+
+| Bezahlt per | Was zurückkommt |
+|---|---|
+| **Karte** | Der volle Betrag geht auf dieselbe Karte zurück, meist innerhalb von 5–10 Werktagen. |
+| **Lastschrift** | Der volle Betrag wird auf dasselbe Konto zurücküberwiesen, in der Regel innerhalb von 5 Werktagen. |
+| **Rechnung** | Ist die Rechnung schon gestellt, bekommst du eine Stornorechnung. Hast du sie bereits bezahlt, überweisen wir den Betrag zurück. |
+
+Bei Karte und Lastschrift erscheint unter **Rechnungen** eine **Stornorechnung** zur ursprünglichen Rechnung, und an die Rechnungs-E-Mail geht eine Bestätigung.
+
+Nach dem Stornieren:
+
+- Die Veranstaltung ist nicht mehr freigeschaltet und läuft im **Testmodus** weiter (bis zu 25 Bestellungen). Deine Einrichtung bleibt.
+- Du kannst sie später erneut freischalten; der Preis wird dann neu berechnet.
+- War es deine erste bezahlte Veranstaltung, steht dir der **Starterbonus** wieder zu.
+
+:::note[Wie die Frist gerechnet wird]
+Maßgeblich ist der Beginn der Veranstaltung in der Zeitzone deiner Organisation: dieselbe Uhrzeit, sieben Kalendertage vorher. Verschiebst du die Veranstaltung nach dem Bezahlen nach hinten, bleibt es bei der Frist zum ursprünglichen Beginn. Ist die Frist abgelaufen oder gibt es schon Bestellungen, wende dich bitte an den Support.
+:::
+
 ## Veranstaltung aktivieren
 
 Neu angelegte Veranstaltungen sind zunächst **inaktiv**. In der Tabelle findest du pro Zeile Aktions-Schaltflächen zum **Bearbeiten**, **Aktivieren**, Verwalten und **Löschen**.

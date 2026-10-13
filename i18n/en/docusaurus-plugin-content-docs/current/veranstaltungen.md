@@ -96,6 +96,32 @@ Set everything up calmly beforehand and play one round through in test mode: tak
 
 Activation is paid **by card or direct debit**. The invoice arrives by email automatically and is also available under **Invoices**.
 
+The payment dialog also tells you until when you can cancel free of charge.
+
+### Cancelling an activation {/* #stornieren */}
+
+If the event is called off or you picked the wrong date, you can cancel the activation **free of charge up to 7 days before the start**. You get the full amount back. The only condition: the event must not have any **real orders** yet — test orders do not count.
+
+In the list of events, the **Activation** icon (badge with a check mark) opens the overview: status, amount paid and the exact deadline, for example *Free cancellation until Fri, 09/04/2026, 5:00 PM*. **Cancel activation** asks once more and shows the amount, where the money goes and what happens next. Organization admins can cancel.
+
+| Paid by | What you get back |
+|---|---|
+| **Card** | The full amount goes back to the same card, usually within 5–10 business days. |
+| **Direct debit** | The full amount is transferred back to the same account, usually within 5 business days. |
+| **Invoice** | If the invoice has already been issued, you get a cancellation invoice. If you have already paid it, we transfer the amount back. |
+
+For card and direct debit, a **credit note** for the original invoice appears under **Invoices**, and a confirmation goes to the billing email.
+
+After cancelling:
+
+- The event is no longer activated and continues in **test mode** (up to 25 orders). Your setup stays.
+- You can activate it again later; the price is then recalculated.
+- If it was your first paid event, the **starter bonus** applies again.
+
+:::note[How the deadline is calculated]
+What counts is the start of the event in your organization's time zone: the same time of day, seven calendar days earlier. If you postpone the event after paying, the deadline stays tied to the original start. If the deadline has passed or there are already orders, please contact support.
+:::
+
 ## Activating an event
 
 Newly created events are initially **inactive**. In the table you will find action buttons per row for **editing**, **activating**, managing, and **deleting** an event.

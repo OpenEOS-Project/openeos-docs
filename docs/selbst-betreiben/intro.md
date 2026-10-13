@@ -16,6 +16,15 @@ Der Quelltext steht unter der [AGPL-3.0][agpl] auf
 keine Telemetrie und keinen Rückkanal** zu openeos.de — die Installation
 funktioniert dauerhaft ohne Internetverbindung nach außen.
 
+:::info Wenn du OpenEOS veränderst
+Die AGPL verlangt in § 13: Wer eine **geänderte** Fassung über ein Netzwerk
+anbietet, muss allen Nutzer:innen den Quellcode dieser Fassung zugänglich
+machen. Verwaltung, Kasse und Shop zeigen dafür einen Link „Quellcode
+(AGPL-3.0)“. Setze in diesem Fall `SOURCE_URL` bei `openeos-web` und
+`openeos-shop` auf dein eigenes Repository. Ohne Änderungen kannst du den
+Standard (`https://github.com/OpenEOS-Project`) stehen lassen.
+:::
+
 [agpl]: https://www.gnu.org/licenses/agpl-3.0.de.html
 
 ## Was du dafür brauchst

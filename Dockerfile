@@ -18,6 +18,9 @@ RUN PNPM_CONFIG_DANGEROUSLY_ALLOW_ALL_BUILDS=true pnpm install --frozen-lockfile
 
 # Copy the rest and build both locales (de + en)
 COPY . .
+# Target of the footer link "Quellcode (AGPL-3.0)" (AGPL-3.0 section 13)
+ARG SOURCE_URL=https://github.com/OpenEOS-Project
+ENV SOURCE_URL=$SOURCE_URL
 # Call the Docusaurus binary directly to avoid pnpm's dependency-status check
 RUN node ./node_modules/@docusaurus/core/bin/docusaurus.mjs build
 
@@ -32,6 +35,8 @@ COPY nginx.conf /etc/nginx/conf.d/openeos-docs.conf
 
 # Static output (de at /, en at /en/)
 COPY --from=build /app/build /usr/share/nginx/html
+# License texts travel with the image (AGPL-3.0-or-later)
+COPY --from=build /app/LICENSE /app/NOTICE /usr/share/licenses/openeos-docs/
 
 EXPOSE 80
 

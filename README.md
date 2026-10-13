@@ -59,3 +59,11 @@ bis die Repo-/Org-Variable `DEPLOY_ENABLED` auf `true` steht.
 | `DEPLOY_USER` (Secret) | SSH-Benutzer (z. B. `openeos-deploy`) |
 | `DEPLOY_SSH_KEY` (Secret) | Privater SSH-Key des Deploy-Benutzers |
 | `DEPLOY_PORT` (Secret) | Optional — SSH-Port, Default 22 |
+
+## Lizenz
+
+Copyright (C) 2026 LUXCODE by Lukas Lukic-Spitznagel und Mitwirkende.
+
+Code und Inhalte (Texte, Screenshots) sind lizenziert unter der GNU Affero General Public License v3.0 oder (nach deiner Wahl) jeder späteren Version (`AGPL-3.0-or-later`), siehe [LICENSE](LICENSE) und [NOTICE](NOTICE).
+
+**Quellcode-Link (AGPL § 13):** Der Footer verlinkt den Quellcode. Ziel ist die Umgebungsvariable `SOURCE_URL` beim Build (Docker: `--build-arg SOURCE_URL=…`), Standard `https://github.com/OpenEOS-Project`.

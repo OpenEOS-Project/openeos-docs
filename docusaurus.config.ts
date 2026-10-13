@@ -9,6 +9,9 @@ import type * as Preset from '@docusaurus/preset-classic';
    eigenem Pfad; Linkziele lassen sich ueber footer.json nicht uebersetzen. */
 const locale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'de';
 const websiteUrl = locale === 'en' ? 'https://openeos.de/en' : 'https://openeos.de';
+/* Link "Quellcode" (AGPL-3.0 § 13). Wer eine geaenderte Fassung betreibt,
+   setzt SOURCE_URL beim Build auf das eigene Repository. */
+const sourceUrl = process.env.SOURCE_URL || 'https://github.com/OpenEOS-Project';
 
 const config: Config = {
   title: 'OpenEOS Dokumentation',
@@ -133,6 +136,7 @@ const config: Config = {
           items: [
             {label: 'Zur App', href: 'https://app.openeos.de'},
             {label: 'Website', href: websiteUrl},
+            {label: 'Quellcode (AGPL-3.0)', href: sourceUrl},
           ],
         },
         {

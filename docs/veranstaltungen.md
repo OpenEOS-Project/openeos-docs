@@ -67,6 +67,21 @@ OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nic
 
 Änderst du das Datum, ändert sich der Betrag mit.
 
+### Was als Veranstaltungstag zählt {/* #veranstaltungstag */}
+
+Ein Veranstaltungstag geht **von 6 bis 6 Uhr** (Ortszeit deiner Organisation), nicht von Mitternacht bis Mitternacht. Eine Nacht, die vor 6 Uhr morgens endet, gehört also noch zum Vortag:
+
+| Zeitraum | Abgerechnete Tage |
+|---|---|
+| Sa 20:00 – So 02:00 | 1 |
+| Sa 14:00 – Sa 23:00 | 1 |
+| Fr 18:00 – Sa 06:00 | 1 — wer um genau 6 Uhr aufhört, beginnt keinen neuen Tag |
+| Fr 17:00 – So 18:00 | 3 |
+
+Im Formular trägst du nur Daten ein. Endet deine Veranstaltung nachts vor 6 Uhr, wähle deshalb den Tag als Enddatum, an dem der Abend beginnt — für die Party von Samstag 20 Uhr bis Sonntag 2 Uhr also Samstag bis Samstag. Die Öffnungszeiten des Online-Shops dürfen trotzdem bis in die Nacht reichen (z. B. 20:00 – 02:00).
+
+Bereits freigeschaltete Veranstaltungen behalten die Tage und den Betrag, mit denen sie bezahlt wurden.
+
 ### Erst testen, dann bezahlen
 
 Eine neue Veranstaltung startet im **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt.

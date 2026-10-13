@@ -98,6 +98,23 @@ Activation is paid **by card or direct debit**. The invoice arrives by email aut
 
 The payment dialog also tells you until when you can cancel free of charge.
 
+### Paying by invoice {/* #auf-rechnung */}
+
+If your organization is set up to pay **by invoice** (the OpenEOS team sets this up on request), activation works like this:
+
+1. In the activation dialog you enter the invoice recipient, billing email and address. The dialog shows the payment term, for example *payable within 14 days*.
+2. The event is **activated right away**. You don't have to wait for the payment to arrive.
+3. The invoice is sent to the billing email. It is issued through our payment provider **Stripe** and lists the event days, any discount as a separate line, the due date and the bank details for the transfer.
+4. You pay **by bank transfer** to the IBAN on the invoice, or online by card or direct debit via the **Pay invoice** link.
+
+:::tip[Transfers that match themselves]
+Use the **invoice number as the payment reference**, and the payment is matched automatically. The IBAN on the invoice belongs to your organization only and stays the same for all invoices.
+:::
+
+Under **Invoices** you see every invoice with its status (*open*, *paid*, *overdue*, *cancelled*), due date and PDF. While an invoice is open, **Pay** takes you straight to the payment page. The payment status also appears in the activation overview (badge icon in the list of events).
+
+If the invoice is still open after the due date, it is shown as **overdue** and you may get a payment reminder by email. The activation stays in place. If you have questions about the invoice, contact support.
+
 ### Cancelling an activation {/* #stornieren */}
 
 If the event is called off or you picked the wrong date, you can cancel the activation **free of charge up to 7 days before the start**. You get the full amount back. The only condition: the event must not have any **real orders** yet — test orders do not count.
@@ -108,9 +125,10 @@ In the list of events, the **Activation** icon (badge with a check mark) opens t
 |---|---|
 | **Card** | The full amount goes back to the same card, usually within 5–10 business days. |
 | **Direct debit** | The full amount is transferred back to the same account, usually within 5 business days. |
-| **Invoice** | If the invoice has already been issued, you get a cancellation invoice. If you have already paid it, we transfer the amount back. |
+| **Invoice, not paid yet** | The invoice is cancelled and shown as *cancelled* under **Invoices**. You don't owe anything. |
+| **Invoice, already paid** | You get a credit note. If you paid by card or direct debit, the amount goes back automatically. If you paid by bank transfer, Stripe sends you an email asking for the bank account to transfer the money back to. |
 
-For card and direct debit, a **credit note** for the original invoice appears under **Invoices**, and a confirmation goes to the billing email.
+If you had paid, a **credit note** for the original invoice appears under **Invoices**, and a confirmation goes to the billing email.
 
 After cancelling:
 

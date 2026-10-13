@@ -16,6 +16,15 @@ The source code is available under the [AGPL-3.0][agpl] on
 no telemetry and no phoning home** to openeos.de — the installation keeps
 working permanently without any outbound internet connection.
 
+:::info If you modify OpenEOS
+Section 13 of the AGPL requires that anyone offering a **modified** version
+over a network gives all users access to the source code of that version.
+The admin app, the POS and the shop show a "Source code (AGPL-3.0)" link for
+this. In that case, set `SOURCE_URL` for `openeos-web` and `openeos-shop` to
+your own repository. Without changes you can keep the default
+(`https://github.com/OpenEOS-Project`).
+:::
+
 [agpl]: https://www.gnu.org/licenses/agpl-3.0.html
 
 ## What you need

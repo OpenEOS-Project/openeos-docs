@@ -147,7 +147,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} OpenEOS`,
+      copyright: `© ${new Date().getFullYear()} LUXCODE by Lukas Lukic-Spitznagel · OpenEOS`,
     },
     prism: {
       theme: prismThemes.github,

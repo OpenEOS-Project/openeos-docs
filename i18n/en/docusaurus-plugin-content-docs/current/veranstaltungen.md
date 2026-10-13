@@ -67,6 +67,21 @@ OpenEOS is billed **per event day** — not per order, and not as a subscription
 
 Change the dates and the amount follows.
 
+### What counts as an event day {/* #veranstaltungstag */}
+
+An event day runs **from 6:00 to 6:00** (your organization's local time), not from midnight to midnight. A night that ends before 6 in the morning still belongs to the day before:
+
+| Period | Days billed |
+|---|---|
+| Sat 20:00 – Sun 02:00 | 1 |
+| Sat 14:00 – Sat 23:00 | 1 |
+| Fri 18:00 – Sat 06:00 | 1 — stopping at exactly 6:00 does not start a new day |
+| Fri 17:00 – Sun 18:00 | 3 |
+
+The form only asks for dates. If your event ends during the night before 6:00, pick the day the evening starts as the end date — for a party from Saturday 20:00 to Sunday 02:00 that is Saturday to Saturday. The online shop's opening hours can still run into the night (e.g. 20:00 – 02:00).
+
+Events that are already activated keep the days and the amount they were paid for.
+
 ### Test first, pay later
 
 A new event starts in **test mode**. Everything works in it — tills, screens, printers, reporting — capped at **25 orders**. That way you can run the whole thing before any money changes hands.

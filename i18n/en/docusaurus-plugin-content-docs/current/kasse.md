@@ -157,6 +157,8 @@ When the kitchen or bar marks items of a table as **ready**, the table turns yel
 - If a cash drawer is connected, it opens as soon as cash is selected.
 - **Complete payment** books the payment.
 
+In [cashless mode](./bargeldlos.md) **Cash** is gone entirely; the till starts with **Card**.
+
 ### Card {/* #kartenzahlung */}
 
 With an assigned SumUp card reader, **Card** appears. Choose a **tip** (none, round up, fixed amounts or a custom amount) and tap **Start card payment**. The guest presents the card at the reader; the till waits for the confirmation. More under [SumUp](./integrationen/sumup.md).
@@ -213,6 +215,8 @@ For returned cups or bottles there is the **Deposit return** (menu or the button
 
 - **Pay out** — the guest gets the money back in cash, the cash drawer opens, or
 - **Offset** — the amount is deducted from the current cart (only if there is something in the cart).
+
+In [cashless mode](./bargeldlos.md#was-gesperrt-ist) there is no **Pay out**, only **Offset** against new deposits in the same sale.
 
 ## On phones and tablets
 

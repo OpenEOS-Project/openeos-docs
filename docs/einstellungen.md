@@ -29,7 +29,7 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 ## Organisation
 
-Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat genau zwei Unterreiter: **Allgemein** und **Kontakt**.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Dazu gehören unter anderem die Unterreiter **Allgemein**, **Kontakt** und **Zahlungen**.
 
 ### Allgemein
 
@@ -47,6 +47,10 @@ Grundlegende Informationen deiner Organisation:
 Unter **Kontakt** hinterlegst du Adresse, PLZ, Stadt, Land, Telefon und Website deiner Organisation.
 
 Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Bezahlen der Veranstaltung](./veranstaltungen.md) an, nicht hier.
+
+### Zahlungen
+
+Unter **Zahlungen** schaltest du den **bargeldlosen Modus** ein oder aus (nur Admins). Solange Bargeld erlaubt ist, steht hier der Hinweis zu Bargeld und TSE. Alles dazu unter [Bargeld und bargeldloser Modus](./bargeldlos.md).
 
 ### Was du hier nicht mehr findest
 

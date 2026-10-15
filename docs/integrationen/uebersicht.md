@@ -34,4 +34,4 @@ Deine Einstellungen bleiben dabei erhalten. Wenn du die Integration später wied
 |---|---|---|
 | [SumUp](./sumup.md) | Kartenzahlung mit SumUp-Kartenlesern an der Kasse | verfügbar |
 | Stripe | Online-Zahlungen | in Vorbereitung |
-| fiskaly | Cloud-TSE nach KassenSichV | in Vorbereitung |
+| [TSE (Kassensicherung)](../bargeldlos.md#tse) | Cloud-TSE nach KassenSichV | in Vorbereitung |

@@ -117,6 +117,10 @@ Under **Invoices** you see every invoice with its status (*open*, *paid*, *overd
 
 If the invoice is still open after the due date, it is shown as **overdue** and you may get a payment reminder by email. The activation stays in place. If you have questions about the invoice, contact support.
 
+If an online payment via the invoice page fails (card declined, direct debit returned), you get the e-mail "Invoice payment failed". Nothing was charged, the invoice stays open, and you can try again via the same link – including by bank transfer.
+
+If the OpenEOS team closes an invoice (voids it or writes it off), you no longer have to pay it. If the event has no real orders yet, the activation is lifted as well and the event continues in test mode; if there are orders already, it stays activated and support sorts out the next steps with you. You get an e-mail either way.
+
 ### Cancelling an activation {/* #stornieren */}
 
 If the event is called off or you picked the wrong date, you can cancel the activation **free of charge up to 7 days before the start**. You get the full amount back. The only condition: the event must not have any **real orders** yet — test orders do not count.

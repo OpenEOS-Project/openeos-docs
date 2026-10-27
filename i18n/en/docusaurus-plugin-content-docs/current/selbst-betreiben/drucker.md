@@ -286,8 +286,10 @@ The most common causes, in this order:
 2. **Server not reachable** — check from the agent PC:
    `curl https://pos.my-club.org/api/health`
 3. **Agent not paired** — the code was never entered, or the agent was
-   removed in the web app. To pair again, delete `device.json` in the data
-   directory, restart the agent and enter the new code.
+   removed in the web app. A removed agent (0.2.1 or newer) shows a new
+   code on its own in the log and on `http://localhost:8080` — nothing to
+   delete, no restart, just enter the code. An agent **blocked** in the web
+   app waits and checks every 60 s whether it has been unblocked.
 4. **Printer not adopted** — discovered printers only print after
    **Adopt** in the web app.
 5. **No station or device assigned** — without an assignment no job is

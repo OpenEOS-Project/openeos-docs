@@ -104,7 +104,9 @@ Taucht ein Bereich **Drucker ohne Agent** auf, hängen diese Drucker an keinem v
 
 **Agent entfernen** löscht den Agent mit allen seinen Druckern aus deiner Organisation; Zuordnungen in Standorten, Bon-Workflows, Kassen und Produkten werden gelöst. Der Agent auf dem PC kann danach nicht mehr drucken.
 
-Soll derselbe PC später wieder drucken, lösche dort die Datei `device.json` im Datenverzeichnis des Agents (Windows `%ProgramData%\OpenEOS Printer Agent`, Linux `/var/lib/openeos-printer`) und starte den Agent neu – er zeigt dann einen neuen Code, den du wie oben eingibst.
+Soll derselbe PC später wieder drucken, musst du dort nichts löschen oder neu starten: Der laufende Agent (ab Version 0.2.1) merkt, dass er entfernt wurde, und zeigt von selbst einen **neuen Code** – im Log und auf `http://localhost:8080`. Den gibst du wie oben ein. Dasselbe passiert, wenn der Agent mit einer alten Kopplung startet, die der Server nicht mehr kennt.
+
+Ein **gesperrter** Agent koppelt sich dagegen nicht neu: Er wartet, prüft alle 60 Sekunden, ob die Sperre aufgehoben wurde, und verbindet sich dann wieder mit derselben Kopplung.
 
 ## Vorlagen
 

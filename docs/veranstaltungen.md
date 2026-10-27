@@ -117,6 +117,10 @@ Unter **Rechnungen** siehst du jede Rechnung mit Status (*offen*, *bezahlt*, *ü
 
 Ist die Rechnung nach dem Fälligkeitsdatum noch offen, steht sie als **überfällig** da, und du bekommst gegebenenfalls eine Zahlungserinnerung per E-Mail. Die Freischaltung bleibt trotzdem bestehen. Hast du Fragen zur Rechnung, melde dich beim Support.
 
+Schlägt eine Online-Zahlung über die Rechnungsseite fehl (Karte abgelehnt, Lastschrift nicht eingelöst), bekommst du die E-Mail „Zahlung der Rechnung fehlgeschlagen“. Es wurde nichts abgebucht, die Rechnung bleibt offen, und du kannst es über denselben Link noch einmal versuchen – auch per Überweisung.
+
+Wird eine Rechnung vom OpenEOS-Team aufgehoben (storniert oder als uneinbringlich geschlossen), musst du sie nicht mehr bezahlen. Gibt es in der Veranstaltung noch keine echten Bestellungen, ist damit auch die Freischaltung aufgehoben und die Veranstaltung läuft im Testmodus weiter; gibt es schon Bestellungen, bleibt sie freigeschaltet und der Support klärt mit dir, wie es weitergeht. In beiden Fällen bekommst du eine E-Mail.
+
 ### Freischaltung stornieren {/* #stornieren */}
 
 Fällt die Veranstaltung aus oder hast du dich beim Datum vertan, kannst du die Freischaltung **bis 7 Tage vor Beginn kostenlos stornieren**. Du bekommst den vollen Betrag zurück. Voraussetzung: In der Veranstaltung gibt es noch **keine echten Bestellungen** — Testbestellungen zählen nicht.

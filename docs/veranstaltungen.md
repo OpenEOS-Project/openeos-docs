@@ -100,6 +100,27 @@ Im Bezahldialog steht auch, bis wann du kostenlos stornieren kannst.
 
 Schließt du die Zahlungsseite, ohne zu bezahlen, läuft sie nach 24 Stunden ab. Die Veranstaltung ist dann wieder **nicht freigeschaltet**, und du bekommst die E-Mail „Zahlung nicht abgeschlossen“ (an die Rechnungs-E-Mail, sonst an die Administratoren). Dasselbe gilt, wenn eine Lastschrift nicht eingelöst wird — dann steht der Grund der Bank in der E-Mail, soweit bekannt. Du kannst die Veranstaltung jederzeit erneut freischalten.
 
+### Auf Rechnung bezahlen {/* #auf-rechnung */}
+
+Ist für deine Organisation der Kauf **auf Rechnung** eingerichtet (das richtet das OpenEOS-Team auf Anfrage ein), läuft das Freischalten so:
+
+1. Im Freischalten-Dialog trägst du Rechnungsempfänger, Rechnungs-E-Mail und Anschrift ein. Der Dialog nennt das Zahlungsziel, zum Beispiel *zahlbar innerhalb von 14 Tagen*.
+2. Die Veranstaltung ist **sofort freigeschaltet**. Du musst nicht auf den Zahlungseingang warten.
+3. Die Rechnung kommt per E-Mail an die Rechnungs-E-Mail. Ausgestellt wird sie über unseren Zahlungsdienstleister **Stripe**. Darauf stehen die Veranstaltungstage, ein Nachlass als eigene Zeile, das Fälligkeitsdatum und die Bankverbindung für die Überweisung.
+4. Du bezahlst **per Überweisung** auf die IBAN aus der Rechnung, oder über den Link **Rechnung bezahlen** online per Karte oder Lastschrift.
+
+:::tip[Überweisen, ohne nachzufragen]
+Gib die **Rechnungsnummer als Verwendungszweck** an, dann wird die Zahlung automatisch zugeordnet. Die IBAN auf der Rechnung gilt nur für deine Organisation und bleibt bei allen Rechnungen dieselbe.
+:::
+
+Unter **Rechnungen** siehst du jede Rechnung mit Status (*offen*, *bezahlt*, *überfällig*, *storniert*), Fälligkeitsdatum und PDF. Solange eine Rechnung offen ist, führt **Bezahlen** direkt zur Zahlungsseite. Den Zahlungsstand zeigt auch die Übersicht der Freischaltung (Symbol mit Abzeichen in der Liste der Veranstaltungen).
+
+Ist die Rechnung nach dem Fälligkeitsdatum noch offen, steht sie als **überfällig** da, und du bekommst gegebenenfalls eine Zahlungserinnerung per E-Mail. Die Freischaltung bleibt trotzdem bestehen. Hast du Fragen zur Rechnung, melde dich beim Support.
+
+Schlägt eine Online-Zahlung über die Rechnungsseite fehl (Karte abgelehnt, Lastschrift nicht eingelöst), bekommst du die E-Mail „Zahlung der Rechnung fehlgeschlagen“. Es wurde nichts abgebucht, die Rechnung bleibt offen, und du kannst es über denselben Link noch einmal versuchen – auch per Überweisung.
+
+Wird eine Rechnung vom OpenEOS-Team aufgehoben (storniert oder als uneinbringlich geschlossen), musst du sie nicht mehr bezahlen. Gibt es in der Veranstaltung noch keine echten Bestellungen, ist damit auch die Freischaltung aufgehoben und die Veranstaltung läuft im Testmodus weiter; gibt es schon Bestellungen, bleibt sie freigeschaltet und der Support klärt mit dir, wie es weitergeht. In beiden Fällen bekommst du eine E-Mail.
+
 ### Freischaltung stornieren {/* #stornieren */}
 
 Fällt die Veranstaltung aus oder hast du dich beim Datum vertan, kannst du die Freischaltung **bis 7 Tage vor Beginn kostenlos stornieren**. Du bekommst den vollen Betrag zurück. Voraussetzung: In der Veranstaltung gibt es noch **keine echten Bestellungen** — Testbestellungen zählen nicht.
@@ -110,9 +131,10 @@ In der Liste der Veranstaltungen öffnet das Symbol **Freischaltung** (Abzeichen
 |---|---|
 | **Karte** | Der volle Betrag geht auf dieselbe Karte zurück, meist innerhalb von 5–10 Werktagen. |
 | **Lastschrift** | Der volle Betrag wird auf dasselbe Konto zurücküberwiesen, in der Regel innerhalb von 5 Werktagen. |
-| **Rechnung** | Ist die Rechnung schon gestellt, bekommst du eine Stornorechnung. Hast du sie bereits bezahlt, überweisen wir den Betrag zurück. |
+| **Rechnung, noch nicht bezahlt** | Die Rechnung wird storniert und steht unter **Rechnungen** als *storniert*. Du musst nichts mehr zahlen. |
+| **Rechnung, schon bezahlt** | Du bekommst eine Stornorechnung. Hast du per Karte oder Lastschrift bezahlt, geht der Betrag automatisch zurück. Hast du überwiesen, schickt dir Stripe eine E-Mail, in der du die Bankverbindung für die Rücküberweisung angibst. |
 
-Bei Karte und Lastschrift erscheint unter **Rechnungen** eine **Stornorechnung** zur ursprünglichen Rechnung, und an die Rechnungs-E-Mail geht eine Bestätigung.
+Wurde bezahlt, erscheint unter **Rechnungen** eine **Stornorechnung** zur ursprünglichen Rechnung, und an die Rechnungs-E-Mail geht eine Bestätigung.
 
 Nach dem Stornieren:
 

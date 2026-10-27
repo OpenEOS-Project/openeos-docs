@@ -286,8 +286,11 @@ Die häufigsten Ursachen, in dieser Reihenfolge:
 2. **Server nicht erreichbar** — vom Agent-PC aus prüfen:
    `curl https://kasse.mein-verein.de/api/health`
 3. **Agent nicht gekoppelt** — der Code wurde nie eingegeben oder der Agent
-   wurde in der Web-App entfernt. Zum neu Koppeln `device.json` im
-   Datenverzeichnis löschen, Agent neu starten, neuen Code eingeben.
+   wurde in der Web-App entfernt. Ein entfernter Agent (ab 0.2.1) zeigt
+   von selbst einen neuen Code im Log und auf `http://localhost:8080` —
+   nichts löschen, nicht neu starten, nur den Code eingeben. Ein in der
+   Web-App **gesperrter** Agent wartet und prüft alle 60 s, ob die Sperre
+   aufgehoben wurde.
 4. **Drucker nicht übernommen** — gefundene Drucker drucken erst nach
    **Übernehmen** in der Web-App.
 5. **Kein Standort oder Gerät zugeordnet** — ohne Zuordnung entsteht kein

@@ -104,7 +104,9 @@ If a **Printers without agent** area shows up, those printers are no longer atta
 
 **Remove agent** deletes the agent with all its printers from your organization; assignments in stations, print workflows, tills and products are cleared. The agent on the PC can no longer print afterwards.
 
-If the same PC is to print again later, delete the file `device.json` in the agent's data directory there (Windows `%ProgramData%\OpenEOS Printer Agent`, Linux `/var/lib/openeos-printer`) and restart the agent — it then shows a new code, which you enter as above.
+If the same PC is to print again later, there is nothing to delete or restart: the running agent (version 0.2.1 or newer) notices that it was removed and shows a **new code** on its own — in the log and on `http://localhost:8080`. Enter it as above. The same happens when the agent starts with an old pairing the server no longer knows.
+
+A **blocked** agent does not pair again: it waits, checks every 60 seconds whether it has been unblocked, and then reconnects with the same pairing.
 
 ## Templates
 

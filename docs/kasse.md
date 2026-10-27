@@ -157,6 +157,8 @@ Meldet die Küche oder die Theke Positionen eines Tisches als **fertig**, wird d
 - Ist eine Kassenlade angeschlossen, öffnet sie sich, sobald Bar gewählt ist.
 - **Zahlung abschließen** bucht die Zahlung.
 
+Im [bargeldlosen Modus](./bargeldlos.md) fehlt **Bar** ganz; die Kasse startet mit **Karte**.
+
 ### Karte {/* #kartenzahlung */}
 
 Mit einem zugewiesenen SumUp-Kartenleser erscheint **Karte**. Du wählst ein **Trinkgeld** (kein, aufrunden, feste Beträge oder ein eigener Betrag) und tippst auf **Kartenzahlung starten**. Der Gast legt die Karte an den Leser; die Kasse wartet auf die Bestätigung. Mehr dazu unter [SumUp](./integrationen/sumup.md).
@@ -213,6 +215,8 @@ Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Men�
 
 - **Auszahlen** — der Gast bekommt das Geld bar zurück, die Kassenlade öffnet sich, oder
 - **Verrechnen** — der Betrag wird vom aktuellen Warenkorb abgezogen (nur, wenn gerade etwas im Warenkorb liegt).
+
+Im [bargeldlosen Modus](./bargeldlos.md#was-gesperrt-ist) gibt es kein **Auszahlen**, nur **Verrechnen** mit neuem Pfand im selben Verkauf.
 
 ## Am Telefon und Tablet
 

@@ -29,7 +29,7 @@ In the **Security** sub-section you set up two-factor authentication and keep an
 
 ## Organization
 
-In the **Organization** tab you manage your organization's master data. It has exactly two sub-tabs: **General** and **Contact**.
+In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact** and **Payments**.
 
 ### General
 
@@ -47,6 +47,10 @@ Basic information about your organization:
 Under **Contact** you enter your organization's address, ZIP code, city, country, phone and website.
 
 The billing address for an event's invoice is entered when you [pay for the event](./veranstaltungen.md), not here.
+
+### Payments
+
+Under **Payments** you switch **cashless mode** on or off (admins only). As long as cash is allowed, the notice about cash and the TSE is shown here. Everything about it is under [Cash and cashless mode](./bargeldlos.md).
 
 ### What you no longer find here
 

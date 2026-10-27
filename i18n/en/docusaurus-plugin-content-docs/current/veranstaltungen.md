@@ -98,6 +98,8 @@ Activation is paid **by card or direct debit**. The invoice arrives by email aut
 
 The payment dialog also tells you until when you can cancel free of charge.
 
+If you close the payment page without paying, it expires after 24 hours. The event is then **not activated** again, and you get a "Payment not completed" e-mail (to the billing e-mail, otherwise to the admins). The same applies if a direct debit is returned — the e-mail then names the bank's reason where known. You can activate the event again at any time.
+
 ### Paying by invoice {/* #auf-rechnung */}
 
 If your organization is set up to pay **by invoice** (the OpenEOS team sets this up on request), activation works like this:
@@ -119,7 +121,7 @@ If the invoice is still open after the due date, it is shown as **overdue** and 
 
 If the event is called off or you picked the wrong date, you can cancel the activation **free of charge up to 7 days before the start**. You get the full amount back. The only condition: the event must not have any **real orders** yet — test orders do not count.
 
-In the list of events, the **Activation** icon (badge with a check mark) opens the overview: status, amount paid and the exact deadline, for example *Free cancellation until Fri, 09/04/2026, 5:00 PM*. **Cancel activation** asks once more and shows the amount, where the money goes and what happens next. Organization admins can cancel.
+In the list of events, the **Activation** icon (badge with a check mark) opens the overview: status, amount paid and the exact deadline, for example *Free cancellation until Fri, 04/09/2026, 17:00*. If the event starts at midnight, the previous day with 23:59 is shown — for a start on Sat, 12/09, 0:00 that is *until Fri, 04/09/2026, 23:59*. **Cancel activation** asks once more and shows the amount, where the money goes and what happens next. Organization admins can cancel.
 
 | Paid by | What you get back |
 |---|---|

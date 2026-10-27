@@ -12,6 +12,15 @@ You can reach this section via **Devices** in the sidebar.
 
 ![Device overview with QR code](/img/screens/en/devices.png)
 
+## Device types
+
+When approving a device you decide which role it takes:
+
+- **Till** – mobile till (POS) for taking orders.
+- **Display** – a tablet or screen that either mirrors a till's cart as a [customer display](#kundendisplay) or shows orders for the kitchen, bar or pickup as a [station display](#kundendisplay).
+
+The PC your receipt printers are attached to is not a device in this sense: you connect the **printer agent** under [Printers](./drucker.md), and it does not appear in this device list.
+
 ## Connecting a new device
 
 ![The device shows a number and a QR code](/img/screens/en/device-pair.png)
@@ -111,6 +120,16 @@ Under **Display** you choose the **Display mode**:
 - **Station display** — shows the orders of a [station](./standorte.md), such as the kitchen or the pickup counter. Below it you choose the **Station** from the active event and, with **Clear completed**, when finished orders disappear.
 
 Newly registered displays start as a customer display. More on both kinds and on **Appearance & content** is in [Setting up screens](./anzeigen.md).
+
+## Printer {/* #drucker */}
+
+The **Printer** tab only exists for tills. Here you connect the till to the printers you adopted under [Printers](./drucker.md):
+
+- **Default Printer** — this till's receipt printer. Receipts and all tickets no station is responsible for end up here. **Test print** checks it right from here.
+- **Print Routing** — **Fixed printer**: all tickets go to the default printer, regardless of stations; for a till that sits right next to its printer. **Dynamic routing**: the routing chain — the printer of the product's station, otherwise of the category's station, otherwise the default printer; for when several stations have their own printers.
+- **Cash drawer** — the printer the drawer is attached to; it opens on cash payments. Only printers that had the cash drawer ticked when adopted are offered. In cashless mode the drawer stays shut.
+
+**Save** applies the selection. Without a default printer the till still takes orders — it just prints no receipts.
 
 ## From till to order
 

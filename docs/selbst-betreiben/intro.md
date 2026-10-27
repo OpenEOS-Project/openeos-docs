@@ -47,7 +47,7 @@ Auswertungen und der Online-Shop.
 
 - Abrechnung, Stripe, Rechnungen — es gibt schlicht nichts zu bezahlen
 - Mehrere Organisationen nebeneinander (genau eine je Installation)
-- Miet-Hardware und der Support-Chat zu uns
+- Der Support-Chat zu uns
 - Selbstregistrierung — Konten legt die Mitgliederverwaltung an
 
 Diese Bereiche sind in der Oberfläche ausgeblendet; die zugehörigen
@@ -62,7 +62,7 @@ Schnittstellen antworten mit `404`.
 | Redis 7 | Sitzungen, Zwischenspeicher, WebSocket-Verteilung | ja |
 | `openeos-web` | Dashboard, Kassen-Oberfläche, Displays | ja |
 | `openeos-shop` | Öffentlicher Online-Shop je Veranstaltung | nein |
-| `openeos-printer-agent` | Ansteuerung von ESC/POS-Druckern | nur mit Bondruck |
+| `openeos-printer-agent` | Drucker-Agent auf dem PC an den Bondruckern (Windows/Linux) | nur mit Bondruck |
 
 Redis ist **nicht** optional: der Server startet ohne erreichbaren Redis nicht.
 
@@ -71,7 +71,7 @@ Redis ist **nicht** optional: der Server startet ohne erreichbaren Redis nicht.
 1. [Installation](./installation.md) — Server aufsetzen und starten
 2. [Ersteinrichtung](./ersteinrichtung.md) — Administrator und Organisation anlegen
 3. [Benutzer anlegen](./benutzer.md) — weitere Konten, mit und ohne Mailserver
-4. [Drucker anbinden](./drucker.md) — Bondruck einrichten
+4. [Drucker-Agent installieren](./drucker.md) — Bondruck einrichten
 5. [Betrieb](./betrieb.md) — Sicherung, Aktualisierung, Fehlersuche
 
 :::tip[Lieber ohne eigenen Server?]

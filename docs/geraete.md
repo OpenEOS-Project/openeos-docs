@@ -19,7 +19,7 @@ Beim Freigeben eines Geräts legst du fest, welche Rolle es einnimmt:
 - **Kasse** – mobile Kasse (POS) zur Erfassung von Bestellungen.
 - **Display** – Tablet oder Bildschirm, das entweder als [Kundendisplay](#kundendisplay) den Warenkorb einer Kasse spiegelt oder als [Stationsanzeige](#kundendisplay) Bestellungen für Küche, Bar oder Ausgabe anzeigt.
 
-Drucker-Agents (der OpenEOS Drucker-Agent) werden separat unter [Drucker](./drucker.md) verwaltet und erscheinen nicht in dieser Geräteliste.
+Der PC, an dem deine Bondrucker hängen, ist kein Gerät in diesem Sinn: Den **Drucker-Agent** verbindest du unter [Drucker](./drucker.md), und er erscheint nicht in dieser Geräteliste.
 
 ## Neues Gerät verbinden
 
@@ -124,6 +124,16 @@ Unter **Anzeige** wählst du den **Anzeigemodus**:
 - **Stationsanzeige** — zeigt die Bestellungen eines [Standorts](./standorte.md), etwa Küche oder Ausgabe. Darunter wählst du den **Standort** aus der aktiven Veranstaltung und mit **Erledigte ausblenden**, wann fertige Bestellungen verschwinden.
 
 Neu registrierte Anzeigen starten als Kundendisplay. Mehr zu beiden Arten und zu **Aussehen & Inhalt** steht unter [Anzeigen einrichten](./anzeigen.md).
+
+## Drucker {/* #drucker */}
+
+Den Reiter **Drucker** gibt es nur bei Kassen. Hier verbindest du die Kasse mit den Druckern, die du unter [Drucker](./drucker.md) übernommen hast:
+
+- **Standarddrucker** — der Bondrucker dieser Kasse. Auf ihm landen Kassenbons und alle Bons, für die kein Standort zuständig ist. Mit **Testdruck** prüfst du ihn direkt von hier aus.
+- **Druck-Routing** — **Fester Drucker**: alle Bons gehen auf den Standarddrucker, ohne Rücksicht auf Standorte; für eine Kasse, die direkt an ihrem Drucker hängt. **Dynamisches Routing**: die Routing-Kette — Drucker des Produkt-Standorts, sonst des Kategorie-Standorts, sonst der Standarddrucker; wenn mehrere Standorte eigene Drucker haben.
+- **Kassenschublade** — der Drucker, an dem die Lade hängt; sie öffnet sich bei Barzahlung. Zur Auswahl stehen nur Drucker, bei denen beim Übernehmen die Kassenlade angekreuzt wurde. Im bargeldlosen Modus bleibt die Lade zu.
+
+Mit **Speichern** übernimmst du die Auswahl. Ohne Standarddrucker nimmt die Kasse Bestellungen trotzdem an — sie druckt nur keine Kassenbons.
 
 ## Von der Kasse zur Bestellung
 

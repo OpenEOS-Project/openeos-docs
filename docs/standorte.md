@@ -17,7 +17,7 @@ Du erreichst den Bereich über **Standorte** in der Seitenleiste. Auch Standorte
 1. Klicke auf **Standort erstellen**.
 2. Vergib einen **Namen** (z. B. „Küche“, „Grill“, „Getränkeausgabe“), optional eine Beschreibung und eine **Farbe**.
 3. Wähle bei Bedarf einen **Folge-Standort**: Dorthin werden fertige Artikel weitergeleitet, etwa von der Küche an die Ausgabe.
-4. Wähle den **Drucker**, auf dem die Bons dieses Standorts landen.
+4. Wähle den **Drucker**, auf dem die Bons dieses Standorts landen. Zur Auswahl stehen die Drucker, die du unter [Drucker](./drucker.md) übernommen hast.
 5. Klicke auf **Erstellen**.
 
 ![Standort erstellen](/img/screens/de/stations-dialog.png)
@@ -26,7 +26,7 @@ Welche Produkte zu einem Standort gehören, legst du nicht hier fest, sondern im
 
 ## Zusammenspiel mit Druckern und Anzeigen
 
-Jeder Standort kann einen **Drucker** (für Küchen- oder Ausgabebons) haben und auf einer **Küchen- bzw. Thekenanzeige** erscheinen. Geht an der Kasse eine Bestellung ein, werden die Positionen automatisch an den jeweils zuständigen Standort weitergeleitet und dort gedruckt bzw. angezeigt.
+Jeder Standort kann einen [**Drucker**](./drucker.md#drucker-zuordnen) (für Küchen- oder Ausgabebons) haben und auf einer **Küchen- bzw. Thekenanzeige** erscheinen. Geht an der Kasse eine Bestellung ein, werden die Positionen automatisch an den jeweils zuständigen Standort weitergeleitet und dort gedruckt bzw. angezeigt.
 
 :::info[Küchenanzeige oder Kundenanzeige]
 Beachte den Unterschied zwischen zwei Arten von [Anzeigen](./anzeigen.md): Eine **Küchen- bzw. Thekenanzeige** zeigt die Bestellungen eines Standorts (Küche, Bar, Ausgabe) – genau darum geht es auf dieser Seite. Eine **Kundenanzeige** ist hingegen einer einzelnen Kasse zugeordnet und spiegelt deren Warenkorb für den Gast, unabhängig von Standorten.

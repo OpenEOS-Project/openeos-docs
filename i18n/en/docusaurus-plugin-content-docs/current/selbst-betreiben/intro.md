@@ -47,7 +47,7 @@ reports and the online shop.
 
 - Billing, Stripe, invoices — there is simply nothing to pay
 - Several organizations side by side (exactly one per installation)
-- Rental hardware and the support chat with us
+- The support chat with us
 - Self-registration — accounts are created via member management
 
 These areas are hidden in the interface; the corresponding
@@ -62,7 +62,7 @@ API endpoints respond with `404`.
 | Redis 7 | Sessions, cache, WebSocket distribution | yes |
 | `openeos-web` | Dashboard, till interface, displays | yes |
 | `openeos-shop` | Public online shop per event | no |
-| `openeos-printer-agent` | Driving ESC/POS printers | only with receipt printing |
+| `openeos-printer-agent` | Printer agent on the PC next to the receipt printers (Windows/Linux) | only with receipt printing |
 
 Redis is **not** optional: the server does not start without a reachable Redis.
 
@@ -71,7 +71,7 @@ Redis is **not** optional: the server does not start without a reachable Redis.
 1. [Installation](./installation.md) — set up and start the server
 2. [Initial setup](./ersteinrichtung.md) — create the administrator and the organization
 3. [Creating users](./benutzer.md) — further accounts, with and without a mail server
-4. [Connecting printers](./drucker.md) — set up receipt printing
+4. [Installing the printer agent](./drucker.md) — set up receipt printing
 5. [Operation](./betrieb.md) — backups, updates, troubleshooting
 
 :::tip[Rather not run your own server?]

@@ -98,11 +98,13 @@ Freigeschaltet wird per **Karte oder Lastschrift**. Die Rechnung kommt automatis
 
 Im Bezahldialog steht auch, bis wann du kostenlos stornieren kannst.
 
+Schließt du die Zahlungsseite, ohne zu bezahlen, läuft sie nach 24 Stunden ab. Die Veranstaltung ist dann wieder **nicht freigeschaltet**, und du bekommst die E-Mail „Zahlung nicht abgeschlossen“ (an die Rechnungs-E-Mail, sonst an die Administratoren). Dasselbe gilt, wenn eine Lastschrift nicht eingelöst wird — dann steht der Grund der Bank in der E-Mail, soweit bekannt. Du kannst die Veranstaltung jederzeit erneut freischalten.
+
 ### Freischaltung stornieren {/* #stornieren */}
 
 Fällt die Veranstaltung aus oder hast du dich beim Datum vertan, kannst du die Freischaltung **bis 7 Tage vor Beginn kostenlos stornieren**. Du bekommst den vollen Betrag zurück. Voraussetzung: In der Veranstaltung gibt es noch **keine echten Bestellungen** — Testbestellungen zählen nicht.
 
-In der Liste der Veranstaltungen öffnet das Symbol **Freischaltung** (Abzeichen mit Haken) die Übersicht: Status, bezahlter Betrag und die genaue Frist, etwa *Kostenlos stornierbar bis Fr., 04.09.2026, 17:00*. **Freischaltung stornieren** fragt noch einmal nach und zeigt Betrag, Rückweg und Folgen. Stornieren dürfen Administratoren der Organisation.
+In der Liste der Veranstaltungen öffnet das Symbol **Freischaltung** (Abzeichen mit Haken) die Übersicht: Status, bezahlter Betrag und die genaue Frist, etwa *Kostenlos stornierbar bis Fr., 04.09.2026, 17:00*. Beginnt die Veranstaltung um Mitternacht, steht dort der Vortag mit 23:59 — bei Beginn Sa., 12.09., 0:00 Uhr also *bis Fr., 04.09.2026, 23:59*. **Freischaltung stornieren** fragt noch einmal nach und zeigt Betrag, Rückweg und Folgen. Stornieren dürfen Administratoren der Organisation.
 
 | Bezahlt per | Was zurückkommt |
 |---|---|

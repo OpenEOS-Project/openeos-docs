@@ -71,7 +71,7 @@ Redis ist **nicht** optional: der Server startet ohne erreichbaren Redis nicht.
 1. [Installation](./installation.md) — Server aufsetzen und starten
 2. [Ersteinrichtung](./ersteinrichtung.md) — Administrator und Organisation anlegen
 3. [Benutzer anlegen](./benutzer.md) — weitere Konten, mit und ohne Mailserver
-4. [Drucker-Agent installieren](./drucker.md) — Bondruck einrichten
+4. [Drucker-Agent für die eigene Installation](./drucker.md) — Bondruck einrichten
 5. [Betrieb](./betrieb.md) — Sicherung, Aktualisierung, Fehlersuche
 
 :::tip[Lieber ohne eigenen Server?]

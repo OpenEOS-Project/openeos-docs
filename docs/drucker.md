@@ -94,6 +94,8 @@ Unter jedem Agent zeigt der Reiter **Drucker** den Bereich **Gefundene Drucker**
 - **Windows-Drucker**: alle in Windows eingerichteten Drucker. Virtuelle Drucker wie „Microsoft Print to PDF“ bleiben außen vor;
 - **Netzwerkdrucker**, die sich per mDNS/Bonjour im Netz bekannt machen.
 
+Es funktionieren nur **ESC/POS-Bondrucker**. Bürodrucker (Laser, Tintenstrahl) und Geräte, die auf die Modellabfrage des Agents nicht antworten, blendet die Liste deshalb aus und zeigt nur einen Hinweis wie „2 weitere Geräte ausgeblendet“. Mit **Alle gefundenen Geräte anzeigen** siehst du auch diese Einträge, markiert mit **Kein Bondrucker** – übernehmen kannst du sie trotzdem, auf eigenes Risiko.
+
 ![Agent online mit dem Bereich „Gefundene Drucker“](/img/screens/de/printers-agent-discovered.png)
 
 Der Agent sucht beim Start und danach alle fünf Minuten. Mit **Neu suchen** stößt du die Suche sofort an. Schaltest du dabei **Auch Netzwerk durchsuchen (Port 9100)** ein, prüft der Agent zusätzlich alle Adressen seines Netzes auf Port 9100 – das findet auch Netzwerkdrucker, die sich nicht von selbst melden, dauert aber ein paar Sekunden länger.

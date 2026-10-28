@@ -94,6 +94,8 @@ Under each agent, the **Printers** tab shows a **Discovered printers** area: eve
 - **Windows printers**: every printer set up in Windows. Virtual printers such as "Microsoft Print to PDF" are left out;
 - **network printers** that announce themselves via mDNS/Bonjour.
 
+Only **ESC/POS receipt printers** work. The list therefore hides office printers (laser, inkjet) and devices that do not answer the agent's model query, showing just a hint such as "2 more devices hidden". **Show all discovered devices** reveals those entries too, marked **Not a receipt printer** – you can still adopt them, at your own risk.
+
 ![Agent online with the "Discovered printers" area](/img/screens/de/printers-agent-discovered.png)
 
 The agent scans at start and every five minutes after that. **Search again** triggers a scan right away. If you also switch on **Also scan the network (port 9100)**, the agent additionally probes every address on its network on port 9100 — that finds network printers that do not announce themselves, but takes a few seconds longer.

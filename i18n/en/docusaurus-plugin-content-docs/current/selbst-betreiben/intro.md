@@ -71,7 +71,7 @@ Redis is **not** optional: the server does not start without a reachable Redis.
 1. [Installation](./installation.md) — set up and start the server
 2. [Initial setup](./ersteinrichtung.md) — create the administrator and the organization
 3. [Creating users](./benutzer.md) — further accounts, with and without a mail server
-4. [Installing the printer agent](./drucker.md) — set up receipt printing
+4. [Printer agent for your own installation](./drucker.md) — set up receipt printing
 5. [Operation](./betrieb.md) — backups, updates, troubleshooting
 
 :::tip[Rather not run your own server?]

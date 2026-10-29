@@ -73,6 +73,7 @@ Redis is **not** optional: the server does not start without a reachable Redis.
 3. [Creating users](./benutzer.md) — further accounts, with and without a mail server
 4. [Printer agent for your own installation](./drucker.md) — set up receipt printing
 5. [Operation](./betrieb.md) — backups, updates, troubleshooting
+6. [Setting up the assistant](./assistent.md) — optional: menu import and icon suggestions with your own key
 
 :::tip[Rather not run your own server?]
 At [app.openeos.de](https://app.openeos.de) we run OpenEOS for you —

@@ -14,5 +14,9 @@
   "item.label.Dokumentation": {
     "message": "Documentation",
     "description": "Navbar item with label Dokumentation"
+  },
+  "item.label.API-Referenz": {
+    "message": "API reference",
+    "description": "Navbar item with label API-Referenz"
   }
 }

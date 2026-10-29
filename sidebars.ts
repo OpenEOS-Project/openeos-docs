@@ -48,7 +48,12 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Integrationen',
       collapsed: true,
-      items: ['integrationen/uebersicht', 'integrationen/sumup'],
+      items: [
+        'integrationen/uebersicht',
+        'integrationen/sumup',
+        'api-zugaenge',
+        {type: 'link', label: 'API-Referenz', href: '/api'},
+      ],
     },
     {
       type: 'category',

@@ -9,6 +9,8 @@ Anwenderdokumentation für das OpenEOS Kassensystem – als [Docusaurus](https:/
 - `static/img/screens/{de,en}/` – Screenshots der App, pro Sprache
 - `sidebars.ts` – Navigationsstruktur des Handbuchs
 - `docusaurus.config.ts` – Site-Konfiguration (Branding, i18n)
+- `static/openapi/openeos-api.json` – OpenAPI-Beschreibung der API, Quelle der Seite `/api`
+- `scripts/openapi-sync.mjs` – holt diese Datei aus openeos-api (`pnpm openapi:sync`)
 - `_capture/` – Playwright-Skripte, mit denen die Screenshots erzeugt wurden (nicht Teil der Website)
 
 ## Entwicklung
@@ -36,6 +38,30 @@ pnpm start -- --locale en
 ```
 
 Das fertige statische Ergebnis liegt anschließend in `build/`.
+
+## API-Referenz
+
+Die Seite `/api` (englisch `/en/api`) zeigt die REST-API der openeos-api,
+gerendert mit [Redoc](https://github.com/Redocly/redoc) über
+[Redocusaurus](https://redocusaurus.vercel.app/). Sie ist **nur zum Lesen**:
+kein „Try it out", kein Aufruf eines Servers. Quelle ist die eingecheckte
+Datei `static/openapi/openeos-api.json`; die Seite dazu liegt in
+`src/pages/api.tsx`, die Einführung für Anwender in `docs/api-zugaenge.md`.
+
+Die Referenz folgt dem Branch **`main`** von
+[openeos-api](https://github.com/OpenEOS-Project/openeos-api) (Produktion).
+Aktualisieren:
+
+```bash
+pnpm openapi:sync   # holt docs/openapi.json aus openeos-api main
+# anderer Stand, z. B. dev:
+OPENAPI_SPEC_URL=https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/dev/docs/openapi.json pnpm openapi:sync
+```
+
+Der Workflow `.github/workflows/openapi-sync.yml` macht dasselbe wöchentlich
+(und auf Knopfdruck) und öffnet bei Änderungen einen Pull Request gegen `dev`.
+Dafür muss in den Repo-Einstellungen unter *Actions → General* „Allow GitHub
+Actions to create and approve pull requests" aktiv sein.
 
 ## Screenshots aktualisieren
 

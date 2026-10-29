@@ -61,6 +61,7 @@ const sidebars: SidebarsConfig = {
         'selbst-betreiben/benutzer',
         'selbst-betreiben/drucker',
         'selbst-betreiben/betrieb',
+        'selbst-betreiben/assistent',
       ],
     },
     {
@@ -72,6 +73,7 @@ const sidebars: SidebarsConfig = {
         'rabatt-bons',
         'mitglieder',
         'schichtplaene',
+        'assistent',
         'einstellungen',
       ],
     },

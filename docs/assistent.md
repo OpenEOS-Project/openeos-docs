@@ -28,6 +28,8 @@ Ein- und ausschalten können nur **Admins** der Organisation; der Schalter wird 
 
 Solange der Assistent aus ist, steht für Admins auf der Produktseite ein kurzer Hinweis mit Link zu den Einstellungen.
 
+![Einstellungen – Assistent mit Tageskontingent](/img/screens/de/settings-assistant.png)
+
 :::note[„Nicht eingerichtet“]
 Steht in den Einstellungen statt des Schalters der Hinweis **Nicht eingerichtet**, ist auf diesem Server kein Anbieter für den Assistenten hinterlegt. Auf [app.openeos.de](https://app.openeos.de) ist das erledigt; wer OpenEOS selbst betreibt, richtet ihn nach [Assistent einrichten](./selbst-betreiben/assistent.md) ein.
 :::

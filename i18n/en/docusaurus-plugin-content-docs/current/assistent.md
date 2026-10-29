@@ -28,6 +28,8 @@ Only **admins** of the organization can switch it on or off; the change is recor
 
 While the assistant is off, admins see a short note with a link to the settings on the products page.
 
+![Settings – assistant with daily quota](/img/screens/de/settings-assistant.png)
+
 :::note["Not set up"]
 If the settings show **Not set up** instead of the switch, no provider for the assistant is configured on this server. On [app.openeos.de](https://app.openeos.de) this is taken care of; if you host OpenEOS yourself, follow [Setting up the assistant](./selbst-betreiben/assistent.md).
 :::

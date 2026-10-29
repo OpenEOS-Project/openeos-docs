@@ -29,7 +29,7 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 ## Organisation
 
-Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Dazu gehören unter anderem die Unterreiter **Allgemein**, **Kontakt** und **Zahlungen**.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Dazu gehören unter anderem die Unterreiter **Allgemein**, **Kontakt**, **Zahlungen** und **Assistent**.
 
 ### Allgemein
 
@@ -51,6 +51,10 @@ Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Beza
 ### Zahlungen
 
 Unter **Zahlungen** schaltest du den **bargeldlosen Modus** ein oder aus (nur Admins). Solange Bargeld erlaubt ist, steht hier der Hinweis zu Bargeld und TSE. Alles dazu unter [Bargeld und bargeldloser Modus](./bargeldlos.md).
+
+### Assistent
+
+Unter **Assistent** schaltest du die **Assistent-Funktionen** ein oder aus (nur Admins): Speisekarte importieren und Icon-Vorschläge. Darunter siehst du das Tageskontingent. Was der Assistent kann und was mit deinen Daten passiert, steht unter [Assistent](./assistent.md).
 
 ### Was du hier nicht mehr findest
 

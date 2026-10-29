@@ -29,7 +29,7 @@ In the **Security** sub-section you set up two-factor authentication and keep an
 
 ## Organization
 
-In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact** and **Payments**.
+In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact**, **Payments** and **Assistant**.
 
 ### General
 
@@ -51,6 +51,10 @@ The billing address for an event's invoice is entered when you [pay for the even
 ### Payments
 
 Under **Payments** you switch **cashless mode** on or off (admins only). As long as cash is allowed, the notice about cash and the TSE is shown here. Everything about it is under [Cash and cashless mode](./bargeldlos.md).
+
+### Assistant
+
+Under **Assistant** you switch the **Assistant features** on or off (admins only): menu import and icon suggestions. Below it you see the daily quota. What the assistant does and what happens to your data is described under [Assistant](./assistent.md).
 
 ### What you no longer find here
 

@@ -48,6 +48,8 @@ An der Kasse hat jedes Produkt ein kleines Bild in der Kachel. Dafür gibt es zw
 
 Ist der [Assistent](./assistent.md) eingeschaltet, steht neben dem Icon-Feld zusätzlich **Vorschlag**: Gib zuerst den Namen ein, dann zeigt OpenEOS bis zu drei passende Produkt-Icons, die du antippst.
 
+![Icon-Vorschlag im Produktformular](/img/screens/de/product-icon-suggestion.png)
+
 Hat ein Produkt beides, zeigt die Kasse das Produkt-Icon. Hat es keines von beiden, übernimmt sie das Icon seiner [Kategorie](./kategorien.md) — für Kaffee oder Kuchen etwa, für die es kein eigenes Produktbild gibt. Produkte, die noch ein Icon aus der Vorversion haben, zeigt die Kasse mit dem passenden Produktbild (etwa Bier als Pils, Bratwurst als Grillwurst im Brötchen) oder, wenn es keins gibt, mit dem Icon der Kategorie.
 
 ![Auswahl der Produkt-Icons](/img/screens/de/products-icon-picker.png)
@@ -94,8 +96,14 @@ Der Vorschlag ist ein Entwurf. Preis, Steuersatz oder Kategorie können danebenl
 2. Wähle, woher die Speisekarte kommt:
    - **Fotos oder PDF** – zieh die Dateien in das Feld oder wähle sie aus. Bis zu **6 Bilder** (JPG, PNG, WebP) oder **eine PDF**, jeweils höchstens 10 MB. Eine PDF geht nur allein, nicht gemischt mit Bildern.
    - **Text** – füge die Speisekarte als Text ein, so wie sie dasteht, zum Beispiel aus einer Tabelle oder einer E-Mail. Überschriften werden zu Kategorien, „0,3 l 3,00 / 0,5 l 4,00“ zu Varianten, „zzgl. 2 € Pfand“ zum Pfand-Hinweis.
+
+   ![Speisekarte hochladen](/img/screens/de/products-menu-import-upload.png)
+
 3. Klicke auf **Auswerten**. Das Lesen dauert meist unter einer Minute; du kannst den Dialog so lange offen lassen oder mit **Abbrechen** verwerfen.
 4. Prüfe die **Vorschau** – eine Tabelle mit allen erkannten Produkten:
+
+   ![Vorschau des Speisekarten-Imports](/img/screens/de/products-menu-import-preview.png)
+
    - **Übernehmen** – das Häkchen am Zeilenanfang. Nur angehakte Zeilen werden angelegt; über den Kopf der Spalte wählst du alle aus oder ab.
    - **Name** – frei änderbar. Ein farbiger Punkt daneben bedeutet, dass sich der Assistent bei Preis oder Zuordnung nicht sicher war (*Unsicher bei Preis oder Zuordnung* bzw. *Geraten – bitte besonders prüfen*); fahr mit der Maus darüber.
    - **Kategorie** – die Auswahl zeigt die vorhandenen [Kategorien](./kategorien.md) der Veranstaltung und die neu erkannten mit dem Zusatz **neu**. Neue Kategorien werden beim Anlegen mit erstellt.

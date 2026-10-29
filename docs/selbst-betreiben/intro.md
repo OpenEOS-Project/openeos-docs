@@ -73,6 +73,7 @@ Redis ist **nicht** optional: der Server startet ohne erreichbaren Redis nicht.
 3. [Benutzer anlegen](./benutzer.md) — weitere Konten, mit und ohne Mailserver
 4. [Drucker-Agent für die eigene Installation](./drucker.md) — Bondruck einrichten
 5. [Betrieb](./betrieb.md) — Sicherung, Aktualisierung, Fehlersuche
+6. [Assistent einrichten](./assistent.md) — optional: Speisekarten-Import und Icon-Vorschläge mit eigenem Schlüssel
 
 :::tip[Lieber ohne eigenen Server?]
 Unter [app.openeos.de](https://app.openeos.de) betreiben wir OpenEOS für dich —

@@ -13,7 +13,10 @@ WORKDIR /app
 # Install dependencies first (better layer caching).
 # DANGEROUSLY_ALLOW_ALL_BUILDS skips pnpm's interactive build-script approval
 # gate (ERR_PNPM_IGNORED_BUILDS) for a clean, non-interactive CI install.
+# pnpm-workspace.yaml references the patches directory (patchedDependencies),
+# so it has to be present before the install.
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY patches ./patches
 RUN PNPM_CONFIG_DANGEROUSLY_ALLOW_ALL_BUILDS=true pnpm install --frozen-lockfile
 
 # Copy the rest and build both locales (de + en)

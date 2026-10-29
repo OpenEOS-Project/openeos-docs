@@ -34,5 +34,9 @@
   "sidebar.handbookSidebar.category.Nachschlagen": {
     "message": "Reference",
     "description": "The label for category 'Nachschlagen' in sidebar 'handbookSidebar'"
+  },
+  "sidebar.handbookSidebar.link.API-Referenz": {
+    "message": "API reference",
+    "description": "The label for link API-Referenz in sidebar 'handbookSidebar', linking to /api"
   }
 }

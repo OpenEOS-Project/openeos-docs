@@ -1,3 +1,5 @@
 onlyBuiltDependencies:
   - '@swc/core'
   - core-js
+patchedDependencies:
+  docusaurus-theme-redoc@2.5.1: patches/docusaurus-theme-redoc@2.5.1.patch

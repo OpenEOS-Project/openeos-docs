@@ -10,7 +10,7 @@ OpenEOS has a REST API. With an **API token**, scripts, automations (for example
 
 The API is meant for **administration**, not for the till. Cashing up, payments, members, billing and deleting stay reserved for signing in to the app – a token never reaches them, whatever rights its owner has.
 
-The full description of every endpoint is in the [API reference](/en/api). It is read-only: you cannot send requests from there.
+Every endpoint a token can reach is in the [API reference](/en/api) – each with its required scope, parameters, responses and examples, plus the management of the tokens themselves. The endpoints used by the apps (till and device API, sign-in, payments, members, billing, admin) are deliberately not documented there: they are not a stable interface for integrations. The reference is read-only – you cannot send requests from there – and it is in German in both languages of this documentation.
 
 ## Creating a token
 
@@ -91,5 +91,5 @@ Every error response has the same shape:
 
 ## Read on
 
-- [API reference](/en/api) – every endpoint, parameter, response and scope, generated from the API's OpenAPI description
+- [API reference](/en/api) – every endpoint for API tokens with parameters, responses and scopes, generated from the API's OpenAPI description
 - [Members and permissions](./mitglieder.md) – which module permissions a token owner needs

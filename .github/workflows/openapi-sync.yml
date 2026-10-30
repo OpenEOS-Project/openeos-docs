@@ -1,7 +1,9 @@
 name: Sync OpenAPI spec
 
-# Holt docs/openapi.json aus openeos-api (Branch main = Produktion) und
-# öffnet einen Pull Request gegen dev, wenn sich die Datei geändert hat.
+# Holt docs/openapi.public.json aus openeos-api (Branch main = Produktion;
+# die öffentliche Fassung: nur Endpunkte für API-Tokens und deren
+# Verwaltung) und öffnet einen Pull Request gegen dev, wenn sich die Datei
+# geändert hat.
 # Läuft wöchentlich und auf Knopfdruck.
 on:
   schedule:
@@ -45,7 +47,7 @@ jobs:
           title: 'Update API reference from openeos-api'
           body: |
             Automated sync of `static/openapi/openeos-api.json` from
-            `OpenEOS-Project/openeos-api` (`main`, `docs/openapi.json`).
+            `OpenEOS-Project/openeos-api` (`main`, `docs/openapi.public.json`).
 
             The API reference at `/api` is rendered from this file.
             Review the diff, then merge into `dev`.

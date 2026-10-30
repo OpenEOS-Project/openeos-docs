@@ -9,7 +9,7 @@ Anwenderdokumentation für das OpenEOS Kassensystem – als [Docusaurus](https:/
 - `static/img/screens/{de,en}/` – Screenshots der App, pro Sprache
 - `sidebars.ts` – Navigationsstruktur des Handbuchs
 - `docusaurus.config.ts` – Site-Konfiguration (Branding, i18n)
-- `static/openapi/openeos-api.json` – OpenAPI-Beschreibung der API, Quelle der Seite `/api`
+- `static/openapi/openeos-api.json` – öffentliche OpenAPI-Beschreibung der API (`docs/openapi.public.json` aus openeos-api), Quelle der Seite `/api`
 - `scripts/openapi-sync.mjs` – holt diese Datei aus openeos-api (`pnpm openapi:sync`)
 - `_capture/` – Playwright-Skripte, mit denen die Screenshots erzeugt wurden (nicht Teil der Website)
 
@@ -53,9 +53,9 @@ Die Referenz folgt dem Branch **`main`** von
 Aktualisieren:
 
 ```bash
-pnpm openapi:sync   # holt docs/openapi.json aus openeos-api main
+pnpm openapi:sync   # holt docs/openapi.public.json aus openeos-api main
 # anderer Stand, z. B. dev:
-OPENAPI_SPEC_URL=https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/dev/docs/openapi.json pnpm openapi:sync
+OPENAPI_SPEC_URL=https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/dev/docs/openapi.public.json pnpm openapi:sync
 ```
 
 Der Workflow `.github/workflows/openapi-sync.yml` macht dasselbe wöchentlich

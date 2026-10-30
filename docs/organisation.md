@@ -43,3 +43,5 @@ Organisation (Musterverein e.V.)
 ## Mehrere Organisationen
 
 Über die Auswahl oben links kannst du – sofern du mehreren Organisationen angehörst – zwischen diesen wechseln. Dort legst du über **Neue Organisation** auch eine weitere an. Jede Organisation hat ihre eigenen Daten, Mitglieder und Auswertungen.
+
+Im gehosteten Betrieb kann ein Konto in höchstens **5 Organisationen** Mitglied sein – egal ob als Administrator oder Mitglied, ob selbst angelegt oder per Einladung beigetreten. Ist die Höchstzahl erreicht, ist **Neue Organisation** ausgegraut und Einladungen lassen sich nicht mehr annehmen. Brauchst du mehr, wende dich an den Support – wir heben die Grenze für dein Konto an. Für die Zahl der Mitglieder je Organisation gilt Entsprechendes, siehe [Mitglieder & Berechtigungen](./mitglieder.md#plätze-und-höchstzahl).

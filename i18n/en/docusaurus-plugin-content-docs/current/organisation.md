@@ -43,3 +43,5 @@ Organization (Riverside Sports Club)
 ## Multiple organizations
 
 Using the selector in the top left, you can switch between organizations — provided you are a member of more than one. You can also create another one there via **New organization**. Each organization has its own data, members, and reports.
+
+In the hosted service an account can be a member of at most **5 organizations** – whether as administrator or member, created yourself or joined by invitation. Once the maximum is reached, **New organization** is greyed out and invitations can no longer be accepted. Need more? Contact support – we raise the limit for your account. The same applies to the number of members per organization, see [Members & Permissions](./mitglieder.md#seats-and-maximum).

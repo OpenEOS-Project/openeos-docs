@@ -29,6 +29,16 @@ In der Übersicht siehst du pro Person Name, E-Mail, **Rolle**, freigeschaltete 
 
 ![Mitglied einladen](/img/screens/de/members-dialog.png)
 
+## Plätze und Höchstzahl
+
+Im gehosteten Betrieb hat eine Organisation Platz für höchstens **10 Mitglieder**. Gezählt werden aktive Mitglieder **und offene Einladungen** – eine verschickte Einladung belegt ihren Platz also schon, bis sie angenommen, zurückgezogen oder abgelaufen ist. Neben **Mitglied einladen** siehst du den Stand, z. B. „7 von 10 Plätzen belegt (inkl. Einladungen)“.
+
+Sind alle Plätze belegt, ist der Knopf ausgegraut. Entferne dann ein Mitglied oder ziehe eine Einladung zurück. Helfer, die sich über [Schichtpläne](./schichtplaene.md) eintragen, sind keine Mitglieder und zählen nicht mit.
+
+:::tip[Mehr Plätze nötig?]
+Wende dich an den Support – wir heben die Höchstzahl für deine Organisation an. Dasselbe gilt für die Zahl der Organisationen je Konto (siehe [Organisation](./organisation.md#mehrere-organisationen)).
+:::
+
 ## Modulbasierte Berechtigungen
 
 Für Mitglieder lassen sich die folgenden Module einzeln freischalten:

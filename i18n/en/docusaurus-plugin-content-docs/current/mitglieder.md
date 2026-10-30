@@ -29,6 +29,16 @@ The overview shows each person's name, email address, **role**, enabled **permis
 
 ![Invite member](/img/screens/en/members-dialog.png)
 
+## Seats and Maximum
+
+In the hosted service an organization has room for at most **10 members**. Active members **and pending invitations** count – a sent invitation takes its seat until it is accepted, withdrawn or expired. Next to **Invite Member** you see the current state, e.g. "7 of 10 seats used (incl. invitations)".
+
+When all seats are taken the button is greyed out. Remove a member or withdraw an invitation. Helpers who sign up via [Shift Plans](./schichtplaene.md) are not members and do not count.
+
+:::tip[Need more seats?]
+Contact support – we raise the maximum for your organization. The same applies to the number of organizations per account (see [Organization](./organisation.md#multiple-organizations)).
+:::
+
 ## Module-Based Permissions
 
 The following modules can be enabled individually for members:

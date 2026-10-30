@@ -127,6 +127,23 @@ If it says `"mode":"saas"`, `DEPLOYMENT_MODE=selfhosted` is not taking effect. T
 variable must be set both in the `.env` and in the `environment:` block of the
 `api` service.
 
+## Adjusting the limits
+
+The hosted service limits how many organizations an account may have (5) and
+how many members an organization has (10, active members plus pending
+invitations). A standalone installation has only one organization anyway, but
+the member limit applies there too. Set both values in `.env` or in the
+`environment:` block of the API service; `0` means unlimited:
+
+```bash
+ORGANIZATIONS_PER_USER_LIMIT=5
+MEMBERS_PER_ORGANIZATION_LIMIT=0
+```
+
+Then restart the API service (`docker compose up -d api`). A super admin can
+also set an individual value per user or per organization in the admin area
+(empty = default from `.env`).
+
 ## Data minimisation
 
 A self-hosted installation sends **nothing** to the outside. Optional

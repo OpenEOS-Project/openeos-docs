@@ -10,7 +10,7 @@ OpenEOS hat eine REST-API. Mit einem **API-Token** greifen Skripte, Automatisier
 
 Die API ist für die **Verwaltung** gedacht, nicht für die Kasse. Kassieren, Zahlungen, Mitglieder, Abrechnung und Löschen bleiben der Anmeldung in der App vorbehalten – ein Token kommt dort nicht hin, egal welche Rechte sein Besitzer hat.
 
-Die vollständige Beschreibung aller Endpunkte findest du in der [API-Referenz](/api). Sie ist nur zum Lesen: Du kannst dort keine Anfragen auslösen.
+Alle Endpunkte, die ein Token erreicht, findest du in der [API-Referenz](/api) – je Endpunkt mit nötigem Scope, Parametern, Antworten und Beispielen, dazu die Verwaltung der Tokens selbst. Die Endpunkte der Apps (Kasse und Geräte-API, Anmeldung, Zahlungen, Mitglieder, Abrechnung, Admin) sind dort absichtlich nicht dokumentiert: Sie sind keine stabile Schnittstelle für Integrationen. Die Referenz ist nur zum Lesen – du kannst dort keine Anfragen auslösen – und in beiden Sprachen der Doku auf Deutsch.
 
 ## Token anlegen
 
@@ -91,6 +91,6 @@ Jede Fehlerantwort hat dieselbe Form:
 
 ## Weiterlesen
 
-- [API-Referenz](/api) – alle Endpunkte, Parameter, Antworten und Scopes, erzeugt aus der OpenAPI-Beschreibung der API
+- [API-Referenz](/api) – alle Endpunkte für API-Tokens mit Parametern, Antworten und Scopes, erzeugt aus der OpenAPI-Beschreibung der API
 - [KI-Agenten verbinden](./ki-agenten.md) – Claude, Cursor und andere Agenten per MCP mit demselben Token anbinden
 - [Mitglieder und Berechtigungen](./mitglieder.md) – welche Modul-Berechtigungen ein Token-Besitzer braucht

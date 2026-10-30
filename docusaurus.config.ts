@@ -100,7 +100,8 @@ const config: Config = {
 
   plugins: [
     [
-      /* API-Referenz aus docs/openapi.json der openeos-api (Stand holen:
+      /* API-Referenz aus docs/openapi.public.json der openeos-api — nur
+         Endpunkte für API-Tokens und deren Verwaltung (Stand holen:
          `pnpm openapi:sync`). Route /api bzw. /en/api; der Titel haengt an
          der Sprache, die Docusaurus je Build-Durchlauf setzt. */
       redocSpecPlugin,

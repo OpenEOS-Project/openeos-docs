@@ -205,3 +205,22 @@ h1[class*='docTitle'],
   --ifm-footer-title-color: #ffffff;
   --ifm-footer-color: rgba(255, 255, 255, 0.7);
 }
+
+/* ---- API-Referenz (/api, Redoc) im Stil der Seite ---- */
+/* Linke Spalte von Redoc wie die Doku-Seitenleiste: heller Kartenton statt Weiß. */
+.redocusaurus .menu-content {
+  background-color: var(--ifm-background-surface-color) !important;
+}
+.redocusaurus .menu-content label {
+  border-radius: 8px;
+  margin: 0 0.5rem;
+}
+/* Redoc-Menü-Icon auf Mobil in Markengrün. */
+.redocusaurus .redoc-wrap > div[class*='menu-toggle'],
+.redocusaurus [role='button'][class*='Button'] {
+  background-color: var(--ifm-color-primary);
+}
+/* Markdown-Tabellen aus der Einleitung der Spezifikation: Umbruch erlauben. */
+.redocusaurus table td code {
+  overflow-wrap: anywhere;
+}

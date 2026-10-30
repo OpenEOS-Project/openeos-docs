@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import redocSpecPlugin from './plugins/redoc-spec';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -56,6 +57,33 @@ const config: Config = {
 
   themes: [
     [
+      /* Redoc-Darstellung der API-Referenz (/api). Nur lesen: Redoc kennt
+         kein "Try it out" und ruft keinen Server auf. Farben wie die Seite
+         (custom.css), Schrift über die ifm-Variablen. */
+      'docusaurus-theme-redoc',
+      {
+        id: 'theme-redoc',
+        primaryColor: '#2e7d32',
+        primaryColorDark: '#6bbf6f',
+        options: {
+          // Redoc-Optionen, siehe https://redocly.com/docs/redoc/config
+          expandResponses: '200,201',
+          requiredPropsFirst: true,
+          sortTagsAlphabetically: false,
+          pathInMiddlePanel: true,
+          hideDownloadButton: false,
+          nativeScrollbars: true,
+          theme: {
+            rightPanel: {backgroundColor: '#15402b', width: '40%'},
+            typography: {
+              headings: {fontWeight: '700'},
+              code: {fontFamily: 'var(--ifm-font-family-monospace)'},
+            },
+          },
+        },
+      },
+    ],
+    [
       // Suche ohne Fremddienst: der Index entsteht beim Build und liegt
       // neben der Seite, gesucht wird im Browser.
       '@easyops-cn/docusaurus-search-local',
@@ -66,6 +94,31 @@ const config: Config = {
         indexPages: false,
         docsRouteBasePath: '/',
         highlightSearchTermsOnTargetPage: false,
+      },
+    ],
+  ],
+
+  plugins: [
+    [
+      /* API-Referenz aus docs/openapi.json der openeos-api (Stand holen:
+         `pnpm openapi:sync`). Route /api bzw. /en/api; der Titel haengt an
+         der Sprache, die Docusaurus je Build-Durchlauf setzt. */
+      redocSpecPlugin,
+      {
+        id: 'openeos-api',
+        themeId: 'theme-redoc',
+        spec: 'static/openapi/openeos-api.json',
+        // Download-Link zeigt auf die eingecheckte Datei statt auf einen
+        // beim Build erzeugten YAML-Abzug.
+        url: '/openapi/openeos-api.json',
+        route: '/api',
+        layout: {
+          title: locale === 'en' ? 'API reference' : 'API-Referenz',
+          description:
+            locale === 'en'
+              ? 'Reference of the OpenEOS REST API: endpoints, parameters, responses and scopes for API tokens.'
+              : 'Referenz der OpenEOS REST-API: Endpunkte, Parameter, Antworten und Scopes für API-Tokens.',
+        },
       },
     ],
   ],
@@ -110,6 +163,11 @@ const config: Config = {
           label: 'Dokumentation',
         },
         {
+          to: '/api',
+          label: 'API-Referenz',
+          position: 'left',
+        },
+        {
           href: 'https://app.openeos.de',
           label: 'Zur App',
           position: 'right',
@@ -129,6 +187,7 @@ const config: Config = {
             {label: 'Erste Schritte', to: '/'},
             {label: 'Veranstaltungen', to: '/veranstaltungen'},
             {label: 'Produkte', to: '/produkte'},
+            {label: 'API-Referenz', to: '/api'},
           ],
         },
         {

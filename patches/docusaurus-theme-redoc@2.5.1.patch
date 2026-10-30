@@ -1,0 +1,50 @@
+diff --git a/dist/theme/Redoc/Styles.js b/dist/theme/Redoc/Styles.js
+index 6c7575da0bbf4ada07e4671bd4d0b297dedcc3f8..0c3d0efabc007f2b8bb4398e5f50379bb3004cc7 100644
+--- a/dist/theme/Redoc/Styles.js
++++ b/dist/theme/Redoc/Styles.js
+@@ -11,6 +11,9 @@ require("../../global");
+  * @see https://github.com/facebook/react/issues/10923#issuecomment-338715787
+  */
+ function ServerStyles(_props) {
+-    return react_1.default.createElement("div", { className: "redocusaurus-styles" });
++    // The server renders two <style> children here (see ServerStyles). With
++    // dangerouslySetInnerHTML React 19 leaves the existing DOM children alone
++    // instead of reporting a hydration mismatch (error #418).
++    return react_1.default.createElement("div", { className: "redocusaurus-styles", suppressHydrationWarning: true, dangerouslySetInnerHTML: { __html: '' } });
+ }
+ //# sourceMappingURL=Styles.js.map
+\ No newline at end of file
+diff --git a/dist-jsx/theme/Redoc/Styles.jsx b/dist-jsx/theme/Redoc/Styles.jsx
+index 1d4e0db405b90feb89b0e80fc14e98f94f5750c6..0e9369023d15df7c5abf67658c11372729a3c5a5 100644
+--- a/dist-jsx/theme/Redoc/Styles.jsx
++++ b/dist-jsx/theme/Redoc/Styles.jsx
+@@ -5,5 +5,8 @@ import '../../global';
+  * @see https://github.com/facebook/react/issues/10923#issuecomment-338715787
+  */
+ export function ServerStyles(_props) {
+-    return <div className="redocusaurus-styles"></div>;
++    // The server renders two <style> children here (see ServerStyles). With
++    // dangerouslySetInnerHTML React 19 leaves the existing DOM children alone
++    // instead of reporting a hydration mismatch (error #418).
++    return (<div className="redocusaurus-styles" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: '' }}/>);
+ }
+diff --git a/src/theme/Redoc/Styles.tsx b/src/theme/Redoc/Styles.tsx
+index 17a39d0cf530c91e3cc8ed3947fb5a4a6ba38b6e..25cb0afffe7497968881fc6b06649292b498b8ad 100644
+--- a/src/theme/Redoc/Styles.tsx
++++ b/src/theme/Redoc/Styles.tsx
+@@ -7,5 +7,14 @@ import type { ServerStylesProps } from './ServerStyles';
+  * @see https://github.com/facebook/react/issues/10923#issuecomment-338715787
+  */
+ export function ServerStyles(_props: ServerStylesProps) {
+-  return <div className="redocusaurus-styles"></div>;
++  // The server renders two <style> children here (see ServerStyles). With
++  // dangerouslySetInnerHTML React 19 leaves the existing DOM children alone
++  // instead of reporting a hydration mismatch (error #418).
++  return (
++    <div
++      className="redocusaurus-styles"
++      suppressHydrationWarning
++      dangerouslySetInnerHTML={{ __html: '' }}
++    />
++  );
+ }

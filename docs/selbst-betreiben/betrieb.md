@@ -127,6 +127,23 @@ Steht dort `"mode":"saas"`, greift `DEPLOYMENT_MODE=selfhosted` nicht. Die
 Variable muss sowohl in der `.env` als auch im `environment:`-Block des
 Dienstes `api` stehen.
 
+## Höchstzahlen anpassen
+
+Der gehostete Betrieb begrenzt, wie viele Organisationen ein Konto haben darf
+(5) und wie viele Mitglieder eine Organisation hat (10, aktive Mitglieder plus
+offene Einladungen). Im Einzelbetrieb gibt es ohnehin nur eine Organisation;
+die Mitgliedergrenze gilt aber auch dort. Beide Werte setzt du in der `.env`
+bzw. im `environment:`-Block des API-Dienstes, `0` heißt unbegrenzt:
+
+```bash
+ORGANIZATIONS_PER_USER_LIMIT=5
+MEMBERS_PER_ORGANIZATION_LIMIT=0
+```
+
+Danach den API-Dienst neu starten (`docker compose up -d api`). Ein
+Super-Admin kann außerdem im Adminbereich je Benutzer bzw. je Organisation
+einen eigenen Wert hinterlegen (leer = Standard aus der `.env`).
+
 ## Datensparsamkeit
 
 Eine selbst betriebene Installation sendet **nichts** nach außen. Optionale

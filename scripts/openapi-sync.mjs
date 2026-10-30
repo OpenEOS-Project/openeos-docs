@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /**
- * Holt die OpenAPI-Beschreibung der OpenEOS-API und legt sie als
- * static/openapi/openeos-api.json ab. Daraus rendert die Seite /api die
- * API-Referenz — nur lesend, ohne Aufruf eines Servers.
+ * Holt die öffentliche OpenAPI-Beschreibung der OpenEOS-API
+ * (docs/openapi.public.json: nur, was ein API-Token erreicht, plus die
+ * Token-Verwaltung — ohne Geräte-API, Kasse, Admin, Abrechnung) und legt
+ * sie als static/openapi/openeos-api.json ab. Daraus rendert die Seite /api
+ * die API-Referenz — nur lesend, ohne Aufruf eines Servers.
  *
  * Quelle ist standardmäßig der Branch `main` von openeos-api (Produktion).
  * `OPENAPI_SPEC_URL` überschreibt die Adresse, etwa für den dev-Stand:
- *   OPENAPI_SPEC_URL=https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/dev/docs/openapi.json pnpm openapi:sync
+ *   OPENAPI_SPEC_URL=https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/dev/docs/openapi.public.json pnpm openapi:sync
  */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const DEFAULT_URL =
-  'https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/main/docs/openapi.json';
+  'https://raw.githubusercontent.com/OpenEOS-Project/openeos-api/main/docs/openapi.public.json';
 const url = process.env.OPENAPI_SPEC_URL || DEFAULT_URL;
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');

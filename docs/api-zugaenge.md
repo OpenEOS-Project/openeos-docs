@@ -92,4 +92,5 @@ Jede Fehlerantwort hat dieselbe Form:
 ## Weiterlesen
 
 - [API-Referenz](/api) – alle Endpunkte, Parameter, Antworten und Scopes, erzeugt aus der OpenAPI-Beschreibung der API
+- [KI-Agenten verbinden](./ki-agenten.md) – Claude, Cursor und andere Agenten per MCP mit demselben Token anbinden
 - [Mitglieder und Berechtigungen](./mitglieder.md) – welche Modul-Berechtigungen ein Token-Besitzer braucht

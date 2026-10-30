@@ -92,4 +92,5 @@ Every error response has the same shape:
 ## Read on
 
 - [API reference](/en/api) – every endpoint, parameter, response and scope, generated from the API's OpenAPI description
+- [Connecting AI agents](./ki-agenten.md) – connect Claude, Cursor and other agents via MCP with the same token
 - [Members and permissions](./mitglieder.md) – which module permissions a token owner needs

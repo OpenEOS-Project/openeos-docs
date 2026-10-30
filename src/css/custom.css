@@ -125,6 +125,15 @@ h1[class*='docTitle'],
 .markdown table td code {
   overflow-wrap: anywhere;
 }
+/* Auf dem Telefon passt eine breite Tabelle nicht in 390 px. Dann rollt sie
+   in ihrem eigenen Kasten (Docusaurus-Standard) statt die ganze Seite
+   seitlich scrollbar zu machen; die Spalten bleiben lesbar. */
+@media (max-width: 996px) {
+  .markdown table {
+    display: block;
+    overflow-x: auto;
+  }
+}
 
 /* ---- Dunkelgrüne Navigationsleiste ---- */
 .navbar {

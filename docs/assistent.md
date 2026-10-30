@@ -15,6 +15,8 @@ Der **Assistent** nimmt dir beim Einrichten einer Veranstaltung Arbeit ab. Er is
 
 Mehr macht der Assistent nicht. Er bestellt nichts, kassiert nichts und ändert nichts, was du nicht vorher in einer Vorschau bestätigt hast.
 
+Wer einen eigenen Agenten wie Claude oder Cursor an OpenEOS anbinden möchte, findet das unter [KI-Agenten verbinden](./ki-agenten.md) – das läuft über einen API-Zugang und ist vom Assistenten unabhängig.
+
 :::info[Vorschläge können Fehler enthalten]
 Preise, Steuersätze oder Zuordnungen können danebenliegen – vor allem bei schlecht lesbaren Fotos. Prüfe die Vorschau, bevor du Produkte anlegst. Zeilen, bei denen sich der Assistent nicht sicher ist, sind in der Vorschau markiert.
 :::

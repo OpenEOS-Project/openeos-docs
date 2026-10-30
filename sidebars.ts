@@ -52,6 +52,7 @@ const sidebars: SidebarsConfig = {
         'integrationen/uebersicht',
         'integrationen/sumup',
         'api-zugaenge',
+        'ki-agenten',
         {type: 'link', label: 'API-Referenz', href: '/api'},
       ],
     },

@@ -15,6 +15,8 @@ The **assistant** takes work off your hands when you set up an event. It is swit
 
 That is all the assistant does. It does not order, does not take payments and changes nothing you have not confirmed in a preview first.
 
+If you want to connect an agent of your own such as Claude or Cursor to OpenEOS, see [Connecting AI agents](./ki-agenten.md) – that works through an API token and is independent of the assistant.
+
 :::info[Suggestions can contain mistakes]
 Prices, tax rates or categories can be off – especially with hard-to-read photos. Check the preview before creating products. Rows the assistant is unsure about are marked in the preview.
 :::

@@ -50,7 +50,7 @@ The billing address for an event's invoice is entered when you [pay for the even
 
 ### Payments
 
-Under **Payments** you switch **cashless mode** on or off (admins only). As long as cash is allowed, the notice about cash and the TSE is shown here. Everything about it is under [Cash and cashless mode](./bargeldlos.md).
+Under **Payments** you switch **cashless mode** on or off (admins only). As long as cash is allowed, the notice about cash and the TSE is shown here. The mode alone does not exempt you from the TSE requirement, because you can switch it yourself. Everything about it is under [Cash and cashless mode](./bargeldlos.md).
 
 ### Assistant
 

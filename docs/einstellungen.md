@@ -50,7 +50,7 @@ Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Beza
 
 ### Zahlungen
 
-Unter **Zahlungen** schaltest du den **bargeldlosen Modus** ein oder aus (nur Admins). Solange Bargeld erlaubt ist, steht hier der Hinweis zu Bargeld und TSE. Alles dazu unter [Bargeld und bargeldloser Modus](./bargeldlos.md).
+Unter **Zahlungen** schaltest du den **bargeldlosen Modus** ein oder aus (nur Admins). Solange Bargeld erlaubt ist, steht hier der Hinweis zu Bargeld und TSE. Von der TSE-Pflicht befreit der Modus allein nicht, weil du ihn selbst umschalten kannst. Alles dazu unter [Bargeld und bargeldloser Modus](./bargeldlos.md).
 
 ### Assistent
 

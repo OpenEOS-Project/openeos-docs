@@ -1,20 +1,26 @@
 ---
 sidebar_position: 3
 title: Bargeld und bargeldloser Modus
-description: Bargeld an der Kasse, der Hinweis zur TSE und was der bargeldlose Modus sperrt.
+description: Bargeld an der Kasse, der Hinweis zur TSE-Pflicht und was der bargeldlose Modus sperrt.
 ---
 
 # Bargeld und bargeldloser Modus
 
 Ab Werk nimmt die Kasse Bargeld an: Bar ist die erste Zahlart, sie rechnet Rückgeld aus, zahlt Pfand bar aus und öffnet die Kassenlade. Wer kein Bargeld annehmen will, schaltet den **bargeldlosen Modus** ein. Dann laufen nur noch Kartenzahlung über [SumUp](./integrationen/sumup.md), Online-Bestellungen und Vorauszahlungen.
 
+Von der TSE-Pflicht befreit der bargeldlose Modus allein nicht, weil du Bargeld selbst wieder einschalten kannst. Mehr dazu im nächsten Abschnitt.
+
 ## Bargeld und TSE {/* #tse */}
 
 :::info[Bargeld und TSE]
-Wer in Deutschland mit einer elektronischen Kasse Bargeld annimmt, braucht laut Kassensicherungsverordnung eine zertifizierte TSE. Die TSE-Anbindung für OpenEOS ist in Arbeit. Bis dahin entscheidest du als Verein selbst, ob du Bargeld über OpenEOS erfasst – sprich das im Zweifel mit deinem Steuerberater ab. Ohne Bargeld ist keine TSE nötig: Schalte dafür den bargeldlosen Modus ein.
+Eine elektronische Kasse, mit der sich Bargeld annehmen lässt, braucht in Deutschland eine zertifizierte TSE. Die TSE-Anbindung für OpenEOS ist in Arbeit. Bis dahin entscheidest du als Verein selbst, ob du Bargeld über OpenEOS erfasst – sprich das im Zweifel mit deiner Steuerberatung ab. Der bargeldlose Modus allein befreit nicht von der TSE-Pflicht, weil du Bargeld selbst wieder einschalten kannst. Ohne TSE geht es mit „Nur Bestellen“; das schaltet unser Support um.
 :::
 
-Mehr dazu in den [FAQ auf openeos.de](https://openeos.de/faq#tse).
+Nach Auskunft des Bundesfinanzministeriums hat eine Kasse schon dann eine Kassenfunktion, wenn der Verein Bargeld selbst einschalten kann – ob er es tatsächlich tut, spielt keine Rolle. Den bargeldlosen Modus schaltest du in den Zahlungseinstellungen selbst ein und aus; Bargeld dort auszuschalten befreit deshalb nicht von der TSE-Pflicht. Ohne TSE geht es nur, wenn dein Verein Bargeld nicht selbst einschalten kann und das in der Systemdokumentation nachgewiesen ist, zum Beispiel durch eine Bescheinigung des Herstellers.
+
+Dafür gibt es die Betriebsart [Nur Bestellen](https://docs.openeos.de/nur-bestellen): Sie hat kein Kassenmodul, nur unser Support schaltet sie um, und du bekommst eine Bescheinigung für deine Systemdokumentation. Willst du mit OpenEOS Bargeld annehmen, brauchst du die TSE-Anbindung, an der wir arbeiten.
+
+Mehr dazu in den [FAQ auf openeos.de](https://openeos.de/faq#tse). Allgemeine Information, keine Steuer- oder Rechtsberatung.
 
 Solange Bargeld erlaubt ist, steht dieser Hinweis unter **Einstellungen → Organisation → Zahlungen**, in den Einstellungen jeder Kasse unter **Geräte** und einmal im [Dashboard](./dashboard.md). Dort kannst du ihn mit dem Kreuz ausblenden; das gilt für dein Konto in diesem Browser.
 
@@ -29,7 +35,7 @@ Ist [SumUp](./integrationen/sumup.md) nicht eingeschaltet, warnt die Seite: Ohne
 
 ### Nachweis: Verlauf {/* #verlauf */}
 
-Unter dem Schalter steht **Bargeldlos seit** mit dem Datum der Umschaltung und darunter der **Verlauf**: jede Umschaltung mit Zeitpunkt und der Person, die geschaltet hat. Den Verlauf kann niemand bearbeiten. So kannst du belegen, ab wann deine Kassen kein Bargeld angenommen haben.
+Unter dem Schalter steht **Bargeldlos seit** mit dem Datum der Umschaltung und darunter der **Verlauf**: jede Umschaltung mit Zeitpunkt und der Person, die geschaltet hat. Den Verlauf kann niemand bearbeiten. So kannst du belegen, ab wann deine Kassen kein Bargeld angenommen haben. Von der TSE-Pflicht befreit dieser Nachweis nicht, weil du den Modus selbst umschalten kannst.
 
 ## Was der bargeldlose Modus sperrt {/* #was-gesperrt-ist */}
 

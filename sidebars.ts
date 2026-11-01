@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '1 · Konto und Organisation',
       collapsed: false,
-      items: ['registrierung-login', 'organisation', 'bargeldlos'],
+      items: ['registrierung-login', 'organisation', 'bargeldlos', 'nur-bestellen'],
     },
     {
       type: 'category',

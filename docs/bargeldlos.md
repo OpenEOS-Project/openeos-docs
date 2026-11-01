@@ -18,7 +18,7 @@ Eine elektronische Kasse, mit der sich Bargeld annehmen lässt, braucht in Deuts
 
 Nach Auskunft des Bundesfinanzministeriums hat eine Kasse schon dann eine Kassenfunktion, wenn der Verein Bargeld selbst einschalten kann – ob er es tatsächlich tut, spielt keine Rolle. Den bargeldlosen Modus schaltest du in den Zahlungseinstellungen selbst ein und aus; Bargeld dort auszuschalten befreit deshalb nicht von der TSE-Pflicht. Ohne TSE geht es nur, wenn dein Verein Bargeld nicht selbst einschalten kann und das in der Systemdokumentation nachgewiesen ist, zum Beispiel durch eine Bescheinigung des Herstellers.
 
-Dafür gibt es die Betriebsart [Nur Bestellen](https://docs.openeos.de/nur-bestellen): Sie hat kein Kassenmodul, nur unser Support schaltet sie um, und du bekommst eine Bescheinigung für deine Systemdokumentation. Willst du mit OpenEOS Bargeld annehmen, brauchst du die TSE-Anbindung, an der wir arbeiten.
+Dafür gibt es die Betriebsart [Nur Bestellen](./nur-bestellen.md): Sie hat kein Kassenmodul, nur unser Support schaltet sie um, und du bekommst eine Bescheinigung für deine Systemdokumentation. Willst du mit OpenEOS Bargeld annehmen, brauchst du die TSE-Anbindung, an der wir arbeiten.
 
 Mehr dazu in den [FAQ auf openeos.de](https://openeos.de/faq#tse). Allgemeine Information, keine Steuer- oder Rechtsberatung.
 
@@ -55,5 +55,6 @@ Mit SumUp im [Testmodus](./veranstaltungen.md) löst die Kasse keine echte Karte
 ## Siehe auch
 
 - [Kasse: Kassieren](./kasse.md#kassieren) und [Pfand an der Kasse](./kasse.md#pfand)
+- [Nur Bestellen (ohne Kasse)](./nur-bestellen.md)
 - [Pfand](./pfand.md)
 - [SumUp](./integrationen/sumup.md)

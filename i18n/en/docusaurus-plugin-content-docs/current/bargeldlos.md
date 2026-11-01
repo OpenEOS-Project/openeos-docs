@@ -18,7 +18,7 @@ In Germany, an electronic till that can accept cash needs a certified TSE (techn
 
 According to the German Federal Ministry of Finance, a till already has a cash register function if the club can switch cash on itself – whether it actually does so makes no difference. You switch cashless mode on and off yourself in the payment settings; switching off cash there therefore does not exempt you from the TSE requirement. You can only do without a TSE if your club cannot switch cash on itself and this is proven in the system documentation, for example by a certificate from the manufacturer.
 
-That is what the [Order only](https://docs.openeos.de/en/nur-bestellen) operating mode is for: it has no cash register module, only our support switches it, and you get a certificate for your system documentation. If you want to accept cash with OpenEOS, you need the TSE integration we are working on.
+That is what the [Order only](./nur-bestellen.md) operating mode is for: it has no cash register module, only our support switches it, and you get a certificate for your system documentation. If you want to accept cash with OpenEOS, you need the TSE integration we are working on.
 
 Learn more in the [FAQ on openeos.de](https://openeos.de/en/faq#tse). General information, not tax or legal advice.
 
@@ -55,5 +55,6 @@ With SumUp in [test mode](./veranstaltungen.md) the till triggers no real card p
 ## See also
 
 - [Till: checkout](./kasse.md#kassieren) and [deposits at the till](./kasse.md#pfand)
+- [Order only (without a till)](./nur-bestellen.md)
 - [Deposit](./pfand.md)
 - [SumUp](./integrationen/sumup.md)

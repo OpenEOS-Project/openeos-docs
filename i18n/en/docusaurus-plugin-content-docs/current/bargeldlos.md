@@ -10,6 +10,10 @@ Out of the box the till accepts cash: cash is the first payment method, the till
 
 Cashless mode alone does not exempt you from the TSE requirement, because you can switch cash back on yourself. More on this in the next section.
 
+:::tip[Depends on the country]
+Whether your till can record cash at all depends on the [country of your organization](./land-und-bargeld.md). New organizations in Germany get "Germany without cash": cash is blocked, the cashless switch does not exist for them, and orders paid in cash are closed with "Close without payment". This page describes the switch for all organizations where cash is allowed.
+:::
+
 ## Cash and TSE {/* #tse */}
 
 :::info[Cash and TSE]
@@ -54,6 +58,7 @@ With SumUp in [test mode](./veranstaltungen.md) the till triggers no real card p
 
 ## See also
 
+- [Country and cash](./land-und-bargeld.md)
 - [Till: checkout](./kasse.md#kassieren) and [deposits at the till](./kasse.md#pfand)
 - [Order only (without a till)](./nur-bestellen.md)
 - [Deposit](./pfand.md)

@@ -108,6 +108,7 @@ More about cashless mode under [Cash and cashless mode](./bargeldlos.md).
 
 ## See also
 
+- [Country and cash](./land-und-bargeld.md) – "Germany without cash" as an alternative with card payments
 - [Cash and cashless mode](./bargeldlos.md)
 - [Selling at the till](./kasse.md)
 - [Stations](./standorte.md) and [Screens](./anzeigen.md)

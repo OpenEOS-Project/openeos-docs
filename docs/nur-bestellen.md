@@ -108,6 +108,7 @@ Mehr zum bargeldlosen Modus unter [Bargeld und bargeldloser Modus](./bargeldlos.
 
 ## Siehe auch
 
+- [Land und Bargeld](./land-und-bargeld.md) – „Deutschland ohne Bargeld“ als Alternative mit Kartenzahlung
 - [Bargeld und bargeldloser Modus](./bargeldlos.md)
 - [An der Kasse verkaufen](./kasse.md)
 - [Standorte](./standorte.md) und [Anzeigen](./anzeigen.md)

@@ -10,6 +10,10 @@ Ab Werk nimmt die Kasse Bargeld an: Bar ist die erste Zahlart, sie rechnet Rück
 
 Von der TSE-Pflicht befreit der bargeldlose Modus allein nicht, weil du Bargeld selbst wieder einschalten kannst. Mehr dazu im nächsten Abschnitt.
 
+:::tip[Hängt vom Land ab]
+Ob deine Kasse überhaupt Bargeld erfassen kann, hängt vom [Land deiner Organisation](./land-und-bargeld.md) ab. Für neue Organisationen in Deutschland gilt „Deutschland ohne Bargeld“: Bargeld ist gesperrt, den bargeldlosen Schalter gibt es dann nicht, und bar kassierte Bestellungen schließt du mit „Ohne Zahlung abschließen“ ab. Diese Seite beschreibt den Schalter für alle Organisationen, bei denen Bargeld erlaubt ist.
+:::
+
 ## Bargeld und TSE {/* #tse */}
 
 :::info[Bargeld und TSE]
@@ -54,6 +58,7 @@ Mit SumUp im [Testmodus](./veranstaltungen.md) löst die Kasse keine echte Karte
 
 ## Siehe auch
 
+- [Land und Bargeld](./land-und-bargeld.md)
 - [Kasse: Kassieren](./kasse.md#kassieren) und [Pfand an der Kasse](./kasse.md#pfand)
 - [Nur Bestellen (ohne Kasse)](./nur-bestellen.md)
 - [Pfand](./pfand.md)

@@ -28,6 +28,8 @@ Trage **Vorname** und **Nachname** ein. Diese Angaben erscheinen später z. B. a
 
 Gib den **Namen deiner Organisation** an, also deinen Verein, Veranstalter oder Betrieb. Unter diesem Namen laufen später deine Veranstaltungen, Produkte und Kassen. Er erscheint auf Rechnungen und Bons und lässt sich jederzeit ändern.
 
+Wähle außerdem das **Land** deiner Organisation (Pflicht). Deutschland, Österreich und die Schweiz stehen oben in der Liste. Vom Land hängt ab, welche Kassenregeln OpenEOS anwendet – in Deutschland zum Beispiel, ob Bargeld erfasst werden kann. Das Land legst du einmal fest; ändern kann es danach nur unser Support. Mehr unter [Land und Bargeld](./land-und-bargeld.md).
+
 ![Registrierung Schritt 3 – Organisation](/img/screens/de/reg-step3.png)
 
 ### Schritt 4 – Letzter Check

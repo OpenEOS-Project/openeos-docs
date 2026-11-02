@@ -6,7 +6,7 @@ description: Umsatz, Bestellungen, Top-Produkte und Zahlarten analysieren und al
 
 # Auswertung
 
-Die **Auswertung** zeigt Umsatz, Bestellungen und Produktanalysen im Überblick. Hier wertest du deine Veranstaltung aus – während des Betriebs und für die Abrechnung danach.
+Die **Auswertung** zeigt Umsatz, Bestellungen und Produktanalysen im Überblick. Hier wertest du deine Veranstaltung aus – während des Betriebs und für die Abrechnung danach. In der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons) gibt es keine Umsätze; die Auswertung zeigt dann nur Mengen.
 
 ![Auswertung](/img/screens/de/reports.png)
 

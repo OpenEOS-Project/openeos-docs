@@ -6,7 +6,7 @@ description: Analyse revenue, orders, top products, and payment methods, and exp
 
 # Reports
 
-**Reports** gives you an overview of revenue, orders, and product analytics. Use it to evaluate your event — both during operations and for post-event accounting.
+**Reports** gives you an overview of revenue, orders, and product analytics. Use it to evaluate your event — both during operations and for post-event accounting. In the [Orders only](./betriebsarten.md#nur-bons) operating mode there is no revenue; reports then show quantities only.
 
 ![Reports](/img/screens/en/reports.png)
 

@@ -30,7 +30,7 @@ This lets you, for example, charge a deposit only on takeaway sales but not for 
 ## Deposit in operation
 
 - **Issuing:** When a deposit-bearing product is sold, the deposit amount is automatically added to the order.
-- **Returns:** When a guest brings back cups or bottles, you book it at the till via the More menu or the deposit button in the cart — either **paid out** or **offset** against the next order. See [Till](./kasse.md#pfand) for how this works. In [cashless mode](./bargeldlos.md) there is no cash payout, only offsetting.
+- **Returns:** When a guest brings back cups or bottles, you book it at the till via the More menu or the deposit button in the cart — either **paid out** or **offset** against the next order. See [Till](./kasse.md#pfand) for how this works. In the [Cashless](./betriebsarten.md#bargeldlos) operating mode there is no cash payout, only offsetting; in [Orders only](./betriebsarten.md#nur-bons) there are no deposits.
 - **Reports:** In the [Reports](./auswertung.md) section you can see the deposit balance — i.e. deposits collected versus deposits refunded.
 
 :::info

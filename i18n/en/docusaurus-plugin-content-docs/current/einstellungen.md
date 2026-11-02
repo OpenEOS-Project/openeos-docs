@@ -29,7 +29,7 @@ In the **Security** sub-section you set up two-factor authentication and keep an
 
 ## Organization
 
-In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact**, **Payments** and **Assistant**.
+In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact**, **Operating mode** and **Assistant**.
 
 ### General
 
@@ -44,13 +44,13 @@ Basic information about your organization:
 
 ### Contact
 
-Under **Contact** you enter your organization's address, ZIP code, city, country, phone and website.
+Under **Contact** you enter your organization's address, ZIP code, city, phone and website. The country is shown here read-only; it is set once, see [Country of the organization](./betriebsarten.md#land).
 
 The billing address for an event's invoice is entered when you [pay for the event](./veranstaltungen.md), not here.
 
-### Payments
+### Operating mode {/* #betriebsart */}
 
-Under **Payments** you switch **cashless mode** on or off (admins only). As long as cash is allowed, the notice about cash and the TSE is shown here. The mode alone does not exempt you from the TSE requirement, because you can switch it yourself. Everything about it is under [Cash and cashless mode](./bargeldlos.md). If your organization uses the [Order only](./nur-bestellen.md) operating mode, you see the mode here and, as an admin, download the manufacturer's certificate.
+Under **Operating mode** you choose how your organization works: **Orders only**, **Cashless** or **All features** (admins only). Below it you see the history of all switches and – in Germany with “Orders only” and “Cashless” – the button for the manufacturer's certificate. Everything about it is under [Operating modes](./betriebsarten.md).
 
 ### Assistant
 
@@ -63,6 +63,7 @@ Earlier versions had more sub-tabs. These settings now live where they are neede
 - **Checkout mode** (**Pay immediately** or **Run a tab**) and the **tables** are set per event, in the [event](./veranstaltungen.md) dialog. How this looks at the till is described under [Till](./kasse.md#senden-oder-kassieren).
 - **SumUp** is set up as an [integration](./integrationen/sumup.md): activate it under **Integrations**, then configure it on its own **SumUp** page.
 - **Invoices** and the billing address are under **Invoices** in the sidebar and when you pay for an event.
+- **Cashless mode** from the former **Payments** sub-tab no longer exists as a separate switch. It is now the **Cashless** operating mode under [Operating mode](#betriebsart).
 
 ## Appearance and language
 

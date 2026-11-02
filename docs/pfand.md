@@ -30,7 +30,7 @@ So kannst du z. B. nur beim Verkauf zum Mitnehmen Pfand verlangen, beim Tischser
 ## Pfand im Betrieb
 
 - **Ausgabe:** Beim Verkauf eines pfandpflichtigen Produkts wird der Pfandbetrag automatisch zur Bestellung hinzugefügt.
-- **Rückgabe:** Bringt ein Gast Becher oder Flaschen zurück, buchst du das an der Kasse über das Mehr-Menü oder den Pfand-Knopf im Warenkorb – als **Auszahlen** oder zum **Verrechnen** mit der nächsten Bestellung. Wie das geht, steht unter [Kasse](./kasse.md#pfand). Im [bargeldlosen Modus](./bargeldlos.md) gibt es keine Barauszahlung, nur das Verrechnen.
+- **Rückgabe:** Bringt ein Gast Becher oder Flaschen zurück, buchst du das an der Kasse über das Mehr-Menü oder den Pfand-Knopf im Warenkorb – als **Auszahlen** oder zum **Verrechnen** mit der nächsten Bestellung. Wie das geht, steht unter [Kasse](./kasse.md#pfand). In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es keine Barauszahlung, nur das Verrechnen; in [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
 - **Auswertung:** In der [Auswertung](./auswertung.md) siehst du den Pfand-Saldo – also kassiertes und ausgezahltes Pfand.
 
 :::info

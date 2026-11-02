@@ -26,7 +26,7 @@ Du findest den Bereich über **Rabatt-Bons** in der Seitenleiste.
 
 ## Einlösen an der Kasse
 
-Rabatt-Bons wählt das Kassenpersonal im Kassieren-Fenster unter der Zahlart **Rabatt**. Der Rabatt wird auf die Bestellung angerechnet und erscheint später in der [Auswertung](./auswertung.md). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#kassieren).
+Rabatt-Bons wählt das Kassenpersonal im Kassieren-Fenster unter der Zahlart **Rabatt**. Der Rabatt wird auf die Bestellung angerechnet und erscheint später in der [Auswertung](./auswertung.md). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#kassieren). In der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons) gibt es keine Rabatt-Bons.
 
 :::tip[Typische Anwendungsfälle]
 Rabatt-Bons eignen sich z. B. für Helferbons, Sponsoren-Gutscheine oder Sonderaktionen während des Festes.

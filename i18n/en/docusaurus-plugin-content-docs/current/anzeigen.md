@@ -59,7 +59,7 @@ Which till or station is assigned is also shown in the device's **Overview**, in
 
 ![Customer display, idle](/img/screens/en/display-customer.png)
 
-While nothing is being rung up, the idle message stands there. As soon as a product is added at the paired till, the basket appears with lines and total — the guest reads along. After payment the screen returns to idle.
+While nothing is being rung up, the idle message stands there. As soon as a product is added at the paired till, the basket appears with lines and total — the guest reads along. After payment the screen returns to idle. In the [Orders only](./betriebsarten.md#nur-bons) operating mode the customer display shows items and quantities only, no prices.
 
 ## The kitchen and bar screen in use
 

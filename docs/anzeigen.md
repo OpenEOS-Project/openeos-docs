@@ -59,7 +59,7 @@ Mit **Speichern** übernimmst du die Einstellungen. Änderungen erscheinen **sof
 
 ![Kundenanzeige im Leerlauf](/img/screens/de/display-customer.png)
 
-Solange nichts kassiert wird, steht der Text im Ruhezustand da. Sobald an der zugeordneten Kasse ein Produkt hinzugefügt wird, erscheint der Warenkorb mit Positionen und Gesamtsumme — der Gast liest mit, was gebucht wurde. Nach dem Bezahlen wechselt der Bildschirm zurück in den Leerlauf.
+Solange nichts kassiert wird, steht der Text im Ruhezustand da. Sobald an der zugeordneten Kasse ein Produkt hinzugefügt wird, erscheint der Warenkorb mit Positionen und Gesamtsumme — der Gast liest mit, was gebucht wurde. Nach dem Bezahlen wechselt der Bildschirm zurück in den Leerlauf. In der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons) zeigt die Kundenanzeige nur Artikel und Mengen, keine Preise.
 
 ## Die Küchen- und Thekenanzeige im Betrieb
 

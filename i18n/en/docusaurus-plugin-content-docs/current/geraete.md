@@ -127,7 +127,7 @@ The **Printer** tab only exists for tills. Here you connect the till to the prin
 
 - **Default Printer** — this till's receipt printer. Receipts and all tickets no station is responsible for end up here. **Test print** checks it right from here.
 - **Print Routing** — **Fixed printer**: all tickets go to the default printer, regardless of stations; for a till that sits right next to its printer. **Dynamic routing**: the routing chain — the printer of the product's station, otherwise of the category's station, otherwise the default printer; for when several stations have their own printers.
-- **Cash drawer** — the printer the drawer is attached to; it opens on cash payments. Only printers that had the cash drawer ticked when adopted are offered. In cashless mode the drawer stays shut.
+- **Cash drawer** — the printer the drawer is attached to; it opens on cash payments. Only printers that had the cash drawer ticked when adopted are offered. In the [operating modes](./betriebsarten.md) “Orders only” and “Cashless” the drawer stays shut.
 
 **Save** applies the selection. Without a default printer the till still takes orders — it just prints no receipts.
 

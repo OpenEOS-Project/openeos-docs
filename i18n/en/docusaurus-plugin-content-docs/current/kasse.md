@@ -150,6 +150,8 @@ When the kitchen or bar marks items of a table as **ready**, the table turns yel
 
 **Check out** opens the checkout sheet. On the left is the **amount due** (with the deposit it includes), below it the **payment method**.
 
+Which payment methods exist depends on your organization's [operating mode](./betriebsarten.md). In **Orders only** there is no checkout: the till shows no prices, and you complete orders with **Picked up** or **Close table**, see [Completing orders](./betriebsarten.md#abschliessen).
+
 ### Cash
 
 - Enter the amount **tendered** on the keypad or tap a **quick amount**: **Exact** or the next round sums.
@@ -157,7 +159,7 @@ When the kitchen or bar marks items of a table as **ready**, the table turns yel
 - If a cash drawer is connected, it opens as soon as cash is selected.
 - **Complete payment** books the payment.
 
-In [cashless mode](./bargeldlos.md) **Cash** is gone entirely; the till starts with **Card**.
+In the [Cashless](./betriebsarten.md#bargeldlos) operating mode **Cash** is gone entirely; the till starts with **Card**.
 
 ### Card {/* #kartenzahlung */}
 
@@ -216,7 +218,7 @@ For returned cups or bottles there is the **Deposit return** (menu or the button
 - **Pay out** — the guest gets the money back in cash, the cash drawer opens, or
 - **Offset** — the amount is deducted from the current cart (only if there is something in the cart).
 
-In [cashless mode](./bargeldlos.md#was-gesperrt-ist) there is no **Pay out**, only **Offset** against new deposits in the same sale.
+In the [Cashless](./betriebsarten.md#bargeldlos) operating mode there is no **Pay out**, only **Offset** against new deposits in the same sale. In [Orders only](./betriebsarten.md#nur-bons) there are no deposits.
 
 ## On phones and tablets
 

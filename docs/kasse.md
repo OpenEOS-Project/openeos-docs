@@ -150,6 +150,8 @@ Meldet die Küche oder die Theke Positionen eines Tisches als **fertig**, wird d
 
 **Kassieren** öffnet das Kassieren-Blatt. Links steht, was **zu zahlen** ist (mit dem enthaltenen Pfand), darunter die **Zahlart**.
 
+Welche Zahlarten es gibt, hängt von der [Betriebsart](./betriebsarten.md) deiner Organisation ab. In **Nur Bons** gibt es kein Kassieren: Die Kasse zeigt keine Preise, und du schließt Bestellungen mit **Abgeholt** bzw. **Tisch abschließen** ab, siehe [Bestellungen abschließen](./betriebsarten.md#abschliessen).
+
 ### Bar
 
 - **Gegeben** über den Ziffernblock eintippen oder eine **Schnellwahl** antippen: **Passend** oder die nächsten runden Beträge.
@@ -157,7 +159,7 @@ Meldet die Küche oder die Theke Positionen eines Tisches als **fertig**, wird d
 - Ist eine Kassenlade angeschlossen, öffnet sie sich, sobald Bar gewählt ist.
 - **Zahlung abschließen** bucht die Zahlung.
 
-Im [bargeldlosen Modus](./bargeldlos.md) fehlt **Bar** ganz; die Kasse startet mit **Karte**.
+In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) fehlt **Bar** ganz; die Kasse startet mit **Karte**.
 
 ### Karte {/* #kartenzahlung */}
 
@@ -216,7 +218,7 @@ Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Men�
 - **Auszahlen** — der Gast bekommt das Geld bar zurück, die Kassenlade öffnet sich, oder
 - **Verrechnen** — der Betrag wird vom aktuellen Warenkorb abgezogen (nur, wenn gerade etwas im Warenkorb liegt).
 
-Im [bargeldlosen Modus](./bargeldlos.md#was-gesperrt-ist) gibt es kein **Auszahlen**, nur **Verrechnen** mit neuem Pfand im selben Verkauf.
+In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es kein **Auszahlen**, nur **Verrechnen** mit neuem Pfand im selben Verkauf. In [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
 
 ## Am Telefon und Tablet
 

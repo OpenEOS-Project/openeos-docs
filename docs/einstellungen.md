@@ -29,7 +29,7 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 ## Organisation
 
-Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Dazu gehören unter anderem die Unterreiter **Allgemein**, **Kontakt**, **Zahlungen** und **Assistent**.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Dazu gehören unter anderem die Unterreiter **Allgemein**, **Kontakt**, **Betriebsart** und **Assistent**.
 
 ### Allgemein
 
@@ -44,13 +44,13 @@ Grundlegende Informationen deiner Organisation:
 
 ### Kontakt
 
-Unter **Kontakt** hinterlegst du Adresse, PLZ, Stadt, Land, Telefon und Website deiner Organisation.
+Unter **Kontakt** hinterlegst du Adresse, PLZ, Stadt, Telefon und Website deiner Organisation. Das Land siehst du hier nur zur Ansicht; es wird einmal festgelegt, siehe [Land der Organisation](./betriebsarten.md#land).
 
 Die Rechnungsadresse für die Abrechnung einer Veranstaltung gibst du beim [Bezahlen der Veranstaltung](./veranstaltungen.md) an, nicht hier.
 
-### Zahlungen
+### Betriebsart {/* #betriebsart */}
 
-Unter **Zahlungen** schaltest du den **bargeldlosen Modus** ein oder aus (nur Admins). Solange Bargeld erlaubt ist, steht hier der Hinweis zu Bargeld und TSE. Von der TSE-Pflicht befreit der Modus allein nicht, weil du ihn selbst umschalten kannst. Alles dazu unter [Bargeld und bargeldloser Modus](./bargeldlos.md). Arbeitet deine Organisation in der Betriebsart [Nur Bestellen](./nur-bestellen.md), siehst du hier die Betriebsart und lädst als Admin die Herstellerbescheinigung herunter.
+Unter **Betriebsart** wählst du, wie deine Organisation arbeitet: **Nur Bons**, **Bargeldlos** oder **Alle Funktionen** (nur Admins). Darunter stehen der Verlauf aller Wechsel und – in Deutschland bei „Nur Bons“ und „Bargeldlos“ – der Knopf für die Herstellerbescheinigung. Alles dazu unter [Betriebsarten](./betriebsarten.md).
 
 ### Assistent
 
@@ -63,6 +63,7 @@ Frühere Versionen hatten weitere Unterreiter. Diese Einstellungen liegen jetzt 
 - **Kassiermodus** (**Sofort kassieren** oder **Auf Deckel buchen**) und die **Tische** legst du je Veranstaltung fest, im Dialog der [Veranstaltung](./veranstaltungen.md). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#senden-oder-kassieren).
 - **SumUp** richtest du als [Integration](./integrationen/sumup.md) ein: unter **Integrationen** aktivieren und danach auf der eigenen Seite **SumUp** konfigurieren.
 - **Rechnungen** und die Rechnungsadresse findest du unter **Rechnungen** in der Seitenleiste bzw. beim Bezahlen der Veranstaltung.
+- Den **bargeldlosen Modus** aus dem früheren Unterreiter **Zahlungen** gibt es nicht mehr als eigenen Schalter. Er ist jetzt die Betriebsart **Bargeldlos** unter [Betriebsart](#betriebsart).
 
 ## Darstellung und Sprache
 

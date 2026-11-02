@@ -26,7 +26,7 @@ You can find this section via **Discount vouchers** in the sidebar.
 
 ## Redeeming at the till
 
-Till staff choose discount vouchers in the checkout window under the **Discount** payment method. The discount is applied to the order and appears later in the [Reports](./auswertung.md). See [Till](./kasse.md#kassieren) for how this looks.
+Till staff choose discount vouchers in the checkout window under the **Discount** payment method. The discount is applied to the order and appears later in the [Reports](./auswertung.md). See [Till](./kasse.md#kassieren) for how this looks. In the [Orders only](./betriebsarten.md#nur-bons) operating mode there are no discount vouchers.
 
 :::tip[Typical use cases]
 Discount vouchers are ideal for volunteer perks, sponsor vouchers, or special promotions during an event.

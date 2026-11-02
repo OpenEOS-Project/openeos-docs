@@ -119,8 +119,8 @@ More in the [FAQ on openeos.de](https://openeos.de/en/faq#tse).
 ## Switching the operating mode {/* #wechseln */}
 
 1. Open **Settings → Organization → Operating mode**.
-2. Choose the new operating mode.
-3. Read the confirmation: it shows what the switch changes. Confirm it.
+2. Choose the new operating mode and tap **Switch to “…”**.
+3. Read the confirmation: it shows what the switch changes. Confirm with **Switch**. If, in Germany without a TSE, you cannot come back to “All features” afterwards, tick the checkbox first and confirm with **Switch for good**.
 
 Only admins of the organization can do this. The tills switch immediately, no reload needed. Your organization's [country](#land) must be set first.
 

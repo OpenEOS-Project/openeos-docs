@@ -117,8 +117,8 @@ Mehr dazu in den [FAQ auf openeos.de](https://openeos.de/faq#tse).
 ## Betriebsart wechseln {/* #wechseln */}
 
 1. Öffne **Einstellungen → Organisation → Betriebsart**.
-2. Wähle die neue Betriebsart.
-3. Lies die Rückfrage: Sie zeigt, was sich durch den Wechsel ändert. Bestätige sie.
+2. Wähle die neue Betriebsart und tippe auf **Zu „…“ wechseln**.
+3. Lies die Rückfrage: Sie zeigt, was sich durch den Wechsel ändert. Bestätige mit **Wechseln**. Kommst du in Deutschland ohne TSE von „Alle Funktionen“ nicht mehr zurück, setzt du vorher ein Häkchen und bestätigst mit **Verbindlich wechseln**.
 
 Das dürfen nur Admins der Organisation. Die Kassen stellen sich sofort um, ein Neuladen ist nicht nötig. Vorher muss das [Land](#land) deiner Organisation hinterlegt sein.
 

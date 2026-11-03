@@ -34,4 +34,4 @@ Your settings are kept. If you activate the integration again later, everything 
 |---|---|---|
 | [SumUp](./sumup.md) | Card payment with SumUp card readers at the till | available |
 | Stripe | Online payments | in preparation |
-| [TSE (fiscal security)](../betriebsarten.md#tse) | Cloud TSE (German KassenSichV) | in preparation |
+| [Cloud TSE](./cloud-tse.md) | Fiscal security under the German KassenSichV – required for cash in Germany | available (Germany only) |

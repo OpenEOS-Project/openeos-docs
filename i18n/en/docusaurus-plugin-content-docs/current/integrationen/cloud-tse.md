@@ -17,7 +17,8 @@ The cloud TSE is only available for organizations in Germany. In other countries
 
 - an organization in **Germany**,
 - a **paid event**: a TSE costs a monthly fee from the moment it is set up. OpenEOS therefore only creates it when a paid event is coming up – at the earliest in the **calendar month the event starts**,
-- **internet** at the tills. If the TSE fails, you keep selling (see [Outage](#ausfall)).
+- **internet** at the tills. If the TSE fails, you keep selling (see [Outage](#ausfall)),
+- the German **tax number** or **VAT ID** and the **address** of your organization ([tax details](../organisation.md#steuerangaben)). They go into every cash point closing; if they are missing, the Cloud TSE page asks for them before setup.
 
 ## 1. Activate the integration
 
@@ -48,6 +49,7 @@ The page then shows **Setup failed** with the error. **Try again** starts it onc
 - **Cloud TSE**: status (**Active** or **Disrupted**), serial number (shortened, with copy button), the till (client ID `OEOS-…`), product, storage, signatures this month, certificate expiry and the last export.
 - **Outage log**: periods in which the TSE did not sign.
 - **Transactions**: all signed, failed and training transactions. Click one to see the TSE data with QR code, just like on the receipt.
+- **Cash register inspection**: DSFinV-K and TSE export for a period, the cash point closings and the tip setting – see [Cash register inspection and DSFinV-K](../kassen-nachschau.md).
 - **Exports**: the archived TSE data for download.
 - **Danger zone**: deactivate the TSE permanently.
 
@@ -80,12 +82,9 @@ OpenEOS records the outage in the **outage log** and emails the admins once. As 
 
 ## Exports and cash register inspection {/* #export */}
 
-OpenEOS collects the TSE data **every night** (TAR file according to TR-03153) and archives it for **ten years**. Under **Exports** you see the period, size and checksum (SHA-256) of each export.
+OpenEOS collects the TSE data **every night** (TAR file according to TR-03153) and archives it for **ten years**. Under **Exports** you see the period, size and checksum (SHA-256) of each export. In addition, every business day gets a **cash point closing** with the DSFinV-K export.
 
-If the tax office comes for a **cash register inspection** (Kassen-Nachschau) or audit:
-
-1. On the **Cloud TSE** page under **Exports**, click **Start export now** if you need the data up to this moment. After a few minutes the export appears in the list.
-2. Use **Download** to save the TAR files of the period and hand them to the auditor.
+If the tax office comes for a **cash register inspection** (Kassen-Nachschau) or audit, download the **DSFinV-K export** and the **TSE export (TAR)** for the period in the **Cash register inspection** section. What exactly to hand over is described in [Cash register inspection and DSFinV-K](../kassen-nachschau.md).
 
 ## Deactivation {/* #deaktivieren */}
 
@@ -109,4 +108,6 @@ This is not tax advice. Your tax office decides in individual cases; if in doubt
 
 - [Operating modes](../betriebsarten.md)
 - [Selling at the till](../kasse.md)
+- [Cash register inspection and DSFinV-K](../kassen-nachschau.md)
+- [Cash book](../kassenbuch.md)
 - [FAQ on openeos.de: till, cash and TSE](https://openeos.de/en/faq#tse)

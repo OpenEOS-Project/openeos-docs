@@ -16,6 +16,10 @@ In the top left of the sidebar you can see the name of your active organization 
 
 You manage the name and other master data of your organization under **Settings → Organization**. The organization name appears on invoices and receipts, among other places, and can be changed at any time.
 
+### Tax details {/* #steuerangaben */}
+
+Under **Settings → Organization** you also enter your organization's German **tax number** (Steuernummer) and/or **VAT ID** (USt-IdNr.), its address and — if it differs from the name in OpenEOS — the **official name**. For the [Cloud-TSE](./integrationen/cloud-tse.md) in Germany, tax number or VAT ID and the address are **required**: they appear in every [cash point closing](./kassen-nachschau.md) of the DSFinV-K export.
+
 ## Data model at a glance
 
 OpenEOS is structured hierarchically. This model helps you understand why some settings apply per event and others apply to the whole organization:

@@ -17,7 +17,8 @@ Die Cloud-TSE gibt es nur für Organisationen in Deutschland. In anderen Länder
 
 - eine Organisation in **Deutschland**,
 - eine **bezahlte Veranstaltung**: Eine TSE kostet ab dem Einrichten jeden Monat. OpenEOS legt sie deshalb erst an, wenn eine bezahlte Veranstaltung ansteht – frühestens im **Kalendermonat ihres Beginns**,
-- **Internet** an den Kassen. Fällt die TSE einmal aus, kassierst du trotzdem weiter (siehe [Ausfall](#ausfall)).
+- **Internet** an den Kassen. Fällt die TSE einmal aus, kassierst du trotzdem weiter (siehe [Ausfall](#ausfall)),
+- **Steuernummer** oder **USt-IdNr.** und die **Anschrift** deiner Organisation ([Steuerangaben](../organisation.md#steuerangaben)). Sie gehören in jeden Kassenabschluss; fehlen sie, fragt die Seite Cloud-TSE sie vor dem Einrichten ab.
 
 ## 1. Integration aktivieren
 
@@ -48,6 +49,7 @@ Dann steht auf der Seite **Einrichtung fehlgeschlagen** mit dem Fehler. Mit **Er
 - **Cloud-TSE**: Zustand (**Aktiv** oder **Gestört**), Seriennummer (gekürzt, mit Kopierknopf), die Kasse (Client-ID `OEOS-…`), Produkt, Speicher, Signaturen im Monat, Ablauf des Zertifikats und der letzte Export.
 - **Ausfallprotokoll**: Zeiträume, in denen die TSE nicht signiert hat.
 - **Vorgänge**: alle signierten, ausgefallenen und Trainingsbuchungen. Ein Klick zeigt die TSE-Angaben mit QR-Code, so wie auf dem Bon.
+- **Kassen-Nachschau**: DSFinV-K- und TSE-Export für einen Zeitraum, die Kassenabschlüsse und die Einstellung zum Trinkgeld – siehe [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md).
 - **Exporte**: die archivierten TSE-Daten zum Herunterladen.
 - **Gefahrenzone**: die TSE endgültig deaktivieren.
 
@@ -80,12 +82,9 @@ OpenEOS trägt den Ausfall ins **Ausfallprotokoll** ein und schickt den Admins e
 
 ## Exporte und Kassen-Nachschau {/* #export */}
 
-OpenEOS holt die Daten der TSE **jede Nacht** ab (TAR-Datei nach TR-03153) und archiviert sie **zehn Jahre**. Unter **Exporte** siehst du Zeitraum, Größe und Prüfsumme (SHA-256) jedes Exports.
+OpenEOS holt die Daten der TSE **jede Nacht** ab (TAR-Datei nach TR-03153) und archiviert sie **zehn Jahre**. Unter **Exporte** siehst du Zeitraum, Größe und Prüfsumme (SHA-256) jedes Exports. Zusätzlich entsteht für jeden Geschäftstag ein **Kassenabschluss** mit dem DSFinV-K-Export.
 
-Kommt das Finanzamt zur **Kassen-Nachschau** oder Prüfung:
-
-1. Auf der Seite **Cloud-TSE** unter **Exporte** auf **Export jetzt starten** klicken, wenn du die Daten bis zu diesem Moment brauchst. Nach ein paar Minuten steht der Export in der Liste.
-2. Mit **Herunterladen** die TAR-Dateien des gewünschten Zeitraums speichern und dem Prüfer übergeben.
+Kommt das Finanzamt zur **Kassen-Nachschau** oder Prüfung, lädst du im Abschnitt **Kassen-Nachschau** den **DSFinV-K-Export** und den **TSE-Export (TAR)** für den gewünschten Zeitraum herunter. Was genau du übergibst, steht unter [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md).
 
 ## Deaktivieren {/* #deaktivieren */}
 
@@ -109,4 +108,6 @@ Das ist keine Steuerberatung. Im Einzelfall entscheidet dein Finanzamt; bist du 
 
 - [Betriebsarten](../betriebsarten.md)
 - [An der Kasse verkaufen](../kasse.md)
+- [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md)
+- [Kassenbuch](../kassenbuch.md)
 - [FAQ auf openeos.de: Kasse, Bargeld und TSE](https://openeos.de/faq#tse)

@@ -67,6 +67,8 @@ OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nic
 
 Änderst du das Datum, ändert sich der Betrag mit.
 
+In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein.
+
 ### Was als Veranstaltungstag zählt {/* #veranstaltungstag */}
 
 Ein Veranstaltungstag geht **von 6 bis 6 Uhr** (Ortszeit deiner Organisation), nicht von Mitternacht bis Mitternacht. Eine Nacht, die vor 6 Uhr morgens endet, gehört also noch zum Vortag:

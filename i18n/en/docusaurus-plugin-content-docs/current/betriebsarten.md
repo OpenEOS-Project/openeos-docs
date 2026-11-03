@@ -101,7 +101,7 @@ With SumUp in [test mode](./veranstaltungen.md) the till triggers no real card p
 
 In **All features** the till accepts cash, card and online payments: cash is the first payment method, the till works out change, pays out deposits in cash and opens the cash drawer. Everything else is under [Selling at the till](./kasse.md#kassieren).
 
-- **In Germany**, “All features” is only available with an active, certified **cloud TSE**. You switch it on under **Integrations → Cloud TSE**; it is set up with your first paid event, usually automatically – see [Cloud TSE](./integrationen/cloud-tse.md). Without an active TSE the mode is greyed out in the settings (“requires an active cloud TSE”); once the TSE is active, “Cashless” automatically becomes “All features”. If the TSE is no longer active later on, the till stops accepting cash – the server checks this on every cash payment – and OpenEOS shows you a notice.
+- **In Germany**, the till in “All features” only accepts cash with an active, certified **cloud TSE**. It is included in the event price and comes automatically: when you activate an event, OpenEOS switches the cloud TSE on and sets it up for the first event day – see [Cloud TSE](./integrationen/cloud-tse.md#automatisch). You can therefore choose “All features” as soon as a paid event is coming up; the card then shows *The cloud TSE will be set up automatically on …*, and cash works from that day on. Without a paid event the mode is greyed out (“needs an activated event”). Once the TSE is active, “Cashless” automatically becomes “All features”. If the TSE is no longer active later on, the till stops accepting cash – the server checks this on every cash payment – and OpenEOS shows you a notice.
 - **In all other countries** you can choose “All features” without a TSE. Which rules apply there is described under [Austria, Switzerland and other countries](#andere-laender).
 
 ## Cash and the TSE {/* #tse */}
@@ -110,7 +110,7 @@ In **All features** the till accepts cash, card and online payments: cash is the
 In Germany, an electronic till that can accept cash needs a certified TSE (technical security system). According to the German Federal Ministry of Finance, it is enough that your club can switch cash on itself – whether it actually does so makes no difference.
 :::
 
-That is why OpenEOS only allows cash in Germany with an active TSE. Without a TSE you choose **Orders only** or **Cashless**. Neither has cash in OpenEOS, and your club cannot switch it on itself either: “All features” cannot be chosen without a TSE. You can therefore switch between “Orders only” and “Cashless” yourself at any time – it makes no difference to the TSE question.
+That is why OpenEOS only allows cash in Germany with an active TSE. Without a TSE you choose **Orders only** or **Cashless**. Neither has cash in OpenEOS, and your club cannot switch it on itself either: cash only works with an active TSE – even if you choose “All features” beforehand with a paid event, the till only accepts cash once the TSE is set up. You can therefore switch between “Orders only” and “Cashless” yourself at any time – it makes no difference to the TSE question.
 
 According to the ministry, ordering systems without a till module are not covered by § 146a AO. You can only do without a TSE, however, if your club cannot switch cash on itself and this is proven in the system documentation (Verfahrensdokumentation), for example by a [certificate from the manufacturer](#bescheinigung). In individual cases your tax office decides; if you are unsure, talk to your tax advisor.
 
@@ -126,7 +126,7 @@ Only admins of the organization can do this. The tills switch immediately, no re
 
 Ideally switch between two events and not while sales are running.
 
-Our support can also switch the operating mode, for example at your request. Support always gives a reason. The same rules apply to support: in Germany, “All features” is only available with an active TSE, even through support.
+Our support can also switch the operating mode, for example at your request. Support always gives a reason. The same rules apply to support: in Germany, “All features” is only available with an active TSE or a paid event the TSE automatically follows, even through support.
 
 ### History {/* #verlauf */}
 
@@ -153,8 +153,8 @@ You set the country **once**. Afterwards only our support can change it, with a 
 |---|---|---|
 | Orders only | available | available |
 | Cashless | available | available |
-| All features | not available | available |
-| All features (existing) | stays until you pick a mode | – |
+| All features | available with a paid event – the TSE is set up automatically, cash only from then on | available |
+| All features (existing) | stays until you pick a mode or choose “with cloud TSE” when activating an event | – |
 
 For “Orders only” and “Cashless” you get the [manufacturer's certificate](#bescheinigung).
 
@@ -162,10 +162,10 @@ For “Orders only” and “Cashless” you get the [manufacturer's certificate
 
 Organizations that existed before the operating modes (November 2026) keep working as **All features (existing)** as before – also in Germany and also without a TSE – until you pick a mode. Nobody switches your organization automatically in the middle of the season.
 
-If your organization is in Germany, a notice in the dashboard and in the settings explains the TSE requirement and asks you to confirm the country and pick an operating mode. Whether you record cash in OpenEOS without a TSE until then is your own responsibility; ideally check with your tax advisor.
+If your organization is in Germany, a notice in the dashboard and in the settings explains the TSE requirement and asks you to confirm the country and pick an operating mode. When you activate an event, the payment dialog asks *With cloud TSE (legally compliant cash)?* – with **Yes** your operating mode becomes “All features” and the cloud TSE is set up automatically; with **No** nothing changes. Whether you record cash in OpenEOS without a TSE until then is your own responsibility; ideally check with your tax advisor.
 
 :::warning[No way back in Germany without a TSE]
-If you pick another operating mode in Germany, the existing status ends. You can then only go back to “All features” with an active TSE – not even through our support.
+If you pick another operating mode in Germany, the existing status ends. You can then only go back to “All features” with an active TSE or a paid event (the TSE then follows automatically). The same applies to our support.
 :::
 
 Outside Germany you can choose “All features” again at any time. If you choose it explicitly there, the features stay the same; only the “(existing)” label disappears.

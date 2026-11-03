@@ -20,14 +20,26 @@ Die Cloud-TSE gibt es nur für Organisationen in Deutschland. In anderen Länder
 - **Internet** an den Kassen. Fällt die TSE einmal aus, kassierst du trotzdem weiter (siehe [Ausfall](#ausfall)),
 - **Steuernummer** oder **USt-IdNr.** und die **Anschrift** deiner Organisation ([Steuerangaben](../organisation.md#steuerangaben)). Sie gehören in jeden Kassenabschluss; fehlen sie, fragt die Seite Cloud-TSE sie vor dem Einrichten ab.
 
-## 1. Integration aktivieren
+## Automatisch beim Kauf einer Veranstaltung {/* #automatisch */}
+
+Meist musst du gar nichts tun: Schaltest du in der Betriebsart **Alle Funktionen** eine Veranstaltung frei (bezahlt, auf Rechnung oder vom Support erlassen), schaltet OpenEOS die Integration **Cloud-TSE** selbst ein. Im Bezahldialog steht dazu *Inklusive Cloud-TSE für Bargeld – wird automatisch eingerichtet*, und auf der Seite **Cloud-TSE** steht danach *Automatisch eingeschaltet beim Kauf von „…“*. Die TSE selbst wird zum ersten Veranstaltungstag eingerichtet (siehe [Einrichtung](#einrichtung)) – sofort, wenn die Veranstaltung schon läuft.
+
+- **Alle Funktionen (Bestand):** Der Bezahldialog fragt *Mit Cloud-TSE (Bargeld rechtssicher)?* Mit **Ja** wird deine Betriebsart beim Freischalten zu **Alle Funktionen** und die TSE folgt automatisch. Mit **Nein** bleibt alles, wie es ist.
+- **Bargeldlos:** Wechselst du mit einer bezahlten Veranstaltung zu **Alle Funktionen**, schaltet OpenEOS die Integration ebenfalls selbst ein (siehe [Betriebsarten](../betriebsarten.md#alle-funktionen)).
+- **Nur Bons** und Organisationen außerhalb Deutschlands bekommen keine TSE.
+
+**Kosten:** Die Cloud-TSE ist derzeit im Preis der Veranstaltung **inklusive** – es gibt keinen Aufschlag.
+
+## 1. Integration selbst aktivieren
+
+Du kannst die Integration auch vorab selbst einschalten:
 
 1. In der Seitenleiste **Integrationen** öffnen und auf **Cloud-TSE** klicken.
 2. Im Fenster auf **Aktivieren** klicken.
 
 In der Seitenleiste erscheint jetzt der Eintrag **Cloud-TSE**. Das Aktivieren kostet noch nichts – es sagt nur, dass deine Organisation eine TSE möchte.
 
-## 2. Einrichtung – meist automatisch
+## 2. Einrichtung – meist automatisch {/* #einrichtung */}
 
 Auf der Seite **Cloud-TSE** siehst du, welche Voraussetzungen erfüllt sind: Organisation in Deutschland, bezahlte Veranstaltung und der früheste Tag der Einrichtung.
 

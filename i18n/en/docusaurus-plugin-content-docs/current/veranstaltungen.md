@@ -67,6 +67,8 @@ OpenEOS is billed **per event day** — not per order, and not as a subscription
 
 Change the dates and the amount follows.
 
+In Germany the [cloud TSE](./integrationen/cloud-tse.md#automatisch) for cash (operating mode **All features**) is currently **included** – there is just this one price. OpenEOS sets it up automatically after activation.
+
 ### What counts as an event day {/* #veranstaltungstag */}
 
 An event day runs **from 6:00 to 6:00** (your organization's local time), not from midnight to midnight. A night that ends before 6 in the morning still belongs to the day before:

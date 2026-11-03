@@ -16,6 +16,10 @@ Oben links in der Seitenleiste siehst du den Namen deiner aktiven Organisation s
 
 Den Namen und weitere Stammdaten deiner Organisation verwaltest du unter **Einstellungen → Organisation**. Der Organisationsname erscheint u. a. auf Rechnungen und Bons und kann jederzeit geändert werden.
 
+### Steuerangaben {/* #steuerangaben */}
+
+Unter **Einstellungen → Organisation** trägst du auch die **Steuernummer** und/oder die **USt-IdNr.** deiner Organisation ein, dazu die Anschrift und – falls er vom Namen in OpenEOS abweicht – den **offiziellen Namen** (z. B. „Turn- und Sportverein Musterdorf 1920 e. V.“). Für die [Cloud-TSE](./integrationen/cloud-tse.md) in Deutschland sind Steuernummer oder USt-IdNr. und Anschrift **Pflicht**: Sie stehen in jedem [Kassenabschluss](./kassen-nachschau.md) des DSFinV-K-Exports.
+
 ## Datenmodell auf einen Blick
 
 OpenEOS ist hierarchisch aufgebaut. Dieses Modell hilft zu verstehen, warum manche Einstellungen pro Veranstaltung und andere für die ganze Organisation gelten:

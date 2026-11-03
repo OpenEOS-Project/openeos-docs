@@ -36,13 +36,13 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '4 · Am Festtag',
       collapsed: false,
-      items: ['kasse', 'bestellungen', 'dashboard'],
+      items: ['kasse', 'kassenbuch', 'bestellungen', 'dashboard'],
     },
     {
       type: 'category',
       label: '5 · Nach dem Fest',
       collapsed: false,
-      items: ['auswertung', 'inventur'],
+      items: ['auswertung', 'inventur', 'kassen-nachschau'],
     },
     {
       type: 'category',

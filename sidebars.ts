@@ -51,6 +51,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'integrationen/uebersicht',
         'integrationen/sumup',
+        'integrationen/cloud-tse',
         'api-zugaenge',
         'ki-agenten',
         {type: 'link', label: 'API-Referenz', href: '/api'},

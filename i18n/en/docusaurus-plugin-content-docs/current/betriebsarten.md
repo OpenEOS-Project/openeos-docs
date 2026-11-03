@@ -22,7 +22,7 @@ We describe how OpenEOS works technically and what we know about the rules. This
 |---|---|---|
 | **Orders only** (Nur Bons) | Take orders, kitchen, pickup and order tickets – without prices and without payments. Payment happens outside OpenEOS, e.g. with an open cash box or tokens. | No prices, no payments |
 | **Cashless** (Bargeldlos) | All features with card payments (SumUp) and online prepayment. There is no cash in OpenEOS. | Card and online |
-| **All features** (Alle Funktionen) | Cash, card and online payment. | Cash, card and online – in Germany only with an active cloud TSE (in preparation) |
+| **All features** (Alle Funktionen) | Cash, card and online payment. | Cash, card and online – in Germany only with an active [cloud TSE](./integrationen/cloud-tse.md) |
 
 Organizations that existed before the operating modes keep running as **All features (existing)** until they pick a mode. More under [Existing organizations](#bestand).
 
@@ -101,7 +101,7 @@ With SumUp in [test mode](./veranstaltungen.md) the till triggers no real card p
 
 In **All features** the till accepts cash, card and online payments: cash is the first payment method, the till works out change, pays out deposits in cash and opens the cash drawer. Everything else is under [Selling at the till](./kasse.md#kassieren).
 
-- **In Germany**, “All features” is only available with an active, certified **cloud TSE**. The TSE integration is in preparation; until then the mode is greyed out in the settings (“requires a cloud TSE – in preparation”). If the TSE is no longer active later on, the till stops accepting cash – the server checks this on every cash payment – and OpenEOS shows you a notice.
+- **In Germany**, “All features” is only available with an active, certified **cloud TSE**. You switch it on under **Integrations → Cloud TSE**; it is set up with your first paid event, usually automatically – see [Cloud TSE](./integrationen/cloud-tse.md). Without an active TSE the mode is greyed out in the settings (“requires an active cloud TSE”); once the TSE is active, “Cashless” automatically becomes “All features”. If the TSE is no longer active later on, the till stops accepting cash – the server checks this on every cash payment – and OpenEOS shows you a notice.
 - **In all other countries** you can choose “All features” without a TSE. Which rules apply there is described under [Austria, Switzerland and other countries](#andere-laender).
 
 ## Cash and the TSE {/* #tse */}
@@ -114,7 +114,7 @@ That is why OpenEOS only allows cash in Germany with an active TSE. Without a TS
 
 According to the ministry, ordering systems without a till module are not covered by § 146a AO. You can only do without a TSE, however, if your club cannot switch cash on itself and this is proven in the system documentation (Verfahrensdokumentation), for example by a [certificate from the manufacturer](#bescheinigung). In individual cases your tax office decides; if you are unsure, talk to your tax advisor.
 
-More in the [FAQ on openeos.de](https://openeos.de/en/faq#tse).
+How to set up the TSE, what is on the receipt and what happens during an outage is described under [Cloud TSE](./integrationen/cloud-tse.md). More in the [FAQ on openeos.de](https://openeos.de/en/faq#tse).
 
 ## Switching the operating mode {/* #wechseln */}
 
@@ -200,5 +200,6 @@ If you run OpenEOS [yourself](./selbst-betreiben/intro.md), you are the operator
 
 - [Selling at the till](./kasse.md)
 - [Deposits](./pfand.md)
+- [Cloud TSE](./integrationen/cloud-tse.md)
 - [SumUp](./integrationen/sumup.md)
 - [FAQ on openeos.de: Cash, POS and TSE](https://openeos.de/en/faq#tse)

@@ -34,4 +34,4 @@ Deine Einstellungen bleiben dabei erhalten. Wenn du die Integration später wied
 |---|---|---|
 | [SumUp](./sumup.md) | Kartenzahlung mit SumUp-Kartenlesern an der Kasse | verfügbar |
 | Stripe | Online-Zahlungen | in Vorbereitung |
-| [TSE (Kassensicherung)](../betriebsarten.md#tse) | Cloud-TSE nach KassenSichV | in Vorbereitung |
+| [Cloud-TSE](./cloud-tse.md) | Kassensicherung nach KassenSichV – Voraussetzung für Bargeld in Deutschland | verfügbar (nur Deutschland) |

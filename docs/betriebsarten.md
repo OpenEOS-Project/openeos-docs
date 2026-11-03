@@ -20,7 +20,7 @@ Wir beschreiben hier, wie OpenEOS technisch arbeitet und was wir über die Regel
 |---|---|---|
 | **Nur Bons** | Bestellungen aufnehmen, Küche, Ausgabe und Bons – ohne Preise und ohne Zahlungen. Kassiert wird außerhalb von OpenEOS, z. B. mit offener Ladenkasse oder Wertmarken. | Keine Preise, keine Zahlungen |
 | **Bargeldlos** | Alle Funktionen mit Kartenzahlung (SumUp) und Online-Vorkasse. Bargeld gibt es in OpenEOS nicht. | Karte und online |
-| **Alle Funktionen** | Bargeld, Karte und Online-Zahlung. | Bar, Karte und online – in Deutschland nur mit aktiver Cloud-TSE (in Vorbereitung) |
+| **Alle Funktionen** | Bargeld, Karte und Online-Zahlung. | Bar, Karte und online – in Deutschland nur mit aktiver [Cloud-TSE](./integrationen/cloud-tse.md) |
 
 Organisationen, die es schon vor den Betriebsarten gab, laufen als **Alle Funktionen (Bestand)** weiter, bis sie eine Betriebsart wählen. Mehr dazu unter [Bestehende Organisationen](#bestand).
 
@@ -99,7 +99,7 @@ Mit SumUp im [Testmodus](./veranstaltungen.md) löst die Kasse keine echte Karte
 
 In **Alle Funktionen** nimmt die Kasse Bargeld, Karte und Online-Zahlung an: Bar ist die erste Zahlart, die Kasse rechnet Rückgeld aus, zahlt Pfand bar aus und öffnet die Kassenlade. Alles Weitere steht unter [An der Kasse verkaufen](./kasse.md#kassieren).
 
-- **In Deutschland** gibt es „Alle Funktionen“ nur mit einer aktiven, zertifizierten **Cloud-TSE**. Die TSE-Anbindung ist in Vorbereitung; bis dahin ist die Betriebsart in den Einstellungen ausgegraut („benötigt eine Cloud-TSE – in Vorbereitung“). Ist die TSE später nicht mehr aktiv, nimmt die Kasse kein Bargeld mehr an – der Server prüft das bei jeder Barzahlung –, und OpenEOS zeigt dir einen Hinweis.
+- **In Deutschland** gibt es „Alle Funktionen“ nur mit einer aktiven, zertifizierten **Cloud-TSE**. Die schaltest du unter **Integrationen → Cloud-TSE** ein; eingerichtet wird sie mit deiner ersten bezahlten Veranstaltung, meist automatisch – siehe [Cloud-TSE](./integrationen/cloud-tse.md). Ohne aktive TSE ist die Betriebsart in den Einstellungen ausgegraut („benötigt eine aktive Cloud-TSE“); sobald die TSE aktiv ist, wird aus „Bargeldlos“ automatisch „Alle Funktionen“. Ist die TSE später nicht mehr aktiv, nimmt die Kasse kein Bargeld mehr an – der Server prüft das bei jeder Barzahlung –, und OpenEOS zeigt dir einen Hinweis.
 - **In allen anderen Ländern** kannst du „Alle Funktionen“ ohne TSE wählen. Welche Regeln dort gelten, steht unter [Österreich, Schweiz und andere Länder](#andere-laender).
 
 ## Bargeld und TSE {/* #tse */}
@@ -112,7 +112,7 @@ Deshalb lässt OpenEOS Bargeld in Deutschland nur mit aktiver TSE zu. Ohne TSE w
 
 Nach Auskunft des Bundesfinanzministeriums fallen Bestellsysteme ohne Kassenmodul nicht unter § 146a AO. Ohne TSE geht es aber nur, wenn dein Verein Bargeld nicht selbst einschalten kann und das in der Verfahrensdokumentation nachgewiesen ist, zum Beispiel durch eine [Bescheinigung des Herstellers](#bescheinigung). Im Einzelfall entscheidet dein Finanzamt; bist du unsicher, sprich mit deiner Steuerberatung.
 
-Mehr dazu in den [FAQ auf openeos.de](https://openeos.de/faq#tse).
+Wie du die TSE einrichtest, was auf dem Bon steht und was bei einem Ausfall passiert, steht unter [Cloud-TSE](./integrationen/cloud-tse.md). Mehr dazu in den [FAQ auf openeos.de](https://openeos.de/faq#tse).
 
 ## Betriebsart wechseln {/* #wechseln */}
 
@@ -198,5 +198,6 @@ Betreibst du OpenEOS [selbst](./selbst-betreiben/intro.md), bist du selbst Betre
 
 - [An der Kasse verkaufen](./kasse.md)
 - [Pfand](./pfand.md)
+- [Cloud-TSE](./integrationen/cloud-tse.md)
 - [SumUp](./integrationen/sumup.md)
 - [FAQ auf openeos.de: Kasse, Bargeld und TSE](https://openeos.de/faq#tse)

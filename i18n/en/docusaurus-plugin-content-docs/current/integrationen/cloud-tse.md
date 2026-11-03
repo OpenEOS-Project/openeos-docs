@@ -20,14 +20,26 @@ The cloud TSE is only available for organizations in Germany. In other countries
 - **internet** at the tills. If the TSE fails, you keep selling (see [Outage](#ausfall)),
 - the German **tax number** or **VAT ID** and the **address** of your organization ([tax details](../organisation.md#steuerangaben)). They go into every cash point closing; if they are missing, the Cloud TSE page asks for them before setup.
 
-## 1. Activate the integration
+## Automatically when you buy an event {/* #automatisch */}
+
+Usually you do not have to do anything: if you activate an event in the operating mode **All features** (paid, on invoice or waived by support), OpenEOS switches the **Cloud TSE** integration on by itself. The payment dialog says *Includes the cloud TSE for cash – set up automatically*, and afterwards the **Cloud TSE** page says *Switched on automatically when you bought “…”*. The TSE itself is set up for the first event day (see [Setup](#einrichtung)) – right away if the event is already running.
+
+- **All features (existing):** the payment dialog asks *With cloud TSE (legally compliant cash)?* With **Yes** your operating mode becomes **All features** on activation and the TSE follows automatically. With **No** nothing changes.
+- **Cashless:** if you switch to **All features** with a paid event, OpenEOS also switches the integration on by itself (see [Operating modes](../betriebsarten.md#alle-funktionen)).
+- **Orders only** and organizations outside Germany do not get a TSE.
+
+**Cost:** the cloud TSE is currently **included** in the event price – there is no surcharge.
+
+## 1. Activate the integration yourself
+
+You can also switch the integration on yourself beforehand:
 
 1. Open **Integrations** in the sidebar and click **Cloud TSE**.
 2. Click **Activate** in the dialog.
 
 The sidebar now shows the entry **Cloud TSE**. Activating costs nothing yet – it only says that your organization wants a TSE.
 
-## 2. Setup – usually automatic
+## 2. Setup – usually automatic {/* #einrichtung */}
 
 The **Cloud TSE** page shows which requirements are met: organization in Germany, paid event and the earliest setup date.
 

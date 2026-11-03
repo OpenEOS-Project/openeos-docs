@@ -99,7 +99,7 @@ Mit SumUp im [Testmodus](./veranstaltungen.md) löst die Kasse keine echte Karte
 
 In **Alle Funktionen** nimmt die Kasse Bargeld, Karte und Online-Zahlung an: Bar ist die erste Zahlart, die Kasse rechnet Rückgeld aus, zahlt Pfand bar aus und öffnet die Kassenlade. Alles Weitere steht unter [An der Kasse verkaufen](./kasse.md#kassieren).
 
-- **In Deutschland** gibt es „Alle Funktionen“ nur mit einer aktiven, zertifizierten **Cloud-TSE**. Die schaltest du unter **Integrationen → Cloud-TSE** ein; eingerichtet wird sie mit deiner ersten bezahlten Veranstaltung, meist automatisch – siehe [Cloud-TSE](./integrationen/cloud-tse.md). Ohne aktive TSE ist die Betriebsart in den Einstellungen ausgegraut („benötigt eine aktive Cloud-TSE“); sobald die TSE aktiv ist, wird aus „Bargeldlos“ automatisch „Alle Funktionen“. Ist die TSE später nicht mehr aktiv, nimmt die Kasse kein Bargeld mehr an – der Server prüft das bei jeder Barzahlung –, und OpenEOS zeigt dir einen Hinweis.
+- **In Deutschland** nimmt die Kasse in „Alle Funktionen“ Bargeld nur mit einer aktiven, zertifizierten **Cloud-TSE** an. Die ist im Preis der Veranstaltung inklusive und kommt automatisch: Schaltest du eine Veranstaltung frei, schaltet OpenEOS die Cloud-TSE ein und richtet sie zum ersten Veranstaltungstag ein – siehe [Cloud-TSE](./integrationen/cloud-tse.md#automatisch). „Alle Funktionen“ kannst du deshalb schon wählen, sobald eine bezahlte Veranstaltung ansteht; die Karte zeigt dann *Cloud-TSE wird am … automatisch eingerichtet*, und Bargeld geht ab diesem Tag. Ohne bezahlte Veranstaltung ist die Betriebsart ausgegraut („braucht eine freigeschaltete Veranstaltung“). Sobald die TSE aktiv ist, wird aus „Bargeldlos“ automatisch „Alle Funktionen“. Ist die TSE später nicht mehr aktiv, nimmt die Kasse kein Bargeld mehr an – der Server prüft das bei jeder Barzahlung –, und OpenEOS zeigt dir einen Hinweis.
 - **In allen anderen Ländern** kannst du „Alle Funktionen“ ohne TSE wählen. Welche Regeln dort gelten, steht unter [Österreich, Schweiz und andere Länder](#andere-laender).
 
 ## Bargeld und TSE {/* #tse */}
@@ -108,7 +108,7 @@ In **Alle Funktionen** nimmt die Kasse Bargeld, Karte und Online-Zahlung an: Bar
 Eine elektronische Kasse, mit der sich Bargeld annehmen lässt, braucht in Deutschland eine zertifizierte TSE. Nach Auskunft des Bundesfinanzministeriums reicht dafür schon, dass dein Verein Bargeld selbst einschalten kann – ob er es tatsächlich tut, spielt keine Rolle.
 :::
 
-Deshalb lässt OpenEOS Bargeld in Deutschland nur mit aktiver TSE zu. Ohne TSE wählst du **Nur Bons** oder **Bargeldlos**. In beiden gibt es in OpenEOS kein Bargeld, und dein Verein kann es auch nicht selbst einschalten: „Alle Funktionen“ lässt sich ohne TSE nicht wählen. Zwischen „Nur Bons“ und „Bargeldlos“ wechselst du deshalb jederzeit selbst – an der TSE-Frage ändert das nichts.
+Deshalb lässt OpenEOS Bargeld in Deutschland nur mit aktiver TSE zu. Ohne TSE wählst du **Nur Bons** oder **Bargeldlos**. In beiden gibt es in OpenEOS kein Bargeld, und dein Verein kann es auch nicht selbst einschalten: Bargeld geht nur mit aktiver TSE – auch wenn du „Alle Funktionen“ mit einer bezahlten Veranstaltung schon vorher wählst, nimmt die Kasse erst ab der Einrichtung der TSE Bargeld an. Zwischen „Nur Bons“ und „Bargeldlos“ wechselst du deshalb jederzeit selbst – an der TSE-Frage ändert das nichts.
 
 Nach Auskunft des Bundesfinanzministeriums fallen Bestellsysteme ohne Kassenmodul nicht unter § 146a AO. Ohne TSE geht es aber nur, wenn dein Verein Bargeld nicht selbst einschalten kann und das in der Verfahrensdokumentation nachgewiesen ist, zum Beispiel durch eine [Bescheinigung des Herstellers](#bescheinigung). Im Einzelfall entscheidet dein Finanzamt; bist du unsicher, sprich mit deiner Steuerberatung.
 
@@ -124,7 +124,7 @@ Das dürfen nur Admins der Organisation. Die Kassen stellen sich sofort um, ein 
 
 Wechsle am besten zwischen zwei Veranstaltungen und nicht, während der Verkauf läuft.
 
-Auch unser Support kann die Betriebsart wechseln, zum Beispiel auf deine Bitte hin. Er gibt dabei immer einen Grund an. Für den Support gelten dieselben Regeln: In Deutschland gibt es auch über ihn „Alle Funktionen“ nur mit aktiver TSE.
+Auch unser Support kann die Betriebsart wechseln, zum Beispiel auf deine Bitte hin. Er gibt dabei immer einen Grund an. Für den Support gelten dieselben Regeln: In Deutschland gibt es auch über ihn „Alle Funktionen“ nur mit aktiver TSE oder einer bezahlten Veranstaltung, mit der die TSE automatisch folgt.
 
 ### Verlauf {/* #verlauf */}
 
@@ -151,8 +151,8 @@ Das Land legst du **einmal** fest. Danach kann es nur noch unser Support ändern
 |---|---|---|
 | Nur Bons | wählbar | wählbar |
 | Bargeldlos | wählbar | wählbar |
-| Alle Funktionen | nicht wählbar | wählbar |
-| Alle Funktionen (Bestand) | bleibt, bis du eine Betriebsart wählst | – |
+| Alle Funktionen | mit bezahlter Veranstaltung wählbar – die TSE wird automatisch eingerichtet, Bargeld erst ab dann | wählbar |
+| Alle Funktionen (Bestand) | bleibt, bis du eine Betriebsart wählst oder beim Freischalten „Mit Cloud-TSE“ wählst | – |
 
 Für „Nur Bons“ und „Bargeldlos“ bekommst du die [Herstellerbescheinigung](#bescheinigung).
 
@@ -160,10 +160,10 @@ Für „Nur Bons“ und „Bargeldlos“ bekommst du die [Herstellerbescheinigun
 
 Organisationen, die es vor den Betriebsarten (November 2026) gab, arbeiten als **Alle Funktionen (Bestand)** wie bisher weiter – auch in Deutschland und auch ohne TSE –, bis du eine Betriebsart wählst. Niemand stellt deine Organisation mitten in der Saison automatisch um.
 
-Liegt deine Organisation in Deutschland, erklärt ein Hinweis im Dashboard und in den Einstellungen die TSE-Pflicht und bittet dich, das Land zu bestätigen und eine Betriebsart zu wählen. Ob du bis dahin Bargeld ohne TSE in OpenEOS erfasst, verantwortest du selbst; stimm dich am besten mit deiner Steuerberatung ab.
+Liegt deine Organisation in Deutschland, erklärt ein Hinweis im Dashboard und in den Einstellungen die TSE-Pflicht und bittet dich, das Land zu bestätigen und eine Betriebsart zu wählen. Beim Freischalten einer Veranstaltung fragt der Bezahldialog *Mit Cloud-TSE (Bargeld rechtssicher)?* – mit **Ja** wird deine Betriebsart zu „Alle Funktionen“ und die Cloud-TSE wird automatisch eingerichtet; mit **Nein** bleibt alles, wie es ist. Ob du bis dahin Bargeld ohne TSE in OpenEOS erfasst, verantwortest du selbst; stimm dich am besten mit deiner Steuerberatung ab.
 
 :::warning[In Deutschland kein Weg zurück ohne TSE]
-Wählst du in Deutschland eine andere Betriebsart, endet der Bestand. Zurück zu „Alle Funktionen“ kommst du dann nur mit aktiver TSE – auch nicht über unseren Support.
+Wählst du in Deutschland eine andere Betriebsart, endet der Bestand. Zurück zu „Alle Funktionen“ kommst du dann nur mit aktiver TSE oder mit einer bezahlten Veranstaltung (dann folgt die TSE automatisch). Das gilt auch für unseren Support.
 :::
 
 Außerhalb Deutschlands kannst du „Alle Funktionen“ jederzeit wieder wählen. Wählst du sie dort ausdrücklich, ändert sich nichts an den Funktionen; nur der Zusatz „(Bestand)“ entfällt.

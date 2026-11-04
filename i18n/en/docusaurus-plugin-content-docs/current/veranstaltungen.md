@@ -67,7 +67,7 @@ OpenEOS is billed **per event day** — not per order, and not as a subscription
 
 Change the dates and the amount follows.
 
-In Germany the [cloud TSE](./integrationen/cloud-tse.md#automatisch) for cash (operating mode **All features**) is currently **included** – there is just this one price. OpenEOS sets it up automatically after activation.
+In Germany the [cloud TSE](./integrationen/cloud-tse.md#automatisch) for cash (operating mode **All features**) is currently **included** – there is just this one price. OpenEOS sets it up automatically after activation. The TSE runs for the month of your event and is deactivated automatically at the end of the month (see [cloud TSE lifetime](./integrationen/cloud-tse.md#laufzeit)).
 
 ### What counts as an event day {/* #veranstaltungstag */}
 
@@ -93,6 +93,15 @@ Activating deletes the test orders. **Your setup stays**: products, categories, 
 :::tip[Our advice for a first event]
 Set everything up calmly beforehand and play one round through in test mode: take an order at the till, acknowledge it on the kitchen screen, print a ticket. Then you know on the day that the chain holds.
 :::
+
+### Details at your first purchase {/* #pflichtangaben */}
+
+We do not ask for tax or billing details when you register. Only when you activate an event does the dialog need a few details about your organization – if they are missing, it says *One more step before you pay*, and **Continue** opens a short form:
+
+- the **legal name** (e.g. *Musikverein Harmonie e.V.*) and the **billing address**,
+- in Germany with the [cloud TSE](./integrationen/cloud-tse.md), also the **tax number** or **VAT ID** – one of the two is enough.
+
+**Save and continue** stores the details with your organization, then you go on to payment. Next time everything is already there. You can change the details under **Settings → Organization** ([tax details](./organisation.md#steuerangaben)).
 
 ### Paying
 

@@ -1,6 +1,6 @@
 ---
 title: Cloud-TSE
-description: Cloud-TSE für Bargeld in Deutschland — Voraussetzungen, automatische Einrichtung, TSE-Angaben auf dem Bon, Ausfälle, Exporte für die Kassen-Nachschau und Deaktivieren.
+description: Cloud-TSE für Bargeld in Deutschland — Voraussetzungen, automatische Einrichtung, Laufzeit im Monat der Veranstaltung, TSE-Angaben auf dem Bon, Ausfälle, Exporte für die Kassen-Nachschau und Deaktivieren.
 ---
 
 # Cloud-TSE
@@ -16,9 +16,9 @@ Die Cloud-TSE gibt es nur für Organisationen in Deutschland. In anderen Länder
 ## Was du brauchst
 
 - eine Organisation in **Deutschland**,
-- eine **bezahlte Veranstaltung**: Eine TSE kostet ab dem Einrichten jeden Monat. OpenEOS legt sie deshalb erst an, wenn eine bezahlte Veranstaltung ansteht – frühestens im **Kalendermonat ihres Beginns**,
+- eine **bezahlte Veranstaltung**: Eine TSE kostet für jeden Monat, in dem sie läuft. OpenEOS legt sie deshalb erst an, wenn eine bezahlte Veranstaltung ansteht – frühestens im **Kalendermonat ihres Beginns** – und meldet sie zum Monatsende wieder ab (siehe [Laufzeit](#laufzeit)),
 - **Internet** an den Kassen. Fällt die TSE einmal aus, kassierst du trotzdem weiter (siehe [Ausfall](#ausfall)),
-- **Steuernummer** oder **USt-IdNr.** und die **Anschrift** deiner Organisation ([Steuerangaben](../organisation.md#steuerangaben)). Sie gehören in jeden Kassenabschluss; fehlen sie, fragt die Seite Cloud-TSE sie vor dem Einrichten ab.
+- **Steuernummer** oder **USt-IdNr.** und die **Anschrift** deiner Organisation ([Steuerangaben](../organisation.md#steuerangaben)). Sie gehören in jeden Kassenabschluss. Bei der Registrierung fragen wir sie nicht ab: Fehlen sie, fragt der **Bezahldialog** sie beim Kauf der Veranstaltung ab (siehe [Angaben beim ersten Kauf](../veranstaltungen.md#pflichtangaben)), sonst die Seite Cloud-TSE vor dem Einrichten.
 
 ## Automatisch beim Kauf einer Veranstaltung {/* #automatisch */}
 
@@ -29,6 +29,16 @@ Meist musst du gar nichts tun: Schaltest du in der Betriebsart **Alle Funktionen
 - **Nur Bons** und Organisationen außerhalb Deutschlands bekommen keine TSE.
 
 **Kosten:** Die Cloud-TSE ist derzeit im Preis der Veranstaltung **inklusive** – es gibt keinen Aufschlag.
+
+## Laufzeit: der Monat deiner Veranstaltung {/* #laufzeit */}
+
+**Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet.** So zahlst du keinen Monat ohne Veranstaltung.
+
+- Hast du im selben Monat **mehrere Veranstaltungen**, nutzen alle dieselbe TSE.
+- Am **letzten Tag des Monats um 20:00 Uhr** meldet OpenEOS die TSE ab. Vorher holt es den Abschlussexport ab und schließt die abgelaufenen Geschäftstage ab (Kassenabschluss). Den Rest exportiert die TSE beim Abmelden selbst; OpenEOS holt ihn ab und archiviert ihn.
+- Die Seite **Cloud-TSE** zeigt den Termin unter **Automatische Abmeldung**. Die Admins bekommen nach dem Abmelden eine E-Mail.
+- Danach nehmen deine Kassen in Deutschland **kein Bargeld** an, bis die nächste bezahlte Veranstaltung beginnt. Für sie richtet OpenEOS automatisch eine **neue TSE** mit neuer Seriennummer ein. Bons und Exporte der alten TSE bleiben abrufbar.
+- **Ausnahme:** Läuft zum Abmeldetermin gerade eine bezahlte Veranstaltung – auch nur ihr Geschäftstag (6 bis 6 Uhr), etwa ein Fest am Monatsletzten oder über den Monatswechsel –, bleibt die TSE bis zum Ende des **nächsten** Monats. Das kostet einen Monat mehr; auf der Seite steht dann *Verschoben, weil „…“ über das Monatsende läuft*.
 
 ## 1. Integration selbst aktivieren
 
@@ -58,7 +68,7 @@ Dann steht auf der Seite **Einrichtung fehlgeschlagen** mit dem Fehler. Mit **Er
 
 ![Cloud-TSE aktiv](/img/screens/de/integrations-tse.png)
 
-- **Cloud-TSE**: Zustand (**Aktiv** oder **Gestört**), Seriennummer (gekürzt, mit Kopierknopf), die Kasse (Client-ID `OEOS-…`), Produkt, Speicher, Signaturen im Monat, Ablauf des Zertifikats und der letzte Export.
+- **Cloud-TSE**: Zustand (**Aktiv** oder **Gestört**), Seriennummer (gekürzt, mit Kopierknopf), die Kasse (Client-ID `OEOS-…`), Produkt, die **automatische Abmeldung** zum Monatsende, Speicher, Signaturen im Monat, Ablauf des Zertifikats und der letzte Export.
 - **Ausfallprotokoll**: Zeiträume, in denen die TSE nicht signiert hat.
 - **Vorgänge**: alle signierten, ausgefallenen und Trainingsbuchungen. Ein Klick zeigt die TSE-Angaben mit QR-Code, so wie auf dem Bon.
 - **Kassen-Nachschau**: DSFinV-K- und TSE-Export für einen Zeitraum, die Kassenabschlüsse und die Einstellung zum Trinkgeld – siehe [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md).
@@ -100,7 +110,7 @@ Kommt das Finanzamt zur **Kassen-Nachschau** oder Prüfung, lädst du im Abschni
 
 ## Deaktivieren {/* #deaktivieren */}
 
-Eine Pause gibt es bei der TSE nicht. Unter **Gefahrenzone → TSE deaktivieren** nimmst du sie **endgültig** außer Betrieb, zum Beispiel wenn dein Verein OpenEOS nicht mehr mit Bargeld nutzt:
+Zum Monatsende meldet OpenEOS die TSE selbst ab (siehe [Laufzeit](#laufzeit)) – dafür musst du nichts tun. Eine Pause gibt es bei der TSE nicht. Unter **Gefahrenzone → TSE deaktivieren** nimmst du sie **endgültig** außer Betrieb, zum Beispiel wenn dein Verein OpenEOS nicht mehr mit Bargeld nutzt:
 
 - Die TSE kann danach nie wieder signieren.
 - Die restlichen Daten werden automatisch exportiert und archiviert (Abschlussexport).

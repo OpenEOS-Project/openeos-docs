@@ -67,7 +67,7 @@ OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nic
 
 Änderst du das Datum, ändert sich der Betrag mit.
 
-In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein.
+In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein. Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet (siehe [Laufzeit der Cloud-TSE](./integrationen/cloud-tse.md#laufzeit)).
 
 ### Was als Veranstaltungstag zählt {/* #veranstaltungstag */}
 
@@ -93,6 +93,15 @@ Beim Freischalten werden die Testbestellungen gelöscht. **Deine Einrichtung ble
 :::tip[Unser Rat für das erste Fest]
 Richte alles in Ruhe vorher ein und spiele im Testmodus einen Durchgang durch: eine Bestellung an der Kasse aufnehmen, auf der Küchenanzeige quittieren, einen Bon drucken. Dann weißt du am Festtag, dass die Kette steht.
 :::
+
+### Angaben beim ersten Kauf {/* #pflichtangaben */}
+
+Bei der Registrierung fragen wir keine Steuer- oder Rechnungsdaten ab. Erst wenn du eine Veranstaltung freischaltest, braucht der Dialog ein paar Angaben zu deiner Organisation – fehlen sie, steht dort *Noch ein Schritt vor dem Bezahlen*, und **Weiter** öffnet ein kurzes Formular:
+
+- den **offiziellen Namen** (z. B. *Musikverein Harmonie e.V.*) und die **Rechnungsanschrift**,
+- in Deutschland mit [Cloud-TSE](./integrationen/cloud-tse.md) zusätzlich die **Steuernummer** oder **USt-IdNr.** – eine der beiden genügt.
+
+**Speichern und weiter** legt die Angaben bei deiner Organisation ab, danach geht es zur Zahlung. Beim nächsten Kauf ist alles schon da. Ändern kannst du die Angaben unter **Einstellungen → Organisation** ([Steuerangaben](./organisation.md#steuerangaben)).
 
 ### Bezahlen
 

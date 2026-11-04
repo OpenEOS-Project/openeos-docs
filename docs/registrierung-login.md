@@ -34,7 +34,7 @@ Wähle außerdem das **Land** deiner Organisation (Pflicht). Deutschland, Öster
 
 ### Schritt 4 – Letzter Check
 
-Prüfe deine Angaben. Akzeptiere die **AGB und die Datenschutzerklärung** (Pflicht) und auf Wunsch gelegentliche Neuigkeiten per E-Mail. Klicke auf **Konto erstellen**.
+Prüfe deine Angaben. Akzeptiere die **[AGB](https://openeos.de/agb) und die [Datenschutzerklärung](https://openeos.de/datenschutz)** (Pflicht) und auf Wunsch gelegentliche Neuigkeiten per E-Mail. Klicke auf **Konto erstellen**.
 
 ![Registrierung Schritt 4 – Bestätigung](/img/screens/de/reg-step4-confirm.png)
 

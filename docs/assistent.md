@@ -57,4 +57,4 @@ Für diese Funktionen werden die hochgeladenen Inhalte – Speisekarten als Foto
 - Der Anbieter speichert die Inhalte nur für die Dauer der Verarbeitung und nutzt sie **nicht zum Trainieren** seiner Modelle.
 - Auf dem OpenEOS-Server liegen hochgeladene Dateien nur, bis du den Vorschlag übernimmst oder verwirfst – spätestens **nach 24 Stunden** werden sie gelöscht. Der Vorschlag selbst (die erkannte Liste) bleibt 30 Tage, falls du ihn noch einmal brauchst. Die Dateien sind nicht öffentlich erreichbar.
 
-Welcher Anbieter das ist und auf welcher Grundlage die Verarbeitung erfolgt, steht in der [Datenschutzerklärung](https://openeos.de/privacy). Wer den Assistenten nicht nutzen möchte, lässt ihn einfach ausgeschaltet – alles andere in OpenEOS funktioniert unverändert.
+Welcher Anbieter das ist und auf welcher Grundlage die Verarbeitung erfolgt, steht in der [Datenschutzerklärung](https://openeos.de/datenschutz). Wer den Assistenten nicht nutzen möchte, lässt ihn einfach ausgeschaltet – alles andere in OpenEOS funktioniert unverändert.

@@ -33,11 +33,19 @@
   },
   "link.item.label.Impressum": {
     "message": "Imprint",
-    "description": "The label of footer link with label=Impressum linking to https://openeos.de/en/imprint"
+    "description": "The label of footer link with label=Impressum linking to https://openeos.de/en/impressum"
   },
   "link.item.label.Datenschutz": {
     "message": "Privacy",
-    "description": "The label of footer link with label=Datenschutz linking to https://openeos.de/en/privacy"
+    "description": "The label of footer link with label=Datenschutz linking to https://openeos.de/en/datenschutz"
+  },
+  "link.item.label.AGB": {
+    "message": "Terms (AGB)",
+    "description": "The label of footer link with label=AGB linking to https://openeos.de/en/agb"
+  },
+  "link.item.label.AVV": {
+    "message": "Data processing agreement (AVV)",
+    "description": "The label of footer link with label=AVV linking to https://openeos.de/en/avv"
   },
   "link.item.label.Quellcode (AGPL-3.0)": {
     "message": "Source code (AGPL-3.0)",

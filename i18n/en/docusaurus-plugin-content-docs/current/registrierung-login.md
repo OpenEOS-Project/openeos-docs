@@ -34,7 +34,7 @@ Also choose the **country** of your organization (required). Germany, Austria an
 
 ### Step 4 – Final check
 
-Review your details. Accept the **terms and the privacy policy** (required) and, if you like, occasional updates by email. Click **Create account**.
+Review your details. Accept the **[terms (AGB)](https://openeos.de/en/agb) and the [privacy policy](https://openeos.de/en/datenschutz)** (required) and, if you like, occasional updates by email. Click **Create account**.
 
 ![Registration step 4 – Confirmation](/img/screens/en/reg-step4-confirm.png)
 

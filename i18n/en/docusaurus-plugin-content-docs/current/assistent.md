@@ -57,4 +57,4 @@ For these features the uploaded content – menus as photo, PDF or text, and pro
 - The provider keeps the content only for the duration of processing and does **not use it for training** its models.
 - On the OpenEOS server, uploaded files are kept only until you apply or discard the suggestion – after **24 hours** at the latest they are deleted. The suggestion itself (the recognized list) stays for 30 days in case you need it again. The files are not publicly reachable.
 
-Which provider this is and on which legal basis the processing takes place is described in the [privacy policy](https://openeos.de/en/privacy). If you prefer not to use the assistant, simply leave it switched off – everything else in OpenEOS works as before.
+Which provider this is and on which legal basis the processing takes place is described in the [privacy policy](https://openeos.de/en/datenschutz). If you prefer not to use the assistant, simply leave it switched off – everything else in OpenEOS works as before.

@@ -18,7 +18,7 @@ You manage the name and other master data of your organization under **Settings 
 
 ### Tax details {/* #steuerangaben */}
 
-Under **Settings → Organization** you also enter your organization's German **tax number** (Steuernummer) and/or **VAT ID** (USt-IdNr.), its address and — if it differs from the name in OpenEOS — the **official name**. For the [Cloud-TSE](./integrationen/cloud-tse.md) in Germany, tax number or VAT ID and the address are **required**: they appear in every [cash point closing](./kassen-nachschau.md) of the DSFinV-K export.
+Under **Settings → Organization** you also enter your organization's German **tax number** (Steuernummer) and/or **VAT ID** (USt-IdNr.), its address and — if it differs from the name in OpenEOS — the **official name**. For the [Cloud-TSE](./integrationen/cloud-tse.md) in Germany, tax number or VAT ID and the address are **required**: they appear in every [cash point closing](./kassen-nachschau.md) of the DSFinV-K export. If the official name, billing address or (with the cloud TSE) the tax number are missing, the dialog asks for them at your first [event purchase](./veranstaltungen.md#pflichtangaben).
 
 ## Data model at a glance
 

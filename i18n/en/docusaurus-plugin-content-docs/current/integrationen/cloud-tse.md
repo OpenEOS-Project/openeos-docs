@@ -16,9 +16,9 @@ The cloud TSE is only available for organizations in Germany. In other countries
 ## What you need
 
 - an organization in **Germany**,
-- a **paid event**: a TSE costs a monthly fee from the moment it is set up. OpenEOS therefore only creates it when a paid event is coming up – at the earliest in the **calendar month the event starts**,
+- a **paid event**: a TSE costs a fee for every month it runs. OpenEOS therefore only creates it when a paid event is coming up – at the earliest in the **calendar month the event starts** – and deactivates it again at the end of the month (see [Lifetime](#laufzeit)),
 - **internet** at the tills. If the TSE fails, you keep selling (see [Outage](#ausfall)),
-- the German **tax number** or **VAT ID** and the **address** of your organization ([tax details](../organisation.md#steuerangaben)). They go into every cash point closing; if they are missing, the Cloud TSE page asks for them before setup.
+- the German **tax number** or **VAT ID** and the **address** of your organization ([tax details](../organisation.md#steuerangaben)). They go into every cash point closing. We do not ask for them when you register: if they are missing, the **payment dialog** asks for them when you buy the event (see [Details at your first purchase](../veranstaltungen.md#pflichtangaben)), otherwise the Cloud TSE page before setup.
 
 ## Automatically when you buy an event {/* #automatisch */}
 
@@ -29,6 +29,16 @@ Usually you do not have to do anything: if you activate an event in the operatin
 - **Orders only** and organizations outside Germany do not get a TSE.
 
 **Cost:** the cloud TSE is currently **included** in the event price – there is no surcharge.
+
+## Lifetime: the month of your event {/* #laufzeit */}
+
+**The TSE runs for the month of your event and is deactivated automatically at the end of the month.** That way you never pay for a month without an event.
+
+- If you have **several events** in the same month, they all use the same TSE.
+- On the **last day of the month at 8 pm** (German time) OpenEOS deactivates the TSE. Before that it collects the final export and closes the finished business days (cash point closing). The TSE exports the rest itself on deactivation; OpenEOS collects and archives it.
+- The **Cloud TSE** page shows the date under **Automatic deactivation**. The admins get an e-mail after the deactivation.
+- Afterwards your tills in Germany accept **no cash** until the next paid event starts. For it, OpenEOS automatically sets up a **new TSE** with a new serial number. Receipts and exports of the old TSE stay available.
+- **Exception:** if a paid event is running at the deactivation time – even just its business day (6 am to 6 am), for example a party on the last day of the month or across the month change – the TSE stays until the end of the **next** month. That costs one more month; the page then says *Postponed because “…” runs past the end of the month*.
 
 ## 1. Activate the integration yourself
 
@@ -100,7 +110,7 @@ If the tax office comes for a **cash register inspection** (Kassen-Nachschau) or
 
 ## Deactivation {/* #deaktivieren */}
 
-There is no pause for a TSE. Under **Danger zone → Deactivate TSE** you take it out of service **permanently**, for example when your club no longer uses OpenEOS with cash:
+At the end of the month OpenEOS deactivates the TSE by itself (see [Lifetime](#laufzeit)) – you do not need to do anything for that. There is no pause for a TSE. Under **Danger zone → Deactivate TSE** you take it out of service **permanently**, for example when your club no longer uses OpenEOS with cash:
 
 - The TSE can never sign again.
 - The remaining data is exported and archived automatically (final export).

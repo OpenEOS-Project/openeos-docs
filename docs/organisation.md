@@ -18,7 +18,7 @@ Den Namen und weitere Stammdaten deiner Organisation verwaltest du unter **Einst
 
 ### Steuerangaben {/* #steuerangaben */}
 
-Unter **Einstellungen → Organisation** trägst du auch die **Steuernummer** und/oder die **USt-IdNr.** deiner Organisation ein, dazu die Anschrift und – falls er vom Namen in OpenEOS abweicht – den **offiziellen Namen** (z. B. „Turn- und Sportverein Musterdorf 1920 e. V.“). Für die [Cloud-TSE](./integrationen/cloud-tse.md) in Deutschland sind Steuernummer oder USt-IdNr. und Anschrift **Pflicht**: Sie stehen in jedem [Kassenabschluss](./kassen-nachschau.md) des DSFinV-K-Exports.
+Unter **Einstellungen → Organisation** trägst du auch die **Steuernummer** und/oder die **USt-IdNr.** deiner Organisation ein, dazu die Anschrift und – falls er vom Namen in OpenEOS abweicht – den **offiziellen Namen** (z. B. „Turn- und Sportverein Musterdorf 1920 e. V.“). Für die [Cloud-TSE](./integrationen/cloud-tse.md) in Deutschland sind Steuernummer oder USt-IdNr. und Anschrift **Pflicht**: Sie stehen in jedem [Kassenabschluss](./kassen-nachschau.md) des DSFinV-K-Exports. Fehlen offizieller Name, Rechnungsanschrift oder (mit Cloud-TSE) die Steuernummer, fragt der Dialog sie beim ersten [Kauf einer Veranstaltung](./veranstaltungen.md#pflichtangaben) ab.
 
 ## Datenmodell auf einen Blick
 

@@ -6,8 +6,9 @@ import redocSpecPlugin from './plugins/redoc-spec';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /* Docusaurus baut jede Sprache einzeln und setzt dabei diese Variable.
-   Impressum und Datenschutz liegen auf der Website je Sprache unter
-   eigenem Pfad; Linkziele lassen sich ueber footer.json nicht uebersetzen. */
+   Die Rechtstexte liegen auf der Website je Sprache unter eigenem Pfad
+   (/impressum, /en/impressum, …); Linkziele lassen sich ueber footer.json
+   nicht uebersetzen. */
 const locale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'de';
 const websiteUrl = locale === 'en' ? 'https://openeos.de/en' : 'https://openeos.de';
 /* Link "Quellcode" (AGPL-3.0 § 13). Wer eine geaenderte Fassung betreibt,
@@ -202,8 +203,10 @@ const config: Config = {
         {
           title: 'Rechtliches',
           items: [
-            {label: 'Impressum', href: `${websiteUrl}/imprint`},
-            {label: 'Datenschutz', href: `${websiteUrl}/privacy`},
+            {label: 'Impressum', href: `${websiteUrl}/impressum`},
+            {label: 'Datenschutz', href: `${websiteUrl}/datenschutz`},
+            {label: 'AGB', href: `${websiteUrl}/agb`},
+            {label: 'AVV', href: `${websiteUrl}/avv`},
           ],
         },
       ],

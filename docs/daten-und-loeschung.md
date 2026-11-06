@@ -33,15 +33,30 @@ Das Löschen lässt sich nicht rückgängig machen. In unseren Datensicherungen 
 - **Du hast Kassenvorgänge gebucht, die noch keinem Kassenabschluss zugeordnet sind.** Bitte deinen Verein, zuerst den Kassenabschluss zu erstellen.
 - **Super-Admin-Konten** lassen sich nicht selbst löschen.
 
-Bist du das **einzige Mitglied** einer Organisation ohne laufende Veranstaltung, wird sie mit deinem Konto gelöscht. Exportiere vorher alles, was du brauchst – nach dem Löschen deines Kontos kommst du nicht mehr an ihre Daten.
+### Als einziges Mitglied: Konto und Organisation gemeinsam {/* #einziges-mitglied */}
+
+Bist du das **einzige Mitglied** einer Organisation ohne laufende Veranstaltung, wird sie mit deinem Konto gelöscht. Damit du ihre Daten trotzdem noch exportieren kannst, löschen wir dann nicht sofort, sondern erst nach der Exportfrist von 30 Tagen – Konto und Organisation am selben Tag. Der Dialog nennt dir den Termin.
+
+Bis dahin gilt:
+
+- Du kannst dich weiter anmelden. Auf jeder Seite steht oben:
+
+  > Dein Konto und die Organisation „…“ werden am … endgültig gelöscht. Du kannst bis dahin alle Daten exportieren.
+
+- Die Organisation ist nur noch lesend nutzbar – du kannst alles ansehen und exportieren, wie unter [30 Tage nur lesend](#nur-lesend) beschrieben.
+- Neue Organisationen anlegen oder anderen beitreten kannst du nicht mehr. Mitgliedschaften in anderen Organisationen und deine API-Tokens entfernen wir sofort.
+- Du bekommst gleich eine Bestätigung mit dem Termin und **10 Tage** sowie **einen Tag** vorher eine Erinnerung per E-Mail.
+- Mit **Löschung abbrechen** im Hinweis oben (oder unter **Einstellungen → Persönlich → Konto**) holst du Konto und Organisation zurück, solange sie noch nicht endgültig gelöscht sind. Entfernte Mitgliedschaften in anderen Organisationen und API-Tokens kommen dabei nicht zurück.
+
+Am Termin löschen wir die Daten der Organisation endgültig (siehe [Endgültige Löschung](#endgueltig)) und danach dein Konto. Du bekommst eine letzte Bestätigung per E-Mail.
 
 ## Organisation löschen {/* #organisation-loeschen */}
 
 Administratoren löschen eine Organisation unter **Einstellungen → Organisation → Allgemein → Organisation löschen**. Zur Bestätigung tippst du den Namen der Organisation ein.
 
-Dasselbe passiert, wenn OpenEOS ein Kundenkonto nach 24 Monaten ohne Buchung schließt (AGB 15.10) – das kündigen wir vorher per E-Mail an die Administratoren an.
+Dasselbe passiert, wenn OpenEOS ein Kundenkonto nach 24 Monaten ohne Buchung schließt (AGB 15.10) – das kündigen wir 30 Tage vorher per E-Mail an die Administratoren an und erinnern 10 Tage und einen Tag vor der Schließung noch einmal. Buchst du bis dahin eine Veranstaltung, bleibt die Organisation bestehen.
 
-### 30 Tage nur lesend: Daten exportieren
+### 30 Tage nur lesend: Daten exportieren {/* #nur-lesend */}
 
 Nach dem Löschen bleibt die Organisation für ihre **Administratoren** noch sichtbar, aber **nur lesend**. Auf jeder Seite steht oben:
 
@@ -55,9 +70,17 @@ In dieser Zeit kannst du alles ansehen und exportieren:
 
 Ändern lässt sich nichts mehr: Speichern, Buchen, neue Veranstaltungen und Ähnliches lehnt OpenEOS ab. Kassen, Anzeigen und andere Geräte der Organisation funktionieren nicht mehr, Shop, Bestellung am Tisch und Helferseiten sind nicht mehr erreichbar. Mitglieder ohne Administratorrechte sehen die Organisation nicht mehr.
 
-Vor der endgültigen Löschung bekommen die Administratoren eine E-Mail mit dem Termin.
+### E-Mails vor der endgültigen Löschung {/* #erinnerungen */}
 
-### Endgültige Löschung
+Die Administratoren bekommen drei E-Mails: eine Ankündigung mit dem Termin (in der Nacht nach dem Löschen, 30 Tage vorher) und Erinnerungen **10 Tage** und **einen Tag** vorher. Jede nennt den Termin, was gelöscht wird, was bleibt, wie du exportierst und wie du abbrichst. Hat die Organisation keinen Administrator mehr, geht die E-Mail an die Rechnungsadresse.
+
+### Löschung abbrechen {/* #abbrechen */}
+
+Bis zur endgültigen Löschung kann jeder Administrator die Löschung zurücknehmen: im Hinweis oben auf jeder Seite auf **Löschung abbrechen** klicken und bestätigen. Die Organisation ist danach wieder voll nutzbar, die endgültige Löschung entfällt. Das gilt auch für Organisationen, die wegen Inaktivität geschlossen wurden.
+
+Wurde die Organisation zusammen mit deinem Konto gelöscht, brichst du stattdessen die [Löschung deines Kontos](#einziges-mitglied) ab.
+
+### Endgültige Löschung {/* #endgueltig */}
 
 Nach Ablauf der Exportfrist löschen wir Artikel, Einstellungen, Bestellungen, Schichtpläne, Geräte, Zugänge und Mitgliedschaften endgültig. Erhalten bleiben:
 
@@ -67,3 +90,7 @@ Nach Ablauf der Exportfrist löschen wir Artikel, Einstellungen, Bestellungen, S
 ### Früher löschen lassen
 
 Willst du nicht 30 Tage warten – zum Beispiel nach einem Wechsel zu einem anderen Anbieter –, schreib uns an [hello@openeos.de](mailto:hello@openeos.de). Wir löschen die Organisation dann sofort endgültig und bestätigen dir das per E-Mail. Für das Steuerarchiv gilt dasselbe wie oben: Es bleibt erhalten. Solange die Cloud-TSE noch aktiv ist oder Kassenvorgänge ohne Kassenabschluss offen sind, geht das noch nicht.
+
+### Protokoll
+
+Jede Löschung steht ohne Inhalte im Löschprotokoll von OpenEOS: wer wann was gelöscht hat und wie viele Datensätze, aber keine Namen, E-Mail-Adressen oder Notizen. Das gilt für die automatischen Löschläufe und für Löschungen, die ihr selbst auslöst – Organisation löschen oder Löschung abbrechen, Mitglieder entfernen, Schichtanmeldungen löschen (auch zusammen mit einem Schichtplan, Job oder einer Schicht), Konto löschen. Meldet sich ein Helfer über seinen Link selbst von einer Schicht ab, steht das ebenfalls darin.

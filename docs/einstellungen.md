@@ -39,7 +39,7 @@ Grundlegende Informationen deiner Organisation:
 - **Name** – erscheint auf Rechnungen und Bons.
 - **Beschreibung** – optionaler Zusatztext.
 - **Keine Umsatzsteuer** – für Vereine und Kleinunternehmer nach § 19 UStG. Ist die Option an, tragen alle Produkte 0 % und es gibt keine Steuersatz-Auswahl.
-- **Organisation löschen** – nur für Administratoren. Danach ist die Organisation 30 Tage nur lesend nutzbar, damit du alle Daten exportieren kannst; dann wird sie endgültig gelöscht. Mehr dazu unter [Konto, Newsletter und Löschung](./daten-und-loeschung.md#organisation-loeschen).
+- **Organisation löschen** – nur für Administratoren. Danach ist die Organisation 30 Tage nur lesend nutzbar, damit du alle Daten exportieren kannst; dann wird sie endgültig gelöscht. Vorher kommen E-Mails (Ankündigung, 10 Tage und einen Tag vorher), und bis dahin kannst du die Löschung abbrechen. Mehr dazu unter [Konto, Newsletter und Löschung](./daten-und-loeschung.md#organisation-loeschen).
 
 ![Organisationseinstellungen – Allgemein](/img/screens/de/settings-organisation.png)
 

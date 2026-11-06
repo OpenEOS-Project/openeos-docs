@@ -28,7 +28,7 @@ Die Betriebsart bestimmt `AI_PROVIDER` in der Umgebung von `openeos-api`:
 |---|---|
 | `none` | Aus (Standard). Alle Assistent-Endpunkte antworten mit `404`. |
 | `anthropic` | Claude über die Anthropic-API. Liest Bilder **und PDFs**. |
-| `openai` | Eine OpenAI-kompatible Chat-Completions-API — OpenAI selbst oder ein anderer Dienst mit eigener `OPENAI_BASE_URL`. Liest Bilder und Text, **keine PDFs**. |
+| `openai` | Eine OpenAI-kompatible Chat-Completions-API — OpenAI selbst oder ein anderer Dienst mit eigener `OPENAI_BASE_URL`, etwa der [IONOS AI Model Hub](#ionos-ai-model-hub). Liest Bilder und Text; PDFs wandelt der Server vorher in Seitenbilder. |
 
 ### Anthropic
 
@@ -66,11 +66,50 @@ und **strukturierte Ausgabe** nach JSON-Schema (`response_format` mit
 „Der Assistent ist gerade nicht erreichbar“ — die Details stehen dann im Log
 von `openeos-api`.
 
-:::warning[PDF nur mit Anthropic]
-Beim OpenAI-kompatiblen Anbieter lehnt der Server PDF-Uploads ab („PDF wird
-vom eingerichteten Anbieter nicht unterstützt — bitte lade Fotos der Seiten
-hoch“). Fotos und eingefügter Text gehen immer.
+Zwei Einstellungen gibt es nur für diesen Anbieter bzw. brauchen manche
+Dienste:
+
+| Variable | Bedeutung | Standard |
+|---|---|---|
+| `AI_REASONING_EFFORT_EXTRACT` / `AI_REASONING_EFFORT_CLASSIFY` | `reasoning_effort` je Zweck: `none`, `minimal`, `low`, `medium`, `high` oder `xhigh`. Leer: wird nicht gesendet. Nur `openai`. | leer |
+| `AI_MAX_IMAGES_PER_REQUEST` | Höchstens so viele Bilder je Aufruf. Längere Karten liest der Server in mehreren Aufrufen und führt sie zusammen. Gilt für jeden Anbieter. | `0` (unbegrenzt) |
+
+:::info[PDFs beim OpenAI-kompatiblen Anbieter]
+Chat Completions liest meist keine PDFs. Der Server wandelt eine PDF deshalb
+vor dem Senden in Seitenbilder (`pdftoppm` aus *poppler-utils*, im
+Docker-Image enthalten). Eine PDF darf dann höchstens
+`AI_MENU_PAGES_PER_IMPORT` Seiten haben. Betreibst du die API ohne Docker,
+installiere `poppler-utils`; fehlt es, lehnt der Server PDF-Uploads ab („PDF
+wird vom eingerichteten Anbieter nicht unterstützt“) — Fotos und eingefügter
+Text gehen immer.
 :::
+
+### IONOS AI Model Hub
+
+Der AI Model Hub von IONOS ist
+OpenAI-kompatibel und läuft in einem Rechenzentrum in Berlin. Bewährt
+hat sich `Qwen/Qwen3.8-27B` für beide Zwecke — beim Lesen der Speisekarte
+mit Reasoning `medium`, bei den Icon-Vorschlägen ohne Reasoning (sonst
+verbraucht das Nachdenken das ganze Token-Limit, und die Icon-Vorschläge
+fallen auf den einfachen Namensabgleich zurück). IONOS nimmt höchstens
+vier Bilder je Anfrage:
+
+```yaml
+  api:
+    environment:
+      # … bestehende Variablen …
+      AI_PROVIDER: openai
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?OPENAI_API_KEY fehlt}
+      OPENAI_BASE_URL: https://openai.inference.de-txl.ionos.com/v1
+      AI_MODEL_EXTRACT: Qwen/Qwen3.8-27B
+      AI_MODEL_CLASSIFY: Qwen/Qwen3.8-27B
+      AI_REASONING_EFFORT_EXTRACT: medium
+      AI_REASONING_EFFORT_CLASSIFY: none
+      AI_MAX_IMAGES_PER_REQUEST: 4
+```
+
+Als `OPENAI_API_KEY` legst du in der IONOS-Konsole einen Token an, der
+**nur** für den AI Model Hub gilt — kein allgemeiner Konto-Token.
 
 ## Modelle
 
@@ -92,8 +131,12 @@ Klassifikationsmodell braucht nur Text und darf klein sein.
 |---|---|---|
 | `AI_MENU_IMPORTS_PER_DAY` | Speisekarten-Importe je Organisation und Kalendertag (Europe/Berlin) | `5` |
 | `AI_CLASSIFY_PER_DAY` | Icon-Zuordnungen per Modell je Organisation und Tag | `500` |
-| `AI_MENU_PAGES_PER_IMPORT` | Bilder je Import (1–20) | `6` |
+| `AI_MENU_PAGES_PER_IMPORT` | Bilder je Import (1–20); bei PDFs, die als Seitenbilder gesendet werden, die Seitenzahl | `6` |
 | `AI_MAX_UPLOAD_MB` | Höchstgröße je Datei in MB (1–50) | `10` |
+
+Fotos verkleinert der Server vor dem Senden auf 1600 Pixel an der langen
+Kante und dreht sie nach der Kamera-Ausrichtung — das spart Kosten und
+reicht zum Lesen der Karte.
 
 Die Kontingente schützen im gehosteten Angebot die Kosten. Mit eigenem
 Schlüssel zahlst du den Anbieter selbst und setzt sie so hoch, wie du
@@ -144,4 +187,9 @@ sudo docker compose logs -f api | grep -i 'assistant\|menu-import\|ai-provider'
 | **Die Assistent-Funktionen sind für deine Organisation ausgeschaltet.** | Anbieter ist da, aber der Schalter in den Einstellungen ist aus. |
 | **Der Assistent ist gerade nicht erreichbar** | Schlüssel ungültig, Modellname unbekannt oder der Dienst kann keine Bilder bzw. kein JSON-Schema — Details im Log. |
 | **Das Tageskontingent … ist aufgebraucht** | `AI_MENU_IMPORTS_PER_DAY` bzw. `AI_CLASSIFY_PER_DAY` erreicht; ab Mitternacht (Europe/Berlin) wieder frei. |
-| **PDF wird vom eingerichteten Anbieter nicht unterstützt** | `AI_PROVIDER=openai` — Fotos der Seiten hochladen oder auf `anthropic` wechseln. |
+| **PDF wird vom eingerichteten Anbieter nicht unterstützt** | `AI_PROVIDER=openai` und `pdftoppm` fehlt (Betrieb ohne Docker) — `poppler-utils` installieren oder Fotos der Seiten hochladen. |
+| **Die PDF hat … Seiten** | Die PDF hat mehr Seiten als `AI_MENU_PAGES_PER_IMPORT`. |
+
+Im Log von `openeos-api` steht bei Reasoning-Modellen eine Warnung mit
+`finish=length`, wenn das Nachdenken das Token-Limit aufgebraucht hat —
+dann `AI_REASONING_EFFORT_CLASSIFY` bzw. `_EXTRACT` senken.

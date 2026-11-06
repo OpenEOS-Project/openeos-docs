@@ -28,7 +28,7 @@ admin switches the features on.
 |---|---|
 | `none` | Off (default). All assistant endpoints respond with `404`. |
 | `anthropic` | Claude via the Anthropic API. Reads images **and PDFs**. |
-| `openai` | An OpenAI-compatible chat completions API — OpenAI itself or another service with its own `OPENAI_BASE_URL`. Reads images and text, **no PDFs**. |
+| `openai` | An OpenAI-compatible chat completions API — OpenAI itself or another service with its own `OPENAI_BASE_URL`, such as the [IONOS AI Model Hub](#ionos-ai-model-hub). Reads images and text; the server turns PDFs into page images first. |
 
 ### Anthropic
 
@@ -66,11 +66,47 @@ output** by JSON schema (`response_format` with `json_schema`,
 assistant is currently unavailable" — the details are in the `openeos-api`
 log.
 
-:::warning[PDF only with Anthropic]
-With the OpenAI-compatible provider the server rejects PDF uploads ("PDF is
-not supported by the configured provider — please upload photos of the
-pages"). Photos and pasted text always work.
+Two settings exist only for this provider or are needed by some services:
+
+| Variable | Meaning | Default |
+|---|---|---|
+| `AI_REASONING_EFFORT_EXTRACT` / `AI_REASONING_EFFORT_CLASSIFY` | `reasoning_effort` per purpose: `none`, `minimal`, `low`, `medium`, `high` or `xhigh`. Empty: not sent. `openai` only. | empty |
+| `AI_MAX_IMAGES_PER_REQUEST` | At most this many images per request. The server reads longer menus in several requests and merges the results. Applies to every provider. | `0` (unlimited) |
+
+:::info[PDFs with the OpenAI-compatible provider]
+Chat completions usually can't read PDFs, so the server turns a PDF into
+page images before sending it (`pdftoppm` from *poppler-utils*, included in
+the Docker image). The PDF may then have at most `AI_MENU_PAGES_PER_IMPORT`
+pages. If you run the API without Docker, install `poppler-utils`; without
+it the server rejects PDF uploads ("PDF is not supported by the configured
+provider") — photos and pasted text always work.
 :::
+
+### IONOS AI Model Hub
+
+The IONOS AI Model Hub is
+OpenAI-compatible and runs in a data centre in Berlin. `Qwen/Qwen3.8-27B`
+works well for both purposes — with reasoning `medium` for reading the menu
+and without reasoning for icon suggestions (otherwise the thinking uses up
+the whole token limit and icon suggestions fall back to plain name
+matching). IONOS accepts at most four images per request:
+
+```yaml
+  api:
+    environment:
+      # … existing variables …
+      AI_PROVIDER: openai
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?OPENAI_API_KEY missing}
+      OPENAI_BASE_URL: https://openai.inference.de-txl.ionos.com/v1
+      AI_MODEL_EXTRACT: Qwen/Qwen3.8-27B
+      AI_MODEL_CLASSIFY: Qwen/Qwen3.8-27B
+      AI_REASONING_EFFORT_EXTRACT: medium
+      AI_REASONING_EFFORT_CLASSIFY: none
+      AI_MAX_IMAGES_PER_REQUEST: 4
+```
+
+For `OPENAI_API_KEY`, create a token in the IONOS console that is valid
+**only** for the AI Model Hub — not a general account token.
 
 ## Models
 
@@ -92,8 +128,12 @@ classification model only needs text and can be small.
 |---|---|---|
 | `AI_MENU_IMPORTS_PER_DAY` | Menu imports per organization and calendar day (Europe/Berlin) | `5` |
 | `AI_CLASSIFY_PER_DAY` | Icon assignments by model per organization and day | `500` |
-| `AI_MENU_PAGES_PER_IMPORT` | Images per import (1–20) | `6` |
+| `AI_MENU_PAGES_PER_IMPORT` | Images per import (1–20); for PDFs sent as page images, the page count | `6` |
 | `AI_MAX_UPLOAD_MB` | Maximum size per file in MB (1–50) | `10` |
+
+Before sending, the server shrinks photos to 1600 pixels on the long edge
+and rotates them according to the camera orientation — that saves cost and
+is enough to read the menu.
 
 The quotas protect the costs of the hosted offering. With your own key you
 pay the provider yourself and can set them as high as you like; `0` switches
@@ -142,4 +182,9 @@ sudo docker compose logs -f api | grep -i 'assistant\|menu-import\|ai-provider'
 | **The assistant features are switched off for your organization.** | Provider is there, but the switch in the settings is off. |
 | **The assistant is currently unavailable** | Key invalid, model name unknown, or the service cannot handle images or JSON schema — details in the log. |
 | **The daily quota … is used up** | `AI_MENU_IMPORTS_PER_DAY` or `AI_CLASSIFY_PER_DAY` reached; free again from midnight (Europe/Berlin). |
-| **PDF is not supported by the configured provider** | `AI_PROVIDER=openai` — upload photos of the pages or switch to `anthropic`. |
+| **PDF is not supported by the configured provider** | `AI_PROVIDER=openai` and `pdftoppm` is missing (running without Docker) — install `poppler-utils` or upload photos of the pages. |
+| **The PDF has … pages** | The PDF has more pages than `AI_MENU_PAGES_PER_IMPORT`. |
+
+With reasoning models, the `openeos-api` log shows a warning with
+`finish=length` when the thinking used up the token limit — lower
+`AI_REASONING_EFFORT_CLASSIFY` or `_EXTRACT` then.

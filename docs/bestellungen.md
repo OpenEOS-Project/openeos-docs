@@ -23,14 +23,36 @@ Am oberen Rand siehst du zusammengefasst:
 
 ## Filtern
 
-Über die Auswahlfelder filterst du die Liste nach:
+Über die Felder filterst du die Liste nach:
 
-- **Status** – offen, in Bearbeitung, fertig, abgeschlossen oder storniert
-- **Zahlungen** – unbezahlt, teilweise bezahlt, bezahlt oder erstattet
+- **Suche** – Bestell- oder Tagesnummer, Tisch, Name oder Produkt
+- **Status** – wie an der Kasse: in Küche, fertig, abgeschlossen, offen (nicht bezahlt), storniert, teilweise erstattet oder erstattet
+- **Zahlungen** – bar, Karte, SumUp oder Rabatt-Bon
 - **Kanäle** – **Bedienung** (am Tisch), **Bon-Kasse** (an der Theke) oder **Online**
+- **Zeitraum** – **Von** und **Bis** (Kalendertage)
 - **Veranstaltungen** – nach Veranstaltung
 
-Mit der **Aktualisieren**-Schaltfläche lädst du die Liste neu.
+Die Kennzahlen oben und der Export richten sich nach denselben Filtern. Mit der **Aktualisieren**-Schaltfläche lädst du die Liste neu.
+
+## Als CSV exportieren
+
+Über das Symbol **Als CSV exportieren** (Pfeil nach unten, neben *Aktualisieren*) lädst du die gefilterten Bestellungen als CSV-Datei herunter – alle Treffer, nicht nur die aktuelle Seite. Du wählst zwischen zwei Dateien:
+
+| Datei | Inhalt | Wofür |
+| --- | --- | --- |
+| **Bestellungen** | eine Zeile je Bestellung: Bestellnummer, Tagesnummer, Datum, Uhrzeit, Veranstaltung, Status, Kanal (Kasse, Online-Shop, QR-Bestellung), Ausgabe (am Tisch, Abholung), Tisch, Gerät, Anzahl Artikel, Zahlart, Zwischensumme, Rabatt, Pfand, Trinkgeld, Gesamt, Bezahlt, Erstattet, enthaltene MwSt, Testbestellung, Gastname, Anmerkung | Abgleich mit Kasse und Konto, Abrechnung |
+| **Positionen** | eine Zeile je Artikel: Bestellnummer, Datum, Uhrzeit, Veranstaltung, Tisch, Produkt, Kategorie, Variante, Menge, erstattete Menge, Einzelpreis, MwSt-Satz, Pfand je Stück, Positionssumme, Status, Station, Testbestellung, Anmerkung | Auswertung nach Produkt, Kategorie oder Station, Pivot-Tabellen |
+
+Die Dateien sind für Excel vorbereitet: Semikolon als Trennzeichen, UTF-8 (Umlaute stimmen), Dezimalkomma, Datum und Uhrzeit in deutscher Zeit. Die älteste Bestellung steht oben. Bei **Positionen** ist der Bestellrabatt nicht auf die Artikel verteilt – Rabatt, Trinkgeld und Erstattungen stehen in der Datei **Bestellungen**.
+
+- **Wer darf exportieren?** Administratoren und Mitglieder mit dem Recht **Bestellungen** (wie für Storno und Erstattung). Andere sehen das Symbol nicht.
+- **[Nur Bons](./betriebsarten.md#nur-bons):** Die Dateien enthalten nur Mengen – keine Preise, Beträge oder Zahlarten.
+- **Gästedaten:** Name und Anmerkung des Gastes stehen nur in der Datei, solange OpenEOS sie noch speichert – 30 Tage nach dem Ende der Veranstaltung werden sie gelöscht (siehe [Daten und Löschung](./daten-und-loeschung.md)). Telefonnummern sind nie enthalten.
+- **Per API:** Dieselbe Datei liefert `GET /organizations/{organizationId}/orders/export` mit einem [API-Token](./api-zugaenge.md) (Scope `read`, `variant=orders` oder `variant=items`, dieselben Filter wie die Liste).
+
+:::tip[Steuerberater und Vorstand]
+Stell den Zeitraum auf den Monat oder die Veranstaltung ein und exportiere **Bestellungen** – damit lassen sich Kasse, Kartenzahlungen und Erstattungen Zeile für Zeile abgleichen.
+:::
 
 ## Bestelldetails
 

@@ -29,7 +29,7 @@ Jeder Endpunkt in der [API-Referenz](/api) nennt den Scope, den er verlangt (`x-
 
 | Scope | Erlaubt | Nötige Modul-Berechtigung des Besitzers |
 |---|---|---|
-| `read` | Organisation, Veranstaltungen, Kategorien, Produkte, Pfandarten, Tische, Stationen, Bon-Vorlagen, Drucker, Schichtpläne, Geräte, Berichte und Bestellungen lesen | Mitgliedschaft; für Berichte `Auswertung` |
+| `read` | Organisation, Veranstaltungen, Kategorien, Produkte, Pfandarten, Tische, Stationen, Bon-Vorlagen, Drucker, Schichtpläne, Geräte, Berichte und Bestellungen lesen (auch als CSV-Export) | Mitgliedschaft; für Berichte `Auswertung`, für den Bestellexport `Bestellungen` |
 | `catalog:write` | Kategorien, Produkte und Pfandarten anlegen und ändern | `Produkte`, `Pfand` |
 | `events:write` | Veranstaltungen anlegen und ändern, Produkte zwischen Veranstaltungen kopieren, Produktionsstationen bearbeiten (keine Freischaltung) | `Veranstaltungen` |
 | `tables:write` | Bereiche, Tische und Tischplan bearbeiten | `Veranstaltungen` |

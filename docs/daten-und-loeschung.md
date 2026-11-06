@@ -50,7 +50,7 @@ Nach dem Löschen bleibt die Organisation für ihre **Administratoren** noch sic
 In dieser Zeit kannst du alles ansehen und exportieren:
 
 - [Auswertung](./auswertung.md) mit CSV- und PDF-Export,
-- [Bestellungen](./bestellungen.md) und [Kassenbuch](./kassenbuch.md) ansehen,
+- [Bestellungen](./bestellungen.md) ansehen und als CSV exportieren, [Kassenbuch](./kassenbuch.md) ansehen,
 - mit [Cloud-TSE](./integrationen/cloud-tse.md): DSFinV-K-Export, Kassenabschlüsse und TSE-Exporte. Einen fehlenden Kassenabschluss kannst du noch erstellen.
 
 Ändern lässt sich nichts mehr: Speichern, Buchen, neue Veranstaltungen und Ähnliches lehnt OpenEOS ab. Kassen, Anzeigen und andere Geräte der Organisation funktionieren nicht mehr, Shop, Bestellung am Tisch und Helferseiten sind nicht mehr erreichbar. Mitglieder ohne Administratorrechte sehen die Organisation nicht mehr.

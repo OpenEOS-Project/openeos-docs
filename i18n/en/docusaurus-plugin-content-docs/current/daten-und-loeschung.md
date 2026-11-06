@@ -65,7 +65,7 @@ After deletion the organization stays visible to its **administrators**, but **r
 During this time you can view and export everything:
 
 - [Reports](./auswertung.md) with CSV and PDF export,
-- view [orders](./bestellungen.md) and the [cash book](./kassenbuch.md),
+- view [orders](./bestellungen.md) and export them as CSV, view the [cash book](./kassenbuch.md),
 - with [Cloud TSE](./integrationen/cloud-tse.md): DSFinV-K export, cash point closings and TSE exports. You can still create a missing cash point closing.
 
 Nothing can be changed anymore: saving, booking, new events and the like are rejected. Registers, displays and other devices of the organization stop working; the shop, table ordering and helper pages are no longer reachable. Members without administrator rights no longer see the organization.

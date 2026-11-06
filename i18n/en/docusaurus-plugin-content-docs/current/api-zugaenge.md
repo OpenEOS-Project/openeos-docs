@@ -29,7 +29,7 @@ Every endpoint in the [API reference](/en/api) names the scope it requires (`x-a
 
 | Scope | Allows | Module permission the owner needs |
 |---|---|---|
-| `read` | Read organization, events, categories, products, deposit types, tables, stations, receipt templates, printers, shift plans, devices, reports and orders | Membership; for reports `Reports` |
+| `read` | Read organization, events, categories, products, deposit types, tables, stations, receipt templates, printers, shift plans, devices, reports and orders (including the CSV export) | Membership; for reports `Reports`, for the order export `Orders` |
 | `catalog:write` | Create and edit categories, products and deposit types | `Products`, `Deposit` |
 | `events:write` | Create and edit events, copy products between events, edit production stations (no activation) | `Events` |
 | `tables:write` | Edit areas, tables and the table plan | `Events` |

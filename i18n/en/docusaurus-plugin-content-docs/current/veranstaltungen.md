@@ -67,7 +67,7 @@ OpenEOS is billed **per event day** — not per order, and not as a subscription
 
 Change the dates and the amount follows.
 
-In Germany the [cloud TSE](./integrationen/cloud-tse.md#automatisch) for cash (operating mode **All features**) is currently **included** – there is just this one price. OpenEOS sets it up automatically after activation. The TSE runs for the month of your event and is deactivated automatically at the end of the month (see [cloud TSE lifetime](./integrationen/cloud-tse.md#laufzeit)).
+In Germany the [cloud TSE](./integrationen/cloud-tse.md#automatisch) for cash (operating mode **All features**) is currently **included** – there is just this one price. OpenEOS sets it up automatically after activation. The TSE runs for the month of your event and is deactivated automatically at the end of the month – unless you already have a paid event next month, then it stays active (see [cloud TSE lifetime](./integrationen/cloud-tse.md#laufzeit)).
 
 ### What counts as an event day {/* #veranstaltungstag */}
 

@@ -82,6 +82,7 @@ const sidebars: SidebarsConfig = {
         'schichtplaene',
         'assistent',
         'einstellungen',
+        'daten-und-loeschung',
       ],
     },
   ],

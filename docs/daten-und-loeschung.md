@@ -1,0 +1,69 @@
+---
+sidebar_position: 19
+title: Konto, Newsletter und Löschung
+description: Konto löschen, Neuigkeiten per E-Mail abbestellen und was passiert, wenn eine Organisation gelöscht wird.
+---
+
+# Konto, Newsletter und Löschung
+
+Hier steht, wie du dein Konto löschst, Neuigkeiten per E-Mail an- oder abbestellst und was mit den Daten passiert, wenn eine Organisation gelöscht wird. Die rechtlichen Grundlagen findest du in den [AGB](https://openeos.de/agb) (Ziffer 10.4, 15.10 und 20.5), im [Auftragsverarbeitungsvertrag](https://openeos.de/avv) (Ziffer 10) und in der [Datenschutzerklärung](https://openeos.de/datenschutz).
+
+## Neuigkeiten per E-Mail {/* #newsletter */}
+
+Bei der Registrierung kannst du freiwillig ankreuzen, dass du gelegentlich Neuigkeiten zu OpenEOS bekommen möchtest. Unter **Einstellungen → Persönlich → Konto → Neuigkeiten per E-Mail** gibst du diese Einwilligung jederzeit oder widerrufst sie mit dem Schalter. Darunter siehst du, wann du eingewilligt bzw. widerrufen hast; beide Zeitpunkte speichern wir als Nachweis.
+
+Jede Neuigkeiten-Mail enthält außerdem einen Abmeldelink. Er führt auf eine Seite, auf der du mit **Abmelden** widerrufst – auch ohne Anmeldung. E-Mails zu deinem Konto (zum Beispiel Anmeldelinks, Rechnungen oder Löschankündigungen) bekommst du weiterhin.
+
+## Konto löschen {/* #konto-loeschen */}
+
+Unter **Einstellungen → Persönlich → Konto → Konto löschen** löschst du dein Benutzerkonto selbst.
+
+1. Klicke auf **Konto löschen …**. Der Dialog zeigt, was passiert:
+   - Name, E-Mail-Adresse, Passwort, Zwei-Faktor-Anmeldung, Sitzungen und API-Tokens werden entfernt, du wirst abgemeldet.
+   - Du verlierst den Zugang zu allen Organisationen.
+   - Hast du an der Kasse gebucht, bleibt dein Name als Bediener im Steuerarchiv der Organisation zehn Jahre erhalten (gesetzliche Aufbewahrungspflicht).
+2. Bestätige mit deinem Passwort. Hast du kein Passwort (du meldest dich nur mit Anmeldelink an), klicke auf **Code senden** und gib den Code aus der E-Mail ein.
+3. Du bekommst eine Bestätigung per E-Mail.
+
+Das Löschen lässt sich nicht rückgängig machen. In unseren Datensicherungen laufen die Daten nach höchstens acht Wochen aus.
+
+### Wann das Löschen gesperrt ist
+
+- **Du bist der letzte Administrator einer Organisation**, die noch weitere Mitglieder, eine laufende oder bezahlte kommende Veranstaltung oder eine aktive Cloud-TSE hat. Ernenne unter [Mitglieder](./mitglieder.md) zuerst eine andere Person zum Administrator, verlasse die Organisation oder lösche sie (siehe unten).
+- **Du hast Kassenvorgänge gebucht, die noch keinem Kassenabschluss zugeordnet sind.** Bitte deinen Verein, zuerst den Kassenabschluss zu erstellen.
+- **Super-Admin-Konten** lassen sich nicht selbst löschen.
+
+Bist du das **einzige Mitglied** einer Organisation ohne laufende Veranstaltung, wird sie mit deinem Konto gelöscht. Exportiere vorher alles, was du brauchst – nach dem Löschen deines Kontos kommst du nicht mehr an ihre Daten.
+
+## Organisation löschen {/* #organisation-loeschen */}
+
+Administratoren löschen eine Organisation unter **Einstellungen → Organisation → Allgemein → Organisation löschen**. Zur Bestätigung tippst du den Namen der Organisation ein.
+
+Dasselbe passiert, wenn OpenEOS ein Kundenkonto nach 24 Monaten ohne Buchung schließt (AGB 15.10) – das kündigen wir vorher per E-Mail an die Administratoren an.
+
+### 30 Tage nur lesend: Daten exportieren
+
+Nach dem Löschen bleibt die Organisation für ihre **Administratoren** noch sichtbar, aber **nur lesend**. Auf jeder Seite steht oben:
+
+> Diese Organisation wird am … endgültig gelöscht. Du kannst bis dahin alle Daten exportieren.
+
+In dieser Zeit kannst du alles ansehen und exportieren:
+
+- [Auswertung](./auswertung.md) mit CSV- und PDF-Export,
+- [Bestellungen](./bestellungen.md) und [Kassenbuch](./kassenbuch.md) ansehen,
+- mit [Cloud-TSE](./integrationen/cloud-tse.md): DSFinV-K-Export, Kassenabschlüsse und TSE-Exporte. Einen fehlenden Kassenabschluss kannst du noch erstellen.
+
+Ändern lässt sich nichts mehr: Speichern, Buchen, neue Veranstaltungen und Ähnliches lehnt OpenEOS ab. Kassen, Anzeigen und andere Geräte der Organisation funktionieren nicht mehr, Shop, Bestellung am Tisch und Helferseiten sind nicht mehr erreichbar. Mitglieder ohne Administratorrechte sehen die Organisation nicht mehr.
+
+Vor der endgültigen Löschung bekommen die Administratoren eine E-Mail mit dem Termin.
+
+### Endgültige Löschung
+
+Nach Ablauf der Exportfrist löschen wir Artikel, Einstellungen, Bestellungen, Schichtpläne, Geräte, Zugänge und Mitgliedschaften endgültig. Erhalten bleiben:
+
+- das **Steuerarchiv** (TSE-Exporte, Kassenabschlüsse mit DSFinV-K-Export, signierte Kassenvorgänge) für die gesetzliche Frist von zehn Jahren, abrufbar über den Support,
+- die Abrechnung der Nutzungstage (Rechnungen) für die gesetzlichen Fristen.
+
+### Früher löschen lassen
+
+Willst du nicht 30 Tage warten – zum Beispiel nach einem Wechsel zu einem anderen Anbieter –, schreib uns an [hello@openeos.de](mailto:hello@openeos.de). Wir löschen die Organisation dann sofort endgültig und bestätigen dir das per E-Mail. Für das Steuerarchiv gilt dasselbe wie oben: Es bleibt erhalten. Solange die Cloud-TSE noch aktiv ist oder Kassenvorgänge ohne Kassenabschluss offen sind, geht das noch nicht.

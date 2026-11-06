@@ -15,7 +15,7 @@ Unter **Einstellungen** verwaltest du deine persönlichen Daten sowie die Einste
 Der Reiter **Persönlich** ist in mehrere Unterbereiche gegliedert:
 
 - **Profil** – Profilbild, Vorname und Nachname pflegen. Die E-Mail-Adresse steht hier nur zur Ansicht.
-- **Konto** – E-Mail-Adresse und Passwort ändern.
+- **Konto** – E-Mail-Adresse und Passwort ändern, [Neuigkeiten per E-Mail](./daten-und-loeschung.md#newsletter) an- oder abbestellen und das [Konto löschen](./daten-und-loeschung.md#konto-loeschen).
 - **Sicherheit** – Zwei-Faktor-Authentifizierung und angemeldete Sitzungen verwalten.
 - **Einstellungen** – **Erscheinungsbild** (Hell, Dunkel oder wie das System), **Sprache**, Benachrichtigungen und der **Rundgang** durch die Oberfläche zum erneuten Ansehen.
 
@@ -39,6 +39,7 @@ Grundlegende Informationen deiner Organisation:
 - **Name** – erscheint auf Rechnungen und Bons.
 - **Beschreibung** – optionaler Zusatztext.
 - **Keine Umsatzsteuer** – für Vereine und Kleinunternehmer nach § 19 UStG. Ist die Option an, tragen alle Produkte 0 % und es gibt keine Steuersatz-Auswahl.
+- **Organisation löschen** – nur für Administratoren. Danach ist die Organisation 30 Tage nur lesend nutzbar, damit du alle Daten exportieren kannst; dann wird sie endgültig gelöscht. Mehr dazu unter [Konto, Newsletter und Löschung](./daten-und-loeschung.md#organisation-loeschen).
 
 ![Organisationseinstellungen – Allgemein](/img/screens/de/settings-organisation.png)
 

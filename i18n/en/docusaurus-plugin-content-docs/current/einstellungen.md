@@ -15,7 +15,7 @@ Under **Settings** you manage your personal data as well as your organization's 
 The **Personal** tab is divided into several sub-sections:
 
 - **Profile** – manage your profile picture, first name and last name. Your email address is shown here for reference only.
-- **Account** – change your email address and password.
+- **Account** – change your email address and password, subscribe to or unsubscribe from [news by email](./daten-und-loeschung.md#newsletter) and [delete your account](./daten-und-loeschung.md#konto-loeschen).
 - **Security** – manage two-factor authentication and signed-in sessions.
 - **Preferences** – **Appearance** (Light, Dark or System), **Language**, notifications and the **Tour** of the interface to watch again.
 
@@ -39,6 +39,7 @@ Basic information about your organization:
 - **Name** – appears on invoices and receipts.
 - **Description** – optional additional text.
 - **No VAT** – for associations and small businesses (§ 19 UStG). When on, all products carry 0 % and no tax rate can be chosen.
+- **Delete organization** – administrators only. Afterwards the organization is read-only for 30 days so you can export all data; then it is permanently deleted. See [Account, newsletter and deletion](./daten-und-loeschung.md#organisation-loeschen).
 
 ![Organization settings – General](/img/screens/en/settings-organisation.png)
 

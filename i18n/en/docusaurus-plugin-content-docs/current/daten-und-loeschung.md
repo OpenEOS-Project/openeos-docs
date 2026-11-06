@@ -33,15 +33,30 @@ This cannot be undone. In our backups the data expires after eight weeks at most
 - **You booked transactions that aren't part of a cash point closing yet.** Ask your club to create the closing first.
 - **Super admin accounts** can't delete themselves.
 
-If you are the **only member** of an organization without a running event, it is deleted with your account. Export everything you need first – once your account is gone you can't reach its data anymore.
+### As the only member: account and organization together {/* #einziges-mitglied */}
+
+If you are the **only member** of an organization without a running event, it is deleted with your account. So that you can still export its data, we don't delete right away but only after the 30-day export period – account and organization on the same day. The dialog shows you the date.
+
+Until then:
+
+- You can still sign in. Every page shows:
+
+  > Your account and the organization “…” will be permanently deleted on …. You can export all data until then.
+
+- The organization is read-only – you can view and export everything as described under [30 days read-only](#nur-lesend).
+- You can no longer create or join organizations. Memberships in other organizations and your API tokens are removed right away.
+- You get a confirmation with the date right away and a reminder by email **10 days** and **one day** before.
+- **Cancel deletion** in the notice at the top (or under **Settings → Personal → Account**) brings account and organization back as long as they aren't permanently deleted yet. Removed memberships in other organizations and API tokens don't come back.
+
+On the date we permanently delete the organization's data (see [Final deletion](#endgueltig)) and then your account. You get a last confirmation by email.
 
 ## Delete an organization {/* #organisation-loeschen */}
 
 Administrators delete an organization under **Settings → Organization → General → Delete organization**. To confirm, type the organization's name.
 
-The same happens when OpenEOS closes a customer account after 24 months without a booking (T&C 15.10) – we announce that to the administrators by email beforehand.
+The same happens when OpenEOS closes a customer account after 24 months without a booking (T&C 15.10) – we announce that to the administrators by email 30 days beforehand and remind them again 10 days and one day before the closure. If you book an event until then, the organization stays.
 
-### 30 days read-only: export your data
+### 30 days read-only: export your data {/* #nur-lesend */}
 
 After deletion the organization stays visible to its **administrators**, but **read-only**. Every page shows:
 
@@ -50,14 +65,22 @@ After deletion the organization stays visible to its **administrators**, but **r
 During this time you can view and export everything:
 
 - [Reports](./auswertung.md) with CSV and PDF export,
-- view [orders](./bestellungen.md) and the [cash book](./kassenbuch.md),
+- view [orders](./bestellungen.md) and export them as CSV, view the [cash book](./kassenbuch.md),
 - with [Cloud TSE](./integrationen/cloud-tse.md): DSFinV-K export, cash point closings and TSE exports. You can still create a missing cash point closing.
 
 Nothing can be changed anymore: saving, booking, new events and the like are rejected. Registers, displays and other devices of the organization stop working; the shop, table ordering and helper pages are no longer reachable. Members without administrator rights no longer see the organization.
 
-Before the final deletion the administrators get an email with the date.
+### Emails before the final deletion {/* #erinnerungen */}
 
-### Final deletion
+The administrators get three emails: an announcement with the date (in the night after the deletion, 30 days before) and reminders **10 days** and **one day** before. Each one names the date, what gets deleted, what stays, how to export and how to cancel. If the organization has no administrator anymore, the email goes to the billing address.
+
+### Cancel the deletion {/* #abbrechen */}
+
+Until the final deletion any administrator can take the deletion back: click **Cancel deletion** in the notice at the top of every page and confirm. The organization is fully usable again and the final deletion is called off. This also works for organizations closed for inactivity.
+
+If the organization was deleted together with your account, cancel the [deletion of your account](#einziges-mitglied) instead.
+
+### Final deletion {/* #endgueltig */}
 
 When the export period ends we permanently delete products, settings, orders, shift plans, devices, access and memberships. What stays:
 
@@ -67,3 +90,7 @@ When the export period ends we permanently delete products, settings, orders, sh
 ### Earlier deletion on request
 
 If you don't want to wait 30 days – for example after switching to another provider – write to [hello@openeos.de](mailto:hello@openeos.de). We then delete the organization permanently right away and confirm it by email. The fiscal archive is kept as described above. This isn't possible yet while the Cloud TSE is still active or transactions without a cash point closing are open.
+
+### Log
+
+Every deletion is recorded without contents in the OpenEOS deletion log: who deleted what and when, and how many records – but no names, email addresses or notes. That applies to the automatic deletion runs and to deletions you trigger yourselves – deleting an organization or cancelling that, removing members, deleting shift registrations (also together with a shift plan, job or shift), deleting your account. When a helper removes themselves from a shift via their link, that is recorded too.

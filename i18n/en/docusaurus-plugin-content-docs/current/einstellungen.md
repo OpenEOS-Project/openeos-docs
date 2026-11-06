@@ -39,7 +39,7 @@ Basic information about your organization:
 - **Name** – appears on invoices and receipts.
 - **Description** – optional additional text.
 - **No VAT** – for associations and small businesses (§ 19 UStG). When on, all products carry 0 % and no tax rate can be chosen.
-- **Delete organization** – administrators only. Afterwards the organization is read-only for 30 days so you can export all data; then it is permanently deleted. See [Account, newsletter and deletion](./daten-und-loeschung.md#organisation-loeschen).
+- **Delete organization** – administrators only. Afterwards the organization is read-only for 30 days so you can export all data; then it is permanently deleted. Emails come beforehand (announcement, 10 days and one day before), and until then you can cancel the deletion. See [Account, newsletter and deletion](./daten-und-loeschung.md#organisation-loeschen).
 
 ![Organization settings – General](/img/screens/en/settings-organisation.png)
 

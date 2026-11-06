@@ -10,7 +10,14 @@ import redocSpecPlugin from './plugins/redoc-spec';
    (/impressum, /en/impressum, …); Linkziele lassen sich ueber footer.json
    nicht uebersetzen. */
 const locale = process.env.DOCUSAURUS_CURRENT_LOCALE ?? 'de';
-const websiteUrl = locale === 'en' ? 'https://openeos.de/en' : 'https://openeos.de';
+/* Website (Rechtstexte) und App kommen beim Build aus WEBSITE_URL und
+   APP_URL — Staging baut mit https://staging.openeos.de bzw.
+   https://app.staging.openeos.de, damit die Staging-Doku nicht auf die
+   Produktion verlinkt. Ohne Variable: Produktion. */
+const trimUrl = (value: string | undefined, fallback: string) => (value?.trim() || fallback).replace(/\/+$/, '');
+const websiteBase = trimUrl(process.env.WEBSITE_URL, 'https://openeos.de');
+const websiteUrl = locale === 'en' ? `${websiteBase}/en` : websiteBase;
+const appUrl = trimUrl(process.env.APP_URL, 'https://app.openeos.de');
 /* Link "Quellcode" (AGPL-3.0 § 13). Wer eine geaenderte Fassung betreibt,
    setzt SOURCE_URL beim Build auf das eigene Repository. */
 const sourceUrl = process.env.SOURCE_URL || 'https://github.com/OpenEOS-Project';
@@ -170,7 +177,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://app.openeos.de',
+          href: appUrl,
           label: 'Zur App',
           position: 'right',
         },
@@ -195,7 +202,7 @@ const config: Config = {
         {
           title: 'OpenEOS',
           items: [
-            {label: 'Zur App', href: 'https://app.openeos.de'},
+            {label: 'Zur App', href: appUrl},
             {label: 'Website', href: websiteUrl},
             {label: 'Quellcode (AGPL-3.0)', href: sourceUrl},
           ],

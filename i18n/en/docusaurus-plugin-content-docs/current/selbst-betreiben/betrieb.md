@@ -27,7 +27,9 @@ sudo docker run --rm \
 
 Also back up the `.env` file — without
 `TWO_FACTOR_ENCRYPTION_KEY`, stored two-factor secrets are worthless after
-a restore.
+a restore. Without a dedicated `INTEGRATION_ENCRYPTION_KEY`, the same goes
+for saved SumUp and PayPal credentials; clubs would have to enter them
+again. If it is set, it belongs in the backup as well.
 
 Daily at 3 a.m., with 14 days of retention:
 

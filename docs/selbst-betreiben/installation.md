@@ -17,7 +17,15 @@ sudo mkdir -p /opt/openeos && cd /opt/openeos
 
 Drei Geheimnisse werden gebraucht. Erzeuge sie **jetzt** und bewahre
 sie auf — insbesondere `TWO_FACTOR_ENCRYPTION_KEY`: Geht er verloren, sind
-hinterlegte Zwei-Faktor-Geheimnisse nicht mehr entschlüsselbar.
+hinterlegte Zwei-Faktor-Geheimnisse nicht mehr entschlüsselbar, und ohne
+eigenen `INTEGRATION_ENCRYPTION_KEY` (siehe unten) auch gespeicherte
+Zugangsdaten für SumUp und PayPal — die müssten Vereine dann neu eintragen.
+
+Optional kannst du für die SumUp- und PayPal-Zugangsdaten einen eigenen
+Schlüssel `INTEGRATION_ENCRYPTION_KEY` setzen (erzeugen mit
+`openssl rand -base64 32`). Ohne ihn verschlüsselt der Server sie mit
+`TWO_FACTOR_ENCRYPTION_KEY`. Sichere ihn wie die anderen Geheimnisse und
+ändere ihn nach dem ersten Start nicht mehr.
 
 ```bash
 umask 077
@@ -34,6 +42,8 @@ API_URL=http://192.168.1.50:3000
 DATABASE_PASSWORD=$(openssl rand -base64 24 | tr -d '/+=')
 JWT_SECRET=$(openssl rand -base64 64 | tr -d '\n')
 TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
+# Optional: eigener Schlüssel für SumUp-/PayPal-Zugangsdaten
+INTEGRATION_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 EOF
 ```
 
@@ -100,6 +110,8 @@ services:
       REDIS_HOST: redis
       JWT_SECRET: ${JWT_SECRET:?JWT_SECRET fehlt}
       TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY fehlt}
+      # Optional; leer = TWO_FACTOR_ENCRYPTION_KEY verschlüsselt auch SumUp/PayPal
+      INTEGRATION_ENCRYPTION_KEY: ${INTEGRATION_ENCRYPTION_KEY:-}
       # Das Dashboard muss den Server aufrufen dürfen
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'

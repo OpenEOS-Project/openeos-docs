@@ -27,7 +27,10 @@ sudo docker run --rm \
 
 Sichere zusätzlich die Datei `.env` — ohne
 `TWO_FACTOR_ENCRYPTION_KEY` sind hinterlegte Zwei-Faktor-Geheimnisse nach
-einer Wiederherstellung wertlos.
+einer Wiederherstellung wertlos. Ist kein eigener
+`INTEGRATION_ENCRYPTION_KEY` gesetzt, gilt das auch für gespeicherte
+SumUp- und PayPal-Zugangsdaten; Vereine müssten sie neu eintragen. Ist er
+gesetzt, gehört er ebenso in die Sicherung.
 
 Täglich um 3 Uhr, mit Aufbewahrung von 14 Tagen:
 

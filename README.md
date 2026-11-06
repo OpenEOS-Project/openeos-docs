@@ -93,3 +93,5 @@ Copyright (C) 2026 LUXCODE by Lukas Lukic-Spitznagel und Mitwirkende.
 Code und Inhalte (Texte, Screenshots) sind lizenziert unter der GNU Affero General Public License v3.0 oder (nach deiner Wahl) jeder späteren Version (`AGPL-3.0-or-later`), siehe [LICENSE](LICENSE) und [NOTICE](NOTICE).
 
 **Quellcode-Link (AGPL § 13):** Der Footer verlinkt den Quellcode. Ziel ist die Umgebungsvariable `SOURCE_URL` beim Build (Docker: `--build-arg SOURCE_URL=…`), Standard `https://github.com/OpenEOS-Project`.
+
+**Website und App:** Navigation und Footer verlinken die Website (Impressum, Datenschutz, AGB, AVV) und die App. Ziele sind `WEBSITE_URL` (Standard `https://openeos.de`, Englisch unter `/en`) und `APP_URL` (Standard `https://app.openeos.de`) beim Build (Docker: `--build-arg`). Der Workflow baut `dev` (Staging) mit `https://staging.openeos.de` und `https://app.staging.openeos.de`.

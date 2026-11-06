@@ -24,6 +24,12 @@ COPY . .
 # Target of the footer link "Quellcode (AGPL-3.0)" (AGPL-3.0 section 13)
 ARG SOURCE_URL=https://github.com/OpenEOS-Project
 ENV SOURCE_URL=$SOURCE_URL
+# Website (legal pages) and app linked from navbar/footer; staging builds
+# pass https://staging.openeos.de and https://app.staging.openeos.de
+ARG WEBSITE_URL=https://openeos.de
+ARG APP_URL=https://app.openeos.de
+ENV WEBSITE_URL=$WEBSITE_URL
+ENV APP_URL=$APP_URL
 # Call the Docusaurus binary directly to avoid pnpm's dependency-status check
 RUN node ./node_modules/@docusaurus/core/bin/docusaurus.mjs build
 

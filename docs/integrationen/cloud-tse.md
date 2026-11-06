@@ -38,7 +38,12 @@ Meist musst du gar nichts tun: Schaltest du in der Betriebsart **Alle Funktionen
 - Am **letzten Tag des Monats um 20:00 Uhr** meldet OpenEOS die TSE ab. Vorher holt es den Abschlussexport ab und schließt die abgelaufenen Geschäftstage ab (Kassenabschluss). Den Rest exportiert die TSE beim Abmelden selbst; OpenEOS holt ihn ab und archiviert ihn.
 - Die Seite **Cloud-TSE** zeigt den Termin unter **Automatische Abmeldung**. Die Admins bekommen nach dem Abmelden eine E-Mail.
 - Danach nehmen deine Kassen in Deutschland **kein Bargeld** an, bis die nächste bezahlte Veranstaltung beginnt. Für sie richtet OpenEOS automatisch eine **neue TSE** mit neuer Seriennummer ein. Bons und Exporte der alten TSE bleiben abrufbar.
-- **Ausnahme:** Läuft zum Abmeldetermin gerade eine bezahlte Veranstaltung – auch nur ihr Geschäftstag (6 bis 6 Uhr), etwa ein Fest am Monatsletzten oder über den Monatswechsel –, bleibt die TSE bis zum Ende des **nächsten** Monats. Das kostet einen Monat mehr; auf der Seite steht dann *Verschoben, weil „…“ über das Monatsende läuft*.
+- **Folgemonat schon gebucht:** Hast du für den nächsten Monat schon eine **bezahlte Veranstaltung** (bezahlt oder auf Rechnung freigeschaltet), bleibt die TSE einfach aktiv, statt abgemeldet und neu eingerichtet zu werden. Das spart die neue Einrichtung und eine weitere Mitteilung ans Finanzamt; Seriennummer und Kasse bleiben gleich. Zum Ende dieses Monats prüft OpenEOS dasselbe wieder. Auf der Seite steht dann zum Beispiel *Bleibt im Dezember aktiv, weil „Weihnachtsmarkt“ schon gebucht ist* und darüber der neue Termin (*am 31. Dezember 2026, 20:00 Uhr*).
+  - Entschieden wird am Monatsletzten um 20:00 Uhr. Buchst du die Veranstaltung erst an diesem Tag, zählt sie noch, wenn sie bis dahin bezahlt bzw. freigeschaltet ist.
+  - Stornierst du die Veranstaltung im Folgemonat (oder wird sie erstattet), bevor der Monat wechselt, meldet OpenEOS die TSE wie gewohnt zum Monatsende ab.
+  - Kassenabschlüsse laufen wie immer, die Exporte holt OpenEOS weiter jede Nacht ab. Ein Abschlussexport ist nicht nötig, weil die TSE weiterläuft.
+  - Nur der direkt folgende Monat zählt: Liegt dazwischen ein Monat ohne Veranstaltung, wird die TSE abgemeldet und für die spätere Veranstaltung neu eingerichtet.
+- **Ausnahme:** Läuft zum Abmeldetermin gerade eine bezahlte Veranstaltung – auch nur ihr Geschäftstag (6 bis 6 Uhr), etwa ein Fest am Monatsletzten oder über den Monatswechsel –, bleibt die TSE bis zum Ende des **nächsten** Monats. Den zusätzlichen Monat trägt OpenEOS, dir wird dafür nichts berechnet; auf der Seite steht dann *Verschoben, weil „…“ über das Monatsende läuft*.
 
 ## 1. Integration selbst aktivieren
 

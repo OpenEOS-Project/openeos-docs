@@ -67,7 +67,7 @@ OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nic
 
 Änderst du das Datum, ändert sich der Betrag mit.
 
-In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein. Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet (siehe [Laufzeit der Cloud-TSE](./integrationen/cloud-tse.md#laufzeit)).
+In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein. Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet – außer du hast im Folgemonat schon eine bezahlte Veranstaltung, dann bleibt sie aktiv (siehe [Laufzeit der Cloud-TSE](./integrationen/cloud-tse.md#laufzeit)).
 
 ### Was als Veranstaltungstag zählt {/* #veranstaltungstag */}
 

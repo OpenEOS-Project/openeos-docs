@@ -38,7 +38,12 @@ Usually you do not have to do anything: if you activate an event in the operatin
 - On the **last day of the month at 8 pm** (German time) OpenEOS deactivates the TSE. Before that it collects the final export and closes the finished business days (cash point closing). The TSE exports the rest itself on deactivation; OpenEOS collects and archives it.
 - The **Cloud TSE** page shows the date under **Automatic deactivation**. The admins get an e-mail after the deactivation.
 - Afterwards your tills in Germany accept **no cash** until the next paid event starts. For it, OpenEOS automatically sets up a **new TSE** with a new serial number. Receipts and exports of the old TSE stay available.
-- **Exception:** if a paid event is running at the deactivation time – even just its business day (6 am to 6 am), for example a party on the last day of the month or across the month change – the TSE stays until the end of the **next** month. That costs one more month; the page then says *Postponed because “…” runs past the end of the month*.
+- **Next month already booked:** if you already have a **paid event** next month (paid or unlocked on invoice), the TSE simply stays active instead of being deactivated and set up again. That saves the new setup and another notice to the tax office; serial number and till stay the same. At the end of that month OpenEOS checks the same again. The page then says, for example, *Stays active in December because “Christmas market” is already booked*, with the new date above it (*on 31 December 2026, 20:00*).
+  - The decision is made on the last day of the month at 8 pm. An event booked on that day still counts if it is paid or unlocked by then.
+  - If the event next month is cancelled (or refunded) before the month changes, OpenEOS deactivates the TSE at the end of the month as usual.
+  - Cash point closings run as always, and OpenEOS keeps collecting the exports every night. No final export is needed because the TSE keeps running.
+  - Only the directly following month counts: if there is a month without an event in between, the TSE is deactivated and set up again for the later event.
+- **Exception:** if a paid event is running at the deactivation time – even just its business day (6 am to 6 am), for example a party on the last day of the month or across the month change – the TSE stays until the end of the **next** month. OpenEOS bears the extra month, you are not charged for it; the page then says *Postponed because “…” runs past the end of the month*.
 
 ## 1. Activate the integration yourself
 

@@ -66,6 +66,11 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          # dev deploys to staging: link the staging website (legal pages)
+          # and app instead of production.
+          build-args: |
+            WEBSITE_URL=${{ github.ref == 'refs/heads/dev' && 'https://staging.openeos.de' || 'https://openeos.de' }}
+            APP_URL=${{ github.ref == 'refs/heads/dev' && 'https://app.staging.openeos.de' || 'https://app.openeos.de' }}
 
   deploy:
     name: Deploy to production

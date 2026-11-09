@@ -79,7 +79,7 @@ Unter **Einstellungen** sind die Optionen nach Themen gegliedert. Was von einer 
 |---|---|
 | **Betrieb** | *Bedienung* oder *Feste Kasse*; bei Bedienung darunter **Tische** mit Standardbereich und Tischwahl |
 | **Zahlung** | den SumUp-Kartenleser dieser Kasse (sobald [SumUp](./integrationen/sumup.md) eingerichtet ist) |
-| **Sicherheit (PIN)** | **PIN erforderlich** |
+| **Bedienung & Sicherheit** | wer an der Kasse bucht (**Ohne Bedienung**, **Gemeinsame Kasse**, **Feste Bedienung**), die Sperre und **Stornieren & Erstatten** |
 
 #### Betrieb {/* #betriebsmodus */}
 
@@ -105,11 +105,41 @@ Ebenfalls im Block **Tische** legst du fest, wie diese Kasse einen Tisch öffnet
 
 An der Kasse gibt es dafür keinen Umschalter: Jede Kasse zeigt genau ihre Ansicht. So kann die Bedienung im Zelt mit der Karte arbeiten und die Theke mit dem Ziffernblock. Arbeitet die Veranstaltung mit **frei eingegebenen** Tischnummern, zeigt jede Kasse den Ziffernblock.
 
-#### PIN und Sperre {/* #pin-und-sperre */}
+#### Bedienung & Sicherheit {/* #pin-und-sperre */}
 
-Mit **PIN erforderlich** muss sich an der Kasse jede Person mit ihrer eigenen PIN anmelden. Die PINs (4 bis 6 Ziffern) verwaltest du je Mitglied unter [Mitglieder](./mitglieder.md). Die Kasse zeigt dann oben rechts, wer angemeldet ist, und mit dem Schloss daneben lässt sie sich sperren, ohne dass der Warenkorb verloren geht — siehe [Kasse](./kasse.md#pin-und-sperre).
+Hier legst du fest, wer an dieser Kasse bucht und was dafür nötig ist. Unter **Bedienungen** wählst du einen von drei Modi:
 
-Ohne PIN ist die Kasse für jeden bedienbar, der das Gerät in der Hand hat.
+- **Ohne Bedienung** — wie bisher: Niemand meldet sich an, Buchungen zählen für das Gerät. Die Kasse ist für jeden bedienbar, der das Gerät in der Hand hat.
+- **Gemeinsame Kasse** — vor dem Buchen meldet sich eine Bedienung mit ihrer PIN an („Wer bedient?“). Wechseln und Sperren gehen mit einem Tipp. Für Kassen, an denen mehrere Leute arbeiten.
+- **Feste Bedienung** — das Gerät gehört einer Bedienung, etwa ihr Handy. Darunter wählst du die **Bedienung**; alle Buchungen des Geräts zählen für sie. Eine PIN-Eingabe gibt es nicht. Wird diese Bedienung deaktiviert, zeigt die Kasse „Gerät ist keiner Bedienung zugeordnet“, bis du eine andere wählst.
+
+Bei **Gemeinsame Kasse** erscheint darunter der Block **Sperre**:
+
+| Einstellung | Was sie bewirkt |
+|---|---|
+| **Automatisch sperren nach** | **Nie**, **30 Sekunden**, **1**, **2**, **5** oder **10 Minuten** ohne Berührung. Standard: 2 Minuten. Während einer laufenden Zahlung sperrt die Kasse nie. |
+| **Nach jedem Kassieren sperren** | Für die Theke: Jede Person kassiert unter ihrem eigenen Namen. |
+| **Namenskacheln auf dem PIN-Bildschirm** | Zeigt Kurzname und Farbe der Bedienungen. Standard aus, damit keine Namen sichtbar sind. |
+
+Beim Sperren merkt sich die Kasse den Warenkorb je Bedienung auf diesem Gerät. Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#pin-und-sperre). Die Bedienungen selbst und ihre PINs verwaltest du unter [Bedienungen](./bedienungen.md).
+
+:::note[Früher „PIN erforderlich“]
+Den Schalter **PIN erforderlich** gibt es nicht mehr. Kassen, bei denen er an war, stehen automatisch auf **Gemeinsame Kasse**; alle anderen auf **Ohne Bedienung**. Mitglieder melden sich dort weiter mit ihrer Mitglieds-PIN an.
+:::
+
+**PIN-Eingabe freigeben:** Nach 20 falschen PINs sperrt das Gerät die PIN-Eingabe, bis ein Admin sie freigibt. Oben im Block steht dann „Die PIN-Eingabe an diesem Gerät ist nach zu vielen Fehlversuchen gesperrt.“ Mit **PIN-Eingabe freigeben** geht es weiter. Kürzere Sperren nach 5 und 10 Fehlversuchen laufen von selbst ab, siehe [Falsche PINs](./bedienungen.md#fehlversuche).
+
+#### Stornieren & Erstatten {/* #storno-erstatten */}
+
+Im selben Block legst du fest, wer an dieser Kasse Positionen stornieren und Bestellungen erstatten darf:
+
+| Auswahl | Was gilt |
+|---|---|
+| **Erlaubt** (Standard) | Alle an der Kasse dürfen stornieren und erstatten. |
+| **Nur mit PIN** | Die Kasse fragt jedes Mal eine PIN ab: die einer Schichtleitung, eines Mitglieds mit der Berechtigung **Bestellungen** oder eines Admins. Rechte vergibst du unter [Mitglieder](./mitglieder.md#modulbasierte-berechtigungen). |
+| **Aus** | An dieser Kasse nicht möglich. Nachdruck und Zahlung nachholen gehen weiter. |
+
+Ist eine Bedienung angemeldet, zählt ihr Recht **Stornieren & Erstatten**: Hat sie es, storniert sie direkt. Fehlt es, fragt die Kasse nach der PIN einer **Schichtleitung**, eines Mitglieds mit der Berechtigung **Bestellungen** oder eines Admins (siehe [Bedienungen](./bedienungen.md#storno)). **Aus** gilt für alle.
 
 ### Einstellungen einer Anzeige {/* #kundendisplay */}
 

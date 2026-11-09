@@ -75,7 +75,7 @@ Under **Settings** the options are grouped by topic. Anything that depends on a 
 |---|---|
 | **Operation** | *Table Service* or *Counter*; with table service, **Tables** below it with default area and table selection |
 | **Payment** | this till's SumUp card reader (once [SumUp](./integrationen/sumup.md) is set up) |
-| **Security (PIN)** | **Require PIN** |
+| **Servers & security** | who books on the till (**No servers**, **Shared till**, **Fixed server**), the lock and **Cancel & refund** |
 
 #### Operation {/* #betriebsmodus */}
 
@@ -101,11 +101,41 @@ Also in the **Tables** block you choose how this till opens a table:
 
 There is no switch for this at the till: each till shows exactly its own view. That way staff in the tent can work with the map while the bar uses the keypad. If the event uses **free** table numbers, every till shows the keypad.
 
-#### PIN and lock {/* #pin-und-sperre */}
+#### Servers & security {/* #pin-und-sperre */}
 
-With **Require PIN**, everyone has to sign in at the till with their own PIN. You manage the PINs (4 to 6 digits) per member under [Members](./mitglieder.md). The till then shows who is signed in at the top right, and the lock next to it locks the till without losing the cart — see [Till](./kasse.md#pin-und-sperre).
+Here you decide who books on this till and what it takes. Under **Servers** you choose one of three modes:
 
-Without a PIN, anyone holding the device can use the till.
+- **No servers** — as before: nobody signs in, bookings count for the device. Anyone holding the device can use the till.
+- **Shared till** — before booking, a server signs in with their PIN ("Who is serving?"). Switching and locking take one tap. For tills where several people work.
+- **Fixed server** — the device belongs to one server, their phone for example. Below it you choose the **Server**; all bookings of the device count for them. There is no PIN entry. If this server is deactivated, the till shows "This device has no server assigned" until you choose another one.
+
+With **Shared till**, the **Lock** block appears below:
+
+| Setting | What it does |
+|---|---|
+| **Lock automatically after** | **Never**, **30 seconds**, **1**, **2**, **5** or **10 minutes** without touch. Default: 2 minutes. The till never locks during a running payment. |
+| **Lock after every payment** | For the bar: everyone takes payments under their own name. |
+| **Name tiles on the PIN screen** | Shows the servers' short name and color. Off by default so no names are visible. |
+
+When locking, the till keeps the cart per server on this device. What that looks like at the till is under [Till](./kasse.md#pin-und-sperre). You manage the servers themselves and their PINs under [Servers](./bedienungen.md).
+
+:::note[Formerly "Require PIN"]
+The **Require PIN** switch is gone. Tills that had it on are automatically set to **Shared till**; all others to **No servers**. Members keep signing in there with their member PIN.
+:::
+
+**Release PIN entry:** after 20 wrong PINs the device locks PIN entry until an admin releases it. The top of the block then says "PIN entry on this device is locked after too many failed attempts." **Release PIN entry** opens it again. Shorter locks after 5 and 10 failed attempts expire by themselves, see [Wrong PINs](./bedienungen.md#fehlversuche).
+
+#### Cancel & refund {/* #storno-erstatten */}
+
+In the same block you decide who may cancel items and refund orders on this till:
+
+| Option | What applies |
+|---|---|
+| **Allowed** (default) | Everyone at the till may cancel and refund. |
+| **PIN only** | The till asks for a PIN every time: that of a shift lead, of a member with the **Orders** permission or of an admin. You grant permissions under [Members](./mitglieder.md#module-based-permissions). |
+| **Off** | Not possible on this till. Reprints and collecting payments still work. |
+
+If a server is signed in, their **Cancel & refund** right counts: with it, they cancel directly. Without it, the till asks for the PIN of a **shift lead**, of a member with the **Orders** permission or of an admin (see [Servers](./bedienungen.md#storno)). **Off** applies to everyone.
 
 ### Display settings {/* #kundendisplay */}
 

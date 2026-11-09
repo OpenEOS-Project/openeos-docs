@@ -13,7 +13,7 @@ The cash book is only available if your organization may accept cash (operating 
 
 ## At the till {/* #kasse */}
 
-Tap **Cash book** in the till's menu. At the top you see the **expected balance** of this till: the amount of cash that should be in the drawer right now. Below it you see how it is made up (opening balance, deposits, withdrawals, cash sales, cash refunds, deposit payouts, differences) and today's entries.
+Tap **Cash book** in the till's menu. If the till works with [servers](./bedienungen.md), only those with the **Cash book** right see the menu item – shift leads have it. At the top you see the **expected balance** of this till: the amount of cash that should be in the drawer right now. Below it you see how it is made up (opening balance, deposits, withdrawals, cash sales, cash refunds, deposit payouts, differences) and today's entries.
 
 | Action | When | What is booked |
 |---|---|---|

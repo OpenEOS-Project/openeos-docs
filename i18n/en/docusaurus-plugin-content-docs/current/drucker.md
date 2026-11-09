@@ -176,7 +176,7 @@ The **Templates** tab lets you define how receipts look — for example a kitche
 
 The **Waiter** and **Device** elements (group **Order**) show on the ticket who took the order, so the kitchen or bar knows whom to ask.
 
-- **Waiter** – the **name of the device the order was taken on**. Nobody logs in personally on tills and ordering devices; if every ordering device belongs to one waiter, simply name the device after them under **Devices**, e.g. "Markus" or "Markus's phone". Only for orders someone creates in the admin area (without a device) does this show their name.
+- **Waiter** – who took the order. If the till works with [servers](./bedienungen.md), this is the first available of: who sent the round ▸ responsible server of the table ▸ signed-in member ▸ device name. Whether the short name or the full name appears is set under [Name on tickets](./bedienungen.md#einstellungen). Without servers this shows the **name of the device**; if an ordering device belongs to one person, simply name it after them under **Devices**, e.g. "Markus's phone". For orders someone creates in the admin area (without a device) it shows their name.
 - **Device** – always the name of the device the order was taken on.
 
 Like other fields, both can be placed freely, aligned, printed **bold** or **big**, and their label can be changed (default: "Bedienung: " / "Gerät: "). Without a name – for example for online and QR orders – the line is left out, label included.

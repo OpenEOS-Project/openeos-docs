@@ -13,7 +13,7 @@ Das Kassenbuch gibt es nur, wenn deine Organisation Bargeld annehmen darf (Betri
 
 ## An der Kasse {/* #kasse */}
 
-Im Menü der Kasse auf **Kassenbuch** tippen. Oben steht der **Soll-Bestand** dieser Kasse: so viel Bargeld sollte jetzt in der Schublade liegen. Darunter siehst du, woraus er sich zusammensetzt (Anfangsbestand, Einlagen, Entnahmen, Barverkäufe, Bar-Erstattungen, Pfand-Auszahlungen, Differenzen) und die Buchungen von heute.
+Im Menü der Kasse auf **Kassenbuch** tippen. Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), sieht den Menüpunkt nur, wer das Recht **Kassenbuch** hat – Schichtleitungen haben es. Oben steht der **Soll-Bestand** dieser Kasse: so viel Bargeld sollte jetzt in der Schublade liegen. Darunter siehst du, woraus er sich zusammensetzt (Anfangsbestand, Einlagen, Entnahmen, Barverkäufe, Bar-Erstattungen, Pfand-Auszahlungen, Differenzen) und die Buchungen von heute.
 
 | Aktion | Wann | Was gebucht wird |
 |---|---|---|

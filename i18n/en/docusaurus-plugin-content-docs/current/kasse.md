@@ -23,7 +23,7 @@ What you see after switching on depends on two settings: the device's **service 
 | **Table Service** | Enter table number freely | **Open table** with a keypad |
 | **Table Service** | Predefined tables | **Open table** with the device's table selection: number, list or map |
 
-If the till requires a PIN, the PIN screen comes first — see [Signing in and locking](#pin-und-sperre).
+If the till is set to **Shared till**, the PIN screen "Who is serving?" comes first — see [Signing in and locking](#pin-und-sperre).
 
 ## The header
 
@@ -33,7 +33,7 @@ The top bar always shows the same things:
 - **Table** — in the order view a green pill shows who you are booking for: "Table A10", "Counter" or "To go". Tapping it opens [Choose table](#tisch-wechseln).
 - **Status** — **Online** (green dot), **Connecting …** or **No live data** (yellow) and **Offline** (red). Next to it the till's receipt printer by name, if one is assigned, and the time. On narrower screens only the dot remains.
 - **Menu** (the three lines) — order history, open orders, deposit return, open cash drawer, [appearance](#darstellung) and sign out device. Only what is set up for this till appears.
-- **Staff member** — with a PIN, the initials and name of whoever is signed in, with the **lock** next to it.
+- **Server** — on a shared till or with a fixed server, a chip with the color and short name of whoever is signed in. Tapping it opens **Switch**, **Lock** and **Sign out**.
 
 In test mode the warning strip "Test mode — Orders will be deleted on activation" sits below the header.
 
@@ -90,6 +90,8 @@ On the right (on a phone below the table choice) are all tables where something 
 - **Ready to serve** — the kitchen or bar has marked items as ready; they need to go to the table. See [Served](#serviert).
 
 Tapping the row opens the table.
+
+If the till works with [servers](./bedienungen.md), the filter **Mine / All** sits above the list. **Mine** is the default: your tables and tables nobody owns yet. Each table shows the short name and color of the responsible server — whoever took the first order there or acknowledged the guest order. If you open another server's table, the till shows a note such as "Table of Anna". You may still book and take payments; the money counts for you.
 
 ## Ordering
 
@@ -199,11 +201,21 @@ Items that have not been sent only live on the device they were typed into. What
 
 ## Signing in and locking {/* #pin-und-sperre */}
 
-If **Require PIN** is set for the till ([Devices](./geraete.md#pin-und-sperre)), it asks for a PIN on start. Every member has their own PIN of 4 to 6 digits ([Members](./mitglieder.md)), so it is always clear who took an order.
+If the device is set to **Shared till** ([Devices](./geraete.md#pin-und-sperre)), everyone signs in with their PIN before booking. That way it is clear for every order and payment who booked it. The PINs belong to [servers](./bedienungen.md) or to [members](./mitglieder.md).
 
-The initials and name then appear at the top right. The **lock** next to them locks the till: the PIN screen shows until someone enters their PIN. The cart, parked tables and the open table are kept. After a reload the till asks for the PIN again.
+- **Signing in** — the PIN screen asks "Who is serving?". The PIN alone is enough. If set up, name tiles with short name and color appear above it.
+- **The chip** — the color and short name then appear at the top right. Tapping it opens **Switch** (the next person signs in), **Lock** and **Sign out**.
+- **Cart per server** — when switching or locking, the till keeps the person's unsent cart and parked tables. The till shows a note such as "The cart is kept for Anna." When the same person signs in again, everything is back. This only applies on this device and only until a reload.
+- **Automatic lock** — after a time without touch (2 minutes by default), but never during a running payment. Optionally the till locks after every payment.
+- **Reload** — afterwards the till asks for the PIN again.
+- **Offline** — unlocking does not work: "No connection – unlocking works again once online." A short connection drop does not sign anyone out.
+- **Wrong PINs** — after 5 failed attempts PIN entry is locked for 30 seconds, after 10 for five minutes, after 20 until an admin releases it ([Wrong PINs](./bedienungen.md#fehlversuche)).
 
-Without a PIN there is no staff member and no lock.
+With **Fixed server** there is no PIN screen; the chip shows the server the device belongs to. With **No servers** there is neither a chip nor a lock.
+
+### Cancelling with approval {/* #freigabe */}
+
+Whoever has the **Cancel & refund** right cancels and refunds directly in the [order history](#bestellverlauf). Without it, the till asks for the PIN of a **shift lead**, of a member with the **Orders** permission or of an admin. OpenEOS records who approved. More under [Servers](./bedienungen.md#storno).
 
 ## Order history {/* #bestellverlauf */}
 
@@ -247,4 +259,4 @@ If two devices check out the same table at the same time, the first one wins; th
 
 ## Signing out the till
 
-**Sign out device** in the menu disconnects the device from the organization after asking first. It then has to be [connected again](./geraete.md) — not something to do in between. To leave the till for a moment, use the [lock](#pin-und-sperre).
+**Sign out device** in the menu disconnects the device from the organization after asking first. It then has to be [connected again](./geraete.md) — not something to do in between. To leave the till for a moment, use [Lock](#pin-und-sperre).

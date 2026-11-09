@@ -33,7 +33,7 @@ The overview shows each person's name, email address, **role**, enabled **permis
 
 In the hosted service an organization has room for at most **10 members**. Active members **and pending invitations** count – a sent invitation takes its seat until it is accepted, withdrawn or expired. Next to **Invite Member** you see the current state, e.g. "7 of 10 seats used (incl. invitations)".
 
-When all seats are taken the button is greyed out. Remove a member or withdraw an invitation. Helpers who sign up via [Shift Plans](./schichtplaene.md) are not members and do not count.
+When all seats are taken the button is greyed out. Remove a member or withdraw an invitation. Helpers who sign up via [Shift Plans](./schichtplaene.md) are not members and do not count. The same goes for [servers](./bedienungen.md).
 
 :::tip[Need more seats?]
 Contact support – we raise the maximum for your organization. The same applies to the number of organizations per account (see [Organization](./organisation.md#multiple-organizations)).
@@ -47,6 +47,8 @@ The following modules can be enabled individually for members:
 - **Events** (this includes **Tables**)
 - **Devices** (this includes **Printers**)
 - **Members**
+- **Servers** – add servers, assign PINs, print PIN sheets (see [Servers](./bedienungen.md))
+- **Orders** – cancel and refund, also by PIN at the till, and export orders
 - **Shift Plans**
 - **Discount Vouchers**
 - **Deposit (Pfand)**
@@ -57,4 +59,14 @@ Only enabled modules appear in that member's navigation. Every member sees **Ord
 
 :::tip[Principle of least privilege]
 Only grant the permissions someone actually needs. Administrator full access should be reserved for a small number of responsible individuals.
+:::
+
+## Device PIN {/* #pin */}
+
+With a **device PIN** a member signs in on a till set to **Shared till** ([Devices](./geraete.md#pin-und-sperre)). They then work there like a server. You set the PIN (4 to 6 digits) for the member under **Edit permissions**.
+
+Members and [servers](./bedienungen.md) share one PIN space: two people never have the same PIN. OpenEOS does not accept simple PINs such as `1234` or `0000`, or PINs already taken ("This PIN is not available"). Existing member PINs keep working.
+
+:::tip[Helpers without an account]
+For helpers who only work the till, you do not need a member with an account and email. Add them as [servers](./bedienungen.md) – they do not take up seats.
 :::

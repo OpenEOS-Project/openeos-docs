@@ -23,7 +23,7 @@ Was du nach dem Einschalten siehst, hängt an zwei Einstellungen: am **Betriebsm
 | **Bedienung** | Tischnummer frei eingeben | **Tisch öffnen** mit Ziffernblock |
 | **Bedienung** | Vordefinierte Tische | **Tisch öffnen** mit der Tischwahl des Geräts: Nummer, Liste oder Karte |
 
-Ist die Kasse mit PIN eingerichtet, kommt davor der PIN-Bildschirm — siehe [Anmelden und sperren](#pin-und-sperre).
+Steht die Kasse auf **Gemeinsame Kasse**, kommt davor der PIN-Bildschirm „Wer bedient?“ — siehe [Anmelden und sperren](#pin-und-sperre).
 
 ## Der Kopf
 
@@ -33,7 +33,7 @@ Oben steht immer dasselbe:
 - **Tisch** — in der Bestellansicht zeigt eine grüne Pille, für wen du gerade buchst: „Tisch A10“, „Theke“ oder „To-go“. Ein Tipp darauf öffnet [Tisch wählen](#tisch-wechseln).
 - **Status** — **Online** (grüner Punkt), **Verbinde …** oder **Keine Live-Daten** (gelb) und **Offline** (rot). Daneben der Bondrucker der Kasse mit Name, sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
 - **Menü** (die drei Striche) — Bestellverlauf, Offene Bestellungen, Pfand-Rückgabe, Kassenlade öffnen, [Darstellung](#darstellung) und Gerät abmelden. Es erscheint nur, was an dieser Kasse eingerichtet ist.
-- **Bediener** — mit PIN die Initialen und der Name der angemeldeten Person, daneben das **Schloss**.
+- **Bedienung** — an einer Gemeinsamen Kasse oder mit fester Bedienung ein Chip mit Farbe und Kurzname der angemeldeten Person. Ein Tipp darauf öffnet **Wechseln**, **Sperren** und **Abmelden**.
 
 Im Testmodus steht unter dem Kopf der Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
 
@@ -90,6 +90,8 @@ Rechts (am Telefon unter der Tischwahl) stehen alle Tische, an denen etwas offen
 - **Fertig zum Servieren** — Küche oder Theke haben Positionen als fertig gemeldet; sie müssen an den Tisch. Siehe [Serviert](#serviert).
 
 Ein Tipp auf die Zeile öffnet den Tisch.
+
+Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), steht über der Liste der Filter **Meine / Alle**. **Meine** ist voreingestellt: deine Tische und Tische, die noch niemandem gehören. Jeder Tisch zeigt Kurzname und Farbe der verantwortlichen Bedienung — das ist, wer dort die erste Bestellung aufgenommen oder die Gastbestellung bestätigt hat. Öffnest du einen fremden Tisch, zeigt die Kasse zum Beispiel „Tisch von Anna“. Buchen und kassieren darfst du trotzdem; das Geld zählt für dich.
 
 ## Bestellen
 
@@ -199,11 +201,21 @@ Nicht gesendete Artikel liegen nur auf dem Gerät, an dem sie eingetippt wurden.
 
 ## Anmelden und sperren {/* #pin-und-sperre */}
 
-Ist für die Kasse **PIN erforderlich** eingestellt ([Geräte](./geraete.md#pin-und-sperre)), fragt sie beim Start nach einer PIN. Jedes Mitglied hat seine eigene PIN mit 4 bis 6 Ziffern ([Mitglieder](./mitglieder.md)); so ist bei jeder Bestellung klar, wer sie aufgenommen hat.
+Steht das Gerät auf **Gemeinsame Kasse** ([Geräte](./geraete.md#pin-und-sperre)), meldet sich vor dem Buchen jede Person mit ihrer PIN an. So ist bei jeder Bestellung und Zahlung klar, wer sie gebucht hat. Die PINs gehören zu [Bedienungen](./bedienungen.md) oder zu [Mitgliedern](./mitglieder.md).
 
-Rechts oben stehen dann Initialen und Name. Das **Schloss** daneben sperrt die Kasse: Der PIN-Bildschirm erscheint, bis jemand seine PIN eingibt. Warenkorb, geparkte Tische und der geöffnete Tisch bleiben dabei erhalten. Nach einem Neuladen fragt die Kasse die PIN erneut ab.
+- **Anmelden** — Der PIN-Bildschirm fragt „Wer bedient?“. Die PIN allein reicht. Ist es eingestellt, stehen darüber Namenskacheln mit Kurzname und Farbe.
+- **Der Chip** — Oben rechts stehen dann Farbe und Kurzname. Ein Tipp darauf öffnet **Wechseln** (die nächste Person meldet sich an), **Sperren** und **Abmelden**.
+- **Warenkorb je Bedienung** — Beim Wechseln oder Sperren merkt sich die Kasse den nicht gesendeten Warenkorb und die geparkten Tische der Person. Die Kasse zeigt dazu einen Hinweis, etwa „Der Warenkorb wird für Anna gemerkt.“ Meldet sich dieselbe Person wieder an, ist alles zurück. Das gilt nur auf diesem Gerät und nur bis zum Neuladen.
+- **Automatisch sperren** — nach einer Zeit ohne Berührung (Standard 2 Minuten), aber nie während einer laufenden Zahlung. Optional sperrt die Kasse nach jedem Kassieren.
+- **Neuladen** — Danach fragt die Kasse die PIN erneut ab.
+- **Offline** — Entsperren geht nicht: „Keine Verbindung – Entsperren ist erst wieder online möglich“. Ein kurzer Verbindungsabbruch meldet niemanden ab.
+- **Falsche PINs** — Nach 5 Fehlversuchen ist die PIN-Eingabe 30 Sekunden gesperrt, nach 10 fünf Minuten, nach 20 bis ein Admin sie freigibt ([Falsche PINs](./bedienungen.md#fehlversuche)).
 
-Ohne PIN gibt es keinen Bediener und kein Schloss.
+Bei **Feste Bedienung** gibt es keinen PIN-Bildschirm; der Chip zeigt die Bedienung, der das Gerät gehört. Bei **Ohne Bedienung** gibt es weder Chip noch Sperre.
+
+### Storno mit Freigabe {/* #freigabe */}
+
+Wer das Recht **Stornieren & Erstatten** hat, storniert und erstattet im [Bestellverlauf](#bestellverlauf) direkt. Fehlt es, fragt die Kasse nach der PIN einer **Schichtleitung**, eines Mitglieds mit der Berechtigung **Bestellungen** oder eines Admins. OpenEOS hält fest, wer freigegeben hat. Mehr unter [Bedienungen](./bedienungen.md#storno).
 
 ## Bestellverlauf {/* #bestellverlauf */}
 
@@ -247,4 +259,4 @@ Kassieren zwei Geräte gleichzeitig denselben Tisch, gewinnt das erste; das zwei
 
 ## Kasse abmelden
 
-**Gerät abmelden** im Menü trennt das Gerät nach einer Rückfrage von der Organisation. Es muss danach [neu verbunden](./geraete.md) werden — das ist nichts für zwischendurch. Um die Kasse kurz zu verlassen, nutze das [Schloss](#pin-und-sperre).
+**Gerät abmelden** im Menü trennt das Gerät nach einer Rückfrage von der Organisation. Es muss danach [neu verbunden](./geraete.md) werden — das ist nichts für zwischendurch. Um die Kasse kurz zu verlassen, nutze [Sperren](#pin-und-sperre).

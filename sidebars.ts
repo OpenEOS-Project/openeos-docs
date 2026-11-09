@@ -79,6 +79,7 @@ const sidebars: SidebarsConfig = {
         'pfand',
         'rabatt-bons',
         'mitglieder',
+        'bedienungen',
         'schichtplaene',
         'assistent',
         'einstellungen',

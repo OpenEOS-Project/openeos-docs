@@ -28,7 +28,7 @@ admin switches the features on.
 |---|---|
 | `none` | Off (default). All assistant endpoints respond with `404`. |
 | `anthropic` | Claude via the Anthropic API. Reads images **and PDFs**. |
-| `openai` | An OpenAI-compatible chat completions API — OpenAI itself or another service with its own `OPENAI_BASE_URL`, such as the [IONOS AI Model Hub](#ionos-ai-model-hub). Reads images and text; the server turns PDFs into page images first. |
+| `openai` | An OpenAI-compatible chat completions API — OpenAI itself or another service with its own `OPENAI_BASE_URL`, such as the [IONOS AI Model Hub](#ionos-ai-model-hub) (recommended). Reads images and text; the server turns PDFs into page images first. |
 
 ### Anthropic
 
@@ -85,7 +85,10 @@ provider") — photos and pasted text always work.
 ### IONOS AI Model Hub
 
 The IONOS AI Model Hub is
-OpenAI-compatible and runs in a data centre in Berlin. `Qwen/Qwen3.8-27B`
+OpenAI-compatible and runs in a data centre in Berlin. The hosted service
+on app.openeos.de uses it too, with exactly this configuration. According
+to IONOS, inputs and outputs are neither logged nor stored and are not used
+for training. `Qwen/Qwen3.8-27B`
 works well for both purposes — with reasoning `medium` for reading the menu
 and without reasoning for icon suggestions (otherwise the thinking uses up
 the whole token limit and icon suggestions fall back to plain name
@@ -167,8 +170,11 @@ background job on the server takes care of both. Imports that have been
 processing for more than 15 minutes are marked as failed by a per-minute
 job; they do not cost quota.
 
-At the provider itself the content remains only for the duration of
-processing — anything beyond that is governed by your contract with it.
+Whether and for how long the provider itself keeps the content, and whether
+it uses it for training, is governed by its terms or your contract with it.
+With the IONOS AI Model Hub, according to IONOS, it is held in memory only
+while it is being processed; with Anthropic and OpenAI, check their rules
+for retaining API data.
 
 ## Troubleshooting
 

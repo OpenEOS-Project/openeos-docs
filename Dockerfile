@@ -27,7 +27,7 @@ RUN node ./node_modules/@docusaurus/core/bin/docusaurus.mjs build
 ############################################
 # Stage 2 – Serve with nginx
 ############################################
-FROM nginx:1.27-alpine AS runtime
+FROM nginx:1.29-alpine AS runtime
 
 # Drop the default site config and add ours
 RUN rm /etc/nginx/conf.d/default.conf

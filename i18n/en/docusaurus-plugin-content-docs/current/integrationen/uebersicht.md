@@ -39,3 +39,11 @@ Your settings are kept. If you activate the integration again later, everything 
 | [Cloud TSE](./cloud-tse.md) | Fiscal security under the German KassenSichV – required for cash in Germany | available (Germany only) |
 
 <TseComingSoon />
+
+## Your own connections {/* #eigene-anbindungen */}
+
+For your own programs and automations you do not need an integration from the catalog. You set them up as an administrator in the settings:
+
+- [API access](../api-zugaenge.md) – scripts and automations read and change data through the REST API.
+- [Webhooks](./webhooks.md) – OpenEOS reports orders, payments, refunds and more to your own address as they happen.
+- [AI agents](../ki-agenten.md) – connect Claude, Cursor and other agents via MCP.

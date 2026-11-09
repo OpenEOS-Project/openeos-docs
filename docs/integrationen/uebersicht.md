@@ -39,3 +39,11 @@ Deine Einstellungen bleiben dabei erhalten. Wenn du die Integration später wied
 | [Cloud-TSE](./cloud-tse.md) | Kassensicherung nach KassenSichV – Voraussetzung für Bargeld in Deutschland | verfügbar (nur Deutschland) |
 
 <TseComingSoon />
+
+## Eigene Anbindungen {/* #eigene-anbindungen */}
+
+Für eigene Programme und Automatisierungen brauchst du keine Integration aus dem Katalog. Du richtest sie als Administrator in den Einstellungen ein:
+
+- [API-Zugänge](../api-zugaenge.md) – Skripte und Automatisierungen lesen und ändern Daten über die REST-API.
+- [Webhooks](./webhooks.md) – OpenEOS meldet Bestellungen, Zahlungen, Erstattungen und mehr sofort an deine eigene Adresse.
+- [KI-Agenten](../ki-agenten.md) – Claude, Cursor und andere Agenten per MCP anbinden.

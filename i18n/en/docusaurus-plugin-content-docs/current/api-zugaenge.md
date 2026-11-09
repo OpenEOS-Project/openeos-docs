@@ -12,6 +12,8 @@ The API is meant for **administration**, not for the till. Cashing up, payments,
 
 Every endpoint a token can reach is in the [API reference](/en/api) – each with its required scope, parameters, responses and examples, plus the management of the tokens themselves. The endpoints used by the apps (till and device API, sign-in, payments, members, billing, admin) are deliberately not documented there: they are not a stable interface for integrations. The reference is read-only – you cannot send requests from there – and it is in German in both languages of this documentation.
 
+If you want OpenEOS to notify you as soon as something happens – for example when an order is paid – instead of your script asking over and over, use [webhooks](./integrationen/webhooks.md).
+
 ## Creating a token
 
 1. Sign in as an **administrator** of the organization.
@@ -36,6 +38,8 @@ Every endpoint in the [API reference](/en/api) names the scope it requires (`x-a
 | `staff:write` | Edit shift plans, jobs, shifts and helper sign-ups (accept, decline, notes, create) | `Shift plans` |
 | `devices:write` | Create and edit receipt templates | `Devices` |
 | `settings:write` | Change organization settings | Administrator |
+| `webhooks:read` | Read [webhooks](./integrationen/webhooks.md), their settings and the delivery log | Administrator |
+| `webhooks:write` | Create and edit webhooks, rotate the secret, send a test, redeliver deliveries – deleting only in the app | Administrator |
 
 Never reachable with a token: the till and creating orders, payments and refunds, members and invitations, billing and activation, deleting, the device API, the menu import and all admin functions.
 
@@ -93,4 +97,5 @@ Every error response has the same shape:
 
 - [API reference](/en/api) – every endpoint for API tokens with parameters, responses and scopes, generated from the API's OpenAPI description
 - [Connecting AI agents](./ki-agenten.md) – connect Claude, Cursor and other agents via MCP with the same token
+- [Webhooks](./integrationen/webhooks.md) – OpenEOS reports orders, payments and more to your address as they happen
 - [Members and permissions](./mitglieder.md) – which module permissions a token owner needs

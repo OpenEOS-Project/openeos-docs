@@ -28,7 +28,7 @@ Die Betriebsart bestimmt `AI_PROVIDER` in der Umgebung von `openeos-api`:
 |---|---|
 | `none` | Aus (Standard). Alle Assistent-Endpunkte antworten mit `404`. |
 | `anthropic` | Claude über die Anthropic-API. Liest Bilder **und PDFs**. |
-| `openai` | Eine OpenAI-kompatible Chat-Completions-API — OpenAI selbst oder ein anderer Dienst mit eigener `OPENAI_BASE_URL`, etwa der [IONOS AI Model Hub](#ionos-ai-model-hub). Liest Bilder und Text; PDFs wandelt der Server vorher in Seitenbilder. |
+| `openai` | Eine OpenAI-kompatible Chat-Completions-API — OpenAI selbst oder ein anderer Dienst mit eigener `OPENAI_BASE_URL`, etwa der [IONOS AI Model Hub](#ionos-ai-model-hub) (empfohlen). Liest Bilder und Text; PDFs wandelt der Server vorher in Seitenbilder. |
 
 ### Anthropic
 
@@ -87,7 +87,10 @@ Text gehen immer.
 ### IONOS AI Model Hub
 
 Der AI Model Hub von IONOS ist
-OpenAI-kompatibel und läuft in einem Rechenzentrum in Berlin. Bewährt
+OpenAI-kompatibel und läuft in einem Rechenzentrum in Berlin. Ihn nutzt
+auch das gehostete Angebot auf app.openeos.de, mit genau dieser
+Konfiguration. Nach Angaben von IONOS werden Eingaben und Antworten weder
+protokolliert noch gespeichert und nicht zum Trainieren genutzt. Bewährt
 hat sich `Qwen/Qwen3.8-27B` für beide Zwecke — beim Lesen der Speisekarte
 mit Reasoning `medium`, bei den Icon-Vorschlägen ohne Reasoning (sonst
 verbraucht das Nachdenken das ganze Token-Limit, und die Icon-Vorschläge
@@ -172,8 +175,11 @@ Vorschlag (die erkannte Liste in der Tabelle `menu_imports`) nach
 Importe, die länger als 15 Minuten in Bearbeitung hängen, markiert ein
 Minuten-Job als fehlgeschlagen; sie kosten kein Kontingent.
 
-Beim Anbieter selbst verbleiben die Inhalte nur für die Dauer der
-Verarbeitung — was darüber hinaus gilt, bestimmt dein Vertrag mit ihm.
+Ob und wie lange der Anbieter selbst die Inhalte aufbewahrt und ob er sie
+zum Trainieren nutzt, regeln seine Bedingungen bzw. dein Vertrag mit ihm.
+Beim IONOS AI Model Hub liegen sie nach Angaben von IONOS nur während der
+Verarbeitung im Arbeitsspeicher; bei Anthropic und OpenAI prüfe die
+jeweiligen Regeln zur Aufbewahrung von API-Daten.
 
 ## Fehlersuche
 

@@ -51,10 +51,10 @@ If you host OpenEOS yourself, you set the limits.
 
 ## Privacy
 
-For these features the uploaded content – menus as photo, PDF or text, and product names – is sent to an **external provider** and processed there. The following applies:
+For these features the uploaded content – menus as photo, PDF or text, and product names – is sent to the provider of the language model and processed there. On [app.openeos.de](https://app.openeos.de) this is the **IONOS AI Model Hub** of IONOS SE: the model runs in an IONOS data centre in Berlin, and the data does not leave Germany. The following applies:
 
 - Only what the feature needs is sent: the menu or the product names. No orders, no revenue, no member data.
-- The provider keeps the content only for the duration of processing and does **not use it for training** its models.
+- According to IONOS, the content is held in memory only while it is being processed. It is neither logged nor stored and is **not used for training** models.
 - On the OpenEOS server, uploaded files are kept only until you apply or discard the suggestion – after **24 hours** at the latest they are deleted. The suggestion itself (the recognized list) stays for 30 days in case you need it again. The files are not publicly reachable.
 
-Which provider this is and on which legal basis the processing takes place is described in the [privacy policy](https://openeos.de/en/datenschutz). If you prefer not to use the assistant, simply leave it switched off – everything else in OpenEOS works as before.
+The details are in the [privacy policy](https://openeos.de/en/datenschutz). On a self-hosted server the operator chooses the provider ([Setting up the assistant](./selbst-betreiben/assistent.md)); its terms then apply. If you prefer not to use the assistant, simply leave it switched off – everything else in OpenEOS works as before.

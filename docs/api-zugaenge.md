@@ -12,6 +12,8 @@ Die API ist für die **Verwaltung** gedacht, nicht für die Kasse. Kassieren, Za
 
 Alle Endpunkte, die ein Token erreicht, findest du in der [API-Referenz](/api) – je Endpunkt mit nötigem Scope, Parametern, Antworten und Beispielen, dazu die Verwaltung der Tokens selbst. Die Endpunkte der Apps (Kasse und Geräte-API, Anmeldung, Zahlungen, Mitglieder, Abrechnung, Admin) sind dort absichtlich nicht dokumentiert: Sie sind keine stabile Schnittstelle für Integrationen. Die Referenz ist nur zum Lesen – du kannst dort keine Anfragen auslösen – und in beiden Sprachen der Doku auf Deutsch.
 
+Soll sich OpenEOS bei dir melden, sobald etwas passiert – etwa wenn eine Bestellung bezahlt ist –, statt dass dein Skript regelmäßig nachfragt, nimm [Webhooks](./integrationen/webhooks.md).
+
 ## Token anlegen
 
 1. Als **Administrator** der Organisation anmelden.
@@ -36,6 +38,8 @@ Jeder Endpunkt in der [API-Referenz](/api) nennt den Scope, den er verlangt (`x-
 | `staff:write` | Schichtpläne, Jobs, Schichten und Helfer-Anmeldungen bearbeiten (annehmen, ablehnen, Notizen, anlegen) | `Schichtpläne` |
 | `devices:write` | Bon-Vorlagen anlegen und ändern | `Geräte` |
 | `settings:write` | Organisationseinstellungen ändern | Administrator |
+| `webhooks:read` | [Webhooks](./integrationen/webhooks.md), ihre Einstellungen und das Zustellprotokoll lesen | Administrator |
+| `webhooks:write` | Webhooks anlegen und ändern, Secret erneuern, Test senden, Zustellungen erneut senden – Löschen nur in der App | Administrator |
 
 Nie per Token erreichbar: Kasse und Bestellungen anlegen, Zahlungen und Erstattungen, Mitglieder und Einladungen, Abrechnung und Freischaltung, Löschen, die Geräte-API, der Speisekarten-Import und alle Admin-Funktionen.
 
@@ -93,4 +97,5 @@ Jede Fehlerantwort hat dieselbe Form:
 
 - [API-Referenz](/api) – alle Endpunkte für API-Tokens mit Parametern, Antworten und Scopes, erzeugt aus der OpenAPI-Beschreibung der API
 - [KI-Agenten verbinden](./ki-agenten.md) – Claude, Cursor und andere Agenten per MCP mit demselben Token anbinden
+- [Webhooks](./integrationen/webhooks.md) – OpenEOS meldet Bestellungen, Zahlungen und mehr sofort an deine Adresse
 - [Mitglieder und Berechtigungen](./mitglieder.md) – welche Modul-Berechtigungen ein Token-Besitzer braucht

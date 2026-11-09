@@ -83,6 +83,7 @@ const sidebars: SidebarsConfig = {
         'assistent',
         'einstellungen',
         'daten-und-loeschung',
+        'support',
       ],
     },
   ],

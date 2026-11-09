@@ -69,13 +69,13 @@ Mit dem Schalter **Aktiv** pausierst du einen Webhook: Solange er aus ist, versc
 
 | Typ | Wann | Inhalt von `data` | Beträge |
 |---|---|---|---|
-| `order.created` | Eine Bestellung wurde angelegt. Woher sie kommt, steht in `source`: Kasse (`pos`), Shop (`online`) oder QR-Bestellung am Tisch (`qr_order`). | `order` | ja¹ |
+| `order.created` | Eine Bestellung wurde angelegt – auch Shop-Bestellungen (dann zusätzlich `shop.order.created`). Woher sie kommt, steht in `source`: Kasse (`pos`), Shop (`online`) oder QR-Bestellung am Tisch (`qr_order`). | `order` | ja¹ |
 | `order.paid` | Eine Bestellung ist vollständig bezahlt (`paymentStatus` wird `paid`). | `order` | ja |
 | `order.completed` | Eine Bestellung ist abgeschlossen, also ausgegeben, abgeholt oder serviert. | `order` | ja¹ |
 | `order.cancelled` | Eine Bestellung wurde storniert. | `order` | ja¹ |
 | `payment.created` | Eine Zahlung wurde gebucht – bar, mit Karte oder online. | `payment` | ja |
 | `refund.created` | Ein Storno mit Rückzahlung oder eine Erstattung wurde gebucht (`kind`). | `refund` | ja |
-| `shop.order.created` | Im [Online-Shop](../veranstaltungen.md#vorverkauf) ist eine Bestellung eingegangen. | `order` | ja |
+| `shop.order.created` | Im [Online-Shop](../veranstaltungen.md#vorverkauf) ist eine (bezahlte) Bestellung eingegangen. Kommt zusätzlich zu `order.created` – abonniere nur eines von beiden, wenn du Shop-Bestellungen nicht doppelt zählen willst. | `order` | ja |
 | `pfand_return.created` | An der Kasse wurde eine [Pfandrückgabe](../pfand.md) gebucht. | `pfandReturn` | ja |
 | `event.activated` | Eine Veranstaltung wurde [freigeschaltet](../veranstaltungen.md). | `event` | nein |
 | `event.phase_changed` | Eine Veranstaltung wechselt die [Phase](../veranstaltungen.md#phasen), zum Beispiel von Geplant zu Aktiv beim Verkaufsstart. | `event`, `previousPhase`, `phase` | nein |
@@ -349,7 +349,7 @@ Arbeitet deine Organisation in der [Betriebsart](../betriebsarten.md#nur-bons) *
 
 - In Bestellungen ist `amounts` `null`, und die Positionen haben kein `unitPrice`, `totalPrice` und `taxRate`.
 - `product.updated` kommt ohne `price` und `taxRate`.
-- `order.paid`, `payment.created` und `refund.created` werden nicht verschickt. Auch `shop.order.created` und `pfand_return.created` kommen nicht vor, weil es Shop, QR-Bestellung und Pfand in dieser Betriebsart nicht gibt.
+- `payment.created` und `refund.created` werden nicht verschickt. `order.paid`, `shop.order.created` und `pfand_return.created` kommen praktisch nicht vor, weil OpenEOS in dieser Betriebsart nicht kassiert und es Shop und Pfand nicht gibt.
 
 Werte `amounts` deshalb immer so aus, dass `null` vorkommen darf.
 
@@ -670,7 +670,8 @@ Die Abstände schwanken um ±10 %, damit nicht alle Wiederholungen gleichzeitig 
 ### Doppelte Zustellungen und Reihenfolge {/* #idempotenz */}
 
 - **Mindestens einmal:** OpenEOS stellt jedes Ereignis mindestens einmal zu, in seltenen Fällen auch mehrfach – etwa wenn deine `2xx`-Antwort nicht rechtzeitig ankam. Merke dir deshalb die Event-ID (`id` bzw. `OpenEOS-Event-Id`) und überspringe Ereignisse, die du schon verarbeitet hast.
-- **Keine feste Reihenfolge:** Ereignisse können in anderer Reihenfolge ankommen, als sie passiert sind – zum Beispiel `order.paid` vor `order.created`, wenn eine Zustellung wiederholt werden musste. Ordne nach `createdAt`, oder hol dir bei Bedarf den aktuellen Stand über die [API](../api-zugaenge.md).
+- **Reihenfolge ohne Garantie:** Je Webhook sendet OpenEOS die Ereignisse in der Reihenfolge, in der sie passiert sind. Musste eine Zustellung wiederholt werden, kann ein späteres Ereignis aber vorher ankommen – zum Beispiel `order.completed` vor `order.paid`. Ordne nach `createdAt`, oder hol dir bei Bedarf den aktuellen Stand über die [API](../api-zugaenge.md).
+- **Stand beim Versand:** `createdAt` ist der Zeitpunkt der Änderung; `data` zeigt den Stand der Bestellung, als OpenEOS die Zustellung vorbereitet hat (wenige Sekunden später). Folgen Änderungen sehr schnell aufeinander, kann `order.created` also schon `status: "completed"` oder `"cancelled"` enthalten. Maßgeblich für das, was passiert ist, ist `type`. Wiederholungen und **Erneut senden** schicken genau denselben Inhalt.
 
 ### Automatisches Abschalten {/* #abschalten */}
 
@@ -679,7 +680,7 @@ Schlägt die Zustellung an einen Webhook dauerhaft fehl, schaltet OpenEOS ihn ab
 - mindestens **30 Versuche in Folge** sind fehlgeschlagen, **und**
 - der erste davon liegt mindestens **24 Stunden** zurück.
 
-Der Webhook steht dann auf inaktiv mit dem Grund „zu viele Fehler“, alle Administratoren der Organisation bekommen eine **E-Mail**, und noch ausstehende Zustellungen enden als fehlgeschlagen (`ENDPOINT_INACTIVE`). Ein einzelner erfolgreicher Versuch setzt die Zählung zurück.
+Der Webhook steht dann auf inaktiv mit dem Grund „zu viele Fehler“, alle Administratoren der Organisation bekommen eine **E-Mail**, und noch ausstehende Zustellungen enden als fehlgeschlagen (`ENDPOINT_INACTIVE`). Ein einzelner erfolgreicher Versuch setzt die Zählung zurück. **Test senden** und **Erneut senden** sind je ein einzelner Versuch ohne Wiederholung; schlagen sie fehl, zählt das nicht zur Fehlerserie.
 
 Ist der Fehler bei deinem Empfänger behoben, schaltest du den Webhook in der App wieder auf **Aktiv**. Ereignisse aus der Zwischenzeit holst du über **Erneut senden** im Zustellprotokoll nach – oder über die API, wenn es viele sind.
 
@@ -696,7 +697,7 @@ Willst du einen Empfänger auf deinem eigenen Rechner testen, mach ihn über ein
 - **Signatur immer prüfen** – auch bei `ping`, und mit Zeitstempel-Prüfung. Anfragen ohne gültige Signatur mit `400` ablehnen.
 - **Duplikate erkennen** – die Event-ID speichern, etwa in einer Tabelle mit eindeutiger Spalte, und schon bekannte Ereignisse überspringen.
 - **Schnell mit 2xx antworten** – das Ereignis zuerst sicher ablegen (Datenbank oder Warteschlange), dann antworten und erst danach verarbeiten. Was länger als 10 Sekunden dauert, gilt als fehlgeschlagen und kommt erneut.
-- **Bei Bedarf den aktuellen Stand holen** – ein Ereignis beschreibt den Stand zum Zeitpunkt `createdAt`. Kommt es verspätet oder in anderer Reihenfolge an, lies die Bestellung über die [API](../api-zugaenge.md) nach, bevor du Wichtiges entscheidest.
+- **Bei Bedarf den aktuellen Stand holen** – `data` zeigt den Stand wenige Sekunden nach der Änderung (siehe [Reihenfolge](#idempotenz)). Kommt ein Ereignis verspätet oder in anderer Reihenfolge an, lies die Bestellung über die [API](../api-zugaenge.md) nach, bevor du Wichtiges entscheidest.
 - **Unbekanntes tolerieren** – unbekannte Felder und Ereignistypen ignorieren statt mit einem Fehler zu antworten.
 - **Secret schützen** – nur auf dem Server ablegen (Umgebungsvariable oder Secret-Speicher), nie im Browser, in einer App oder im Repository. Ist es bekannt geworden, sofort [erneuern](#secret-erneuern).
 - **Nur abonnieren, was du brauchst** – weniger Ereignisse bedeuten weniger Last und weniger Daten beim Empfänger.
@@ -750,7 +751,7 @@ Wer OpenEOS [selbst betreibt](../selbst-betreiben/intro.md), stellt die Webhooks
 
 | Variable | Standard | Bedeutung |
 |---|---|---|
-| `WEBHOOKS_ENABLED` | `true` | Webhooks an oder aus. Bei `false` antworten Anlegen, Test und Erneut senden mit `503` (`WEBHOOKS_DISABLED`). |
+| `WEBHOOKS_ENABLED` | `true` | Webhooks an oder aus. Bei `false` stellt OpenEOS nichts zu, Ereignisse aus dieser Zeit werden nicht nachgeholt, und Anlegen, Test und Erneut senden antworten mit `503` (`WEBHOOKS_DISABLED`). |
 | `WEBHOOKS_TIMEOUT_MS` | `10000` | Wie lange OpenEOS je Versuch auf die Antwort wartet (Millisekunden) |
 | `WEBHOOKS_MAX_ATTEMPTS` | `8` | Versuche je Zustellung |
 | `WEBHOOKS_MAX_ENDPOINTS_PER_ORG` | `10` | Höchstzahl Webhooks je Organisation |

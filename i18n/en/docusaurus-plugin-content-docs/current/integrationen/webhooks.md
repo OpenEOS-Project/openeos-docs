@@ -69,13 +69,13 @@ The **Active** switch pauses a webhook: while it is off, OpenEOS sends no events
 
 | Type | When | Content of `data` | Amounts |
 |---|---|---|---|
-| `order.created` | An order was created. Where it comes from is in `source`: till (`pos`), shop (`online`) or QR ordering at the table (`qr_order`). | `order` | yes¹ |
+| `order.created` | An order was created – shop orders included (they also trigger `shop.order.created`). Where it comes from is in `source`: till (`pos`), shop (`online`) or QR ordering at the table (`qr_order`). | `order` | yes¹ |
 | `order.paid` | An order is fully paid (`paymentStatus` becomes `paid`). | `order` | yes |
 | `order.completed` | An order is completed, i.e. handed out, picked up or served. | `order` | yes¹ |
 | `order.cancelled` | An order was cancelled. | `order` | yes¹ |
 | `payment.created` | A payment was booked – cash, card or online. | `payment` | yes |
 | `refund.created` | A cancellation with repayment or a refund was booked (`kind`). | `refund` | yes |
-| `shop.order.created` | An order came in through the [online shop](../veranstaltungen.md#vorverkauf). | `order` | yes |
+| `shop.order.created` | A (paid) order came in through the [online shop](../veranstaltungen.md#vorverkauf). Sent in addition to `order.created` – subscribe to only one of them if you don't want to count shop orders twice. | `order` | yes |
 | `pfand_return.created` | A [deposit return](../pfand.md) was booked at the till. | `pfandReturn` | yes |
 | `event.activated` | An event was [activated](../veranstaltungen.md). | `event` | no |
 | `event.phase_changed` | An event changes its [phase](../veranstaltungen.md#phasen), for example from planned to active at the start of sales. | `event`, `previousPhase`, `phase` | no |
@@ -349,7 +349,7 @@ If your organization runs in the **Orders only** (Nur Bons) [operating mode](../
 
 - In orders, `amounts` is `null`, and the items have no `unitPrice`, `totalPrice` and `taxRate`.
 - `product.updated` comes without `price` and `taxRate`.
-- `order.paid`, `payment.created` and `refund.created` are not sent. `shop.order.created` and `pfand_return.created` do not occur either, because there is no shop, QR ordering or deposit in this mode.
+- `payment.created` and `refund.created` are not sent. `order.paid`, `shop.order.created` and `pfand_return.created` practically never occur, because OpenEOS takes no payments in this mode and there is no shop or deposit.
 
 So always evaluate `amounts` in a way that allows `null`.
 
@@ -670,7 +670,8 @@ The delays vary by ±10 % so that retries do not all arrive at once. After the 8
 ### Duplicate deliveries and ordering {/* #idempotenz */}
 
 - **At least once:** OpenEOS delivers every event at least once, and in rare cases more than once – for example if your `2xx` response did not arrive in time. So remember the event ID (`id` or `OpenEOS-Event-Id`) and skip events you have already processed.
-- **No guaranteed order:** events can arrive in a different order than they happened – for example `order.paid` before `order.created` if a delivery had to be retried. Order by `createdAt`, or fetch the current state through the [API](../api-zugaenge.md) when needed.
+- **Order without guarantee:** per webhook, OpenEOS sends events in the order they happened. If a delivery had to be retried, a later event can still arrive first – for example `order.completed` before `order.paid`. Order by `createdAt`, or fetch the current state through the [API](../api-zugaenge.md) when needed.
+- **State at sending time:** `createdAt` is when the change happened; `data` shows the state of the order when OpenEOS prepared the delivery (a few seconds later). If changes follow each other very quickly, `order.created` may already contain `status: "completed"` or `"cancelled"`. What happened is told by `type`. Retries and **Redeliver** send exactly the same content.
 
 ### Automatic switch-off {/* #abschalten */}
 
@@ -679,7 +680,7 @@ If deliveries to a webhook keep failing, OpenEOS switches it off. That happens w
 - at least **30 attempts in a row** have failed, **and**
 - the first of them was at least **24 hours** ago.
 
-The webhook is then set to inactive with the reason "too many failures", all administrators of the organization get an **email**, and deliveries still pending end as failed (`ENDPOINT_INACTIVE`). A single successful attempt resets the count.
+The webhook is then set to inactive with the reason "too many failures", all administrators of the organization get an **email**, and deliveries still pending end as failed (`ENDPOINT_INACTIVE`). A single successful attempt resets the count. **Send test** and **Redeliver** are a single attempt each without retries; if they fail, that does not count towards the failure streak.
 
 Once the problem with your receiver is fixed, set the webhook back to **Active** in the app. Catch up on events from the meantime with **Redeliver** in the delivery log – or through the API if there are many.
 
@@ -696,7 +697,7 @@ To test a receiver on your own computer, make it reachable through a tunnel serv
 - **Always verify the signature** – also for `ping`, and including the timestamp check. Reject requests without a valid signature with `400`.
 - **Detect duplicates** – store the event ID, for example in a table with a unique column, and skip events you already know.
 - **Respond with 2xx quickly** – store the event safely first (database or queue), then respond, and only process it afterwards. Anything that takes longer than 10 seconds counts as failed and is sent again.
-- **Fetch the current state when needed** – an event describes the state at `createdAt`. If it arrives late or out of order, read the order through the [API](../api-zugaenge.md) before you make important decisions.
+- **Fetch the current state when needed** – `data` shows the state a few seconds after the change (see [ordering](#idempotenz)). If an event arrives late or out of order, read the order through the [API](../api-zugaenge.md) before you make important decisions.
 - **Tolerate the unknown** – ignore unknown fields and event types instead of responding with an error.
 - **Keep the secret safe** – store it only on the server (environment variable or secret store), never in a browser, an app or a repository. If it has leaked, [rotate it](#secret-erneuern) immediately.
 - **Only subscribe to what you need** – fewer events mean less load and less data at the receiver.
@@ -750,7 +751,7 @@ If you [self-host](../selbst-betreiben/intro.md) OpenEOS, you configure webhooks
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `WEBHOOKS_ENABLED` | `true` | Webhooks on or off. With `false`, creating, testing and redelivering respond with `503` (`WEBHOOKS_DISABLED`). |
+| `WEBHOOKS_ENABLED` | `true` | Webhooks on or off. With `false`, OpenEOS delivers nothing, events from that time are not sent later, and creating, testing and redelivering respond with `503` (`WEBHOOKS_DISABLED`). |
 | `WEBHOOKS_TIMEOUT_MS` | `10000` | How long OpenEOS waits for the response per attempt (milliseconds) |
 | `WEBHOOKS_MAX_ATTEMPTS` | `8` | Attempts per delivery |
 | `WEBHOOKS_MAX_ENDPOINTS_PER_ORG` | `10` | Maximum number of webhooks per organization |

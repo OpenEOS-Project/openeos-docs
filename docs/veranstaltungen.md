@@ -88,7 +88,7 @@ Bereits freigeschaltete Veranstaltungen behalten die Tage und den Betrag, mit de
 
 Eine neue Veranstaltung startet im **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt.
 
-Beim Freischalten werden die Testbestellungen gelöscht. **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
+Beim Freischalten werden die Testbestellungen gelöscht. Bis zum Termin bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
 
 :::tip[Unser Rat für das erste Fest]
 Richte alles in Ruhe vorher ein und spiele im Testmodus einen Durchgang durch: eine Bestellung an der Kasse aufnehmen, auf der Küchenanzeige quittieren, einen Bon drucken. Dann weißt du am Festtag, dass die Kette steht.
@@ -167,6 +167,45 @@ Aktiviere die gewünschte Veranstaltung – sie erscheint dann mit dem Status **
 Die aktive Veranstaltung steuert, welche Produkte an der Kasse erscheinen und welchem Event Bestellungen zugeordnet werden. Wechselst du das aktive Event, wechselt auch der Kontext in Produkten, Standorten und Inventur.
 :::
 
+## Phasen: Geplant, Aktiv, Beendet {/* #phasen */}
+
+Eine freigeschaltete Veranstaltung verkauft nicht sofort und nicht unbegrenzt echt. Was gerade gilt, steht in der Liste der Veranstaltungen, oben links in der Seitenleiste und an der Kasse:
+
+| Phase | Wann | Was passiert |
+|---|---|---|
+| **Testmodus** | vor dem Kauf | bis zu 25 Testbestellungen (siehe oben) |
+| **Geplant** | freigeschaltet, vor dem Verkaufsstart | Kasse, Tische und QR-Bestellung buchen **Testbestellungen** – du kannst alles in Ruhe ausprobieren. Der Shop nimmt nur mit [Vorverkauf](#vorverkauf) Bestellungen an. |
+| **Aktiv** | vom Verkaufsstart bis zum Verkaufsende | echte Verkäufe |
+| **Beendet** | nach dem Verkaufsende | keine neuen Bestellungen mehr – offene Bestellungen kassieren, Tische schließen, erstatten und stornieren geht weiter; Auswertung, Exporte und Kassenbuch bleiben |
+
+In der Liste steht zum Beispiel bei einem Fest am 16. und 17.11. **Geplant** mit dem Hinweis *Startet am 15.11. um 18:00 Uhr (Testbetrieb bis dahin)*, an der Kasse der Streifen *Testbetrieb – echte Verkäufe ab 15.11. um 18:00 Uhr*.
+
+### Verkaufsstart am Vorabend {/* #verkaufsstart */}
+
+Echte Verkäufe beginnen **12 Stunden vor dem ersten Veranstaltungstag** (6 Uhr) – bei einem Fest am 16. also am 15. um 18 Uhr. So kannst du schon am Vorabend kassieren, zum Beispiel beim Aufbauabend. Unter **Echter Verkauf beginnt vorher** stellst du je Veranstaltung einen anderen Vorlauf ein (0 bis 24 Stunden).
+
+Zum Verkaufsstart werden die Testbestellungen aus der Phase *Geplant* gelöscht – wie beim Freischalten. Deine Einrichtung bleibt, die Bestellnummern beginnen neu. Echte Bestellungen (etwa aus dem Vorverkauf) bleiben selbstverständlich.
+
+:::note[Mit Cloud-TSE nie im Vormonat]
+Nutzt du die [Cloud-TSE](integrationen/cloud-tse.md), beginnt der Verkauf frühestens am Monatsersten um 0 Uhr – eine TSE kostet jeden Monat, in dem sie läuft. Bei einem Fest am 1. gibt es dann keinen Vorabend-Verkauf am Monatsletzten.
+:::
+
+### Verkaufsende und Kulanz {/* #verkaufsende */}
+
+Ein Veranstaltungstag läuft bis 6 Uhr am nächsten Morgen. Danach hast du noch **6 Stunden Kulanz**: Spätere Deckel kannst du bis 12 Uhr abschließen. Ab dann ist die Veranstaltung **Beendet**. Die Zusatzstunden kosten nichts – abgerechnet werden die Veranstaltungstage.
+
+### Vorverkauf im Shop {/* #vorverkauf */}
+
+Mit **Vorverkauf im Shop** (Abschnitt Online-Shop im Veranstaltungsdialog) nimmt der Shop schon in der Phase *Geplant* **echte** Bestellungen an – bis zum Verkaufsstart. Ohne Vorverkauf öffnet der Shop erst mit der Veranstaltung. Hast du für den Shop eine Wochentags-Tabelle, gilt sie auch im Vorverkauf; Öffnungszeiten je Veranstaltungstag gelten erst ab dem Verkaufsstart, der Vorverkauf ist bis dahin durchgehend offen. Vorverkaufs-Bestellungen zählen als echte Bestellungen – auch für die [kostenlose Stornierung](#stornieren).
+
+### Verschieben {/* #verschieben */}
+
+Solange die Veranstaltung *Geplant* ist, kannst du sie verschieben (innerhalb der bezahlten Tage). Ab dem Verkaufsstart steht der Beginn fest; das Ende kannst du nur noch vorziehen, etwa wenn ein Tag ausfällt. Ist die Veranstaltung beendet, lässt sich nichts mehr verschieben. Musst du trotzdem verschieben, hilft der Support.
+
+:::info[Eigene Installation]
+Ohne Abrechnung gelten die Phasen genauso – Testbetrieb vorher, kein Verkauf nach dem Ende –, aber ohne Grenze für Testbestellungen und ohne Sperre beim Verschieben: Verlängere einfach das Ende, wenn du weiter verkaufen willst. Mit `EVENT_DATE_PHASES=false` zählt wie früher nur der Status.
+:::
+
 ## Status & Datum
 
-In der Übersicht siehst du pro Veranstaltung Name, **Status** (Aktiv/Inaktiv) und den **Zeitraum**. So behältst du auch über mehrere Feste hinweg den Überblick.
+In der Übersicht siehst du pro Veranstaltung Name, **Phase** (Testmodus, Geplant, Aktiv, Beendet oder Inaktiv) mit einem Hinweis zum Verkaufsstart bzw. -ende und den **Zeitraum**. So behältst du auch über mehrere Feste hinweg den Überblick.

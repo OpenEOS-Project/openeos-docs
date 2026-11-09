@@ -9,7 +9,7 @@ description: Tisch öffnen, bestellen, senden, kassieren — der Ablauf an der K
 Diese Seite beschreibt die Kasse selbst — also das, was dein Team am Festtag tut. Wie ein Gerät zur Kasse wird, steht unter [Geräte verbinden](./geraete.md); wie Tische und Tischplan entstehen, unter [Tische](./tische.md).
 
 :::tip[Vorher ausprobieren]
-Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt.
+Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt. Bis zum Verkaufsstart ist die freigeschaltete Veranstaltung **Geplant**: Die Kasse bucht weiter Testbestellungen und zeigt „Testbetrieb – echte Verkäufe ab …“; nach dem Ende steht „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ (siehe [Phasen](veranstaltungen.md#phasen)).
 :::
 
 ## Wie die Kasse startet {/* #start */}

@@ -60,7 +60,7 @@ The **Cloud TSE** page shows which requirements are met: organization in Germany
 
 ![Cloud TSE setup](/img/screens/en/integrations-tse-setup.png)
 
-- **Automatic:** on the first day of the event OpenEOS sets up the TSE by itself. You don't need to do anything else.
+- **Automatic:** in good time before [sales start](../veranstaltungen.md#verkaufsstart) – about 12 hours ahead, never before the month of the event – OpenEOS sets up the TSE by itself. You don't need to do anything else.
 - **Yourself:** if you want to test beforehand, click **Set up now** in the month of the event. This usually takes only a few seconds; the page updates by itself.
 
 Once the TSE is active, **Cashless** automatically becomes **All features**: your tills accept cash from now on. The change appears in the operating mode history.

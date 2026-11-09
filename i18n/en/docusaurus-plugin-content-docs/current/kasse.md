@@ -9,7 +9,7 @@ description: Open a table, order, send, check out — how the till works on the 
 This page covers the till itself — what your team does on the day. For how a device becomes a till, see [Connecting devices](./geraete.md); for how tables and the floor plan are set up, see [Tables](./tische.md).
 
 :::tip[Try it first]
-While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode — Orders will be deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup.
+While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode — Orders will be deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – real sales from …"; after the end it shows "Event ended – only settle open orders" (see [Phases](veranstaltungen.md#phasen)).
 :::
 
 ## How the till starts {/* #start */}

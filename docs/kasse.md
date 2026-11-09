@@ -218,6 +218,8 @@ Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Men�
 - **Auszahlen** — der Gast bekommt das Geld bar zurück, die Kassenlade öffnet sich, oder
 - **Verrechnen** — der Betrag wird vom aktuellen Warenkorb abgezogen (nur, wenn gerade etwas im Warenkorb liegt).
 
+Nach dem **Auszahlen** zeigt die Kasse den Beleg der Rückgabe mit Belegnummer. Er wird wie der Kassenbon gedruckt: automatisch, wenn Kassenbons nach der Zahlung gedruckt werden (dann gibt es **Bon erneut drucken**), sonst über **Bon drucken**. Verrechnet wird nur Pfand mit demselben [Steuersatz](./pfand.md#umsatzsteuer) – ein zurückgegebener Becher (19 %) ersetzt kein Tellerpfand (7 %).
+
 In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es kein **Auszahlen**, nur **Verrechnen** mit neuem Pfand im selben Verkauf. In [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
 
 ## Am Telefon und Tablet

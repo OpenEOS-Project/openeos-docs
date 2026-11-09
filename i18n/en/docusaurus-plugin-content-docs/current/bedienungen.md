@@ -1,7 +1,7 @@
 ---
 sidebar_position: 16
 title: Servers
-description: Till profiles with a PIN for helpers on shared tills – no account and no email.
+description: Till profiles with a PIN for helpers on shared tills – no account and no email. With settlement, table handover and retention.
 ---
 
 # Servers
@@ -94,7 +94,7 @@ You can set these four switches per person differently from the role. An experie
 
 - **Deactivate** – the PIN is deleted and the till locks immediately. The server stays in the list.
 - **Activate** – the server is back. Then assign a new PIN with **New PIN**.
-- **Delete** – if the server has not booked anything yet, they are deleted. If they have booked, they are deactivated and their name is replaced by "Server N". The name in the tax records (cash point closing) is kept.
+- **Delete** – if the server has not booked anything yet, they are deleted. If they have booked, they are deactivated and their name is replaced by "Server N". The name in the tax records (cash point closing) is kept. More under [Privacy and retention](#loeschen).
 
 ## Settings {/* #einstellungen */}
 
@@ -105,6 +105,7 @@ Administrators see the **Server settings** card on the page. It applies to all t
 | **Length of new PINs** | 4 digits (default) or 6 digits. Applies to PINs generated from now on. |
 | **Name on tickets** | **Short name (if set)** or **Full name** |
 | **Other servers' tables** | **Booking allowed, with a note** or **Booking allowed, without a note** – see [Tables](#tische) |
+| **Servers settle themselves** | off (default) or on. When on, every server may settle themselves at the till, see [Settling](#abrechnen). |
 
 ## Device modes {/* #geraetemodi */}
 
@@ -125,7 +126,7 @@ This is how a **Shared till** works. More on the flow is under [Till](./kasse.md
 ### Signing in, switching, locking
 
 - The till shows the PIN screen **"Who is serving?"**. The PIN alone is enough – it belongs to exactly one person.
-- After signing in, a **chip** with the color and short name appears at the top right. Tapping it opens **Switch**, **Lock** and **Sign out**.
+- After signing in, a **chip** with the color and short name appears at the top right. Tapping it opens **Switch**, **Lock** and **Sign out**, plus **My running total** and – if you are allowed – **Settle** (see [Settlement](#abrechnung)).
 - When locking or switching, the till keeps the unsent cart **per server** on this device. When the same person signs in again, it is back. The till shows a note such as "The cart is kept for Anna." The cart only lives in memory: a reload clears it.
 - **Automatic lock** after a time without touch (device setting, 2 minutes by default on shared tills). The till never locks during a running payment.
 - Optional **Lock after every payment** – handy at the bar so everyone takes payments under their own name.
@@ -147,7 +148,9 @@ If there are unusually many failed attempts across the organization, PIN entry p
 
 - Whoever takes the first order at a table (or acknowledges a guest order) becomes the table's **responsible server**.
 - **Open tables** shows the filter **Mine / All**. **Mine** is the default: your tables and tables nobody owns yet. Each table shows the short name and color of the responsible server.
+- On the floor plan every table shows the color of its responsible server.
 - You may book and take payments at another server's table. The till then shows a note such as "Table of Anna" (can be switched off under [Other servers' tables](#einstellungen)). The money counts for whoever takes the payment.
+- If someone else should take over the table, hand it over, see [Table handover](#tischuebergabe).
 
 ### Cancel and refund {/* #storno */}
 
@@ -160,6 +163,74 @@ How the till handles cancellations in general (allowed, PIN only, off) is set pe
 
 Members can still sign in on a till with their **member PIN** and then work like a server. Existing member PINs keep working. OpenEOS moves them into the shared PIN space the first time they are used.
 
+## Settlement {/* #abrechnung */}
+
+At the end of the shift every server settles up: what did they take, how much cash belongs in the drawer, are any tables still open? A settlement covers one event and starts where that server's last settlement ended – if there is none yet, at the start of the event.
+
+### My running total {/* #zwischenstand */}
+
+Tap your chip at the top right of the till and choose **My running total**. You see what has come together since your last settlement:
+
+| Block | Content |
+|---|---|
+| **Taken** | per payment method – **Cash**, **Card**, **Other** (such as PayPal or online) – amount and count, of which tips |
+| **Cancellations/refunds** | what you cancelled or refunded, split into cash and non-cash |
+| **Deposit paid out** | deposits you returned |
+| **Ordered** | orders, items, gross revenue and discounts – for information only |
+| **Expected cash** | cash payments − cash refunds − deposit payouts, split by device, e.g. "Cash is in the drawer of Till 2" |
+| **Open tables** | your tables that are not paid yet, with the open amount |
+
+- If you take payment at another server's table, the money counts for you.
+- **Expected cash** is only a guide. The cash stays in the till's drawer and is counted at the device's [cash count](./kassenbuch.md) as before.
+- **Print running total** prints the figures on the till's receipt printer – not binding, without a number and without signature lines.
+
+Members who take payments with their member PIN see their running total the same way.
+
+### Settling {/* #abrechnen */}
+
+Settlements are done by a **shift lead** or an administrator:
+
+- **At the till:** tap the chip → **Settle** → choose the server.
+- **In the admin area:** **Servers** → the server's row → **Settle**. Everyone who [manages servers](#verwalten) may do this. Optionally choose a printer for the receipt.
+
+A server may only settle themselves if the organization has switched on **Servers settle themselves** (see [Settings](#einstellungen)).
+
+The result is a **settlement with a running number** per organization ("Settlement No. 17"). It cannot be changed afterwards.
+
+- The receipt is printed on the till's receipt printer, with signature lines for **Server** and **Till / shift lead**. In the admin area you can **Reprint** it at any time.
+- The server's next settlement starts where this one ends.
+- If nothing has happened since the last settlement, OpenEOS says "There is nothing to settle since the last settlement."
+
+### Open tables block settling {/* #offene-tische */}
+
+If the server still has open tables, settling is blocked. There are two ways forward:
+
+1. **Hand over** the tables to someone else, see [Table handover](#tischuebergabe). Then the settlement goes through.
+2. As a shift lead or admin, **Settle despite open tables**. A note is required, e.g. "Table 12 pays tomorrow". The receipt and the list of settlements show it.
+
+### Training and Orders only {/* #training */}
+
+- **Test mode:** bookings from test mode are listed separately as "Training, not in the cash". A settlement with only test bookings gets no number. It is deleted together with the test orders when you activate the event.
+- **[Orders only](./betriebsarten.md#nur-bons):** the running total and the settlement show quantities only (orders, items), no amounts. Open tables do not block here.
+
+### Settlements in the admin area {/* #abrechnungen */}
+
+**Servers → Settlements** lists all settlements of the organization: No., server, event, period, taken, expected cash, who settled and whether it was settled **despite open tables**. A click opens the details, where you also find **Reprint**.
+
+:::note[Coming later]
+The **server wallet** (servers work with their own change and settle their cash themselves) and **paying out card tips** are not available yet. We are still clarifying the tax side of both.
+:::
+
+## Table handover {/* #tischuebergabe */}
+
+When a server goes home, someone else takes over their tables.
+
+- **At the till:** in the open tables or the order view, tap **Hand over…** and choose the new server. All open orders of the table that belong to the same server move together.
+- **Who may?** Every server can hand over their own tables. Only a shift lead or an admin can hand over someone else's tables.
+- The new server's tills get a note, and the table's color on the floor plan changes.
+- Every handover is listed in the order history, e.g. "Handed over from Anna to Ben".
+- **In the admin area:** before settling, **Hand over open tables** moves all open tables of one server to another in one go.
+
 ## What is recorded {/* #zuordnung */}
 
 Each of these bookings is attributed to the server who is signed in:
@@ -168,20 +239,60 @@ Each of these bookings is attributed to the server who is signed in:
 - payments, including the tip per payment
 - cancellations and refunds – and who approved them
 - deposit payouts
+- table handovers (from whom to whom)
 - opening the cash drawer and entries in the [cash book](./kassenbuch.md)
 
 On kitchen and bar tickets the **Waiter** element ([Printers](./drucker.md#waiter-and-device-on-the-ticket)) shows the first available of: who sent the round ▸ responsible server of the table ▸ member ▸ device name. By default it prints the short name, see [Name on tickets](#einstellungen).
 
 For DSFinV-K, OpenEOS stores the name the server had at the time of signing as **BEDIENER**.
 
-## Privacy {/* #datenschutz */}
+## Privacy and retention {/* #datenschutz */}
+
+### What OpenEOS stores
+
+For a server, OpenEOS stores:
+
+- the name (a first name or nickname is enough), short name, color, role and rights
+- the PIN only as a check value that the PIN cannot be worked out from
+- sign-ins on tills with the device and times
+- the bookings attributed to them and their settlements
+
+No email, no phone number. OpenEOS does not evaluate working hours or performance per hour.
 
 :::info[Note]
-For a server, OpenEOS only stores the name, short name, color, role and the PIN's check value – no email, no phone number. Sign-ins on tills are only stored with the device and times.
+Let your till staff know that bookings are attributed to them, for example with a notice at the till or when you hand out the PIN sheet. The template for your privacy notice (under **Settings → Legal information (shop & helper pages)**) has a section "Kassenpersonal (Bedienungen)" for this.
 
-Let your till staff know that bookings are attributed to them, for example when you hand out the PIN sheet. If you have employees, questions of employee data protection (§ 26 BDSG) or co-determination by a works council may come up. This is not legal advice; if in doubt, check with your data protection adviser.
+If you have employees, for example in a restaurant, employee data protection (§ 26 BDSG) and co-determination by the works council (§ 87 (1) no. 6 BetrVG) may apply. This is not legal advice; if in doubt, check with your data protection adviser.
 :::
+
+### Automatic deletion {/* #loeschfristen */}
+
+OpenEOS cleans up every night:
+
+| What | When | What happens |
+|---|---|---|
+| Server valid for one **event** | 30 days after the event ends | anonymized |
+| Server valid for the **whole organization** | 30 days after deactivation or after 12 months without a sign-in | anonymized |
+| Server **without any booking** | at the same times | deleted instead of anonymized |
+| Sign-ins on tills | after 90 days | deleted |
+
+- **Anonymized** means: the name becomes "Server N", and the short name, color and PIN are removed. Cancellation and refund logs show the same pseudonym instead of the name.
+- Settlements keep their number and amounts; the name disappears with the anonymization.
+- The list of servers shows "will be anonymized on …" in good time.
+
+:::note[Tax archive]
+TSE data, DSFinV-K, cash point closings and the cash book keep the name the server had at the time of booking. These records must be kept for 10 years and are not anonymized.
+:::
+
+### Deleting a server or an event {/* #loeschen */}
+
+- **Deleting a server:** without bookings it is removed. With bookings it is deactivated and anonymized immediately.
+- **Deleting an event:** its servers can no longer sign in. Servers without bookings are removed, the others are deactivated and anonymized later. The bookings stay attributed to them.
+
+### Access request {/* #auskunft */}
+
+If a server asks what OpenEOS has stored about them (Art. 15 GDPR), open the menu of their row under **Servers** and choose **Export access report**. You get a CSV file with the master data (without the PIN), the sign-ins, the settlements and the number of bookings.
 
 ## Not yet available
 
-Server settlement, the server wallet, tip payout, table handover and importing helpers from [shift plans](./schichtplaene.md) will follow later.
+The server wallet, tip payout and importing helpers from [shift plans](./schichtplaene.md) will follow later.

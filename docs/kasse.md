@@ -33,7 +33,7 @@ Oben steht immer dasselbe:
 - **Tisch** — in der Bestellansicht zeigt eine grüne Pille, für wen du gerade buchst: „Tisch A10“, „Theke“ oder „To-go“. Ein Tipp darauf öffnet [Tisch wählen](#tisch-wechseln).
 - **Status** — **Online** (grüner Punkt), **Verbinde …** oder **Keine Live-Daten** (gelb) und **Offline** (rot). Daneben der Bondrucker der Kasse mit Name, sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
 - **Menü** (die drei Striche) — Bestellverlauf, Offene Bestellungen, Pfand-Rückgabe, Kassenlade öffnen, [Darstellung](#darstellung) und Gerät abmelden. Es erscheint nur, was an dieser Kasse eingerichtet ist.
-- **Bedienung** — an einer Gemeinsamen Kasse oder mit fester Bedienung ein Chip mit Farbe und Kurzname der angemeldeten Person. Ein Tipp darauf öffnet **Wechseln**, **Sperren** und **Abmelden**.
+- **Bedienung** — an einer Gemeinsamen Kasse oder mit fester Bedienung ein Chip mit Farbe und Kurzname der angemeldeten Person. Ein Tipp darauf öffnet **Wechseln**, **Sperren** und **Abmelden**, dazu [Mein Zwischenstand und Abrechnen](./bedienungen.md#abrechnung).
 
 Im Testmodus steht unter dem Kopf der Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
 

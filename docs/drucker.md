@@ -172,6 +172,17 @@ Im Reiter **Vorlagen** legst du fest, wie Bons aussehen – etwa Küchenbon, Get
 
 ![Drucker – Vorlagen](/img/screens/de/printers-templates.png)
 
+### Bedienung und Gerät auf dem Bon
+
+Mit den Elementen **Bedienung** und **Gerät** (Gruppe **Bestellung**) siehst du auf dem Bon, wer die Bestellung aufgenommen hat. So weiß die Küche oder Theke, wen sie bei Rückfragen ansprechen kann.
+
+- **Bedienung** – der **Name des Geräts, mit dem die Bestellung aufgenommen wurde**. An Kassen und Bestellgeräten meldet sich niemand persönlich an; gehört jedes Bestellgerät einer Bedienung, gib dem Gerät unter **Geräte** einfach ihren Namen, etwa „Markus“ oder „Handy Markus“. Nur bei Bestellungen, die jemand in der Verwaltung (ohne Gerät) anlegt, steht hier dessen Name.
+- **Gerät** – immer der Name des Geräts, mit dem die Bestellung aufgenommen wurde.
+
+Wie andere Felder kannst du beide frei platzieren, ausrichten, **fett** oder **groß** drucken und die Beschriftung ändern (Standard: „Bedienung: “ bzw. „Gerät: “). Ohne Namen – etwa bei Online- und QR-Bestellungen – fällt die Zeile samt Beschriftung weg.
+
+Der Standard-Küchenbon zeigt die Bedienung unter der Bestellzeit. Auf dem Kassenbon für Gäste steht sie nur, wenn du das Element selbst in deine Vorlage ziehst.
+
 ## Bon-Workflows
 
 Im Reiter **Bon-Workflows** legst du fest, welche Bons automatisch gedruckt werden. Es gibt drei Bon-Arten, jede mit eigenem Schalter:

@@ -51,10 +51,10 @@ Wer OpenEOS selbst betreibt, legt die Grenzen selbst fest.
 
 ## Datenschutz
 
-Für diese Funktionen werden die hochgeladenen Inhalte – Speisekarten als Foto, PDF oder Text sowie Produktnamen – an einen **externen Anbieter** übertragen und dort verarbeitet. Dabei gilt:
+Für diese Funktionen werden die hochgeladenen Inhalte – Speisekarten als Foto, PDF oder Text sowie Produktnamen – an den Anbieter des Sprachmodells übertragen und dort verarbeitet. Auf [app.openeos.de](https://app.openeos.de) ist das der **IONOS AI Model Hub** der IONOS SE: Das Modell läuft in einem Rechenzentrum von IONOS in Berlin, die Daten verlassen Deutschland nicht. Dabei gilt:
 
 - Übertragen wird nur, was für die jeweilige Funktion nötig ist: die Speisekarte beziehungsweise die Produktnamen. Keine Bestellungen, keine Umsätze, keine Mitgliederdaten.
-- Der Anbieter speichert die Inhalte nur für die Dauer der Verarbeitung und nutzt sie **nicht zum Trainieren** seiner Modelle.
+- Nach Angaben von IONOS liegen die Inhalte nur während der Verarbeitung im Arbeitsspeicher. Sie werden weder protokolliert noch gespeichert und **nicht zum Trainieren** von Modellen genutzt.
 - Auf dem OpenEOS-Server liegen hochgeladene Dateien nur, bis du den Vorschlag übernimmst oder verwirfst – spätestens **nach 24 Stunden** werden sie gelöscht. Der Vorschlag selbst (die erkannte Liste) bleibt 30 Tage, falls du ihn noch einmal brauchst. Die Dateien sind nicht öffentlich erreichbar.
 
-Welcher Anbieter das ist und auf welcher Grundlage die Verarbeitung erfolgt, steht in der [Datenschutzerklärung](https://openeos.de/datenschutz). Wer den Assistenten nicht nutzen möchte, lässt ihn einfach ausgeschaltet – alles andere in OpenEOS funktioniert unverändert.
+Die Einzelheiten stehen in der [Datenschutzerklärung](https://openeos.de/datenschutz). Auf einem selbst betriebenen Server wählt der Betreiber den Anbieter ([Assistent einrichten](./selbst-betreiben/assistent.md)); dann gelten dessen Bedingungen. Wer den Assistenten nicht nutzen möchte, lässt ihn einfach ausgeschaltet – alles andere in OpenEOS funktioniert unverändert.

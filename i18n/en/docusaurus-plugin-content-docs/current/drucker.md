@@ -172,6 +172,17 @@ The **Templates** tab lets you define how receipts look — for example a kitche
 
 ![Printers – Templates](/img/screens/en/printers-templates.png)
 
+### Waiter and device on the ticket
+
+The **Waiter** and **Device** elements (group **Order**) show on the ticket who took the order, so the kitchen or bar knows whom to ask.
+
+- **Waiter** – the **name of the device the order was taken on**. Nobody logs in personally on tills and ordering devices; if every ordering device belongs to one waiter, simply name the device after them under **Devices**, e.g. "Markus" or "Markus's phone". Only for orders someone creates in the admin area (without a device) does this show their name.
+- **Device** – always the name of the device the order was taken on.
+
+Like other fields, both can be placed freely, aligned, printed **bold** or **big**, and their label can be changed (default: "Bedienung: " / "Gerät: "). Without a name – for example for online and QR orders – the line is left out, label included.
+
+The default kitchen ticket shows the waiter below the order time. The guest receipt only shows it if you add the element to your own template.
+
 ## Print Workflows
 
 The **Print Workflows** tab defines which tickets are printed automatically. There are three ticket types, each with its own switch:

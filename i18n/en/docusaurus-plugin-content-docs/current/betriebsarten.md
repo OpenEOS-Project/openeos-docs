@@ -4,6 +4,8 @@ title: Operating modes
 description: The three operating modes of an organization – Orders only, Cashless and All features –, what works in each, how to switch and what applies per country.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Operating modes
 
 Every organization works in one of three **operating modes** (Betriebsarten). The mode decides whether and how money flows through OpenEOS: not at all, only by card and online, or in cash as well. You find it under **Settings → Organization → Operating mode** (Einstellungen → Organisation → Betriebsart); as an admin you also switch it there yourself.
@@ -100,6 +102,8 @@ With SumUp in [test mode](./veranstaltungen.md) the till triggers no real card p
 ## All features {/* #alle-funktionen */}
 
 In **All features** the till accepts cash, card and online payments: cash is the first payment method, the till works out change, pays out deposits in cash and opens the cash drawer. Everything else is under [Selling at the till](./kasse.md#kassieren).
+
+<TseComingSoon />
 
 - **In Germany**, the till in “All features” only accepts cash with an active, certified **cloud TSE**. It is included in the event price and comes automatically: when you activate an event, OpenEOS switches the cloud TSE on and sets it up for the first event day – see [Cloud TSE](./integrationen/cloud-tse.md#automatisch). You can therefore choose “All features” as soon as a paid event is coming up; the card then shows *The cloud TSE will be set up automatically on …*, and cash works from that day on. Without a paid event the mode is greyed out (“needs an activated event”). Once the TSE is active, “Cashless” automatically becomes “All features”. If the TSE is no longer active later on, the till stops accepting cash – the server checks this on every cash payment – and OpenEOS shows you a notice.
 - **In all other countries** you can choose “All features” without a TSE. Which rules apply there is described under [Austria, Switzerland and other countries](#andere-laender).

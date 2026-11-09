@@ -95,3 +95,5 @@ Code und Inhalte (Texte, Screenshots) sind lizenziert unter der GNU Affero Gener
 **Quellcode-Link (AGPL § 13):** Der Footer verlinkt den Quellcode. Ziel ist die Umgebungsvariable `SOURCE_URL` beim Build (Docker: `--build-arg SOURCE_URL=…`), Standard `https://github.com/OpenEOS-Project`.
 
 **Website und App:** Navigation und Footer verlinken die Website (Impressum, Datenschutz, AGB, AVV) und die App. Ziele sind `WEBSITE_URL` (Standard `https://openeos.de`, Englisch unter `/en`) und `APP_URL` (Standard `https://app.openeos.de`) beim Build (Docker: `--build-arg`). Der Workflow baut `dev` (Staging) mit `https://staging.openeos.de` und `https://app.staging.openeos.de`.
+
+**Cloud-TSE „Bald verfügbar“:** Mit `TSE_COMING_SOON=true` beim Build (Docker: `--build-arg`) zeigen die Seiten zur Cloud-TSE, zu den Betriebsarten und zu den Kosten einer Veranstaltung einen Hinweis, dass die Cloud-TSE auf openeos.de bald verfügbar ist (Komponente `src/components/TseComingSoon`). Ohne Variable oder mit einem anderen Wert erscheint nichts. Der Workflow baut `main` (Produktion) mit `true` und `dev` (Staging) mit `false`.

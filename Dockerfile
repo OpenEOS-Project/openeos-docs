@@ -30,6 +30,10 @@ ARG WEBSITE_URL=https://openeos.de
 ARG APP_URL=https://app.openeos.de
 ENV WEBSITE_URL=$WEBSITE_URL
 ENV APP_URL=$APP_URL
+# "true" shows the Cloud-TSE "coming soon" note (hosted service without
+# Cloud-TSE yet); production builds pass "true", staging "false"
+ARG TSE_COMING_SOON=false
+ENV TSE_COMING_SOON=$TSE_COMING_SOON
 # Call the Docusaurus binary directly to avoid pnpm's dependency-status check
 RUN node ./node_modules/@docusaurus/core/bin/docusaurus.mjs build
 

@@ -4,6 +4,8 @@ sidebar_label: Überblick
 description: Anbindungen an andere Dienste aktivieren, einrichten und wieder abschalten.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Integrationen
 
 Über **Integrationen** bindest du OpenEOS an andere Dienste an, zum Beispiel an SumUp für Kartenzahlungen an der Kasse. Jede Integration ist zunächst aus. Du schaltest nur ein, was du wirklich brauchst.
@@ -35,3 +37,5 @@ Deine Einstellungen bleiben dabei erhalten. Wenn du die Integration später wied
 | [SumUp](./sumup.md) | Kartenzahlung mit SumUp-Kartenlesern an der Kasse | verfügbar |
 | Stripe | Online-Zahlungen | in Vorbereitung |
 | [Cloud-TSE](./cloud-tse.md) | Kassensicherung nach KassenSichV – Voraussetzung für Bargeld in Deutschland | verfügbar (nur Deutschland) |
+
+<TseComingSoon />

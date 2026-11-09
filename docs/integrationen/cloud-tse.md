@@ -3,7 +3,11 @@ title: Cloud-TSE
 description: Cloud-TSE für Bargeld in Deutschland — Voraussetzungen, automatische Einrichtung, Laufzeit im Monat der Veranstaltung, TSE-Angaben auf dem Bon, Ausfälle, Exporte für die Kassen-Nachschau und Deaktivieren.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Cloud-TSE
+
+<TseComingSoon />
 
 Eine Kasse, mit der du Bargeld annimmst, braucht in Deutschland eine zertifizierte **technische Sicherheitseinrichtung (TSE)** nach der Kassensicherungsverordnung (KassenSichV). Die TSE signiert jeden Kassenvorgang, damit sich die Aufzeichnungen später nicht unbemerkt ändern lassen.
 

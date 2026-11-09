@@ -4,6 +4,8 @@ sidebar_label: Overview
 description: Turn connections to other services on, set them up and switch them off again.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Integrations
 
 **Integrations** connect OpenEOS to other services, for example SumUp for card payments at the till. Every integration starts switched off; you only turn on what you actually need.
@@ -35,3 +37,5 @@ Your settings are kept. If you activate the integration again later, everything 
 | [SumUp](./sumup.md) | Card payment with SumUp card readers at the till | available |
 | Stripe | Online payments | in preparation |
 | [Cloud TSE](./cloud-tse.md) | Fiscal security under the German KassenSichV – required for cash in Germany | available (Germany only) |
+
+<TseComingSoon />

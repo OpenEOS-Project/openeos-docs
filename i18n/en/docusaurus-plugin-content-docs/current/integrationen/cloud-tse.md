@@ -3,7 +3,11 @@ title: Cloud TSE
 description: Cloud TSE for cash in Germany — requirements, automatic setup, TSE data on the receipt, outages, exports for a cash register inspection and deactivation.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Cloud TSE
+
+<TseComingSoon />
 
 In Germany, a till that accepts cash needs a certified **technical security device (TSE)** under the Cash Register Security Regulation (KassenSichV). The TSE signs every till transaction so that the records cannot be changed unnoticed later.
 

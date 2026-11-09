@@ -60,7 +60,7 @@ Auf der Seite **Cloud-TSE** siehst du, welche Voraussetzungen erfüllt sind: Org
 
 ![Einrichtung der Cloud-TSE](/img/screens/de/integrations-tse-setup.png)
 
-- **Automatisch:** Am ersten Veranstaltungstag richtet OpenEOS die TSE selbst ein. Du musst nichts weiter tun.
+- **Automatisch:** Rechtzeitig vor dem [Verkaufsstart](../veranstaltungen.md#verkaufsstart) – etwa 12 Stunden vorher, nie vor dem Monat der Veranstaltung – richtet OpenEOS die TSE selbst ein. Du musst nichts weiter tun.
 - **Selbst:** Willst du vorher testen, klickst du im Monat der Veranstaltung auf **Jetzt einrichten**. Das dauert meist nur wenige Sekunden; die Seite aktualisiert sich von selbst.
 
 Ist die TSE aktiv, wird aus **Bargeldlos** automatisch **Alle Funktionen**: Deine Kassen nehmen ab sofort Bargeld an. Der Wechsel steht im Verlauf der Betriebsart.

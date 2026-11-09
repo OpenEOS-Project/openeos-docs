@@ -167,6 +167,45 @@ Activate the desired event — it then appears with the status **Active** and is
 The active event controls which products appear at the till and which event orders are assigned to. When you switch the active event, the context in products, stations, and stock management switches with it.
 :::
 
+## Phases: planned, active, ended {/* #phasen */}
+
+An unlocked event does not sell for real right away, nor forever. The current phase is shown in the event list, in the sidebar and at the till:
+
+| Phase | When | What happens |
+|---|---|---|
+| **Test mode** | before purchase | up to 25 test orders (see above) |
+| **Planned** | unlocked, before sales start | till, tables and QR ordering book **test orders** – try everything at your leisure. The shop only takes orders with [pre-sale](#vorverkauf). |
+| **Active** | from sales start to sales end | real sales |
+| **Ended** | after sales end | no new orders – settling open orders, closing tables, refunds and cancellations keep working; reports, exports and cash book stay |
+
+For a festival on 16 and 17 November the list shows **Planned** with the hint *Starts on 15.11. at 18:00 (test operation until then)*, and the till shows *Test operation – real sales from 15.11. at 18:00*.
+
+### Sales start the evening before {/* #verkaufsstart */}
+
+Real sales start **12 hours before the first event day** (6 am) – for a festival on the 16th at 6 pm on the 15th. Under **Real sales start earlier** you can set a different lead time per event (0 to 24 hours).
+
+When sales start, the test orders from the *Planned* phase are deleted – just like at activation. Your setup stays and order numbers start over. Real orders (e.g. from pre-sale) are kept.
+
+:::note[With Cloud-TSE never in the previous month]
+If you use the [Cloud-TSE](integrationen/cloud-tse.md), sales start at midnight on the 1st at the earliest – a TSE costs every month it runs. For a festival on the 1st there is no evening-before sale on the last day of the month.
+:::
+
+### Sales end and grace period {/* #verkaufsende */}
+
+An event day runs until 6 am the next morning. After that you have **6 hours of grace**: late tabs can be closed until noon. Then the event is **Ended**. The extra hours are free – you pay for the event days.
+
+### Shop pre-sale {/* #vorverkauf */}
+
+With **Shop pre-sale** (online shop section of the event dialog) the shop takes **real** orders already in the *Planned* phase – until sales start. Without pre-sale the shop opens with the event. A weekday table also applies during pre-sale; opening hours per event day only apply from sales start, so pre-sale is open around the clock until then. Pre-sale orders count as real orders – also for [free cancellation](#stornieren).
+
+### Moving an event {/* #verschieben */}
+
+While the event is *Planned* you can move it (within the paid days). Once sales have started the start is fixed and you can only bring the end forward, e.g. if a day is cancelled. After the event has ended nothing can be moved. If you need to move it anyway, support can help.
+
+:::info[Self-hosted]
+Without billing the phases apply the same way – test operation before, no sales after the end – but without a limit on test orders and without the lock on moving: simply extend the end date to keep selling. With `EVENT_DATE_PHASES=false` only the status counts, as before.
+:::
+
 ## Status & date
 
-In the overview you can see the name, **status** (Active/Inactive), and **date range** for each event. This keeps you on top of things even when running multiple events.
+In the overview you can see the name, **phase** (test mode, planned, active, ended or inactive) with a hint on sales start or end, and the **date range** for each event. This keeps you on top of things even when running multiple events.

@@ -34,6 +34,25 @@ Oben filterst du die Auswertung nach **Veranstaltung** und **Zeitraum**. Für de
 - **Umsatz je Kasse** – welches Gerät wie viel kassiert hat.
 - **Stundenverlauf** – Umsatz pro Stunde (0–23 Uhr), ideal um Stoßzeiten zu erkennen.
 
+## Bedienungen {/* #bedienungen */}
+
+Arbeitest du mit [Bedienungen](./bedienungen.md), zeigt der Bericht **Bedienungen** je Bedienung – und je Mitglied, das mit seiner Mitglieds-PIN kassiert hat:
+
+| Spalten | Inhalt |
+| --- | --- |
+| **Aufgenommen** | Bestellungen, Positionen, Umsatz |
+| **Kassiert** | Bar, Karte, Sonstige, Trinkgeld |
+| **Storno/Erstattungen** | was die Person storniert oder erstattet hat |
+| **Pfand ausgezahlt** | ausgezahltes Pfand |
+| **Abrechnungen** | [Abrechnungen](./bedienungen.md#abrechnung) im Zeitraum |
+| **Offene Tische** | Tische, die noch nicht bezahlt sind |
+
+- Die Zeile **Ohne Bedienung** sammelt Buchungen, die niemandem zugeordnet sind – etwa aus dem Online-Shop oder von Kassen ohne Bedienungen.
+- Testbuchungen zählen nicht mit. Der Zeitraum richtet sich nach der Buchungszeit.
+- In [Nur Bons](./betriebsarten.md#nur-bons) zeigt der Bericht nur Mengen.
+- Exportieren kannst du ihn wie die anderen Berichte, siehe [Export](#export).
+- Den Bericht gibt es nur in der Verwaltung, nicht über [API-Zugänge](./api-zugaenge.md) oder [KI-Agenten](./ki-agenten.md): Er enthält Personendaten des Kassenpersonals.
+
 ## Export
 
 Jede Detailauswertung lässt sich über **CSV exportieren** herunterladen. So kannst du die Daten in Excel oder deiner Buchhaltung weiterverarbeiten.

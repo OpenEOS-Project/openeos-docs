@@ -33,7 +33,7 @@ The top bar always shows the same things:
 - **Table** — in the order view a green pill shows who you are booking for: "Table A10", "Counter" or "To go". Tapping it opens [Choose table](#tisch-wechseln).
 - **Status** — **Online** (green dot), **Connecting …** or **No live data** (yellow) and **Offline** (red). Next to it the till's receipt printer by name, if one is assigned, and the time. On narrower screens only the dot remains.
 - **Menu** (the three lines) — order history, open orders, deposit return, open cash drawer, [appearance](#darstellung) and sign out device. Only what is set up for this till appears.
-- **Server** — on a shared till or with a fixed server, a chip with the color and short name of whoever is signed in. Tapping it opens **Switch**, **Lock** and **Sign out**.
+- **Server** — on a shared till or with a fixed server, a chip with the color and short name of whoever is signed in. Tapping it opens **Switch**, **Lock** and **Sign out**, plus [My running total and Settle](./bedienungen.md#abrechnung).
 
 In test mode the warning strip "Test mode — Orders will be deleted on activation" sits below the header.
 

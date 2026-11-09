@@ -34,6 +34,25 @@ At the top you filter the report by **Event** and **Period**. Quick-select optio
 - **Revenue by device** – which till took how much.
 - **Hourly breakdown** – revenue per hour (0–23), ideal for identifying peak times.
 
+## Servers {/* #bedienungen */}
+
+If you work with [servers](./bedienungen.md), the **Servers** report shows per server – and per member who took payments with their member PIN:
+
+| Columns | Content |
+| --- | --- |
+| **Ordered** | orders, items, revenue |
+| **Taken** | cash, card, other, tips |
+| **Cancellations/refunds** | what the person cancelled or refunded |
+| **Deposit paid out** | deposits paid out |
+| **Settlements** | [settlements](./bedienungen.md#abrechnung) in the period |
+| **Open tables** | tables that are not paid yet |
+
+- The row **No server** collects bookings not attributed to anyone – from the online shop, for example, or from tills without servers.
+- Test bookings are not included. The period is based on the booking time.
+- In [Orders only](./betriebsarten.md#nur-bons) the report shows quantities only.
+- You export it like the other reports, see [Export](#export).
+- The report is only available in the admin area, not via [API access](./api-zugaenge.md) or [AI agents](./ki-agenten.md): it contains personal data of your till staff.
+
 ## Export
 
 Each detailed report can be downloaded via **Export CSV**. This lets you process the data further in Excel or your accounting software.

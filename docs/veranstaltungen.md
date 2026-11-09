@@ -4,6 +4,8 @@ title: Veranstaltungen
 description: Veranstaltungen anlegen, aktivieren und verwalten.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Veranstaltungen
 
 Eine **Veranstaltung** (Event) ist der Rahmen für ein konkretes Fest oder einen Verkaufstag. Produkte, Preise, Standorte, Bestellungen und Auswertungen beziehen sich immer auf eine Veranstaltung. Bevor du Produkte anlegst oder Bestellungen annimmst, legst du deshalb zuerst eine Veranstaltung an und **aktivierst** sie.
@@ -68,6 +70,8 @@ OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nic
 Änderst du das Datum, ändert sich der Betrag mit.
 
 In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein. Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet – außer du hast im Folgemonat schon eine bezahlte Veranstaltung, dann bleibt sie aktiv (siehe [Laufzeit der Cloud-TSE](./integrationen/cloud-tse.md#laufzeit)).
+
+<TseComingSoon />
 
 ### Was als Veranstaltungstag zählt {/* #veranstaltungstag */}
 

@@ -29,6 +29,7 @@ Oben filterst du die Auswertung nach **Veranstaltung** und **Zeitraum**. Für de
 - **Top-Produkte** – deine meistverkauften Produkte mit Menge, Umsatz und Durchschnittspreis, sortiert nach Menge.
 - **Top-Kategorien** – Umsatz je Kategorie.
 - **Zahlarten** – Aufschlüsselung des Umsatzes nach Zahlungsmethode.
+- **Umsatzsteuer** – je Steuersatz Ware, Pfand, Pfandrückgaben, Brutto, Netto und enthaltene Umsatzsteuer. Pfand gehört zum Entgelt und steht beim Satz seines [Pfand-Typs](./pfand.md#umsatzsteuer); Trinkgeld ist nicht enthalten. Ohne Umsatzsteuer (Kleinunternehmer) steht alles bei 0 %.
 - **Umsatz nach Kanal** – Kasse, Online-Shop und QR-Bestellung im Vergleich.
 - **Umsatz je Kasse** – welches Gerät wie viel kassiert hat.
 - **Stundenverlauf** – Umsatz pro Stunde (0–23 Uhr), ideal um Stoßzeiten zu erkennen.

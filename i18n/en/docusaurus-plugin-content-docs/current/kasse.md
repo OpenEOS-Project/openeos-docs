@@ -218,6 +218,8 @@ For returned cups or bottles there is the **Deposit return** (menu or the button
 - **Pay out** — the guest gets the money back in cash, the cash drawer opens, or
 - **Offset** — the amount is deducted from the current cart (only if there is something in the cart).
 
+After **Pay out** the till shows the return receipt with its receipt number. It is printed like the sales receipt: automatically if receipts are printed after payment (then there is **Print receipt again**), otherwise via **Print receipt**. Only deposits with the same [VAT rate](./pfand.md#umsatzsteuer) are offset – a returned cup (19 %) does not replace a plate deposit (7 %).
+
 In the [Cashless](./betriebsarten.md#bargeldlos) operating mode there is no **Pay out**, only **Offset** against new deposits in the same sale. In [Orders only](./betriebsarten.md#nur-bons) there are no deposits.
 
 ## On phones and tablets

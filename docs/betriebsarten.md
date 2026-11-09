@@ -4,6 +4,8 @@ title: Betriebsarten
 description: Die drei Betriebsarten einer Organisation – Nur Bons, Bargeldlos und Alle Funktionen –, was in jeder geht, wie du wechselst und was je nach Land gilt.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Betriebsarten
 
 Jede Organisation arbeitet in einer von drei **Betriebsarten**. Sie legt fest, ob und wie in OpenEOS Geld fließt: gar nicht, nur per Karte und online oder auch bar. Du findest sie unter **Einstellungen → Organisation → Betriebsart**; dort wechselst du sie als Admin auch selbst.
@@ -98,6 +100,8 @@ Mit SumUp im [Testmodus](./veranstaltungen.md) löst die Kasse keine echte Karte
 ## Alle Funktionen {/* #alle-funktionen */}
 
 In **Alle Funktionen** nimmt die Kasse Bargeld, Karte und Online-Zahlung an: Bar ist die erste Zahlart, die Kasse rechnet Rückgeld aus, zahlt Pfand bar aus und öffnet die Kassenlade. Alles Weitere steht unter [An der Kasse verkaufen](./kasse.md#kassieren).
+
+<TseComingSoon />
 
 - **In Deutschland** nimmt die Kasse in „Alle Funktionen“ Bargeld nur mit einer aktiven, zertifizierten **Cloud-TSE** an. Die ist im Preis der Veranstaltung inklusive und kommt automatisch: Schaltest du eine Veranstaltung frei, schaltet OpenEOS die Cloud-TSE ein und richtet sie zum ersten Veranstaltungstag ein – siehe [Cloud-TSE](./integrationen/cloud-tse.md#automatisch). „Alle Funktionen“ kannst du deshalb schon wählen, sobald eine bezahlte Veranstaltung ansteht; die Karte zeigt dann *Cloud-TSE wird am … automatisch eingerichtet*, und Bargeld geht ab diesem Tag. Ohne bezahlte Veranstaltung ist die Betriebsart ausgegraut („braucht eine freigeschaltete Veranstaltung“). Sobald die TSE aktiv ist, wird aus „Bargeldlos“ automatisch „Alle Funktionen“. Ist die TSE später nicht mehr aktiv, nimmt die Kasse kein Bargeld mehr an – der Server prüft das bei jeder Barzahlung –, und OpenEOS zeigt dir einen Hinweis.
 - **In allen anderen Ländern** kannst du „Alle Funktionen“ ohne TSE wählen. Welche Regeln dort gelten, steht unter [Österreich, Schweiz und andere Länder](#andere-laender).

@@ -21,6 +21,11 @@ const appUrl = trimUrl(process.env.APP_URL, 'https://app.openeos.de');
 /* Link "Quellcode" (AGPL-3.0 § 13). Wer eine geaenderte Fassung betreibt,
    setzt SOURCE_URL beim Build auf das eigene Repository. */
 const sourceUrl = process.env.SOURCE_URL || 'https://github.com/OpenEOS-Project';
+/* Cloud-TSE "bald verfügbar": Mit TSE_COMING_SOON=true zeigen die Seiten zur
+   Cloud-TSE und zu Bargeld einen Hinweis, dass die TSE auf openeos.de erst
+   eingefuehrt wird (src/components/TseComingSoon). Produktion baut mit
+   "true", Staging mit "false"; ohne Variable erscheint nichts. */
+const tseComingSoon = process.env.TSE_COMING_SOON?.trim() === 'true';
 
 const config: Config = {
   title: 'OpenEOS Dokumentation',
@@ -40,6 +45,10 @@ const config: Config = {
 
   organizationName: 'openeos',
   projectName: 'openeos-docs',
+
+  customFields: {
+    tseComingSoon,
+  },
 
   /* Ein toter Link ist in einer Anleitung kein Schoenheitsfehler: Wer beim
      Einrichten einem Verweis folgt und im Nichts landet, kommt nicht weiter.

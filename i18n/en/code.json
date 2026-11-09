@@ -325,5 +325,13 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "tseComingSoon.title": {
+    "message": "Coming soon",
+    "description": "Title of the Cloud-TSE \"coming soon\" note"
+  },
+  "tseComingSoon.text": {
+    "message": "The cloud TSE is being rolled out and will soon be available on openeos.de. Until then you can use “Orders only” or “Cashless” in Germany – cash needs a cloud TSE.",
+    "description": "Body of the Cloud-TSE \"coming soon\" note"
   }
 }

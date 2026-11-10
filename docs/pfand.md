@@ -12,7 +12,7 @@ Mit dem **Pfand**-Modul erhebst du Pfand auf Becher, Flaschen oder Geschirr. Du 
 
 ## Pfand-Typ erstellen
 
-Klicke auf **Pfand-Typ erstellen** und lege einen Pfand-Typ an, z. B. „Mehrwegbecher“ mit 2,00 €. Unter **Mehrwertsteuer** wählst du den Steuersatz der Getränke bzw. Waren, für die dieses Pfand gilt – meist 19 %. Nur **aktive** Pfand-Typen sind an der Kasse nutzbar. Anschließend weist du den Pfand-Typ im Dialog deiner Getränke- bzw. Geschirr-[Produkte](./produkte.md) zu.
+Klicke auf **Pfand-Typ erstellen** und lege einen Pfand-Typ an: **Name** (z. B. „Mehrwegbecher“) und **Pfandbetrag (€)** (z. B. 2,00). Unter **Mehrwertsteuer** wählst du den Steuersatz der Getränke bzw. Waren, für die dieses Pfand gilt – meist 19 %. Nur **aktive** Pfand-Typen sind an der Kasse nutzbar. Anschließend weist du den Pfand-Typ im Dialog deiner Getränke- bzw. Geschirr-[Produkte](./produkte.md) zu.
 
 ![Pfand-Typ erstellen](/img/screens/de/pfand-dialog.png)
 
@@ -40,9 +40,11 @@ So kannst du z. B. nur beim Verkauf zum Mitnehmen Pfand verlangen, beim Tischser
 ## Pfand im Betrieb
 
 - **Ausgabe:** Beim Verkauf eines pfandpflichtigen Produkts wird der Pfandbetrag automatisch zur Bestellung hinzugefügt.
-- **Rückgabe:** Bringt ein Gast Becher oder Flaschen zurück, buchst du das an der Kasse über das Mehr-Menü oder den Pfand-Knopf im Warenkorb – als **Auszahlen** oder zum **Verrechnen** mit der nächsten Bestellung. Wie das geht, steht unter [Kasse](./kasse.md#pfand). In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es keine Barauszahlung, nur das Verrechnen; in [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
-- **Beleg zur Rückgabe:** Für jede Auszahlung gibt es einen Beleg „Pfandrückgabe“ mit Belegnummer, den Pfand-Typen als negative Beträge, der enthaltenen MwSt je Satz, Zahlart Bar, Kasse, Datum und – mit Cloud-TSE – den TSE-Angaben. Gedruckt wird er wie der Kassenbon: automatisch, wenn deine Kassenbons nach der Zahlung gedruckt werden, sonst auf Wunsch über **Bon drucken** im Abschluss der Rückgabe.
-- **Auswertung:** In der [Auswertung](./auswertung.md) siehst du den Pfand-Saldo – also kassiertes und ausgezahltes Pfand – und unter **Umsatzsteuer** Ware, Pfand und Pfandrückgaben je Steuersatz.
+- **Rückgabe:** Bringt ein Gast Becher oder Flaschen zurück, buchst du das an der Kasse über **Pfand-Rückgabe** im Menü oder den Knopf oben im Warenkorb – als **Auszahlen** oder zum **Verrechnen** mit dem aktuellen Warenkorb. Wie das geht, steht unter [Kasse](./kasse.md#pfand). In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es keine Barauszahlung, nur das Verrechnen; in [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
+- **Beleg zur Rückgabe:** Für jede Auszahlung gibt es einen Beleg „Pfandrückgabe“ mit Belegnummer, den Pfand-Typen als negative Beträge, der enthaltenen MwSt je Satz, Zahlart Bar, Kasse, Datum und – mit Cloud-TSE – den TSE-Angaben. Gedruckt wird er wie der Kassenbon: automatisch, wenn deine Kassenbons nach der Zahlung gedruckt werden, sonst auf Wunsch über **Bon drucken** in der Meldung **Pfand ausgezahlt**.
+- **Auswertung:** In der [Auswertung](./auswertung.md) siehst du den Pfand-Saldo – also kassiertes und ausgezahltes Pfand – und in der Karte [Umsatzsteuer](./auswertung.md#umsatzsteuer) Ware, Pfand und Pfandrückgaben je Steuersatz.
+
+![Pfand-Rückgabe an der Kasse](/img/screens/de/pos-pfand-return.png)
 
 :::info
 Der Pfand-Saldo hilft dir, am Ende der Veranstaltung kassiertes und zurückgezahltes Pfand abzugleichen.

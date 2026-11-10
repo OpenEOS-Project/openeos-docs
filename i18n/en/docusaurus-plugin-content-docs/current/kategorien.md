@@ -15,16 +15,24 @@ Categories used to have their own entry in the navigation. They now live where t
 ## Editing categories
 
 1. Open **Products**.
-2. Choose **Edit categories** at the top.
-3. In the dialog you can add categories, rename them, reorder them or delete them.
+2. Click the **Edit categories** icon at the top right.
+3. In the **Categories** dialog, **Create category** adds new categories; you can edit or delete existing ones and change the order by dragging a row by its handle.
 
 ![The "Edit categories" dialog on the products page](/img/screens/en/categories-dialog.png)
 
+A category's dialog has these fields:
+
+- **Name** (required) and **Description**
+- **Color** and **Icon** – see [Icon and color](#icon)
+- **Parent category** – makes the category a subcategory; **None (root category)** keeps it at the top level
+- **Station** – where the orders for the products in this category go, see [Stations](./standorte.md)
+- **Active**
+
 The order in the dialog is the order at the till. Put what sells most at the top — it saves your team a tap on every sale.
 
-## Icon
+## Icon and color {/* #icon */}
 
-Every category can have an **icon**: in a category's dialog the **Icon** field opens the icon picker with line icons — food and drinks come first, and the search understands English and German terms such as "beer" or "coffee". The till shows the icon in the category bar and for every product in the category that has neither its own [product icon](./produkte.md#icons) nor an image.
+Every category can have a **color** and an **icon**. You pick the color in the **Color** field; the till uses it for the category in the category bar. For the icon: in a category's dialog the **Icon** field opens the icon picker with line icons — food and drinks come first, and the search understands English and German terms such as "beer" or "coffee". The till shows the icon in the category bar and for every product in the category that has neither its own [product icon](./produkte.md#icons) nor an image.
 
 ## Assigning a category
 
@@ -32,4 +40,4 @@ A product is given its category when it is created or edited, in the product dia
 
 ## Deleting
 
-A category can only be deleted once no products remain in it. Move those to another category first.
+A category can only be deleted once no products remain in it. Move those to another category or delete them first; if products are still in it, OpenEOS tells you how many. Products that were already deleted no longer get in the way.

@@ -14,11 +14,11 @@ In the top left of the sidebar you can see the name of your active organization 
 
 ## Managing organization details
 
-You manage the name and other master data of your organization under **Settings → Organization**. The organization name appears on invoices and receipts, among other places, and can be changed at any time.
+Admins manage the name and other master data of your organization under **Settings → Organization**, spread over the sub-tabs **General**, **Contact**, **Tax details**, **Operating mode** and more (see [Settings](./einstellungen.md#organization)). The organization name appears on invoices and receipts, among other places, and can be changed at any time under **General**.
 
 ### Tax details {/* #steuerangaben */}
 
-Under **Settings → Organization** you also enter your organization's German **tax number** (Steuernummer) and/or **VAT ID** (USt-IdNr.), its address and — if it differs from the name in OpenEOS — the **official name**. For the [Cloud-TSE](./integrationen/cloud-tse.md) in Germany, tax number or VAT ID and the address are **required**: they appear in every [cash point closing](./kassen-nachschau.md) of the DSFinV-K export. If the official name, billing address or (with the cloud TSE) the tax number are missing, the dialog asks for them at your first [event purchase](./veranstaltungen.md#pflichtangaben).
+Under **Settings → Organization → Tax details** you enter your organization's German **Tax number** (Steuernummer) and/or **VAT ID** (USt-IdNr.) and — if it differs from the name in OpenEOS — the **Official name**. The address is under **Settings → Organization → Contact**. For the [Cloud TSE](./integrationen/cloud-tse.md) in Germany, tax number or VAT ID and the address are **required**: they appear in every [cash point closing](./kassen-nachschau.md) of the DSFinV-K export. If the official name, billing address or (with the cloud TSE) the tax number are missing, the dialog asks for them at your first [event purchase](./veranstaltungen.md#pflichtangaben).
 
 ## Data model at a glance
 

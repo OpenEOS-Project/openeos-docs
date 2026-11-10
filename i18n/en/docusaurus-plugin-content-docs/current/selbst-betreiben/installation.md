@@ -19,13 +19,19 @@ Three secrets are needed. Generate them **now** and keep them
 safe — especially `TWO_FACTOR_ENCRYPTION_KEY`: if it is lost,
 stored two-factor secrets can no longer be decrypted, and without a
 dedicated `INTEGRATION_ENCRYPTION_KEY` (see below) neither can saved
-SumUp and PayPal credentials — clubs would have to enter them again.
+SumUp and PayPal credentials and webhook secrets — they would have to be
+entered again.
 
-Optionally, set a dedicated key `INTEGRATION_ENCRYPTION_KEY` for the SumUp
-and PayPal credentials (generate it with `openssl rand -base64 32`).
-Without it, the server encrypts them with `TWO_FACTOR_ENCRYPTION_KEY`.
-Back it up like the other secrets and do not change it after the first
-start.
+Optionally, set a dedicated key `INTEGRATION_ENCRYPTION_KEY` for these
+credentials (generate it with `openssl rand -base64 32`). Without it, the
+server encrypts them with `TWO_FACTOR_ENCRYPTION_KEY`. Back it up like the
+other secrets and do not change it after the first start.
+
+`PIN_PEPPER` is also recommended, for the till PINs of members and
+[servers](../bedienungen.md) (at least 16 characters, generate it with
+`openssl rand -base64 32`). Without it, the server derives the value from
+`TWO_FACTOR_ENCRYPTION_KEY` and logs a warning on start. Set it before the
+first PIN is issued: changing it later invalidates all PINs.
 
 ```bash
 umask 077
@@ -42,8 +48,10 @@ API_URL=http://192.168.1.50:3000
 DATABASE_PASSWORD=$(openssl rand -base64 24 | tr -d '/+=')
 JWT_SECRET=$(openssl rand -base64 64 | tr -d '\n')
 TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
-# Optional: dedicated key for SumUp/PayPal credentials
+# Optional: dedicated key for SumUp/PayPal credentials and webhooks
 INTEGRATION_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
+# Recommended: pepper for the till PINs (set before the first PIN)
+PIN_PEPPER=$(openssl rand -base64 32 | tr -d '\n')
 EOF
 ```
 
@@ -112,6 +120,8 @@ services:
       TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY missing}
       # Optional; empty = TWO_FACTOR_ENCRYPTION_KEY also encrypts SumUp/PayPal
       INTEGRATION_ENCRYPTION_KEY: ${INTEGRATION_ENCRYPTION_KEY:-}
+      # Empty = derived from TWO_FACTOR_ENCRYPTION_KEY; changing it invalidates all PINs
+      PIN_PEPPER: ${PIN_PEPPER:-}
       # The dashboard must be allowed to call the server
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'
@@ -176,7 +186,7 @@ curl http://localhost:3000/api/setup/status
 
 ```json
 {"data":{"required":true,"reason":"Keine Benutzer vorhanden…",
- "deployment":{"mode":"selfhosted","billingEnabled":false,"multiTenant":false}}}
+ "deployment":{"mode":"selfhosted","billingEnabled":false,"multiTenant":false,"limits":{…}}}}
 ```
 
 If it says `"mode":"saas"`, `DEPLOYMENT_MODE` was not picked up — in that case
@@ -250,3 +260,35 @@ multiple entries separated by commas:
 ```bash
 CORS_ORIGINS: ${APP_URL},http://192.168.1.50:3004
 ```
+
+So that the shop links in the dashboard point to your shop and not to
+`shop.openeos.de`, set the shop address on the `web` service:
+
+```yaml
+  web:
+    environment:
+      # … existing variables …
+      SHOP_URL: http://192.168.1.50:3004
+```
+
+If guests pay online with SumUp in the shop, the `api` service also needs the
+shop's return address and its own public address (without `/api`). Without
+them, SumUp sends the guest after payment and the payment confirmation to
+openeos.de instead of your server. The API address must be reachable from
+the internet for this:
+
+```yaml
+  api:
+    environment:
+      # … existing variables …
+      SHOP_RETURN_URL_BASE: https://shop.verein.example
+      API_PUBLIC_URL: https://api.verein.example
+```
+
+:::note[Only with an imprint and a privacy notice]
+The shop and ordering by QR code at the table only take orders once your
+organization has stored an imprint and a privacy notice
+(**Settings → Organization → Legal information**). This also applies in
+Single Organization mode and in test mode, see
+[Shop and QR ordering](../veranstaltungen.md#shop-rechtliches).
+:::

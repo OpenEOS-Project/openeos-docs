@@ -6,7 +6,7 @@ description: Konto löschen, Neuigkeiten per E-Mail abbestellen und was passiert
 
 # Konto, Newsletter und Löschung
 
-Hier steht, wie du dein Konto löschst, Neuigkeiten per E-Mail an- oder abbestellst und was mit den Daten passiert, wenn eine Organisation gelöscht wird. Die rechtlichen Grundlagen findest du in den [AGB](https://openeos.de/agb) (Ziffer 10.4, 15.10 und 20.5), im [Auftragsverarbeitungsvertrag](https://openeos.de/avv) (Ziffer 10) und in der [Datenschutzerklärung](https://openeos.de/datenschutz).
+Hier steht, wie du dein Konto löschst, Neuigkeiten per E-Mail an- oder abbestellst, was mit den Daten passiert, wenn eine Organisation gelöscht wird, und welche Daten OpenEOS [von selbst löscht](#fristen). Die rechtlichen Grundlagen findest du in den [AGB](https://openeos.de/agb) (Ziffer 10.4, 15.10 und 20.5), im [Auftragsverarbeitungsvertrag](https://openeos.de/avv) (Ziffer 10) und in der [Datenschutzerklärung](https://openeos.de/datenschutz).
 
 ## Neuigkeiten per E-Mail {/* #newsletter */}
 
@@ -17,6 +17,8 @@ Jede Neuigkeiten-Mail enthält außerdem einen Abmeldelink. Er führt auf eine S
 ## Konto löschen {/* #konto-loeschen */}
 
 Unter **Einstellungen → Persönlich → Konto → Konto löschen** löschst du dein Benutzerkonto selbst.
+
+![Konto löschen in den persönlichen Einstellungen](/img/screens/de/settings-account.png)
 
 1. Klicke auf **Konto löschen …**. Der Dialog zeigt, was passiert:
    - Name, E-Mail-Adresse, Passwort, Zwei-Faktor-Anmeldung, Sitzungen und API-Tokens werden entfernt, du wirst abgemeldet.
@@ -53,6 +55,8 @@ Am Termin löschen wir die Daten der Organisation endgültig (siehe [Endgültige
 ## Organisation löschen {/* #organisation-loeschen */}
 
 Administratoren löschen eine Organisation unter **Einstellungen → Organisation → Allgemein → Organisation löschen**. Zur Bestätigung tippst du den Namen der Organisation ein.
+
+![Organisation löschen: Bestätigung mit dem Namen](/img/screens/de/settings-organisation-delete.png)
 
 Dasselbe passiert, wenn OpenEOS ein Kundenkonto nach 24 Monaten ohne Buchung schließt (AGB 15.10) – das kündigen wir 30 Tage vorher per E-Mail an die Administratoren an und erinnern 10 Tage und einen Tag vor der Schließung noch einmal. Buchst du bis dahin eine Veranstaltung, bleibt die Organisation bestehen.
 
@@ -94,3 +98,17 @@ Willst du nicht 30 Tage warten – zum Beispiel nach einem Wechsel zu einem ande
 ### Protokoll
 
 Jede Löschung steht ohne Inhalte im Löschprotokoll von OpenEOS: wer wann was gelöscht hat und wie viele Datensätze, aber keine Namen, E-Mail-Adressen oder Notizen. Das gilt für die automatischen Löschläufe und für Löschungen, die ihr selbst auslöst – Organisation löschen oder Löschung abbrechen, Mitglieder entfernen, Schichtanmeldungen löschen (auch zusammen mit einem Schichtplan, Job oder einer Schicht), Konto löschen. Meldet sich ein Helfer über seinen Link selbst von einer Schicht ab, steht das ebenfalls darin.
+
+## Automatische Löschfristen {/* #fristen */}
+
+Manche Daten löscht OpenEOS auf [app.openeos.de](https://app.openeos.de) nach festen Fristen von selbst, ohne dass du etwas tun musst (auf einer eigenen Installation ist das anfangs aus, siehe [Aufbewahrung und Löschung](./selbst-betreiben/betrieb.md#aufbewahrung-und-löschung)):
+
+- **Gästedaten** (Name, Telefonnummer, E-Mail-Adresse und Anmerkungen in Bestellungen, auch aus Shop und QR-Bestellung): 30 Tage nach dem Ende der Veranstaltung. Die Bestellungen selbst bleiben für Auswertung und Steuerarchiv erhalten, nur ohne diese Angaben. Exportierst du Bestellungen später, fehlen die Gästedaten darin.
+- **Schichtanmeldungen** von Helfern (Name, Kontaktdaten, Notizen): 30 Tage nach der letzten Schicht des Schichtplans. Der Schichtplan mit seinen Schichten bleibt, zum Beispiel als Vorlage.
+- **Bedienungen**: nach den Fristen unter [Bedienungen → Automatisch löschen](./bedienungen.md#loeschfristen).
+- **Speisekarten-Importe** des [Assistenten](./assistent.md#datenschutz): hochgeladene Dateien nach spätestens 24 Stunden, der erkannte Vorschlag nach 30 Tagen.
+- **Zustellprotokoll** der [Webhooks](./integrationen/webhooks.md#protokoll): nach 30 Tagen.
+- **Support-Chat**: 12 Monate nach der letzten Nachricht und dem Ende der Nutzung.
+- **Konten ohne Organisation**, die 24 Monate nicht genutzt wurden: Wir kündigen das per E-Mail an und anonymisieren das Konto frühestens 30 Tage später. Meldest du dich vorher an, bleibt es bestehen.
+
+Organisationen ohne Buchung schließt OpenEOS nach 24 Monaten, wie unter [Organisation löschen](#organisation-loeschen) beschrieben. Was du darüber hinaus selbst exportieren willst, exportiere rechtzeitig. Wer OpenEOS selbst betreibt, legt die Fristen selbst fest.

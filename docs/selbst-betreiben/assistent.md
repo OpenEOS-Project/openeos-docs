@@ -22,7 +22,7 @@ informiere deine Nutzer:innen, bevor ein Admin die Funktionen einschaltet.
 
 ## Anbieter wählen
 
-Die Betriebsart bestimmt `AI_PROVIDER` in der Umgebung von `openeos-api`:
+Den Anbieter bestimmt `AI_PROVIDER` in der Umgebung von `openeos-api`:
 
 | Wert | Bedeutung |
 |---|---|
@@ -194,7 +194,7 @@ sudo docker compose logs -f api | grep -i 'assistant\|menu-import\|ai-provider'
 | **Der Assistent ist gerade nicht erreichbar** | Schlüssel ungültig, Modellname unbekannt oder der Dienst kann keine Bilder bzw. kein JSON-Schema — Details im Log. |
 | **Das Tageskontingent … ist aufgebraucht** | `AI_MENU_IMPORTS_PER_DAY` bzw. `AI_CLASSIFY_PER_DAY` erreicht; ab Mitternacht (Europe/Berlin) wieder frei. |
 | **PDF wird vom eingerichteten Anbieter nicht unterstützt** | `AI_PROVIDER=openai` und `pdftoppm` fehlt (Betrieb ohne Docker) — `poppler-utils` installieren oder Fotos der Seiten hochladen. |
-| **Die PDF hat … Seiten** | Die PDF hat mehr Seiten als `AI_MENU_PAGES_PER_IMPORT`. |
+| **Die Datei hat … Seiten** | Die PDF hat mehr Seiten als `AI_MENU_PAGES_PER_IMPORT`. |
 
 Im Log von `openeos-api` steht bei Reasoning-Modellen eine Warnung mit
 `finish=length`, wenn das Nachdenken das Token-Limit aufgebraucht hat —

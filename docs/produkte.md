@@ -9,29 +9,34 @@ description: Produkte anlegen, bepreisen, mit Icons versehen und per CSV oder au
 Unter **Produkte** verwaltest du das Sortiment deiner aktiven Veranstaltung – also alles, was an der Kasse verkauft wird. Jedes Produkt hat mindestens einen Namen und einen Preis und kann einer Kategorie zugeordnet werden.
 
 :::warning[Aktive Veranstaltung nötig]
-Produkte gehören immer zu einer Veranstaltung. Ist kein Event aktiv, erscheint der Hinweis „Kein aktives Event“. Aktiviere zuerst eine [Veranstaltung](./veranstaltungen.md).
+Produkte gehören immer zu einer Veranstaltung. Ist keine aktiv, erscheint der Hinweis „Keine aktive Veranstaltung“. Aktiviere zuerst eine [Veranstaltung](./veranstaltungen.md).
 :::
 
 ![Produktübersicht](/img/screens/de/products.png)
 
 ## Produkt erstellen
 
-1. Klicke auf **Produkt erstellen**.
+1. Klicke oben rechts auf **Produkt erstellen** (Plus-Symbol).
 2. Fülle die Felder aus:
    - **Name** (Pflicht)
-   - **Kategorie** – Zuordnung zu einer [Kategorie](./kategorien.md)
+   - **Kategorie** (Pflicht) – Zuordnung zu einer [Kategorie](./kategorien.md); über das Plus daneben legst du direkt eine neue an
    - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft“)
    - **Preis** (Pflicht)
+   - **Mehrwertsteuer** – Regelsatz, ermäßigter Satz oder 0 %
+   - **Standort** – leer lassen, dann gilt der [Standort](./standorte.md) der Kategorie
+   - **Pfand-Typ** – optional, siehe [Pfand](./pfand.md)
 3. Optional: Wähle ein **Produkt-Icon** oder lade ein **Bild hoch** (siehe [Icons und Bilder](#icons)).
-4. Optional: Schalte **Favorit** ein, damit das Produkt an der Kasse ganz oben steht (siehe [Favoriten](#favoriten)).
-5. Optional: Füge über **+ Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten).
+4. Optional: Füge über **Gruppe hinzufügen** Optionsgruppen hinzu (z. B. „Beilage“ mit Auswahlmöglichkeiten) – als **Einfachauswahl**, **Mehrfachauswahl** oder **Zutatenliste**.
+5. Optional: Schalte **Favorit** ein, damit das Produkt an der Kasse ganz oben steht (siehe [Favoriten](#favoriten)). **Aktiv** und **Verfügbar** sind voreingestellt; **Bestand verfolgen** siehe [Bestandsverfolgung](#bestandsverfolgung).
 6. Klicke auf **Erstellen**.
 
 ![Produkt erstellen](/img/screens/de/products-dialog.png)
 
 ## Produktliste
 
-Die Tabelle zeigt pro Produkt **Name**, **Kategorie**, **Preis**, **Bestand** und **Status** (z. B. *Verfügbar*). Über die Aktions-Schaltflächen am Zeilenende **bearbeitest** oder **löschst** du ein Produkt. Der **Stern** in der Zeile macht ein Produkt zum Favoriten oder nimmt es wieder heraus.
+Die Tabelle zeigt pro Produkt **Name**, **Kategorie**, **Preis**, **Bestand** und **Status** (*Verfügbar*, *Nicht verfügbar*, *Ausverkauft* oder *Inaktiv*). Über die Symbole am Zeilenende **bearbeitest** du ein Produkt, **passt den Bestand an** (nur mit Bestandsverfolgung) oder **löschst** es. Der **Stern** in der Zeile macht ein Produkt zum Favoriten oder nimmt es wieder heraus.
+
+Oben rechts über der Liste stehen drei Symbole: **Kategorien bearbeiten** (siehe [Kategorien](./kategorien.md)), **Importieren** (siehe [Produkte importieren](#produkte-importieren)) und **Produkt erstellen**.
 
 ## Favoriten {/* #favoriten */}
 
@@ -62,29 +67,38 @@ Die Spalte **Bestand** zeigt, wie viele Einheiten eines Produkts laut System noc
 
 So funktioniert die Bestandsverfolgung:
 
+- **Einschalten.** Im Produktdialog schaltest du **Bestand verfolgen** ein und trägst **Lagerbestand** und **Einheit** (z. B. Stück) ein.
 - **Verkauf reduziert den Bestand.** Wird ein Produkt an der Kasse verkauft, sinkt sein Bestand automatisch um die verkaufte Menge.
-- **Kein Bestand hinterlegt (`-`).** Steht in der Spalte ein Strich, wird für dieses Produkt **kein** Bestand geführt – es bleibt unabhängig von der Menge verkaufbar. Das ist sinnvoll für Artikel ohne sinnvolle Stückzahl (z. B. frisch zubereitete Speisen).
-- **Status.** Der Status (z. B. *Verfügbar*) signalisiert, ob ein Produkt aktuell an der Kasse angeboten wird.
+- **Bestand anpassen.** Über das Symbol in der Zeile buchst du Wareneingänge oder Korrekturen: **Anpassungsmenge** und **Grund** eintragen, dann **Hinzufügen** oder **Abziehen**.
+- **Kein Bestand (`-`).** Steht in der Spalte ein Strich, ist **Bestand verfolgen** aus – das Produkt bleibt unabhängig von der Menge verkaufbar. Das ist sinnvoll für Artikel ohne sinnvolle Stückzahl (z. B. frisch zubereitete Speisen).
+- **Status.** *Verfügbar* heißt, das Produkt wird an der Kasse angeboten. Schaltest du **Verfügbar** aus, steht es als *Nicht verfügbar* da; ist der verfolgte Bestand aufgebraucht, als *Ausverkauft*.
 
 ### Zusammenhang mit der Inventur
 
 Den Anfangsbestand und spätere Korrekturen erfasst du über das Modul **[Inventur](./inventur.md)**:
 
-1. **Anfangsbestand erfassen** – Lege vor dem Fest eine Inventur an und trage die vorhandenen Mengen je Produkt ein. Dieser Wert erscheint anschließend in der Spalte **Bestand**.
+1. **Anfangsbestand erfassen** – Lege vor dem Fest eine Inventur an und trage die vorhandenen Mengen je Produkt ein. Die Inventur nimmt alle Produkte mit **Bestand verfolgen** auf; nach dem Abschließen erscheint der gezählte Wert in der Spalte **Bestand**.
 2. **Laufender Betrieb** – Während des Verkaufs zählt OpenEOS die verkauften Mengen vom Bestand ab. Du siehst also jederzeit den rechnerisch verbleibenden Bestand.
 3. **Schlussinventur** – Nach dem Fest erfasst du den tatsächlich verbliebenen Bestand. Die Differenz zwischen erwartetem und gezähltem Bestand hilft, **Verbrauch und Schwund** nachzuvollziehen.
 
 :::tip[Bestand gezielt einsetzen]
-Führe Bestände vor allem für Produkte, bei denen die Stückzahl wichtig ist (z. B. Getränkekisten, Pfandbecher). Für frei zubereitete Speisen kannst du die Bestandsführung weglassen, indem du keinen Anfangsbestand erfasst.
+Führe Bestände vor allem für Produkte, bei denen die Stückzahl wichtig ist (z. B. Getränkekisten, Pfandbecher). Für frei zubereitete Speisen lässt du **Bestand verfolgen** einfach aus.
 :::
 
 ## Produkte importieren
 
-Statt jedes Produkt einzeln anzulegen, kannst du über **Importieren** mehrere Produkte gleichzeitig per **CSV-Datei** einlesen. Im Import-Dialog ordnest du die Spalten deiner Datei den OpenEOS-Feldern zu (Name, Preis, Kategorie usw.) und siehst vorab eine Vorschau, bevor der Import ausgeführt wird.
+Statt jedes Produkt einzeln anzulegen, öffnest du über das Symbol **Importieren** den Dialog **Produkte importieren**. Er hat zwei Reiter: **Speisekarte** (Fotos, PDF oder Text, siehe [unten](#aus-speisekarte-importieren)) und **CSV**. Ist der [Assistent](./assistent.md) aus, gibt es nur den Reiter **CSV**.
+
+Im Reiter **CSV**:
+
+1. Wähle unter **CSV-Datei oder Text** eine Datei aus (**Datei auswählen**) oder füge den Inhalt direkt ein. **Vorlage herunterladen** liefert eine Beispieldatei mit den passenden Spalten; welche das sind, erklärt **Spalten-Erklärung** (Pflicht sind `category`, `name` und `price`).
+2. Lege unter **Duplikat-Behandlung** fest, was mit Produkten passiert, die es schon gibt: **Überspringen**, **Aktualisieren** oder **Immer neu anlegen**.
+3. Klicke auf **Vorschau**. Die Tabelle zeigt je Zeile, ob angelegt, aktualisiert, übersprungen wird oder ein Fehler vorliegt, und welche Kategorien und Pfand-Typen neu angelegt werden.
+4. Klicke auf **Import durchführen**.
 
 ## Aus Speisekarte importieren
 
-Hast du deine Speisekarte schon – als Aushang, Flyer oder PDF –, musst du sie nicht abtippen. Mit **Aus Speisekarte importieren** liest OpenEOS sie ein und macht daraus einen Vorschlag für Kategorien und Produkte, den du prüfst und dann in einem Schritt anlegst. Diese Funktion gehört zum [Assistenten](./assistent.md); ein Admin schaltet ihn unter **Einstellungen → Organisation → Assistent** ein. Solange er aus ist, steht an dieser Stelle ein Hinweis mit Link zu den Einstellungen.
+Hast du deine Speisekarte schon – als Aushang, Flyer oder PDF –, musst du sie nicht abtippen. Im Reiter **Speisekarte** liest OpenEOS sie ein und macht daraus einen Vorschlag für Kategorien und Produkte, den du prüfst und dann in einem Schritt anlegst. Diese Funktion gehört zum [Assistenten](./assistent.md); ein Admin schaltet ihn unter **Einstellungen → Organisation → Assistent** ein. Solange er aus ist, sehen Admins über der Produktliste den Hinweis *Speisekarte importieren? Schalte dafür die Assistent-Funktionen ein.* mit dem Link **Zu den Einstellungen**.
 
 :::info[Vorschläge können Fehler enthalten]
 Der Vorschlag ist ein Entwurf. Preis, Steuersatz oder Kategorie können danebenliegen – prüfe die Tabelle, bevor du anlegst. Es wird nichts angelegt, was du nicht ausgewählt hast.
@@ -92,7 +106,7 @@ Der Vorschlag ist ein Entwurf. Preis, Steuersatz oder Kategorie können danebenl
 
 ### Ablauf
 
-1. Klicke auf der Produktseite auf **Aus Speisekarte importieren**. Der Import gilt für die aktive Veranstaltung.
+1. Klicke auf der Produktseite auf **Importieren** und wähle den Reiter **Speisekarte**. Der Import gilt für die aktive Veranstaltung.
 2. Wähle, woher die Speisekarte kommt:
    - **Fotos oder PDF** – zieh die Dateien in das Feld oder wähle sie aus. Bis zu **6 Bilder** (JPG, PNG, WebP) oder **eine PDF**, jeweils höchstens 10 MB. Eine PDF geht nur allein, nicht gemischt mit Bildern.
    - **Text** – füge die Speisekarte als Text ein, so wie sie dasteht, zum Beispiel aus einer Tabelle oder einer E-Mail. Überschriften werden zu Kategorien, „0,3 l 3,00 / 0,5 l 4,00“ zu Varianten, „zzgl. 2 € Pfand“ zum Pfand-Hinweis.

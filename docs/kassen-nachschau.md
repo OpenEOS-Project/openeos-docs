@@ -3,13 +3,17 @@ title: Kassen-Nachschau und DSFinV-K
 description: Was du dem Finanzamt bei einer Kassen-Nachschau oder Prüfung übergibst — DSFinV-K-Export, TSE-Export und Verfahrensdokumentation — und wie die Kassenabschlüsse entstehen.
 ---
 
+import TseComingSoon from '@site/src/components/TseComingSoon';
+
 # Kassen-Nachschau und DSFinV-K
 
 Das Finanzamt darf ohne Ankündigung zur **Kassen-Nachschau** kommen (§ 146b AO), etwa mitten auf deinem Fest. Dann will der Prüfer die Kassendaten in zwei festen Formaten sehen. Mit der [Cloud-TSE](./integrationen/cloud-tse.md) erzeugt OpenEOS beides für dich – du lädst es mit zwei Klicks herunter.
 
 :::info[Nur mit Cloud-TSE]
-Kassenabschlüsse und DSFinV-K gibt es für Organisationen mit aktiver Cloud-TSE (Deutschland, Betriebsart **Alle Funktionen** mit Bargeld).
+Kassenabschlüsse und DSFinV-K gibt es für Organisationen mit aktiver Cloud-TSE (Deutschland, [Betriebsart](./betriebsarten.md) **Alle Funktionen** mit Bargeld).
 :::
+
+<TseComingSoon />
 
 ## Was du übergibst {/* #uebergabe */}
 
@@ -24,18 +28,18 @@ Dazu kommen auf Nachfrage die Bons selbst – auf jedem Bon steht ein QR-Code, d
 ## So exportierst du {/* #export */}
 
 1. In der Seitenleiste **Cloud-TSE** öffnen und zum Abschnitt **Kassen-Nachschau** scrollen.
-2. Den **Zeitraum** wählen. Standard ist der heutige Geschäftstag (6 bis 6 Uhr).
+2. Den **Zeitraum** mit **Von** und **Bis** wählen. **Heute** setzt den heutigen Geschäftstag (6 bis 6 Uhr).
 3. **DSFinV-K exportieren** klicken. Gehört der heutige Tag dazu, schließt OpenEOS die offenen Vorgänge vorher ab (siehe unten) – der Export enthält dann alles bis zu diesem Moment.
 4. **TSE-Export (TAR)** klicken. Du bekommst ein ZIP mit den TAR-Dateien des Zeitraums. Fehlt der heutige Tag noch, startest du mit **Export jetzt starten** einen neuen TSE-Export und lädst ihn nach ein paar Minuten herunter.
 5. Beide Dateien dem Prüfer geben, z. B. auf einem USB-Stick.
 
-Neben jeder Datei siehst du eine **Prüfsumme (SHA-256)**. Damit lässt sich später zeigen, dass die übergebene Datei unverändert ist.
+Neben jedem TSE-Export siehst du eine Prüfsumme („SHA-256 …“). Damit lässt sich später zeigen, dass die übergebene Datei unverändert ist.
 
 ## Kassenabschlüsse {/* #abschluss */}
 
-Die DSFinV-K ordnet jeden Vorgang einem **Kassenabschluss** zu (früher „Z-Bon“). OpenEOS erstellt ihn **automatisch** für jeden Geschäftstag (6 bis 6 Uhr) kurz nach dessen Ende. Jeder Abschluss bekommt eine fortlaufende **Z-Nummer** und lässt sich danach nicht mehr ändern.
+Die DSFinV-K ordnet jeden Vorgang einem **Kassenabschluss** zu (früher „Z-Bon“). OpenEOS erstellt ihn **automatisch** für jeden Geschäftstag (6 bis 6 Uhr), jeden Morgen um 6 Uhr. Jeder Abschluss bekommt eine fortlaufende **Z-Nummer** und lässt sich danach nicht mehr ändern.
 
-Die Liste unter **Kassen-Nachschau** zeigt je Abschluss die Z-Nr., den Geschäftstag, den Umsatz, davon bar, und die Zahl der Vorgänge. Mit **Herunterladen** bekommst du den DSFinV-K-Export genau dieses Abschlusses.
+Die Liste **Kassenabschlüsse** zeigt je Abschluss **Z-Nr.**, **Geschäftstag**, **Umsatz brutto**, **Bargeld** (alle Bargeldbewegungen, auch Anfangsbestand, Einlagen und Entnahmen) und die Zahl der **Vorgänge**; von Hand erstellte Abschlüsse sind mit „von Hand“ markiert. Mit **ZIP** lädst du den DSFinV-K-Export genau dieses Abschlusses herunter. Darüber steht, was seit dem letzten Abschluss offen ist, etwa „Offen seit …: 12 Vorgänge“.
 
 Mit **Kassenabschluss jetzt erstellen** schließt du alle offenen Vorgänge bis zu diesem Moment sofort ab – etwa wenn der Prüfer gerade vor dir steht. Am Ende des Geschäftstags folgt für den Rest automatisch ein weiterer Abschluss.
 
@@ -54,7 +58,7 @@ Damit der Export vollständig ist, brauchst du in den [Organisations-Einstellung
 
 ## Trinkgeld {/* #trinkgeld */}
 
-Unter **Kassen-Nachschau** legst du fest, an wen Trinkgeld geht:
+Unter **Kassen-Nachschau** legst du bei **Trinkgeld geht an** fest, wie Trinkgeld im Export gebucht wird:
 
 - **Verein** (Standard): Trinkgeld zählt als Einnahme der Organisation (DSFinV-K „TrinkgeldAG“).
 - **Helfer**: Trinkgeld wird an die Helfer weitergegeben (DSFinV-K „TrinkgeldAN“).

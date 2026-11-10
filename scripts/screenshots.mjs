@@ -29,6 +29,10 @@ import { AUFNAHMEN, GERAETE_AUFNAHMEN } from './screenshots.config.mjs';
 const ausfuehren = promisify(execFile);
 
 const BASIS = process.env.APP_URL ?? 'https://app.staging.openeos.de';
+/* Lokaler Stack mit Beispieldaten (README „Lokal aufnehmen“): Chromium
+   leitet die gehosteten Namen auf die lokalen Dienste um, damit im Bild
+   app.openeos.de steht und nicht localhost. Wert: --host-resolver-rules. */
+const LOKALER_STACK = process.env.LOKALER_STACK ?? '';
 const [MAIL, PASSWORT] = (process.env.ZUGANG ?? '').split(':');
 const STANDARD_ANSICHT = { breite: 1440, hoehe: 1000, skala: 1 };
 /* Je Lauf eine eigene Datei: zwei Läufe nebeneinander überschreiben sich sonst die Legende. */
@@ -208,6 +212,8 @@ async function neuerKontext(browser, sprache, ansicht = {}) {
     isMobile: !!a.mobil,
     hasTouch: !!a.mobil,
     colorScheme: 'light',
+    // Der lokale Stack hat ein selbst signiertes Zertifikat.
+    ignoreHTTPSErrors: !!LOKALER_STACK,
   });
   return { kontext, ansicht: a };
 }
@@ -225,6 +231,7 @@ async function main() {
     const sprachcode = sprache.locale.replace('-', '_');
     const browser = await chromium.launch({
       ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
+      ...(LOKALER_STACK ? { args: [`--host-resolver-rules=${LOKALER_STACK}`] } : {}),
       env: { ...process.env, LANGUAGE: sprachcode, LANG: `${sprachcode}.UTF-8` },
     });
 
@@ -257,6 +264,12 @@ async function main() {
       if (nurDiese && !nurDiese.has(eintrag.datei)) continue;
       /* Die Registrierung gehoert zu einem Besucher ohne Konto — mit
          bestehender Sitzung leitet die Seite ins Dashboard um. */
+      /* Aufnahmen, die etwas anlegen oder das Tageskontingent des
+         Assistenten verbrauchen, laufen nur gegen den lokalen Stack. */
+      if (eintrag.nurLokal && !LOKALER_STACK) {
+        console.log(`    ${eintrag.datei}.png übersprungen (nur lokal, LOKALER_STACK)`);
+        continue;
+      }
       const ziel = eintrag.ohneAnmeldung ? anonymeSeite : seite;
       const ansicht = { ...standard, ...eintrag.ansicht };
       try {
@@ -281,7 +294,7 @@ async function main() {
       if (nurDiese && !nurDiese.has(eintrag.datei)) continue;
       /* Aufnahmen, die auf Staging etwas anlegen würden (Kopplungsseite),
          laufen nur gegen eine lokale Oberfläche. */
-      if (eintrag.nurLokal && !/^https?:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/.test(BASIS)) {
+      if (eintrag.nurLokal && !LOKALER_STACK && !/^https?:\/\/(localhost|127\.0\.0\.1)(:|\/|$)/.test(BASIS)) {
         console.log(`    ${eintrag.datei}.png übersprungen (nur lokal, APP_URL=http://localhost:…)`);
         continue;
       }

@@ -10,7 +10,7 @@ Questions, bug reports and requests reach us in two ways – there are no fixed 
 - **Support chat** in the app: menu item **Support**. The chat belongs to your organization; all members see the same history. When we reply, you also get an e-mail.
 - **E-mail** to [hello@openeos.de](mailto:hello@openeos.de).
 
-If your organization booked an event within the last twelve months, the chat shows **Priority support** – we then handle your requests first.
+If your organization booked an event within the last twelve months, the chat shows **Priority support** – we then handle your requests first. Otherwise it says: "We usually reply within 1–2 business days."
 
 Helpful in every report: what you wanted to do, what happened instead, on which device, roughly when – and a screenshot if you can.
 
@@ -18,9 +18,11 @@ Helpful in every report: what you wanted to do, what happened instead, on which 
 
 For **critical problems during your booked event** there is an additional phone number. Critical means: taking payments or printing tickets is not possible at all and there is no workaround – for example, when the till fails.
 
+![Support with emergency support](/img/screens/en/support.png)
+
 **Where to find the number:** As soon as your organization has booked (unlocked) an event, the number is shown
 
-- in the app under **Support**,
+- in the app under **Support**, at the top in the box **Emergency support on your event day**,
 - on the **dashboard** and on the **events** page while the event is "Planned" or "Active",
 - at the **till** in the menu (☰ → **Emergency support**) while the event is selling for real – on a tablet or phone you can call directly from there,
 - in the **booking confirmation** e-mail.

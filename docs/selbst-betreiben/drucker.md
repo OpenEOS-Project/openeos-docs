@@ -32,7 +32,7 @@ openeos-printer-agent-windows-x64.exe install-service --server-url https://kasse
 
 | Installation | `--server-url` |
 |---|---|
-| Eigener Server im Festnetz | `http://192.168.1.50:3000/api` |
+| Eigener Server im lokalen Netz | `http://192.168.1.50:3000/api` |
 | Eigener Server hinter Reverse-Proxy | `https://kasse.mein-verein.de/api` |
 
 `--server-url` wird in die `config.yaml` geschrieben (`server_url`), der
@@ -88,7 +88,8 @@ cash_drawer_pin: 2              # Pin für den Kassenladen-Impuls (meist 2, manc
 ```
 
 Gesucht wird in dieser Reihenfolge: `--config DATEI`, `config.yaml` im
-Datenverzeichnis, `./config/config.yaml`, `/etc/openeos-printer/config.yaml`.
+Datenverzeichnis, `./config/config.yaml`, `/etc/openeos-printer/config.yaml`, unter Linux
+zuletzt `~/.config/openeos-printer/config.yaml`.
 `discovery.subnet` brauchst du, wenn der Agent-PC mehrere Netze hat oder ein
 VPN die Standardroute übernimmt; größer als /24 geht nicht.
 

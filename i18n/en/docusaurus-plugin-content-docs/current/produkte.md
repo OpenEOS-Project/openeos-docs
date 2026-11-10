@@ -9,29 +9,34 @@ description: Create products, set prices, add icons, and import via CSV or from 
 Under **Products** you manage the range of items for your active event — everything that is sold at the till. Every product requires at least a name and a price, and can be assigned to a category.
 
 :::warning[Active event required]
-Products always belong to an event. If no event is active, the notice "No active event" appears. Activate an [event](./veranstaltungen.md) first.
+Products always belong to an event. If none is active, the notice "No active event" appears. Activate an [event](./veranstaltungen.md) first.
 :::
 
 ![Products overview](/img/screens/en/products.png)
 
 ## Creating a product
 
-1. Click **Create product**.
+1. Click **Create product** (plus icon) at the top right.
 2. Fill in the fields:
    - **Name** (required)
-   - **Category** — assign the product to a [category](./kategorien.md)
+   - **Category** (required) — assign the product to a [category](./kategorien.md); the plus next to it creates a new one right away
    - **Description** — optional additional text (e.g. "Freshly tapped")
    - **Price** (required)
+   - **VAT** — standard rate, reduced rate or 0 %
+   - **Station** — leave empty to use the [station](./standorte.md) of the category
+   - **Deposit type** — optional, see [Deposits](./pfand.md)
 3. Optional: choose a **product icon** or upload an **image** (see [Icons and images](#icons)).
-4. Optional: switch on **Favorite** so the product sits at the top of the till (see [Favorites](#favoriten)).
-5. Optional: use **+ Add group** to add option groups (e.g. "Side dish" with selectable options).
+4. Optional: use **Add Group** to add option groups (e.g. "Side dish" with selectable options) — as **Single choice**, **Multiple choice** or **Ingredients list**.
+5. Optional: switch on **Favorite** so the product sits at the top of the till (see [Favorites](#favoriten)). **Active** and **Available** are on by default; for **Track inventory** see [Stock tracking](#stock-tracking).
 6. Click **Create**.
 
 ![Create product](/img/screens/en/products-dialog.png)
 
 ## Product list
 
-The table shows the **Name**, **Category**, **Price**, **Stock**, and **Status** (e.g. *Available*) for each product. Use the action buttons at the end of each row to **edit** or **delete** a product. The **star** in the row makes a product a favorite or removes it again.
+The table shows the **Name**, **Category**, **Price**, **Stock**, and **Status** (*Available*, *Unavailable*, *Out of stock* or *Inactive*) for each product. Use the icons at the end of each row to **edit** a product, **adjust its stock** (only with stock tracking) or **delete** it. The **star** in the row makes a product a favorite or removes it again.
+
+At the top right above the list there are three icons: **Edit categories** (see [Categories](./kategorien.md)), **Import** (see [Importing products](#importing-products)) and **Create product**.
 
 ## Favorites {/* #favoriten */}
 
@@ -43,12 +48,12 @@ Without any favorites the category is not shown and the till starts with the fir
 
 At the till every product has a small picture on its tile. There are two ways to set it:
 
-- **Choose product icon** — opens the picker with coloured product pictures: beer, shandy, wine and spritzers, soft drinks as glass or bottle, sausage, steak, burgers, fries, crêpes and more. Without a search they are grouped into drinks and food; the search finds them by English or German terms, for example "beer", "bratwurst" or "Pommes".
+- **Choose product icon** — opens the picker with colored product pictures: beer, shandy, wine and spritzers, soft drinks as glass or bottle, sausage, steak, burgers, fries, crêpes and more. Without a search they are grouped into drinks and food; the search finds them by English or German terms, for example "beer", "bratwurst" or "Pommes".
 - **Upload image** — a photo of the product. It fills the icon area.
 
 If the [assistant](./assistent.md) is switched on, there is also a **Suggest** button next to the icon field: enter the name first, then OpenEOS shows up to three matching product icons to tap.
 
-![Icon suggestion in the product form](/img/screens/de/product-icon-suggestion.png)
+![Icon suggestion in the product form](/img/screens/en/product-icon-suggestion.png)
 
 If a product has both, the till shows the product icon. If it has neither, it uses the icon of its [category](./kategorien.md) — for coffee or cake, say, which have no product picture of their own. Products that still carry an icon from the previous version are shown with the matching product picture (beer as a glass of lager, bratwurst as a grilled sausage in a roll) or, if there is none, with the category icon.
 
@@ -62,29 +67,38 @@ The **Stock** column shows how many units of a product the system considers stil
 
 How stock tracking works:
 
+- **Switching it on.** In the product dialog switch on **Track inventory** and enter the **Stock quantity** and **Unit** (e.g. pcs).
 - **Sales reduce stock.** When a product is sold at the till, its stock automatically decreases by the quantity sold.
-- **No stock set (`-`).** If the column shows a dash, **no** stock is tracked for that product — it stays sellable regardless of quantity. This makes sense for items without a meaningful unit count (e.g. freshly prepared food).
-- **Status.** The status (e.g. *Available*) indicates whether a product is currently offered at the till.
+- **Adjust stock.** The icon in the row books deliveries or corrections: enter the **Adjustment Amount** and a **Reason**, then **Add** or **Subtract**.
+- **No stock (`-`).** If the column shows a dash, **Track inventory** is off — the product stays sellable regardless of quantity. This makes sense for items without a meaningful unit count (e.g. freshly prepared food).
+- **Status.** *Available* means the product is offered at the till. If you switch **Available** off, it shows as *Unavailable*; once the tracked stock is used up, as *Out of stock*.
 
 ### Connection with stocktaking
 
 You record the opening stock and any later corrections in the **[Inventory](./inventur.md)** module:
 
-1. **Record opening stock** – create a stocktake before the event and enter the available quantities per product. This value then appears in the **Stock** column.
+1. **Record opening stock** – create a stocktake before the event and enter the available quantities per product. The stocktake includes all products with **Track inventory**; once completed, the counted value appears in the **Stock** column.
 2. **During operations** – while sales are being made, OpenEOS subtracts the sold quantities from the stock. You always see the calculated remaining stock.
 3. **Closing stocktake** – after the event, record the stock that is actually left. The difference between expected and counted stock helps you understand **consumption and shrinkage**.
 
 :::tip[Use stock tracking selectively]
-Track stock primarily for products where the unit count matters (e.g. crates of drinks, deposit cups). For freely prepared food you can skip stock tracking by simply not recording an opening stock.
+Track stock primarily for products where the unit count matters (e.g. crates of drinks, deposit cups). For freely prepared food simply leave **Track inventory** off.
 :::
 
 ## Importing products
 
-Instead of creating each product individually, you can use **Import** to load multiple products at once via a **CSV file**. In the import dialogue you map the columns of your file to the OpenEOS fields (name, price, category, etc.) and see a preview before the import is executed.
+Instead of creating each product individually, the **Import** icon opens the **Import products** dialog. It has two tabs: **Menu** (photos, PDF or text, see [below](#importing-from-a-menu)) and **CSV**. If the [assistant](./assistent.md) is off, there is only the **CSV** tab.
+
+In the **CSV** tab:
+
+1. Under **CSV file or text**, pick a file (**Choose file**) or paste the content directly. **Download template** gives you a sample file with the right columns; **Column reference** explains them (`category`, `name` and `price` are required).
+2. Under **Duplicate handling** choose what happens with products that already exist: **Skip**, **Update** or **Always create new**.
+3. Click **Preview**. The table shows per row whether it will be created, updated, skipped or has an error, and which categories and deposit types will be created.
+4. Click **Run import**.
 
 ## Importing from a menu
 
-If you already have your menu – as a poster, flyer or PDF – you do not have to type it in. With **Import from menu**, OpenEOS reads it and turns it into a suggestion for categories and products that you review and then create in one step. This feature is part of the [assistant](./assistent.md); an admin switches it on under **Settings → Organization → Assistant**. While it is off, a note with a link to the settings appears in its place.
+If you already have your menu – as a poster, flyer or PDF – you do not have to type it in. In the **Menu** tab, OpenEOS reads it and turns it into a suggestion for categories and products that you review and then create in one step. This feature is part of the [assistant](./assistent.md); an admin switches it on under **Settings → Organization → Assistant**. While it is off, admins see the note *Want to import a menu? Switch on the assistant features first.* with the link **Go to settings** above the product list.
 
 :::info[Suggestions can contain mistakes]
 The suggestion is a draft. Price, tax rate or category can be off – check the table before creating. Nothing is created that you have not selected.
@@ -92,20 +106,20 @@ The suggestion is a draft. Price, tax rate or category can be off – check the 
 
 ### Step by step
 
-1. On the products page, click **Import from menu**. The import applies to the active event.
+1. On the products page, click **Import** and choose the **Menu** tab. The import applies to the active event.
 2. Choose where the menu comes from:
    - **Photos or PDF** – drag the files into the field or choose them. Up to **6 images** (JPG, PNG, WebP) or **one PDF**, at most 10 MB each. A PDF can only be uploaded on its own, not mixed with images.
    - **Text** – paste the menu as text, just as it is written, for example from a spreadsheet or an e-mail. Headings become categories, "0.3 l 3.00 / 0.5 l 4.00" becomes variants, "plus 2 € deposit" becomes the deposit hint.
 
-   ![Uploading a menu](/img/screens/de/products-menu-import-upload.png)
+   ![Uploading a menu](/img/screens/en/products-menu-import-upload.png)
 
 3. Click **Read menu**. Reading usually takes less than a minute; you can leave the dialog open or discard with **Cancel**.
 4. Review the **preview** – a table with all recognized products:
 
-   ![Preview of the menu import](/img/screens/de/products-menu-import-preview.png)
+   ![Preview of the menu import](/img/screens/en/products-menu-import-preview.png)
 
    - **Include** – the checkbox at the start of the row. Only checked rows are created; the column header selects or deselects all.
-   - **Name** – editable. A coloured dot next to it means the assistant was unsure about price or category (*Unsure about price or category* or *Guessed – please check carefully*); hover over it.
+   - **Name** – editable. A colored dot next to it means the assistant was unsure about price or category (*Unsure about price or category* or *Guessed – please check carefully*); hover over it.
    - **Category** – the selection shows the event's existing [categories](./kategorien.md) and the newly recognized ones marked **new**. New categories are created along with the products.
    - **Price (€)** and **VAT** – as recognized on the menu, with a suggested tax rate. If your organization has **No VAT** set, all rows are at 0 %.
    - **Deposit** – if the menu mentioned a deposit ("+ 2 € deposit"), the row shows *On the menu: 2.00 € deposit*. Choose the matching [deposit type](./pfand.md); if there is none yet, create it first.

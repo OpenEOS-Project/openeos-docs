@@ -6,7 +6,7 @@ description: Delete your account, unsubscribe from news by email and what happen
 
 # Account, newsletter and deletion
 
-This page explains how to delete your account, subscribe to or unsubscribe from news by email, and what happens to the data when an organization is deleted. The legal basis is in the [terms and conditions](https://openeos.de/en/agb) (sections 10.4, 15.10 and 20.5), the [data processing agreement](https://openeos.de/en/avv) (section 10) and the [privacy policy](https://openeos.de/en/datenschutz).
+This page explains how to delete your account, subscribe to or unsubscribe from news by email, what happens to the data when an organization is deleted, and which data OpenEOS [deletes on its own](#fristen). The legal basis is in the [terms and conditions](https://openeos.de/en/agb) (sections 10.4, 15.10 and 20.5), the [data processing agreement](https://openeos.de/en/avv) (section 10) and the [privacy policy](https://openeos.de/en/datenschutz).
 
 ## News by email {/* #newsletter */}
 
@@ -17,6 +17,8 @@ Every news email also contains an unsubscribe link. It opens a page where you wi
 ## Delete your account {/* #konto-loeschen */}
 
 Under **Settings → Personal → Account → Delete account** you delete your user account yourself.
+
+![Delete account in your personal settings](/img/screens/en/settings-account.png)
 
 1. Click **Delete account …**. The dialog shows what happens:
    - Name, email address, password, two-factor sign-in, sessions and API tokens are removed and you are signed out.
@@ -53,6 +55,8 @@ On the date we permanently delete the organization's data (see [Final deletion](
 ## Delete an organization {/* #organisation-loeschen */}
 
 Administrators delete an organization under **Settings → Organization → General → Delete organization**. To confirm, type the organization's name.
+
+![Delete organization: confirm with the name](/img/screens/en/settings-organisation-delete.png)
 
 The same happens when OpenEOS closes a customer account after 24 months without a booking (T&C 15.10) – we announce that to the administrators by email 30 days beforehand and remind them again 10 days and one day before the closure. If you book an event until then, the organization stays.
 
@@ -94,3 +98,17 @@ If you don't want to wait 30 days – for example after switching to another pro
 ### Log
 
 Every deletion is recorded without contents in the OpenEOS deletion log: who deleted what and when, and how many records – but no names, email addresses or notes. That applies to the automatic deletion runs and to deletions you trigger yourselves – deleting an organization or cancelling that, removing members, deleting shift registrations (also together with a shift plan, job or shift), deleting your account. When a helper removes themselves from a shift via their link, that is recorded too.
+
+## Automatic deletion periods {/* #fristen */}
+
+On [app.openeos.de](https://app.openeos.de) OpenEOS deletes some data on its own after fixed periods, without you having to do anything (on your own installation this is off at first, see [Retention and deletion](./selbst-betreiben/betrieb.md#retention-and-deletion)):
+
+- **Guest data** (name, phone number, email address and notes in orders, including shop and QR orders): 30 days after the end of the event. The orders themselves are kept for reports and the fiscal archive, just without these details. If you export orders later, the guest data is missing from the file.
+- **Shift registrations** of helpers (name, contact details, notes): 30 days after the last shift of the shift plan. The shift plan with its shifts is kept, for example as a template.
+- **Servers**: according to the periods under [Servers → Automatic deletion](./bedienungen.md#loeschfristen).
+- **Menu imports** of the [assistant](./assistent.md#privacy): uploaded files after 24 hours at the latest, the recognized suggestion after 30 days.
+- **Delivery log** of [webhooks](./integrationen/webhooks.md#protokoll): after 30 days.
+- **Support chat**: 12 months after the last message and the end of use.
+- **Accounts without an organization** that have not been used for 24 months: we announce this by email and anonymize the account 30 days later at the earliest. If you sign in before then, it is kept.
+
+OpenEOS closes organizations without a booking after 24 months, as described under [Delete an organization](#organisation-loeschen). Anything else you want to keep, export in good time. If you run OpenEOS yourself, you set the periods yourself.

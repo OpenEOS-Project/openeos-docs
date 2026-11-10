@@ -29,26 +29,28 @@ Use the fields to narrow the list by:
 - **Status** – as at the till: in kitchen, ready, completed, open (unpaid), cancelled, partly refunded or refunded
 - **Payments** – cash, card, SumUp or discount voucher
 - **Channels** – **Table service**, **Counter** or **Online**
-- **Date range** – **From** and **To** (calendar days)
+- **Date range** – **From (date)** and **To (date)** (calendar days)
 - **Events** – by event
 
-The key metrics at the top and the export follow the same filters. Use the **Refresh** button to reload the list.
+The key metrics at the top and the export follow the same filters. Use the **Refresh** icon to reload the list.
 
 ## Export as CSV
 
-The **Export as CSV** icon (arrow down, next to *Refresh*) downloads the filtered orders as a CSV file – all matches, not just the current page. You choose between two files:
+The **Export as CSV** icon (arrow down, next to *Refresh*) downloads the filtered orders as a CSV file – all matches, not just the current page. The top of the menu tells you how many filtered orders go into the file. You choose between two files:
+
+![Orders with date range and the export menu open](/img/screens/en/orders-export.png)
 
 | File | Content | Use |
 | --- | --- | --- |
 | **Orders** | one row per order: order number, daily number, date, time, event, status, channel (till, online shop, QR order), fulfilment (table, pickup), table, device, server (column "Bedienung"), item count, payment method, subtotal, discount, deposit, tip, total, paid, refunded, VAT included, test order, guest name, note | reconciling with till and bank, settlement |
-| **Line items** | one row per item: order number, date, time, event, table, product, category, variant, quantity, refunded quantity, unit price, VAT rate, deposit per unit, line total, status, station, test order, note | analysis by product, category or station, pivot tables |
+| **Line items** | one row per item: order number, date, time, event, table, product, category, variant, quantity, refunded quantity, unit price, VAT rate, deposit per unit, VAT rate of the deposit, line total, status, station, test order, note | analysis by product, category or station, pivot tables |
 
 The files are prepared for Excel in German locale: semicolon separator, UTF-8 (umlauts display correctly), decimal comma, date and time in German time (Europe/Berlin). Column headers are German. The oldest order comes first. In **Line items** the order discount is not spread over the items – discount, tip and refunds are in the **Orders** file.
 
 - **Who can export?** Administrators and members with the **Orders** permission (as for cancellations and refunds). Others don't see the icon.
 - **[Orders only](./betriebsarten.md#nur-bons):** the files contain quantities only – no prices, amounts or payment methods.
 - **Server:** the table's responsible [server](./bedienungen.md), otherwise the server who took the order. Empty if no server was involved, for example for online shop orders.
-- **Guest data:** the guest's name and note are only included while OpenEOS still stores them – they are deleted 30 days after the event ends (see [Data and deletion](./daten-und-loeschung.md)). Phone numbers are never included.
+- **Guest data:** the guest's name and note are only included while OpenEOS still stores them – they are deleted 30 days after the event ends (see [Data and deletion](./daten-und-loeschung.md#fristen)). Phone numbers are never included.
 - **Via the API:** `GET /organizations/{organizationId}/orders/export` returns the same file with an [API token](./api-zugaenge.md) (scope `read`, `variant=orders` or `variant=items`, same filters as the list).
 
 :::tip[Tax advisor and board]
@@ -57,7 +59,15 @@ Set the date range to the month or the event and export **Orders** – that lets
 
 ## Order Details
 
-Select an order to view its details — line items, payment method, status, and any deposit. This lets you answer queries or trace individual transactions.
+Select an order to view its details: channel and status, **Created** and **Created by** (device, server or member), table, guest and note, and the line items with **Subtotal**, **Discount**, **Deposit**, **Tip** and **Total**. Below that you find the **Payments**, the **Refunds** with receipt and reason, and the **History** of the order, with the Cloud TSE also the TSE data. This lets you answer queries or trace individual transactions.
+
+With the **Orders** permission you can also make corrections here:
+
+- **Cancel items** – for items that have not been paid yet.
+- **Cancel & refund** – cancels paid items and refunds them in one step.
+- **Refund** – refunds by **Items**, as an **Amount** or **Everything**, without cancelling.
+
+Every refund creates a counter-receipt; **Reprint counter-receipt** prints it again. At the till the same works in the [order history](./kasse.md#bestellverlauf).
 
 :::tip[Real-time]
 Thanks to the WebSocket connection, new orders appear in near real-time. Keep the orders overview open during operations to stay on top of things.

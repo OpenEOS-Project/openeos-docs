@@ -185,7 +185,27 @@ Without a SumUp reader, *Split bill* and *Open orders* offer "Card" with the hin
 
 ![Payment completed with change and receipt](/img/screens/en/pos-done.png)
 
-After payment the till shows **Paid** with the amount, method and change, and the receipt below. **Print receipt** sends it to the receipt printer (if the printer already prints on every payment, the button reads **Print receipt again**). **Next receipt** moves on. Without change the window closes by itself after five seconds; with change it stays until you have handed the money over.
+After payment the till shows **Paid** with the amount, method and change, the receipt below and the **receipt** as a QR code (see [Hand out the receipt](#beleg)). **Next receipt** moves on. If the till prints a receipt automatically on every payment, the window closes by itself after five seconds when there is no change. Otherwise it stays until you tap **No receipt** or **Next receipt** – the guest should be able to scan the receipt calmly. With change it always stays until you have handed the money over.
+
+## Hand out the receipt {/* #beleg */}
+
+After every payment the guest must be offered a receipt (obligation to issue receipts, § 146a (2) AO). The guest picks the way:
+
+- **QR code** – shown right after payment. The guest scans it with their phone and sees the receipt as a page with **Download as PDF**. The link is valid for 90 days.
+- **E-mail** – you type in the guest's address, they get the receipt by e-mail with a PDF attached. The sender is your club; replies go to your organization's contact address (Settings → Organization). The address is only used for sending and is not stored.
+- **Print receipt** – prints the receipt on the till's receipt printer, even if the automatic receipt is off. If the till prints on every payment anyway, the button reads **Print receipt again** and the receipt says "NACHDRUCK" (reprint).
+- **Hospitality receipt** – for guests who entertain on business (see [Hospitality receipt](./bewirtungsbeleg.md)).
+- **No receipt** – the guest doesn't want one; this only closes the window.
+
+The digital receipt shows the same as the printed one: club with address, items, deposit, included VAT per rate (without VAT for VAT-exempt clubs), total, payment method and – with the Cloud TSE – the TSE details with QR code. Test orders say "TESTMODUS", training bookings "TRAININGSBUCHUNG – KEIN VERKAUF"; if the TSE could not be reached, the receipt says so, just like the printed one. Guest names and notes on items are not on it. The receipt is only created after payment (and, with the Cloud TSE, after the signature).
+
+:::info[Why the QR code appears right away]
+An electronic receipt is allowed if the guest agrees – this may also be implicit, for example by scanning the QR code. It counts as provided as soon as the guest has the chance to take it. Only showing the receipt on the till's screen is not enough (AEAO on § 146a no. 2.5.3, 2.5.4 and 2.5.6). The guest does not have to accept the receipt; "No receipt" is fine once it has been offered.
+:::
+
+**Later again:** In the [order history](#bestellverlauf), **Receipt** offers the same ways for every paid order. The receipt is created anew from the stored till data each time – even if an old link has expired.
+
+In the **Orders only** operating mode there are no till receipts (the till doesn't take money there), so there is no digital receipt either. The same applies to **Close without payment**.
 
 ## Switching and parking tables {/* #tisch-wechseln */}
 
@@ -219,7 +239,7 @@ Whoever has the **Cancel & refund** right cancels and refunds directly in the [o
 
 ## Order history {/* #bestellverlauf */}
 
-In the **Menu**, **Order history** opens the orders of the running event, filtered by **All**, **Open**, **Completed** and **Cancelled**. There you can **reprint** kitchen tickets and the receipt and **cancel** an order (with an optional reason).
+In the **Menu**, **Order history** opens the orders of the running event, filtered by **All**, **Open**, **Completed** and **Cancelled**. There you can **reprint** kitchen tickets, hand out the till receipt with **Receipt** as a QR code, by e-mail or printed (also a [hospitality receipt](./bewirtungsbeleg.md)) and **cancel** an order (with an optional reason).
 
 ## Deposit {/* #pfand */}
 

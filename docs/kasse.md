@@ -185,7 +185,27 @@ Ohne SumUp-Leser bieten *Rechnung teilen* und *Offene Bestellungen* die Zahlart 
 
 ![Abschluss mit Rückgeld und Bon](/img/screens/de/pos-done.png)
 
-Nach dem Bezahlen zeigt die Kasse **Bezahlt** mit Betrag, Zahlart und Rückgeld und darunter den Bon. **Bon drucken** schickt ihn an den Bondrucker (druckt der Drucker ohnehin bei jeder Zahlung, heißt der Knopf **Bon erneut drucken**). **Nächster Bon** geht weiter. Ohne Rückgeld schließt sich das Fenster nach fünf Sekunden von selbst; mit Rückgeld bleibt es stehen, bis du das Geld herausgegeben hast.
+Nach dem Bezahlen zeigt die Kasse **Bezahlt** mit Betrag, Zahlart und Rückgeld, darunter den Bon und den **Beleg** als QR-Code (siehe [Beleg ausgeben](#beleg)). **Nächster Bon** geht weiter. Druckt die Kasse bei jeder Zahlung automatisch einen Bon, schließt sich das Fenster ohne Rückgeld nach fünf Sekunden von selbst. Sonst bleibt es stehen, bis du **Kein Beleg** oder **Nächster Bon** tippst – der Gast soll den Beleg in Ruhe scannen können. Mit Rückgeld bleibt es immer stehen, bis du das Geld herausgegeben hast.
+
+## Beleg ausgeben {/* #beleg */}
+
+Nach jeder Zahlung muss der Gast einen Beleg angeboten bekommen (Belegausgabepflicht, § 146a Abs. 2 AO). Den Weg wählt der Gast:
+
+- **QR-Code** – steht nach dem Bezahlen sofort da. Der Gast scannt ihn mit dem Handy und sieht seinen Beleg als Seite mit **Als PDF herunterladen**. Der Link gilt 90 Tage.
+- **E-Mail** – du tippst die Adresse des Gastes ein, er bekommt den Beleg als Mail mit PDF-Anhang. Absender ist dein Verein; Antworten gehen an die Kontaktadresse deiner Organisation (Einstellungen → Organisation). Die Adresse wird nur für den Versand verwendet und nicht gespeichert.
+- **Bon drucken** – druckt den Kassenbon auf dem Bondrucker der Kasse, auch wenn der automatische Kassenbon aus ist. Druckt die Kasse ohnehin bei jeder Zahlung, heißt der Knopf **Bon erneut drucken** und der Bon trägt „NACHDRUCK“.
+- **Bewirtungsbeleg** – für Gäste, die geschäftlich bewirten (siehe [Bewirtungsbeleg](./bewirtungsbeleg.md)).
+- **Kein Beleg** – der Gast möchte keinen; das schließt nur das Fenster.
+
+Der digitale Beleg zeigt dasselbe wie der gedruckte Bon: Verein mit Anschrift, Positionen, Pfand, enthaltene MwSt je Satz (bei steuerbefreiten Vereinen ohne MwSt), Summe, Zahlart und – mit Cloud-TSE – die TSE-Angaben mit QR-Code. Testbestellungen tragen „TESTMODUS“, Trainingsbuchungen „TRAININGSBUCHUNG – KEIN VERKAUF“; war die TSE nicht erreichbar, steht das auf dem Beleg wie auf dem Bon. Namen von Gästen und Notizen zu Positionen stehen nicht darauf. Der Beleg entsteht erst nach dem Bezahlen (und, mit Cloud-TSE, nach der Signatur).
+
+:::info[Warum der QR-Code sofort erscheint]
+Ein elektronischer Beleg ist erlaubt, wenn der Gast zustimmt – das darf auch stillschweigend sein, etwa indem er den QR-Code scannt. Er gilt als bereitgestellt, sobald der Gast die Möglichkeit hat, ihn entgegenzunehmen. Den Beleg nur auf dem Bildschirm der Kasse zu zeigen, reicht dagegen nicht (AEAO zu § 146a Nr. 2.5.3, 2.5.4 und 2.5.6). Annehmen muss der Gast den Beleg nicht; „Kein Beleg“ ist also in Ordnung, nachdem er angeboten wurde.
+:::
+
+**Später noch einmal:** Im [Bestellverlauf](#bestellverlauf) öffnet **Beleg** bei jeder bezahlten Bestellung dieselben Wege. Der Beleg wird jedes Mal neu aus den gespeicherten Kassendaten erzeugt – auch wenn ein alter Link abgelaufen ist.
+
+In der Betriebsart **Nur Bons** gibt es keine Kassenbelege (die Kasse kassiert dort nicht), also auch keinen digitalen Beleg. Bei **Ohne Zahlung abschließen** gibt es ebenfalls keinen.
 
 ## Tisch wechseln und parken {/* #tisch-wechseln */}
 
@@ -219,7 +239,7 @@ Wer das Recht **Stornieren & Erstatten** hat, storniert und erstattet im [Bestel
 
 ## Bestellverlauf {/* #bestellverlauf */}
 
-Im **Menü** öffnet **Bestellverlauf** die Bestellungen der laufenden Veranstaltung, filterbar nach **Alle**, **Offen**, **Abgeschlossen** und **Storniert**. Dort kannst du Küchenbons und Quittung **nachdrucken** und eine Bestellung **stornieren** (mit optionalem Grund).
+Im **Menü** öffnet **Bestellverlauf** die Bestellungen der laufenden Veranstaltung, filterbar nach **Alle**, **Offen**, **Abgeschlossen** und **Storniert**. Dort kannst du Küchenbons **nachdrucken**, mit **Beleg** den Kassenbeleg als QR-Code, per E-Mail oder gedruckt ausgeben (auch einen [Bewirtungsbeleg](./bewirtungsbeleg.md)) und eine Bestellung **stornieren** (mit optionalem Grund).
 
 ## Pfand {/* #pfand */}
 

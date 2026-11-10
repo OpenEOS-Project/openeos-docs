@@ -84,7 +84,7 @@ Wurde die Organisation zusammen mit deinem Konto gelöscht, brichst du stattdess
 
 Nach Ablauf der Exportfrist löschen wir Artikel, Einstellungen, Bestellungen, Schichtpläne, Geräte, Zugänge und Mitgliedschaften endgültig. Erhalten bleiben:
 
-- das **Steuerarchiv** (TSE-Exporte, Kassenabschlüsse mit DSFinV-K-Export, signierte Kassenvorgänge) für die gesetzliche Frist von zehn Jahren, abrufbar über den Support,
+- das **Steuerarchiv** (TSE-Exporte, Kassenabschlüsse mit DSFinV-K-Export, signierte Kassenvorgänge, [Bewirtungsbelege](./bewirtungsbeleg.md) mit ihren Bestellungen) für die gesetzliche Frist von zehn Jahren, abrufbar über den Support,
 - die Abrechnung der Nutzungstage (Rechnungen) für die gesetzlichen Fristen.
 
 ### Früher löschen lassen

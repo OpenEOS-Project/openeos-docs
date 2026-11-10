@@ -34,14 +34,14 @@ In the **Security** sub-section you set up two-factor authentication (**Enable 2
 
 In the **Organization** tab you manage your organization's master data. It has the sub-tabs **General**, **Contact**, **Tax details**, **Operating mode**, **Assistant**, **Access**, **Webhooks**, **Notifications** and **Legal information**. Only admins of the organization can change the details.
 
-### General
+### General {/* #allgemein */}
 
 Basic information about your organization:
 
 - **Logo** – displayed on the public [volunteer schedule page](./schichtplaene.md) and in the shop (PNG, JPG, or WEBP, max. 5 MB).
 - **Name** – appears on invoices and receipts.
 - **Description** – optional additional text.
-- **No VAT** – for associations and small businesses (§ 19 UStG). When on, all products carry 0 % and no tax rate can be chosen.
+- **No VAT** – for associations and small businesses (§ 19 UStG). When on, all products carry 0 % and no tax rate can be chosen. Receipts, refund receipts and deposit returns then carry the notice „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ (tax-exempt as a small business) and never a VAT amount. When your revenue in OpenEOS reaches 80 % of the 100,000 € limit, the dashboard warns you. Once your organization has transactions with the [Cloud TSE](./integrationen/cloud-tse.md#kleinunternehmer), you no longer change the tax status with this switch but via **Change tax status**: OpenEOS creates a cash point closing first.
 - **Delete organization** – a card of its own below the details, administrators only. Afterwards the organization is read-only for 30 days so you can export all data; then it is permanently deleted. Emails come beforehand (announcement, 10 days and one day before), and until then you can cancel the deletion. See [Account, newsletter and deletion](./daten-und-loeschung.md#organisation-loeschen).
 
 ![Organization settings – General](/img/screens/en/settings-organisation.png)

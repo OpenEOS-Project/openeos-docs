@@ -147,6 +147,8 @@ Unten im Warenkorb stehen ein oder zwei Knöpfe. Welche, entscheidet der **Kassi
 
 Nach dem Senden bleibt der Tisch geöffnet, damit du weiter bestellen kannst. Nach dem Kassieren geht es zurück zu **Tisch öffnen**; an der Theke bleibt die leere Bestellansicht stehen.
 
+Mit [Cloud-TSE](./integrationen/cloud-tse.md) bekommen Küche und Theke ihren Bon erst, wenn der Vorgang in der TSE abgesichert ist – siehe [Bon und Cloud-TSE](#tse).
+
 ### Offene Bestellungen an der Theke
 
 Wird **auf Deckel gebucht** und ohne Tisch verkauft (Feste Kasse oder Thekenbetrieb), gibt es keine Tische, unter denen offene Bestellungen stehen. Dafür gibt es im Menü und am Warenkorb **Offene Bestellungen**: eine Liste aller offenen Bestellungen ohne Tisch. Du wählst eine oder mehrere aus und kassierst sie zusammen.
@@ -266,6 +268,19 @@ Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Men�
 Nach dem **Auszahlen** zeigt die Kasse **Pfand ausgezahlt** mit dem Beleg „Pfandrückgabe“ und seiner Belegnummer. Er wird wie der Kassenbon gedruckt: automatisch, wenn Kassenbons nach der Zahlung gedruckt werden (dann gibt es **Bon erneut drucken**), sonst über **Bon drucken**. Wie beim Verkauf schließt sich das Fenster nach fünf Sekunden von selbst. Verrechnet wird nur Pfand mit demselben [Steuersatz](./pfand.md#umsatzsteuer) – ein zurückgegebener Becher (19 %) ersetzt kein Tellerpfand (7 %).
 
 In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es kein **Auszahlen**, nur **Verrechnen** mit neuem Pfand im selben Verkauf. In [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
+
+## Bon und Cloud-TSE {/* #tse */}
+
+Hat deine Organisation eine aktive [Cloud-TSE](./integrationen/cloud-tse.md), sichert die Kasse jeden Vorgang in der TSE ab, bevor sie etwas druckt:
+
+- **Erst die Signatur, dann der Beleg.** Den Kassenbon – gedruckt oder digital – gibt es erst, wenn die TSE den Vorgang abgeschlossen und signiert hat. Das dauert meist nur einen Augenblick.
+- **TSE antwortet nicht.** Nach einer kurzen Wartezeit gibt die Kasse den Bon trotzdem aus, als Ausfallbeleg mit dem Vermerk **„TSE nicht erreichbar – Beleg ohne Signatur“**. Du kassierst normal weiter, siehe [Wenn die TSE ausfällt](./integrationen/cloud-tse.md#ausfall).
+- **Küchenbons erst nach der Absicherung.** Beim **Sofort kassieren** signiert die TSE die Zahlung, bevor Küche und Theke ihren Bon bekommen. Beim **Senden** – am Tisch, an der Theke auf Deckel oder bei Bestellungen aus der Verwaltung – sichert die TSE zuerst die Bestellung ab, danach druckt die Küche.
+- **Bestellbeginn.** Wurde vorher bestellt und später kassiert, steht auf dem Kassenbon zusätzlich der **Bestellbeginn**: der Zeitpunkt, zu dem die erste Bestellung in der TSE abgesichert wurde.
+- **Nachdruck.** Den Kassenbon druckst du im [Bestellverlauf](#bestellverlauf) erneut aus, auch wenn der automatische Kassenbon aus ist. Wurde schon einer gedruckt, trägt der neue den Vermerk **NACHDRUCK** und dieselben TSE-Angaben wie das Original; eine neue Signatur entsteht nicht.
+- **Signatur kommt nach dem Ausfallbeleg doch noch an.** Dann bleibt der Bon ein Ausfallbeleg. Ein Nachdruck zeigt die Signatur nur als gekennzeichneten Hinweis „Signatur nach Belegausgabe“, ohne QR-Code.
+
+Ohne Cloud-TSE druckt die Kasse Kassen- und Küchenbons wie gewohnt sofort.
 
 ## Kassenbuch {/* #kassenbuch */}
 

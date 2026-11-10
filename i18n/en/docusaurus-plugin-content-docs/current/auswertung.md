@@ -39,12 +39,12 @@ Top products and top categories are **net**: cancellations and refunded quantiti
 
 ## VAT {/* #umsatzsteuer */}
 
-The **VAT** card shows per **VAT rate** the columns **Goods**, **Deposit**, **Deposit returns**, **Gross**, **Net** and **VAT**, with the **Total** below. Deposits are part of the consideration and carry the rate of their [deposit type](./pfand.md#umsatzsteuer); deposit returns reduce it. Tips are not included.
+The **VAT** card shows per **VAT rate** the columns **Goods**, **Deposit**, **Deposit returns**, **Gross**, **Net** and **VAT**, with the **Total** below. Deposits are part of the consideration and carry the rate of their [deposit type](./pfand.md#umsatzsteuer); deposit returns reduce it. Since November 2026 [tips](./trinkgeld.md) to the club are part of the consideration too and are taxed proportionally at the rate of the goods; tips of employed servers are not consideration of the club.
 
 ![Reports: VAT per rate](/img/screens/en/reports-vat.png)
 
 - If your organization does not charge VAT (e.g. small business), all amounts are shown at 0 % without tax.
-- Deposits from before November 2026 were booked without VAT and stay unchanged at 0 %.
+- Deposits from before November 2026 were booked without VAT and stay unchanged at 0 %. Deposit returns against this [old balance](./pfand.md#altsaldo) are shown at 0 % too.
 - The card is also available as CSV (**Export CSV**) and in the PDF. In [Orders only](./betriebsarten.md#nur-bons) it is not shown.
 
 ## Servers {/* #bedienungen */}

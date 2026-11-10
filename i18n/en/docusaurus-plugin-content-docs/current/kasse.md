@@ -147,6 +147,8 @@ At the bottom of the cart there are one or two buttons. Which ones depends on th
 
 After sending, the table stays open so you can keep ordering. After checking out you go back to **Open table**; at the counter the empty order view stays.
 
+With the [Cloud TSE](./integrationen/cloud-tse.md), the kitchen and bar only get their ticket once the transaction is secured in the TSE – see [Receipts and the Cloud TSE](#tse).
+
 ### Open orders at the counter
 
 If you **run a tab** and sell without a table (Counter device or counter service), there are no tables to list open orders under. Instead, the menu and the cart offer **Open orders**: a list of all open orders without a table. Select one or more and check them out together.
@@ -266,6 +268,19 @@ For returned cups or bottles there is the **Deposit return** (menu or the button
 After **Pay out** the till shows **Deposit paid out** with the deposit return receipt and its receipt number. It is printed like the sales receipt: automatically if receipts are printed after payment (then there is **Print receipt again**), otherwise via **Print receipt**. As after a sale, the window closes by itself after five seconds. Only deposits with the same [VAT rate](./pfand.md#umsatzsteuer) are offset – a returned cup (19 %) does not replace a plate deposit (7 %).
 
 In the [Cashless](./betriebsarten.md#bargeldlos) operating mode there is no **Pay out**, only **Offset** against new deposits in the same sale. In [Orders only](./betriebsarten.md#nur-bons) there are no deposits.
+
+## Receipts and the Cloud TSE {/* #tse */}
+
+If your organization has an active [Cloud TSE](./integrationen/cloud-tse.md), the till secures every transaction in the TSE before it prints anything:
+
+- **Signature first, then the receipt.** The receipt – printed or digital – is only issued once the TSE has finished and signed the transaction. That usually takes just a moment.
+- **The TSE does not answer.** After a short wait the till issues the receipt anyway, as an outage receipt with the note **„TSE nicht erreichbar – Beleg ohne Signatur“** (TSE not reachable – receipt without signature). You keep checking out as usual, see [When the TSE fails](./integrationen/cloud-tse.md#ausfall).
+- **Kitchen tickets only after securing.** With **Pay immediately** the TSE signs the payment before the kitchen and bar get their ticket. With **Send** – at the table, at the counter on a tab or for orders from the admin area – the TSE secures the order first, then the kitchen ticket prints.
+- **Order start.** If an order was placed first and paid later, the receipt also shows the **order start** („Bestellbeginn“): the time the first order was secured in the TSE.
+- **Reprint.** You print the receipt again from the [order history](#bestellverlauf), even if automatic receipts are off. If one was printed before, the new one is marked **NACHDRUCK** (reprint) and carries the same TSE data as the original; no new signature is created.
+- **The signature arrives after the outage receipt.** The receipt stays an outage receipt. A reprint only shows the signature as a marked note „Signatur nach Belegausgabe“ (signature after the receipt was issued), without a QR code.
+
+Without the Cloud TSE the till prints receipts and kitchen tickets right away as usual.
 
 ## Cash book {/* #kassenbuch */}
 

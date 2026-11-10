@@ -96,6 +96,17 @@ Je Person kannst du diese vier Schalter abweichend von der Rolle setzen. So darf
 - Fehlen **Kassenlade von Hand öffnen** oder **Kassenbuch**, zeigt die Kasse den Menüpunkt nicht. Dann meldet sich kurz eine Schichtleitung an.
 - Beim Barkassieren öffnet sich die Kassenlade **immer** von selbst – dafür braucht niemand ein Recht.
 
+## Arbeitnehmer (Lohnkonto) {/* #arbeitnehmer */}
+
+Jede Bedienung hat das Kennzeichen **„Arbeitnehmer (Lohnkonto)“**. Es ist standardmäßig aus. Setze es nur für Personen, die beim Verein **angestellt** sind und für die ihr ein Lohnkonto führt, etwa im Minijob.
+
+| | Kennzeichen aus (Standard) | Kennzeichen an |
+|---|---|---|
+| Trinkgeld beim Kassieren | gehört dem Verein (`TrinkgeldAG`, mit dem Steuersatz der Waren) | gehört der Bedienung (`TrinkgeldAN`, ohne Umsatzsteuer) |
+| Kartentrinkgeld bar auszahlen | gesperrt | möglich, siehe [Trinkgeld auszahlen](#trinkgeld-auszahlen) |
+
+Ehrenamtliche Helferinnen und Helfer sind keine Arbeitnehmer – auch dann nicht, wenn sie Trinkgeld in die Vereinskasse abgeben. Bei Helfern mit Ehrenamts- oder Übungsleiterpauschale kommt es auf den Einzelfall an. Mehr unter [Trinkgeld](./trinkgeld.md).
+
 ## Deaktivieren und löschen {/* #deaktivieren */}
 
 - **Deaktivieren** – die PIN wird gelöscht, und die Kasse sperrt sofort. Die Bedienung bleibt in der Liste.
@@ -208,9 +219,19 @@ Sich selbst abrechnen darf eine Bedienung nur, wenn unter [Einstellungen](#einst
 
 Das Ergebnis ist eine **Abrechnung mit fortlaufender Nummer** je Organisation („Abrechnung Nr. 17“). Sie lässt sich nicht mehr ändern.
 
-- Der Bon kommt auf den Bondrucker der Kasse, mit Unterschriftszeilen für **Bedienung** und **Kasse / Schichtleitung**. In der Verwaltung gibt es jederzeit einen **Nachdruck**.
+- Der Bon kommt auf den Bondrucker der Kasse, mit Unterschriftszeilen für **Bedienung** und **Kasse / Schichtleitung**. In der Verwaltung gibt es jederzeit einen **Nachdruck**; er trägt den Vermerk **„-- KOPIE --“**.
 - Die nächste Abrechnung derselben Bedienung beginnt dort, wo diese endet.
 - Ist seit der letzten Abrechnung nichts passiert, meldet OpenEOS „Seit der letzten Abrechnung gibt es nichts abzurechnen.“
+
+### Mit Cloud-TSE abgesichert {/* #abrechnung-tse */}
+
+Hat deine Organisation eine aktive [Cloud-TSE](./integrationen/cloud-tse.md), sichert die TSE jede Abrechnung ab, bevor der Bon gedruckt wird – mit Abrechnungsnummer, **Soll**, gezähltem Betrag (**Ist**, wenn erfasst) und **Differenz**. Auf dem Bon stehen dann Beleg-Nr., TSE-Transaktion und Signaturzähler; ist die TSE nicht erreichbar, steht dort „TSE nicht erreichbar“. Im DSFinV-K-Export steht die Abrechnung als eigener Vorgang „Kellnerabrechnung“ ohne Zahlung. Abrechnungen im Testmodus werden nicht abgesichert.
+
+Die Abrechnung bewegt kein Geld: Das Bargeld bleibt in der Schublade der Kasse, und eine Differenz der Schublade bucht wie bisher der [Kassensturz](./kassenbuch.md).
+
+:::info[Nur elektronisch]
+Kellnerabrechnungen werden ausschließlich elektronisch erzeugt und aufbewahrt. Die Abrechnung in OpenEOS ist unveränderlich, lässt sich jederzeit wieder ausgeben und wird zehn Jahre aufbewahrt. Der gedruckte Bon und jeder Nachdruck sind nur eine Wiedergabe. Führt ihr zusätzlich Papierlisten mit Unterschrift oder handschriftlicher Zählung, sind diese selbst Unterlagen und müsst ihr aufbewahren.
+:::
 
 ### Offene Tische blockieren {/* #offene-tische */}
 
@@ -230,8 +251,23 @@ Auf der Seite **Bedienungen** steht unter der Liste der Abschnitt **Abrechnungen
 
 ![Abrechnungen unter der Liste der Bedienungen](/img/screens/de/waiters-settlements.png)
 
+### Live-Kassensturz {/* #live-kassensturz */}
+
+Bei den Kellnerabrechnungen findest du den **Live-Kassensturz**: für jede Bedienung der Stand seit ihrer letzten Abrechnung, mit dem Zeitpunkt, zu dem er erstellt wurde. Eine Schichtleitung sieht ihn auch an der Kasse.
+
+- **Soll bar** je Bedienung und in welcher Schublade das Bargeld liegt
+- Zahlungen, Trinkgeld, Erstattungen und ausgezahltes Pfand
+- offene Tische
+- noch nicht ausgezahltes Kartentrinkgeld angestellter Bedienungen
+
+Kommt das Finanzamt zur [Kassen-Nachschau](./kassen-nachschau.md), zeigst du damit, wie viel Bargeld jede Bedienung jetzt haben muss – Geld bei den Bedienungen gehört zum Kassenbestand.
+
+### Trinkgeld auszahlen {/* #trinkgeld-auszahlen */}
+
+Bedienungen mit [„Arbeitnehmer (Lohnkonto)“](#arbeitnehmer) kannst du offenes **Kartentrinkgeld** bar auszahlen – an der Kasse als Schichtleitung, in der Verwaltung als Admin oder direkt beim Abrechnen. Jede Auszahlung ist ein eigener, mit Cloud-TSE signierter Beleg mit Quittung zum Unterschreiben und mindert den Soll-Bestand der Schublade. Höchstens das offene Kartentrinkgeld lässt sich auszahlen. Bei Ehrenamtlichen ist die Auszahlung gesperrt, denn dort gehört das Trinkgeld dem Verein. Einzelheiten unter [Trinkgeld](./trinkgeld.md#auszahlung).
+
 :::note[Kommt später]
-**Kellnerbrieftasche** (die Bedienung kassiert mit eigenem Wechselgeld und rechnet ihr Bargeld selbst ab) und die **Auszahlung von Kartentrinkgeld** fehlen noch. Beides klären wir gerade steuerlich.
+Die **Kellnerbrieftasche** (die Bedienung kassiert mit eigenem Wechselgeld und rechnet ihr Bargeld selbst ab) fehlt noch.
 :::
 
 ## Tischübergabe {/* #tischuebergabe */}
@@ -252,6 +288,7 @@ Jede dieser Buchungen wird der angemeldeten Bedienung zugeordnet:
 - Zahlungen, mit dem Trinkgeld je Zahlung
 - Storno und Erstattung – und wer sie freigegeben hat
 - Pfand-Auszahlungen
+- Trinkgeld-Auszahlungen (an wen, von wem ausgezahlt)
 - Tischübergaben (von wem an wen)
 - Öffnen der Kassenlade und Buchungen im [Kassenbuch](./kassenbuch.md)
 
@@ -310,4 +347,8 @@ Fragt eine Bedienung, was OpenEOS über sie gespeichert hat (Art. 15 DSGVO), kli
 
 ## Was noch fehlt
 
-Kellnerbrieftasche, Trinkgeld-Auszahlung und die Übernahme von Helfern aus den [Schichtplänen](./schichtplaene.md) folgen später.
+Die Kellnerbrieftasche und die Übernahme von Helfern aus den [Schichtplänen](./schichtplaene.md) folgen später.
+
+:::note
+Das ist keine Steuerberatung. Wie ihr abrechnet und mit Differenzen umgeht, haltet ihr in eurer [Verfahrensdokumentation](./verfahrensdokumentation.md#kellnerabrechnung) fest.
+:::

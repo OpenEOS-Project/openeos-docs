@@ -34,14 +34,14 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat die Unterreiter **Allgemein**, **Kontakt**, **Steuerangaben**, **Betriebsart**, **Assistent**, **Zugänge**, **Webhooks**, **Benachrichtigungen** und **Rechtliche Angaben**. Ändern können die Angaben nur Admins der Organisation.
 
-### Allgemein
+### Allgemein {/* #allgemein */}
 
 Grundlegende Informationen deiner Organisation:
 
 - **Logo** – wird auf der öffentlichen [Helferplan-Seite](./schichtplaene.md) und im Shop angezeigt (PNG, JPG oder WEBP, max. 5 MB).
 - **Name** – erscheint auf Rechnungen und Bons.
 - **Beschreibung** – optionaler Zusatztext.
-- **Keine Umsatzsteuer** – für Vereine und Kleinunternehmer nach § 19 UStG. Ist die Option an, tragen alle Produkte 0 % und es gibt keine Steuersatz-Auswahl.
+- **Keine Umsatzsteuer** – für Vereine und Kleinunternehmer nach § 19 UStG. Ist die Option an, tragen alle Produkte 0 % und es gibt keine Steuersatz-Auswahl. Kassenbon, Erstattungsbeleg und Pfandrückgabe tragen dann den Hinweis „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ und nie einen Steuerbetrag. Erreicht dein Umsatz in OpenEOS 80 % der 100.000-€-Grenze, warnt das Dashboard. Hat deine Organisation schon Vorgänge mit der [Cloud-TSE](./integrationen/cloud-tse.md#kleinunternehmer), wechselst du den Steuerstatus nicht mit diesem Schalter, sondern über **Steuerstatus ändern**: OpenEOS erstellt vorher einen Kassenabschluss.
 - **Organisation löschen** – eigene Karte unter den Angaben, nur für Administratoren. Danach ist die Organisation 30 Tage nur lesend nutzbar, damit du alle Daten exportieren kannst; dann wird sie endgültig gelöscht. Vorher kommen E-Mails (Ankündigung, 10 Tage und einen Tag vorher), und bis dahin kannst du die Löschung abbrechen. Mehr dazu unter [Konto, Newsletter und Löschung](./daten-und-loeschung.md#organisation-loeschen).
 
 ![Organisationseinstellungen – Allgemein](/img/screens/de/settings-organisation.png)

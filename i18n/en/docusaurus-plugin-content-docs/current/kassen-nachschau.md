@@ -21,9 +21,11 @@ Cash point closings and the DSFinV-K export are available for organizations with
 |---|---|---|
 | **DSFinV-K export** (ZIP) | All transactions of the till in the tax authority's standard format for cash registers (DSFinV-K 2.4): receipts with line items, tax rates and payment types, cash point closings, master data, TSE data. 20 CSV files with an `index.xml` that the inspector loads directly into the audit software. | **Cloud TSE → Cash audit (Kassen-Nachschau) → Export DSFinV-K** |
 | **TSE export** (TAR) | The signed logs of the TSE according to TR-03153. The tax office uses them to verify that the data is genuine. | **Cloud TSE → Cash audit (Kassen-Nachschau) → TSE export (TAR)** |
-| **Procedure documentation** (Verfahrensdokumentation) | How your till is set up and how you work with it (devices, processes, responsibilities, cash handling instructions). | Written by your club; OpenEOS provides the technical details (till `OEOS-…`, TSE, outage log) on the Cloud TSE page. |
+| **Procedure documentation** (Verfahrensdokumentation) | How your till is set up and how you work with it (devices, processes, responsibilities, cash handling instructions). | Written by your club, ideally with our [template](./verfahrensdokumentation.md); OpenEOS provides the technical details (till `OEOS-…`, TSE, outage log) on the Cloud TSE page. |
 
 On request, the receipts themselves complete the picture — every receipt carries a QR code that the inspector can scan with a verification app. If that check succeeds, the inspection is often already over.
+
+If you work with [servers](./bedienungen.md), the [live cash check](./bedienungen.md#live-kassensturz) shows the inspector how much cash every server should have right now. The [cash book](./kassenbuch.md) shows the balance of the drawers.
 
 ## How to export {/* #export */}
 
@@ -50,24 +52,22 @@ For a complete closing, record the **change money** at the start and **skimming*
 ## What the export contains {/* #inhalt */}
 
 - **One till** per organization: the till `OEOS-…` with the Cloud TSE. Your tablets and phones appear as **terminals**; each line item shows the device it was booked on.
-- **Every transaction**: sales (including partial and combined payments), discounts, variants, deposits and deposit returns, tips, refunds and cancellations with a reference to the original receipt, orders in table service, cash book entries and training transactions from test mode.
-- **TSE outages**: transactions without a signature are included with the note "TSE ausgefallen" (TSE failed) — as the DSFinV-K requires.
-- **Not** included: online orders prepaid in the shop. They don't go through the till.
+- **Every transaction**: sales (including partial and combined payments), discounts, variants, deposits and deposit returns, [tips](./trinkgeld.md) (to the club split per VAT rate), refunds and cancellations with a reference to the original receipt, orders without immediate payment, cash book entries, server settlements, tip payouts and training transactions from test mode.
+- **Online orders**: since November 2026 the Cloud TSE signs payments in the online shop and for QR code orders when the payment comes in; they are exported as receipts with the payment type "payment service provider" (e.g. PayPal, SumUp Online). Older online orders are not included.
+- **TSE outages**: transactions without a signature are included with the note "TSE ausgefallen" (TSE failed) — as the DSFinV-K requires. If the signature only arrived after printing, the transaction is included with the signature data and the note „Signatur nach Belegausgabe“ (see [Cloud TSE](./integrationen/cloud-tse.md#spaete-signatur)).
+- **VAT keys**: 1 (19 %), 2 (7 %), 5 (not taxable: cash book, tips of employed servers, deposit returns against the [old balance](./pfand.md#altsaldo)) and 6 for [small businesses](./integrationen/cloud-tse.md#kleinunternehmer).
 
 For a complete export you need the **tax number** or **VAT ID** and the address in the [organization settings](./organisation.md#steuerangaben). Without them the Cloud TSE cannot be set up.
 
 ## Tips {/* #trinkgeld */}
 
-Under **Cash audit (Kassen-Nachschau)**, **Tips go to** decides how tips are booked in the export:
+Since November 2026 the server who checks out decides who the tip belongs to: tips belong to the club (DSFinV-K "TrinkgeldAG", at the rate of the goods) unless the server is marked **„Arbeitnehmer (Lohnkonto)“** (employee, payroll; DSFinV-K "TrinkgeldAN"). Details and a worked example are under [Tips](./trinkgeld.md).
 
-- **Club** (default): tips count as income of the organization (DSFinV-K "TrinkgeldAG").
-- **Helpers**: tips are passed on to the helpers (DSFinV-K "TrinkgeldAN").
-
-Check the right setting with your tax advisor.
+The former setting **Tips go to** (**Club** or **Helpers**) under **Cash audit (Kassen-Nachschau)** only applies to older transactions that were signed that way.
 
 ## Retention {/* #aufbewahrung */}
 
-OpenEOS keeps cash point closings, DSFinV-K and TSE exports for **ten years** (§ 147 AO), even if you deactivate the Cloud TSE later.
+OpenEOS keeps cash point closings, DSFinV-K and TSE exports, training transactions, the data on TSE outages and server settlements for **ten years** (§ 147 AO), even if you deactivate the Cloud TSE later. You don't need to keep an image of digital receipts a guest never fetched: OpenEOS can recreate them with the same content from the stored data at any time. Keep your procedure documentation for ten years as well.
 
 :::note
 This is not tax advice. Your tax office decides in individual cases; if you are unsure, talk to your tax advisor.
@@ -77,3 +77,4 @@ This is not tax advice. Your tax office decides in individual cases; if you are 
 
 - [Cloud TSE](./integrationen/cloud-tse.md)
 - [Cash book](./kassenbuch.md)
+- [Procedure documentation – template](./verfahrensdokumentation.md)

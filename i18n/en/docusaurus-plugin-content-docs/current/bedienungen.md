@@ -96,6 +96,17 @@ You can set these four switches per person differently from the role. An experie
 - Without **Open the cash drawer by hand** or **Cash book**, the till hides the menu item. A shift lead then signs in briefly.
 - For cash payments the cash drawer **always** opens by itself – nobody needs a right for that.
 
+## Employee (payroll) {/* #arbeitnehmer */}
+
+Every server has the flag **„Arbeitnehmer (Lohnkonto)“** (employee, payroll). It is off by default. Only set it for people who are **employed** by the club and for whom you keep a payroll account, e.g. in a mini-job.
+
+| | Flag off (default) | Flag on |
+|---|---|---|
+| Tips when checking out | belong to the club (`TrinkgeldAG`, at the VAT rate of the goods) | belong to the server (`TrinkgeldAN`, without VAT) |
+| Paying out card tips in cash | blocked | possible, see [Paying out tips](#trinkgeld-auszahlen) |
+
+Volunteer helpers are not employees – not even when they hand their tips over to the club's cash box. For helpers who receive a volunteer or trainer allowance it depends on the individual case. More under [Tips](./trinkgeld.md).
+
 ## Deactivating and deleting {/* #deaktivieren */}
 
 - **Deactivate** – the PIN is deleted and the till locks immediately. The server stays in the list.
@@ -208,9 +219,19 @@ A server may only settle themselves if **Settling** is set to **Servers settle t
 
 The result is a **settlement with a running number** per organization ("Settlement no. 17"). It cannot be changed afterwards.
 
-- The receipt is printed on the till's receipt printer, with signature lines for **Server** and **Till / shift lead**. In the admin area you can **Reprint** it at any time.
+- The receipt is printed on the till's receipt printer, with signature lines for **Server** and **Till / shift lead**. In the admin area you can **Reprint** it at any time; the reprint is marked **„-- KOPIE --“** (copy).
 - The server's next settlement starts where this one ends.
 - If nothing has happened since the last settlement, OpenEOS says "Nothing to settle since the last settlement."
+
+### Secured with the Cloud TSE {/* #abrechnung-tse */}
+
+If your organization has an active [Cloud TSE](./integrationen/cloud-tse.md), the TSE secures every settlement before the receipt is printed – with the settlement number, the **expected** amount, the counted amount (**actual**, if recorded) and the **difference**. The receipt then shows the receipt number, TSE transaction and signature counter; if the TSE is not reachable, it says „TSE nicht erreichbar“. In the DSFinV-K export the settlement is a transaction of its own, „Kellnerabrechnung“ (server settlement), without a payment. Settlements in test mode are not secured.
+
+The settlement does not move any money: the cash stays in the till's drawer, and a difference in the drawer is booked by the [cash count](./kassenbuch.md) as before.
+
+:::info[Electronic only]
+Server settlements are created and kept electronically only. The settlement in OpenEOS cannot be changed, can be reproduced at any time and is kept for ten years. The printed receipt and every reprint are only a copy. If you additionally keep paper lists with signatures or handwritten counts, those are records in their own right and you must keep them.
+:::
 
 ### Open tables block settling {/* #offene-tische */}
 
@@ -230,8 +251,23 @@ On the **Servers** page, the **Settlements** section below the list shows all se
 
 ![Settlements below the list of servers](/img/screens/en/waiters-settlements.png)
 
+### Live cash check {/* #live-kassensturz */}
+
+With the server settlements you find the **live cash check**: for every server the status since their last settlement, with the time it was generated. Shift leads see it at the till too.
+
+- **expected cash** per server and which drawer the cash is in
+- payments, tips, refunds and deposits paid out
+- open tables
+- card tips of employed servers that have not been paid out yet
+
+If the tax office comes for a [cash register inspection](./kassen-nachschau.md), it shows how much cash every server should have right now – cash held by servers is part of the till's cash balance.
+
+### Paying out tips {/* #trinkgeld-auszahlen */}
+
+For servers marked [„Arbeitnehmer (Lohnkonto)“](#arbeitnehmer) you can pay out open **card tips** in cash – at the till as a shift lead, in the admin area as an admin, or right when settling. Every payout is a receipt of its own, signed with the Cloud TSE, with an acknowledgement to sign, and it reduces the drawer's expected balance. At most the open card tips can be paid out. For volunteers the payout is blocked, because there the tips belong to the club. Details under [Tips](./trinkgeld.md#auszahlung).
+
 :::note[Coming later]
-The **server wallet** (servers work with their own change and settle their cash themselves) and **paying out card tips** are not available yet. We are still clarifying the tax side of both.
+The **server wallet** (servers work with their own change and settle their cash themselves) is not available yet.
 :::
 
 ## Table handover {/* #tischuebergabe */}
@@ -252,6 +288,7 @@ Each of these bookings is attributed to the server who is signed in:
 - payments, including the tip per payment
 - cancellations and refunds – and who approved them
 - deposit payouts
+- tip payouts (to whom, paid out by whom)
 - table handovers (from whom to whom)
 - opening the cash drawer and entries in the [cash book](./kassenbuch.md)
 
@@ -310,4 +347,8 @@ If a server asks what OpenEOS has stored about them (Art. 15 GDPR), click the **
 
 ## Not yet available
 
-The server wallet, tip payout and importing helpers from [shift plans](./schichtplaene.md) will follow later.
+The server wallet and importing helpers from [shift plans](./schichtplaene.md) will follow later.
+
+:::note
+This is not tax advice. Record in your [procedure documentation](./verfahrensdokumentation.md#kellnerabrechnung) how you settle and how you handle differences.
+:::

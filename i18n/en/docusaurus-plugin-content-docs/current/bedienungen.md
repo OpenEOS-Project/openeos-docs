@@ -292,7 +292,7 @@ Each of these bookings is attributed to the server who is signed in:
 - table handovers (from whom to whom)
 - opening the cash drawer and entries in the [cash book](./kassenbuch.md)
 
-On kitchen and bar tickets the **Waiter** element ([Printers](./drucker.md#waiter-and-device-on-the-ticket)) shows the first available of: who sent the round ▸ responsible server of the table ▸ member ▸ device name. By default it prints the short name, see [Name on tickets](#einstellungen).
+On kitchen and bar tickets the **Server** element ([Printers](./drucker.md#server-and-device-on-the-ticket)) shows the first available of: who sent the round ▸ responsible server of the table ▸ member ▸ device name. By default it prints the short name, see [Name on tickets](#einstellungen).
 
 For DSFinV-K, OpenEOS stores the name the server had at the time of signing as **BEDIENER**.
 

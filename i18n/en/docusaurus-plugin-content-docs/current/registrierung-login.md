@@ -69,7 +69,7 @@ This is how the sign-in page starts on app.openeos.de: you enter only your email
 This is particularly handy on the day: anyone who cannot recall their password is still in within seconds.
 
 :::note[An account with no password at all]
-A password is not required. You can run an account entirely on sign-in links and set a password later in the [settings](./einstellungen.md) under **Account → Change password**, or via **Forgot password?** on the sign-in page.
+A password is not required. You can run an account entirely on sign-in links and set a password later in the [settings](./einstellungen.md) under **Account → Set password**, or via **Forgot password?** on the sign-in page.
 :::
 
 ### With a password

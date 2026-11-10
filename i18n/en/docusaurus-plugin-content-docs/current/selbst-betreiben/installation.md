@@ -283,7 +283,11 @@ the internet for this:
       # … existing variables …
       SHOP_RETURN_URL_BASE: https://shop.verein.example
       API_PUBLIC_URL: https://api.verein.example
+      # Target of the API's QR codes (<base>/scan/<code>)
+      ONLINE_ORDER_BASE_URL: https://shop.verein.example
 ```
+
+Without a value of their own, all three point to the hosted openeos.de addresses (`shop.openeos.de`, `api.openeos.de`, `order.openeos.de`); they are also documented in the API's `.env.example` and `docker-compose.prod.yml`.
 
 :::note[Only with an imprint and a privacy notice]
 The shop and ordering by QR code at the table only take orders once your

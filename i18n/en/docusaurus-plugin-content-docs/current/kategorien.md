@@ -40,4 +40,4 @@ A product is given its category when it is created or edited, in the product dia
 
 ## Deleting
 
-A category can only be deleted once no products remain in it. Move those to another category or delete them first; if products are still in it, OpenEOS tells you how many. Products that were already deleted no longer get in the way.
+A category can only be deleted once no products remain in it. Move those to another category or delete them first; if products are still in it, the **Delete category** dialog tells you how many and takes you straight to them with **Show the products in this category** (the product list then shows only that category; **Show all products** removes the filter). Products that were already deleted no longer get in the way.

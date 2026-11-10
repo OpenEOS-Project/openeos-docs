@@ -40,4 +40,4 @@ Ein Produkt bekommt seine Kategorie beim Anlegen oder Bearbeiten im Produktdialo
 
 ## Löschen
 
-Eine Kategorie lässt sich nur löschen, wenn keine Produkte mehr darin liegen. Weise diese vorher einer anderen Kategorie zu oder lösch sie; liegen noch Produkte darin, sagt OpenEOS dir, wie viele. Schon gelöschte Produkte stehen dem Löschen nicht im Weg.
+Eine Kategorie lässt sich nur löschen, wenn keine Produkte mehr darin liegen. Weise diese vorher einer anderen Kategorie zu oder lösch sie; liegen noch Produkte darin, sagt dir der Dialog **Kategorie löschen**, wie viele, und führt mit **Produkte dieser Kategorie anzeigen** direkt zu ihnen (die Produktliste zeigt dann nur diese Kategorie, **Alle Produkte zeigen** hebt den Filter auf). Schon gelöschte Produkte stehen dem Löschen nicht im Weg.

@@ -35,7 +35,7 @@ The dashboard is made of tiles. By default you see:
 | **Active users** | Users currently signed in |
 | **System status** | Reachable tills, printers, print queue and open orders |
 
-You add more tiles via **Customise**: **Top products**, **Revenue by hour**, **Payment methods**, **Low stock** and **Activity** (orders, payments and printing in real time).
+You add more tiles via **Customize**: **Top products**, **Revenue by hour**, **Payment methods**, **Low stock** and **Activity** (orders, payments and printing in real time).
 
 ## Recent Activity
 
@@ -43,9 +43,9 @@ Below the tiles, the **Recent Activity** section lists your latest orders with t
 
 ## Customizing the dashboard
 
-Click **Customise** at the top right. The tiles get a handle for moving, a corner at the bottom right for resizing and an **×** for removing. **Add tile** brings in more tiles. **Done** ends editing; the layout is saved for your account.
+Click **Customize** at the top right. The tiles get a handle for moving, a corner at the bottom right for resizing and an **×** for removing. **Add tile** brings in more tiles. **Done** ends editing; the layout is saved for your account.
 
-![Customise dashboard](/img/screens/en/dashboard-customize.png)
+![Customize dashboard](/img/screens/en/dashboard-customize.png)
 
 ## Active event
 

@@ -723,7 +723,7 @@ Webhooks lassen sich auch mit einem [API-Token](../api-zugaenge.md) verwalten. D
 
 **Löschen** geht nicht per Token, nur in der App. Wie bei allen Tokens schließt `webhooks:write` das Lesen nicht ein.
 
-Alle Endpunkte liegen unter `/organizations/{organizationId}/webhooks`:
+Alle Endpunkte liegen unter `/organizations/{organizationId}/webhooks`. Die Organisations-ID kopierst du unter **Einstellungen → Organisation → Webhooks** (oder **Zugänge**).
 
 | Methode | Pfad | Scope | Zweck |
 |---|---|---|---|

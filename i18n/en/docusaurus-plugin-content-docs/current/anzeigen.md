@@ -47,7 +47,7 @@ Which till or station is assigned is also shown in the device's **Overview**, in
 
 | Setting | Effect |
 |---|---|
-| **Colour scheme** | **Dark** for an evening marquee, **Light** in daylight, **By time of day** switches on its own |
+| **Color scheme** | **Dark** for an evening marquee, **Light** in daylight, **By time of day** switches on its own |
 | **Text size** | *Large* for monitors hung further away |
 | **Header** | Your own text in the header; left empty, it shows your organization's name |
 | **Idle message** | What stands there when nothing is happening, e.g. "Welcome!" |
@@ -67,7 +67,7 @@ While nothing is being rung up, the idle message stands there. As soon as a prod
 
 New orders appear as soon as they go to the kitchen and bar: with the **Pay immediately** [checkout mode](./veranstaltungen.md#kassiermodus) on payment, with **Run a tab** on **Send**. Only what concerns that station is shown — the kitchen does not see drinks if those belong to the bar. Which product belongs to which station is set under [Stations](./standorte.md).
 
-Orders are shown in two columns: **Table service** and **Pickup**. Every card has the same layout: at the top the number, **Rush** or **High** if needed, and how long the order has been waiting; below that, where it goes — **Table A11**, **Pickup**, **To go** or **Counter**, plus the guest's name if there is one. Then come the items with their notes.
+Orders are shown in two columns: **At the table** (brought to the table) and **Pickup**. Every card has the same layout: at the top the number, **Rush** or **High** if needed, and how long the order has been waiting; below that, where it goes — **Table A11**, **Pickup**, **To go** or **Counter**, plus the guest's name if there is one. Then come the items with their notes.
 
 On a **touchscreen** the kitchen taps **Ready** on each item as soon as it can go out:
 

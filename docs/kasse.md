@@ -29,7 +29,7 @@ Steht die Kasse auf **Gemeinsame Kasse**, kommt davor der PIN-Bildschirm „Wer 
 
 Oben steht immer dasselbe:
 
-- **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter Organisation und laufende Veranstaltung. Am Telefon entfallen Logo und Veranstaltung; was nicht passt, endet mit „…“.
+- **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter Organisation und laufende Veranstaltung. Am Telefon steht das Logo kleiner und die Veranstaltung entfällt; was nicht passt, endet mit „…“.
 - **Tisch** — in der Bestellansicht zeigt eine grüne Pille, für wen du gerade buchst: „Tisch A10“, „Theke“ oder „To-go“. Ein Tipp darauf öffnet [Tisch wählen](#tisch-wechseln).
 - **Status** — ein Punkt: grün **Online**, gelb **Verbinde …** oder **Keine Live-Daten**, rot mit durchgestrichenem WLAN-Symbol **Offline**. Daneben der Bondrucker der Kasse, etwa „Drucker Theke“ (bzw. „Drucker Theke offline“), sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
 - **Menü** (die drei Striche) — **Bestellverlauf**, **Offene Bestellungen**, **Pfand-Rückgabe**, [Kassenbuch](#kassenbuch), **Kassenlade öffnen**, [Tisch übergeben](#tisch-uebergeben), [Notfall-Support](#notfall-support), [Darstellung](#darstellung), **Quellcode (AGPL-3.0)** und **Gerät abmelden**. Es erscheint nur, was an dieser Kasse eingerichtet ist und was die angemeldete Person darf.
@@ -44,7 +44,7 @@ Unter dem Kopf steht höchstens **ein** Hinweis, der wichtigste zuerst:
 5. „Bargeld gesperrt – ohne aktive TSE nimmt diese Kasse kein Bargeld an. Karte und online gehen weiter.“, wenn in Deutschland in „Alle Funktionen“ die Cloud-TSE fehlt,
 6. „Nur Bons – hier wird nicht kassiert. Bezahlt wird außerhalb von OpenEOS.“ in der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons).
 
-Ganz unten steht eine schmale Zeile mit Copyright, Version, Impressum und Datenschutz; am Telefon und auf hochkant gehaltenen Tablets steht sie am Ende des Menüs.
+Ganz unten steht eine schmale Zeile mit Copyright, Version, Impressum und Datenschutz; am Telefon und auf hochkant gehaltenen Tablets steht sie am Ende der Seite, über der Warenkorb-Leiste.
 
 ### Hell oder dunkel {/* #darstellung */}
 
@@ -169,7 +169,7 @@ Welche Zahlarten es gibt, hängt von der [Betriebsart](./betriebsarten.md) deine
 
 - **Gegeben** über den Ziffernblock eintippen oder eine **Schnellwahl** antippen: **Passend** oder die nächsten runden Beträge.
 - Die Kasse zeigt das **Rückgeld** — oder in Rot, was noch fehlt.
-- Ist dem Gerät eine [Kassenschublade](./geraete.md#drucker) zugewiesen, öffnet sie sich, sobald Bar gewählt ist und ein Betrag offen ist – je Vorgang einmal.
+- Ist dem Gerät eine [Kassenlade](./geraete.md#drucker) zugewiesen, öffnet sie sich, sobald Bar gewählt ist und ein Betrag offen ist – je Vorgang einmal.
 - **Zahlung abschließen** bucht die Zahlung.
 
 In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) fehlt **Bar** ganz; die Kasse startet mit **Karte**.
@@ -305,7 +305,7 @@ Ohne Cloud-TSE druckt die Kasse Kassen- und Küchenbons wie gewohnt sofort.
 
 ## Kassenbuch {/* #kassenbuch */}
 
-Nimmt deine Organisation Bargeld an, öffnet **Kassenbuch** im Menü das Bargeld dieser Kasse: **Anfangsbestand**, **Einlage**, **Entnahme** und **Kassensturz**, dazu der Soll-Bestand der Schublade. Wie das geht, steht unter [Kassenbuch](./kassenbuch.md). In den Betriebsarten „Nur Bons“ und „Bargeldlos“ fehlt der Menüpunkt.
+Nimmt deine Organisation Bargeld an, öffnet **Kassenbuch** im Menü das Bargeld dieser Kasse: **Anfangsbestand**, **Einlage**, **Entnahme** und **Kassensturz**, dazu der Soll-Bestand der Kassenlade. Wie das geht, steht unter [Kassenbuch](./kassenbuch.md). In den Betriebsarten „Nur Bons“ und „Bargeldlos“ fehlt der Menüpunkt.
 
 ## Notfall-Support {/* #notfall-support */}
 
@@ -320,7 +320,7 @@ Hat deine Organisation die Veranstaltung gebucht, steht im Menü während des ec
 Die Kasse passt sich der Bildschirmbreite an:
 
 - **Tablet quer und PC** — Kategorien links, Artikel in der Mitte, Warenkorb rechts.
-- **Telefon und Tablet hochkant** — die Kategorien liegen als Leiste oben, der Warenkorb ist unten eine grüne **Leiste** mit Anzahl und Summe. Ein Tipp darauf öffnet ihn von unten. Blätter wie Kassieren, Optionen oder Tisch wählen öffnen sich ebenfalls von unten.
+- **Telefon und Tablet hochkant** — die Kategorien liegen als Leiste oben, der Warenkorb ist unten eine grüne **Leiste** mit Anzahl und Summe. Ein Tipp darauf öffnet ihn von unten. Blätter wie Kassieren, Optionen oder Tisch wählen öffnen sich ebenfalls von unten. Die Zeile mit Copyright, Version, Impressum und Datenschutz steht am Ende der Seite.
 
 **Wischen zum Schließen:** Jedes Blatt — Warenkorb, Kassieren, Optionen, Tisch wählen — schließt du, indem du es am Griff oder Kopf nach unten ziehst (oder im Inhalt, wenn er ganz oben steht). Lässt du zu früh los, federt das Blatt zurück. Auf der Karte ist Wischen ausgeschaltet, damit du sie verschieben kannst.
 

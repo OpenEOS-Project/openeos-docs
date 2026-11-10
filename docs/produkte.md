@@ -22,7 +22,7 @@ Produkte gehören immer zu einer Veranstaltung. Ist keine aktiv, erscheint der H
    - **Kategorie** (Pflicht) – Zuordnung zu einer [Kategorie](./kategorien.md); über das Plus daneben legst du direkt eine neue an
    - **Beschreibung** – optionaler Zusatz (z. B. „Frisch gezapft“)
    - **Preis** (Pflicht)
-   - **Mehrwertsteuer** – Regelsatz, ermäßigter Satz oder 0 %
+   - **Mehrwertsteuer** – Regelsatz, ermäßigter Satz oder **0 % (nicht steuerbar)**, etwa für Spenden oder Mitgliedsbeiträge. Weist deine Organisation keine Umsatzsteuer aus (Kleinunternehmer), gibt es nur **0 % (steuerfrei, § 19 UStG)**.
    - **Standort** – leer lassen, dann gilt der [Standort](./standorte.md) der Kategorie
    - **Pfand-Typ** – optional, siehe [Pfand](./pfand.md)
 3. Optional: Wähle ein **Produkt-Icon** oder lade ein **Bild hoch** (siehe [Icons und Bilder](#icons)).

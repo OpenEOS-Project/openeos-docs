@@ -23,6 +23,8 @@ If you want OpenEOS to notify you as soon as something happens – for example w
 5. Under **Expiry**, optionally choose an expiry date: **never**, **30 days**, **90 days**, **365 days** or a date of your own. Without a date the token does not expire.
 6. Click **Create access token**. In the window that follows, **copy the token (`oeos_…`) right away** with **Copy** and store it safely, for example in a password manager. It is shown exactly once; OpenEOS keeps only a hash. **Done** closes the window.
 
+![Create access token: name and permissions](/img/screens/en/settings-access-dialog.png)
+
 A token acts like the person who created it: it is limited to **one organization**, to the selected scopes and additionally to the [module permissions](./mitglieder.md) of its owner. If the owner leaves the organization, the token stops working.
 
 An organization can have at most **20 active tokens**; above the list you see the current state, for example "3 of 20 active tokens". The list shows each token's **Name**, the beginning of its **Key**, its **Permissions**, when it was **Created** and **Last used**, when it **Expires** and its **Status** (active, expired or revoked). Revoke a token you no longer need, or one that may have leaked, there with **Revoke** – it takes effect immediately and cannot be undone.
@@ -30,6 +32,8 @@ An organization can have at most **20 active tokens**; above the list you see th
 ## Scopes
 
 Every endpoint in the [API reference](/en/api) names the scope it requires (`x-api-token-scope`). In the app the scopes are called **Permissions** and have a readable name; the scope is shown next to it. Write scopes do **not** include `read` – if you want to read and write, pick both.
+
+![List of access tokens](/img/screens/en/settings-access.png)
 
 | Scope | In the app | Allows | Module permission the owner needs |
 |---|---|---|---|

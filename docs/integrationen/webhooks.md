@@ -26,6 +26,8 @@ Oft kombinierst du beides: Der Webhook sagt dir, **dass** sich etwas geändert h
 
 Webhooks verwalten nur **Administratoren** der Organisation. Mitglieder sehen an dieser Stelle einen Hinweis.
 
+![Webhook anlegen: Adresse und Ereignisse](/img/screens/de/settings-webhook-form.png)
+
 1. Als Administrator anmelden und **Einstellungen → Organisation → Webhooks** öffnen.
 2. **Webhook anlegen** klicken.
 3. Unter **Adresse (URL)** die Adresse eintragen, an die OpenEOS senden soll. Sie muss mit `https://` beginnen und öffentlich erreichbar sein (siehe [Anforderungen an die Adresse](#adresse)).
@@ -40,6 +42,8 @@ Je Organisation sind höchstens **10 Webhooks** möglich; über der Liste steht,
 
 Die Liste unter **Einstellungen → Organisation → Webhooks** zeigt je Webhook **Adresse**, **Ereignisse**, **Status** und **Letzte Zustellung**. Der Status ist **Aktiv**, **Pausiert** oder **Automatisch deaktiviert**; schlagen Zustellungen gerade fehl, steht dort zum Beispiel „Fehler seit …“. Unter **Aktionen** findest du **Bearbeiten**, **Test senden**, **Secret erneuern**, **Zustellungen ansehen** und **Löschen**.
 
+![Webhooks in den Einstellungen der Organisation](/img/screens/de/settings-webhooks.png)
+
 ### Test senden {/* #test */}
 
 Mit **Test senden** schickt OpenEOS sofort ein Ereignis vom Typ `ping` an die Adresse – auch wenn der Webhook gerade ausgeschaltet ist. So prüfst du, ob dein Empfänger erreichbar ist und die Signatur richtig prüft, bevor echte Ereignisse kommen. Das Ergebnis steht nach wenigen Sekunden im Zustellprotokoll.
@@ -47,6 +51,8 @@ Mit **Test senden** schickt OpenEOS sofort ein Ereignis vom Typ `ping` an die Ad
 ### Zustellprotokoll {/* #protokoll */}
 
 Zu jedem Webhook gibt es ein **Protokoll der Zustellungen**, das neueste oben. Du öffnest es in der Liste mit **Zustellungen ansehen**. Oben stehen Adresse, Ereignisse, Secret-Anfang und Optionen des Webhooks; die Liste filterst du nach **Status** und **Ereignis** und lädst sie mit **Aktualisieren** neu. Je Zustellung siehst du:
+
+![Zustellprotokoll eines Webhooks](/img/screens/de/settings-webhook-deliveries.png)
 
 - Ereignistyp und Zeitpunkt,
 - den Status: **Ausstehend**, **Wird gesendet**, **Zugestellt** oder **Fehlgeschlagen**,

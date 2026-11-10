@@ -123,6 +123,8 @@ We do not ask for tax or billing details when you register. Only when you activa
 
 Activation is paid **by card or direct debit**:
 
+![Activate event: summary and “Book with obligation to pay”](/img/screens/en/events-checkout.png)
+
 1. Click **Activate** in the list of events. If the event has not been paid yet, the **Activate event** dialog opens with the price, how it is calculated and the deadline for free cancellation.
 2. Under **Your booking** you see everything at a glance before paying: **Event**, **Period**, **Service**, **Billed days**, any **Discount**, **Total**, the VAT note and a link to the terms and conditions.
 3. Click **Book with obligation to pay**. You are taken to a secure payment page.
@@ -208,7 +210,7 @@ An activated event does not sell for real right away, nor forever. The current p
 | **Active** | from sales start to sales end | real sales |
 | **Ended** | after sales end | no new orders – settling open orders, closing tables, refunds and cancellations keep working; reports, exports and cash book stay |
 
-For a festival on 16 and 17 November the list shows **Planned** with the hint *Starts on 15.11. at 18:00 (test operation until then)*, and the till shows *Test operation – real sales from 15.11. at 18:00*.
+For a festival on 16 and 17 November the list shows **Planned** with the hint *Starts on 15.11. at 18:00 (test operation until then)*, and the till shows *Test operation – sales don't count. Real sales from 15.11. at 18:00*.
 
 ### Sales start the evening before {/* #verkaufsstart */}
 
@@ -216,8 +218,8 @@ Real sales start **12 hours before the first event day** (6 am) – for a festiv
 
 When sales start, the test orders from the *Planned* phase are deleted – just like at activation. Your setup stays and order numbers start over. Real orders (e.g. from pre-sale) are kept.
 
-:::note[With Cloud-TSE never in the previous month]
-If you use the [Cloud-TSE](./integrationen/cloud-tse.md), sales start at midnight on the 1st at the earliest – a TSE costs every month it runs. For a festival on the 1st there is no evening-before sale on the last day of the month.
+:::note[With Cloud TSE never in the previous month]
+If you use the [Cloud TSE](./integrationen/cloud-tse.md), sales start at midnight on the 1st at the earliest – a TSE costs every month it runs. For a festival on the 1st there is no evening-before sale on the last day of the month.
 :::
 
 ### Sales end and grace period {/* #verkaufsende */}

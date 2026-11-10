@@ -38,6 +38,8 @@ Die Kennzahlen oben und der Export richten sich nach denselben Filtern. Mit dem 
 
 Über das Symbol **Als CSV exportieren** (Pfeil nach unten, neben *Aktualisieren*) lädst du die gefilterten Bestellungen als CSV-Datei herunter – alle Treffer, nicht nur die aktuelle Seite. Das Menü nennt oben, wie viele gefilterte Bestellungen in der Datei landen. Du wählst zwischen zwei Dateien:
 
+![Bestellungen mit Zeitraum und geöffnetem Export](/img/screens/de/orders-export.png)
+
 | Datei | Inhalt | Wofür |
 | --- | --- | --- |
 | **Bestellungen** | eine Zeile je Bestellung: Bestellnummer, Tagesnummer, Datum, Uhrzeit, Veranstaltung, Status, Kanal (Kasse, Online-Shop, QR-Bestellung), Ausgabe (am Tisch, Abholung), Tisch, Gerät, Bedienung, Anzahl Artikel, Zahlart, Zwischensumme, Rabatt, Pfand, Trinkgeld, Gesamt, Bezahlt, Erstattet, enthaltene MwSt, Testbestellung, Gastname, Anmerkung | Abgleich mit Kasse und Konto, Abrechnung |
@@ -48,7 +50,7 @@ Die Dateien sind für Excel vorbereitet: Semikolon als Trennzeichen, UTF-8 (Umla
 - **Wer darf exportieren?** Administratoren und Mitglieder mit dem Recht **Bestellungen** (wie für Storno und Erstattung). Andere sehen das Symbol nicht.
 - **[Nur Bons](./betriebsarten.md#nur-bons):** Die Dateien enthalten nur Mengen – keine Preise, Beträge oder Zahlarten.
 - **Bedienung:** die verantwortliche [Bedienung](./bedienungen.md) des Tisches, sonst die Bedienung, die die Bestellung aufgenommen hat. Leer, wenn keine Bedienung beteiligt war, etwa bei Bestellungen aus dem Online-Shop.
-- **Gästedaten:** Name und Anmerkung des Gastes stehen nur in der Datei, solange OpenEOS sie noch speichert – 30 Tage nach dem Ende der Veranstaltung werden sie gelöscht (siehe [Daten und Löschung](./daten-und-loeschung.md)). Telefonnummern sind nie enthalten.
+- **Gästedaten:** Name und Anmerkung des Gastes stehen nur in der Datei, solange OpenEOS sie noch speichert – 30 Tage nach dem Ende der Veranstaltung werden sie gelöscht (siehe [Daten und Löschung](./daten-und-loeschung.md#fristen)). Telefonnummern sind nie enthalten.
 - **Per API:** Dieselbe Datei liefert `GET /organizations/{organizationId}/orders/export` mit einem [API-Token](./api-zugaenge.md) (Scope `read`, `variant=orders` oder `variant=items`, dieselben Filter wie die Liste).
 
 :::tip[Steuerberater und Vorstand]

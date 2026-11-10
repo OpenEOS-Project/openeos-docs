@@ -53,7 +53,7 @@ At the till every product has a small picture on its tile. There are two ways to
 
 If the [assistant](./assistent.md) is switched on, there is also a **Suggest** button next to the icon field: enter the name first, then OpenEOS shows up to three matching product icons to tap.
 
-![Icon suggestion in the product form](/img/screens/de/product-icon-suggestion.png)
+![Icon suggestion in the product form](/img/screens/en/product-icon-suggestion.png)
 
 If a product has both, the till shows the product icon. If it has neither, it uses the icon of its [category](./kategorien.md) — for coffee or cake, say, which have no product picture of their own. Products that still carry an icon from the previous version are shown with the matching product picture (beer as a glass of lager, bratwurst as a grilled sausage in a roll) or, if there is none, with the category icon.
 
@@ -111,12 +111,12 @@ The suggestion is a draft. Price, tax rate or category can be off – check the 
    - **Photos or PDF** – drag the files into the field or choose them. Up to **6 images** (JPG, PNG, WebP) or **one PDF**, at most 10 MB each. A PDF can only be uploaded on its own, not mixed with images.
    - **Text** – paste the menu as text, just as it is written, for example from a spreadsheet or an e-mail. Headings become categories, "0.3 l 3.00 / 0.5 l 4.00" becomes variants, "plus 2 € deposit" becomes the deposit hint.
 
-   ![Uploading a menu](/img/screens/de/products-menu-import-upload.png)
+   ![Uploading a menu](/img/screens/en/products-menu-import-upload.png)
 
 3. Click **Read menu**. Reading usually takes less than a minute; you can leave the dialog open or discard with **Cancel**.
 4. Review the **preview** – a table with all recognized products:
 
-   ![Preview of the menu import](/img/screens/de/products-menu-import-preview.png)
+   ![Preview of the menu import](/img/screens/en/products-menu-import-preview.png)
 
    - **Include** – the checkbox at the start of the row. Only checked rows are created; the column header selects or deselects all.
    - **Name** – editable. A colored dot next to it means the assistant was unsure about price or category (*Unsure about price or category* or *Guessed – please check carefully*); hover over it.

@@ -87,6 +87,8 @@ The e-mails go out at fixed times (usually 9 am) and are sent later if a run was
 
 Under **Legal information** you enter your club's **Imprint** and **Privacy notice**, each as a **Link** or as **Text**, plus optionally a **Contact for privacy questions**. Both appear in the footer of the shop and the helper pages; the **Footer preview** shows how it looks. Apply with **Save**.
 
+![Legal information: the club’s imprint and privacy notice](/img/screens/en/settings-legal-info.png)
+
 As long as the imprint or the privacy notice is missing, your shop takes no orders, not even in test mode, and ordering by QR code at the table does not work either. There is a template for the privacy notice: **Use the privacy notice template** takes you to [Legal → Legal texts for your shop](#rechtliches).
 
 :::note
@@ -105,6 +107,8 @@ Earlier versions had more sub-tabs. These settings now live where they are neede
 ## Legal {/* #rechtliches */}
 
 In the menu under your name at the bottom left, next to **Settings**, there is the entry **Legal**. There you find:
+
+![Legal: contracts, ELSTER details, template for the shop](/img/screens/en/legal.png)
 
 - **OpenEOS contracts and legal texts** – terms and conditions (AGB), data processing agreement (AVV), privacy policy and imprint in the current version with PDF. For the AGB and AVV it shows which version you accepted and when. Older versions remain available under their date. The texts are in German. Also the link to the **Subprocessors (AVV annex B)**.
 - **Details for the tax office notification (ELSTER)** – admins only: software, register serial number, business premises and TSE, i.e. the values you enter in ELSTER, each with a copy button. If the address or tax number is missing, the page points you to the settings.

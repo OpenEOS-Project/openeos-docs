@@ -30,7 +30,7 @@ Only **admins** of the organization can switch it on or off; the change is recor
 
 While the assistant is off, **Import** only offers the CSV import. Admins then see the note "Want to import a menu? Switch on the assistant features first." with the link **Go to settings** on the products page.
 
-![Settings – assistant with daily quota](/img/screens/de/settings-assistant.png)
+![Settings – assistant with daily quota](/img/screens/en/settings-assistant.png)
 
 :::note["Not set up"]
 If the settings show **Not set up** instead of the switch, no provider for the assistant is configured on this server. On [app.openeos.de](https://app.openeos.de) this is taken care of; if you host OpenEOS yourself, follow [Setting up the assistant](./selbst-betreiben/assistent.md).

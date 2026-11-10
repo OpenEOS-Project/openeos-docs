@@ -41,6 +41,8 @@ Top-Produkte und Top-Kategorien rechnen **netto**: Stornos und erstattete Mengen
 
 Die Karte **Umsatzsteuer** zeigt je **Steuersatz** die Spalten **Ware**, **Pfand**, **Pfand-Rückgabe**, **Brutto**, **Netto** und **Umsatzsteuer**, darunter die **Summe**. Pfand gehört zum Entgelt und steht beim Satz seines [Pfand-Typs](./pfand.md#umsatzsteuer); Pfand-Rückgaben mindern ihn. Trinkgeld ist nicht enthalten.
 
+![Auswertung: Umsatzsteuer je Satz](/img/screens/de/reports-vat.png)
+
 - Weist deine Organisation keine Umsatzsteuer aus (z. B. Kleinunternehmer), stehen alle Beträge bei 0 % ohne Steuer.
 - Pfand von vor November 2026 wurde ohne Umsatzsteuer gebucht und steht unverändert bei 0 %.
 - Die Karte gibt es auch als CSV (**CSV exportieren**) und im PDF. In [Nur Bons](./betriebsarten.md#nur-bons) fehlt sie.
@@ -48,6 +50,8 @@ Die Karte **Umsatzsteuer** zeigt je **Steuersatz** die Spalten **Ware**, **Pfand
 ## Bedienungen {/* #bedienungen */}
 
 Arbeitest du mit [Bedienungen](./bedienungen.md), zeigt der Bericht **Bedienungen** je Bedienung – und je Mitglied, das mit seiner Mitglieds-PIN kassiert hat. Die Karte erscheint, sobald im Zeitraum eine Bedienung gebucht hat.
+
+![Auswertung: Bedienungen](/img/screens/de/reports-waiters.png)
 
 | Spalte | Inhalt |
 | --- | --- |

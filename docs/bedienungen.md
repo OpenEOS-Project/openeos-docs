@@ -20,6 +20,8 @@ Eine **Bedienung** ist ein Kassenprofil ohne Konto und ohne E-Mail. Es besteht a
 
 Bedienungen verwalten **Administratoren** und Mitglieder mit der Berechtigung **Bedienungen** (vergeben unter [Mitglieder](./mitglieder.md#modulbasierte-berechtigungen)). Du erreichst den Bereich über **Bedienungen** in der Seitenleiste.
 
+![Bedienungen: Liste mit Rolle, PIN, Status und Aktionen](/img/screens/de/waiters.png)
+
 Die Liste zeigt je Bedienung Rolle, **Gültig für**, PIN-Länge, **Zuletzt angemeldet** und Status. Über **Gültigkeit filtern** siehst du nur die Bedienungen einer Veranstaltung.
 
 ## Bedienungen anlegen {/* #anlegen */}
@@ -39,6 +41,8 @@ Einfache PINs wie `1234`, `0000` oder `1212` und PINs, die schon jemand hat, nim
 
 Mit **Mehrere anlegen** fügst du eine ganze Namensliste ein: ein Name je Zeile. Wahlweise ergänzt du Kurzname und Rolle, getrennt durch Semikolon (`Name;Kurzname;Rolle`). Als Rolle schreibst du `Bedienung` oder `Schichtleitung`.
 
+![Mehrere Bedienungen anlegen: ein Name je Zeile](/img/screens/de/waiters-bulk.png)
+
 ```text
 Anna Berger;Anna
 Ben Krämer
@@ -55,6 +59,8 @@ Jede Person bekommt eine PIN.
 ## PINs und PIN-Zettel {/* #pin */}
 
 OpenEOS erzeugt die PINs selbst. Du siehst sie **nur einmal**: direkt nach dem Anlegen und nach **Neue PIN**. Gespeichert ist nur ein Prüfwert, aus dem sich die PIN nicht zurückrechnen lässt. Auch Admins können eine PIN später nicht mehr ansehen.
+
+![Die neuen PINs, einmalig angezeigt, mit „PIN-Zettel drucken“](/img/screens/de/waiters-pin-sheet.png)
 
 - **PIN-Zettel drucken** erzeugt im Browser ein A4-Blatt mit 10 Karten und Schnittlinien. Jede Karte zeigt Verein, Veranstaltung, Name, Kurzname und PIN, dazu den Hinweis, die PIN nicht weiterzugeben. Alternativ gibst du die PIN direkt weiter.
 - **PIN vergessen?** Mit **Neue PIN** bekommt die Person eine neue. Offene Anmeldungen an Kassen enden dabei.
@@ -111,6 +117,8 @@ Die Karte **Einstellungen für Bedienungen** auf der Seite sehen Administratoren
 
 Ob und wie sich jemand an einer Kasse anmeldet, stellst du je Gerät unter **Geräte → Gerät → Einstellungen** ein ([Bedienung & Sicherheit](./geraete.md#pin-und-sperre)):
 
+![Geräteeinstellungen: Bedienung & Sicherheit](/img/screens/de/device-settings-waiters.png)
+
 | Modus | So arbeitet die Kasse |
 |---|---|
 | **Ohne Bedienung** | wie bisher: niemand meldet sich an, Buchungen zählen für das Gerät |
@@ -133,6 +141,8 @@ So läuft es an einer **Gemeinsamen Kasse**. Mehr zum Ablauf steht unter [Kasse]
 - Nach einem **Neuladen** der Seite fragt die Kasse die PIN erneut ab.
 - **Offline** lässt sich die Kasse nicht entsperren: „Keine Verbindung – Entsperren ist erst wieder online möglich“. Ein kurzer Verbindungsabbruch beendet die Anmeldung aber nicht.
 - Optional zeigt der PIN-Bildschirm **Namenskacheln** mit Kurzname und Farbe. Standardmäßig sind sie aus, damit keine Namen sichtbar sind.
+
+![PIN-Bildschirm „Wer bedient?“ mit Namenskacheln](/img/screens/de/pos-waiter-pin.png)
 
 ### Falsche PINs {/* #fehlversuche */}
 
@@ -170,6 +180,8 @@ Am Ende der Schicht rechnet jede Bedienung ab: Was hat sie kassiert, wie viel Ba
 ### Mein Zwischenstand {/* #zwischenstand */}
 
 Tippe an der Kasse oben rechts auf deinen Chip und wähle **Mein Zwischenstand**. Du siehst, was seit deiner letzten Abrechnung zusammengekommen ist:
+
+![Mein Zwischenstand an der Kasse](/img/screens/de/pos-waiter-summary.png)
 
 | Block | Inhalt |
 |---|---|
@@ -215,6 +227,8 @@ Hat die Bedienung noch offene Tische, lässt sich nicht abrechnen. Du hast zwei 
 ### Abrechnungen in der Verwaltung {/* #abrechnungen */}
 
 Auf der Seite **Bedienungen** steht unter der Liste der Abschnitt **Abrechnungen**, die neuesten zuerst: **Nr.**, **Bedienung**, **Zeitraum**, **Kassiert**, **Soll bar** und **Abgerechnet von**. Markiert ist, was **trotz offener Tische** abgerechnet wurde, und Abrechnungen aus dem **Training**. **Gültigkeit filtern** grenzt auch diese Liste auf eine Veranstaltung ein. Das Symbol **Abrechnung Nr. … ansehen** öffnet die Einzelheiten; dort wählst du einen Drucker (Standard: **Bondrucker der Kasse**) und druckst mit **Nachdruck** erneut.
+
+![Abrechnungen unter der Liste der Bedienungen](/img/screens/de/waiters-settlements.png)
 
 :::note[Kommt später]
 **Kellnerbrieftasche** (die Bedienung kassiert mit eigenem Wechselgeld und rechnet ihr Bargeld selbst ab) und die **Auszahlung von Kartentrinkgeld** fehlen noch. Beides klären wir gerade steuerlich.
@@ -268,7 +282,7 @@ Habt ihr Beschäftigte, etwa in der Gastronomie, können der Beschäftigtendaten
 
 ### Automatisch löschen {/* #loeschfristen */}
 
-OpenEOS räumt jede Nacht auf:
+OpenEOS räumt jede Nacht auf (auf einer eigenen Installation erst, wenn du das automatische Löschen einschaltest, siehe [Aufbewahrung und Löschung](./selbst-betreiben/betrieb.md#aufbewahrung-und-löschung)):
 
 | Was | Wann | Was passiert |
 |---|---|---|

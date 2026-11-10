@@ -18,6 +18,8 @@ Jede Neuigkeiten-Mail enthält außerdem einen Abmeldelink. Er führt auf eine S
 
 Unter **Einstellungen → Persönlich → Konto → Konto löschen** löschst du dein Benutzerkonto selbst.
 
+![Konto löschen in den persönlichen Einstellungen](/img/screens/de/settings-account.png)
+
 1. Klicke auf **Konto löschen …**. Der Dialog zeigt, was passiert:
    - Name, E-Mail-Adresse, Passwort, Zwei-Faktor-Anmeldung, Sitzungen und API-Tokens werden entfernt, du wirst abgemeldet.
    - Du verlierst den Zugang zu allen Organisationen.
@@ -53,6 +55,8 @@ Am Termin löschen wir die Daten der Organisation endgültig (siehe [Endgültige
 ## Organisation löschen {/* #organisation-loeschen */}
 
 Administratoren löschen eine Organisation unter **Einstellungen → Organisation → Allgemein → Organisation löschen**. Zur Bestätigung tippst du den Namen der Organisation ein.
+
+![Organisation löschen: Bestätigung mit dem Namen](/img/screens/de/settings-organisation-delete.png)
 
 Dasselbe passiert, wenn OpenEOS ein Kundenkonto nach 24 Monaten ohne Buchung schließt (AGB 15.10) – das kündigen wir 30 Tage vorher per E-Mail an die Administratoren an und erinnern 10 Tage und einen Tag vor der Schließung noch einmal. Buchst du bis dahin eine Veranstaltung, bleibt die Organisation bestehen.
 
@@ -97,7 +101,7 @@ Jede Löschung steht ohne Inhalte im Löschprotokoll von OpenEOS: wer wann was g
 
 ## Automatische Löschfristen {/* #fristen */}
 
-Manche Daten löscht OpenEOS auf [app.openeos.de](https://app.openeos.de) nach festen Fristen von selbst, ohne dass du etwas tun musst:
+Manche Daten löscht OpenEOS auf [app.openeos.de](https://app.openeos.de) nach festen Fristen von selbst, ohne dass du etwas tun musst (auf einer eigenen Installation ist das anfangs aus, siehe [Aufbewahrung und Löschung](./selbst-betreiben/betrieb.md#aufbewahrung-und-löschung)):
 
 - **Gästedaten** (Name, Telefonnummer, E-Mail-Adresse und Anmerkungen in Bestellungen, auch aus Shop und QR-Bestellung): 30 Tage nach dem Ende der Veranstaltung. Die Bestellungen selbst bleiben für Auswertung und Steuerarchiv erhalten, nur ohne diese Angaben. Exportierst du Bestellungen später, fehlen die Gästedaten darin.
 - **Schichtanmeldungen** von Helfern (Name, Kontaktdaten, Notizen): 30 Tage nach der letzten Schicht des Schichtplans. Der Schichtplan mit seinen Schichten bleibt, zum Beispiel als Vorlage.

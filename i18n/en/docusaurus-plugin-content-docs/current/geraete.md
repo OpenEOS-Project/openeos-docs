@@ -148,7 +148,7 @@ If a server is signed in, their **Cancel & refund** right counts: with it, they 
 | Group | What you set |
 |---|---|
 | **Display** | the **Display mode** and, below it, what belongs to it |
-| **Appearance & content** | colour scheme, text size, header, idle message, logo |
+| **Appearance & content** | color scheme, text size, header, idle message, logo |
 
 Under **Display** you choose the **Display mode**:
 

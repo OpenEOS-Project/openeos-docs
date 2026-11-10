@@ -26,6 +26,8 @@ Often you combine both: the webhook tells you **that** something changed; if you
 
 Only **administrators** of the organization manage webhooks. Members see a notice in this place.
 
+![Create webhook: address and events](/img/screens/en/settings-webhook-form.png)
+
 1. Sign in as an administrator and open **Settings → Organization → Webhooks**.
 2. Click **Create webhook**.
 3. Under **Address (URL)** enter the address OpenEOS should send to. It must start with `https://` and be publicly reachable (see [Requirements for the URL](#adresse)).
@@ -40,6 +42,8 @@ An organization can have at most **10 webhooks**; above the list you see how man
 
 The list under **Settings → Organization → Webhooks** shows each webhook's **Address**, **Events**, **Status** and **Last delivery**. The status is **Active**, **Paused** or **Disabled automatically**; if deliveries are currently failing, it shows for example "Failing since …". Under **Actions** you find **Edit**, **Send test**, **Rotate secret**, **View deliveries** and **Delete**.
 
+![Webhooks in the organization settings](/img/screens/en/settings-webhooks.png)
+
 ### Send test {/* #test */}
 
 **Send test** makes OpenEOS send an event of type `ping` to the URL right away – even while the webhook is switched off. Use it to check that your receiver is reachable and verifies the signature correctly before real events arrive. The result shows up in the delivery log after a few seconds.
@@ -47,6 +51,8 @@ The list under **Settings → Organization → Webhooks** shows each webhook's *
 ### Delivery log {/* #protokoll */}
 
 Every webhook has a **log of its deliveries**, newest first. You open it from the list with **View deliveries**. At the top you see the webhook's address, events, secret prefix and options; you filter the list by **Status** and **Event** and reload it with **Refresh**. For each delivery you see:
+
+![Delivery log of a webhook](/img/screens/en/settings-webhook-deliveries.png)
 
 - the event type and time,
 - the status: **Pending**, **Sending**, **Delivered** or **Failed**,

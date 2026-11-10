@@ -144,3 +144,79 @@ die Aufnahme auf eine Stationsanzeige umgeschrieben.
 Seit 1.6 legt die Geräteeinstellung `tableSelectView` fest, ob die Kasse
 Nummer, Liste oder Karte zeigt. Die Kassenbilder setzen sie über
 `kassenRouten({ tischwahl: 'number' | 'list' | 'map' })`.
+
+## Lokal aufnehmen (Stand 1.8)
+
+Seit 1.8 entstehen die Bilder gegen einen **lokalen Stack** aus `dev`
+(openeos-api + openeos-web, eigene Postgres/Redis-Container) mit
+Beispieldaten. So lassen sich auch Bilder machen, die auf Staging etwas
+anlegen würden (Assistent, Pfand-Rückgabe, Anmeldung einer Bedienung).
+
+- **Adressen wie gehostet:** Eine kleine TLS-Weiche (selbst signiert) nimmt
+  `app.openeos.de` und `api.openeos.de` lokal an; Chromium leitet die
+  Namen dorthin um. Im Bild steht dann nie `localhost`.
+
+  ```bash
+  APP_URL=https://app.openeos.de \
+  LOKALER_STACK="MAP app.openeos.de 127.0.0.1:<web-tls>, MAP api.openeos.de 127.0.0.1:<api-tls>" \
+  DOKU_KASSE="Kasse Zelt A" DOKU_KASSE_TOKEN=<Kasse Theke> DOKU_BEDIENUNG_TOKEN=<Kasse Zelt A> \
+  DOKU_ANZEIGE_TOKEN=<Kundendisplay> DOKU_PIN=<PIN einer Bedienung> \
+  ZUGANG="mail:passwort" node scripts/screenshots.mjs
+  ```
+
+  Web mit `API_URL=https://api.openeos.de/api` starten, API mit
+  `APP_URL=https://app.openeos.de` und dieser Adresse in `CORS_ORIGINS`.
+- **`LOKALER_STACK` gesetzt** heißt außerdem: Listen werden nicht
+  nachgestellt (`listeNachstellen`), und Aufnahmen mit `nurLokal` laufen
+  (Kopplungsseite, Assistent, Bedienung an der Kasse, Pfand-Rückgabe,
+  Kassenbuch der Kasse). Ohne lokalen Stack werden sie übersprungen.
+- **Assistent:** `AI_PROVIDER=openai` mit `OPENAI_BASE_URL` auf ein
+  Ersatzmodell, das die Testdatei der API
+  (`test/fixtures/menu/speisekarte.extraction.json`) zurückgibt und
+  Icon-Vorschläge per Stichwort wählt. Es geht nichts an einen echten
+  Anbieter.
+- **Buchen mit Zusammenfassung:** braucht einen (Dummy-)`STRIPE_SECRET_KEY`,
+  sonst zeigt der Dialog „Online-Zahlung ist derzeit nicht verfügbar“.
+  Gebucht wird nie.
+- **Cloud-TSE:** `TSE_PROVIDER=none` und `TSE_COMING_SOON=true` – so wie
+  gehostet bis zum Start („Bald verfügbar“).
+- **Notfall-Support:** `OPERATOR_EMERGENCY_PHONE` mit einer ausgedachten
+  Nummer (Bilder 2026: `+49 30 23125456` aus dem Bereich für Film und
+  Fernsehen).
+
+### Beispieldaten
+
+Angelegt über die API (Registrierung, danach als Admin und an den Geräten):
+
+- Organisation **TSV Musterstadt e. V.** (DE, „Alle Funktionen
+  (Bestand)“, damit Bargeld, Kassenbuch und Pfand-Auszahlung echt zu sehen
+  sind; der Bestand-Hinweis wird in `dashboard` ausgeblendet), Admin
+  **Lena Hoffmann**, Steuernummer, Anschrift, Impressum/Datenschutz als Link,
+  SumUp aktiv mit Demo-Zugang, Assistent an.
+- Veranstaltungen **Martinimarkt 2026** (aktiv, Tische vordefiniert),
+  **Weihnachtsmarkt 2026**, **Sommerfest 2026** (freigeschaltet),
+  **Jugendturnier 2027** (noch nicht freigeschaltet – für `events-checkout`).
+- Bereiche **Zelt A** (A01–A12, Bühne, Theke, Küche, Notausgang) und
+  **Biergarten** (B01–B06); Standorte Theke, Grill, Küchenzelt; vier
+  Kategorien mit Produkten und POS-Icons; Pfand Mehrwegbecher (19 %),
+  Glühweintasse (19 %), Teller (7 %); drei Rabatt-Bons.
+- Bedienungen Anna Becker, Jonas Weber, Marie Klein, Sophie Wagner und
+  Tom Schulz (Schichtleitung); Geräte **Kasse Theke** (ohne Bedienung),
+  **Kasse Zelt A** (gemeinsame Kasse, Namenskacheln), **Handy Biergarten**
+  (feste Bedienung), Küchenanzeige, Kundendisplay, Drucker-Agent mit zwei
+  Druckern.
+- Rund 90 Bestellungen am Aufnahmetag (bar und Karte, an der Theke und an
+  Tischen, einige Tische offen), Pfand-Rückgaben, Kassenbuch mit
+  Anfangsbestand/Einlage/Entnahme, eine Erstattung, eine Abrechnung,
+  zwei Inventuren, Webhooks mit Zustellprotokoll, zwei API-Zugänge, ein
+  Schichtplan, eine Support-Nachricht mit Antwort.
+
+`settings-operating-mode` wird für eine neue Organisation aufgenommen
+(Betriebsart **Bargeldlos**, „Alle Funktionen“ bald verfügbar): dafür die
+Beispielorganisation für diese eine Aufnahme auf `cashless` stellen.
+
+Nicht im lokalen Lauf: die Schichtplan-Bilder (`shift*`, `public-*`)
+brauchen weiterhin den Plan auf Staging (siehe oben); die Drucker-Bilder
+des Agents (`printer*`, `printers-*` außer `printers`, `printers-templates`,
+`printers-workflows`, `printers-template-waiter`) sind von Hand gegen einen
+laufenden Agent entstanden.

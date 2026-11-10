@@ -23,6 +23,8 @@ Soll sich OpenEOS bei dir melden, sobald etwas passiert – etwa wenn eine Beste
 5. Unter **Ablauf** optional ein Ablaufdatum wählen: **nie**, **30 Tage**, **90 Tage**, **365 Tage** oder ein eigenes Datum. Ohne Datum läuft der Zugang nicht ab.
 6. Auf **Zugang anlegen** klicken. Im Fenster **Zugang angelegt** den Token (`oeos_…`) **sofort** mit **Kopieren** übernehmen und sicher ablegen, etwa in einem Passwort-Manager. Er wird genau einmal angezeigt; OpenEOS speichert nur einen Hash. Mit **Fertig** schließt du das Fenster.
 
+![Zugang anlegen: Name und Berechtigungen](/img/screens/de/settings-access-dialog.png)
+
 Ein Token wirkt wie die Person, die ihn angelegt hat: Er ist auf **eine Organisation** beschränkt, auf die gewählten Scopes und zusätzlich auf die [Modul-Berechtigungen](./mitglieder.md) seines Besitzers. Verlässt der Besitzer die Organisation, funktioniert der Token nicht mehr.
 
 Je Organisation sind höchstens **20 aktive Tokens** möglich; über der Liste steht der Stand, etwa „3 von 20 aktiven Zugängen“. Die Liste zeigt je Zugang **Name**, den Anfang des **Schlüssels**, die **Berechtigungen**, wann er **Angelegt** und **Zuletzt genutzt** wurde, wann er **Läuft ab** und den **Status** (aktiv, abgelaufen oder widerrufen). Einen Token, den du nicht mehr brauchst oder der in falsche Hände geraten ist, widerrufst du dort mit **Widerrufen** – das wirkt sofort und lässt sich nicht zurücknehmen.
@@ -30,6 +32,8 @@ Je Organisation sind höchstens **20 aktive Tokens** möglich; über der Liste s
 ## Scopes
 
 Jeder Endpunkt in der [API-Referenz](/api) nennt den Scope, den er verlangt (`x-api-token-scope`). In der App heißen die Scopes **Berechtigungen** und tragen einen deutschen Namen; der Scope steht daneben. Schreib-Scopes schließen `read` **nicht** ein – wer lesen und schreiben will, wählt beides.
+
+![Liste der Zugänge](/img/screens/de/settings-access.png)
 
 | Scope | In der App | Erlaubt | Nötige Modul-Berechtigung des Besitzers |
 |---|---|---|---|

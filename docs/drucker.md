@@ -176,6 +176,8 @@ Im Reiter **Vorlagen** legst du fest, wie Bons aussehen – etwa Küchenbon, Get
 
 Mit den Elementen **Bedienung** und **Gerät** (Gruppe **Bestellung**) siehst du auf dem Bon, wer die Bestellung aufgenommen hat. So weiß die Küche oder Theke, wen sie bei Rückfragen ansprechen kann.
 
+![Bon-Editor: Elemente „Bedienung“ und „Gerät“](/img/screens/de/printers-template-waiter.png)
+
 - **Bedienung** – wer die Bestellung aufgenommen hat. Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), steht hier die erste vorhandene Angabe: wer die Runde gesendet hat ▸ verantwortliche Bedienung des Tisches ▸ angemeldetes Mitglied ▸ Name des Geräts. Ob der Kurzname oder der volle Name erscheint, legst du unter [Name auf Bons](./bedienungen.md#einstellungen) fest. Ohne Bedienungen steht hier der **Name des Geräts**; gehört ein Bestellgerät fest einer Person, gib ihm unter **Geräte** einfach ihren Namen, etwa „Handy Markus“. Bei Bestellungen, die jemand in der Verwaltung (ohne Gerät) anlegt, steht hier dessen Name.
 - **Gerät** – immer der Name des Geräts, mit dem die Bestellung aufgenommen wurde.
 

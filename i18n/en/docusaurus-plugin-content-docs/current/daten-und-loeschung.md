@@ -18,6 +18,8 @@ Every news email also contains an unsubscribe link. It opens a page where you wi
 
 Under **Settings → Personal → Account → Delete account** you delete your user account yourself.
 
+![Delete account in your personal settings](/img/screens/en/settings-account.png)
+
 1. Click **Delete account …**. The dialog shows what happens:
    - Name, email address, password, two-factor sign-in, sessions and API tokens are removed and you are signed out.
    - You lose access to all organizations.
@@ -53,6 +55,8 @@ On the date we permanently delete the organization's data (see [Final deletion](
 ## Delete an organization {/* #organisation-loeschen */}
 
 Administrators delete an organization under **Settings → Organization → General → Delete organization**. To confirm, type the organization's name.
+
+![Delete organization: confirm with the name](/img/screens/en/settings-organisation-delete.png)
 
 The same happens when OpenEOS closes a customer account after 24 months without a booking (T&C 15.10) – we announce that to the administrators by email 30 days beforehand and remind them again 10 days and one day before the closure. If you book an event until then, the organization stays.
 
@@ -97,7 +101,7 @@ Every deletion is recorded without contents in the OpenEOS deletion log: who del
 
 ## Automatic deletion periods {/* #fristen */}
 
-On [app.openeos.de](https://app.openeos.de) OpenEOS deletes some data on its own after fixed periods, without you having to do anything:
+On [app.openeos.de](https://app.openeos.de) OpenEOS deletes some data on its own after fixed periods, without you having to do anything (on your own installation this is off at first, see [Retention and deletion](./selbst-betreiben/betrieb.md#retention-and-deletion)):
 
 - **Guest data** (name, phone number, email address and notes in orders, including shop and QR orders): 30 days after the end of the event. The orders themselves are kept for reports and the fiscal archive, just without these details. If you export orders later, the guest data is missing from the file.
 - **Shift registrations** of helpers (name, contact details, notes): 30 days after the last shift of the shift plan. The shift plan with its shifts is kept, for example as a template.

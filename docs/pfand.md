@@ -44,6 +44,8 @@ So kannst du z. B. nur beim Verkauf zum Mitnehmen Pfand verlangen, beim Tischser
 - **Beleg zur Rückgabe:** Für jede Auszahlung gibt es einen Beleg „Pfandrückgabe“ mit Belegnummer, den Pfand-Typen als negative Beträge, der enthaltenen MwSt je Satz, Zahlart Bar, Kasse, Datum und – mit Cloud-TSE – den TSE-Angaben. Gedruckt wird er wie der Kassenbon: automatisch, wenn deine Kassenbons nach der Zahlung gedruckt werden, sonst auf Wunsch über **Bon drucken** in der Meldung **Pfand ausgezahlt**.
 - **Auswertung:** In der [Auswertung](./auswertung.md) siehst du den Pfand-Saldo – also kassiertes und ausgezahltes Pfand – und in der Karte [Umsatzsteuer](./auswertung.md#umsatzsteuer) Ware, Pfand und Pfandrückgaben je Steuersatz.
 
+![Pfand-Rückgabe an der Kasse](/img/screens/de/pos-pfand-return.png)
+
 :::info
 Der Pfand-Saldo hilft dir, am Ende der Veranstaltung kassiertes und zurückgezahltes Pfand abzugleichen.
 :::

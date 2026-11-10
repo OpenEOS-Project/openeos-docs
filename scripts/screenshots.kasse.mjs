@@ -14,9 +14,30 @@
  * Bilder nicht wie eine deutsche Kasse mit englischen Knöpfen aussehen.
  */
 
-export const TOKEN_KASSE = 'dev_089dad7496ce4eddb84e489cab81ff7e';
-const KAT_GETRAENKE = 'b954460c-1b5b-4a38-901f-704bdeaf5fd8';
-const KAT_SPEISEN = 'cbca10f9-b9e0-405a-bf56-4da938616940';
+/* Gerätetoken der Testkasse auf Staging; im lokalen Stack der Token der
+   Kasse „Kasse Zelt A“ (DOKU_KASSE_TOKEN, siehe README). */
+export const TOKEN_KASSE = process.env.DOKU_KASSE_TOKEN ?? 'dev_089dad7496ce4eddb84e489cab81ff7e';
+/* Kasse, an der sich Bedienungen anmelden (Gerätemodus „Gemeinsame Kasse“
+   auf dem Server). Auf Staging dieselbe Testkasse. */
+const TOKEN_BEDIENUNG = process.env.DOKU_BEDIENUNG_TOKEN ?? TOKEN_KASSE;
+const TOKEN_KUNDENANZEIGE = process.env.DOKU_ANZEIGE_TOKEN ?? 'dev_853d4d669dfd4afeb82f8f4e0b967a57';
+/* Kategorien werden ganz nachgestellt (eigene IDs), damit die Kasse
+   genau Getränke und Speisen zeigt, egal was in der Organisation liegt. */
+const KAT_GETRAENKE = 'kat_doku_getraenke';
+const KAT_SPEISEN = 'kat_doku_speisen';
+const LOKAL = !!process.env.LOKALER_STACK;
+
+/* route.fetch() läuft nicht durch den Browser, die Umleitung aus
+   LOKALER_STACK (--host-resolver-rules) gilt dort nicht: die Adresse
+   selbst umschreiben, sonst landet die Anfrage beim echten Server. */
+const UMLEITUNGEN = [...(process.env.LOKALER_STACK ?? '').matchAll(/MAP\s+(\S+)\s+(\S+)/g)].map(([, host, ziel]) => [host, ziel]);
+function abrufen(route) {
+  const url = new URL(route.request().url());
+  const treffer = UMLEITUNGEN.find(([host]) => host === url.hostname);
+  if (!treffer) return route.fetch();
+  url.host = treffer[1];
+  return route.fetch({ url: url.toString() });
+}
 const BECHER = 'pfd_doku_becher';
 
 /* Herkunft der Anfrage zurückgeben: Staging oder eine lokale Oberfläche. */
@@ -260,14 +281,20 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
 
       if (methode === 'GET') {
         if (pfad === '/devices/status' || pfad === '/devices/me') {
-          const antwort = await route.fetch();
+          const antwort = await abrufen(route);
+          if (!antwort.ok()) return route.fulfill({ response: antwort });
           const daten = await antwort.json();
           const d = daten.data;
           d.name = t.geraet;
           d.settings = {
             ...(d.settings ?? {}),
             serviceMode: 'table',
-            requirePin: pin,
+            requirePin: false,
+            /* Mit „pin“: gemeinsame Kasse, an der sich Bedienungen per PIN
+               anmelden (seit 1.8 statt „PIN verlangen“). */
+            waiterMode: pin ? 'shared' : 'off',
+            waiterTiles: pin,
+            autoLockSeconds: pin ? 120 : 0,
             defaultPrinterId: 'prn_doku',
             ...(karte ? { sumupReaderId: 'rdr_doku' } : {}),
             ...(tischwahl ? { tableSelectView: tischwahl } : {}),
@@ -278,13 +305,15 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
           return json(route, { printer: { id: 'prn_doku', name: sprache === 'de' ? 'Theke' : 'Bar', isOnline: true, lastSeenAt: vor(0) }, tse: null });
         }
         if (pfad === '/device-api/organization') {
-          const antwort = await route.fetch();
+          const antwort = await abrufen(route);
+          if (!antwort.ok()) return route.fulfill({ response: antwort });
           const daten = await antwort.json();
           daten.data.settings = { ...(daten.data.settings ?? {}), pfand: { tableService: true, counterPickup: true } };
           return route.fulfill({ response: antwort, json: daten });
         }
         if (pfad === '/device-api/events') {
-          const antwort = await route.fetch();
+          const antwort = await abrufen(route);
+          if (!antwort.ok()) return route.fulfill({ response: antwort });
           const daten = await antwort.json();
           for (const e of daten.data) {
             eventId = e.id;
@@ -298,13 +327,11 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
         if (produkteTreffer) return json(route, produkte(sprache, produkteTreffer[1]));
         const kategorienTreffer = pfad.match(/^\/device-api\/events\/([^/]+)\/categories$/);
         if (kategorienTreffer) {
-          const antwort = await route.fetch();
-          const daten = await antwort.json();
-          for (const k of daten.data) {
-            if (k.id === KAT_GETRAENKE) Object.assign(k, { name: t.getraenke, icon: 'oe:soda' });
-            if (k.id === KAT_SPEISEN) Object.assign(k, { name: t.speisen, icon: 'oe:utensils' });
-          }
-          return route.fulfill({ response: antwort, json: daten });
+          const kat = (id, name, icon, color, sortOrder) => ({
+            id, eventId: kategorienTreffer[1], name, icon, color, sortOrder, isActive: true, parentId: null,
+            description: null, printSettings: null, productionStationId: null, createdAt: vor(9999), updatedAt: vor(9999),
+          });
+          return json(route, [kat(KAT_GETRAENKE, t.getraenke, 'oe:soda', '#2563eb', 0), kat(KAT_SPEISEN, t.speisen, 'oe:utensils', '#dc2626', 1)]);
         }
         if (pfad === '/device-api/discount-vouchers') {
           return json(route, t.bons.map(([name, type, amount], i) => ({
@@ -322,6 +349,17 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
       }
 
       // Schreiben: nur nachgestellt, nie an Staging.
+      /* Anmeldung der Bedienung: im lokalen Stack echt (PIN aus DOKU_PIN),
+         damit Zwischenstand und Tische ihre echten Zahlen zeigen. */
+      if (pfad === '/device-api/waiter-session') {
+        if (LOKAL) return route.continue();
+        return json(route, {
+          token: 'doku-sitzung', sessionId: 'doku', expiresAt: new Date(Date.now() + 3600000).toISOString(), kind: 'waiter',
+          waiter: { kind: 'waiter', id: 'wtr_doku', waiterId: 'wtr_doku', userId: null, name: `${t.bediener.firstName} ${t.bediener.lastName}`, shortName: t.bediener.firstName, color: '#2563eb', role: 'service', permissions: { refund: false, cashDrawer: true, discount: true, cashbook: false } },
+        }, 201);
+      }
+      // Pfand-Rückgabe: lokal echt (Beleg „Pfandrückgabe“), sonst abgebrochen.
+      if (pfad === '/device-api/pfand-returns' && LOKAL) return route.continue();
       if (pfad === '/device-api/verify-pin') {
         return json(route, { userId: 'usr_doku', ...t.bediener, role: 'member' });
       }
@@ -366,7 +404,7 @@ export async function antippen(seite, sprache, id, { uebernehmen = true } = {}) 
 
 /** PIN-Bildschirm mit der (nachgestellten) PIN 1234 überspringen. */
 export async function pinEingeben(seite) {
-  for (const ziffer of [...'1234', 'Enter']) {
+  for (const ziffer of [...(process.env.DOKU_PIN ?? '1234'), 'Enter']) {
     await seite.keyboard.press(ziffer);
     await seite.waitForTimeout(80);
   }
@@ -453,7 +491,7 @@ async function stationsRouten(seite, { sprache }) {
     const methode = anfrage.method();
     if (methode === 'OPTIONS') return route.fallback();
     if (methode === 'GET' && (pfad === '/devices/status' || pfad === '/devices/me')) {
-      const antwort = await route.fetch();
+      const antwort = await abrufen(route);
       const daten = await antwort.json();
       daten.data.name = STATION_TEXT[sprache].name;
       daten.data.deviceClass = 'display';
@@ -486,7 +524,7 @@ export const GERAETE_AUFNAHMEN = [
       await seite.keyboard.press('5');
     },
     hinweise: [
-      { auf: '.pos-head__ctx', text: { de: 'Kasse, Standardbereich und Veranstaltung', en: 'Till, default area and event' } },
+      { auf: '.pos-head__ctx', text: { de: 'Kasse, Organisation und Veranstaltung', en: 'Till, organization and event' } },
       { auf: '.pos-head__stat', text: { de: 'Verbindung, Drucker und Uhrzeit', en: 'Connection, printer and time' } },
       { auf: '.pos-start__pad', text: { de: 'Nummer eintippen und Tisch öffnen', en: 'Type the number and open the table' } },
       { auf: '.pos-without', text: { de: 'Ohne Tisch: Theke oder To-go', en: 'Without a table: counter or to-go' } },
@@ -498,7 +536,7 @@ export const GERAETE_AUFNAHMEN = [
     datei: 'pos-tables',
     routen: kassenRouten({ tischwahl: 'list' }),
     hinweise: [
-      { auf: '.pos-tablelist__area', text: { de: 'Tische des Bereichs mit Status und Betrag', en: 'Tables of the area with status and amount' } },
+      { auf: '.pos-tablelist__area', marke: 'innen', text: { de: 'Tische des Bereichs mit Status und Betrag', en: 'Tables of the area with status and amount' } },
       { auf: '.oe-legend', text: { de: 'Legende: frei, offen, wartet auf Bedienung', en: 'Legend: free, open, waiting for service' } },
     ],
   },
@@ -517,12 +555,14 @@ export const GERAETE_AUFNAHMEN = [
   {
     ...KASSE,
     datei: 'pos-order',
+    token: TOKEN_BEDIENUNG,
+    nurLokal: true,
     tisch: TISCH_A10,
     routen: kassenRouten({ pin: true }),
     vorbereiten: tischMitWarenkorb,
     hinweise: [
       { auf: '.pos-tablepill', text: { de: 'Offener Tisch, antippen zum Wechseln', en: 'Open table, tap to switch' } },
-      { auf: '.pos-head__user', text: { de: 'Angemeldet per PIN, Schloss sperrt die Kasse', en: 'Signed in with PIN, the lock locks the till' } },
+      { auf: '.pos-head__user', text: { de: 'Angemeldete Bedienung: Zwischenstand, Wechseln, Sperren', en: 'Signed-in server: running total, switch, lock' } },
       { auf: '.pos-order__rail', text: { de: 'Favoriten und Kategorien', en: 'Favorites and categories' } },
       { auf: '.pos-search', text: { de: 'Suche über alle Artikel', en: 'Search all items' } },
       { auf: '.pos-gridwrap', text: { de: 'Artikel antippen; Zeichen unten rechts: Optionen, Pfand', en: 'Tap an item; marks bottom right: options, deposit' } },
@@ -621,11 +661,77 @@ export const GERAETE_AUFNAHMEN = [
     },
   },
 
+  // --- Seit 1.8: Bedienungen, Kassenbuch, Pfand-Rückgabe, Notfall-Support ---
+  /* Lokal (LOKALER_STACK): echte Anmeldung der Bedienung mit DOKU_PIN,
+     echte Zahlen im Zwischenstand. */
+  {
+    ...KASSE,
+    datei: 'pos-waiter-pin',
+    token: TOKEN_BEDIENUNG,
+    nurLokal: true,
+    routen: kassenRouten({ pin: true }),
+    hinweise: [
+      { auf: '.pos-pin__tiles', text: { de: 'Namenskacheln (wenn eingeschaltet): antippen, dann PIN', en: 'Name tiles (if switched on): tap, then PIN' } },
+      { auf: '.pos-pin__card', marke: 'innen', text: { de: '„Wer bedient?“: PIN eingeben', en: '“Who is serving?”: enter the PIN' } },
+    ],
+  },
+  {
+    ...KASSE,
+    datei: 'pos-waiter-summary',
+    token: TOKEN_BEDIENUNG,
+    nurLokal: true,
+    routen: kassenRouten({ pin: true }),
+    async vorbereiten(seite) {
+      await pinEingeben(seite);
+      await seite.locator('.pos-head__user button').first().click();
+      await seite.waitForTimeout(400);
+      await seite.getByRole('menuitem', { name: /^(Mein Zwischenstand|My running total)$/ }).click();
+      await seite.waitForTimeout(1500);
+    },
+  },
+  {
+    ...KASSE,
+    datei: 'pos-cashbook',
+    nurLokal: true,
+    routen: kassenRouten(),
+    async vorbereiten(seite) {
+      await seite.locator('.pos-more button').first().click();
+      await seite.waitForTimeout(400);
+      await seite.getByRole('menuitem', { name: /^(Kassenbuch|Cash book)$/ }).click();
+      await seite.waitForTimeout(1500);
+    },
+  },
+  {
+    ...KASSE,
+    datei: 'pos-pfand-return',
+    nurLokal: true,
+    routen: kassenRouten(),
+    async vorbereiten(seite) {
+      await seite.locator('.pos-more button').first().click();
+      await seite.waitForTimeout(400);
+      await seite.getByRole('menuitem', { name: /^(Pfand-Rückgabe|Deposit return)$/ }).click();
+      await seite.waitForTimeout(800);
+      const plus = seite.getByRole('button', { name: /^(Menge erhöhen|Increase quantity)$/ }).first();
+      for (let i = 0; i < 3; i++) await plus.click();
+      await seite.waitForTimeout(400);
+    },
+  },
+  {
+    ...KASSE,
+    datei: 'pos-emergency',
+    routen: kassenRouten(),
+    async vorbereiten(seite) {
+      await seite.locator('.pos-more button').first().click();
+      await seite.waitForTimeout(400);
+      await seite.getByRole('menuitem', { name: /^(Notfall-Support|Emergency support)$/ }).click();
+      await seite.waitForTimeout(1000);
+    },
+  },
   // --- Anzeigen ---
   {
     datei: 'display-customer',
     pfad: '/device/customer',
-    token: 'dev_853d4d669dfd4afeb82f8f4e0b967a57',
+    token: TOKEN_KUNDENANZEIGE,
     geraeteklasse: 'display',
     einstellungen: { displayMode: 'customer' },
   },

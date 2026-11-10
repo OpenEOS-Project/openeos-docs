@@ -9,7 +9,7 @@ description: Open a table, order, send, check out — how the till works on the 
 This page covers the till itself — what your team does on the day. For how a device becomes a till, see [Connecting devices](./geraete.md); for how tables and the floor plan are set up, see [Tables](./tische.md).
 
 :::tip[Try it first]
-While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode — Orders will be deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – real sales from … at …"; after the end it shows "Event ended – only settle open orders" (see [Phases](./veranstaltungen.md#phasen)).
+While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode – sales don't count and are deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – sales don't count. Real sales from … at …"; after the end it shows "Event ended – only settle open orders" (see [Phases](./veranstaltungen.md#phasen)).
 :::
 
 ## How the till starts {/* #start */}
@@ -29,19 +29,22 @@ If the till is set to **Shared till**, the PIN screen "Who is serving?" comes fi
 
 The top bar always shows the same things:
 
-- **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the running event.
+- **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the organization and the running event. On phones the logo and the event are dropped; what doesn't fit ends with "…".
 - **Table** — in the order view a green pill shows who you are booking for: "Table A10", "Counter" or "To go". Tapping it opens [Choose table](#tisch-wechseln).
-- **Status** — **Online** (green dot), **Connecting …** or **No live data** (yellow) and **Offline** (red). Next to it the till's receipt printer, e.g. "Printer Bar" (or "Printer Bar offline"), if one is assigned, the **TSE** pill when the [Cloud TSE](./integrationen/cloud-tse.md) is switched on, and the time. On narrower screens only the dot remains.
+- **Status** — a dot: green **Online**, yellow **Connecting …** or **No live data**, red with a crossed-out Wi-Fi icon **Offline**. Next to it the till's receipt printer, e.g. "Printer Bar" (or "Printer Bar offline"), if one is assigned, and the time. On narrower screens only the dot remains.
 - **Menu** (the three lines) — **Order history**, **Open orders**, **Deposit return**, [Cash book](#kassenbuch), **Open cash drawer**, [Hand over table](#tisch-uebergeben), [Emergency support](#notfall-support), [Appearance](#darstellung), **Source code (AGPL-3.0)** and **Sign out device**. Only what is set up for this till and what the signed-in person is allowed to do appears.
 - **Server** — on a shared till or with a fixed server, a chip with the color and short name of whoever is signed in. Tapping it opens [My running total](./bedienungen.md#zwischenstand), and for a shift lead also [Settle](./bedienungen.md#abrechnen). On a shared till it also offers **Switch**, **Lock** and **Sign out**.
 
-A strip below the header shows when something special applies:
+Below the header there is at most **one** notice, the most important first:
 
-- "Test mode — Orders will be deleted on activation" in test mode,
-- "Test operation – real sales from … at …" while the event is **Planned**,
-- "Event ended – only settle open orders" after sales have ended,
-- "Orders only – no checkout here. Payment happens outside OpenEOS." in the [Orders only](./betriebsarten.md#nur-bons) operating mode,
-- "Cash blocked – without an active TSE this till accepts no cash. Card and online keep working." if the Cloud TSE is missing in Germany in "All features".
+1. "Event ended – only settle open orders" after sales have ended,
+2. "Test operation – sales don't count. Real sales from … at …" while the event is **Planned**, or "Test mode – sales don't count and are deleted on activation" in test mode (shortened on phones),
+3. "No connection – sending and checkout work again once the register is online.",
+4. "TSE failed – you can keep selling, the receipt will be marked.",
+5. "Cash blocked – without an active TSE this till accepts no cash. Card and online keep working." if the Cloud TSE is missing in Germany in "All features",
+6. "Orders only – no checkout here. Payment happens outside OpenEOS." in the [Orders only](./betriebsarten.md#nur-bons) operating mode.
+
+At the very bottom there is a thin line with copyright, version, imprint and privacy; on phones and portrait tablets it sits at the end of the menu.
 
 ### Light or dark {/* #darstellung */}
 
@@ -271,6 +274,8 @@ If your organization accepts cash, **Cash book** in the menu opens the cash of t
 ## Emergency support {/* #notfall-support */}
 
 If your organization has booked the event, the menu shows **Emergency support** during real sales (phase **Active**). The window shows the phone number; on a tablet or phone you call it straight away with **Call**. The number is only for problems that stop your sales. In test mode and while **Planned** the menu item is not there. More under [Support](./support.md#emergency-support).
+
+![Emergency support in the till menu](/img/screens/en/pos-emergency.png)
 
 ## On phones and tablets
 

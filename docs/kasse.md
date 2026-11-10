@@ -9,7 +9,7 @@ description: Tisch öffnen, bestellen, senden, kassieren — der Ablauf an der K
 Diese Seite beschreibt die Kasse selbst — also das, was dein Team am Festtag tut. Wie ein Gerät zur Kasse wird, steht unter [Geräte verbinden](./geraete.md); wie Tische und Tischplan entstehen, unter [Tische](./tische.md).
 
 :::tip[Vorher ausprobieren]
-Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt. Bis zum Verkaufsstart ist die freigeschaltete Veranstaltung **Geplant**: Die Kasse bucht weiter Testbestellungen und zeigt „Testbetrieb – echte Verkäufe ab … um … Uhr“; nach dem Ende steht „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ (siehe [Phasen](./veranstaltungen.md#phasen)).
+Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus – Buchungen zählen nicht und werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt. Bis zum Verkaufsstart ist die freigeschaltete Veranstaltung **Geplant**: Die Kasse bucht weiter Testbestellungen und zeigt „Testbetrieb – Buchungen zählen nicht. Echte Verkäufe ab … um … Uhr“; nach dem Ende steht „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ (siehe [Phasen](./veranstaltungen.md#phasen)).
 :::
 
 ## Wie die Kasse startet {/* #start */}
@@ -29,19 +29,22 @@ Steht die Kasse auf **Gemeinsame Kasse**, kommt davor der PIN-Bildschirm „Wer 
 
 Oben steht immer dasselbe:
 
-- **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter die laufende Veranstaltung.
+- **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter Organisation und laufende Veranstaltung. Am Telefon entfallen Logo und Veranstaltung; was nicht passt, endet mit „…“.
 - **Tisch** — in der Bestellansicht zeigt eine grüne Pille, für wen du gerade buchst: „Tisch A10“, „Theke“ oder „To-go“. Ein Tipp darauf öffnet [Tisch wählen](#tisch-wechseln).
-- **Status** — **Online** (grüner Punkt), **Verbinde …** oder **Keine Live-Daten** (gelb) und **Offline** (rot). Daneben der Bondrucker der Kasse, etwa „Drucker Theke“ (bzw. „Drucker Theke offline“), sofern einer zugewiesen ist, mit eingeschalteter [Cloud-TSE](./integrationen/cloud-tse.md) die Pille **TSE** und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
+- **Status** — ein Punkt: grün **Online**, gelb **Verbinde …** oder **Keine Live-Daten**, rot mit durchgestrichenem WLAN-Symbol **Offline**. Daneben der Bondrucker der Kasse, etwa „Drucker Theke“ (bzw. „Drucker Theke offline“), sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
 - **Menü** (die drei Striche) — **Bestellverlauf**, **Offene Bestellungen**, **Pfand-Rückgabe**, [Kassenbuch](#kassenbuch), **Kassenlade öffnen**, [Tisch übergeben](#tisch-uebergeben), [Notfall-Support](#notfall-support), [Darstellung](#darstellung), **Quellcode (AGPL-3.0)** und **Gerät abmelden**. Es erscheint nur, was an dieser Kasse eingerichtet ist und was die angemeldete Person darf.
 - **Bedienung** — an einer Gemeinsamen Kasse oder mit fester Bedienung ein Chip mit Farbe und Kurzname der angemeldeten Person. Ein Tipp darauf öffnet [Mein Zwischenstand](./bedienungen.md#zwischenstand), für eine Schichtleitung dazu [Abrechnen](./bedienungen.md#abrechnen). An einer Gemeinsamen Kasse stehen dort außerdem **Wechseln**, **Sperren** und **Abmelden**.
 
-Unter dem Kopf zeigt ein Streifen, wenn etwas Besonderes gilt:
+Unter dem Kopf steht höchstens **ein** Hinweis, der wichtigste zuerst:
 
-- „Testmodus — Bestellungen werden beim Aktivieren gelöscht“ im Testmodus,
-- „Testbetrieb – echte Verkäufe ab … um … Uhr“, solange die Veranstaltung **Geplant** ist,
-- „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ nach dem Verkaufsende,
-- „Nur Bons – hier wird nicht kassiert. Bezahlt wird außerhalb von OpenEOS.“ in der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons),
-- „Bargeld gesperrt – ohne aktive TSE nimmt diese Kasse kein Bargeld an. Karte und online gehen weiter.“, wenn in Deutschland in „Alle Funktionen“ die Cloud-TSE fehlt.
+1. „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ nach dem Verkaufsende,
+2. „Testbetrieb – Buchungen zählen nicht. Echte Verkäufe ab … um … Uhr“, solange die Veranstaltung **Geplant** ist, bzw. „Testmodus – Buchungen zählen nicht und werden beim Aktivieren gelöscht“ im Testmodus (am Telefon gekürzt),
+3. „Keine Verbindung – Senden und Kassieren gehen erst wieder, wenn die Kasse online ist.“,
+4. „TSE ausgefallen – du kannst weiter kassieren, der Bon wird gekennzeichnet.“,
+5. „Bargeld gesperrt – ohne aktive TSE nimmt diese Kasse kein Bargeld an. Karte und online gehen weiter.“, wenn in Deutschland in „Alle Funktionen“ die Cloud-TSE fehlt,
+6. „Nur Bons – hier wird nicht kassiert. Bezahlt wird außerhalb von OpenEOS.“ in der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons).
+
+Ganz unten steht eine schmale Zeile mit Copyright, Version, Impressum und Datenschutz; am Telefon und auf hochkant gehaltenen Tablets steht sie am Ende des Menüs.
 
 ### Hell oder dunkel {/* #darstellung */}
 
@@ -271,6 +274,8 @@ Nimmt deine Organisation Bargeld an, öffnet **Kassenbuch** im Menü das Bargeld
 ## Notfall-Support {/* #notfall-support */}
 
 Hat deine Organisation die Veranstaltung gebucht, steht im Menü während des echten Verkaufs (Phase **Aktiv**) **Notfall-Support**. Das Fenster zeigt die Telefonnummer; auf Tablet und Telefon rufst du mit **Anrufen** direkt an. Die Nummer ist nur für Störungen, die deinen Verkauf stoppen. Im Testmodus und in **Geplant** gibt es den Menüpunkt nicht. Mehr unter [Support](./support.md#notfall-support).
+
+![Notfall-Support im Kassenmenü](/img/screens/de/pos-emergency.png)
 
 ## Am Telefon und Tablet
 

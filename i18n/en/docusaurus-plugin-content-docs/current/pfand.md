@@ -41,8 +41,10 @@ This lets you, for example, charge a deposit only on takeaway sales but not for 
 
 - **Issuing:** When a deposit-bearing product is sold, the deposit amount is automatically added to the order.
 - **Returns:** When a guest brings back cups or bottles, you book it at the till via **Deposit return** in the menu or the button at the top of the cart — either **Pay out** or **Offset** against the current cart. See [Till](./kasse.md#pfand) for how this works. In the [Cashless](./betriebsarten.md#bargeldlos) operating mode there is no cash payout, only offsetting; in [Orders only](./betriebsarten.md#nur-bons) there are no deposits.
-- **Return receipt:** Every payout has a "Pfandrückgabe" receipt with a receipt number, the deposit types as negative amounts, the VAT per rate, payment method cash, till, date and – with Cloud-TSE – the TSE data. It is printed like the sales receipt: automatically if your receipts are printed after payment, otherwise on request via **Print receipt** in the **Deposit paid out** message.
+- **Return receipt:** Every payout has a "Pfandrückgabe" receipt with a receipt number, the deposit types as negative amounts, the VAT per rate, payment method cash, till, date and – with Cloud TSE – the TSE data. It is printed like the sales receipt: automatically if your receipts are printed after payment, otherwise on request via **Print receipt** in the **Deposit paid out** message.
 - **Reports:** In the [Reports](./auswertung.md) section you can see the deposit balance — i.e. deposits collected versus deposits refunded — and in the [VAT](./auswertung.md#umsatzsteuer) card goods, deposits and deposit returns per VAT rate.
+
+![Deposit return at the till](/img/screens/en/pos-pfand-return.png)
 
 :::info
 The deposit balance helps you reconcile collected and refunded deposits at the end of an event.

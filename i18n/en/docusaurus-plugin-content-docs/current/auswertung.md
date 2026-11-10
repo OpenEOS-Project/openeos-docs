@@ -41,6 +41,8 @@ Top products and top categories are **net**: cancellations and refunded quantiti
 
 The **VAT** card shows per **VAT rate** the columns **Goods**, **Deposit**, **Deposit returns**, **Gross**, **Net** and **VAT**, with the **Total** below. Deposits are part of the consideration and carry the rate of their [deposit type](./pfand.md#umsatzsteuer); deposit returns reduce it. Tips are not included.
 
+![Reports: VAT per rate](/img/screens/en/reports-vat.png)
+
 - If your organization does not charge VAT (e.g. small business), all amounts are shown at 0 % without tax.
 - Deposits from before November 2026 were booked without VAT and stay unchanged at 0 %.
 - The card is also available as CSV (**Export CSV**) and in the PDF. In [Orders only](./betriebsarten.md#nur-bons) it is not shown.
@@ -48,6 +50,8 @@ The **VAT** card shows per **VAT rate** the columns **Goods**, **Deposit**, **De
 ## Servers {/* #bedienungen */}
 
 If you work with [servers](./bedienungen.md), the **Servers** report shows per server – and per member who took payments with their member PIN. The card appears as soon as a server has booked something in the period.
+
+![Reports: servers](/img/screens/en/reports-waiters.png)
 
 | Column | Content |
 | --- | --- |

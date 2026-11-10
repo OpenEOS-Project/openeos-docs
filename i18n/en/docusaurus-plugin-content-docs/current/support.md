@@ -18,6 +18,8 @@ Helpful in every report: what you wanted to do, what happened instead, on which 
 
 For **critical problems during your booked event** there is an additional phone number. Critical means: taking payments or printing tickets is not possible at all and there is no workaround – for example, when the till fails.
 
+![Support with emergency support](/img/screens/en/support.png)
+
 **Where to find the number:** As soon as your organization has booked (unlocked) an event, the number is shown
 
 - in the app under **Support**, at the top in the box **Emergency support on your event day**,

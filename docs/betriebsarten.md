@@ -124,6 +124,8 @@ Wie du die TSE einrichtest, was auf dem Bon steht und was bei einem Ausfall pass
 2. Wähle die neue Betriebsart und tippe auf **Zu „…“ wechseln**.
 3. Lies die Rückfrage: Sie zeigt, was sich durch den Wechsel ändert. Bestätige mit **Wechseln**. Kommst du in Deutschland ohne TSE von „Alle Funktionen“ nicht mehr zurück, setzt du vorher ein Häkchen und bestätigst mit **Verbindlich wechseln**.
 
+![Einstellungen → Organisation → Betriebsart](/img/screens/de/settings-operating-mode.png)
+
 Das dürfen nur Admins der Organisation. Die Kassen stellen sich sofort um, ein Neuladen ist nicht nötig. Vorher muss das [Land](#land) deiner Organisation hinterlegt sein.
 
 Wechsle am besten zwischen zwei Veranstaltungen und nicht, während der Verkauf läuft.

@@ -87,6 +87,8 @@ Die Mails gehen zu festen Zeiten (meist 9 Uhr) und werden nachgeholt, solange si
 
 Unter **Rechtliche Angaben** hinterlegst du **Impressum** und **Datenschutzhinweis** deines Vereins, jeweils als **Link** oder als **Text**, dazu optional einen **Kontakt für Datenschutzfragen**. Beides erscheint in der Fußzeile des Shops und der Helferseiten; die **Vorschau der Fußzeile** zeigt, wie das aussieht. Übernommen wird mit **Speichern**.
 
+![Rechtliche Angaben: Impressum und Datenschutzhinweis des Vereins](/img/screens/de/settings-legal-info.png)
+
 Solange Impressum oder Datenschutzhinweis fehlen, nimmt dein Shop keine Bestellungen an, auch im Testmodus nicht, und auch die Bestellung per QR-Code am Tisch geht nicht. Für den Datenschutzhinweis gibt es eine Vorlage: **Vorlage für den Datenschutzhinweis verwenden** führt zu [Rechtliches → Rechtstexte für deinen Shop](#rechtliches).
 
 :::note
@@ -105,6 +107,8 @@ Frühere Versionen hatten weitere Unterreiter. Diese Einstellungen liegen jetzt 
 ## Rechtliches {/* #rechtliches */}
 
 Im Menü unter deinem Namen unten links steht neben **Einstellungen** der Eintrag **Rechtliches**. Dort findest du:
+
+![Rechtliches: Verträge, ELSTER-Angaben, Vorlage für den Shop](/img/screens/de/legal.png)
 
 - **Verträge und Rechtstexte von OpenEOS** – AGB, Auftragsverarbeitungsvertrag (AVV), Datenschutzerklärung und Impressum in der aktuellen Fassung mit PDF. Bei AGB und AVV steht, welche Fassung du wann akzeptiert hast. Ältere Fassungen bleiben unter ihrem Datum abrufbar. Dazu der Link zu den **Unterauftragsverarbeitern (AVV Anhang B)**.
 - **Angaben für die Finanzamt-Meldung (ELSTER)** – nur für Admins: Software, Seriennummer der Kasse, Betriebsstätte und TSE, also die Werte, die du in ELSTER einträgst, jeweils mit Kopierknopf. Fehlen Anschrift oder Steuernummer, verweist die Seite auf die Einstellungen.

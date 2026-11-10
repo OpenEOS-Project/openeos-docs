@@ -18,6 +18,8 @@ Hilfreich in jeder Meldung: was du tun wolltest, was stattdessen passiert ist, a
 
 Für **kritische Störungen während deiner gebuchten Veranstaltung** gibt es zusätzlich eine Telefonnummer. Kritisch heißt: Kassieren oder Bons sind insgesamt nicht möglich und es gibt keinen Umweg – zum Beispiel, wenn die Kasse ausfällt.
 
+![Support mit Notfall-Support](/img/screens/de/support.png)
+
 **Wo du die Nummer findest:** Sobald deine Organisation eine Veranstaltung gebucht (freigeschaltet) hat, steht die Nummer
 
 - in der App unter **Support**, oben im Kasten **Notfall-Support am Veranstaltungstag**,

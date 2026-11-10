@@ -15,6 +15,8 @@ Das Kassenbuch gibt es nur, wenn deine Organisation Bargeld annehmen darf: in de
 
 Im Menü der Kasse auf **Kassenbuch** tippen. Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), sieht den Menüpunkt nur, wer das Recht **Kassenbuch** hat – Schichtleitungen haben es. Oben steht der **Soll-Bestand dieser Kasse**: so viel Bargeld sollte jetzt in der Schublade liegen, dazu der letzte Kassensturz. Darunter siehst du, woraus er sich zusammensetzt (Anfangsbestand, Einlagen, Entnahmen, Barverkäufe, Bar-Erstattungen, Pfand-Auszahlungen, Differenzen) und die **Buchungen heute**.
 
+![Kassenbuch an der Kasse: Soll-Bestand und Buchungen](/img/screens/de/pos-cashbook.png)
+
 | Aktion | Wann | Was gebucht wird |
 |---|---|---|
 | **Anfangsbestand** | Zu Beginn: das Wechselgeld, das in die Kasse kommt | Anfangsbestand |
@@ -38,6 +40,8 @@ Stimmt die gezählte Summe genau, wird nur der Kassensturz festgehalten – ein 
 ## In der Verwaltung {/* #verwaltung */}
 
 Als Admin siehst du unter **Kassenbuch** in der Seitenleiste den Kassenbestand eines **Geschäftstags** (6 bis 6 Uhr): den **Soll-Bestand ganze Kasse**, den Bestand **Je Gerät** und alle **Buchungen** mit Zeit, Gerät, Art, Betrag, Gezählt / Soll, Notiz und Bediener. Unter **Geschäftstag** wechselst du zu einem früheren Tag, **Heute** führt zurück.
+
+![Kassenbuch in der Verwaltung](/img/screens/de/cashbook.png)
 
 Unter **Buchen für die ganze Kasse** buchst du dort auch für die ganze Kasse, z. B. wenn das Geld am Abend gesammelt in den Tresor geht. Gebucht wird immer für den laufenden Geschäftstag. Für eine einzelne Kasse buchst du direkt an der Kasse.
 

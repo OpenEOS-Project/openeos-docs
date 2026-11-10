@@ -134,10 +134,15 @@ async function registrierungBis(seite, sprache, ziel) {
   await weiter();
   await seite.waitForTimeout(400);
   await seite.getByLabel(/^(Name der Organisation|Organization name)/).fill(REGISTRIERUNG.organisation[sprache]);
+  // Seit 1.8 Pflicht: das Land der Organisation.
+  await seite.locator('.wizard select').first().selectOption(sprache === 'en' ? 'GB' : 'DE').catch(() => seite.locator('.wizard select').first().selectOption('DE'));
+  await seite.locator('.wizard h1, .wizard h2').first().click().catch(() => {});
   if (ziel === 3) return;
   await weiter();
   await seite.waitForTimeout(400);
-  await seite.locator('.wizard input[type="checkbox"]').first().check();
+  /* Seit den neuen Rechtstexten zwei Pflicht-Häkchen (Verein, AGB + AVV). */
+  const haken = await seite.locator('.wizard input[type="checkbox"]').all();
+  for (const h of haken.slice(0, 2)) await h.check({ force: true });
   await seite.waitForTimeout(300);
 }
 
@@ -486,6 +491,7 @@ export const AUFNAHMEN = [
     // Die Anordnung wird gespeichert, sobald man etwas ändert — nur öffnen.
     routen: schreibschutz,
     async vorbereiten(seite) {
+      await ohneBestandHinweis(seite);
       await seite.getByRole('button', { name: /anpassen|customi[sz]e/i }).first().click().catch(() => {});
       await seite.waitForTimeout(900);
     },
@@ -696,7 +702,7 @@ export const AUFNAHMEN = [
       await seite.getByRole('button', { name: /Serie anlegen|Create series/ }).first().click();
       await seite.waitForTimeout(600);
       const feld = (name) => seite.locator('.tables-modal__form').getByLabel(name, { exact: true });
-      await feld(/^(Präfix|Prefix)$/).fill('B');
+      await feld(/^(Präfix|Prefix)$/).fill('C');
       await feld(/^Start$/).fill('1');
       await feld(/^(Anzahl|Count)$/).fill('8');
       await feld(/^(Stellen|Digits)$/).fill('2');
@@ -711,7 +717,7 @@ export const AUFNAHMEN = [
         text: { de: 'Bereich, Präfix, Start, Anzahl und Stellen ergeben die Bezeichnungen', en: 'Area, prefix, start, count and digits make up the labels' },
       },
       { auf: '.tables-modal__form .tables-grid-3 >> nth=1', text: { de: 'Plätze, Spalten auf der Karte und Form gelten für die ganze Serie', en: 'Seats, columns on the map and shape apply to the whole series' } },
-      { auf: '.tables-bulk__preview', text: { de: 'Vorschau: B01 bis B08', en: 'Preview: B01 to B08' } },
+      { auf: '.tables-bulk__preview', text: { de: 'Vorschau: C01 bis C08', en: 'Preview: C01 to C08' } },
     ],
   },
   {
@@ -740,7 +746,10 @@ export const AUFNAHMEN = [
     pfad: '/events',
     routen: schreibschutz,
     async vorbereiten(seite) {
-      await seite.getByRole('button', { name: /^(Bearbeiten|Edit)$/ }).first().click();
+      // Die laufende Veranstaltung (Staging: Sommerfest, lokal: Martinimarkt).
+      const lokal = seite.locator('tr', { hasText: 'Martinimarkt' });
+      const zeile = (await lokal.count()) ? lokal.first() : seite.locator('tr', { hasText: 'Sommerfest' }).first();
+      await zeile.getByRole('button', { name: /^(Bearbeiten|Edit)$/ }).click();
       await seite.waitForTimeout(1200);
       await seite.locator('.event-tables').evaluate((el) => el.scrollIntoView({ block: 'center' }));
       await seite.waitForTimeout(400);
@@ -1062,7 +1071,7 @@ export const AUFNAHMEN = [
       await seite.getByRole('button', { name: /^(Importieren|Import)$/ }).click();
       await seite.waitForTimeout(800);
       await seite.locator('[role=dialog]').getByRole('tab', { name: /^(Speisekarte|Menu)$/ }).click();
-      await seite.locator('[role=dialog]').getByRole('button', { name: /^(Fotos|Photos)/ }).click();
+      await seite.locator('[role=dialog]').getByRole('button', { name: /^(Fotos|Photos)/ }).first().click();
       await seite.waitForTimeout(300);
       await seite.locator('[role=dialog] input[type=file][accept*="image"]').first().setInputFiles({ name: 'speisekarte-martinimarkt.png', mimeType: 'image/png', buffer: PNG_1X1 });
       await seite.waitForTimeout(600);

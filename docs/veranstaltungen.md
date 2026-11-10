@@ -123,6 +123,8 @@ Bei der Registrierung fragen wir keine Steuer- oder Rechnungsdaten ab. Erst wenn
 
 Freigeschaltet wird per **Karte oder Lastschrift**:
 
+![Veranstaltung aktivieren: Zusammenfassung und „Kostenpflichtig buchen“](/img/screens/de/events-checkout.png)
+
 1. Klicke in der Liste der Veranstaltungen auf **Aktivieren**. Ist die Veranstaltung noch nicht bezahlt, öffnet sich der Dialog **Veranstaltung aktivieren** mit Preis, Rechenweg und der Frist, bis wann du kostenlos stornieren kannst.
 2. Unter **Deine Buchung** siehst du vor dem Bezahlen alles auf einen Blick: **Veranstaltung**, **Zeitraum**, **Leistung**, **Abgerechnete Tage**, gegebenenfalls **Rabatt**, **Gesamt**, den Hinweis zur Umsatzsteuer und einen Link zu den AGB.
 3. Klicke auf **Kostenpflichtig buchen**. Du wirst zur gesicherten Zahlungsseite weitergeleitet.
@@ -208,7 +210,7 @@ Eine freigeschaltete Veranstaltung verkauft nicht sofort und nicht unbegrenzt ec
 | **Aktiv** | vom Verkaufsstart bis zum Verkaufsende | echte Verkäufe |
 | **Beendet** | nach dem Verkaufsende | keine neuen Bestellungen mehr – offene Bestellungen kassieren, Tische schließen, erstatten und stornieren geht weiter; Auswertung, Exporte und Kassenbuch bleiben |
 
-In der Liste steht zum Beispiel bei einem Fest am 16. und 17.11. **Geplant** mit dem Hinweis *Startet am 15.11. um 18:00 Uhr (Testbetrieb bis dahin)*, an der Kasse der Streifen *Testbetrieb – echte Verkäufe ab 15.11. um 18:00 Uhr*.
+In der Liste steht zum Beispiel bei einem Fest am 16. und 17.11. **Geplant** mit dem Hinweis *Startet am 15.11. um 18:00 Uhr (Testbetrieb bis dahin)*, an der Kasse der Streifen *Testbetrieb – Buchungen zählen nicht. Echte Verkäufe ab 15.11. um 18:00 Uhr*.
 
 ### Verkaufsstart am Vorabend {/* #verkaufsstart */}
 

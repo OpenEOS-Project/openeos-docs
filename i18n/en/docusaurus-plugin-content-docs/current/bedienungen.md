@@ -20,6 +20,8 @@ Whether a till asks for a table ([Table Service or Counter](./geraete.md#betrieb
 
 Servers are managed by **administrators** and by members with the **Servers** permission (granted under [Members](./mitglieder.md#module-based-permissions)). You reach the section via **Servers** in the sidebar.
 
+![Servers: list with role, PIN, status and actions](/img/screens/en/waiters.png)
+
 The list shows each server's role, **Valid for**, PIN length, **Last sign-in** and status. **Filter by validity** shows only the servers of one event.
 
 ## Adding servers {/* #anlegen */}
@@ -39,6 +41,8 @@ OpenEOS does not accept simple PINs such as `1234`, `0000` or `1212`, or PINs so
 
 **Add several** lets you paste a whole list of names: one name per line. Optionally add a short name and role, separated by semicolons (`Name;Short name;Role`). As the role, write `Server` or `Shift lead`.
 
+![Add several servers: one name per line](/img/screens/en/waiters-bulk.png)
+
 ```text
 Anna Berger;Anna
 Ben Krämer
@@ -55,6 +59,8 @@ Everyone gets a PIN.
 ## PINs and PIN sheet {/* #pin */}
 
 OpenEOS generates the PINs itself. You see them **only once**: right after adding and after **New PIN**. Only a check value is stored, and the PIN cannot be worked out from it. Admins cannot look up a PIN later either.
+
+![The new PINs, shown once, with “Print PIN sheet”](/img/screens/en/waiters-pin-sheet.png)
 
 - **Print PIN sheet** creates an A4 sheet in the browser with 10 cards and cut lines. Each card shows the club, event, name, short name and PIN, plus a note not to share the PIN. Alternatively, hand the PIN over directly.
 - **Forgot the PIN?** **New PIN** gives the person a new one. Any open sign-ins on tills end.
@@ -111,6 +117,8 @@ Administrators see the **Server settings** card on the page. It applies to all t
 
 Whether and how someone signs in on a till is set per device under **Devices → Device → Settings** ([Servers & security](./geraete.md#pin-und-sperre)):
 
+![Device settings: servers & security](/img/screens/en/device-settings-waiters.png)
+
 | Mode | How the till works |
 |---|---|
 | **No servers** | as before: nobody signs in, bookings count for the device |
@@ -133,6 +141,8 @@ This is how a **Shared till** works. More on the flow is under [Till](./kasse.md
 - After a **reload** of the page the till asks for the PIN again.
 - **Offline**, the till cannot be unlocked: "No connection – unlocking works again once online." A short connection drop does not end the sign-in, though.
 - Optionally the PIN screen shows **name tiles** with short name and color. They are off by default so no names are visible.
+
+![PIN screen “Who is serving?” with name tiles](/img/screens/en/pos-waiter-pin.png)
 
 ### Wrong PINs {/* #fehlversuche */}
 
@@ -170,6 +180,8 @@ At the end of the shift every server settles up: what did they take, how much ca
 ### My running total {/* #zwischenstand */}
 
 Tap your chip at the top right of the till and choose **My running total**. You see what has come together since your last settlement:
+
+![My running total at the till](/img/screens/en/pos-waiter-summary.png)
 
 | Block | Content |
 |---|---|
@@ -215,6 +227,8 @@ If the server still has open tables, settling is blocked. There are two ways for
 ### Settlements in the admin area {/* #abrechnungen */}
 
 On the **Servers** page, the **Settlements** section below the list shows all settlements, newest first: **No.**, **Server**, **Period**, **Collected**, **Expected cash** and **Settled by**. Settlements made **despite open tables** and **Training** settlements are marked. **Filter by validity** also narrows this list to one event. The **View settlement no. …** icon opens the details; there you choose a printer (default: **Till receipt printer**) and print again with **Reprint**.
+
+![Settlements below the list of servers](/img/screens/en/waiters-settlements.png)
 
 :::note[Coming later]
 The **server wallet** (servers work with their own change and settle their cash themselves) and **paying out card tips** are not available yet. We are still clarifying the tax side of both.
@@ -268,7 +282,7 @@ If you have employees, for example in a restaurant, employee data protection (§
 
 ### Automatic deletion {/* #loeschfristen */}
 
-OpenEOS cleans up every night:
+OpenEOS cleans up every night (on your own installation only once you switch automatic deletion on, see [Retention and deletion](./selbst-betreiben/betrieb.md#retention-and-deletion)):
 
 | What | When | What happens |
 |---|---|---|

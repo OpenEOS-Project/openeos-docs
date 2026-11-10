@@ -40,13 +40,14 @@ Die Kennzahlen oben und der Export richten sich nach denselben Filtern. Mit der 
 
 | Datei | Inhalt | Wofür |
 | --- | --- | --- |
-| **Bestellungen** | eine Zeile je Bestellung: Bestellnummer, Tagesnummer, Datum, Uhrzeit, Veranstaltung, Status, Kanal (Kasse, Online-Shop, QR-Bestellung), Ausgabe (am Tisch, Abholung), Tisch, Gerät, Bedienung, Anzahl Artikel, Zahlart, Zwischensumme, Rabatt, Pfand, Trinkgeld, Gesamt, Bezahlt, Erstattet, enthaltene MwSt, Testbestellung, Gastname, Anmerkung | Abgleich mit Kasse und Konto, Abrechnung |
+| **Bestellungen** | eine Zeile je Bestellung: Bestellnummer, Tagesnummer, Datum, Uhrzeit, Veranstaltung, Status, Kanal (Kasse, Online-Shop, QR-Bestellung), Ausgabe (am Tisch, Abholung), Tisch, Gerät, Bedienung, Anzahl Artikel, Zahlart, Zahlungsanbieter, Zahlungsreferenz, Zwischensumme, Rabatt, Pfand, Trinkgeld, Gesamt, Bezahlt, Erstattet, Erstattungsreferenz, enthaltene MwSt, Testbestellung, Gastname, Anmerkung | Abgleich mit Kasse und Konto, Abrechnung |
 | **Positionen** | eine Zeile je Artikel: Bestellnummer, Datum, Uhrzeit, Veranstaltung, Tisch, Produkt, Kategorie, Variante, Menge, erstattete Menge, Einzelpreis, MwSt-Satz, Pfand je Stück, Positionssumme, Status, Station, Testbestellung, Anmerkung | Auswertung nach Produkt, Kategorie oder Station, Pivot-Tabellen |
 
 Die Dateien sind für Excel vorbereitet: Semikolon als Trennzeichen, UTF-8 (Umlaute stimmen), Dezimalkomma, Datum und Uhrzeit in deutscher Zeit. Die älteste Bestellung steht oben. Bei **Positionen** ist der Bestellrabatt nicht auf die Artikel verteilt – Rabatt, Trinkgeld und Erstattungen stehen in der Datei **Bestellungen**.
 
 - **Wer darf exportieren?** Administratoren und Mitglieder mit dem Recht **Bestellungen** (wie für Storno und Erstattung). Andere sehen das Symbol nicht.
 - **[Nur Bons](./betriebsarten.md#nur-bons):** Die Dateien enthalten nur Mengen – keine Preise, Beträge oder Zahlarten.
+- **Zahlungs- und Erstattungsreferenz:** die Transaktions-ID beim Zahlungsanbieter (SumUp, PayPal), mehrere durch Komma getrennt. Damit gleichst du Bestellungen mit den Abrechnungen von SumUp und PayPal ab – in der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos-bedingungen) gehört dieser Abgleich zu den Bedingungen für den Betrieb ohne TSE.
 - **Bedienung:** die verantwortliche [Bedienung](./bedienungen.md) des Tisches, sonst die Bedienung, die die Bestellung aufgenommen hat. Leer, wenn keine Bedienung beteiligt war, etwa bei Bestellungen aus dem Online-Shop.
 - **Gästedaten:** Name und Anmerkung des Gastes stehen nur in der Datei, solange OpenEOS sie noch speichert – 30 Tage nach dem Ende der Veranstaltung werden sie gelöscht (siehe [Daten und Löschung](./daten-und-loeschung.md)). Telefonnummern sind nie enthalten.
 - **Per API:** Dieselbe Datei liefert `GET /organizations/{organizationId}/orders/export` mit einem [API-Token](./api-zugaenge.md) (Scope `read`, `variant=orders` oder `variant=items`, dieselben Filter wie die Liste).

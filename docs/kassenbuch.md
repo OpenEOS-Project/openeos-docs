@@ -13,20 +13,24 @@ Das Kassenbuch gibt es nur, wenn deine Organisation Bargeld annehmen darf (Betri
 
 ## An der Kasse {/* #kasse */}
 
-Im Menü der Kasse auf **Kassenbuch** tippen. Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), sieht den Menüpunkt nur, wer das Recht **Kassenbuch** hat – Schichtleitungen haben es. Oben steht der **Soll-Bestand** dieser Kasse: so viel Bargeld sollte jetzt in der Schublade liegen. Darunter siehst du, woraus er sich zusammensetzt (Anfangsbestand, Einlagen, Entnahmen, Barverkäufe, Bar-Erstattungen, Pfand-Auszahlungen, Differenzen) und die Buchungen von heute.
+Im Menü der Kasse auf **Kassenbuch** tippen. Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), sieht den Menüpunkt nur, wer das Recht **Kassenbuch** hat – Schichtleitungen haben es. Oben steht der **Soll-Bestand** dieser Kasse: so viel Bargeld sollte jetzt in der Schublade liegen. Darunter siehst du, woraus er sich zusammensetzt (Anfangsbestand, Einlagen, Entnahmen, Barverkäufe, Bar-Erstattungen, Pfand-Auszahlungen, [Trinkgeld-Auszahlungen](./trinkgeld.md#auszahlung), Differenzen) und die Buchungen von heute. Zahlst du einer angestellten Bedienung Kartentrinkgeld bar aus, mindert das den Soll-Bestand der Schublade, aus der das Geld kommt.
 
 | Aktion | Wann | Was gebucht wird |
 |---|---|---|
-| **Anfangsbestand** | Zu Beginn: das Wechselgeld, das in die Kasse kommt | Anfangsbestand |
-| **Einlage** | Es kommt Bargeld dazu, z. B. Nachschub an Wechselgeld aus der Vereinskasse | Geldtransit (Einlage) |
-| **Entnahme** | Du schöpfst ab und bringst Geld in den Tresor oder zur Bank | Geldtransit (Entnahme) |
+| **Anfangsbestand** | Zu Beginn, nur für Bargeld, das **schon in der Kasse liegt** – der Rest vom letzten Kassensturz. OpenEOS schlägt dafür den zuletzt gezählten Bestand vor. | Anfangsbestand („Restbestand Vorabschluss“) |
+| **Einlage** | Bargeld kommt dazu, vor allem das **Wechselgeld aus der Vereinskasse** – zu Beginn und als Nachschub | Geldtransit „Wechselgeld aus Vereinskasse“ |
+| **Entnahme** | Du schöpfst ab und bringst Geld in die Vereinskasse, den Tresor oder zur Bank | Geldtransit „Abschöpfung an Vereinskasse“ |
 | **Kassensturz** | Am Ende oder zwischendurch: du zählst die Kasse | die Differenz zwischen gezählt und Soll |
+
+:::info[Wechselgeld ist kein Anfangsbestand]
+Holst du vor dem Fest Wechselgeld aus der Vereinskasse, buchst du es als **Einlage**, nicht als Anfangsbestand. Der Anfangsbestand ist nach der DSFinV-K nur das Bargeld, das bei der Eröffnung schon in der Kasse liegt; alles, was hineinkommt oder hinausgeht, ist ein **Geldtransit** zwischen Vereinskasse und Festkasse. Eine Privateinlage gibt es bei einem Verein nicht. Als Gegenbeleg dient das Kassenbuch eures Schatzmeisters: Dort steht dieselbe Summe als Ausgabe bzw. Eingang der Vereinskasse. Buchungen von vor November 2026 bleiben gültig.
+:::
 
 So geht's:
 
 1. Die Aktion antippen.
 2. Den **Betrag** eingeben (immer positiv). Beim Kassensturz gibst du den **gezählten** Betrag ein; die Kasse zeigt dir sofort die **Differenz** zum Soll.
-3. Optional eine **Notiz** eintragen, z. B. „Wechselgeld aus der Vereinskasse“.
+3. Optional eine **Notiz** eintragen, z. B. „Wechselgeld für Zelt A“.
 4. **Buchen** tippen. Die Buchung steht in der Liste, mit Beleg-Nr. und TSE-Status.
 
 Der Soll-Bestand gilt für **dieses Gerät** (seine Schublade). Arbeitet ihr mit mehreren Kassen, zählt jede ihre eigene.
@@ -43,12 +47,12 @@ Als Admin kannst du dort auch für die **ganze Kasse** buchen, z. B. wenn das Ge
 
 ## Typischer Festtag {/* #ablauf */}
 
-1. **Vor dem Öffnen:** An jeder Kasse mit Bargeld den **Anfangsbestand** (Wechselgeld) buchen.
-2. **Während des Festes:** Bei viel Bargeld **Entnahme** buchen und das Geld in den Tresor bringen. Braucht eine Kasse Kleingeld, **Einlage** buchen.
-3. **Am Ende:** Kasse zählen, **Kassensturz** buchen, dann das Geld per **Entnahme** abschöpfen.
+1. **Vor dem Öffnen:** Liegt vom letzten Mal noch Geld in der Kasse, den **Anfangsbestand** buchen (OpenEOS schlägt den zuletzt gezählten Betrag vor). Das Wechselgeld aus der Vereinskasse als **Einlage** buchen.
+2. **Während des Festes:** Bei viel Bargeld **Entnahme** buchen und das Geld in den Tresor bzw. die Vereinskasse bringen. Braucht eine Kasse Kleingeld, **Einlage** buchen.
+3. **Am Ende:** Kasse zählen, **Kassensturz** buchen, dann das Geld per **Entnahme** an die Vereinskasse abschöpfen. Bleibt ein Rest in der Kasse, ist er beim nächsten Mal der Anfangsbestand.
 
 Der Kassenabschluss des Tages entsteht danach automatisch – siehe [Kassen-Nachschau](./kassen-nachschau.md).
 
 :::note
-Das ist keine Steuerberatung. Wie ihr Bargeld zählt und dokumentiert, legt ihr in eurer Kassenanweisung fest; frag im Zweifel deine Steuerberatung.
+Das ist keine Steuerberatung. Wie ihr Bargeld zählt und dokumentiert, legt ihr in eurer Kassenanweisung bzw. [Verfahrensdokumentation](./verfahrensdokumentation.md#wechselgeld) fest; frag im Zweifel deine Steuerberatung.
 :::

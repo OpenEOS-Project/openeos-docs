@@ -29,7 +29,7 @@ At the top you filter the report by **Event** and **Period**. Quick-select optio
 - **Top products** – your best-selling products with quantity, revenue and average price, sorted by quantity.
 - **Top categories** – revenue per category.
 - **Payment methods** – breakdown of revenue by payment method.
-- **VAT** – per VAT rate: goods, deposits, deposit returns, gross, net and contained VAT. Deposits are part of the consideration and carry the rate of their [deposit type](./pfand.md#umsatzsteuer); tips are not included. Without VAT (small business) everything is shown at 0 %.
+- **VAT** – per VAT rate: goods, deposits, deposit returns, gross, net and contained VAT. Deposits are part of the consideration and carry the rate of their [deposit type](./pfand.md#umsatzsteuer); deposit returns against the [old balance](./pfand.md#altsaldo) and deposits from before November 2026 are shown at 0 %. [Tips](./trinkgeld.md) to the club are shown proportionally at the rate of the goods, tips of employed servers for information only. Without VAT (small business) everything is shown at 0 %.
 - **Revenue by channel** – till, online shop and QR order compared.
 - **Revenue by device** – which till took how much.
 - **Hourly breakdown** – revenue per hour (0–23), ideal for identifying peak times.

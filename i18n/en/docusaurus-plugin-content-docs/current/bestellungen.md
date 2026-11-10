@@ -40,13 +40,14 @@ The **Export as CSV** icon (arrow down, next to *Refresh*) downloads the filtere
 
 | File | Content | Use |
 | --- | --- | --- |
-| **Orders** | one row per order: order number, daily number, date, time, event, status, channel (till, online shop, QR order), fulfilment (table, pickup), table, device, server (column "Bedienung"), item count, payment method, subtotal, discount, deposit, tip, total, paid, refunded, VAT included, test order, guest name, note | reconciling with till and bank, settlement |
+| **Orders** | one row per order: order number, daily number, date, time, event, status, channel (till, online shop, QR order), fulfilment (table, pickup), table, device, server (column "Bedienung"), item count, payment method, payment provider, payment reference, subtotal, discount, deposit, tip, total, paid, refunded, refund reference, VAT included, test order, guest name, note | reconciling with till and bank, settlement |
 | **Line items** | one row per item: order number, date, time, event, table, product, category, variant, quantity, refunded quantity, unit price, VAT rate, deposit per unit, line total, status, station, test order, note | analysis by product, category or station, pivot tables |
 
 The files are prepared for Excel in German locale: semicolon separator, UTF-8 (umlauts display correctly), decimal comma, date and time in German time (Europe/Berlin). Column headers are German. The oldest order comes first. In **Line items** the order discount is not spread over the items – discount, tip and refunds are in the **Orders** file.
 
 - **Who can export?** Administrators and members with the **Orders** permission (as for cancellations and refunds). Others don't see the icon.
 - **[Orders only](./betriebsarten.md#nur-bons):** the files contain quantities only – no prices, amounts or payment methods.
+- **Payment and refund reference:** the transaction ID at the payment provider (SumUp, PayPal), several separated by commas. Use it to reconcile orders with the SumUp and PayPal statements – in the [Cashless](./betriebsarten.md#bargeldlos-bedingungen) operating mode this reconciliation is one of the conditions for running without a TSE.
 - **Server:** the table's responsible [server](./bedienungen.md), otherwise the server who took the order. Empty if no server was involved, for example for online shop orders.
 - **Guest data:** the guest's name and note are only included while OpenEOS still stores them – they are deleted 30 days after the event ends (see [Data and deletion](./daten-und-loeschung.md)). Phone numbers are never included.
 - **Via the API:** `GET /organizations/{organizationId}/orders/export` returns the same file with an [API token](./api-zugaenge.md) (scope `read`, `variant=orders` or `variant=items`, same filters as the list).

@@ -24,13 +24,13 @@ Der Weg ist derselbe wie bei einer Kasse — das Gerät zeigt eine Zahl, verknü
 1. Öffne auf dem Bildschirm **app.openeos.de** und wähle unten **Als Anzeige verwenden (Monitor)**.
 2. Der Bildschirm zeigt eine **sechsstellige Zahl** am Stück und darunter einen QR-Code.
 3. Melde dich an einem anderen Gerät bei OpenEOS an, geh auf **Geräte** und klick in der Karte **Neues Gerät registrieren** auf **Gerät verbinden**.
-4. Gib die Zahl ein. Wer ein Telefon zur Hand hat, scannt stattdessen den QR-Code.
+4. Gib die Zahl als **Verifizierungscode** ein und klick auf **Gerät suchen**. Wer ein Telefon zur Hand hat, scannt stattdessen den QR-Code.
 
-![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
+![Die Zahl vom Gerät eintragen und das Gerät verknüpfen](/img/screens/de/device-verify.png)
 
-5. Vergib einen **Namen** (zum Beispiel *Küche* oder *Theke Nord*) und wähle die Art der Anzeige.
+5. Vergib einen **Gerätenamen** (zum Beispiel *Küche* oder *Theke Nord*), wähle als **Gerätetyp** **Display** und klick auf **Verknüpfen**.
 
-Danach wechselt der Bildschirm von selbst in die Anzeige. Du musst an ihm nichts mehr tun.
+Danach wechselt der Bildschirm von selbst in die Anzeige. Du musst an ihm nichts mehr tun. Eine neue Anzeige startet als Kundendisplay; ob sie stattdessen Bestellungen einer Station zeigt, stellst du danach in den Einstellungen ein (siehe unten).
 
 :::note[Warum eine Zahl statt Zugangsdaten]
 An einem Fernseher hängt selten eine Tastatur, und das Kürzel der Organisation hat vor Ort niemand im Kopf. Die Zahl lässt sich aus einigen Metern ablesen und eintippen — mehr braucht es nicht.
@@ -65,7 +65,7 @@ Solange nichts kassiert wird, steht der Text im Ruhezustand da. Sobald an der zu
 
 ![Stationsanzeige mit offenen und erledigten Bestellungen](/img/screens/de/display-station.png)
 
-Neue Bestellungen erscheinen, sobald sie kassiert wurden. Gezeigt wird nur, was die jeweilige Station betrifft — die Küche sieht keine Getränke, wenn diese der Theke zugeordnet sind. Welches Produkt zu welcher Station gehört, legst du unter [Standorte](./standorte.md) fest.
+Neue Bestellungen erscheinen, sobald sie an Küche und Theke gehen: beim [Kassiermodus](./veranstaltungen.md#kassiermodus) **Sofort kassieren** mit der Zahlung, bei **Auf Deckel buchen** mit **Senden**. Gezeigt wird nur, was die jeweilige Station betrifft — die Küche sieht keine Getränke, wenn diese der Theke zugeordnet sind. Welches Produkt zu welcher Station gehört, legst du unter [Standorte](./standorte.md) fest.
 
 Die Bestellungen stehen in zwei Spalten: **Bedienungen** (an den Tisch) und **Abholung**. Jede Karte ist gleich aufgebaut: oben die Nummer, bei Bedarf **Eilt** oder **Hoch**, und wie lange die Bestellung schon wartet; darunter, wohin sie geht — **Tisch A11**, **Abholung**, **To-go** oder **Theke**, dazu gegebenenfalls der Name des Gasts. Darunter folgen die Positionen mit Notizen.
 
@@ -80,7 +80,7 @@ Eine Fertigmeldung lässt sich an der Anzeige nicht zurücknehmen. Fertige Posit
 
 ## Verbindung prüfen
 
-Oben rechts steht, ob die Anzeige verbunden ist. **Getrennt** heißt: Der Bildschirm zeigt vielleicht noch alte Inhalte, bekommt aber nichts Neues mehr.
+Oben rechts steht, ob die Anzeige **Verbunden** ist. **Getrennt** (an der Stationsanzeige „Verbindung getrennt – wird wiederhergestellt …“) heißt: Der Bildschirm zeigt vielleicht noch alte Inhalte, bekommt aber nichts Neues mehr.
 
 Wenn das dauerhaft dasteht:
 

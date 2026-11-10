@@ -20,9 +20,9 @@ Auch die Inventur bezieht sich auf die aktive Veranstaltung. Aktiviere bei Bedar
 2. Gib einen **Namen** ein (vorgeschlagen wird „Tagesabschluss“ mit Datum) und optional Notizen. Alle Produkte mit Bestandsverfolgung kommen automatisch in die Liste.
 3. Klicke auf **Erstellen & Starten**.
 4. Trage je Produkt die **gezählte** Menge ein. Daneben stehen der **erwartete** Bestand und die **Differenz**; eine Notiz ist je Zeile möglich. Oben siehst du, wie viele Produkte schon gezählt sind.
-5. Klicke auf **Abschließen**. Vorher zeigt OpenEOS, welche Artikel noch nicht gezählt sind und wo es Differenzen gibt.
+5. Klicke auf **Abschließen**. Vorher zeigt OpenEOS, welche Artikel noch nicht gezählt sind und wo es Differenzen gibt; mit **Jetzt abschließen** bestätigst du.
 
-Nach dem Abschließen werden die Lagerbestände automatisch auf die gezählten Werte gesetzt. Das lässt sich nicht rückgängig machen. Eine laufende Inventur kannst du stattdessen auch **abbrechen** – dann werden die gezählten Werte verworfen.
+Nach dem Abschließen werden die Lagerbestände automatisch auf die gezählten Werte gesetzt. Das lässt sich nicht rückgängig machen. Eine laufende Inventur kannst du stattdessen auch mit **Abbrechen** und **Inventur abbrechen** beenden – dann werden die gezählten Werte verworfen.
 
 ## Nach dem Abschluss
 

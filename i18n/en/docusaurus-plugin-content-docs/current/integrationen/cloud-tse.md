@@ -17,6 +17,18 @@ OpenEOS connects the **Swissbit Cloud TSE 2** for this. You don't need any hardw
 The cloud TSE is only available for organizations in Germany. In other countries the integration shows **Germany only** in the catalog. What applies there is described under [Austria, Switzerland and other countries](../betriebsarten.md#andere-laender).
 :::
 
+## Coming soon {/* #bald-verfuegbar */}
+
+As long as the Cloud TSE is announced but not yet switched on for your server, you see the following in the app:
+
+- In the catalog under **Integrations** the Cloud TSE is listed as **Coming soon**. Instead of **Activate**, the window shows the note "The cloud TSE for cash payments in Germany is coming soon. Until then you can use “Orders only” or “Cashless”."
+- Under **Settings → Organization → Operating mode**, **All features** is marked "Coming soon – with cloud TSE" and cannot be selected.
+- In an event's payment dialog there is no question about the Cloud TSE, only a **Coming soon** note.
+
+Until then, work with [Orders only](../betriebsarten.md#nur-bons) or [Cashless](../betriebsarten.md#bargeldlos) in Germany. Everything else on this page applies as soon as the Cloud TSE is available.
+
+On a [self-hosted installation](../selbst-betreiben/intro.md) without a contract with a TSE provider, the integration is instead listed as **Not available** in the catalog: "No cloud TSE is set up on this server. Ask the operator of your installation."
+
 ## What you need
 
 - an organization in **Germany**,
@@ -80,7 +92,7 @@ The page then shows **Setup failed** with the error. **Try again** starts it onc
 - **Cloud TSE**: status (**Active** or **Disrupted**), serial number (shortened, with copy button), the till (client ID `OEOS-…`), product, storage, signatures this month, certificate expiry and the last export.
 - **Outage log**: periods in which the TSE did not sign.
 - **Transactions**: all signed, failed and training transactions. Click one to see the TSE data with QR code, just like on the receipt.
-- **Cash register inspection**: DSFinV-K and TSE export for a period, the cash point closings and the tip setting – see [Cash register inspection and DSFinV-K](../kassen-nachschau.md).
+- **Cash register inspection**: DSFinV-K and TSE export for a period, the cash point closings and the former tip setting (only for older transactions, see [Tips](../trinkgeld.md#bestand)) – see [Cash register inspection and DSFinV-K](../kassen-nachschau.md).
 - **Exports**: the archived TSE data for download.
 - **Danger zone**: deactivate the TSE permanently.
 
@@ -90,32 +102,71 @@ With an active TSE, every receipt and refund receipt carries the TSE data – pr
 
 - **till ID** (the till's serial number, `OEOS-…`),
 - **TSE serial number** and **signature**, in full,
-- **transaction number** and **signature counter**,
+- **receipt number** (consecutive per till), **transaction number** and **signature counter**,
 - **start** and **end** of the transaction (UTC, as delivered by the TSE),
+- the **order start** („Bestellbeginn“) if the order was placed first and paid later (table service, tab),
 - signature algorithm and time format,
 - a **QR code** with all data according to DSFinV-K. Auditors can scan it with a verification app.
 
 ![Receipt preview with TSE data](/img/screens/en/pos-tse-receipt.png)
 
-The TSE data cannot be deselected. If you designed your own receipt template, OpenEOS adds it automatically. A **reprint** shows the same signature as the first receipt. Printed receipts are always in German (e.g. "TSE ausgefallen").
+The TSE data cannot be deselected. If you designed your own receipt template, OpenEOS adds it automatically. A **reprint** is marked **NACHDRUCK** (reprint) and shows the same signature as the first receipt; no new transaction is created. Printed receipts are always in German (e.g. "TSE nicht erreichbar").
+
+If your organization works **without VAT** (small business), every receipt says „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ instead of the VAT lines, see [Small businesses](#kleinunternehmer).
 
 In **test mode** of an event, transactions are signed as **training**. The receipt then says **TRAININGSBUCHUNG – KEIN VERKAUF** (training – not a sale). Training transactions are kept, even when the test orders are deleted on activating the event.
 
 Under **Orders**, admins see a **Cloud TSE** section in every order with its TSE transactions and the QR code.
 
+## What the TSE secures {/* #vorgaenge */}
+
+With an active Cloud TSE, OpenEOS signs every transaction that belongs to the till:
+
+- **payments** at the till and in the admin area, including split and combined payments, with tips,
+- **orders without immediate payment** (table service, counter on a tab, admin area) – before the kitchen ticket, see [Receipts and the Cloud TSE](../kasse.md#tse),
+- **online payments** in the online shop and for QR code orders, as soon as the payment comes in, see [Online orders](../betriebsarten.md#online),
+- **refunds and cancellations** with a reference to the original receipt,
+- **deposit payouts**, **[cash book](../kassenbuch.md) entries** and **tip payouts** to employed servers ([Tips](../trinkgeld.md#auszahlung)),
+- **server settlements** with expected amount, counted amount and difference ([Servers](../bedienungen.md#abrechnung-tse)),
+- **training transactions** in test mode.
+
+## Signature first, then the receipt {/* #reihenfolge */}
+
+A receipt only counts as signed if the TSE transaction is finished before the receipt is issued (AEAO zu § 146a Nr. 2.2.3.3 and 2.5.2). OpenEOS therefore only prints or shows the receipt once the signature is there – the digital receipt too. So that the till doesn't stall, OpenEOS waits only a few seconds for the TSE.
+
 ## When the TSE fails {/* #ausfall */}
 
-If the TSE does not respond (e.g. no internet or a disruption at the provider), **you keep selling**. Instead of the signature the receipt gets the note **TSE ausgefallen** (TSE failed), and the till shows a hint at the top:
+If the TSE does not respond in time (e.g. no internet or a disruption at the provider), **you keep selling**. The receipt is then an **outage receipt**: instead of the signature it says **„TSE nicht erreichbar – Beleg ohne Signatur“** (TSE not reachable – receipt without signature), and the till shows a hint at the top:
 
 > TSE failed – you can keep selling, the receipt will be marked.
 
-OpenEOS records the outage in the **outage log** and emails the admins once. As soon as the next transaction is signed again, the outage ends and the hint at the till disappears. Transactions are not signed afterwards – this is intended.
+OpenEOS records the outage in the **outage log** and emails the admins once. As soon as the next transaction is signed again, the outage ends and the hint at the till disappears. Transactions are not signed afterwards – this is intended: outage times are documented, the receipt is marked, and business goes on (AEAO zu § 146a Nr. 1.14).
+
+### Signature after the receipt was issued {/* #spaete-signatur */}
+
+Sometimes the TSE did sign a transaction but the answer only arrived after printing – for example because the connection dropped at the wrong moment. OpenEOS reconciles this regularly and still stores the signature. The receipt **stays an outage receipt**:
+
+- In the DSFinV-K export the transaction has the real signature data **and** the note „Signatur nach Belegausgabe“ (signature after the receipt was issued).
+- A reprint shows the outage note and below it „Signatur nach Belegausgabe“ with transaction number, signature counter and end time – **without a QR code**, so it cannot be mistaken for a regularly signed receipt.
+
+Record in your [procedure documentation](../verfahrensdokumentation.md#ausfall) how you handle outages; the outage log on this page provides the periods.
 
 ## Exports and cash register inspection {/* #export */}
 
-OpenEOS collects the TSE data **every night** (TAR file according to TR-03153) and archives it for **ten years**. Under **Exports** you see the period, size and checksum (SHA-256) of each export. In addition, every business day gets a **cash point closing** with the DSFinV-K export.
+OpenEOS collects the TSE data **every night** (TAR file according to TR-03153) and archives it for **ten years** – as well as the DSFinV-K exports, training transactions and the data on outages. Under **Exports** you see the period, size and checksum (SHA-256) of each export. In addition, every business day gets a **cash point closing** with the DSFinV-K export.
 
 If the tax office comes for a **cash register inspection** (Kassen-Nachschau) or audit, download the **DSFinV-K export** and the **TSE export (TAR)** for the period in the **Cash register inspection** section. What exactly to hand over is described in [Cash register inspection and DSFinV-K](../kassen-nachschau.md).
+
+## Small businesses and tax status {/* #kleinunternehmer */}
+
+The TSE obligation also applies to small businesses and tax-privileged clubs as soon as cash is recorded electronically. For VAT, OpenEOS distinguishes:
+
+- **Without VAT** (small business under § 19 UStG, setting **No VAT** under [Settings](../einstellungen.md#allgemein)): all revenue, including deposits and tips to the club, is exported to the DSFinV-K with VAT key **6** and the description „steuerfrei – Kleinunternehmer § 19 UStG“. Since 2025 small business revenue is tax-exempt, not "not taxable". Receipts, refund receipts, deposit returns and digital receipts carry the notice „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ and never a VAT amount – otherwise the VAT shown would be owed (§ 14c UStG).
+- **Not taxable** (key 5) are only cash book entries, tips of employed servers and deposit returns against the [old balance](../pfand.md#altsaldo).
+
+**Limits:** you are a small business if your revenue was at most 25,000 € in the previous year and does not exceed 100,000 € in the current year. The very revenue that exceeds 100,000 € is already taxable. When your revenue in OpenEOS reaches 80 % of this limit, the [dashboard](../dashboard.md) shows a notice. It is only a guide: OpenEOS does not know revenue outside OpenEOS.
+
+**Changing the tax status:** if you become VAT-liable (or a small business again), switch with the Cloud TSE via **Change tax status**. OpenEOS first creates a [cash point closing](../kassen-nachschau.md#abschluss) up to now, so that all earlier transactions are closed with the old status, and then changes the master data. The change is logged. Once there are transactions with the TSE, OpenEOS no longer lets you flip the simple **No VAT** switch.
 
 ## Deactivation {/* #deaktivieren */}
 
@@ -141,4 +192,5 @@ This is not tax advice. Your tax office decides in individual cases; if in doubt
 - [Selling at the till](../kasse.md)
 - [Cash register inspection and DSFinV-K](../kassen-nachschau.md)
 - [Cash book](../kassenbuch.md)
+- [Procedure documentation – template](../verfahrensdokumentation.md)
 - [FAQ on openeos.de: till, cash and TSE](https://openeos.de/en/faq#tse)

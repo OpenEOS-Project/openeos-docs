@@ -30,15 +30,15 @@ The agent signs in with an API token of your organization. As an **admin**, you 
 
 Give the token a name you will recognize (for example "Claude Desktop") and pick only the scopes the agent needs. The agent sees exactly the tools the token allows:
 
-| Scope | What the agent can do with it |
+| Permission | What the agent can do with it |
 |---|---|
-| **read** | Read everything: organization, events, stations, categories, products, deposit types, tables, shift plans (counts only, no helper names), devices, printers, receipt templates, sales reports, orders (without guest data), icon suggestions. <br />Tools: `get_organization`, `list_events`, `get_event`, `list_production_stations`, `list_categories`, `list_products`, `list_pfand_types`, `list_table_areas`, `list_shift_plans`, `get_shift_plan`, `list_devices`, `list_printers`, `list_print_templates`, `get_sales_report`, `list_orders`, `get_order`, `suggest_icons` |
-| **catalog:write** | Create and change categories and products, mark products as sold out, create deposit types. <br />Tools: `create_category`, `update_category`, `upsert_products`, `update_product_availability`, `create_pfand_type` |
-| **events:write** | Create and change events, copy products from another event, create and change production stations. <br />Tools: `create_event`, `update_event`, `copy_event`, `create_production_station`, `update_production_station` |
-| **tables:write** | Create areas, create series of tables, rename or move tables. <br />Tools: `create_table_area`, `create_tables`, `update_table` |
-| **staff:write** | Create shift plans, add jobs and shifts, publish a shift plan. <br />Tools: `create_shift_plan`, `create_shift_job`, `create_shifts`, `publish_shift_plan` |
-| **devices:write** | Create and change receipt templates (admins only). <br />Tools: `create_print_template`, `update_print_template` |
-| **settings:write** | Change name, logo and operational settings of the organization (admins only; no payment providers, legal texts or billing). <br />Tool: `update_organization` |
+| **Read** (`read`) | Read everything: organization, events, stations, categories, products, deposit types, tables, shift plans (counts only, no helper names), devices, printers, receipt templates, sales reports, orders (without guest data), icon suggestions. <br />Tools: `get_organization`, `list_events`, `get_event`, `list_production_stations`, `list_categories`, `list_products`, `list_pfand_types`, `list_table_areas`, `list_shift_plans`, `get_shift_plan`, `list_devices`, `list_printers`, `list_print_templates`, `get_sales_report`, `list_orders`, `get_order`, `suggest_icons` |
+| **Edit catalog** (`catalog:write`) | Create and change categories and products, mark products as sold out, create deposit types. <br />Tools: `create_category`, `update_category`, `upsert_products`, `update_product_availability`, `create_pfand_type` |
+| **Edit events** (`events:write`) | Create and change events, copy products from another event, create and change production stations. <br />Tools: `create_event`, `update_event`, `copy_event`, `create_production_station`, `update_production_station` |
+| **Edit tables** (`tables:write`) | Create areas, create series of tables, rename or move tables. <br />Tools: `create_table_area`, `create_tables`, `update_table` |
+| **Edit shift plans** (`staff:write`) | Create shift plans, add jobs and shifts, publish a shift plan. <br />Tools: `create_shift_plan`, `create_shift_job`, `create_shifts`, `publish_shift_plan` |
+| **Edit receipt templates** (`devices:write`) | Create and change receipt templates (admins only). <br />Tools: `create_print_template`, `update_print_template` |
+| **Change settings** (`settings:write`) | Change name, logo and operational settings of the organization (admins only; no payment providers, legal texts or billing). <br />Tool: `update_organization` |
 
 You need `read` for almost everything – write scopes do not include reading. A good start is `read` plus `catalog:write` and `events:write`. On top of that, the [module permissions](./mitglieder.md) of the person who created the token always apply.
 

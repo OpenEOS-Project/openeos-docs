@@ -29,5 +29,9 @@ You can find this section via **Discount vouchers** in the sidebar.
 Till staff choose discount vouchers in the checkout window under the **Discount** payment method. The discount is applied to the order and appears later in the [Reports](./auswertung.md). See [Till](./kasse.md#kassieren) for how this looks. In the [Orders only](./betriebsarten.md#nur-bons) operating mode there are no discount vouchers.
 
 :::tip[Typical use cases]
-Discount vouchers are ideal for volunteer perks, sponsor vouchers, or special promotions during an event.
+Discount vouchers are ideal for volunteer perks, free drinks for sponsors, or special promotions during an event.
+:::
+
+:::warning[Only for vouchers you give away]
+A discount voucher reduces the price (DSFinV-K "Rabatt"); it is not a payment method. Only use it for vouchers your club gives away for free. **Sold** tokens or vouchers are something different for tax purposes and must not go into the till as a discount; OpenEOS has no feature of its own for them. What this means for the operating modes without a TSE is described under [Tokens and vouchers](./betriebsarten.md#wertmarken). This is not tax advice.
 :::

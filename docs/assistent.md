@@ -26,9 +26,9 @@ Preise, Steuersätze oder Zuordnungen können danebenliegen – vor allem bei sc
 1. Öffne **Einstellungen → Organisation → Assistent**.
 2. Schalte **Assistent-Funktionen** ein.
 
-Ein- und ausschalten können nur **Admins** der Organisation; der Schalter wird im Protokoll festgehalten. Danach sehen alle, die Produkte bearbeiten dürfen, auf der Produktseite den Knopf **Aus Speisekarte importieren** und im Produktformular den Knopf **Vorschlag**.
+Ein- und ausschalten können nur **Admins** der Organisation; der Schalter wird im Protokoll festgehalten. Danach sehen alle, die Produkte bearbeiten dürfen, auf der Produktseite im Fenster **Importieren** den Reiter **Speisekarte** (neben **CSV**) und im Produktformular den Knopf **Vorschlag**.
 
-Solange der Assistent aus ist, steht für Admins auf der Produktseite ein kurzer Hinweis mit Link zu den Einstellungen.
+Solange der Assistent aus ist, bietet **Importieren** nur den CSV-Import. Admins sehen auf der Produktseite dann den Hinweis „Speisekarte importieren? Schalte dafür die Assistent-Funktionen ein.“ mit dem Link **Zu den Einstellungen**.
 
 ![Einstellungen – Assistent mit Tageskontingent](/img/screens/de/settings-assistant.png)
 
@@ -45,13 +45,13 @@ Damit der Assistent für alle bezahlbar bleibt, gibt es je Organisation und Kale
 | Speisekarten-Importe | 5 |
 | Icon-Vorschläge | 500 |
 
-Wie viel heute noch übrig ist, zeigt der Abschnitt **Tageskontingent** in den Einstellungen und – beim Import – der Fuß des Dialogs („Heute noch 3 Importe“). Um Mitternacht (deutsche Zeit) beginnt der Zähler von vorn. Ein Import, der fehlschlägt, kostet kein Kontingent. Die meisten Icon-Vorschläge kommen ohne Anfrage an den Anbieter aus und zählen gar nicht erst.
+Wie viel heute noch übrig ist, zeigt der Abschnitt **Tageskontingent** in den Einstellungen („Heute noch 4 von 5 Importen“) und – beim Import – der Fuß des Dialogs („Heute noch 3 Importe“). Um Mitternacht (deutsche Zeit) beginnt der Zähler von vorn. Ein Import, der fehlschlägt, kostet kein Kontingent. Die meisten Icon-Vorschläge kommen ohne Anfrage an den Anbieter aus und zählen gar nicht erst.
 
 Wer OpenEOS selbst betreibt, legt die Grenzen selbst fest.
 
 ## Datenschutz
 
-Für diese Funktionen werden die hochgeladenen Inhalte – Speisekarten als Foto, PDF oder Text sowie Produktnamen – an den Anbieter des Sprachmodells übertragen und dort verarbeitet. Auf [app.openeos.de](https://app.openeos.de) ist das der **IONOS AI Model Hub** der IONOS SE: Das Modell läuft in einem Rechenzentrum von IONOS in Berlin, die Daten verlassen Deutschland nicht. Dabei gilt:
+Für diese Funktionen werden die hochgeladenen Inhalte – Speisekarten als Foto, PDF oder Text sowie Produktnamen – an den Anbieter des Sprachmodells übertragen und dort verarbeitet. Auf [app.openeos.de](https://app.openeos.de) ist das der **IONOS AI Model Hub** der IONOS SE: Das Sprachmodell läuft in einem Rechenzentrum von IONOS in Berlin, die Daten verlassen Deutschland nicht. Die Karte **Assistent** in den Einstellungen verlinkt dazu auf die Datenschutzerklärung. Dabei gilt:
 
 - Übertragen wird nur, was für die jeweilige Funktion nötig ist: die Speisekarte beziehungsweise die Produktnamen. Keine Bestellungen, keine Umsätze, keine Mitgliederdaten.
 - Nach Angaben von IONOS liegen die Inhalte nur während der Verarbeitung im Arbeitsspeicher. Sie werden weder protokolliert noch gespeichert und **nicht zum Trainieren** von Modellen genutzt.

@@ -17,6 +17,18 @@ OpenEOS bindet dafür die **Swissbit Cloud-TSE 2** an. Du brauchst keine Hardwar
 Die Cloud-TSE gibt es nur für Organisationen in Deutschland. In anderen Ländern steht die Integration als **Nur für Deutschland** im Katalog. Was dort gilt, steht unter [Österreich, Schweiz und andere Länder](../betriebsarten.md#andere-laender).
 :::
 
+## Bald verfügbar {/* #bald-verfuegbar */}
+
+Solange die Cloud-TSE angekündigt, aber auf deinem Server noch nicht freigeschaltet ist, siehst du in der App Folgendes:
+
+- Im Katalog unter **Integrationen** steht die Cloud-TSE als **Bald verfügbar**. Das Fenster zeigt statt **Aktivieren** den Hinweis „Die Cloud-TSE für Barzahlungen in Deutschland kommt in Kürze. Bis dahin kannst du „Nur Bons“ oder „Bargeldlos“ nutzen.“
+- Unter **Einstellungen → Organisation → Betriebsart** ist **Alle Funktionen** mit „Bald verfügbar – mit Cloud-TSE“ markiert und lässt sich nicht wählen.
+- Im Bezahldialog einer Veranstaltung gibt es keine Frage nach der Cloud-TSE, nur einen Hinweis **Bald verfügbar**.
+
+Arbeite bis dahin in Deutschland mit [Nur Bons](../betriebsarten.md#nur-bons) oder [Bargeldlos](../betriebsarten.md#bargeldlos). Alles Weitere auf dieser Seite gilt, sobald die Cloud-TSE verfügbar ist.
+
+Auf einer [eigenen Installation](../selbst-betreiben/intro.md) ohne Vertrag mit einem TSE-Anbieter steht die Integration dagegen als **Nicht verfügbar** im Katalog: „Auf diesem Server ist keine Cloud-TSE eingerichtet. Frag den Betreiber deiner Installation.“
+
 ## Was du brauchst
 
 - eine Organisation in **Deutschland**,
@@ -80,7 +92,7 @@ Dann steht auf der Seite **Einrichtung fehlgeschlagen** mit dem Fehler. Mit **Er
 - **Cloud-TSE**: Zustand (**Aktiv** oder **Gestört**), Seriennummer (gekürzt, mit Kopierknopf), die Kasse (Client-ID `OEOS-…`), Produkt, die **automatische Abmeldung** zum Monatsende, Speicher, Signaturen im Monat, Ablauf des Zertifikats und der letzte Export.
 - **Ausfallprotokoll**: Zeiträume, in denen die TSE nicht signiert hat.
 - **Vorgänge**: alle signierten, ausgefallenen und Trainingsbuchungen. Ein Klick zeigt die TSE-Angaben mit QR-Code, so wie auf dem Bon.
-- **Kassen-Nachschau**: DSFinV-K- und TSE-Export für einen Zeitraum, die Kassenabschlüsse und die Einstellung zum Trinkgeld – siehe [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md).
+- **Kassen-Nachschau**: DSFinV-K- und TSE-Export für einen Zeitraum, die Kassenabschlüsse und die frühere Einstellung zum Trinkgeld (nur noch für ältere Vorgänge, siehe [Trinkgeld](../trinkgeld.md#bestand)) – siehe [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md).
 - **Exporte**: die archivierten TSE-Daten zum Herunterladen.
 - **Gefahrenzone**: die TSE endgültig deaktivieren.
 
@@ -90,32 +102,71 @@ Bei aktiver TSE stehen auf jedem Kassenbon und Gegenbeleg die TSE-Angaben – ge
 
 - **Kassen-ID** (die Seriennummer der Kasse, `OEOS-…`),
 - **TSE-Seriennummer** und **Signatur**, vollständig,
-- **Transaktionsnummer** und **Signaturzähler**,
+- **Beleg-Nr.** (fortlaufend je Kasse), **Transaktionsnummer** und **Signaturzähler**,
 - **Start** und **Ende** des Vorgangs (UTC, so wie die TSE sie liefert),
+- der **Bestellbeginn**, wenn vorher bestellt und später kassiert wurde (Tischbetrieb, auf Deckel),
 - Signatur-Algorithmus und Zeitformat,
 - ein **QR-Code** mit allen Angaben nach DSFinV-K. Prüfer können ihn mit einer Prüf-App einlesen.
 
 ![Bon-Vorschau mit TSE-Angaben](/img/screens/de/pos-tse-receipt.png)
 
-Die TSE-Angaben lassen sich nicht abwählen. Hast du eine eigene Bon-Vorlage gestaltet, hängt OpenEOS sie automatisch an. Ein **Nachdruck** zeigt dieselbe Signatur wie der erste Bon.
+Die TSE-Angaben lassen sich nicht abwählen. Hast du eine eigene Bon-Vorlage gestaltet, hängt OpenEOS sie automatisch an. Ein **Nachdruck** trägt den Vermerk **NACHDRUCK** und dieselbe Signatur wie der erste Bon; eine neue Transaktion entsteht nicht.
+
+Ist deine Organisation **ohne Umsatzsteuer** (Kleinunternehmer), steht auf jedem Bon „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ statt der MwSt-Zeilen, siehe [Kleinunternehmer](#kleinunternehmer).
 
 Im **Testmodus** einer Veranstaltung werden Buchungen als **Training** signiert. Auf dem Bon steht dann **TRAININGSBUCHUNG – KEIN VERKAUF**. Trainingsbuchungen bleiben gespeichert, auch wenn die Testbestellungen beim Aktivieren der Veranstaltung gelöscht werden.
 
 Unter **Bestellungen** siehst du als Admin in jeder Bestellung den Abschnitt **Cloud-TSE** mit den Vorgängen dieser Bestellung und dem QR-Code.
 
+## Was die TSE absichert {/* #vorgaenge */}
+
+Mit aktiver Cloud-TSE signiert OpenEOS jeden Vorgang, der in die Kasse gehört:
+
+- **Zahlungen** an der Kasse und in der Verwaltung, auch geteilte und gesammelte Zahlungen, mit Trinkgeld,
+- **Bestellungen ohne sofortige Zahlung** (Tischbetrieb, Theke auf Deckel, Verwaltung) – vor dem Küchenbon, siehe [Bon und Cloud-TSE](../kasse.md#tse),
+- **Online-Zahlungen** im Online-Shop und bei der Bestellung per QR-Code, sobald die Zahlung eingegangen ist, siehe [Online-Bestellungen](../betriebsarten.md#online),
+- **Erstattungen und Stornos** mit Verweis auf den ursprünglichen Beleg,
+- **Pfand-Auszahlungen**, **Buchungen im [Kassenbuch](../kassenbuch.md)** und **Trinkgeld-Auszahlungen** an angestellte Bedienungen ([Trinkgeld](../trinkgeld.md#auszahlung)),
+- **Kellnerabrechnungen** mit Soll, Ist und Differenz ([Bedienungen](../bedienungen.md#abrechnung-tse)),
+- **Trainingsbuchungen** im Testmodus.
+
+## Erst die Signatur, dann der Bon {/* #reihenfolge */}
+
+Ein Bon gilt nur als signiert, wenn die TSE-Transaktion vor der Ausgabe des Belegs abgeschlossen ist (AEAO zu § 146a Nr. 2.2.3.3 und 2.5.2). OpenEOS druckt bzw. zeigt den Beleg deshalb erst, wenn die Signatur da ist – auch den digitalen Beleg. Damit es an der Kasse nicht hakt, wartet OpenEOS nur wenige Sekunden auf die TSE.
+
 ## Wenn die TSE ausfällt {/* #ausfall */}
 
-Antwortet die TSE nicht (z. B. kein Internet oder eine Störung beim Anbieter), **kassierst du weiter**. Der Bon bekommt statt der Signatur den Vermerk **TSE ausgefallen**, und die Kasse zeigt oben einen Hinweis:
+Antwortet die TSE nicht rechtzeitig (z. B. kein Internet oder eine Störung beim Anbieter), **kassierst du weiter**. Der Bon ist dann ein **Ausfallbeleg**: Statt der Signatur steht darauf **„TSE nicht erreichbar – Beleg ohne Signatur“**, und die Kasse zeigt oben einen Hinweis:
 
 > TSE ausgefallen – du kannst weiter kassieren, der Bon wird gekennzeichnet.
 
-OpenEOS trägt den Ausfall ins **Ausfallprotokoll** ein und schickt den Admins einmal eine E-Mail. Sobald der nächste Vorgang wieder signiert ist, endet der Ausfall und der Hinweis an der Kasse verschwindet. Nachträglich signiert wird nicht – das ist so vorgesehen.
+OpenEOS trägt den Ausfall ins **Ausfallprotokoll** ein und schickt den Admins einmal eine E-Mail. Sobald der nächste Vorgang wieder signiert ist, endet der Ausfall und der Hinweis an der Kasse verschwindet. Nachträglich signiert wird nicht – das ist so vorgesehen: Ausfallzeiten werden dokumentiert, der Bon ist gekennzeichnet, und es geht weiter (AEAO zu § 146a Nr. 1.14).
+
+### Signatur nach Belegausgabe {/* #spaete-signatur */}
+
+Manchmal hat die TSE einen Vorgang doch signiert, die Antwort kam aber erst nach dem Druck an – etwa weil die Verbindung im falschen Moment abriss. OpenEOS gleicht das regelmäßig ab und speichert die Signatur dann trotzdem. Der Bon **bleibt ein Ausfallbeleg**:
+
+- Im DSFinV-K-Export steht der Vorgang mit den echten Signaturdaten **und** dem Vermerk „Signatur nach Belegausgabe“.
+- Ein Nachdruck zeigt den Ausfallvermerk und darunter „Signatur nach Belegausgabe“ mit Transaktionsnummer, Signaturzähler und Ende – **ohne QR-Code**, damit er nicht mit einem regulär signierten Bon verwechselt wird.
+
+Halte in deiner [Verfahrensdokumentation](../verfahrensdokumentation.md#ausfall) fest, wie ihr mit Ausfällen umgeht; das Ausfallprotokoll auf dieser Seite liefert die Zeiträume dafür.
 
 ## Exporte und Kassen-Nachschau {/* #export */}
 
-OpenEOS holt die Daten der TSE **jede Nacht** ab (TAR-Datei nach TR-03153) und archiviert sie **zehn Jahre**. Unter **Exporte** siehst du Zeitraum, Größe und Prüfsumme (SHA-256) jedes Exports. Zusätzlich entsteht für jeden Geschäftstag ein **Kassenabschluss** mit dem DSFinV-K-Export.
+OpenEOS holt die Daten der TSE **jede Nacht** ab (TAR-Datei nach TR-03153) und archiviert sie **zehn Jahre** – ebenso die DSFinV-K-Exporte, Trainingsbuchungen und die Daten zu Ausfällen. Unter **Exporte** siehst du Zeitraum, Größe und Prüfsumme (SHA-256) jedes Exports. Zusätzlich entsteht für jeden Geschäftstag ein **Kassenabschluss** mit dem DSFinV-K-Export.
 
 Kommt das Finanzamt zur **Kassen-Nachschau** oder Prüfung, lädst du im Abschnitt **Kassen-Nachschau** den **DSFinV-K-Export** und den **TSE-Export (TAR)** für den gewünschten Zeitraum herunter. Was genau du übergibst, steht unter [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md).
+
+## Kleinunternehmer und Steuerstatus {/* #kleinunternehmer */}
+
+Die TSE-Pflicht gilt auch für Kleinunternehmer und steuerbegünstigte Vereine, sobald Bargeld elektronisch erfasst wird. Für die Umsatzsteuer unterscheidet OpenEOS so:
+
+- **Ohne Umsatzsteuer** (Kleinunternehmer nach § 19 UStG, Einstellung **Keine Umsatzsteuer** unter [Einstellungen](../einstellungen.md#allgemein)): Alle Umsätze, auch Pfand und Trinkgeld an den Verein, stehen im DSFinV-K-Export mit USt-Schlüssel **6** und der Beschreibung „steuerfrei – Kleinunternehmer § 19 UStG“. Seit 2025 sind Kleinunternehmerumsätze steuerfrei, nicht „nicht steuerbar“. Kassenbon, Erstattungsbeleg, Pfandrückgabe und digitaler Beleg tragen den Hinweis „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ und nie einen Steuerbetrag – sonst würde die ausgewiesene Steuer geschuldet (§ 14c UStG).
+- **Nicht steuerbar** (Schlüssel 5) sind nur Kassenbuch-Buchungen, Trinkgeld angestellter Bedienungen und Pfandrückgaben gegen den [Altsaldo](../pfand.md#altsaldo).
+
+**Grenzen:** Kleinunternehmer bist du, wenn der Umsatz im Vorjahr höchstens 25.000 € betrug und im laufenden Jahr 100.000 € nicht überschreitet. Schon der Umsatz, mit dem die 100.000 € überschritten werden, ist steuerpflichtig. Erreicht dein Umsatz in OpenEOS 80 % dieser Grenze, zeigt das [Dashboard](../dashboard.md) einen Hinweis. Das ist nur ein Anhaltspunkt: Umsätze außerhalb von OpenEOS kennt OpenEOS nicht.
+
+**Steuerstatus wechseln:** Wirst du umsatzsteuerpflichtig (oder wieder Kleinunternehmer), wechselst du mit Cloud-TSE über **Steuerstatus ändern**. OpenEOS erstellt dann zuerst einen [Kassenabschluss](../kassen-nachschau.md#abschluss) bis jetzt, damit alle bisherigen Vorgänge noch mit dem alten Status abgeschlossen sind, und ändert danach die Stammdaten. Der Wechsel steht im Protokoll. Den einfachen Schalter **Keine Umsatzsteuer** lässt OpenEOS nicht mehr umstellen, sobald es Vorgänge mit der TSE gibt.
 
 ## Deaktivieren {/* #deaktivieren */}
 
@@ -141,4 +192,5 @@ Das ist keine Steuerberatung. Im Einzelfall entscheidet dein Finanzamt; bist du 
 - [An der Kasse verkaufen](../kasse.md)
 - [Kassen-Nachschau und DSFinV-K](../kassen-nachschau.md)
 - [Kassenbuch](../kassenbuch.md)
+- [Verfahrensdokumentation – Vorlage](../verfahrensdokumentation.md)
 - [FAQ auf openeos.de: Kasse, Bargeld und TSE](https://openeos.de/faq#tse)

@@ -19,13 +19,20 @@ Drei Geheimnisse werden gebraucht. Erzeuge sie **jetzt** und bewahre
 sie auf — insbesondere `TWO_FACTOR_ENCRYPTION_KEY`: Geht er verloren, sind
 hinterlegte Zwei-Faktor-Geheimnisse nicht mehr entschlüsselbar, und ohne
 eigenen `INTEGRATION_ENCRYPTION_KEY` (siehe unten) auch gespeicherte
-Zugangsdaten für SumUp und PayPal — die müssten Vereine dann neu eintragen.
+Zugangsdaten für SumUp und PayPal und die Geheimnisse der Webhooks — die
+müssten dann neu eingetragen werden.
 
-Optional kannst du für die SumUp- und PayPal-Zugangsdaten einen eigenen
-Schlüssel `INTEGRATION_ENCRYPTION_KEY` setzen (erzeugen mit
-`openssl rand -base64 32`). Ohne ihn verschlüsselt der Server sie mit
-`TWO_FACTOR_ENCRYPTION_KEY`. Sichere ihn wie die anderen Geheimnisse und
-ändere ihn nach dem ersten Start nicht mehr.
+Optional kannst du für diese Zugangsdaten einen eigenen Schlüssel
+`INTEGRATION_ENCRYPTION_KEY` setzen (erzeugen mit `openssl rand -base64 32`).
+Ohne ihn verschlüsselt der Server sie mit `TWO_FACTOR_ENCRYPTION_KEY`. Sichere
+ihn wie die anderen Geheimnisse und ändere ihn nach dem ersten Start nicht
+mehr.
+
+Empfohlen ist außerdem `PIN_PEPPER` für die Kassen-PINs von Mitgliedern und
+[Bedienungen](../bedienungen.md) (mindestens 16 Zeichen, erzeugen mit
+`openssl rand -base64 32`). Ohne ihn leitet der Server den Wert aus
+`TWO_FACTOR_ENCRYPTION_KEY` ab und warnt beim Start. Setze ihn, bevor die
+erste PIN vergeben wird: Ein späterer Wechsel macht alle PINs ungültig.
 
 ```bash
 umask 077
@@ -42,8 +49,10 @@ API_URL=http://192.168.1.50:3000
 DATABASE_PASSWORD=$(openssl rand -base64 24 | tr -d '/+=')
 JWT_SECRET=$(openssl rand -base64 64 | tr -d '\n')
 TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
-# Optional: eigener Schlüssel für SumUp-/PayPal-Zugangsdaten
+# Optional: eigener Schlüssel für SumUp-/PayPal-Zugangsdaten und Webhooks
 INTEGRATION_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
+# Empfohlen: Pepper für die Kassen-PINs (vor der ersten PIN setzen)
+PIN_PEPPER=$(openssl rand -base64 32 | tr -d '\n')
 EOF
 ```
 
@@ -112,6 +121,8 @@ services:
       TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY fehlt}
       # Optional; leer = TWO_FACTOR_ENCRYPTION_KEY verschlüsselt auch SumUp/PayPal
       INTEGRATION_ENCRYPTION_KEY: ${INTEGRATION_ENCRYPTION_KEY:-}
+      # Leer = aus TWO_FACTOR_ENCRYPTION_KEY abgeleitet; Wechsel macht alle PINs ungültig
+      PIN_PEPPER: ${PIN_PEPPER:-}
       # Das Dashboard muss den Server aufrufen dürfen
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'
@@ -176,7 +187,7 @@ curl http://localhost:3000/api/setup/status
 
 ```json
 {"data":{"required":true,"reason":"Keine Benutzer vorhanden…",
- "deployment":{"mode":"selfhosted","billingEnabled":false,"multiTenant":false}}}
+ "deployment":{"mode":"selfhosted","billingEnabled":false,"multiTenant":false,"limits":{…}}}}
 ```
 
 Steht dort `"mode":"saas"`, wurde `DEPLOYMENT_MODE` nicht übernommen — dann
@@ -250,3 +261,35 @@ durch Komma getrennt:
 ```bash
 CORS_ORIGINS: ${APP_URL},http://192.168.1.50:3004
 ```
+
+Damit die Shop-Links im Dashboard auf deinen Shop zeigen und nicht auf
+`shop.openeos.de`, setzt du beim Dienst `web` die Shop-Adresse:
+
+```yaml
+  web:
+    environment:
+      # … bestehende Variablen …
+      SHOP_URL: http://192.168.1.50:3004
+```
+
+Bezahlen Gäste im Shop online mit SumUp, braucht der Dienst `api` zusätzlich
+die Rücksprungadresse des Shops und seine eigene öffentliche Adresse (ohne
+`/api`). Ohne sie schickt SumUp den Gast nach dem Bezahlen und die
+Zahlungsbestätigung an openeos.de statt an deinen Server. Die API-Adresse
+muss dafür aus dem Internet erreichbar sein:
+
+```yaml
+  api:
+    environment:
+      # … bestehende Variablen …
+      SHOP_RETURN_URL_BASE: https://shop.verein.example
+      API_PUBLIC_URL: https://api.verein.example
+```
+
+:::note[Erst mit Impressum und Datenschutzhinweis]
+Der Shop und die Bestellung per QR-Code am Tisch nehmen erst Bestellungen an,
+wenn deine Organisation ein Impressum und einen Datenschutzhinweis hinterlegt
+hat (**Einstellungen → Organisation → Rechtliche Angaben**). Das gilt auch im
+Einzelbetrieb und auch im Testmodus, siehe
+[Shop und QR-Bestellung](../veranstaltungen.md#shop-rechtliches).
+:::

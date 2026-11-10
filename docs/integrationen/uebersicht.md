@@ -30,13 +30,27 @@ Eine Integration schaltest du im selben Fenster oder auf ihrer Einstellungsseite
 
 Deine Einstellungen bleiben dabei erhalten. Wenn du die Integration später wieder aktivierst, ist alles wie vorher eingerichtet.
 
+## Status im Katalog {/* #status */}
+
+Jede Karte im Katalog zeigt, wie es um die Integration steht:
+
+| Status | Bedeutung |
+|---|---|
+| **Aktiv** | eingeschaltet und betriebsbereit |
+| **Inaktiv** | verfügbar, aber nicht eingeschaltet |
+| **Nicht eingerichtet** / **Wird eingerichtet** | eingeschaltet, aber noch nicht fertig, etwa eine Cloud-TSE, die noch angelegt wird |
+| **Bald verfügbar** | in Vorbereitung. Das Fenster zeigt statt **Aktivieren** einen Hinweis und **Schließen**. |
+| **Nur für Deutschland** | im Land deiner Organisation nicht verfügbar |
+| **Land fehlt** | lege zuerst das [Land deiner Organisation](../betriebsarten.md#land) fest |
+| **Nicht verfügbar** | auf diesem Server nicht eingerichtet, etwa auf einer eigenen Installation ohne Cloud-TSE |
+
 ## Verfügbare Integrationen
 
 | Integration | Wofür | Stand |
 |---|---|---|
 | [SumUp](./sumup.md) | Kartenzahlung mit SumUp-Kartenlesern an der Kasse | verfügbar |
-| Stripe | Online-Zahlungen | in Vorbereitung |
-| [Cloud-TSE](./cloud-tse.md) | Kassensicherung nach KassenSichV – Voraussetzung für Bargeld in Deutschland | verfügbar (nur Deutschland) |
+| Stripe | Online-Zahlungen | Bald verfügbar |
+| [Cloud-TSE](./cloud-tse.md) | Kassensicherung nach KassenSichV – Voraussetzung für Bargeld in Deutschland | nur Deutschland; solange sie eingeführt wird, steht sie als **Bald verfügbar** im Katalog (siehe [Bald verfügbar](./cloud-tse.md#bald-verfuegbar)) |
 
 <TseComingSoon />
 

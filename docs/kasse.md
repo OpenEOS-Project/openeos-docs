@@ -9,7 +9,7 @@ description: Tisch öffnen, bestellen, senden, kassieren — der Ablauf an der K
 Diese Seite beschreibt die Kasse selbst — also das, was dein Team am Festtag tut. Wie ein Gerät zur Kasse wird, steht unter [Geräte verbinden](./geraete.md); wie Tische und Tischplan entstehen, unter [Tische](./tische.md).
 
 :::tip[Vorher ausprobieren]
-Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt. Bis zum Verkaufsstart ist die freigeschaltete Veranstaltung **Geplant**: Die Kasse bucht weiter Testbestellungen und zeigt „Testbetrieb – echte Verkäufe ab …“; nach dem Ende steht „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ (siehe [Phasen](veranstaltungen.md#phasen)).
+Solange die Veranstaltung im **Testmodus** steht, kannst du den gesamten Ablauf durchspielen: bis zu 25 Bestellungen kosten nichts. Die Kasse zeigt dann unter dem Kopf einen schmalen Warnstreifen „Testmodus – Buchungen zählen nicht und werden beim Aktivieren gelöscht“; er lässt sich nicht wegklicken und bleibt auf dem Telefon beim Scrollen stehen. Beim Freischalten werden die Testbestellungen gelöscht, deine Einrichtung bleibt. Bis zum Verkaufsstart ist die freigeschaltete Veranstaltung **Geplant**: Die Kasse bucht weiter Testbestellungen und zeigt „Testbetrieb – Buchungen zählen nicht. Echte Verkäufe ab … um … Uhr“; nach dem Ende steht „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ (siehe [Phasen](./veranstaltungen.md#phasen)).
 :::
 
 ## Wie die Kasse startet {/* #start */}
@@ -29,13 +29,22 @@ Steht die Kasse auf **Gemeinsame Kasse**, kommt davor der PIN-Bildschirm „Wer 
 
 Oben steht immer dasselbe:
 
-- **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter die laufende Veranstaltung.
+- **Links** der Name der Kasse und — wenn das Gerät einen [Standardbereich](./geraete.md#standardbereich) hat — der Bereich, etwa „Kasse 3 · Zelt A“. Darunter Organisation und laufende Veranstaltung. Am Telefon entfallen Logo und Veranstaltung; was nicht passt, endet mit „…“.
 - **Tisch** — in der Bestellansicht zeigt eine grüne Pille, für wen du gerade buchst: „Tisch A10“, „Theke“ oder „To-go“. Ein Tipp darauf öffnet [Tisch wählen](#tisch-wechseln).
-- **Status** — **Online** (grüner Punkt), **Verbinde …** oder **Keine Live-Daten** (gelb) und **Offline** (rot). Daneben der Bondrucker der Kasse mit Name, sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
-- **Menü** (die drei Striche) — Bestellverlauf, Offene Bestellungen, Pfand-Rückgabe, Kassenlade öffnen, [Darstellung](#darstellung) und Gerät abmelden. Es erscheint nur, was an dieser Kasse eingerichtet ist.
-- **Bedienung** — an einer Gemeinsamen Kasse oder mit fester Bedienung ein Chip mit Farbe und Kurzname der angemeldeten Person. Ein Tipp darauf öffnet **Wechseln**, **Sperren** und **Abmelden**, dazu [Mein Zwischenstand und Abrechnen](./bedienungen.md#abrechnung).
+- **Status** — ein Punkt: grün **Online**, gelb **Verbinde …** oder **Keine Live-Daten**, rot mit durchgestrichenem WLAN-Symbol **Offline**. Daneben der Bondrucker der Kasse, etwa „Drucker Theke“ (bzw. „Drucker Theke offline“), sofern einer zugewiesen ist, und die Uhrzeit. Auf schmaleren Bildschirmen bleibt nur der Punkt.
+- **Menü** (die drei Striche) — **Bestellverlauf**, **Offene Bestellungen**, **Pfand-Rückgabe**, [Kassenbuch](#kassenbuch), **Kassenlade öffnen**, [Tisch übergeben](#tisch-uebergeben), [Notfall-Support](#notfall-support), [Darstellung](#darstellung), **Quellcode (AGPL-3.0)** und **Gerät abmelden**. Es erscheint nur, was an dieser Kasse eingerichtet ist und was die angemeldete Person darf.
+- **Bedienung** — an einer Gemeinsamen Kasse oder mit fester Bedienung ein Chip mit Farbe und Kurzname der angemeldeten Person. Ein Tipp darauf öffnet [Mein Zwischenstand](./bedienungen.md#zwischenstand), für eine Schichtleitung dazu [Abrechnen](./bedienungen.md#abrechnen). An einer Gemeinsamen Kasse stehen dort außerdem **Wechseln**, **Sperren** und **Abmelden**.
 
-Im Testmodus steht unter dem Kopf der Warnstreifen „Testmodus — Bestellungen werden beim Aktivieren gelöscht“.
+Unter dem Kopf steht höchstens **ein** Hinweis, der wichtigste zuerst:
+
+1. „Veranstaltung beendet – nur noch offene Bestellungen kassieren“ nach dem Verkaufsende,
+2. „Testbetrieb – Buchungen zählen nicht. Echte Verkäufe ab … um … Uhr“, solange die Veranstaltung **Geplant** ist, bzw. „Testmodus – Buchungen zählen nicht und werden beim Aktivieren gelöscht“ im Testmodus (am Telefon gekürzt),
+3. „Keine Verbindung – Senden und Kassieren gehen erst wieder, wenn die Kasse online ist.“,
+4. „TSE ausgefallen – du kannst weiter kassieren, der Bon wird gekennzeichnet.“,
+5. „Bargeld gesperrt – ohne aktive TSE nimmt diese Kasse kein Bargeld an. Karte und online gehen weiter.“, wenn in Deutschland in „Alle Funktionen“ die Cloud-TSE fehlt,
+6. „Nur Bons – hier wird nicht kassiert. Bezahlt wird außerhalb von OpenEOS.“ in der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons).
+
+Ganz unten steht eine schmale Zeile mit Copyright, Version, Impressum und Datenschutz; am Telefon und auf hochkant gehaltenen Tablets steht sie am Ende des Menüs.
 
 ### Hell oder dunkel {/* #darstellung */}
 
@@ -91,7 +100,7 @@ Rechts (am Telefon unter der Tischwahl) stehen alle Tische, an denen etwas offen
 
 Ein Tipp auf die Zeile öffnet den Tisch.
 
-Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), steht über der Liste der Filter **Meine / Alle**. **Meine** ist voreingestellt: deine Tische und Tische, die noch niemandem gehören. Jeder Tisch zeigt Kurzname und Farbe der verantwortlichen Bedienung — das ist, wer dort die erste Bestellung aufgenommen oder die Gastbestellung bestätigt hat. Öffnest du einen fremden Tisch, zeigt die Kasse zum Beispiel „Tisch von Anna“. Buchen und kassieren darfst du trotzdem; das Geld zählt für dich.
+Arbeitet die Kasse mit [Bedienungen](./bedienungen.md), zeigt jeder Tisch Kurzname und Farbe der verantwortlichen Bedienung — das ist, wer dort die erste Bestellung aufgenommen oder die Gastbestellung bestätigt hat. An einer **Gemeinsamen Kasse** steht über der Liste außerdem der Filter **Meine / Alle**. **Meine** ist voreingestellt: deine Tische und Tische, die noch niemandem gehören. Öffnest du einen fremden Tisch, zeigt die Kasse zum Beispiel „Tisch von Anna“ (sofern das unter [Fremde Tische](./bedienungen.md#einstellungen) nicht abgeschaltet ist). Buchen und kassieren darfst du trotzdem; das Geld zählt für dich.
 
 ## Bestellen
 
@@ -138,6 +147,8 @@ Unten im Warenkorb stehen ein oder zwei Knöpfe. Welche, entscheidet der **Kassi
 
 Nach dem Senden bleibt der Tisch geöffnet, damit du weiter bestellen kannst. Nach dem Kassieren geht es zurück zu **Tisch öffnen**; an der Theke bleibt die leere Bestellansicht stehen.
 
+Mit [Cloud-TSE](./integrationen/cloud-tse.md) bekommen Küche und Theke ihren Bon erst, wenn der Vorgang in der TSE abgesichert ist – siehe [Bon und Cloud-TSE](#tse).
+
 ### Offene Bestellungen an der Theke
 
 Wird **auf Deckel gebucht** und ohne Tisch verkauft (Feste Kasse oder Thekenbetrieb), gibt es keine Tische, unter denen offene Bestellungen stehen. Dafür gibt es im Menü und am Warenkorb **Offene Bestellungen**: eine Liste aller offenen Bestellungen ohne Tisch. Du wählst eine oder mehrere aus und kassierst sie zusammen.
@@ -158,7 +169,7 @@ Welche Zahlarten es gibt, hängt von der [Betriebsart](./betriebsarten.md) deine
 
 - **Gegeben** über den Ziffernblock eintippen oder eine **Schnellwahl** antippen: **Passend** oder die nächsten runden Beträge.
 - Die Kasse zeigt das **Rückgeld** — oder in Rot, was noch fehlt.
-- Ist eine Kassenlade angeschlossen, öffnet sie sich, sobald Bar gewählt ist.
+- Ist dem Gerät eine [Kassenschublade](./geraete.md#drucker) zugewiesen, öffnet sie sich, sobald Bar gewählt ist und ein Betrag offen ist – je Vorgang einmal.
 - **Zahlung abschließen** bucht die Zahlung.
 
 In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) fehlt **Bar** ganz; die Kasse startet mit **Karte**.
@@ -166,6 +177,8 @@ In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) fehlt **Bar** gan
 ### Karte {/* #kartenzahlung */}
 
 Mit einem zugewiesenen SumUp-Kartenleser erscheint **Karte**. Du wählst ein **Trinkgeld** (kein, aufrunden, feste Beträge oder ein eigener Betrag) und tippst auf **Kartenzahlung starten**. Der Gast legt die Karte an den Leser; die Kasse wartet auf die Bestätigung. Mehr dazu unter [SumUp](./integrationen/sumup.md).
+
+Im Testmodus und solange die Veranstaltung **Geplant** ist, spricht die Kasse den Leser nicht an: **Karte** ist ausgegraut und trägt den Hinweis „Im Testmodus ohne echte Kartenzahlung“. In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) bucht die Kasse die Karte dann nur, wie ein externes Terminal, damit du den Ablauf trotzdem durchspielen kannst.
 
 :::warning[Karte bezahlt, Bestellung nicht gespeichert]
 Erst wird das Geld abgebucht, dann die Bestellung gespeichert. Scheitert das Speichern (etwa weil die Verbindung abreißt), zeigt die Kasse „Kartenzahlung erfolgreich, Bestellung nicht gespeichert“ mit der Vorgangsnummer. Tippe dann **Erneut speichern** — und **kassiere nicht noch einmal**. Der Hinweis bleibt auch nach einem Neuladen stehen.
@@ -219,6 +232,16 @@ Wechselst du den Tisch, **parkt** die Kasse den Warenkorb des alten Tisches. Kom
 Nicht gesendete Artikel liegen nur auf dem Gerät, an dem sie eingetippt wurden. Was andere Kassen sehen sollen, sendest du. Gesendete Bestellungen sind an jeder Kasse sichtbar und lassen sich dort kassieren.
 :::
 
+### Tisch übergeben {/* #tisch-uebergeben */}
+
+Arbeitet die Kasse mit [Bedienungen](./bedienungen.md) und geht jemand nach Hause, übernimmt eine andere Bedienung den Tisch:
+
+1. Den Tisch öffnen. Er braucht mindestens eine gesendete, noch offene Bestellung.
+2. Im **Menü** auf **Tisch übergeben** tippen.
+3. Bei „Wer übernimmt?“ die neue Bedienung antippen. Alle offenen Bestellungen des Tisches gehen mit.
+
+Eigene Tische übergibt jede Bedienung selbst, fremde nur eine Schichtleitung oder ein Admin. Mehr unter [Tischübergabe](./bedienungen.md#tischuebergabe).
+
 ## Anmelden und sperren {/* #pin-und-sperre */}
 
 Steht das Gerät auf **Gemeinsame Kasse** ([Geräte](./geraete.md#pin-und-sperre)), meldet sich vor dem Buchen jede Person mit ihrer PIN an. So ist bei jeder Bestellung und Zahlung klar, wer sie gebucht hat. Die PINs gehören zu [Bedienungen](./bedienungen.md) oder zu [Mitgliedern](./mitglieder.md).
@@ -231,7 +254,7 @@ Steht das Gerät auf **Gemeinsame Kasse** ([Geräte](./geraete.md#pin-und-sperre
 - **Offline** — Entsperren geht nicht: „Keine Verbindung – Entsperren ist erst wieder online möglich“. Ein kurzer Verbindungsabbruch meldet niemanden ab.
 - **Falsche PINs** — Nach 5 Fehlversuchen ist die PIN-Eingabe 30 Sekunden gesperrt, nach 10 fünf Minuten, nach 20 bis ein Admin sie freigibt ([Falsche PINs](./bedienungen.md#fehlversuche)).
 
-Bei **Feste Bedienung** gibt es keinen PIN-Bildschirm; der Chip zeigt die Bedienung, der das Gerät gehört. Bei **Ohne Bedienung** gibt es weder Chip noch Sperre.
+Bei **Feste Bedienung** gibt es keinen PIN-Bildschirm; der Chip zeigt die Bedienung, der das Gerät gehört, und öffnet **Mein Zwischenstand**. Wechseln und Sperren gibt es dort nicht. Bei **Ohne Bedienung** gibt es weder Chip noch Sperre.
 
 ### Storno mit Freigabe {/* #freigabe */}
 
@@ -239,7 +262,20 @@ Wer das Recht **Stornieren & Erstatten** hat, storniert und erstattet im [Bestel
 
 ## Bestellverlauf {/* #bestellverlauf */}
 
-Im **Menü** öffnet **Bestellverlauf** die Bestellungen der laufenden Veranstaltung, filterbar nach **Alle**, **Offen**, **Abgeschlossen** und **Storniert**. Dort kannst du Küchenbons **nachdrucken**, mit **Beleg** den Kassenbeleg als QR-Code, per E-Mail oder gedruckt ausgeben (auch einen [Bewirtungsbeleg](./bewirtungsbeleg.md)) und eine Bestellung **stornieren** (mit optionalem Grund).
+Im **Menü** öffnet **Bestellverlauf** die Bestellungen der laufenden Veranstaltung, nach Tagen gruppiert, die neuesten oben.
+
+- **Suche** nach Nummer, Tisch oder Produkt.
+- **Status:** **Alle**, **In Küche**, **Fertig**, **Offen – nicht bezahlt**, **Abgeschlossen**, **Storniert** und **Erstattet**.
+- Unter **Filter**: **Zahlart**, **Kasse** (**Dieses Gerät** oder **Alle Kassen**) und **Zeitraum** (**Heute** oder **Veranstaltung**). **Filter zurücksetzen** hebt alles auf.
+
+Ein Tipp auf eine Bestellung öffnet sie mit Positionen, Zahlungen und Verlauf. Je nach Stand gibt es dort:
+
+- **Zahlung nachholen** für eine offene Bestellung,
+- **Positionen stornieren**, **Stornieren & erstatten** und **Erstatten** (teilweise nach Positionen, als Betrag oder alles) – mit Grund und, je nach [Geräte-Einstellung](./geraete.md#storno-erstatten), nur mit Freigabe,
+- **Beleg**, um den Kassenbeleg erneut als QR-Code, per E-Mail oder gedruckt auszugeben – auch als [Bewirtungsbeleg](./bewirtungsbeleg.md) (siehe [Beleg ausgeben](#beleg)),
+- **Küchenbon** und bei Erstattungen **Gegenbeleg** zum Nachdrucken.
+
+Ist schon eine Position in der Küche begonnen, fragt die Kasse vor dem Stornieren nach („Küche hat schon begonnen – trotzdem stornieren?“).
 
 ## Pfand {/* #pfand */}
 
@@ -250,9 +286,32 @@ Für zurückgebrachte Becher oder Flaschen gibt es die **Pfand-Rückgabe** (Men�
 - **Auszahlen** — der Gast bekommt das Geld bar zurück, die Kassenlade öffnet sich, oder
 - **Verrechnen** — der Betrag wird vom aktuellen Warenkorb abgezogen (nur, wenn gerade etwas im Warenkorb liegt).
 
-Nach dem **Auszahlen** zeigt die Kasse den Beleg der Rückgabe mit Belegnummer. Er wird wie der Kassenbon gedruckt: automatisch, wenn Kassenbons nach der Zahlung gedruckt werden (dann gibt es **Bon erneut drucken**), sonst über **Bon drucken**. Verrechnet wird nur Pfand mit demselben [Steuersatz](./pfand.md#umsatzsteuer) – ein zurückgegebener Becher (19 %) ersetzt kein Tellerpfand (7 %).
+Nach dem **Auszahlen** zeigt die Kasse **Pfand ausgezahlt** mit dem Beleg „Pfandrückgabe“ und seiner Belegnummer. Er wird wie der Kassenbon gedruckt: automatisch, wenn Kassenbons nach der Zahlung gedruckt werden (dann gibt es **Bon erneut drucken**), sonst über **Bon drucken**. Wie beim Verkauf schließt sich das Fenster nach fünf Sekunden von selbst. Verrechnet wird nur Pfand mit demselben [Steuersatz](./pfand.md#umsatzsteuer) – ein zurückgegebener Becher (19 %) ersetzt kein Tellerpfand (7 %).
 
 In der Betriebsart [Bargeldlos](./betriebsarten.md#bargeldlos) gibt es kein **Auszahlen**, nur **Verrechnen** mit neuem Pfand im selben Verkauf. In [Nur Bons](./betriebsarten.md#nur-bons) gibt es kein Pfand.
+
+## Bon und Cloud-TSE {/* #tse */}
+
+Hat deine Organisation eine aktive [Cloud-TSE](./integrationen/cloud-tse.md), sichert die Kasse jeden Vorgang in der TSE ab, bevor sie etwas druckt:
+
+- **Erst die Signatur, dann der Beleg.** Den Kassenbon – gedruckt oder digital – gibt es erst, wenn die TSE den Vorgang abgeschlossen und signiert hat. Das dauert meist nur einen Augenblick.
+- **TSE antwortet nicht.** Nach einer kurzen Wartezeit gibt die Kasse den Bon trotzdem aus, als Ausfallbeleg mit dem Vermerk **„TSE nicht erreichbar – Beleg ohne Signatur“**. Du kassierst normal weiter, siehe [Wenn die TSE ausfällt](./integrationen/cloud-tse.md#ausfall).
+- **Küchenbons erst nach der Absicherung.** Beim **Sofort kassieren** signiert die TSE die Zahlung, bevor Küche und Theke ihren Bon bekommen. Beim **Senden** – am Tisch, an der Theke auf Deckel oder bei Bestellungen aus der Verwaltung – sichert die TSE zuerst die Bestellung ab, danach druckt die Küche.
+- **Bestellbeginn.** Wurde vorher bestellt und später kassiert, steht auf dem Kassenbon zusätzlich der **Bestellbeginn**: der Zeitpunkt, zu dem die erste Bestellung in der TSE abgesichert wurde.
+- **Nachdruck.** Den Kassenbon druckst du im [Bestellverlauf](#bestellverlauf) erneut aus, auch wenn der automatische Kassenbon aus ist. Wurde schon einer gedruckt, trägt der neue den Vermerk **NACHDRUCK** und dieselben TSE-Angaben wie das Original; eine neue Signatur entsteht nicht.
+- **Signatur kommt nach dem Ausfallbeleg doch noch an.** Dann bleibt der Bon ein Ausfallbeleg. Ein Nachdruck zeigt die Signatur nur als gekennzeichneten Hinweis „Signatur nach Belegausgabe“, ohne QR-Code.
+
+Ohne Cloud-TSE druckt die Kasse Kassen- und Küchenbons wie gewohnt sofort.
+
+## Kassenbuch {/* #kassenbuch */}
+
+Nimmt deine Organisation Bargeld an, öffnet **Kassenbuch** im Menü das Bargeld dieser Kasse: **Anfangsbestand**, **Einlage**, **Entnahme** und **Kassensturz**, dazu der Soll-Bestand der Schublade. Wie das geht, steht unter [Kassenbuch](./kassenbuch.md). In den Betriebsarten „Nur Bons“ und „Bargeldlos“ fehlt der Menüpunkt.
+
+## Notfall-Support {/* #notfall-support */}
+
+Hat deine Organisation die Veranstaltung gebucht, steht im Menü während des echten Verkaufs (Phase **Aktiv**) **Notfall-Support**. Das Fenster zeigt die Telefonnummer; auf Tablet und Telefon rufst du mit **Anrufen** direkt an. Die Nummer ist nur für Störungen, die deinen Verkauf stoppen. Im Testmodus und in **Geplant** gibt es den Menüpunkt nicht. Mehr unter [Support](./support.md#notfall-support).
+
+![Notfall-Support im Kassenmenü](/img/screens/de/pos-emergency.png)
 
 ## Am Telefon und Tablet
 

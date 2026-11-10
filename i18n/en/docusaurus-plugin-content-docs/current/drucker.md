@@ -100,7 +100,7 @@ Only **ESC/POS receipt printers** work. The list therefore hides office printers
 
 The agent scans at start and every five minutes after that. **Search again** triggers a scan right away. If you also switch on **Also scan the network (port 9100)**, the agent additionally probes every address on its network on port 9100 — that finds network printers that do not announce themselves, but takes a few seconds longer.
 
-If you move a USB printer to another port or a network printer gets a new IP address, the agent usually recognises it anyway — by serial number or MAC address.
+If you move a USB printer to another port or a network printer gets a new IP address, the agent usually recognizes it anyway — by serial number or MAC address.
 
 ## Adopt a printer
 
@@ -140,12 +140,12 @@ An adopted printer only prints once something is directed at it. Three places de
 
 - **Stations** — each [station](./standorte.md) (kitchen, grill, pickup) has its printer; the kitchen tickets of the products that belong to that station via category or product end up there.
 - **Print workflows** — in the [Print Workflows](#print-workflows) tab you decide which ticket types are printed automatically and can set a fixed printer per ticket type.
-- **Till device** — in the **Printer** tab of a [device](./geraete.md#drucker) you choose the till's **default printer** (for receipts and as the fallback when no station matches) and the printer the **cash drawer** is attached to.
+- **Till device** — in the **Printer** tab of a [device](./geraete.md#drucker) you choose the till's **Default Printer** (for receipts and as the fallback when no station matches) and, under **Cash drawer**, the printer the cash drawer is attached to.
 
 ![Create station with the printer "Küche" selected](/img/screens/de/stations-dialog-printer.png)
 
 :::tip[Station printers need "1 ticket per location"]
-A station's printer is only used when the kitchen ticket in the **Print Workflows** tab runs in the mode **1 ticket per location** (or **1 ticket per product**). In the mode **1 ticket per order** the whole ticket goes to the till's default printer or the override printer — the station printers stay silent.
+A station's printer is only used when the kitchen ticket in the **Print Workflows** tab runs in the mode **1 ticket per location** (or **1 ticket per product with barcode**). In the mode **1 ticket per order** the whole ticket goes to the till's default printer or the override printer — the station printers stay silent.
 :::
 
 All of these pick lists only contain adopted printers. Discovered but not yet adopted printers do not show up there.
@@ -175,6 +175,8 @@ The **Templates** tab lets you define how receipts look — for example a kitche
 ### Waiter and device on the ticket
 
 The **Waiter** and **Device** elements (group **Order**) show on the ticket who took the order, so the kitchen or bar knows whom to ask.
+
+![Receipt editor: “Server” and “Device” elements](/img/screens/en/printers-template-waiter.png)
 
 - **Waiter** – who took the order. If the till works with [servers](./bedienungen.md), this is the first available of: who sent the round ▸ responsible server of the table ▸ signed-in member ▸ device name. Whether the short name or the full name appears is set under [Name on tickets](./bedienungen.md#einstellungen). Without servers this shows the **name of the device**; if an ordering device belongs to one person, simply name it after them under **Devices**, e.g. "Markus's phone". For orders someone creates in the admin area (without a device) it shows their name.
 - **Device** – always the name of the device the order was taken on.

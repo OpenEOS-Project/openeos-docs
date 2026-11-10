@@ -28,25 +28,27 @@ The sidebar now shows a **SumUp** entry.
 
 On the **SumUp** page:
 
-- **API key** – your SumUp API key (format `sup_sk_…`).
-- **Merchant code** – your SumUp merchant code (e.g. `MXXXXXXXX`).
-- **Affiliate key** and **App ID** – optional, only for terminal checkout via the Solo Cloud API.
+- **API Key** – your SumUp API key (format `sup_sk_…`).
+- **Merchant Code** – your SumUp merchant code (e.g. `MXXXXXXXX`).
+- **Affiliate Key** and **App ID** – optional, only for terminal checkout via the Solo Cloud API.
 
-**Test Connection** checks the details, **Save** stores them. Saved keys are only shown shortened afterwards (`****1234`).
+**Test Connection** checks the details, **Save** stores them. OpenEOS stores the API key and affiliate key encrypted and afterwards only shows them shortened (`****1234`).
 
 ![SumUp settings](/img/screens/en/integrations-sumup.png)
 
 ## 3. Pair a card reader
 
 1. Switch the reader on and connect it to the internet. It shows a pairing code.
-2. Under **Card Readers**, click **Pair Reader**, enter the pairing code and give the device a name, e.g. "Bar till".
-3. The reader appears in the list, where you can rename or remove it.
+2. Under **Card Readers**, click **Pair Reader**, enter the **Pairing Code**, enter a **Name**, e.g. "Bar till", and click **Pair**.
+3. The reader appears in the list with its status (**Paired**, **Pairing** or **Expired**). There you can rename or delete it; a deleted reader is unpaired from SumUp and has to be paired again before it can be used.
 
 ![Pair a card reader](/img/screens/en/integrations-sumup-pair.png)
 
 ## At the till
 
-Once SumUp is active and a card reader is paired, the [till](../kasse.md) offers card payment at checkout. The amount appears on the reader, and the order counts as paid as soon as SumUp confirms the payment.
+Once SumUp is active and a card reader is paired, the [till](../kasse.md#kartenzahlung) offers card payment at checkout. The amount appears on the reader, and the order counts as paid as soon as SumUp confirms the payment.
+
+While an event is in **test mode**, the till does not start real SumUp card payments: the payment method is greyed out at the till, and the SumUp page shows **Test mode active – no SumUp card payments**. Cash and manual card bookings keep working.
 
 ![Till with card payment](/img/screens/en/pos-card.png)
 

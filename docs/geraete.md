@@ -14,7 +14,7 @@ Du erreichst den Bereich über **Geräte** in der Seitenleiste.
 
 ## Gerätetypen
 
-Beim Freigeben eines Geräts legst du fest, welche Rolle es einnimmt:
+Beim Verbinden eines Geräts legst du mit dem **Gerätetyp** fest, welche Rolle es einnimmt:
 
 - **Kasse** – mobile Kasse (POS) zur Erfassung von Bestellungen.
 - **Display** – Tablet oder Bildschirm, das entweder als [Kundendisplay](#kundendisplay) den Warenkorb einer Kasse spiegelt oder als [Stationsanzeige](#kundendisplay) Bestellungen für Küche, Bar oder Ausgabe anzeigt.
@@ -29,11 +29,11 @@ Das Gerät zeigt eine Zahl, verknüpft wird sie in deinem Konto. Auf dem Gerät 
 
 1. **Auf dem Gerät** öffnest du `app.openeos.de` und wählst unten **Als Gerät verwenden (Kassen-Terminal)** — bei einem Bildschirm stattdessen **Als Anzeige verwenden (Monitor)**.
 2. Das Gerät zeigt eine **sechsstellige Zahl** am Stück (etwa `573080`), darunter einen QR-Code als zweiten Weg.
-3. **In der Verwaltung** gehst du auf **Geräte**, klickst in der Karte **Neues Gerät registrieren** auf **Gerät verbinden** und gibst die Zahl ein. Du kannst sie auch einfügen, etwa aus einer Nachricht: Leerzeichen und Bindestriche lässt OpenEOS weg.
+3. **In der Verwaltung** gehst du auf **Geräte**, klickst in der Karte **Neues Gerät registrieren** auf **Gerät verbinden**, gibst die Zahl als **Verifizierungscode** ein und klickst auf **Gerät suchen**. Du kannst die Zahl auch einfügen, etwa aus einer Nachricht: Leerzeichen und Bindestriche lässt OpenEOS weg.
 
-![Die Zahl vom Gerät eintragen und freigeben](/img/screens/de/device-verify.png)
+![Die Zahl vom Gerät eintragen und das Gerät verknüpfen](/img/screens/de/device-verify.png)
  Mit einem Telefon scannst du stattdessen den QR-Code — er führt direkt auf die Eingabemaske.
-4. Vergib einen **Namen** (z. B. „Kasse Theke 1“) und wähle den **Gerätetyp**.
+4. Bei „Gerät gefunden“ wählst du die **Organisation**, vergibst einen **Gerätenamen** (z. B. „Kasse Theke 1“), wählst den **Gerätetyp** (**Kasse** oder **Display**) und klickst auf **Verknüpfen**.
 
 Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 
@@ -43,11 +43,13 @@ Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernse
 
 Den Registrierungslink kannst du über **Kopieren** in die Zwischenablage übernehmen und z. B. per Nachricht an das Kassenpersonal verteilen.
 
-Im Freigabe-Dialog **„Gerät freigeben“** wählst du zusätzlich den **Gerätetyp** (Kasse oder Anzeige) aus – diese Auswahl wird direkt bei der Freigabe gespeichert. Kassen starten dabei automatisch im Modus „Bedienung“ (Tischservice), Displays starten als Kundendisplay. Beides kannst du später jederzeit unter **Geräte → Gerät → Einstellungen** anpassen.
+Steht ein Gerät in der Liste noch auf **Ausstehend**, gibst du es mit **Freigeben** frei: Im Dialog **Gerät freigeben** wählst du den **Gerätetyp** (Kasse oder Display) und gibst den 6-stelligen **Verifizierungscode** vom Gerät ein. Kassen starten im Betrieb „Bedienung“ (Tischservice), Displays als Kundendisplay. Beides passt du später jederzeit unter **Geräte → Gerät → Einstellungen** an.
 
 ## Geräte verwalten
 
-Registrierte Geräte erscheinen in der Liste auf der Geräte-Seite. Dort behältst du den Überblick, welche Kassen mit deiner Organisation verbunden sind, und kannst Geräte bei Bedarf wieder entfernen.
+Registrierte Geräte erscheinen in der Liste auf der Geräte-Seite mit Typ, Status (**Ausstehend**, **Verifiziert** oder **Gesperrt**) und wann sie zuletzt aktiv waren. Dort behältst du den Überblick, welche Kassen mit deiner Organisation verbunden sind, und kannst Geräte über ihr Menü **Bearbeiten**, **Sperren** bzw. **Entsperren** oder **Löschen**.
+
+Mit **Nachricht senden** über der Liste schickst du allen verbundenen Geräten eine kurze Nachricht, etwa „Küche schließt in 15 Minuten“. Als **Typ** wählst du **Info**, **Warnung**, **Erfolg** oder **Fehler**.
 
 :::warning[Freigabe erforderlich]
 Ein Gerät wird erst zur Kasse, wenn du es mit dem angezeigten Code **freigibst**. So verhinderst du, dass unbefugte Geräte Bestellungen erfassen.
@@ -69,11 +71,11 @@ Fehlt die Zuordnung, steht dort „nicht zugewiesen“ und darunter der Link **I
 
 Unter **Einstellungen** sind die Optionen nach Themen gegliedert. Was von einer Wahl abhängt, steht direkt darunter und erscheint erst, wenn die Wahl getroffen ist. Mit **Speichern** übernimmst du alles; eine Kasse oder Anzeige übernimmt die Änderung sofort, ohne neu zu laden.
 
-- **Allgemein** — **Name** und **Gerätetyp** (Kasse oder Anzeige). Der Typ bestimmt, welche Gruppen darunter erscheinen.
+- **Allgemein** — **Gerätename** und **Gerätetyp** (**Kasse** oder **Display**). Der Typ bestimmt, welche Gruppen darunter erscheinen.
 
 ### Einstellungen einer Kasse
 
-![Einstellungen einer Kasse: Betrieb mit Tischen, Zahlung und PIN](/img/screens/de/device-settings.png)
+![Einstellungen einer Kasse: Betrieb mit Tischen, Zahlung sowie Bedienung & Sicherheit](/img/screens/de/device-settings.png)
 
 | Gruppe | Was du einstellst |
 |---|---|

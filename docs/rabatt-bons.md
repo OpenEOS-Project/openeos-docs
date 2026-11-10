@@ -29,5 +29,9 @@ Du findest den Bereich über **Rabatt-Bons** in der Seitenleiste.
 Rabatt-Bons wählt das Kassenpersonal im Kassieren-Fenster unter der Zahlart **Rabatt**. Der Rabatt wird auf die Bestellung angerechnet und erscheint später in der [Auswertung](./auswertung.md). Wie das an der Kasse aussieht, steht unter [Kasse](./kasse.md#kassieren). In der Betriebsart [Nur Bons](./betriebsarten.md#nur-bons) gibt es keine Rabatt-Bons.
 
 :::tip[Typische Anwendungsfälle]
-Rabatt-Bons eignen sich z. B. für Helferbons, Sponsoren-Gutscheine oder Sonderaktionen während des Festes.
+Rabatt-Bons eignen sich z. B. für Helferbons, Freigetränke für Sponsoren oder Sonderaktionen während des Festes.
+:::
+
+:::warning[Nur für kostenlos ausgegebene Bons]
+Ein Rabatt-Bon mindert den Preis (DSFinV-K „Rabatt“); er ist keine Zahlart. Verwende ihn nur für Bons, die dein Verein verschenkt. **Verkaufte** Wertmarken oder Gutscheine sind steuerlich etwas anderes und gehören nicht als Rabatt in die Kasse; OpenEOS hat dafür keine eigene Funktion. Was das für die Betriebsarten ohne TSE bedeutet, steht unter [Wertmarken und Gutscheine](./betriebsarten.md#wertmarken). Das ist keine Steuerberatung.
 :::

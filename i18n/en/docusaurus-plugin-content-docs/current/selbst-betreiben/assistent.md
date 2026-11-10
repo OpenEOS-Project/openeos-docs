@@ -8,7 +8,7 @@ description: Menu import and icon suggestions on your own server – provider, k
 
 The [assistant](../assistent.md) (menu import, icon suggestions) is
 **optional** in self-hosted mode and off by default. It needs an external
-provider that analyses the menus — you store your own key for it on the
+provider that analyzes the menus — you store your own key for it on the
 server. Without a provider the UI shows **Not set up** under
 **Settings → Organization → Assistant**, and everything else works as
 before.
@@ -22,7 +22,7 @@ admin switches the features on.
 
 ## Choosing a provider
 
-`AI_PROVIDER` in the environment of `openeos-api` selects the mode:
+`AI_PROVIDER` in the environment of `openeos-api` selects the provider:
 
 | Value | Meaning |
 |---|---|
@@ -85,7 +85,7 @@ provider") — photos and pasted text always work.
 ### IONOS AI Model Hub
 
 The IONOS AI Model Hub is
-OpenAI-compatible and runs in a data centre in Berlin. The hosted service
+OpenAI-compatible and runs in a data center in Berlin. The hosted service
 on app.openeos.de uses it too, with exactly this configuration. According
 to IONOS, inputs and outputs are neither logged nor stored and are not used
 for training. `Qwen/Qwen3.8-27B`
@@ -189,7 +189,7 @@ sudo docker compose logs -f api | grep -i 'assistant\|menu-import\|ai-provider'
 | **The assistant is currently unavailable** | Key invalid, model name unknown, or the service cannot handle images or JSON schema — details in the log. |
 | **The daily quota … is used up** | `AI_MENU_IMPORTS_PER_DAY` or `AI_CLASSIFY_PER_DAY` reached; free again from midnight (Europe/Berlin). |
 | **PDF is not supported by the configured provider** | `AI_PROVIDER=openai` and `pdftoppm` is missing (running without Docker) — install `poppler-utils` or upload photos of the pages. |
-| **The PDF has … pages** | The PDF has more pages than `AI_MENU_PAGES_PER_IMPORT`. |
+| **The file has … pages** | The PDF has more pages than `AI_MENU_PAGES_PER_IMPORT`. |
 
 With reasoning models, the `openeos-api` log shows a warning with
 `finish=length` when the thinking used up the token limit — lower

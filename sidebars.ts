@@ -42,7 +42,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '5 · Nach dem Fest',
       collapsed: false,
-      items: ['auswertung', 'inventur', 'kassen-nachschau'],
+      items: ['auswertung', 'inventur', 'kassen-nachschau', 'verfahrensdokumentation'],
     },
     {
       type: 'category',
@@ -78,6 +78,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'pfand',
+        'trinkgeld',
         'rabatt-bons',
         'mitglieder',
         'bedienungen',

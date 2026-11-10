@@ -47,8 +47,8 @@ If something is missing, the till says that your club's details are missing, wit
 | Order number(s) | from the till |
 | Recipient (host) | required above 250 €, optional below |
 | Items with quantity, name and amount | from the order, deposit and discount on their own lines |
-| Net, VAT and gross per rate | for VAT-exempt clubs instead "Steuerfrei gem. § 19 UStG", without tax amounts |
-| Tip | own line, plus total including tip |
+| Net, VAT and gross per rate | for VAT-exempt clubs instead "Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)", without tax amounts |
+| Tip | own line; included in the invoice amount as on the receipt (tips to the club with VAT, to employed servers without) |
 | Payment method, payment reference if any | in the **Cashless** operating mode with the note "payment by non-cash means only" |
 | TSE details | till ID, serial number, transaction number, signature counter, times, signature, QR code; on outage the note |
 

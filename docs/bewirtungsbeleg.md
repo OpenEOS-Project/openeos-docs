@@ -47,8 +47,8 @@ Fehlt etwas, zeigt die Kasse „Für den Bewirtungsbeleg fehlen Angaben zu deine
 | Bestellnummer(n) | aus der Kasse |
 | Leistungsempfänger (Bewirtende/r) | über 250 € Pflicht, darunter freiwillig |
 | Positionen mit Menge, Bezeichnung und Betrag | aus der Bestellung, Pfand und Rabatt als eigene Zeilen |
-| Netto, Umsatzsteuer und Brutto je Steuersatz | bei steuerbefreiten Vereinen stattdessen „Steuerfrei gem. § 19 UStG“, ohne Steuerbeträge |
-| Trinkgeld | eigene Zeile, dazu „Gesamt inkl. Trinkgeld“ |
+| Netto, Umsatzsteuer und Brutto je Steuersatz | bei steuerbefreiten Vereinen stattdessen „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“, ohne Steuerbeträge |
+| Trinkgeld | eigene Zeile; im Rechnungsbetrag enthalten wie auf dem Bon (Trinkgeld an den Verein mit Umsatzsteuer, an angestellte Bedienungen ohne) |
 | Zahlart, ggf. Zahlungsreferenz | in der Betriebsart **Bargeldlos** mit dem Hinweis „Ausschließlich unbare Zahlung“ |
 | TSE-Angaben | Kassen-ID, Seriennummer, Transaktionsnummer, Signaturzähler, Zeiten, Signatur, QR-Code; bei Ausfall der Vermerk |
 

@@ -88,7 +88,7 @@ If the organization was deleted together with your account, cancel the [deletion
 
 When the export period ends we permanently delete products, settings, orders, shift plans, devices, access and memberships. What stays:
 
-- the **fiscal archive** (TSE exports, cash point closings with DSFinV-K export, signed transactions) for the legal period of ten years, available through support,
+- the **fiscal archive** (TSE exports, cash point closings with DSFinV-K export, signed transactions, [hospitality receipts](./bewirtungsbeleg.md) with their orders) for the legal period of ten years, available through support,
 - the billing of usage days (invoices) for the legal periods.
 
 ### Earlier deletion on request

@@ -36,7 +36,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '4 · Am Festtag',
       collapsed: false,
-      items: ['kasse', 'kassenbuch', 'bestellungen', 'dashboard'],
+      items: ['kasse', 'bewirtungsbeleg', 'kassenbuch', 'bestellungen', 'dashboard'],
     },
     {
       type: 'category',

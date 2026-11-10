@@ -22,8 +22,9 @@ Du findest den Bereich über **Veranstaltungen** in der Seitenleiste.
    - **Beschreibung** – optionaler Zusatztext
    - **Startdatum** und **Enddatum** – ohne Enddatum dauert die Veranstaltung einen Tag
    - **Kassiermodus** – sofort kassieren oder auf Deckel buchen, siehe [unten](#kassiermodus)
+   - **Echter Verkauf beginnt vorher** – wie viele Stunden vor dem ersten Tag echt verkauft wird, siehe [Verkaufsstart am Vorabend](#verkaufsstart)
    - **Tische** – ob und wie die Kassen nach einem Tisch fragen, siehe [unten](#tische)
-   - **Online-Shop aktivieren** – erlaubt Gästen die Online-Bestellung von Artikeln dieses Events, mit Öffnungszeiten und optionaler Servicegebühr
+   - **Online-Shop aktivieren** – erlaubt Gästen die Online-Bestellung von Artikeln dieses Events, mit **Vorverkauf im Shop**, **Öffnungszeiten** und optionaler **Servicegebühr** (siehe [Shop und QR-Bestellung](#shop-rechtliches))
 3. Klicke auf **Erstellen**.
 
 ![Veranstaltung erstellen](/img/screens/de/events-dialog.png)
@@ -59,6 +60,17 @@ Bei **Vordefinierte Tische** wählst du zusätzlich die **Bereiche für diese Ve
 Ob eine Kasse überhaupt nach dem Tisch fragt, hängt zusätzlich am Gerät: Kassen im Betriebsmodus **Feste Kasse** buchen immer an der Theke, egal was hier steht. Siehe [Geräte](./geraete.md#betriebsmodus).
 :::
 
+## Shop und QR-Bestellung: Impressum und Datenschutzhinweis {/* #shop-rechtliches */}
+
+Wer online verkauft, braucht ein Impressum und einen Datenschutzhinweis. Fehlt bei deiner Organisation eines davon, zeigt der Online-Shop zwar die Speisekarte, nimmt aber **keine Bestellungen** an – auch im Testmodus nicht. Dasselbe gilt für die Bestellung per QR-Code am Tisch.
+
+Solange etwas fehlt, steht im Veranstaltungsdialog unter **Online-Shop aktivieren** und in der Liste der Veranstaltungen (sobald ein Shop eingeschaltet ist) der Hinweis **Impressum und Datenschutzhinweis fehlen noch**:
+
+1. **Rechtliche Angaben eintragen** führt direkt zu **Einstellungen → Organisation → Rechtliche Angaben** ([Einstellungen](./einstellungen.md#rechtliche-angaben)). Dort trägst du Impressum und Datenschutzhinweis ein, jeweils als Link oder als Text.
+2. **Vorlage für den Datenschutzhinweis** öffnet unter **Rechtliches → Shop-Rechtstexte** eine Vorlage, in der Name, Anschrift und E-Mail deiner Organisation schon eingesetzt sind.
+
+Sobald beides gespeichert ist, verschwindet der Hinweis und der Shop nimmt Bestellungen an.
+
 ## Was eine Veranstaltung kostet
 
 OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nicht im Abo. Beim Anlegen steht der Betrag direkt unter dem Zeitraum, zum Beispiel:
@@ -90,9 +102,9 @@ Bereits freigeschaltete Veranstaltungen behalten die Tage und den Betrag, mit de
 
 ### Erst testen, dann bezahlen
 
-Eine neue Veranstaltung startet im **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt.
+Eine neue Veranstaltung ist zunächst **Inaktiv**. Über **Testmodus** in der Liste (oder **Testen** in der Karte [Erste Schritte](./dashboard.md#erste-schritte) im Dashboard) schaltest du sie in den **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt.
 
-Beim Freischalten werden die Testbestellungen gelöscht. Bis zum Termin bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
+Beim Freischalten werden die Testbestellungen gelöscht. Bis zum Verkaufsstart bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
 
 :::tip[Unser Rat für das erste Fest]
 Richte alles in Ruhe vorher ein und spiele im Testmodus einen Durchgang durch: eine Bestellung an der Kasse aufnehmen, auf der Küchenanzeige quittieren, einen Bon drucken. Dann weißt du am Festtag, dass die Kette steht.
@@ -109,9 +121,13 @@ Bei der Registrierung fragen wir keine Steuer- oder Rechnungsdaten ab. Erst wenn
 
 ### Bezahlen
 
-Freigeschaltet wird per **Karte oder Lastschrift**. Die Rechnung kommt automatisch per E-Mail und liegt zusätzlich unter **Rechnungen** zum Herunterladen bereit.
+Freigeschaltet wird per **Karte oder Lastschrift**:
 
-Im Bezahldialog steht auch, bis wann du kostenlos stornieren kannst.
+1. Klicke in der Liste der Veranstaltungen auf **Aktivieren**. Ist die Veranstaltung noch nicht bezahlt, öffnet sich der Dialog **Veranstaltung aktivieren** mit Preis, Rechenweg und der Frist, bis wann du kostenlos stornieren kannst.
+2. Unter **Deine Buchung** siehst du vor dem Bezahlen alles auf einen Blick: **Veranstaltung**, **Zeitraum**, **Leistung**, **Abgerechnete Tage**, gegebenenfalls **Rabatt**, **Gesamt**, den Hinweis zur Umsatzsteuer und einen Link zu den AGB.
+3. Klicke auf **Kostenpflichtig buchen**. Du wirst zur gesicherten Zahlungsseite weitergeleitet.
+
+Fehlen noch Angaben zu deiner Organisation, kommt vorher der Schritt aus [Angaben beim ersten Kauf](#pflichtangaben). Die Rechnung kommt automatisch per E-Mail und liegt zusätzlich unter **Rechnungen** zum Herunterladen bereit.
 
 Schließt du die Zahlungsseite, ohne zu bezahlen, läuft sie nach 24 Stunden ab. Die Veranstaltung ist dann wieder **nicht freigeschaltet**, und du bekommst die E-Mail „Zahlung nicht abgeschlossen“ (an die Rechnungs-E-Mail, sonst an die Administratoren). Dasselbe gilt, wenn eine Lastschrift nicht eingelöst wird — dann steht der Grund der Bank in der E-Mail, soweit bekannt. Du kannst die Veranstaltung jederzeit erneut freischalten.
 
@@ -119,8 +135,8 @@ Schließt du die Zahlungsseite, ohne zu bezahlen, läuft sie nach 24 Stunden ab.
 
 Ist für deine Organisation der Kauf **auf Rechnung** eingerichtet (das richtet das OpenEOS-Team auf Anfrage ein), läuft das Freischalten so:
 
-1. Im Freischalten-Dialog trägst du Rechnungsempfänger, Rechnungs-E-Mail und Anschrift ein. Der Dialog nennt das Zahlungsziel, zum Beispiel *zahlbar innerhalb von 14 Tagen*.
-2. Die Veranstaltung ist **sofort freigeschaltet**. Du musst nicht auf den Zahlungseingang warten.
+1. Im Dialog **Veranstaltung aktivieren** trägst du **Name/Firmierung**, **Rechnungs-E-Mail** und Anschrift ein und bestätigst, dass die Angaben stimmen. Der Dialog nennt das Zahlungsziel, zum Beispiel *zahlbar innerhalb von 14 Tagen*, und zeigt darunter die Zusammenfassung **Deine Buchung**.
+2. Nach **Kostenpflichtig buchen** ist die Veranstaltung **sofort freigeschaltet**. Du musst nicht auf den Zahlungseingang warten.
 3. Die Rechnung kommt per E-Mail an die Rechnungs-E-Mail. Ausgestellt wird sie über unseren Zahlungsdienstleister **Stripe**. Darauf stehen die Veranstaltungstage, ein Nachlass als eigene Zeile, das Fälligkeitsdatum und die Bankverbindung für die Überweisung.
 4. Du bezahlst **per Überweisung** auf die IBAN aus der Rechnung, oder über den Link **Rechnung bezahlen** online per Karte oder Lastschrift.
 
@@ -163,9 +179,19 @@ Maßgeblich ist der Beginn der Veranstaltung in der Zeitzone deiner Organisation
 
 ## Veranstaltung aktivieren
 
-Neu angelegte Veranstaltungen sind zunächst **inaktiv**. In der Tabelle findest du pro Zeile Aktions-Schaltflächen zum **Bearbeiten**, **Aktivieren**, Verwalten und **Löschen**.
+Neu angelegte Veranstaltungen sind zunächst **Inaktiv**. In der Tabelle findest du pro Zeile Symbole (die Beschriftung erscheint beim Darüberfahren):
 
-Aktiviere die gewünschte Veranstaltung – sie erscheint dann mit dem Status **AKTIV** und wird oben links in der Seitenleiste als aktives Event angezeigt. Erst danach lassen sich Produkte pflegen und Bestellungen erfassen.
+| Symbol | Was es tut |
+|---|---|
+| **Bearbeiten** | öffnet den Dialog der Veranstaltung |
+| **Shop öffnen** | öffnet den Online-Shop (nur, wenn er eingeschaltet ist) |
+| **Freischaltung** | zeigt Status und Betrag der Freischaltung und die [Stornofrist](#stornieren) (nur bei freigeschalteten Veranstaltungen) |
+| **Aktivieren** | macht die Veranstaltung aktiv; ist sie noch nicht bezahlt, öffnet sich zuerst der Dialog **Veranstaltung aktivieren** (siehe [Bezahlen](#bezahlen)) |
+| **Testmodus** | schaltet eine inaktive Veranstaltung in den Testmodus |
+| **Deaktivieren** | setzt die Veranstaltung wieder auf **Inaktiv** |
+| **Löschen** | löscht die Veranstaltung nach einer Rückfrage |
+
+Aktiviere die gewünschte Veranstaltung – sie erscheint dann mit ihrer Phase (zum Beispiel **Geplant** oder **Aktiv**) und wird oben links in der Seitenleiste als aktive Veranstaltung angezeigt. Erst danach lassen sich Produkte pflegen und Bestellungen erfassen.
 
 :::info[Immer nur ein aktives Event]
 Die aktive Veranstaltung steuert, welche Produkte an der Kasse erscheinen und welchem Event Bestellungen zugeordnet werden. Wechselst du das aktive Event, wechselt auch der Kontext in Produkten, Standorten und Inventur.
@@ -178,7 +204,7 @@ Eine freigeschaltete Veranstaltung verkauft nicht sofort und nicht unbegrenzt ec
 | Phase | Wann | Was passiert |
 |---|---|---|
 | **Testmodus** | vor dem Kauf | bis zu 25 Testbestellungen (siehe oben) |
-| **Geplant** | freigeschaltet, vor dem Verkaufsstart | Kasse, Tische und QR-Bestellung buchen **Testbestellungen** – du kannst alles in Ruhe ausprobieren. Der Shop nimmt nur mit [Vorverkauf](#vorverkauf) Bestellungen an. |
+| **Geplant** | freigeschaltet, vor dem Verkaufsstart | Kasse, Tische und QR-Bestellung buchen **Testbestellungen** (bis zu 200) – du kannst alles in Ruhe ausprobieren. Der Shop nimmt nur mit [Vorverkauf](#vorverkauf) Bestellungen an. |
 | **Aktiv** | vom Verkaufsstart bis zum Verkaufsende | echte Verkäufe |
 | **Beendet** | nach dem Verkaufsende | keine neuen Bestellungen mehr – offene Bestellungen kassieren, Tische schließen, erstatten und stornieren geht weiter; Auswertung, Exporte und Kassenbuch bleiben |
 
@@ -191,7 +217,7 @@ Echte Verkäufe beginnen **12 Stunden vor dem ersten Veranstaltungstag** (6 Uhr)
 Zum Verkaufsstart werden die Testbestellungen aus der Phase *Geplant* gelöscht – wie beim Freischalten. Deine Einrichtung bleibt, die Bestellnummern beginnen neu. Echte Bestellungen (etwa aus dem Vorverkauf) bleiben selbstverständlich.
 
 :::note[Mit Cloud-TSE nie im Vormonat]
-Nutzt du die [Cloud-TSE](integrationen/cloud-tse.md), beginnt der Verkauf frühestens am Monatsersten um 0 Uhr – eine TSE kostet jeden Monat, in dem sie läuft. Bei einem Fest am 1. gibt es dann keinen Vorabend-Verkauf am Monatsletzten.
+Nutzt du die [Cloud-TSE](./integrationen/cloud-tse.md), beginnt der Verkauf frühestens am Monatsersten um 0 Uhr – eine TSE kostet jeden Monat, in dem sie läuft. Bei einem Fest am 1. gibt es dann keinen Vorabend-Verkauf am Monatsletzten.
 :::
 
 ### Verkaufsende und Kulanz {/* #verkaufsende */}
@@ -210,6 +236,10 @@ Solange die Veranstaltung *Geplant* ist, kannst du sie verschieben (innerhalb de
 Ohne Abrechnung gelten die Phasen genauso – Testbetrieb vorher, kein Verkauf nach dem Ende –, aber ohne Grenze für Testbestellungen und ohne Sperre beim Verschieben: Verlängere einfach das Ende, wenn du weiter verkaufen willst. Mit `EVENT_DATE_PHASES=false` zählt wie früher nur der Status.
 :::
 
+## Notfall-Support {/* #notfall-support */}
+
+Hat deine Organisation eine Veranstaltung gebucht, steht über der Liste der Veranstaltungen (und im [Dashboard](./dashboard.md)) der Kasten **Notfall-Support am Veranstaltungstag** mit einer Telefonnummer – solange die Veranstaltung **Geplant** oder **Aktiv** ist. Die Nummer ist nur für kritische Störungen gedacht, etwa wenn die Kasse ausfällt; alles andere schreibst du in den Support-Chat oder per E-Mail. Im Testmodus gibt es keinen Notfall-Support. Mehr unter [Support](./support.md#notfall-support).
+
 ## Status & Datum
 
-In der Übersicht siehst du pro Veranstaltung Name, **Phase** (Testmodus, Geplant, Aktiv, Beendet oder Inaktiv) mit einem Hinweis zum Verkaufsstart bzw. -ende und den **Zeitraum**. So behältst du auch über mehrere Feste hinweg den Überblick.
+In der Übersicht siehst du pro Veranstaltung den **Namen**, in der Spalte **Status** die Phase (**Testmodus**, **Geplant**, **Aktiv**, **Beendet** oder **Inaktiv**) mit einem Hinweis zum Verkaufsstart bzw. -ende und unter **Datum** den Zeitraum. So behältst du auch über mehrere Feste hinweg den Überblick.

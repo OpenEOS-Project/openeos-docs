@@ -12,7 +12,7 @@ OpenEOS can be run entirely on your own server. This deployment mode is called
 no invoices.
 
 The source code is available under the [AGPL-3.0][agpl] on
-[GitHub](https://github.com/OpenEOS-Project). There is **no licence key,
+[GitHub](https://github.com/OpenEOS-Project). There is **no license key,
 no telemetry and no phoning home** to openeos.de — the installation keeps
 working permanently without any outbound internet connection.
 
@@ -38,20 +38,29 @@ your own repository. Without changes you can keep the default
 
 ## What Single Organization mode can do — and what it cannot
 
-**Fully included:** tills, orders, products and categories,
-stations, deposit, discount vouchers, inventory, shift plans, members with
-permissions, receipt printing via ESC/POS printers, customer and kitchen displays,
-reports and the online shop.
+**Fully included:** tills, operating modes, orders, tables, products and
+categories, stations, deposit, discount vouchers, cash book, inventory, shift
+plans, members with permissions, servers with a PIN, receipt printing via
+ESC/POS printers, customer and kitchen displays, reports, the online shop,
+webhooks, and API access and AI agents.
+
+**Optional, with your own access:** the [assistant](./assistent.md) with a
+key for an AI provider, and the Cloud TSE with your own Swissbit access
+(`TSE_PROVIDER=swissbit`, see the API README, section "Cloud-TSE").
 
 **Not included**, because it belongs to the hosted service:
 
 - Billing, Stripe, invoices — there is simply nothing to pay
 - Several organizations side by side (exactly one per installation)
-- The support chat with us
+- The support chat with us and our emergency support
 - Self-registration — accounts are created via member management
+- The manufacturer's certificate for the operating modes — you are the
+  operator yourself
+- The legal texts of openeos.de (terms, data processing agreement) — they do
+  not apply here, and you do not need the `LEGAL_*` variables
 
-These areas are hidden in the interface; the corresponding
-API endpoints respond with `404`.
+These areas are hidden in the interface; the API endpoints for billing and
+invoices respond with `404`.
 
 ## The components
 

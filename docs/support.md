@@ -10,7 +10,7 @@ Fragen, Fehlermeldungen und Wünsche erreichen uns auf zwei Wegen – feste Supp
 - **Support-Chat** in der App: Menüpunkt **Support**. Der Chat gehört zu deiner Organisation; alle Mitglieder sehen denselben Verlauf. Antworten wir, bekommst du zusätzlich eine E-Mail.
 - **E-Mail** an [hello@openeos.de](mailto:hello@openeos.de).
 
-Hat deine Organisation in den letzten zwölf Monaten eine Veranstaltung gebucht, steht oben im Chat **Priority-Support** – deine Anfragen behandeln wir dann bevorzugt.
+Hat deine Organisation in den letzten zwölf Monaten eine Veranstaltung gebucht, steht oben im Chat **Priority-Support** – deine Anfragen behandeln wir dann bevorzugt. Sonst steht dort: „Antwort in der Regel innerhalb von 1–2 Werktagen.“
 
 Hilfreich in jeder Meldung: was du tun wolltest, was stattdessen passiert ist, auf welchem Gerät, ungefähr wann – und gern ein Bildschirmfoto.
 
@@ -20,7 +20,7 @@ Für **kritische Störungen während deiner gebuchten Veranstaltung** gibt es zu
 
 **Wo du die Nummer findest:** Sobald deine Organisation eine Veranstaltung gebucht (freigeschaltet) hat, steht die Nummer
 
-- in der App unter **Support**,
+- in der App unter **Support**, oben im Kasten **Notfall-Support am Veranstaltungstag**,
 - im **Dashboard** und bei den **Veranstaltungen**, solange die Veranstaltung „Geplant“ oder „Aktiv“ ist,
 - an der **Kasse** im Menü (☰ → **Notfall-Support**), während die Veranstaltung echt verkauft – auf Tablet oder Handy rufst du von dort direkt an,
 - in der **Buchungsbestätigung** per E-Mail.

@@ -140,12 +140,12 @@ Ein übernommener Drucker druckt erst, wenn etwas an ihn gerichtet wird. Drei St
 
 - **Standorte** – jeder [Standort](./standorte.md) (Küche, Grill, Ausgabe) hat seinen Drucker; dort landen die Küchenbons der Produkte, die über Kategorie oder Produkt zu diesem Standort gehören.
 - **Bon-Workflows** – im Reiter [Bon-Workflows](#bon-workflows) bestimmst du, welche Bon-Arten automatisch gedruckt werden, und kannst je Bon-Art einen festen Drucker setzen.
-- **Kassen-Gerät** – im Reiter **Drucker** eines [Geräts](./geraete.md#drucker) wählst du den **Standarddrucker** der Kasse (für Kassenbons und als Rückfall, wenn kein Standort passt) und den Drucker, an dem die **Kassenlade** hängt.
+- **Kassen-Gerät** – im Reiter **Drucker** eines [Geräts](./geraete.md#drucker) wählst du den **Standarddrucker** der Kasse (für Kassenbons und als Rückfall, wenn kein Standort passt) und unter **Kassenschublade** den Drucker, an dem die Kassenlade hängt.
 
 ![Standort anlegen mit ausgewähltem Drucker „Küche“](/img/screens/de/stations-dialog-printer.png)
 
 :::tip[Standortdrucker brauchen „1 Bon pro Standort“]
-Der Drucker eines Standorts wird nur benutzt, wenn der Küchenbon im Reiter **Bon-Workflows** im Modus **1 Bon pro Standort** (oder **1 Bon pro Produkt**) läuft. Im Modus **1 Bon pro Bestellung** geht der ganze Bon an den Standarddrucker der Kasse bzw. den Override-Drucker – die Standortdrucker bleiben still.
+Der Drucker eines Standorts wird nur benutzt, wenn der Küchenbon im Reiter **Bon-Workflows** im Modus **1 Bon pro Standort** (oder **1 Bon pro Produkt mit Barcode**) läuft. Im Modus **1 Bon pro Bestellung** geht der ganze Bon an den Standarddrucker der Kasse bzw. den Override-Drucker – die Standortdrucker bleiben still.
 :::
 
 In all diesen Auswahllisten stehen nur übernommene Drucker. Gefundene, aber noch nicht übernommene Drucker tauchen dort nicht auf.

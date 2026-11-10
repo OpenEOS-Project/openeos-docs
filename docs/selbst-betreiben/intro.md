@@ -38,20 +38,29 @@ Standard (`https://github.com/OpenEOS-Project`) stehen lassen.
 
 ## Was der Einzelbetrieb kann — und was nicht
 
-**Vollständig enthalten:** Kassen, Bestellungen, Produkte und Kategorien,
-Standorte, Pfand, Rabatt-Bons, Inventur, Schichtpläne, Mitglieder mit
-Berechtigungen, Bondruck über ESC/POS-Drucker, Kunden- und Küchendisplays,
-Auswertungen und der Online-Shop.
+**Vollständig enthalten:** Kassen, Betriebsarten, Bestellungen, Tische,
+Produkte und Kategorien, Standorte, Pfand, Rabatt-Bons, Kassenbuch, Inventur,
+Schichtpläne, Mitglieder mit Berechtigungen, Bedienungen mit PIN, Bondruck
+über ESC/POS-Drucker, Kunden- und Küchendisplays, Auswertungen, der
+Online-Shop, Webhooks sowie API-Zugänge und KI-Agenten.
+
+**Optional, mit eigenem Zugang:** der [Assistent](./assistent.md) mit einem
+Schlüssel für einen KI-Anbieter und die Cloud-TSE mit einem eigenen
+Swissbit-Zugang (`TSE_PROVIDER=swissbit`, siehe README der API, Abschnitt
+„Cloud-TSE“).
 
 **Nicht enthalten**, weil es zum gehosteten Angebot gehört:
 
 - Abrechnung, Stripe, Rechnungen — es gibt schlicht nichts zu bezahlen
 - Mehrere Organisationen nebeneinander (genau eine je Installation)
-- Der Support-Chat zu uns
+- Der Support-Chat zu uns und unser Notfall-Support
 - Selbstregistrierung — Konten legt die Mitgliederverwaltung an
+- Die Herstellerbescheinigung zu den Betriebsarten — du bist selbst Betreiber
+- Die Rechtstexte von openeos.de (AGB, AVV) — sie gelten hier nicht, die
+  Variablen `LEGAL_*` brauchst du nicht
 
-Diese Bereiche sind in der Oberfläche ausgeblendet; die zugehörigen
-Schnittstellen antworten mit `404`.
+Diese Bereiche sind in der Oberfläche ausgeblendet; die Schnittstellen für
+Abrechnung und Rechnungen antworten mit `404`.
 
 ## Die Bestandteile
 

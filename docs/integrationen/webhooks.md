@@ -28,13 +28,17 @@ Webhooks verwalten nur **Administratoren** der Organisation. Mitglieder sehen an
 
 1. Als Administrator anmelden und **Einstellungen → Organisation → Webhooks** öffnen.
 2. **Webhook anlegen** klicken.
-3. Die **Adresse** eintragen, an die OpenEOS senden soll. Sie muss mit `https://` beginnen und öffentlich erreichbar sein (siehe [Anforderungen an die Adresse](#adresse)).
+3. Unter **Adresse (URL)** die Adresse eintragen, an die OpenEOS senden soll. Sie muss mit `https://` beginnen und öffentlich erreichbar sein (siehe [Anforderungen an die Adresse](#adresse)).
 4. Optional eine **Beschreibung** vergeben, zum Beispiel „Buchhaltung“ oder „n8n Shop-Benachrichtigung“.
-5. Die **Ereignisse** auswählen, die du bekommen willst (mindestens eins, siehe [Ereignisse](#ereignisse)). Weniger ist besser.
-6. Bei Bedarf **Testbestellungen mitsenden** und **Gästedaten mitsenden** einschalten. Beide sind zunächst aus (siehe [Testbestellungen](#testbestellungen) und [Gästedaten](#gaestedaten)).
-7. Speichern. OpenEOS zeigt jetzt das **Secret** (`whsec_…`). **Kopiere es sofort** und hinterlege es bei deinem Empfänger. Es wird genau einmal angezeigt; danach siehst du nur noch den Anfang, etwa `whsec_3fA9…`.
+5. Unter **Ereignisse** auswählen, was du bekommen willst (mindestens eins, siehe [Ereignisse](#ereignisse)). Die Ereignisse sind nach Bereichen gruppiert, etwa **Bestellungen** oder **Zahlungen und Erstattungen**; mit **Alle auswählen** bzw. **Keine** wählst du alle auf einmal. Weniger ist besser.
+6. Unter **Optionen** bei Bedarf **Testbestellungen mitsenden** und **Gästedaten mitsenden** einschalten. Beide sind zunächst aus (siehe [Testbestellungen](#testbestellungen) und [Gästedaten](#gaestedaten)). Der Schalter **Aktiv** ist an.
+7. Auf **Webhook anlegen** klicken. OpenEOS zeigt jetzt im Fenster **Webhook angelegt** das **Secret** (`whsec_…`). **Kopiere es sofort** und hinterlege es bei deinem Empfänger. Es wird genau einmal angezeigt; danach siehst du nur noch den Anfang, etwa `whsec_3fA9…`.
 
-Je Organisation sind höchstens **10 Webhooks** möglich. Jeder Webhook hat sein eigenes Secret und seine eigene Auswahl an Ereignissen.
+Je Organisation sind höchstens **10 Webhooks** möglich; über der Liste steht, wie viele du angelegt hast (etwa „2 von 10 Webhooks“). Jeder Webhook hat sein eigenes Secret und seine eigene Auswahl an Ereignissen.
+
+### Die Liste der Webhooks {/* #liste */}
+
+Die Liste unter **Einstellungen → Organisation → Webhooks** zeigt je Webhook **Adresse**, **Ereignisse**, **Status** und **Letzte Zustellung**. Der Status ist **Aktiv**, **Pausiert** oder **Automatisch deaktiviert**; schlagen Zustellungen gerade fehl, steht dort zum Beispiel „Fehler seit …“. Unter **Aktionen** findest du **Bearbeiten**, **Test senden**, **Secret erneuern**, **Zustellungen ansehen** und **Löschen**.
 
 ### Test senden {/* #test */}
 
@@ -42,14 +46,14 @@ Mit **Test senden** schickt OpenEOS sofort ein Ereignis vom Typ `ping` an die Ad
 
 ### Zustellprotokoll {/* #protokoll */}
 
-Zu jedem Webhook gibt es ein **Protokoll der Zustellungen**, das neueste oben. Je Zustellung siehst du:
+Zu jedem Webhook gibt es ein **Protokoll der Zustellungen**, das neueste oben. Du öffnest es in der Liste mit **Zustellungen ansehen**. Oben stehen Adresse, Ereignisse, Secret-Anfang und Optionen des Webhooks; die Liste filterst du nach **Status** und **Ereignis** und lädst sie mit **Aktualisieren** neu. Je Zustellung siehst du:
 
-- Ereignistyp und Event-ID,
-- den Stand: **ausstehend**, **wird zugestellt**, **zugestellt** oder **fehlgeschlagen**,
+- Ereignistyp und Zeitpunkt,
+- den Status: **Ausstehend**, **Wird gesendet**, **Zugestellt** oder **Fehlgeschlagen**,
 - die Zahl der Versuche (höchstens 8) und, falls noch einer ansteht, den Zeitpunkt des nächsten,
 - den HTTP-Status deiner Antwort, die Dauer und gegebenenfalls einen [Fehlercode](#fehler).
 
-In der Detailansicht stehen zusätzlich der genaue JSON-Body, den OpenEOS geschickt hat, der Anfang deiner Antwort (höchstens 1 KB) und jeder einzelne Versuch. Das Protokoll wird **30 Tage** aufbewahrt. Secrets landen nie darin.
+In der Detailansicht einer Zustellung stehen zusätzlich Ereignis-ID und Zustellungs-ID, unter **Inhalt (JSON)** der genaue Body, den OpenEOS geschickt hat, unter **Antwort des Empfängers** der Anfang deiner Antwort (höchstens 1 KB) und unter **Versuche** jeder einzelne Versuch. Das Protokoll wird **30 Tage** aufbewahrt. Secrets landen nie darin.
 
 ### Erneut senden {/* #erneut-senden */}
 
@@ -63,7 +67,7 @@ Erneuere das Secret sofort, wenn es in falsche Hände geraten sein könnte, zum 
 
 ### Ausschalten und löschen {/* #ausschalten */}
 
-Mit dem Schalter **Aktiv** pausierst du einen Webhook: Solange er aus ist, verschickt OpenEOS keine Ereignisse an ihn, und noch ausstehende Zustellungen enden als fehlgeschlagen (`ENDPOINT_INACTIVE`). **Löschen** entfernt den Webhook samt Protokoll; das geht nur in der App, nicht per API-Token.
+Mit dem Schalter **Aktiv** (unter **Bearbeiten → Optionen**) pausierst du einen Webhook, in der Liste steht er dann auf **Pausiert**: Solange er aus ist, verschickt OpenEOS keine Ereignisse an ihn, und noch ausstehende Zustellungen enden als fehlgeschlagen (`ENDPOINT_INACTIVE`). **Löschen** entfernt den Webhook samt Protokoll; das geht nur in der App, nicht per API-Token.
 
 ## Ereignisse {/* #ereignisse */}
 
@@ -367,7 +371,7 @@ Bestellungen – zum Beispiel aus dem Shop oder per QR-Code – können **Gäste
 Mit **Gästedaten mitsenden** übermittelt OpenEOS personenbezogene Daten deiner Gäste an die Adresse, die du einträgst. Verantwortlicher im Sinne der DSGVO ist dein Verein: Du entscheidest, wohin die Daten gehen, und bist dafür verantwortlich, dass der Empfänger sie rechtmäßig verarbeitet – etwa mit einem Auftragsverarbeitungsvertrag, wenn ein Dienstleister sie für dich verarbeitet – und wieder löscht.
 
 - Schalte die Option **nur ein, wenn der Empfänger die Daten wirklich braucht**, zum Beispiel um Gäste bei Abholung zu benachrichtigen.
-- In OpenEOS werden Gästedaten 30 Tage nach dem Ende der Veranstaltung gelöscht (siehe [Daten und Löschung](../daten-und-loeschung.md)). Was beim Empfänger angekommen ist, erfasst diese Löschung nicht.
+- In OpenEOS werden Gästedaten 30 Tage nach dem Ende der Veranstaltung gelöscht (siehe [Automatische Löschfristen](../daten-und-loeschung.md#fristen)). Was beim Empfänger angekommen ist, erfasst diese Löschung nicht.
 - Zustellungen stehen samt Body **30 Tage** im [Zustellprotokoll](#protokoll), mit eingeschalteter Option also auch die Gästedaten.
 :::
 
@@ -680,9 +684,9 @@ Schlägt die Zustellung an einen Webhook dauerhaft fehl, schaltet OpenEOS ihn ab
 - mindestens **30 Versuche in Folge** sind fehlgeschlagen, **und**
 - der erste davon liegt mindestens **24 Stunden** zurück.
 
-Der Webhook steht dann auf inaktiv mit dem Grund „zu viele Fehler“, alle Administratoren der Organisation bekommen eine **E-Mail**, und noch ausstehende Zustellungen enden als fehlgeschlagen (`ENDPOINT_INACTIVE`). Ein einzelner erfolgreicher Versuch setzt die Zählung zurück. **Test senden** und **Erneut senden** sind je ein einzelner Versuch ohne Wiederholung; schlagen sie fehl, zählt das nicht zur Fehlerserie.
+Der Webhook steht dann auf **Automatisch deaktiviert**, alle Administratoren der Organisation bekommen eine **E-Mail**, und noch ausstehende Zustellungen enden als fehlgeschlagen (`ENDPOINT_INACTIVE`). Ein einzelner erfolgreicher Versuch setzt die Zählung zurück. **Test senden** und **Erneut senden** sind je ein einzelner Versuch ohne Wiederholung; schlagen sie fehl, zählt das nicht zur Fehlerserie.
 
-Ist der Fehler bei deinem Empfänger behoben, schaltest du den Webhook in der App wieder auf **Aktiv**. Ereignisse aus der Zwischenzeit holst du über **Erneut senden** im Zustellprotokoll nach – oder über die API, wenn es viele sind.
+Ist der Fehler bei deinem Empfänger behoben, schaltest du den Webhook in der App wieder ein: auf der Seite **Zustellungen** mit **Wieder einschalten** oder unter **Bearbeiten** mit dem Schalter **Aktiv**. Die Zählung beginnt dann von vorn. Ereignisse aus der Zwischenzeit holst du über **Erneut senden** im Zustellprotokoll nach – oder über die API, wenn es viele sind.
 
 ## Anforderungen an die Adresse {/* #adresse */}
 
@@ -799,4 +803,4 @@ Beim Anlegen oder Ändern eines Webhooks kann die API außerdem antworten mit:
 - [API-Zugänge](../api-zugaenge.md) – Token anlegen, Scopes, Grenzen und Fehlerformat
 - [API-Referenz](/api) – alle Endpunkte mit Feldern und Antworten
 - [Betriebsarten](../betriebsarten.md) – was „Nur Bons“ für Beträge bedeutet
-- [Daten und Löschung](../daten-und-loeschung.md) – wie lange OpenEOS welche Daten aufbewahrt
+- [Automatische Löschfristen](../daten-und-loeschung.md#fristen) – wie lange OpenEOS welche Daten aufbewahrt

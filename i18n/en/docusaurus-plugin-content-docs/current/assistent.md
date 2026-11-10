@@ -26,9 +26,9 @@ Prices, tax rates or categories can be off – especially with hard-to-read phot
 1. Open **Settings → Organization → Assistant**.
 2. Switch on **Assistant features**.
 
-Only **admins** of the organization can switch it on or off; the change is recorded in the audit log. Afterwards everyone who may edit products sees the **Import from menu** button on the products page and the **Suggest** button in the product form.
+Only **admins** of the organization can switch it on or off; the change is recorded in the audit log. Afterwards everyone who may edit products sees the **Menu** tab (next to **CSV**) in the **Import** window on the products page and the **Suggest** button in the product form.
 
-While the assistant is off, admins see a short note with a link to the settings on the products page.
+While the assistant is off, **Import** only offers the CSV import. Admins then see the note "Want to import a menu? Switch on the assistant features first." with the link **Go to settings** on the products page.
 
 ![Settings – assistant with daily quota](/img/screens/de/settings-assistant.png)
 
@@ -45,13 +45,13 @@ To keep the assistant affordable for everyone there is a quota per organization 
 | Menu imports | 5 |
 | Icon suggestions | 500 |
 
-How much is left today is shown in the **Daily quota** section of the settings and – during an import – in the footer of the dialog ("3 imports left today"). The counter resets at midnight (German time). An import that fails does not count. Most icon suggestions are answered without contacting the provider and do not count at all.
+How much is left today is shown in the **Daily quota** section of the settings ("4 of 5 imports left today") and – during an import – in the footer of the dialog ("3 imports left today"). The counter resets at midnight (German time). An import that fails does not count. Most icon suggestions are answered without contacting the provider and do not count at all.
 
 If you host OpenEOS yourself, you set the limits.
 
 ## Privacy
 
-For these features the uploaded content – menus as photo, PDF or text, and product names – is sent to the provider of the language model and processed there. On [app.openeos.de](https://app.openeos.de) this is the **IONOS AI Model Hub** of IONOS SE: the model runs in an IONOS data centre in Berlin, and the data does not leave Germany. The following applies:
+For these features the uploaded content – menus as photo, PDF or text, and product names – is sent to the provider of the language model and processed there. On [app.openeos.de](https://app.openeos.de) this is the **IONOS AI Model Hub** of IONOS SE: the language model runs in an IONOS data center in Berlin, and the data does not leave Germany. The **Assistant** card in the settings links to the privacy policy for this. The following applies:
 
 - Only what the feature needs is sent: the menu or the product names. No orders, no revenue, no member data.
 - According to IONOS, the content is held in memory only while it is being processed. It is neither logged nor stored and is **not used for training** models.

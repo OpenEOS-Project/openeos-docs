@@ -95,7 +95,7 @@ In **Bargeldlos** stehen alle Funktionen zur Verfügung, bezahlt wird aber nur m
 
 Ohne SumUp kann die Kasse in dieser Betriebsart keine Zahlungen annehmen; abschließen lassen sich dann nur online oder vorab bezahlte Bestellungen. Das kann reichen, wenn du nur über den Shop verkaufst.
 
-Mit SumUp im [Testmodus](./veranstaltungen.md) löst die Kasse keine echte Kartenzahlung aus. Damit du den Ablauf trotzdem durchspielen kannst, bucht sie die Karte dann nur (wie ein externes Terminal).
+Mit SumUp im [Testmodus](./veranstaltungen.md) und solange die Veranstaltung [Geplant](./veranstaltungen.md#phasen) ist, löst die Kasse keine echte Kartenzahlung aus. Damit du den Ablauf trotzdem durchspielen kannst, bucht sie die Karte dann nur (wie ein externes Terminal).
 
 ## Alle Funktionen {/* #alle-funktionen */}
 
@@ -170,7 +170,7 @@ Liegt deine Organisation in Deutschland, erklärt ein Hinweis im Dashboard und i
 Wählst du in Deutschland eine andere Betriebsart, endet der Bestand. Zurück zu „Alle Funktionen“ kommst du dann nur mit aktiver TSE oder mit einer bezahlten Veranstaltung (dann folgt die TSE automatisch). Das gilt auch für unseren Support.
 :::
 
-Außerhalb Deutschlands kannst du „Alle Funktionen“ jederzeit wieder wählen. Wählst du sie dort ausdrücklich, ändert sich nichts an den Funktionen; nur der Zusatz „(Bestand)“ entfällt.
+Außerhalb Deutschlands kannst du „Alle Funktionen“ jederzeit wieder wählen. Wählst du sie dort ausdrücklich (**„Alle Funktionen“ bestätigen**, dann **Bestätigen**), ändert sich nichts an den Funktionen; nur der Zusatz „(Bestand)“ entfällt.
 
 Hattest du vorher schon etwas umgestellt, hat OpenEOS das übernommen: Der frühere bargeldlose Modus und „Deutschland ohne Bargeld“ wurden zu **Bargeldlos**, „Nur Bestellen“ wurde zu **Nur Bons**. Im Verlauf steht dazu ein Eintrag „Umstellung auf Betriebsarten“.
 

@@ -27,7 +27,13 @@ In der Übersicht siehst du pro Person Name, E-Mail, **Rolle**, freigeschaltete 
 4. Ist die Person kein Administrator, wähle über die **Berechtigungen** die freizugebenden Module aus.
 5. Klicke auf **Mitglied einladen**.
 
+Die Person bekommt eine E-Mail mit einem Link, über den sie die Einladung annimmt. Bis dahin steht sie unter **Ausstehende Einladungen**; dort schickst du die Einladung mit **Erneut senden** noch einmal oder ziehst sie mit **Einladung zurückziehen** zurück.
+
 ![Mitglied einladen](/img/screens/de/members-dialog.png)
+
+:::note[Eigene Installation]
+Betreibst du OpenEOS [selbst](./selbst-betreiben/intro.md), heißt der Knopf **Mitglied hinzufügen**. Neben **Einladen** kannst du dort als Admin **Konto direkt anlegen** wählen: Das Konto ist sofort anmeldebereit, ohne E-Mail-Versand, und du gibst das Startpasswort persönlich weiter.
+:::
 
 ## Plätze und Höchstzahl
 
@@ -55,7 +61,7 @@ Für Mitglieder lassen sich die folgenden Module einzeln freischalten:
 - **Auswertung**
 - **Inventur**
 
-Nur freigeschaltete Module erscheinen in der Navigation des jeweiligen Mitglieds. **Bestellungen** und das **Dashboard** sieht jedes Mitglied; **Rechnungen** und **Integrationen** bleiben Administratoren vorbehalten. So gibst du z. B. einer Schichtleitung nur die **Schichtpläne** frei, ohne Zugriff auf Auswertungen oder Geräte.
+Nur freigeschaltete Module erscheinen in der Navigation des jeweiligen Mitglieds. **Bestellungen** und das **Dashboard** sieht jedes Mitglied; **Kassenbuch**, **Rechnungen**, **Integrationen** sowie in den [Einstellungen](./einstellungen.md#organisation) **Zugänge** und **Webhooks** bleiben Administratoren vorbehalten. So gibst du z. B. einer Schichtleitung nur die **Schichtpläne** frei, ohne Zugriff auf Auswertungen oder Geräte.
 
 :::tip[Prinzip der minimalen Rechte]
 Vergib nur die Berechtigungen, die jemand wirklich benötigt. Den Administrator-Vollzugriff sollten nur wenige, verantwortliche Personen erhalten.

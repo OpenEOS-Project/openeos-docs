@@ -9,7 +9,7 @@ description: Kassenprofile mit PIN für Helferinnen und Helfer an gemeinsam genu
 Eine **Bedienung** ist ein Kassenprofil ohne Konto und ohne E-Mail. Es besteht aus **Name**, optional einem **Kurznamen** (höchstens 12 Zeichen), einer **Farbe**, einer **Rolle** und einer **PIN**. Damit wechseln Helferinnen und Helfer an gemeinsam genutzten Kassen in Sekunden, und jede Buchung zeigt, wer sie gebucht hat.
 
 - Bedienungen haben **keinen Zugang zur Verwaltung**. Sie melden sich nur an Kassen an.
-- Bedienungen zählen **nicht** zu den 10 [Mitgliedern](./mitglieder.md#plätze-und-höchstzahl). Technisch ist bei **200 Bedienungen** je Organisation Schluss.
+- Bedienungen zählen **nicht** zu den 10 [Mitgliedern](./mitglieder.md#plätze-und-höchstzahl). Technisch ist bei **200 Bedienungen** je Organisation Schluss; über der Liste steht, wie viele angelegt sind (etwa „12 von 200 angelegt“).
 - Eine Kasse fragt nur dann nach einer Bedienung, wenn sie unter **Geräte → Einstellungen** auf **Gemeinsame Kasse** oder **Feste Bedienung** steht, siehe [Gerätemodi](#geraetemodi).
 
 :::note[Nicht verwechseln]
@@ -68,7 +68,7 @@ Lege die Bedienungen mit **Mehrere anlegen** an, drucke direkt danach den PIN-Ze
 ## Gültig für {/* #gueltigkeit */}
 
 - **Ganze Organisation** – die Bedienung kann sich bei jeder Veranstaltung anmelden. Gut für feste Kräfte.
-- **Veranstaltung** – die Bedienung gilt nur für eine Veranstaltung. Sie kann sich nur anmelden, solange diese Veranstaltung aktiv ist oder im Testmodus steht. Sonst zeigt die Kasse „Deine PIN gilt nur für eine andere Veranstaltung.“
+- **Veranstaltung** – die Bedienung gilt nur für eine Veranstaltung. Sie kann sich nur anmelden, solange diese Veranstaltung aktiviert ist (auch in den [Phasen](./veranstaltungen.md#phasen) Geplant und Beendet) oder im Testmodus steht. Sonst zeigt die Kasse „Deine PIN gilt nur für eine andere Veranstaltung.“
 
 ## Rollen und Rechte {/* #rollen */}
 
@@ -105,7 +105,7 @@ Die Karte **Einstellungen für Bedienungen** auf der Seite sehen Administratoren
 | **Länge neuer PINs** | 4 Ziffern (Standard) oder 6 Ziffern. Gilt für PINs, die ab jetzt erzeugt werden. |
 | **Name auf Bons** | **Kurzname (wenn gesetzt)** oder **Voller Name** |
 | **Fremde Tische** | **Buchen erlaubt, mit Hinweis** oder **Buchen erlaubt, ohne Hinweis** – siehe [Tische](#tische) |
-| **Bedienungen rechnen selbst ab** | aus (Standard) oder an. Ist es an, darf sich jede Bedienung an der Kasse selbst abrechnen, siehe [Abrechnen](#abrechnen). |
+| **Abrechnen** | **Nur Schichtleitung und Admins** (Standard) oder **Bedienungen rechnen selbst ab**. Mit der zweiten Wahl darf sich jede Bedienung an der Kasse selbst abrechnen, siehe [Abrechnen](#abrechnen). |
 
 ## Gerätemodi {/* #geraetemodi */}
 
@@ -126,7 +126,7 @@ So läuft es an einer **Gemeinsamen Kasse**. Mehr zum Ablauf steht unter [Kasse]
 ### Anmelden, wechseln, sperren
 
 - Die Kasse zeigt den PIN-Bildschirm **„Wer bedient?“**. Die PIN allein reicht – sie gehört genau einer Person.
-- Nach dem Anmelden steht oben rechts ein **Chip** mit Farbe und Kurzname. Ein Tipp darauf öffnet **Wechseln**, **Sperren** und **Abmelden**, dazu **Mein Zwischenstand** und – wenn du darfst – **Abrechnen** (siehe [Abrechnung](#abrechnung)).
+- Nach dem Anmelden steht oben rechts ein **Chip** mit Farbe und Kurzname. Ein Tipp darauf öffnet **Mein Zwischenstand**, **Wechseln**, **Sperren** und **Abmelden**; für eine Schichtleitung steht dort auch **Abrechnen** (siehe [Abrechnung](#abrechnung)).
 - Beim Sperren oder Wechseln merkt sich die Kasse den nicht gesendeten Warenkorb **je Bedienung** auf diesem Gerät. Meldet sich dieselbe Person wieder an, ist er zurück. Die Kasse zeigt dazu einen Hinweis, etwa „Der Warenkorb wird für Anna gemerkt.“ Der Warenkorb liegt nur im Speicher: Nach einem Neuladen ist er weg.
 - **Automatische Sperre** nach einer Zeit ohne Berührung (Geräte-Einstellung, an gemeinsamen Kassen Standard 2 Minuten). Während einer laufenden Zahlung sperrt die Kasse nie.
 - Optional **Nach jedem Kassieren sperren** – praktisch an der Theke, damit jede Person unter ihrem eigenen Namen kassiert.
@@ -147,8 +147,8 @@ Gibt es in der ganzen Organisation auffällig viele Fehlversuche, pausiert die P
 ### Tische {/* #tische */}
 
 - Wer an einem Tisch die erste Bestellung aufnimmt (oder eine Gastbestellung bestätigt), wird die **verantwortliche Bedienung** des Tisches.
-- **Offene Tische** zeigt den Filter **Meine / Alle**. **Meine** ist voreingestellt: deine Tische und Tische, die noch niemandem gehören. Bei jedem Tisch stehen Kurzname und Farbe der verantwortlichen Bedienung.
-- Auf dem Tischplan trägt jeder Tisch die Farbe seiner verantwortlichen Bedienung.
+- **Offene Tische** zeigt an einer Gemeinsamen Kasse den Filter **Meine / Alle**. **Meine** ist voreingestellt: deine Tische und Tische, die noch niemandem gehören. Bei jedem Tisch stehen Kurzname und Farbe der verantwortlichen Bedienung.
+- Auf dem Tischplan steht an jedem offenen Tisch der Kurzname der verantwortlichen Bedienung in ihrer Farbe.
 - An einem fremden Tisch darfst du buchen und kassieren. Die Kasse zeigt dann zum Beispiel „Tisch von Anna“ (abschaltbar unter [Fremde Tische](#einstellungen)). Das Geld zählt für die Person, die kassiert.
 - Soll jemand anderes den Tisch weiterführen, übergibst du ihn, siehe [Tischübergabe](#tischuebergabe).
 
@@ -173,12 +173,11 @@ Tippe an der Kasse oben rechts auf deinen Chip und wähle **Mein Zwischenstand**
 
 | Block | Inhalt |
 |---|---|
-| **Kassiert** | je Zahlart – **Bar**, **Karte**, **Sonstige** (etwa PayPal oder online) – Betrag und Anzahl, davon Trinkgeld |
-| **Storno/Erstattungen** | was du storniert oder erstattet hast, getrennt nach bar und unbar |
-| **Pfand ausgezahlt** | Pfand, das du zurückgegeben hast |
-| **Aufgenommen** | Bestellungen, Positionen, Umsatz brutto und Rabatte – nur zur Information |
-| **Soll bar** | Barzahlungen − Bar-Erstattungen − Pfand-Auszahlungen, aufgeteilt nach Gerät, etwa „Bargeld liegt in der Schublade von Kasse 2“ |
-| **Offene Tische** | deine Tische, die noch nicht bezahlt sind, mit offenem Betrag |
+| **Kassiert** | je Zahlart – **Bar**, **Karte**, **Sonstige** (etwa PayPal oder online) – Betrag und Anzahl, dazu **Gesamt** und **davon Trinkgeld** |
+| **Storno, Erstattung, Pfand** | **Storno/Erstattung bar**, **Storno/Erstattung unbar** und **Pfand ausgezahlt** |
+| **Aufgenommen** | **Bestellungen**, **Positionen**, **Umsatz brutto** und **Rabatte** – nur zur Information |
+| **Soll bar** | Barzahlungen − Bar-Erstattungen − Pfand-Auszahlungen, aufgeteilt nach Gerät, etwa „Schublade Kasse 2“ |
+| **Offene Tische** | etwa „2 offene Tische“: deine Tische, die noch nicht bezahlt sind, mit offenem Betrag |
 
 - Kassierst du an einem fremden Tisch, zählt das Geld für dich.
 - **Soll bar** ist nur ein Richtwert. Das Bargeld bleibt in der Schublade der Kasse und wird wie bisher beim [Kassensturz](./kassenbuch.md) des Geräts gezählt.
@@ -190,10 +189,10 @@ Mitglieder, die mit ihrer Mitglieds-PIN kassieren, sehen ihren Zwischenstand gen
 
 Abrechnen dürfen eine **Schichtleitung** und Administratoren:
 
-- **An der Kasse:** Chip antippen → **Abrechnen** → Bedienung wählen.
-- **In der Verwaltung:** **Bedienungen** → Zeile der Bedienung → **Abrechnen**. Hier dürfen alle, die [Bedienungen verwalten](#verwalten). Optional wählst du einen Drucker für den Bon.
+- **An der Kasse:** Chip antippen → **Abrechnen**. Bei „Wen rechnest du ab?“ die Bedienung antippen, dann auf **… abrechnen** (etwa **Anna abrechnen**) tippen.
+- **In der Verwaltung:** **Bedienungen** → in der Zeile der Bedienung das Symbol **… abrechnen**. Hier dürfen alle, die [Bedienungen verwalten](#verwalten). Unter **Bon drucken auf** wählst du einen Drucker oder **Nicht drucken**; dann auf **Abrechnen** klicken.
 
-Sich selbst abrechnen darf eine Bedienung nur, wenn die Organisation **Bedienungen rechnen selbst ab** eingeschaltet hat (siehe [Einstellungen](#einstellungen)).
+Sich selbst abrechnen darf eine Bedienung nur, wenn unter [Einstellungen](#einstellungen) bei **Abrechnen** die Wahl **Bedienungen rechnen selbst ab** gilt. Dann steht in **Mein Zwischenstand** der Knopf **Abrechnen**.
 
 Das Ergebnis ist eine **Abrechnung mit fortlaufender Nummer** je Organisation („Abrechnung Nr. 17“). Sie lässt sich nicht mehr ändern.
 
@@ -206,16 +205,16 @@ Das Ergebnis ist eine **Abrechnung mit fortlaufender Nummer** je Organisation (�
 Hat die Bedienung noch offene Tische, lässt sich nicht abrechnen. Du hast zwei Wege:
 
 1. Die Tische an jemand anderen **übergeben**, siehe [Tischübergabe](#tischuebergabe). Danach geht die Abrechnung durch.
-2. Als Schichtleitung oder Admin **Trotz offener Tische abrechnen**. Dafür ist eine Notiz Pflicht, etwa „Tisch 12 zahlt morgen“. Bon und Liste der Abrechnungen zeigen das.
+2. Als Schichtleitung oder Admin **Trotz offener Tische abrechnen (Notiz nötig)** ankreuzen. Dafür ist eine Notiz Pflicht, etwa „Tisch 12 zahlt morgen“. Bon und Liste der Abrechnungen zeigen das.
 
 ### Training und Nur Bons {/* #training */}
 
-- **Testmodus:** Buchungen aus dem Testmodus stehen getrennt unter „Training, nicht im Geld“. Eine Abrechnung mit nur Testbuchungen bekommt keine Nummer. Sie wird zusammen mit den Testbestellungen gelöscht, wenn du die Veranstaltung aktivierst.
+- **Testmodus:** Buchungen aus dem Testmodus (und aus der Phase Geplant) stehen getrennt unter „Training (nicht im Geld)“. Eine Abrechnung mit nur Testbuchungen bekommt keine Nummer („Training-Abrechnung“). Sie wird zusammen mit den Testbestellungen gelöscht, wenn du die Veranstaltung freischaltest bzw. der echte Verkauf beginnt.
 - **[Nur Bons](./betriebsarten.md#nur-bons):** Zwischenstand und Abrechnung zeigen nur Mengen (Bestellungen, Positionen), keine Beträge. Offene Tische blockieren hier nicht.
 
 ### Abrechnungen in der Verwaltung {/* #abrechnungen */}
 
-Unter **Bedienungen → Abrechnungen** stehen alle Abrechnungen der Organisation: Nr., Bedienung, Veranstaltung, Zeitraum, Kassiert, Soll bar, wer abgerechnet hat und ob **trotz offener Tische** abgerechnet wurde. Ein Klick öffnet die Einzelheiten; dort gibt es auch den **Nachdruck**.
+Auf der Seite **Bedienungen** steht unter der Liste der Abschnitt **Abrechnungen**, die neuesten zuerst: **Nr.**, **Bedienung**, **Zeitraum**, **Kassiert**, **Soll bar** und **Abgerechnet von**. Markiert ist, was **trotz offener Tische** abgerechnet wurde, und Abrechnungen aus dem **Training**. **Gültigkeit filtern** grenzt auch diese Liste auf eine Veranstaltung ein. Das Symbol **Abrechnung Nr. … ansehen** öffnet die Einzelheiten; dort wählst du einen Drucker (Standard: **Bondrucker der Kasse**) und druckst mit **Nachdruck** erneut.
 
 :::note[Kommt später]
 **Kellnerbrieftasche** (die Bedienung kassiert mit eigenem Wechselgeld und rechnet ihr Bargeld selbst ab) und die **Auszahlung von Kartentrinkgeld** fehlen noch. Beides klären wir gerade steuerlich.
@@ -225,11 +224,11 @@ Unter **Bedienungen → Abrechnungen** stehen alle Abrechnungen der Organisation
 
 Geht eine Bedienung nach Hause, übernimmt jemand anderes ihre Tische.
 
-- **An der Kasse:** In den offenen Tischen oder in der Bestellansicht auf **Übergeben…** tippen und die neue Bedienung wählen. Alle offenen Bestellungen des Tisches, die zur selben Bedienung gehören, wandern zusammen.
+- **An der Kasse:** Den Tisch öffnen und im **Menü** auf **Tisch übergeben** tippen, oder in **Mein Zwischenstand** beim offenen Tisch auf **Übergeben …**. Bei „Wer übernimmt?“ die neue Bedienung antippen. Alle offenen Bestellungen des Tisches, die zur selben Bedienung gehören, wandern zusammen.
 - **Wer darf?** Eigene Tische übergibt jede Bedienung selbst. Fremde Tische übergeben nur eine Schichtleitung oder ein Admin.
-- Die Kassen der neuen Bedienung bekommen einen Hinweis, und auf dem Tischplan wechselt die Farbe des Tisches.
-- Jede Übergabe steht im Bestellverlauf, etwa „Übergeben von Anna an Ben“.
-- **In der Verwaltung:** Vor dem Abrechnen übergibt **Offene Tische übergeben** alle offenen Tische einer Bedienung auf einmal an eine andere.
+- Die Kassen der neuen Bedienung bekommen einen Hinweis, etwa „Tisch 12 wurde dir übergeben.“, und auf dem Tischplan wechseln Kurzname und Farbe am Tisch.
+- Jede Übergabe steht im Bestellverlauf, etwa „Tisch übergeben von Anna an Ben“.
+- **In der Verwaltung:** Beim Abrechnen (Symbol **… abrechnen**) wählst du unter den offenen Tischen bei **Übergeben an …** die neue Bedienung und klickst auf **Offene Tische übergeben**. So wandern alle offenen Tische einer Bedienung auf einmal.
 
 ## Was festgehalten wird {/* #zuordnung */}
 
@@ -246,6 +245,8 @@ Auf Küchen- und Thekenbons zeigt das Element **Bedienung** ([Drucker](./drucker
 
 Für die DSFinV-K speichert OpenEOS den Namen, den die Bedienung beim Signieren hatte, als **BEDIENER**.
 
+Die Zahlen je Person zeigt der Bericht [Bedienungen](./auswertung.md#bedienungen) in der Auswertung; im [CSV-Export der Bestellungen](./bestellungen.md#als-csv-exportieren) steht die Spalte **Bedienung**.
+
 ## Datenschutz und Löschfristen {/* #datenschutz */}
 
 ### Was OpenEOS speichert
@@ -260,7 +261,7 @@ Zu einer Bedienung speichert OpenEOS:
 Keine E-Mail, keine Telefonnummer. OpenEOS wertet weder Arbeitszeiten noch Leistung je Stunde aus.
 
 :::info[Hinweis]
-Informiere dein Kassenpersonal darüber, dass Buchungen ihm zugeordnet werden, etwa per Aushang an der Kasse oder beim Ausgeben des PIN-Zettels. Das Muster für eure Datenschutzhinweise (unter **Einstellungen → Rechtliche Angaben (Shop & Helferseiten)**) hat dafür einen Abschnitt „Kassenpersonal (Bedienungen)“.
+Informiere dein Kassenpersonal darüber, dass Buchungen ihm zugeordnet werden, etwa per Aushang an der Kasse oder beim Ausgeben des PIN-Zettels. Die Vorlage für den Datenschutzhinweis deines Shops (unter **Rechtliches → Rechtstexte für deinen Shop**) hat dafür den Abschnitt „7. Kassenpersonal (Bedienungen)“.
 
 Habt ihr Beschäftigte, etwa in der Gastronomie, können der Beschäftigtendatenschutz (§ 26 BDSG) und die Mitbestimmung des Betriebsrats (§ 87 Abs. 1 Nr. 6 BetrVG) dazukommen. Das ist keine Rechtsberatung; klär das im Zweifel mit eurer Datenschutzberatung.
 :::
@@ -291,7 +292,7 @@ TSE-Daten, DSFinV-K, Kassenabschlüsse und Kassenbuch behalten den Namen, den di
 
 ### Auskunft {/* #auskunft */}
 
-Fragt eine Bedienung, was OpenEOS über sie gespeichert hat (Art. 15 DSGVO), öffnest du unter **Bedienungen** das Menü ihrer Zeile und wählst **Auskunft exportieren**. Du bekommst eine CSV-Datei mit den Stammdaten (ohne PIN), den Anmeldungen, den Abrechnungen und der Anzahl der Buchungen.
+Fragt eine Bedienung, was OpenEOS über sie gespeichert hat (Art. 15 DSGVO), klickst du unter **Bedienungen** in ihrer Zeile auf das Symbol **Auskunft über … exportieren (CSV)**. Du bekommst eine CSV-Datei mit den Stammdaten (ohne PIN), den Anmeldungen, den Abrechnungen und der Anzahl der Buchungen.
 
 ## Was noch fehlt
 

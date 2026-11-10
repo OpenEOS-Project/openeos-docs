@@ -14,9 +14,9 @@ You can reach this section via **Devices** in the sidebar.
 
 ## Device types
 
-When approving a device you decide which role it takes:
+When connecting a device you decide with the **device type** which role it takes:
 
-- **Till** – mobile till (POS) for taking orders.
+- **POS** – mobile till for taking orders.
 - **Display** – a tablet or screen that either mirrors a till's cart as a [customer display](#kundendisplay) or shows orders for the kitchen, bar or pickup as a [station display](#kundendisplay).
 
 The PC your receipt printers are attached to is not a device in this sense: you connect the **printer agent** under [Printers](./drucker.md), and it does not appear in this device list.
@@ -27,13 +27,13 @@ The PC your receipt printers are attached to is not a device in this sense: you 
 
 The device shows a number and you link it from your account. On the device itself you need neither credentials nor your organization's short name.
 
-1. **On the device**, open `app.openeos.de` and choose **Use as device (till terminal)** at the bottom — for a screen, **Use as display (monitor)** instead.
+1. **On the device**, open `app.openeos.de` and choose **Use as device (POS terminal)** at the bottom — for a screen, **Use as a display (screen)** instead.
 2. The device shows a **six-digit number** in one piece (such as `573080`), with a QR code beneath it as a second route.
-3. **In the admin area**, go to **Devices**, click **Connect device** in the **Register New Device** card and enter the number. You can also paste it, from a message for example: OpenEOS ignores spaces and dashes.
+3. **In the admin area**, go to **Devices**, click **Connect device** in the **Register New Device** card, enter the number as the **Verification Code** and click **Find Device**. You can also paste the number, from a message for example: OpenEOS ignores spaces and dashes.
 
-![Enter the number from the device and approve it](/img/screens/en/device-verify.png)
+![Enter the number from the device and link it](/img/screens/en/device-verify.png)
  With a phone, scan the QR code instead — it opens the entry form directly.
-4. Give it a **name** ("Bar till 1", say) and choose the **device type**.
+4. Under "Device found", choose the **Organization**, enter a **Device Name** ("Bar till 1", say), choose the **Device Type** (**POS** or **Display**) and click **Link**.
 
 The device then switches into the till or screen by itself.
 
@@ -41,9 +41,15 @@ The device then switches into the till or screen by itself.
 Nobody at a tablet has the organization's short name to hand, and a TV rarely has a keyboard. A six-digit number can be read out and typed in — nothing more is needed.
 :::
 
+You can copy the registration link with **Copy** and send it to your till staff, by message for example.
+
+If a device in the list is still **Pending**, approve it with **Approve**: in the **Approve Device** dialog you choose the **device type** (POS or Display) and enter the 6-digit **verification code** from the device. Tills start in *Table Service* operation, displays as a customer display. You can change both at any time under **Devices → Device → Settings**.
+
 ## Managing devices
 
-Registered devices appear in the list on the Devices page. Here you can keep track of which tills are connected to your organization and remove devices if needed.
+Registered devices appear in the list on the Devices page with their type, status (**Pending**, **Verified** or **Blocked**) and when they were last active. Here you keep track of which tills are connected to your organization, and use each device's menu to **Edit**, **Block** or **Unblock**, or **Delete** it.
+
+**Send Message** above the list sends a short message to all connected devices, such as "Kitchen closes in 15 minutes". As the **Type** you choose **Info**, **Warning**, **Success** or **Error**.
 
 :::warning[Approval required]
 A device only becomes a till once you **approve** it using the displayed code. This prevents unauthorised devices from recording orders.
@@ -65,11 +71,11 @@ If nothing is assigned yet, the tile says "not assigned", with the link **Set it
 
 Under **Settings** the options are grouped by topic. Anything that depends on a choice sits right below it and only appears once that choice is made. **Save** applies everything; a till or display picks up the change immediately, without reloading.
 
-- **General** — **Name** and **Device type** (till or display). The type decides which groups appear below.
+- **General** — **Device Name** and **Device Type** (**POS** or **Display**). The type decides which groups appear below.
 
 ### Till settings
 
-![Till settings: operation with tables, payment and PIN](/img/screens/en/device-settings.png)
+![Till settings: operation with tables, payment and servers & security](/img/screens/en/device-settings.png)
 
 | Group | What you set |
 |---|---|

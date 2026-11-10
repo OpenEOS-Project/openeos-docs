@@ -28,13 +28,17 @@ Only **administrators** of the organization manage webhooks. Members see a notic
 
 1. Sign in as an administrator and open **Settings → Organization → Webhooks**.
 2. Click **Create webhook**.
-3. Enter the **URL** OpenEOS should send to. It must start with `https://` and be publicly reachable (see [Requirements for the URL](#adresse)).
+3. Under **Address (URL)** enter the address OpenEOS should send to. It must start with `https://` and be publicly reachable (see [Requirements for the URL](#adresse)).
 4. Optionally add a **description**, for example "Bookkeeping" or "n8n shop notification".
-5. Select the **events** you want to receive (at least one, see [Events](#ereignisse)). Less is better.
-6. If needed, turn on **Include test orders** and **Include guest data**. Both start switched off (see [Test orders](#testbestellungen) and [Guest data](#gaestedaten)).
-7. Save. OpenEOS now shows the **secret** (`whsec_…`). **Copy it right away** and store it with your receiver. It is shown exactly once; afterwards you only see its beginning, such as `whsec_3fA9…`.
+5. Under **Events** select what you want to receive (at least one, see [Events](#ereignisse)). The events are grouped by area, such as **Orders** or **Payments and refunds**; **Select all** or **None** picks them all at once. Less is better.
+6. Under **Options**, turn on **Include test orders** and **Include guest data** if needed. Both start switched off (see [Test orders](#testbestellungen) and [Guest data](#gaestedaten)). The **Active** switch is on.
+7. Click **Create webhook**. OpenEOS now shows the **secret** (`whsec_…`) in the **Webhook created** window. **Copy it right away** and store it with your receiver. It is shown exactly once; afterwards you only see its beginning, such as `whsec_3fA9…`.
 
-An organization can have at most **10 webhooks**. Each webhook has its own secret and its own selection of events.
+An organization can have at most **10 webhooks**; above the list you see how many you have created (for example "2 of 10 webhooks"). Each webhook has its own secret and its own selection of events.
+
+### The list of webhooks {/* #liste */}
+
+The list under **Settings → Organization → Webhooks** shows each webhook's **Address**, **Events**, **Status** and **Last delivery**. The status is **Active**, **Paused** or **Disabled automatically**; if deliveries are currently failing, it shows for example "Failing since …". Under **Actions** you find **Edit**, **Send test**, **Rotate secret**, **View deliveries** and **Delete**.
 
 ### Send test {/* #test */}
 
@@ -42,14 +46,14 @@ An organization can have at most **10 webhooks**. Each webhook has its own secre
 
 ### Delivery log {/* #protokoll */}
 
-Every webhook has a **log of its deliveries**, newest first. For each delivery you see:
+Every webhook has a **log of its deliveries**, newest first. You open it from the list with **View deliveries**. At the top you see the webhook's address, events, secret prefix and options; you filter the list by **Status** and **Event** and reload it with **Refresh**. For each delivery you see:
 
-- the event type and event ID,
-- the state: **pending**, **delivering**, **succeeded** or **failed**,
+- the event type and time,
+- the status: **Pending**, **Sending**, **Delivered** or **Failed**,
 - the number of attempts (at most 8) and, if another one is due, when the next one runs,
 - the HTTP status of your response, the duration and, if applicable, an [error code](#fehler).
 
-The detail view also shows the exact JSON body OpenEOS sent, the beginning of your response (at most 1 KB) and every single attempt. The log is kept for **30 days**. Secrets never end up in it.
+The detail view of a delivery also shows the event ID and delivery ID, under **Payload (JSON)** the exact body OpenEOS sent, under **Receiver response** the beginning of your response (at most 1 KB) and under **Attempts** every single attempt. The log is kept for **30 days**. Secrets never end up in it.
 
 ### Redeliver {/* #erneut-senden */}
 
@@ -63,7 +67,7 @@ Rotate the secret immediately if it may have fallen into the wrong hands, for ex
 
 ### Switching off and deleting {/* #ausschalten */}
 
-The **Active** switch pauses a webhook: while it is off, OpenEOS sends no events to it, and deliveries still pending end as failed (`ENDPOINT_INACTIVE`). **Delete** removes the webhook including its log; this is only possible in the app, not with an API token.
+The **Active** switch (under **Edit → Options**) pauses a webhook, and the list then shows it as **Paused**: while it is off, OpenEOS sends no events to it, and deliveries still pending end as failed (`ENDPOINT_INACTIVE`). **Delete** removes the webhook including its log; this is only possible in the app, not with an API token.
 
 ## Events {/* #ereignisse */}
 
@@ -367,7 +371,7 @@ Orders – for example from the shop or via QR code – can contain **guest data
 With **Include guest data**, OpenEOS transmits personal data of your guests to the URL you enter. Under the GDPR, your club is the controller: you decide where the data goes, and you are responsible for the receiver processing it lawfully – for example with a data processing agreement if a service provider processes it on your behalf – and deleting it again.
 
 - Switch the option on **only if the receiver really needs the data**, for example to notify guests when their order is ready for pickup.
-- In OpenEOS, guest data is deleted 30 days after the event ends (see [Data and deletion](../daten-und-loeschung.md)). That deletion does not cover what has arrived at the receiver.
+- In OpenEOS, guest data is deleted 30 days after the event ends (see [Automatic deletion periods](../daten-und-loeschung.md#fristen)). That deletion does not cover what has arrived at the receiver.
 - Deliveries are kept in the [delivery log](#protokoll) including their body for **30 days** – with the option switched on, that includes the guest data.
 :::
 
@@ -680,9 +684,9 @@ If deliveries to a webhook keep failing, OpenEOS switches it off. That happens w
 - at least **30 attempts in a row** have failed, **and**
 - the first of them was at least **24 hours** ago.
 
-The webhook is then set to inactive with the reason "too many failures", all administrators of the organization get an **email**, and deliveries still pending end as failed (`ENDPOINT_INACTIVE`). A single successful attempt resets the count. **Send test** and **Redeliver** are a single attempt each without retries; if they fail, that does not count towards the failure streak.
+The webhook is then set to **Disabled automatically**, all administrators of the organization get an **email**, and deliveries still pending end as failed (`ENDPOINT_INACTIVE`). A single successful attempt resets the count. **Send test** and **Redeliver** are a single attempt each without retries; if they fail, that does not count towards the failure streak.
 
-Once the problem with your receiver is fixed, set the webhook back to **Active** in the app. Catch up on events from the meantime with **Redeliver** in the delivery log – or through the API if there are many.
+Once the problem with your receiver is fixed, switch the webhook back on in the app: on the **Deliveries** page with **Switch back on**, or under **Edit** with the **Active** switch. The count then starts from scratch. Catch up on events from the meantime with **Redeliver** in the delivery log – or through the API if there are many.
 
 ## Requirements for the URL {/* #adresse */}
 
@@ -799,4 +803,4 @@ When creating or changing a webhook, the API may also respond with:
 - [API access](../api-zugaenge.md) – create a token, scopes, limits and error format
 - [API reference](/en/api) – every endpoint with fields and responses
 - [Operating modes](../betriebsarten.md) – what "Orders only" means for amounts
-- [Data and deletion](../daten-und-loeschung.md) – how long OpenEOS keeps which data
+- [Automatic deletion periods](../daten-und-loeschung.md#fristen) – how long OpenEOS keeps which data

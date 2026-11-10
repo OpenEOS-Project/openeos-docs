@@ -17,6 +17,18 @@ OpenEOS bindet dafür die **Swissbit Cloud-TSE 2** an. Du brauchst keine Hardwar
 Die Cloud-TSE gibt es nur für Organisationen in Deutschland. In anderen Ländern steht die Integration als **Nur für Deutschland** im Katalog. Was dort gilt, steht unter [Österreich, Schweiz und andere Länder](../betriebsarten.md#andere-laender).
 :::
 
+## Bald verfügbar {/* #bald-verfuegbar */}
+
+Solange die Cloud-TSE angekündigt, aber auf deinem Server noch nicht freigeschaltet ist, siehst du in der App Folgendes:
+
+- Im Katalog unter **Integrationen** steht die Cloud-TSE als **Bald verfügbar**. Das Fenster zeigt statt **Aktivieren** den Hinweis „Die Cloud-TSE für Barzahlungen in Deutschland kommt in Kürze. Bis dahin kannst du „Nur Bons“ oder „Bargeldlos“ nutzen.“
+- Unter **Einstellungen → Organisation → Betriebsart** ist **Alle Funktionen** mit „Bald verfügbar – mit Cloud-TSE“ markiert und lässt sich nicht wählen.
+- Im Bezahldialog einer Veranstaltung gibt es keine Frage nach der Cloud-TSE, nur einen Hinweis **Bald verfügbar**.
+
+Arbeite bis dahin in Deutschland mit [Nur Bons](../betriebsarten.md#nur-bons) oder [Bargeldlos](../betriebsarten.md#bargeldlos). Alles Weitere auf dieser Seite gilt, sobald die Cloud-TSE verfügbar ist.
+
+Auf einer [eigenen Installation](../selbst-betreiben/intro.md) ohne Vertrag mit einem TSE-Anbieter steht die Integration dagegen als **Nicht verfügbar** im Katalog: „Auf diesem Server ist keine Cloud-TSE eingerichtet. Frag den Betreiber deiner Installation.“
+
 ## Was du brauchst
 
 - eine Organisation in **Deutschland**,

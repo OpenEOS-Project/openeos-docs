@@ -27,7 +27,13 @@ The overview shows each person's name, email address, **role**, enabled **permis
 4. If the person is not an administrator, select the modules to enable under **Permissions**.
 5. Click **Invite Member**.
 
+The person receives an email with a link to accept the invitation. Until then they are listed under **Pending Invitations**; there you send the invitation again with **Resend** or withdraw it with **Cancel Invitation**.
+
 ![Invite member](/img/screens/en/members-dialog.png)
+
+:::note[Self-hosted]
+If you run OpenEOS [yourself](./selbst-betreiben/intro.md), the button is called **Add member**. Besides **Invite**, admins can choose **Create account directly** there: the account can sign in right away, without any email, and you hand over the initial password in person.
+:::
 
 ## Seats and Maximum
 
@@ -55,7 +61,7 @@ The following modules can be enabled individually for members:
 - **Reports**
 - **Inventory**
 
-Only enabled modules appear in that member's navigation. Every member sees **Orders** and the **Dashboard**; **Invoices** and **Integrations** are reserved for administrators. For example, you can give a shift supervisor access to **Shift Plans** only, without access to reports or devices.
+Only enabled modules appear in that member's navigation. Every member sees **Orders** and the **Dashboard**; **Cash book**, **Invoices**, **Integrations** and, in the [settings](./einstellungen.md#organization), **Access** and **Webhooks** are reserved for administrators. For example, you can give a shift supervisor access to **Shift Plans** only, without access to reports or devices.
 
 :::tip[Principle of least privilege]
 Only grant the permissions someone actually needs. Administrator full access should be reserved for a small number of responsible individuals.

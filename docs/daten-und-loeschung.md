@@ -6,7 +6,7 @@ description: Konto löschen, Neuigkeiten per E-Mail abbestellen und was passiert
 
 # Konto, Newsletter und Löschung
 
-Hier steht, wie du dein Konto löschst, Neuigkeiten per E-Mail an- oder abbestellst und was mit den Daten passiert, wenn eine Organisation gelöscht wird. Die rechtlichen Grundlagen findest du in den [AGB](https://openeos.de/agb) (Ziffer 10.4, 15.10 und 20.5), im [Auftragsverarbeitungsvertrag](https://openeos.de/avv) (Ziffer 10) und in der [Datenschutzerklärung](https://openeos.de/datenschutz).
+Hier steht, wie du dein Konto löschst, Neuigkeiten per E-Mail an- oder abbestellst, was mit den Daten passiert, wenn eine Organisation gelöscht wird, und welche Daten OpenEOS [von selbst löscht](#fristen). Die rechtlichen Grundlagen findest du in den [AGB](https://openeos.de/agb) (Ziffer 10.4, 15.10 und 20.5), im [Auftragsverarbeitungsvertrag](https://openeos.de/avv) (Ziffer 10) und in der [Datenschutzerklärung](https://openeos.de/datenschutz).
 
 ## Neuigkeiten per E-Mail {/* #newsletter */}
 
@@ -94,3 +94,17 @@ Willst du nicht 30 Tage warten – zum Beispiel nach einem Wechsel zu einem ande
 ### Protokoll
 
 Jede Löschung steht ohne Inhalte im Löschprotokoll von OpenEOS: wer wann was gelöscht hat und wie viele Datensätze, aber keine Namen, E-Mail-Adressen oder Notizen. Das gilt für die automatischen Löschläufe und für Löschungen, die ihr selbst auslöst – Organisation löschen oder Löschung abbrechen, Mitglieder entfernen, Schichtanmeldungen löschen (auch zusammen mit einem Schichtplan, Job oder einer Schicht), Konto löschen. Meldet sich ein Helfer über seinen Link selbst von einer Schicht ab, steht das ebenfalls darin.
+
+## Automatische Löschfristen {/* #fristen */}
+
+Manche Daten löscht OpenEOS auf [app.openeos.de](https://app.openeos.de) nach festen Fristen von selbst, ohne dass du etwas tun musst:
+
+- **Gästedaten** (Name, Telefonnummer, E-Mail-Adresse und Anmerkungen in Bestellungen, auch aus Shop und QR-Bestellung): 30 Tage nach dem Ende der Veranstaltung. Die Bestellungen selbst bleiben für Auswertung und Steuerarchiv erhalten, nur ohne diese Angaben. Exportierst du Bestellungen später, fehlen die Gästedaten darin.
+- **Schichtanmeldungen** von Helfern (Name, Kontaktdaten, Notizen): 30 Tage nach der letzten Schicht des Schichtplans. Der Schichtplan mit seinen Schichten bleibt, zum Beispiel als Vorlage.
+- **Bedienungen**: nach den Fristen unter [Bedienungen → Automatisch löschen](./bedienungen.md#loeschfristen).
+- **Speisekarten-Importe** des [Assistenten](./assistent.md#datenschutz): hochgeladene Dateien nach spätestens 24 Stunden, der erkannte Vorschlag nach 30 Tagen.
+- **Zustellprotokoll** der [Webhooks](./integrationen/webhooks.md#protokoll): nach 30 Tagen.
+- **Support-Chat**: 12 Monate nach der letzten Nachricht und dem Ende der Nutzung.
+- **Konten ohne Organisation**, die 24 Monate nicht genutzt wurden: Wir kündigen das per E-Mail an und anonymisieren das Konto frühestens 30 Tage später. Meldest du dich vorher an, bleibt es bestehen.
+
+Organisationen ohne Buchung schließt OpenEOS nach 24 Monaten, wie unter [Organisation löschen](#organisation-loeschen) beschrieben. Was du darüber hinaus selbst exportieren willst, exportiere rechtzeitig. Wer OpenEOS selbst betreibt, legt die Fristen selbst fest.

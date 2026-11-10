@@ -10,9 +10,9 @@ import TseComingSoon from '@site/src/components/TseComingSoon';
 
 **Integrations** connect OpenEOS to other services, for example SumUp for card payments at the till. Every integration starts switched off; you only turn on what you actually need.
 
-The page is reserved for **administrators**. Members see neither the catalogue nor an integration's settings.
+The page is reserved for **administrators**. Members see neither the catalog nor an integration's settings.
 
-![Integrations catalogue](/img/screens/en/integrations.png)
+![Integrations catalog](/img/screens/en/integrations.png)
 
 ## View and activate an integration
 
@@ -30,13 +30,27 @@ Switch an integration off again with **Deactivate**, either in the same window o
 
 Your settings are kept. If you activate the integration again later, everything is set up as before.
 
+## Status in the catalog {/* #status */}
+
+Every card in the catalog shows the state of the integration:
+
+| Status | Meaning |
+|---|---|
+| **Active** | switched on and ready |
+| **Inactive** | available, but not switched on |
+| **Not set up** / **Setting up** | switched on, but not ready yet, for example a Cloud TSE that is still being created |
+| **Coming soon** | in preparation. Instead of **Activate**, the window shows a note and **Close**. |
+| **Germany only** | not available in your organization's country |
+| **Country missing** | first set your [organization's country](../betriebsarten.md#land) |
+| **Not available** | not set up on this server, for example on a self-hosted installation without a Cloud TSE |
+
 ## Available integrations
 
 | Integration | Purpose | Status |
 |---|---|---|
 | [SumUp](./sumup.md) | Card payment with SumUp card readers at the till | available |
-| Stripe | Online payments | in preparation |
-| [Cloud TSE](./cloud-tse.md) | Fiscal security under the German KassenSichV – required for cash in Germany | available (Germany only) |
+| Stripe | Online payments | Coming soon |
+| [Cloud TSE](./cloud-tse.md) | Fiscal security under the German KassenSichV – required for cash in Germany | Germany only; while it is being rolled out, the catalog lists it as **Coming soon** (see [Coming soon](./cloud-tse.md#bald-verfuegbar)) |
 
 <TseComingSoon />
 

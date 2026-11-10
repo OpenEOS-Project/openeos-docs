@@ -63,12 +63,13 @@ Im Reiter **Einstellungen** findest du:
   - **Max. Schichten pro Person** – Obergrenze (0 = unbegrenzt).
   - **Erinnerung** – so viele Tage vor der Schicht geht eine Erinnerung raus.
   - **Verifizierungs-Erinnerungen** – erinnern Helfer, die ihre E-Mail noch nicht bestätigt haben; mit **Intervall (Stunden)** und **Maximale Anzahl Erinnerungen**.
+- **Gefahrenzone** – **Plan löschen** entfernt den Plan mit allen Arbeiten, Schichten und Anmeldungen.
 
 ![Schichtplan-Einstellungen mit öffentlichem Link](/img/screens/de/shift-settings.png)
 
 ## 5. Veröffentlichen
 
-Solange der Plan im Status **Entwurf** ist, ist er nur intern sichtbar. Klicke oben rechts auf **Veröffentlichen**, um ihn freizugeben – der Status wechselt auf **Veröffentlicht** und der öffentliche Link wird aktiv. Mit **Plan schließen** nimmst du später keine Anmeldungen mehr an.
+Solange der Plan im Status **Entwurf** ist, ist er nur intern sichtbar. Klicke oben rechts auf **Veröffentlichen**, um ihn freizugeben – der Status wechselt auf **Veröffentlicht** und der öffentliche Link wird aktiv. Mit **Plan schließen** nimmst du später keine Anmeldungen mehr an; der Status wechselt dann auf **Geschlossen**.
 
 :::tip
 Veröffentliche erst, wenn Arbeiten und Schichten stehen. Änderungen sind aber auch danach jederzeit möglich.
@@ -96,10 +97,12 @@ Im Reiter **Anmeldungen** siehst du alle eingegangenen Anmeldungen, je Helfer mi
 - **Freigabe offen** – nur bei **Bestätigung erforderlich**: Mit **Bestätigen** oder **Ablehnen** entscheidest du.
 - **Bestätigt** – alles erledigt.
 
-Über die Filter oben grenzt du die Liste ein. **An alle senden** schreibt allen Helfern eine E-Mail; je Anmeldung gibt es außerdem **Bearbeiten**, **Nachricht senden** und **Löschen**. Mit **Helfer manuell eintragen** oben rechts trägst du selbst jemanden ein – auch ohne E-Mail-Adresse.
+Über die Filter oben grenzt du die Liste ein. **An alle senden** schreibt allen Helfern eine E-Mail; je Anmeldung gibt es außerdem **Anmeldung bearbeiten**, **Nachricht senden** und **Löschen**. Mit **Helfer manuell eintragen** oben rechts trägst du selbst jemanden ein – auch ohne E-Mail-Adresse.
 
 ![Anmeldungen verwalten](/img/screens/de/shift-anmeldungen.png)
 
 :::tip[Frühzeitig teilen]
 Erstelle und veröffentliche den Schichtplan rechtzeitig und verteile den öffentlichen Link (z. B. per Messenger oder E-Mail), damit sich genügend Helfer eintragen. Über die [Berechtigungen](./mitglieder.md) kannst du einer Schichtleitung gezielt nur das Modul **Schichtpläne** freigeben.
 :::
+
+Helfer, die sich hier eintragen, brauchen kein Konto und zählen nicht zu den Mitgliedern deiner Organisation. Wer an der Kasse bucht, legst du zusätzlich als [Bedienung](./bedienungen.md) an. Einen Schichtplan kann auch ein [KI-Agent](./ki-agenten.md) über einen [API-Zugang](./api-zugaenge.md) für dich aufbauen.

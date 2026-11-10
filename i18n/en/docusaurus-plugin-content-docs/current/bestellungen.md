@@ -29,19 +29,19 @@ Use the fields to narrow the list by:
 - **Status** – as at the till: in kitchen, ready, completed, open (unpaid), cancelled, partly refunded or refunded
 - **Payments** – cash, card, SumUp or discount voucher
 - **Channels** – **Table service**, **Counter** or **Online**
-- **Date range** – **From** and **To** (calendar days)
+- **Date range** – **From (date)** and **To (date)** (calendar days)
 - **Events** – by event
 
-The key metrics at the top and the export follow the same filters. Use the **Refresh** button to reload the list.
+The key metrics at the top and the export follow the same filters. Use the **Refresh** icon to reload the list.
 
 ## Export as CSV
 
-The **Export as CSV** icon (arrow down, next to *Refresh*) downloads the filtered orders as a CSV file – all matches, not just the current page. You choose between two files:
+The **Export as CSV** icon (arrow down, next to *Refresh*) downloads the filtered orders as a CSV file – all matches, not just the current page. The top of the menu tells you how many filtered orders go into the file. You choose between two files:
 
 | File | Content | Use |
 | --- | --- | --- |
 | **Orders** | one row per order: order number, daily number, date, time, event, status, channel (till, online shop, QR order), fulfilment (table, pickup), table, device, server (column "Bedienung"), item count, payment method, subtotal, discount, deposit, tip, total, paid, refunded, VAT included, test order, guest name, note | reconciling with till and bank, settlement |
-| **Line items** | one row per item: order number, date, time, event, table, product, category, variant, quantity, refunded quantity, unit price, VAT rate, deposit per unit, line total, status, station, test order, note | analysis by product, category or station, pivot tables |
+| **Line items** | one row per item: order number, date, time, event, table, product, category, variant, quantity, refunded quantity, unit price, VAT rate, deposit per unit, VAT rate of the deposit, line total, status, station, test order, note | analysis by product, category or station, pivot tables |
 
 The files are prepared for Excel in German locale: semicolon separator, UTF-8 (umlauts display correctly), decimal comma, date and time in German time (Europe/Berlin). Column headers are German. The oldest order comes first. In **Line items** the order discount is not spread over the items – discount, tip and refunds are in the **Orders** file.
 
@@ -57,7 +57,15 @@ Set the date range to the month or the event and export **Orders** – that lets
 
 ## Order Details
 
-Select an order to view its details — line items, payment method, status, and any deposit. This lets you answer queries or trace individual transactions.
+Select an order to view its details: channel and status, **Created** and **Created by** (device, server or member), table, guest and note, and the line items with **Subtotal**, **Discount**, **Deposit**, **Tip** and **Total**. Below that you find the **Payments**, the **Refunds** with receipt and reason, and the **History** of the order, with the Cloud-TSE also the TSE data. This lets you answer queries or trace individual transactions.
+
+With the **Orders** permission you can also make corrections here:
+
+- **Cancel items** – for items that have not been paid yet.
+- **Cancel & refund** – cancels paid items and refunds them in one step.
+- **Refund** – refunds by **Items**, as an **Amount** or **Everything**, without cancelling.
+
+Every refund creates a counter-receipt; **Reprint counter-receipt** prints it again. At the till the same works in the [order history](./kasse.md#bestellverlauf).
 
 :::tip[Real-time]
 Thanks to the WebSocket connection, new orders appear in near real-time. Keep the orders overview open during operations to stay on top of things.

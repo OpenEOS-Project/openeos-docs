@@ -22,7 +22,7 @@ Click **Create shift plan** (at the top of the list of shift plans). A dialog wa
 
 ![Create shift plan: choose the event](/img/screens/en/shifts-dialog.png)
 
-The top of the page shows the plan's name, status and event, with the back button on the left. The actions sit on the right as labelled buttons: while it is a draft **PDF Export** and **Publish**, once published **Copy Link**, **PDF Export** and **Close plan**. Below, the plan has four tabs: **Jobs**, **Calendar**, **Registrations** and **Settings**.
+The top of the page shows the plan's name, status and event, with the back button on the left. The actions sit on the right as labeled buttons: while it is a draft **PDF Export** and **Publish**, once published **Copy Link**, **PDF Export** and **Close plan**. Below, the plan has four tabs: **Jobs**, **Calendar**, **Registrations** and **Settings**.
 
 ## 2. Add jobs
 
@@ -63,12 +63,13 @@ The **Settings** tab contains:
   - **Max Shifts per Person** – upper limit (0 = unlimited).
   - **Reminder** – how many days before the shift a reminder goes out.
   - **Verification reminders** – remind helpers who have not confirmed their email yet; with **Interval (hours)** and **Maximum number of reminders**.
+- **Danger zone** – **Delete plan** removes the plan with all jobs, shifts and registrations.
 
 ![Shift plan settings with public link](/img/screens/en/shift-settings.png)
 
 ## 5. Publish
 
-While the plan has the status **Draft**, it is only visible internally. Click **Publish** at the top right to release it — the status changes to **Published** and the public link becomes active. Later, **Close plan** stops accepting registrations.
+While the plan has the status **Draft**, it is only visible internally. Click **Publish** at the top right to release it — the status changes to **Published** and the public link becomes active. Later, **Close plan** stops accepting registrations; the status then changes to **Closed**.
 
 :::tip
 Publish only once jobs and shifts are in place. You can still make changes afterwards at any time.
@@ -96,10 +97,12 @@ The **Registrations** tab shows all incoming registrations, each helper with the
 - **Approval pending** – only with **Require Approval**: decide with **Approve** or **Reject**.
 - **Confirmed** – all done.
 
-The filters at the top narrow the list. **Send to all** emails all helpers; each registration also offers **Edit**, **Send Message** and **Delete**. **Add helper manually** at the top right lets you sign someone up yourself — even without an email address.
+The filters at the top narrow the list. **Send to all** emails all helpers; each registration also offers **Edit registration**, **Send Message** and **Delete**. **Add helper manually** at the top right lets you sign someone up yourself — even without an email address.
 
 ![Managing registrations](/img/screens/en/shift-anmeldungen.png)
 
 :::tip[Share early]
 Create and publish the shift plan in good time and share the public link (e.g. via messenger or email) so that enough helpers sign up. Using [permissions](./mitglieder.md) you can give a shift supervisor access to the **Shift Plans** module only.
 :::
+
+Helpers who sign up here do not need an account and do not count as members of your organization. Whoever books at the till is added separately as a [server](./bedienungen.md). An [AI agent](./ki-agenten.md) can also build a shift plan for you via [API access](./api-zugaenge.md).

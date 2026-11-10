@@ -21,16 +21,16 @@ Both need only a browser and power. No keyboard, no credentials, nothing to inst
 
 The route is the same as for a till — the device shows a number, and you link it from your account.
 
-1. On the screen, open **app.openeos.de** and choose **Use as display (monitor)** at the bottom.
+1. On the screen, open **app.openeos.de** and choose **Use as a display (screen)** at the bottom.
 2. The screen shows a **six-digit number** in one piece with a QR code beneath it.
 3. On another device, sign in to OpenEOS, go to **Devices** and click **Connect device** in the **Register New Device** card.
-4. Enter the number. With a phone to hand, scan the QR code instead.
+4. Enter the number as the **Verification Code** and click **Find Device**. With a phone to hand, scan the QR code instead.
 
-![Enter the number from the device and approve it](/img/screens/en/device-verify.png)
+![Enter the number from the device and link it](/img/screens/en/device-verify.png)
 
-5. Give it a **name** (*Kitchen* or *North bar*, say) and choose the kind of screen.
+5. Enter a **Device Name** (*Kitchen* or *North bar*, say), choose **Display** as the **Device Type** and click **Link**.
 
-The screen then switches over by itself. Nothing more to do on it.
+The screen then switches over by itself. Nothing more to do on it. A new screen starts as a customer display; whether it shows a station's orders instead is set afterwards in the settings (see below).
 
 :::note[Why a number rather than credentials]
 A TV rarely has a keyboard attached, and nobody on site remembers the organization's short name. A number can be read from across the room and typed in — that is all it takes.
@@ -65,7 +65,7 @@ While nothing is being rung up, the idle message stands there. As soon as a prod
 
 ![Station screen with open and completed orders](/img/screens/en/display-station.png)
 
-New orders appear as soon as they are paid for. Only what concerns that station is shown — the kitchen does not see drinks if those belong to the bar. Which product belongs to which station is set under [Stations](./standorte.md).
+New orders appear as soon as they go to the kitchen and bar: with the **Pay immediately** [checkout mode](./veranstaltungen.md#kassiermodus) on payment, with **Run a tab** on **Send**. Only what concerns that station is shown — the kitchen does not see drinks if those belong to the bar. Which product belongs to which station is set under [Stations](./standorte.md).
 
 Orders are shown in two columns: **Table service** and **Pickup**. Every card has the same layout: at the top the number, **Rush** or **High** if needed, and how long the order has been waiting; below that, where it goes — **Table A11**, **Pickup**, **To go** or **Counter**, plus the guest's name if there is one. Then come the items with their notes.
 
@@ -80,7 +80,7 @@ Marking an item ready cannot be undone on the screen. Ready items show up at the
 
 ## Checking the connection
 
-The top right corner says whether the screen is connected. **Disconnected** means it may still show old content but is receiving nothing new.
+The top right corner says whether the screen is **Connected**. **Disconnected** (on the station display "Disconnected – reconnecting …") means it may still show old content but is receiving nothing new.
 
 If that persists:
 

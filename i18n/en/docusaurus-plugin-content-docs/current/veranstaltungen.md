@@ -22,8 +22,9 @@ You can find this section via **Events** in the sidebar.
    - **Description** — optional additional text
    - **Start date** and **End date** — without an end date the event lasts one day
    - **Checkout mode** — pay immediately or run a tab, see [below](#kassiermodus)
+   - **Real sales start earlier** — how many hours before the first day real sales start, see [Sales start the evening before](#verkaufsstart)
    - **Tables** — whether and how the tills ask for a table, see [below](#tische)
-   - **Enable online shop** — lets guests order items from this event online, with opening hours and an optional service fee
+   - **Enable online shop** — lets guests order items from this event online, with **Shop pre-sale**, **Opening hours** and an optional **Service fee** (see [Shop and QR ordering](#shop-rechtliches))
 3. Click **Create**.
 
 ![Create event](/img/screens/en/events-dialog.png)
@@ -59,6 +60,17 @@ With **Predefined tables** you also choose the **Areas for this event** — only
 Whether a till asks for a table at all also depends on the device: tills in **Counter** service mode always book at the counter, whatever is set here. See [Devices](./geraete.md#betriebsmodus).
 :::
 
+## Shop and QR ordering: imprint and privacy notice {/* #shop-rechtliches */}
+
+Anyone selling online needs an imprint and a privacy notice. If your organization is missing either of them, the online shop still shows the menu but takes **no orders** – not even in test mode. The same applies to ordering by QR code at the table.
+
+While something is missing, the event dialog under **Enable online shop** and the list of events (as soon as a shop is switched on) show the notice **Imprint and privacy notice are missing**:
+
+1. **Add legal information** takes you straight to **Settings → Organization → Legal information** ([Settings](./einstellungen.md#rechtliche-angaben)). There you enter the imprint and the privacy notice, each as a link or as text.
+2. **Privacy notice template** opens a template under **Legal → Shop legal texts** with your organization's name, address and email already filled in.
+
+Once both are saved, the notice disappears and the shop takes orders.
+
 ## What an event costs
 
 OpenEOS is billed **per event day** — not per order, and not as a subscription. The amount appears right under the date range as you create it:
@@ -90,9 +102,9 @@ Events that are already activated keep the days and the amount they were paid fo
 
 ### Test first, pay later
 
-A new event starts in **test mode**. Everything works in it — tills, screens, printers, reporting — capped at **25 orders**. That way you can run the whole thing before any money changes hands.
+A new event is **Inactive** at first. **Test Mode** in the list (or **Try it** in the [First steps](./dashboard.md#erste-schritte) card on the dashboard) switches it to **test mode**. Everything works in it — tills, screens, printers, reporting — capped at **25 orders**. That way you can run the whole thing before any money changes hands.
 
-Activating deletes the test orders. **Your setup stays**: products, categories, prices, stations, devices and printers do not have to be entered again.
+Activating deletes the test orders. Until sales start the event then stays **Planned** and you can keep testing (see [Phases](#phasen)). **Your setup stays**: products, categories, prices, stations, devices and printers do not have to be entered again.
 
 :::tip[Our advice for a first event]
 Set everything up calmly beforehand and play one round through in test mode: take an order at the till, acknowledge it on the kitchen screen, print a ticket. Then you know on the day that the chain holds.
@@ -109,9 +121,15 @@ We do not ask for tax or billing details when you register. Only when you activa
 
 ### Paying
 
-Activation is paid **by card or direct debit**. The invoice arrives by email automatically and is also available under **Invoices**.
+Activation is paid **by card or direct debit**:
 
-The payment dialog also tells you until when you can cancel free of charge.
+![Activate event: summary and “Book with obligation to pay”](/img/screens/en/events-checkout.png)
+
+1. Click **Activate** in the list of events. If the event has not been paid yet, the **Activate event** dialog opens with the price, how it is calculated and the deadline for free cancellation.
+2. Under **Your booking** you see everything at a glance before paying: **Event**, **Period**, **Service**, **Billed days**, any **Discount**, **Total**, the VAT note and a link to the terms and conditions.
+3. Click **Book with obligation to pay**. You are taken to a secure payment page.
+
+If details about your organization are still missing, the step from [Details at your first purchase](#pflichtangaben) comes first. The invoice arrives by email automatically and is also available under **Invoices**.
 
 If you close the payment page without paying, it expires after 24 hours. The event is then **not activated** again, and you get a "Payment not completed" e-mail (to the billing e-mail, otherwise to the admins). The same applies if a direct debit is returned — the e-mail then names the bank's reason where known. You can activate the event again at any time.
 
@@ -119,8 +137,8 @@ If you close the payment page without paying, it expires after 24 hours. The eve
 
 If your organization is set up to pay **by invoice** (the OpenEOS team sets this up on request), activation works like this:
 
-1. In the activation dialog you enter the invoice recipient, billing email and address. The dialog shows the payment term, for example *payable within 14 days*.
-2. The event is **activated right away**. You don't have to wait for the payment to arrive.
+1. In the **Activate event** dialog you enter **Name/Company**, **Billing email** and address and confirm that the details are correct. The dialog shows the payment term, for example *payable within 14 days*, and the **Your booking** summary below it.
+2. After **Book with obligation to pay** the event is **activated right away**. You don't have to wait for the payment to arrive.
 3. The invoice is sent to the billing email. It is issued through our payment provider **Stripe** and lists the event days, any discount as a separate line, the due date and the bank details for the transfer.
 4. You pay **by bank transfer** to the IBAN on the invoice, or online by card or direct debit via the **Pay invoice** link.
 
@@ -163,9 +181,19 @@ What counts is the start of the event in your organization's time zone: the same
 
 ## Activating an event
 
-Newly created events are initially **inactive**. In the table you will find action buttons per row for **editing**, **activating**, managing, and **deleting** an event.
+Newly created events are initially **Inactive**. In the table each row has icons (the label appears when you hover over them):
 
-Activate the desired event — it then appears with the status **Active** and is displayed as the active event in the top left of the sidebar. Only after activation can you maintain products and record orders.
+| Icon | What it does |
+|---|---|
+| **Edit** | opens the event dialog |
+| **Open shop** | opens the online shop (only if it is switched on) |
+| **Activation** | shows the status and amount of the activation and the [cancellation deadline](#stornieren) (activated events only) |
+| **Activate** | makes the event active; if it has not been paid yet, the **Activate event** dialog opens first (see [Paying](#paying)) |
+| **Test Mode** | switches an inactive event to test mode |
+| **Deactivate** | sets the event back to **Inactive** |
+| **Delete** | deletes the event after asking once more |
+
+Activate the desired event — it then appears with its phase (for example **Planned** or **Active**) and is displayed as the active event in the top left of the sidebar. Only after activation can you maintain products and record orders.
 
 :::info[Only one active event at a time]
 The active event controls which products appear at the till and which event orders are assigned to. When you switch the active event, the context in products, stations, and stock management switches with it.
@@ -173,25 +201,25 @@ The active event controls which products appear at the till and which event orde
 
 ## Phases: planned, active, ended {/* #phasen */}
 
-An unlocked event does not sell for real right away, nor forever. The current phase is shown in the event list, in the sidebar and at the till:
+An activated event does not sell for real right away, nor forever. The current phase is shown in the event list, in the sidebar and at the till:
 
 | Phase | When | What happens |
 |---|---|---|
 | **Test mode** | before purchase | up to 25 test orders (see above) |
-| **Planned** | unlocked, before sales start | till, tables and QR ordering book **test orders** – try everything at your leisure. The shop only takes orders with [pre-sale](#vorverkauf). |
+| **Planned** | activated, before sales start | till, tables and QR ordering book **test orders** (up to 200) – try everything at your leisure. The shop only takes orders with [pre-sale](#vorverkauf). |
 | **Active** | from sales start to sales end | real sales |
 | **Ended** | after sales end | no new orders – settling open orders, closing tables, refunds and cancellations keep working; reports, exports and cash book stay |
 
-For a festival on 16 and 17 November the list shows **Planned** with the hint *Starts on 15.11. at 18:00 (test operation until then)*, and the till shows *Test operation – real sales from 15.11. at 18:00*.
+For a festival on 16 and 17 November the list shows **Planned** with the hint *Starts on 15.11. at 18:00 (test operation until then)*, and the till shows *Test operation – sales don't count. Real sales from 15.11. at 18:00*.
 
 ### Sales start the evening before {/* #verkaufsstart */}
 
-Real sales start **12 hours before the first event day** (6 am) – for a festival on the 16th at 6 pm on the 15th. Under **Real sales start earlier** you can set a different lead time per event (0 to 24 hours).
+Real sales start **12 hours before the first event day** (6 am) – for a festival on the 16th at 6 pm on the 15th. That way you can already sell the evening before, for example while setting up. Under **Real sales start earlier** you can set a different lead time per event (0 to 24 hours).
 
 When sales start, the test orders from the *Planned* phase are deleted – just like at activation. Your setup stays and order numbers start over. Real orders (e.g. from pre-sale) are kept.
 
-:::note[With Cloud-TSE never in the previous month]
-If you use the [Cloud-TSE](integrationen/cloud-tse.md), sales start at midnight on the 1st at the earliest – a TSE costs every month it runs. For a festival on the 1st there is no evening-before sale on the last day of the month.
+:::note[With Cloud TSE never in the previous month]
+If you use the [Cloud TSE](./integrationen/cloud-tse.md), sales start at midnight on the 1st at the earliest – a TSE costs every month it runs. For a festival on the 1st there is no evening-before sale on the last day of the month.
 :::
 
 ### Sales end and grace period {/* #verkaufsende */}
@@ -210,6 +238,10 @@ While the event is *Planned* you can move it (within the paid days). Once sales 
 Without billing the phases apply the same way – test operation before, no sales after the end – but without a limit on test orders and without the lock on moving: simply extend the end date to keep selling. With `EVENT_DATE_PHASES=false` only the status counts, as before.
 :::
 
+## Emergency support {/* #notfall-support */}
+
+Once your organization has booked an event, the box **Emergency support on your event day** with a phone number appears above the list of events (and on the [dashboard](./dashboard.md)) – as long as the event is **Planned** or **Active**. The number is only for critical problems, for example when the till fails; for everything else use the support chat or email. There is no emergency support in test mode. More under [Support](./support.md#emergency-support).
+
 ## Status & date
 
-In the overview you can see the name, **phase** (test mode, planned, active, ended or inactive) with a hint on sales start or end, and the **date range** for each event. This keeps you on top of things even when running multiple events.
+In the overview you can see the **name** of each event, its phase in the **Status** column (**Test mode**, **Planned**, **Active**, **Ended** or **Inactive**) with a hint on sales start or end, and the date range under **Date**. This keeps you on top of things even when running multiple events.

@@ -57,12 +57,21 @@ In beiden Reitern wählst du:
 - den Schalter **Administrator** — darf alles in der Organisation
 - ohne den Schalter ein **Mitglied** — sieht nur die Module, die du unter
   **Berechtigungen** einzeln freischaltest
-  (Produkte, Veranstaltungen, Geräte, Mitglieder, Schichtpläne, Rabatt-Bons,
-  Pfand, Auswertung, Inventur)
+  (Produkte, Veranstaltungen, Geräte, Mitglieder, Bedienungen, Schichtpläne,
+  Rabatt-Bons, Pfand, Auswertung, Inventur, Bestellungen (stornieren &
+  erstatten))
 
-Für Helfer an der Kasse genügt in der Regel ein Mitglied ohne besondere
-Berechtigungen — die Kasse selbst läuft ohnehin über ein
-[gekoppeltes Gerät](/geraete), nicht über ein Benutzerkonto.
+Für Helfer an der Kasse brauchst du kein Konto: Die Kasse läuft über ein
+[gekoppeltes Gerät](../geraete.md), und wer dort bucht, legst du als
+[Bedienung](../bedienungen.md) mit PIN an.
+
+:::note[Höchstzahl Mitglieder]
+Auch im Einzelbetrieb gilt `MEMBERS_PER_ORGANIZATION_LIMIT` (Standard 10,
+aktive Mitglieder plus offene Einladungen). Nur wenn der Administrator aus
+der Ersteinrichtung Konten anlegt oder einlädt, greift sie nicht. Wie du die
+Grenze änderst, steht unter
+[Betrieb](./betrieb.md#höchstzahlen-anpassen). Bedienungen zählen nicht mit.
+:::
 
 ## Mit eigenem Mailserver
 

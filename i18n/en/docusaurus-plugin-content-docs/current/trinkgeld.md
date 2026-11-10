@@ -72,7 +72,7 @@ Tips given without a receipt – e.g. into the **tip jar** at the counter – do
 
 ## Older transactions {/* #bestand */}
 
-Until November 2026 OpenEOS always booked tips at 0 % and decided for the whole organization whether they go to the club or to the helpers (setting under **Cloud TSE → Cash register inspection**). Transactions from that time stay as they were signed. For new transactions only the server's flag counts.
+Until November 2026 OpenEOS always booked tips at 0 % and decided for the whole organization whether they go to the club or to the helpers (setting **Tips go to** under **Cloud TSE → Cash audit (Kassen-Nachschau)**). Transactions from that time stay as they were signed. For new transactions only the server's flag counts.
 
 ## See also
 

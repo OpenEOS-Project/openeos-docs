@@ -21,7 +21,8 @@ there is no choice between deployment modes, because there is only one here.
 Enter:
 
 - **First Name, Last Name, Email Address** of the administrator
-- **Password** — at least 8 characters, with an uppercase letter, a lowercase letter and a digit
+- **Password** — at least 8 characters, with an uppercase letter, a lowercase letter and a digit —
+  and the same again under **Confirm Password**
 - **Organization Name** — your club, e.g. “Testville Music Society”
 
 One click on **Complete Setup**, and the account is ready.
@@ -49,20 +50,48 @@ There is deliberately **no second level above it**. In the hosted variant
 an operator role exists above the customer; in Single Organization mode that would be
 you yourself, so the separation is dropped.
 
+That is why the technical pages are not in the sidebar. Open the user list
+with **Unlock** directly at the address `/users`, e.g.
+`http://192.168.1.50:3001/users`.
+
+## Country and operating mode
+
+The organization starts as **All features (existing)**: with cash, card and
+online payment. In the dashboard OpenEOS asks you to set your
+organization's country:
+
+1. In the **Country of your organization** notice, choose your country.
+2. Click **Set country** and confirm with **Set**.
+
+You set the country only once. You choose the operating mode under
+**Settings → Organization → Operating mode**. As the operator of your own
+installation, you are responsible for whether your till may record cash
+without a TSE in Germany. If you switch to **Orders only** or **Cashless** in
+Germany, you cannot go back to **All features** without a configured Cloud
+TSE. More under [Operating modes](../betriebsarten.md#selbst-betreiben).
+
 ## The first event
 
-Create an event under **Events** and click
-**Activate**. It is active immediately — without unlocking, without cost, without
-a cap on orders.
+Create an event under **Events** and click **Activate**. You do not need to
+unlock it — no cost, no cap on orders.
+
+If the event has a date, the same [phases](../veranstaltungen.md#phasen) apply
+as in the hosted service: until 12 hours before the first event day it is
+**Planned** and the till books test orders, here without a limit. After that
+it sells for real, and 6 hours after the last event day it is **Ended**. If
+you want to sell for longer, simply extend the end. You set these times with
+`EVENT_EARLY_START_HOURS` and `EVENT_GRACE_HOURS` in the `environment:` block
+of the `api` service; with `EVENT_DATE_PHASES=false` an active event sells for
+real immediately and without an end.
 
 **Test mode** still exists, but it has a different meaning here:
-it is not a limited trial, but a dry run. On activation,
-the orders recorded in test mode are deleted — so you can practise with the team
+it is not a limited trial, but a dry run. On activation, and once more when
+sales start, the test orders are deleted — so you can practice with the team
 without practice bookings ending up in the reports.
 
 :::warning[Is OpenEOS asking for payment?]
-If a purchase dialog or the message *„Veranstaltung ist noch nicht
-freigeschaltet“* (“event has not been unlocked yet”) appears when you activate, the installation is not running in Single Organization mode.
+If a purchase dialog or the message *"The event has not been unlocked yet.
+Please purchase it first."* appears when you activate, the installation is not running in Single Organization mode.
 Check:
 
 ```bash
@@ -77,4 +106,4 @@ It must say `"mode":"selfhosted"`. Otherwise `DEPLOYMENT_MODE` is missing — se
 
 - [Creating users](./benutzer.md) — add your team
 - Everything else — products, tills, displays — is covered in the
-  [manual](/) and applies unchanged.
+  [manual](../intro.md) and applies unchanged.

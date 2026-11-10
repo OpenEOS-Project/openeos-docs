@@ -16,13 +16,15 @@ You can reach this section via **Stations** in the sidebar. Stations relate to t
 
 1. Click **Create Station**.
 2. Enter a **name** (e.g. "Kitchen", "Grill", "Drinks counter"), optionally a description and a **color**.
-3. If needed, choose a **Handoff Station**: completed items are forwarded there, for example from the kitchen to the serving area.
-4. Choose the **printer** that prints this station's tickets. The list offers the printers you adopted under [Printers](./drucker.md).
-5. Click **Create**.
+3. If needed, choose a **Handoff Station**: completed items are forwarded there, for example from the kitchen to the serving area. **None (final station)** means the route ends here.
+4. Choose the **Printer** that prints this station's tickets, or **No printer**. The list offers the printers you adopted under [Printers](./drucker.md).
+5. Leave **Active** on and click **Create**.
 
 ![Create station](/img/screens/en/stations-dialog.png)
 
-Which products belong to a station is not set here but in the dialog of the [category](./kategorien.md) or [product](./produkte.md), in the **Station** field. A station set on the product takes precedence over the category.
+Which products belong to a station is not set here but in the dialog of the [category](./kategorien.md) or [product](./produkte.md), in the **Station** field. A station set on the product takes precedence over the category. The list shows the **Handoff Station**, **Printer**, assigned **Categories** and **Status** of each station.
+
+If you delete a station, products and categories lose their assignment to it.
 
 ## How stations work with printers and displays
 

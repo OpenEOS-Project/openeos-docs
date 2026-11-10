@@ -10,7 +10,7 @@ import TseComingSoon from '@site/src/components/TseComingSoon';
 
 Every organization works in one of three **operating modes** (Betriebsarten). The mode decides whether and how money flows through OpenEOS: not at all, only by card and online, or in cash as well. You find it under **Settings → Organization → Operating mode** (Einstellungen → Organisation → Betriebsart); as an admin you also switch it there yourself.
 
-Not to be confused with a device's **service mode** (fixed till or service), see [Devices](./geraete.md#betriebsmodus).
+Not to be confused with a device's **service mode** (Counter or Table Service), see [Devices](./geraete.md#betriebsmodus).
 
 The German names in the app are „Nur Bons“ (Orders only), „Bargeldlos“ (Cashless), „Alle Funktionen“ (All features) and „Alle Funktionen (Bestand)“ (All features, existing).
 
@@ -36,7 +36,7 @@ Organizations that existed before the operating modes keep running as **All feat
 | Prices at the till, on tickets and on the customer display | no prices | yes | yes |
 | Check out at the till | no – orders are completed with **Picked up** or **Close table** | card (SumUp) | cash and card |
 | Split bill, combined payment, tips | no | by card | in cash or by card |
-| Online shop and QR ordering | no, the shop shows “orders on site only” | with online prepayment | with online prepayment, signed with the Cloud TSE ([Online orders](#online)) |
+| Online shop and QR ordering | no, the shop shows “Orders on site only” | with online prepayment | with online prepayment, signed with the Cloud TSE ([Online orders](#online)) |
 | Refunds | no | only to card or online payment | yes |
 | [Deposits](./pfand.md) | no | only **Offset** | **Pay out** and **Offset** |
 | [Discount vouchers](./rabatt-bons.md) (free vouchers only) | no | yes | yes |
@@ -65,7 +65,7 @@ In **Orders only**, OpenEOS works purely as an order system. Your team takes ord
 - No **split bill**, no combined payments, no **tips**.
 - No **refunds**, no **cash drawer**, no receipts.
 - No **deposit** and no **discount vouchers**.
-- No orders in the **online shop** or via **QR code**. Instead of the menu and cart, the shop shows the notice “orders on site only”.
+- No orders in the **online shop** or via **QR code**. Instead of the menu and cart, the shop shows the notice “Orders on site only”.
 
 ### Completing orders {/* #abschliessen */}
 
@@ -100,7 +100,7 @@ In **Cashless** all features are available, but payment only works by card via [
 
 Without SumUp the till cannot take payments in this mode; only orders paid online or in advance can be completed. That can be enough if you only sell through the shop.
 
-With SumUp in [test mode](./veranstaltungen.md) the till triggers no real card payments. So you can still run through the flow, it then only books the card (like an external terminal).
+With SumUp in [test mode](./veranstaltungen.md) and while the event is [Planned](./veranstaltungen.md#phasen), the till triggers no real card payments. So you can still run through the flow, it then only books the card (like an external terminal).
 
 ### Without a TSE only under conditions {/* #bargeldlos-bedingungen */}
 
@@ -161,6 +161,8 @@ How to set up the TSE, what is on the receipt and what happens during an outage 
 2. Choose the new operating mode and tap **Switch to “…”**.
 3. Read the confirmation: it shows what the switch changes. Confirm with **Switch**. If, in Germany without a TSE, you cannot come back to “All features” afterwards, tick the checkbox first and confirm with **Switch for good**.
 
+![Settings → Organization → Operating mode](/img/screens/en/settings-operating-mode.png)
+
 Only admins of the organization can do this. The tills switch immediately, no reload needed. Your organization's [country](#land) must be set first.
 
 Ideally switch between two events and not while sales are running.
@@ -207,7 +209,7 @@ If your organization is in Germany, a notice in the dashboard and in the setting
 If you pick another operating mode in Germany, the existing status ends. You can then only go back to “All features” with an active TSE or a paid event (the TSE then follows automatically). The same applies to our support.
 :::
 
-Outside Germany you can choose “All features” again at any time. If you choose it explicitly there, the features stay the same; only the “(existing)” label disappears.
+Outside Germany you can choose “All features” again at any time. If you choose it explicitly there (**Confirm “All features”**, then **Confirm**), the features stay the same; only the “(existing)” label disappears.
 
 If you had already changed something before, OpenEOS carried it over: the former cashless mode and “Germany without cash” became **Cashless**, “Order only” became **Orders only**. The history shows an entry “Umstellung auf Betriebsarten” (switch to operating modes) for this.
 

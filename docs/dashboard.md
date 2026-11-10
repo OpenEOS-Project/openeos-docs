@@ -10,6 +10,15 @@ Das **Dashboard** ist deine Startseite nach der Anmeldung. Es gibt dir einen sch
 
 ![Dashboard](/img/screens/de/dashboard.png)
 
+## Erste Schritte und Hinweise {/* #erste-schritte */}
+
+Solange deine Einrichtung noch nicht fertig ist, steht oben die Karte **Erste Schritte** mit den Schritten **Veranstaltung anlegen**, **Verkauf freigeben**, **Kategorien anlegen**, **Produkte anlegen** und **Kasse freigeben**. **Los** führt jeweils zur passenden Seite, erledigte Schritte sind abgehakt. Mit **Ausblenden** schließt du die Karte.
+
+Darunter können Hinweise erscheinen:
+
+- **Land und Betriebsart** – Admins sehen hier, wenn das Land der Organisation fehlt oder die [Betriebsart](./betriebsarten.md#bestand) noch gewählt werden muss.
+- **Notfall-Support am Veranstaltungstag** – hat deine Organisation eine Veranstaltung gebucht, steht hier die Telefonnummer für kritische Störungen, solange die Veranstaltung **Geplant** oder **Aktiv** ist. Siehe [Support](./support.md#notfall-support).
+
 ## Zeitraum
 
 Oben rechts wählst du, worauf sich die Zahlen beziehen: **Heute**, **7 Tage** oder **Veranstaltung** (die Tage der aktiven Veranstaltung). Alle Kacheln folgen dieser Auswahl.
@@ -40,4 +49,4 @@ Klicke oben rechts auf **Anpassen**. Die Kacheln bekommen einen Griff zum Versch
 
 ## Aktive Veranstaltung
 
-Links oben in der Seitenleiste, unter dem Namen deiner Organisation, siehst du die aktuell **aktive Veranstaltung** – im Testmodus mit dem Hinweis **Test**. Viele Bereiche – etwa Produkte, Standorte und Inventur – beziehen sich immer auf die gerade aktive Veranstaltung. Ist keine aktiv, aktiviere zunächst eine (siehe [Veranstaltungen](./veranstaltungen.md)).
+Links oben in der Seitenleiste, unter dem Namen deiner Organisation, siehst du die aktuell **aktive Veranstaltung** mit ihrer Phase: **Testmodus**, **Geplant · ab …** (mit dem Verkaufsstart), **Aktiv** oder **Beendet**. Im Testmodus und solange sie geplant ist, trägt sie zusätzlich den Hinweis **TEST**. Ein Klick darauf öffnet die [Veranstaltungen](./veranstaltungen.md#phasen). Viele Bereiche – etwa Produkte, Standorte und Inventur – beziehen sich immer auf die gerade aktive Veranstaltung. Ist keine aktiv, steht dort **Keine aktive Veranstaltung** – aktiviere zunächst eine (siehe [Veranstaltungen](./veranstaltungen.md#veranstaltung-aktivieren)).

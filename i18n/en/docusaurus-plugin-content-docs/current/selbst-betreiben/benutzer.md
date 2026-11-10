@@ -54,12 +54,20 @@ On both tabs you choose:
 - the **Administrator** switch — may do everything in the organization
 - without the switch, a **member** — sees only the modules you enable
   individually under **Permissions**
-  (Products, Events, Devices, Members, Shift Plans, Discount Vouchers,
-  Deposit (Pfand), Reports, Inventory)
+  (Products, Events, Devices, Members, Servers, Shift Plans, Discount
+  Vouchers, Deposit (Pfand), Reports, Inventory, Orders (cancel & refund))
 
-For helpers at the till, a member without special
-permissions is usually enough — the till itself runs via a
-[paired device](/geraete) anyway, not via a user account.
+Helpers at the till do not need an account: the till runs via a
+[paired device](../geraete.md), and whoever books there is added as a
+[server](../bedienungen.md) with a PIN.
+
+:::note[Member limit]
+`MEMBERS_PER_ORGANIZATION_LIMIT` (default 10, active members plus pending
+invitations) also applies in Single Organization mode. It only does not apply
+when the administrator from the initial setup creates or invites accounts.
+How to change the limit is described under
+[Operation](./betrieb.md#adjusting-the-limits). Servers do not count.
+:::
 
 ## With your own mail server
 

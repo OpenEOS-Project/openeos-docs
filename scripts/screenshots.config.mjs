@@ -134,10 +134,15 @@ async function registrierungBis(seite, sprache, ziel) {
   await weiter();
   await seite.waitForTimeout(400);
   await seite.getByLabel(/^(Name der Organisation|Organization name)/).fill(REGISTRIERUNG.organisation[sprache]);
+  // Seit 1.8 Pflicht: das Land der Organisation.
+  await seite.locator('.wizard select').first().selectOption(sprache === 'en' ? 'GB' : 'DE').catch(() => seite.locator('.wizard select').first().selectOption('DE'));
+  await seite.locator('.wizard h1, .wizard h2').first().click().catch(() => {});
   if (ziel === 3) return;
   await weiter();
   await seite.waitForTimeout(400);
-  await seite.locator('.wizard input[type="checkbox"]').first().check();
+  /* Seit den neuen Rechtstexten zwei Pflicht-Häkchen (Verein, AGB + AVV). */
+  const haken = await seite.locator('.wizard input[type="checkbox"]').all();
+  for (const h of haken.slice(0, 2)) await h.check({ force: true });
   await seite.waitForTimeout(300);
 }
 
@@ -152,6 +157,8 @@ async function registrierungBis(seite, sprache, ziel) {
 function listeNachstellen(muster, eintraege) {
   return async (seite, { sprache }) => {
     await schreibschutz(seite);
+    /* Lokaler Stack mit Beispieldaten (siehe README): die echte Liste zeigen. */
+    if (process.env.LOKALER_STACK) return;
     await seite.route(muster, (route) =>
       route.request().method() === 'GET'
         ? route.fulfill({ contentType: 'application/json', body: JSON.stringify({ data: eintraege(sprache) }) })
@@ -183,6 +190,80 @@ const BEISPIEL_INVENTUREN = (sprache) => {
   ].map((c) => ({ eventId: 'doku', startedAt: c.createdAt, completedAt: c.status === 'completed' ? c.createdAt : null, createdByUserId: 'doku', completedByUserId: c.completedByUser ? 'doku' : null, createdByUser: person, updatedAt: c.createdAt, ...c }));
 };
 
+/* Kasse für die Geräte-Bilder: auf Staging „Testkasse“, im lokalen Stack
+   mit Beispieldaten „Kasse Festzelt“ (DOKU_KASSE). */
+const KASSE_NAME = process.env.DOKU_KASSE ?? 'Testkasse';
+
+/** Gerät öffnen und zum Reiter „Einstellungen“ wechseln (nichts speichern). */
+async function geraetEinstellungen(seite) {
+  await seite.getByText(KASSE_NAME, { exact: true }).first().click();
+  await seite.waitForURL(/\/devices\/[0-9a-f-]{36}/);
+  await seite.waitForLoadState('networkidle');
+  await seite.getByRole('button', { name: /^(Einstellungen|Settings)$/ }).first().click()
+    .catch(() => seite.getByRole('tab', { name: /^(Einstellungen|Settings)$/ }).first().click());
+  await seite.waitForTimeout(1000);
+}
+
+/**
+ * Ein Element (meist eine Karte) an den oberen Bildrand scrollen, mit
+ * etwas Luft darüber. Die Seite scrollt im Hauptbereich, nicht im Fenster.
+ */
+async function karteOben(seite, selektor, luft = 24) {
+  // Erst wenn alles geladen ist: manche Reiter springen danach nach oben.
+  await seite.waitForLoadState('networkidle');
+  await seite.waitForTimeout(800);
+  await seite.locator(selektor).first().evaluate((el, abstand) => {
+    el.scrollIntoView({ block: 'start' });
+    let p = el.parentElement;
+    while (p) {
+      if (p.scrollHeight > p.clientHeight && /auto|scroll/.test(getComputedStyle(p).overflowY)) { p.scrollBy(0, -abstand); break; }
+      p = p.parentElement;
+    }
+    window.scrollBy(0, -abstand);
+  }, luft);
+  await seite.waitForTimeout(400);
+}
+
+/** Karte mit diesem Titel (je Sprache) als Selektor. */
+const karte = (de, en) => [de, en]
+  .flatMap((titel) => ['>', '> * >', '> * > * >', '> * > * > * >'].map((tiefe) => `.app-card:has(${tiefe} :is(h2, h3):text-is("${titel}"))`))
+  .join(', ');
+
+/**
+ * Hinweis „Bargeld braucht in Deutschland eine TSE“ ausblenden. Er steht nur
+ * bei Organisationen im Bestand („Alle Funktionen (Bestand)“) — die
+ * Beispielorganisation ist eine, damit Bargeld, Kassenbuch und Pfand-
+ * Auszahlung echt zu sehen sind. Neue Organisationen sehen ihn nicht.
+ */
+async function ohneBestandHinweis(seite) {
+  await seite.addStyleTag({ content: '.mode-notice { display: none !important; }' });
+  await seite.waitForTimeout(200);
+}
+
+/* Platzhalterbild für den Upload (1×1 Pixel); ausgewertet wird es nicht. */
+const PNG_1X1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
+
+/** Speisekarte für den Text-Import (Beispiel, wie ein Verein sie abtippt). */
+const SPEISEKARTE = `Dorffest Musterhausen – Speisekarte
+
+Vom Grill
+Grillwurst im Brötchen ........ 3,50 €
+Currywurst mit Pommes ......... 6,50 €
+Steak im Brötchen ............. 5,00 €
+Pommes rot-weiß ............... 3,00 €
+
+Süßes
+Crêpe mit Nutella ............. 3,50 €
+Crêpe mit Puderzucker ......... 2,50 €
+
+Getränke
+Pils 0,3 l ..................... 2,50 €   0,5 l ..... 3,50 €
+Radler 0,5 l ................... 3,50 €
+Apfelschorle 0,5 l ............. 2,50 €
+Cola 0,33 l (Flasche) .......... 2,50 €  + 2 € Pfand
+Weinschorle rot 0,25 l ......... 3,00 €
+Mineralwasser 0,5 l ............ 2,00 €`;
+
 export const AUFNAHMEN = [
   // --- Überblick ---
   /* Zeitraum „Heute“ mit echten Zahlen, nichts nachgestellt: Ehrlicher
@@ -194,6 +275,7 @@ export const AUFNAHMEN = [
   {
     datei: 'dashboard',
     pfad: '/dashboard',
+    vorbereiten: ohneBestandHinweis,
     hinweise: [
       {
         auf: ['.oe-segment[data-tour="dashboard-range"]', '.dash-head__actions button:has-text("Anpassen"), .dash-head__actions button:has-text("Customise")'],
@@ -409,6 +491,7 @@ export const AUFNAHMEN = [
     // Die Anordnung wird gespeichert, sobald man etwas ändert — nur öffnen.
     routen: schreibschutz,
     async vorbereiten(seite) {
+      await ohneBestandHinweis(seite);
       await seite.getByRole('button', { name: /anpassen|customi[sz]e/i }).first().click().catch(() => {});
       await seite.waitForTimeout(900);
     },
@@ -426,15 +509,16 @@ export const AUFNAHMEN = [
       await seite.locator('.app-sidebar__item--nested').first().scrollIntoViewIfNeeded().catch(() => {});
     },
     hinweise: [
-      { auf: '.integration-card--button >> nth=0', text: { de: 'Integration antippen: Beschreibung, Bilder, Aktivieren', en: 'Tap an integration: description, pictures, activate' } },
+      { auf: '.integration-card__open >> nth=0', text: { de: 'Integration antippen: Beschreibung, Bilder, Aktivieren', en: 'Tap an integration: description, pictures, activate' } },
       { auf: 'a.app-sidebar__item--nested, .app-sidebar__item--nested', text: { de: 'Aktive Integration in der Seitenleiste', en: 'Active integration in the sidebar' } },
+      { auf: '.integration-card:has-text("Cloud-TSE"), .integration-card:has-text("Cloud TSE")', text: { de: 'Cloud-TSE: „Bald verfügbar“', en: 'Cloud TSE: “Coming soon”' } },
     ],
   },
   {
     datei: 'integrations-sumup-info',
     pfad: '/integrations',
     async vorbereiten(seite) {
-      await seite.locator('.integration-card--button', { hasText: 'SumUp' }).first().click();
+      await seite.locator('.integration-card__open', { hasText: 'SumUp' }).first().click();
       await seite.waitForTimeout(900);
     },
   },
@@ -618,7 +702,7 @@ export const AUFNAHMEN = [
       await seite.getByRole('button', { name: /Serie anlegen|Create series/ }).first().click();
       await seite.waitForTimeout(600);
       const feld = (name) => seite.locator('.tables-modal__form').getByLabel(name, { exact: true });
-      await feld(/^(Präfix|Prefix)$/).fill('B');
+      await feld(/^(Präfix|Prefix)$/).fill('C');
       await feld(/^Start$/).fill('1');
       await feld(/^(Anzahl|Count)$/).fill('8');
       await feld(/^(Stellen|Digits)$/).fill('2');
@@ -633,7 +717,7 @@ export const AUFNAHMEN = [
         text: { de: 'Bereich, Präfix, Start, Anzahl und Stellen ergeben die Bezeichnungen', en: 'Area, prefix, start, count and digits make up the labels' },
       },
       { auf: '.tables-modal__form .tables-grid-3 >> nth=1', text: { de: 'Plätze, Spalten auf der Karte und Form gelten für die ganze Serie', en: 'Seats, columns on the map and shape apply to the whole series' } },
-      { auf: '.tables-bulk__preview', text: { de: 'Vorschau: B01 bis B08', en: 'Preview: B01 to B08' } },
+      { auf: '.tables-bulk__preview', text: { de: 'Vorschau: C01 bis C08', en: 'Preview: C01 to C08' } },
     ],
   },
   {
@@ -662,7 +746,10 @@ export const AUFNAHMEN = [
     pfad: '/events',
     routen: schreibschutz,
     async vorbereiten(seite) {
-      await seite.getByRole('button', { name: /^(Bearbeiten|Edit)$/ }).first().click();
+      // Die laufende Veranstaltung (Staging: Sommerfest, lokal: Martinimarkt).
+      const lokal = seite.locator('tr', { hasText: 'Martinimarkt' });
+      const zeile = (await lokal.count()) ? lokal.first() : seite.locator('tr', { hasText: 'Sommerfest' }).first();
+      await zeile.getByRole('button', { name: /^(Bearbeiten|Edit)$/ }).click();
       await seite.waitForTimeout(1200);
       await seite.locator('.event-tables').evaluate((el) => el.scrollIntoView({ block: 'center' }));
       await seite.waitForTimeout(400);
@@ -678,11 +765,7 @@ export const AUFNAHMEN = [
     pfad: '/devices',
     routen: schreibschutz,
     async vorbereiten(seite) {
-      await seite.getByText('Testkasse', { exact: true }).first().click();
-      await seite.waitForURL(/\/devices\/[0-9a-f-]{36}/);
-      await seite.waitForLoadState('networkidle');
-      await seite.getByRole('button', { name: /^(Einstellungen|Settings)$/ }).first().click();
-      await seite.waitForTimeout(1000);
+      await geraetEinstellungen(seite);
       /* Tische gibt es nur im Betrieb „Bedienung“; nur anwählen, nicht
          speichern. Die Tischwahl wird für das Bild auf „Karte“ gestellt. */
       await seite.locator('input[name="serviceMode"][value="table"]').check();
@@ -695,8 +778,332 @@ export const AUFNAHMEN = [
       { auf: ['input[name="serviceMode"][value="table"]', 'label:has(input[name="serviceMode"][value="counter"])'], text: { de: 'Betrieb: Bedienung oder Feste Kasse', en: 'Operation: table service or counter' } },
       { auf: '.device-settings__dependent select >> nth=0', text: { de: 'Tische: Standardbereich, den die Kasse zuerst zeigt', en: 'Tables: default area the POS shows first' } },
       { auf: '.device-settings__dependent select >> nth=1', text: { de: 'Tischwahl an der Kasse: Automatisch, Nummer, Liste oder Karte', en: 'Table selection on the POS: automatic, number, list or map' } },
-      { auf: '.app-card:has-text("PIN") .app-card__body', text: { de: 'Sicherheit: PIN erforderlich', en: 'Security: PIN required' } },
+      { auf: '.app-card:has(input[name="waiterMode"]) .app-card__head', text: { de: 'Bedienung & Sicherheit: wer an der Kasse bucht, Sperre, Stornieren', en: 'Servers & security: who books at the till, lock, refunds' } },
     ],
+  },
+  {
+    datei: 'device-settings-waiters',
+    pfad: '/devices',
+    routen: schreibschutz,
+    async vorbereiten(seite) {
+      await geraetEinstellungen(seite);
+      await karteOben(seite, '.app-card:has(input[name="waiterMode"])');
+    },
+    hinweise: [
+      { auf: ['label:has(input[name="waiterMode"][value="off"])', 'label:has(input[name="waiterMode"][value="personal"])'], text: { de: 'Ohne Bedienung, Gemeinsame Kasse (PIN) oder Feste Bedienung', en: 'No servers, shared till (PIN) or fixed server' } },
+      { auf: '.app-card:has(input[name="waiterMode"]) select', text: { de: 'Sperre: automatisch nach einer Zeit ohne Berührung', en: 'Lock: automatically after a time without touch' } },
+      { auf: ['label:has(input[name="refundPermission"][value="allowed"])', 'label:has(input[name="refundPermission"][value="disabled"])'], text: { de: 'Stornieren & Erstatten: erlaubt, nur mit PIN oder aus', en: 'Cancel & refund: allowed, PIN only or off' } },
+    ],
+  },
+  // --- Seit 1.8: Bedienungen, Kassenbuch, Auswertung, Export ---
+  {
+    datei: 'waiters',
+    pfad: '/waiters',
+    hinweise: [
+      { auf: ['button:has-text("Mehrere anlegen"), button:has-text("Add several")', 'button:has-text("Bedienung anlegen"), button:has-text("Add server")'], text: { de: 'Einzeln anlegen oder eine ganze Namensliste', en: 'Add one at a time or a whole list of names' } },
+      { auf: 'table tbody tr >> nth=0 >> td >> nth=-1', text: { de: 'Abrechnen, Bearbeiten, Neue PIN, Deaktivieren, Auskunft, Löschen', en: 'Settle, edit, new PIN, deactivate, data export, delete' } },
+    ],
+  },
+  {
+    datei: 'waiters-bulk',
+    pfad: '/waiters',
+    routen: schreibschutz,
+    async vorbereiten(seite, { sprache }) {
+      await seite.getByRole('button', { name: /^(Mehrere anlegen|Add several)$/ }).click();
+      await seite.waitForTimeout(600);
+      await seite.locator('[role=dialog] textarea').first().fill(sprache === 'en'
+        ? 'Lisa Graf;Lisa\nBen Krämer\nPaul Neumann;Paul;Shift lead'
+        : 'Lisa Graf;Lisa\nBen Krämer\nPaul Neumann;Paul;Schichtleitung');
+      await seite.locator('[role=dialog] h2').first().click();
+      await seite.waitForTimeout(400);
+    },
+  },
+  /* PIN-Zettel nach dem Anlegen: Die Antwort auf das Anlegen stellt die
+     Aufnahme selbst (nichts wird gespeichert, die PINs sind ausgedacht). */
+  {
+    datei: 'waiters-pin-sheet',
+    pfad: '/waiters',
+    async routen(seite) {
+      await schreibschutz(seite);
+      await seite.route('**/waiters/bulk', async (route) => {
+        const { items = [] } = route.request().postDataJSON() ?? {};
+        const pins = ['3817', '6094', '2758'];
+        const farben = ['#0891b2', '#ca8a04', '#4f46e5'];
+        await route.fulfill({
+          status: 201,
+          contentType: 'application/json',
+          body: JSON.stringify({
+            data: items.map((it, i) => ({
+              id: `doku-bedienung-${i}`, name: it.name, shortName: it.shortName ?? null, color: farben[i % 3],
+              role: it.role ?? 'service', permissions: {}, effectivePermissions: { refund: false, cashDrawer: false, discount: false, cashbook: false },
+              eventId: null, isActive: true, hasPin: true, pinLength: 4, lastUsedAt: null, anonymizedAt: null, createdAt: new Date().toISOString(),
+              pin: pins[i % 3],
+            })),
+          }),
+        });
+      });
+    },
+    async vorbereiten(seite, { sprache }) {
+      await seite.getByRole('button', { name: /^(Mehrere anlegen|Add several)$/ }).click();
+      await seite.waitForTimeout(600);
+      await seite.locator('[role=dialog] textarea').first().fill(sprache === 'en'
+        ? 'Lisa Graf;Lisa\nBen Krämer\nPaul Neumann;Paul;Shift lead'
+        : 'Lisa Graf;Lisa\nBen Krämer\nPaul Neumann;Paul;Schichtleitung');
+      await seite.waitForTimeout(300);
+      await seite.locator('[role=dialog] button[type=submit], [role=dialog] button:has-text("anlegen"), [role=dialog] button:has-text("Add 3")').last().click();
+      await seite.waitForTimeout(1200);
+    },
+  },
+  {
+    datei: 'waiters-settlements',
+    pfad: '/waiters',
+    async vorbereiten(seite) {
+      await karteOben(seite, karte('Abrechnungen', 'Settlements'));
+    },
+  },
+  {
+    datei: 'cashbook',
+    pfad: '/cashbook',
+    hinweise: [
+      { auf: '.app-card:has(input[type="date"])', text: { de: 'Geschäftstag wählen (6 bis 6 Uhr)', en: 'Pick the business day (6 am to 6 am)' } },
+      { auf: '.app-card:has(.oe-num), .app-card >> nth=1', text: { de: 'Soll-Bestand der ganzen Kasse und woraus er sich ergibt', en: 'Expected cash of the whole register and how it adds up' } },
+      { auf: karte('Buchen für die ganze Kasse', 'Book for the whole register'), text: { de: 'Anfangsbestand, Einlage, Entnahme, Kassensturz', en: 'Opening balance, cash in, cash out, cash count' } },
+      { auf: karte('Je Gerät', 'Per device'), text: { de: 'Soll-Bestand je Gerät', en: 'Expected cash per device' } },
+    ],
+  },
+  {
+    datei: 'reports-vat',
+    pfad: '/reports',
+    async vorbereiten(seite) {
+      await karteOben(seite, karte('Umsatzsteuer', 'VAT'));
+    },
+    hinweise: [
+      { auf: karte('Umsatzsteuer', 'VAT'), text: { de: 'Umsatzsteuer je Satz: Ware, Pfand und Pfandrückgabe', en: 'VAT per rate: goods, deposit and deposit returns' } },
+    ],
+  },
+  {
+    datei: 'reports-waiters',
+    pfad: '/reports',
+    async vorbereiten(seite) {
+      await karteOben(seite, karte('Bedienungen', 'Servers'));
+    },
+    hinweise: [
+      { auf: karte('Bedienungen', 'Servers'), text: { de: 'Je Bedienung: aufgenommen, kassiert, bar und Karte, Pfand, Abrechnungen', en: 'Per server: taken, collected, cash and card, deposit, settlements' } },
+    ],
+  },
+  {
+    datei: 'orders-export',
+    pfad: '/orders',
+    routen: schreibschutz,
+    async vorbereiten(seite) {
+      await seite.getByRole('button', { name: /^(Als CSV exportieren|Export as CSV)$/ }).first().click();
+      await seite.waitForTimeout(600);
+    },
+    hinweise: [
+      { auf: 'input[type="date"] >> nth=0', text: { de: 'Zeitraum: Von und Bis gelten für Liste und Kacheln', en: 'Date range: from and to apply to the list and the tiles' } },
+      { auf: '.oe-dd.is-open .oe-dd__panel', text: { de: 'Export: eine Zeile je Bestellung oder je Position', en: 'Export: one row per order or per item' } },
+    ],
+  },
+
+  // --- Seit 1.8: Einstellungen der Organisation ---
+  {
+    datei: 'settings-operating-mode',
+    pfad: '/settings?tab=org-mode',
+    hinweise: [
+      { auf: ['label:has(input[type="radio"][value="orders_only"])', 'label:has(input[type="radio"][value="full"])'], text: { de: 'Die drei Betriebsarten; „Alle Funktionen“ in Deutschland nur mit Cloud-TSE', en: 'The three operating modes; “All features” in Germany only with Cloud TSE' } },
+    ],
+  },
+  {
+    datei: 'settings-webhooks',
+    pfad: '/settings?tab=org-webhooks',
+    hinweise: [
+      { auf: 'button:has-text("Webhook anlegen"), button:has-text("Create webhook")', text: { de: 'Neuen Webhook anlegen (bis zu zehn)', en: 'Create a webhook (up to ten)' } },
+      { auf: 'table tbody tr >> nth=0 >> td >> nth=-1', text: { de: 'Zustellungen ansehen, Test senden, Bearbeiten, Secret erneuern, Löschen', en: 'View deliveries, send test, edit, rotate secret, delete' } },
+    ],
+  },
+  {
+    datei: 'settings-webhook-form',
+    pfad: '/settings?tab=org-webhooks',
+    routen: schreibschutz,
+    async vorbereiten(seite) {
+      await seite.getByRole('button', { name: /^(Webhook anlegen|Create webhook)$/ }).first().click();
+      await seite.waitForTimeout(700);
+      await seite.locator('[role=dialog] input[type="url"], [role=dialog] input').first().fill('https://verwaltung.tsv-musterstadt.example/openeos/webhook');
+      await seite.locator('[role=dialog] h2').first().click();
+      await seite.waitForTimeout(300);
+    },
+  },
+  {
+    datei: 'settings-webhook-deliveries',
+    pfad: '/settings?tab=org-webhooks',
+    async vorbereiten(seite) {
+      await seite.locator('a[aria-label*="/openeos/webhook"][aria-label^="Zustellungen"], a[aria-label*="/openeos/webhook"][aria-label^="View deliveries"]').first().click();
+      await seite.waitForURL(/\/settings\/webhooks\//);
+      await seite.waitForLoadState('networkidle');
+      await seite.waitForTimeout(600);
+    },
+  },
+  {
+    datei: 'settings-access',
+    pfad: '/settings?tab=org-access',
+    hinweise: [
+      { auf: 'button:has-text("Zugang anlegen"), button:has-text("Create access token")', text: { de: 'Neuen Zugang anlegen', en: 'Create an access token' } },
+      { auf: 'table', text: { de: 'Name, Schlüsselanfang, Berechtigungen, Ablauf; Widerrufen rechts', en: 'Name, key prefix, permissions, expiry; revoke on the right' } },
+    ],
+  },
+  {
+    datei: 'settings-access-dialog',
+    pfad: '/settings?tab=org-access',
+    routen: schreibschutz,
+    async vorbereiten(seite, { sprache }) {
+      await seite.getByRole('button', { name: /^(Zugang anlegen|Create access token)$/ }).first().click();
+      await seite.waitForTimeout(700);
+      await seite.locator('[role=dialog] input[type="text"], [role=dialog] input:not([type])').first().fill(sprache === 'en' ? 'Menu import agent' : 'KI-Agent Speisekarte');
+      await seite.locator('[role=dialog] h2').first().click();
+      await seite.waitForTimeout(300);
+    },
+  },
+  { datei: 'settings-legal-info', pfad: '/settings?tab=org-legal' },
+  {
+    datei: 'settings-account',
+    pfad: '/settings?tab=account',
+    async vorbereiten(seite) {
+      await karteOben(seite, karte('Konto löschen', 'Delete account'), 160);
+    },
+    hinweise: [
+      { auf: karte('Konto löschen', 'Delete account'), text: { de: 'Konto löschen: 30 Tage Frist, bis dahin abbrechen', en: 'Delete account: 30 days, cancel any time until then' } },
+    ],
+  },
+  {
+    datei: 'settings-organisation-delete',
+    pfad: '/settings?tab=org-general',
+    routen: schreibschutz,
+    async vorbereiten(seite) {
+      await seite.getByRole('button', { name: /^(Organisation löschen|Delete organi[sz]ation)/ }).first().click();
+      await seite.waitForTimeout(700);
+    },
+  },
+  { datei: 'legal', pfad: '/legal' },
+  {
+    datei: 'support',
+    pfad: '/support',
+    hinweise: [
+      { auf: '.oe-banner, [role=status]', text: { de: 'Notfall-Support: Rufnummer bei gebuchter Veranstaltung', en: 'Emergency support: phone number with a booked event' } },
+    ],
+  },
+  {
+    datei: 'events-checkout',
+    pfad: '/events',
+    /* Die Pflichtangaben speichert die Aufnahme nicht: die Antwort auf
+       „Speichern und weiter“ stellt sie selbst. */
+    async routen(seite) {
+      await schreibschutz(seite);
+      await seite.route('**/purchase-master-data', (route) => {
+        if (route.request().method() !== 'PUT') return route.fallback();
+        return route.fulfill({
+          contentType: 'application/json',
+          body: JSON.stringify({ data: { values: route.request().postDataJSON(), missing: [], missingWithTse: [], country: 'DE' } }),
+        });
+      });
+    },
+    async vorbereiten(seite) {
+      // Nur bis zur Zusammenfassung, nie „Kostenpflichtig buchen“.
+      await seite.locator('tr', { hasText: /Jugendturnier|Youth tournament/ }).getByRole('button', { name: /^(Aktivieren|Activate)$/ }).click();
+      await seite.waitForTimeout(1200);
+      await seite.getByRole('button', { name: /^(Weiter|Next|Continue)$/ }).click().catch(() => {});
+      await seite.waitForTimeout(1000);
+      await seite.getByRole('button', { name: /^(Speichern und weiter|Save and continue)$/ }).click().catch(() => {});
+      await seite.waitForTimeout(1200);
+    },
+    hinweise: [
+      { auf: '.purchase-summary', text: { de: 'Zusammenfassung: Termine, Tage, Preis, AGB', en: 'Summary: dates, days, price, terms' } },
+      { auf: '.modal__panel button:has-text("Kostenpflichtig buchen"), .modal__panel button:has-text("Book with obligation to pay")', text: { de: 'Erst hier wird gebucht', en: 'Only this books' } },
+    ],
+  },
+  {
+    datei: 'printers-template-waiter',
+    pfad: '/printers',
+    routen: schreibschutz,
+    async vorbereiten(seite) {
+      await seite.getByRole('tab', { name: /^(Vorlagen|Templates)$/ }).first().click()
+        .catch(() => seite.getByText(/^(Vorlagen|Templates)$/).first().click());
+      await seite.waitForTimeout(900);
+      const element = seite.locator('[aria-roledescription=draggable]:has(> span:text-is("Bedienung")), [aria-roledescription=draggable]:has(> span:text-is("Waiter"))').first();
+      await element.scrollIntoViewIfNeeded();
+      await element.click();
+      await seite.waitForTimeout(800);
+      await element.evaluate((el) => el.scrollIntoView({ block: 'center' }));
+      await seite.waitForTimeout(300);
+    },
+    hinweise: [
+      { auf: ['[aria-roledescription=draggable]:has(> span:text-is("Bedienung")), [aria-roledescription=draggable]:has(> span:text-is("Waiter"))', '[aria-roledescription=draggable]:has(> span:text-is("Gerät")), [aria-roledescription=draggable]:has(> span:text-is("Device"))'], text: { de: 'Neu in der Gruppe Bestellung: Bedienung und Gerät', en: 'New in the order group: server and device' } },
+    ],
+  },
+  // --- Assistent (lokal mit Ersatzmodell, siehe README) ---
+  { datei: 'settings-assistant', pfad: '/settings?tab=org-assistant' },
+  {
+    datei: 'products-menu-import-upload',
+    pfad: '/products',
+    async routen(seite) {
+      await schreibschutz(seite);
+      /* Stand des Assistenten nachgestellt: eingeschaltet, Kontingent frei,
+         PDFs lesbar (wie gehostet; dem lokalen Stack fehlt poppler). */
+      await seite.route('**/organizations/*/assistant', (route) => {
+        if (route.request().method() !== 'GET') return route.fallback();
+        const morgen = new Date(Date.now() + 86400000).toISOString();
+        return route.fulfill({
+          contentType: 'application/json',
+          headers: {
+            'access-control-allow-origin': route.request().headers().origin ?? '*',
+            'access-control-allow-credentials': 'true',
+          },
+          body: JSON.stringify({ data: {
+            enabled: true, available: true, pdfSupported: true,
+            quotas: {
+              menuImports: { limit: 5, used: 0, remaining: 5, resetAt: morgen },
+              classifications: { limit: 500, used: 0, remaining: 500, resetAt: morgen },
+            },
+          } }),
+        });
+      });
+    },
+    async vorbereiten(seite) {
+      await seite.getByRole('button', { name: /^(Importieren|Import)$/ }).click();
+      await seite.waitForTimeout(800);
+      await seite.locator('[role=dialog]').getByRole('tab', { name: /^(Speisekarte|Menu)$/ }).click();
+      await seite.locator('[role=dialog]').getByRole('button', { name: /^(Fotos|Photos)/ }).first().click();
+      await seite.waitForTimeout(300);
+      await seite.locator('[role=dialog] input[type=file][accept*="image"]').first().setInputFiles({ name: 'speisekarte-martinimarkt.png', mimeType: 'image/png', buffer: PNG_1X1 });
+      await seite.waitForTimeout(600);
+    },
+  },
+  {
+    datei: 'products-menu-import-preview',
+    pfad: '/products',
+    nurLokal: true,
+    async vorbereiten(seite) {
+      await seite.getByRole('button', { name: /^(Importieren|Import)$/ }).click();
+      await seite.waitForTimeout(800);
+      await seite.locator('[role=dialog]').getByRole('tab', { name: /^(Speisekarte|Menu)$/ }).click();
+      await seite.locator('[role=dialog]').getByRole('button', { name: /^Text$/ }).click();
+      await seite.locator('[role=dialog] textarea').first().fill(SPEISEKARTE);
+      await seite.locator('[role=dialog]').getByRole('button', { name: /^(Auswerten|Read menu)$/ }).click();
+      await seite.locator('[role=dialog] table').first().waitFor({ timeout: 30000 });
+      await seite.waitForTimeout(1500);
+    },
+  },
+  {
+    datei: 'product-icon-suggestion',
+    pfad: '/products',
+    nurLokal: true,
+    async routen(seite) { await schreibschutz(seite); await seite.route('**/assistant/icon-suggestions', (route) => route.continue()); },
+    async vorbereiten(seite, { sprache }) {
+      await seite.getByRole('button', { name: /^(Produkt erstellen|Create product)$/ }).first().click();
+      await seite.waitForTimeout(800);
+      await seite.locator('input[name="name"]:visible').first().fill(sprache === 'en' ? 'Currywurst with fries' : 'Currywurst mit Pommes');
+      await seite.getByRole('button', { name: /^(Vorschlag|Suggest)$/ }).click();
+      await seite.waitForTimeout(2500);
+    },
   },
   {
     datei: 'products-icon-picker',

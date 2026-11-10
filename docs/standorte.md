@@ -16,13 +16,15 @@ Du erreichst den Bereich über **Standorte** in der Seitenleiste. Auch Standorte
 
 1. Klicke auf **Standort erstellen**.
 2. Vergib einen **Namen** (z. B. „Küche“, „Grill“, „Getränkeausgabe“), optional eine Beschreibung und eine **Farbe**.
-3. Wähle bei Bedarf einen **Folge-Standort**: Dorthin werden fertige Artikel weitergeleitet, etwa von der Küche an die Ausgabe.
-4. Wähle den **Drucker**, auf dem die Bons dieses Standorts landen. Zur Auswahl stehen die Drucker, die du unter [Drucker](./drucker.md) übernommen hast.
-5. Klicke auf **Erstellen**.
+3. Wähle bei Bedarf einen **Folge-Standort**: Dorthin werden fertige Artikel weitergeleitet, etwa von der Küche an die Ausgabe. **Keiner (letzter Standort)** heißt, hier endet der Weg.
+4. Wähle den **Drucker**, auf dem die Bons dieses Standorts landen, oder **Kein Drucker**. Zur Auswahl stehen die Drucker, die du unter [Drucker](./drucker.md) übernommen hast.
+5. Lass **Aktiv** an und klicke auf **Erstellen**.
 
 ![Standort erstellen](/img/screens/de/stations-dialog.png)
 
-Welche Produkte zu einem Standort gehören, legst du nicht hier fest, sondern im Dialog der [Kategorie](./kategorien.md) oder des [Produkts](./produkte.md) im Feld **Standort**. Eine Angabe am Produkt geht der Kategorie vor.
+Welche Produkte zu einem Standort gehören, legst du nicht hier fest, sondern im Dialog der [Kategorie](./kategorien.md) oder des [Produkts](./produkte.md) im Feld **Standort**. Eine Angabe am Produkt geht der Kategorie vor. Die Liste zeigt je Standort **Folge-Standort**, **Drucker**, die zugeordneten **Kategorien** und den **Status**.
+
+Löschst du einen Standort, verlieren Produkte und Kategorien ihre Zuordnung zu ihm.
 
 ## Zusammenspiel mit Druckern und Anzeigen
 

@@ -9,7 +9,7 @@ description: Open a table, order, send, check out — how the till works on the 
 This page covers the till itself — what your team does on the day. For how a device becomes a till, see [Connecting devices](./geraete.md); for how tables and the floor plan are set up, see [Tables](./tische.md).
 
 :::tip[Try it first]
-While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode — Orders will be deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – real sales from …"; after the end it shows "Event ended – only settle open orders" (see [Phases](veranstaltungen.md#phasen)).
+While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode – sales don't count and are deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – sales don't count. Real sales from … at …"; after the end it shows "Event ended – only settle open orders" (see [Phases](./veranstaltungen.md#phasen)).
 :::
 
 ## How the till starts {/* #start */}
@@ -29,13 +29,22 @@ If the till is set to **Shared till**, the PIN screen "Who is serving?" comes fi
 
 The top bar always shows the same things:
 
-- **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the running event.
+- **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the organization and the running event. On phones the logo and the event are dropped; what doesn't fit ends with "…".
 - **Table** — in the order view a green pill shows who you are booking for: "Table A10", "Counter" or "To go". Tapping it opens [Choose table](#tisch-wechseln).
-- **Status** — **Online** (green dot), **Connecting …** or **No live data** (yellow) and **Offline** (red). Next to it the till's receipt printer by name, if one is assigned, and the time. On narrower screens only the dot remains.
-- **Menu** (the three lines) — order history, open orders, deposit return, open cash drawer, [appearance](#darstellung) and sign out device. Only what is set up for this till appears.
-- **Server** — on a shared till or with a fixed server, a chip with the color and short name of whoever is signed in. Tapping it opens **Switch**, **Lock** and **Sign out**, plus [My running total and Settle](./bedienungen.md#abrechnung).
+- **Status** — a dot: green **Online**, yellow **Connecting …** or **No live data**, red with a crossed-out Wi-Fi icon **Offline**. Next to it the till's receipt printer, e.g. "Printer Bar" (or "Printer Bar offline"), if one is assigned, and the time. On narrower screens only the dot remains.
+- **Menu** (the three lines) — **Order history**, **Open orders**, **Deposit return**, [Cash book](#kassenbuch), **Open cash drawer**, [Hand over table](#tisch-uebergeben), [Emergency support](#notfall-support), [Appearance](#darstellung), **Source code (AGPL-3.0)** and **Sign out device**. Only what is set up for this till and what the signed-in person is allowed to do appears.
+- **Server** — on a shared till or with a fixed server, a chip with the color and short name of whoever is signed in. Tapping it opens [My running total](./bedienungen.md#zwischenstand), and for a shift lead also [Settle](./bedienungen.md#abrechnen). On a shared till it also offers **Switch**, **Lock** and **Sign out**.
 
-In test mode the warning strip "Test mode — Orders will be deleted on activation" sits below the header.
+Below the header there is at most **one** notice, the most important first:
+
+1. "Event ended – only settle open orders" after sales have ended,
+2. "Test operation – sales don't count. Real sales from … at …" while the event is **Planned**, or "Test mode – sales don't count and are deleted on activation" in test mode (shortened on phones),
+3. "No connection – sending and checkout work again once the register is online.",
+4. "TSE failed – you can keep selling, the receipt will be marked.",
+5. "Cash blocked – without an active TSE this till accepts no cash. Card and online keep working." if the Cloud TSE is missing in Germany in "All features",
+6. "Orders only – no checkout here. Payment happens outside OpenEOS." in the [Orders only](./betriebsarten.md#nur-bons) operating mode.
+
+At the very bottom there is a thin line with copyright, version, imprint and privacy; on phones and portrait tablets it sits at the end of the menu.
 
 ### Light or dark {/* #darstellung */}
 
@@ -91,7 +100,7 @@ On the right (on a phone below the table choice) are all tables where something 
 
 Tapping the row opens the table.
 
-If the till works with [servers](./bedienungen.md), the filter **Mine / All** sits above the list. **Mine** is the default: your tables and tables nobody owns yet. Each table shows the short name and color of the responsible server — whoever took the first order there or acknowledged the guest order. If you open another server's table, the till shows a note such as "Table of Anna". You may still book and take payments; the money counts for you.
+If the till works with [servers](./bedienungen.md), each table shows the short name and color of the responsible server — whoever took the first order there or acknowledged the guest order. On a **Shared till** the filter **Mine / All** also sits above the list. **Mine** is the default: your tables and tables nobody owns yet. If you open another server's table, the till shows a note such as "Table of Anna" (unless switched off under [Other servers' tables](./bedienungen.md#einstellungen)). You may still book and take payments; the money counts for you.
 
 ## Ordering
 
@@ -160,7 +169,7 @@ Which payment methods exist depends on your organization's [operating mode](./be
 
 - Enter the amount **tendered** on the keypad or tap a **quick amount**: **Exact** or the next round sums.
 - The till shows the **change** — or, in red, what is still missing.
-- If a cash drawer is connected, it opens as soon as cash is selected.
+- If a [cash drawer](./geraete.md#drucker) is assigned to the device, it opens as soon as cash is selected and an amount is due – once per transaction.
 - **Complete payment** books the payment.
 
 In the [Cashless](./betriebsarten.md#bargeldlos) operating mode **Cash** is gone entirely; the till starts with **Card**.
@@ -168,6 +177,8 @@ In the [Cashless](./betriebsarten.md#bargeldlos) operating mode **Cash** is gone
 ### Card {/* #kartenzahlung */}
 
 With an assigned SumUp card reader, **Card** appears. Choose a **tip** (none, round up, fixed amounts or a custom amount) and tap **Start card payment**. The guest presents the card at the reader; the till waits for the confirmation. More under [SumUp](./integrationen/sumup.md).
+
+In test mode and while the event is **Planned**, the till does not address the reader: **Card** is greyed out with the hint "No real card payments in test mode". In the [Cashless](./betriebsarten.md#bargeldlos) operating mode the till then just records the card payment, like an external terminal, so you can still run through the flow.
 
 :::warning[Card charged, order not saved]
 The money is taken first, then the order is saved. If saving fails (for instance because the connection drops), the till shows "Card payment successful, order not saved" with the transaction number. Tap **Save again** — and **do not charge the card again**. The notice stays even after a reload.
@@ -201,6 +212,16 @@ When you switch tables, the till **parks** the cart of the old table. When you c
 Items that have not been sent only live on the device they were typed into. Whatever other tills should see, you send. Sent orders are visible on every till and can be checked out there.
 :::
 
+### Handing over a table {/* #tisch-uebergeben */}
+
+If the till works with [servers](./bedienungen.md) and someone goes home, another server takes over the table:
+
+1. Open the table. It needs at least one sent order that is still open.
+2. In the **Menu**, tap **Hand over table**.
+3. Under "Who takes over?", tap the new server. All open orders of the table move along.
+
+Every server can hand over their own tables; only a shift lead or an admin can hand over someone else's. More under [Table handover](./bedienungen.md#tischuebergabe).
+
 ## Signing in and locking {/* #pin-und-sperre */}
 
 If the device is set to **Shared till** ([Devices](./geraete.md#pin-und-sperre)), everyone signs in with their PIN before booking. That way it is clear for every order and payment who booked it. The PINs belong to [servers](./bedienungen.md) or to [members](./mitglieder.md).
@@ -213,7 +234,7 @@ If the device is set to **Shared till** ([Devices](./geraete.md#pin-und-sperre))
 - **Offline** — unlocking does not work: "No connection – unlocking works again once online." A short connection drop does not sign anyone out.
 - **Wrong PINs** — after 5 failed attempts PIN entry is locked for 30 seconds, after 10 for five minutes, after 20 until an admin releases it ([Wrong PINs](./bedienungen.md#fehlversuche)).
 
-With **Fixed server** there is no PIN screen; the chip shows the server the device belongs to. With **No servers** there is neither a chip nor a lock.
+With **Fixed server** there is no PIN screen; the chip shows the server the device belongs to and opens **My running total**. There is no switching or locking there. With **No servers** there is neither a chip nor a lock.
 
 ### Cancelling with approval {/* #freigabe */}
 
@@ -221,7 +242,19 @@ Whoever has the **Cancel & refund** right cancels and refunds directly in the [o
 
 ## Order history {/* #bestellverlauf */}
 
-In the **Menu**, **Order history** opens the orders of the running event, filtered by **All**, **Open**, **Completed** and **Cancelled**. There you can **reprint** kitchen tickets and the receipt and **cancel** an order (with an optional reason).
+In the **Menu**, **Order history** opens the orders of the running event, grouped by day, newest first.
+
+- **Search** by number, table or product.
+- **Status:** **All**, **In kitchen**, **Ready**, **Open – not paid**, **Completed**, **Cancelled** and **Refunded**.
+- Under **Filters**: **Payment**, **Register** (**This device** or **All registers**) and **Period** (**Today** or **Event**). **Reset filters** clears everything.
+
+Tapping an order opens it with its items, payments and history. Depending on its state you find:
+
+- **Collect payment** for an open order,
+- **Cancel items**, **Cancel & refund** and **Refund** (partly by items, as an amount or everything) – with a reason and, depending on the [device setting](./geraete.md#storno-erstatten), only with approval,
+- **Receipt**, **Kitchen ticket** and, for refunds, **Counter-receipt** to reprint.
+
+If the kitchen has already started on an item, the till asks before cancelling ("The kitchen has already started – cancel anyway?").
 
 ## Deposit {/* #pfand */}
 
@@ -232,7 +265,7 @@ For returned cups or bottles there is the **Deposit return** (menu or the button
 - **Pay out** — the guest gets the money back in cash, the cash drawer opens, or
 - **Offset** — the amount is deducted from the current cart (only if there is something in the cart).
 
-After **Pay out** the till shows the return receipt with its receipt number. It is printed like the sales receipt: automatically if receipts are printed after payment (then there is **Print receipt again**), otherwise via **Print receipt**. Only deposits with the same [VAT rate](./pfand.md#umsatzsteuer) are offset – a returned cup (19 %) does not replace a plate deposit (7 %).
+After **Pay out** the till shows **Deposit paid out** with the deposit return receipt and its receipt number. It is printed like the sales receipt: automatically if receipts are printed after payment (then there is **Print receipt again**), otherwise via **Print receipt**. As after a sale, the window closes by itself after five seconds. Only deposits with the same [VAT rate](./pfand.md#umsatzsteuer) are offset – a returned cup (19 %) does not replace a plate deposit (7 %).
 
 In the [Cashless](./betriebsarten.md#bargeldlos) operating mode there is no **Pay out**, only **Offset** against new deposits in the same sale. In [Orders only](./betriebsarten.md#nur-bons) there are no deposits.
 
@@ -248,6 +281,16 @@ If your organization has an active [Cloud TSE](./integrationen/cloud-tse.md), th
 - **The signature arrives after the outage receipt.** The receipt stays an outage receipt. A reprint only shows the signature as a marked note „Signatur nach Belegausgabe“ (signature after the receipt was issued), without a QR code.
 
 Without the Cloud TSE the till prints receipts and kitchen tickets right away as usual.
+
+## Cash book {/* #kassenbuch */}
+
+If your organization accepts cash, **Cash book** in the menu opens the cash of this till: **Opening balance**, **Cash in**, **Cash out** and **Cash count**, plus the expected cash in the drawer. How it works is described under [Cash book](./kassenbuch.md). In the "Orders only" and "Cashless" operating modes the menu item is hidden.
+
+## Emergency support {/* #notfall-support */}
+
+If your organization has booked the event, the menu shows **Emergency support** during real sales (phase **Active**). The window shows the phone number; on a tablet or phone you call it straight away with **Call**. The number is only for problems that stop your sales. In test mode and while **Planned** the menu item is not there. More under [Support](./support.md#emergency-support).
+
+![Emergency support in the till menu](/img/screens/en/pos-emergency.png)
 
 ## On phones and tablets
 

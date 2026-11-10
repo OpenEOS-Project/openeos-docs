@@ -88,7 +88,8 @@ cash_drawer_pin: 2              # pin for the cash-drawer kick (usually 2, some 
 ```
 
 The lookup order is: `--config FILE`, `config.yaml` in the data directory,
-`./config/config.yaml`, `/etc/openeos-printer/config.yaml`. You need
+`./config/config.yaml`, `/etc/openeos-printer/config.yaml`, and on Linux
+finally `~/.config/openeos-printer/config.yaml`. You need
 `discovery.subnet` when the agent PC has several networks or a VPN owns the
 default route; larger than /24 is not possible.
 

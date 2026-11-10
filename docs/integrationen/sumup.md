@@ -32,21 +32,23 @@ Auf der Seite **SumUp**:
 - **Merchant Code** – dein SumUp Merchant Code (z. B. `MXXXXXXXX`).
 - **Affiliate Key** und **App ID** – optional, nur für den Terminal-Checkout über die Solo Cloud API.
 
-Mit **Verbindung testen** prüfst du die Angaben, mit **Speichern** übernimmst du sie. Gespeicherte Schlüssel werden danach nur noch gekürzt angezeigt (`****1234`).
+Mit **Verbindung testen** prüfst du die Angaben, mit **Speichern** übernimmst du sie. OpenEOS speichert API-Key und Affiliate Key verschlüsselt und zeigt sie danach nur noch gekürzt an (`****1234`).
 
 ![SumUp-Einstellungen](/img/screens/de/integrations-sumup.png)
 
 ## 3. Kartenleser koppeln
 
 1. Den Kartenleser einschalten und mit dem Internet verbinden. Er zeigt einen Kopplungscode an.
-2. Unter **Kartenleser** auf **Leser koppeln** klicken, den Pairing-Code eingeben und dem Gerät einen Namen geben, z. B. „Kasse Bar“.
-3. Der Leser erscheint in der Liste. Dort kannst du ihn umbenennen oder wieder entfernen.
+2. Unter **Kartenleser** auf **Leser koppeln** klicken, den **Pairing-Code** eingeben, unter **Name** eine Bezeichnung vergeben, z. B. „Kasse Bar“, und auf **Koppeln** klicken.
+3. Der Leser erscheint in der Liste mit seinem Status (**Gekoppelt**, **Wird gekoppelt** oder **Abgelaufen**). Dort kannst du ihn umbenennen oder löschen; ein gelöschter Leser wird von SumUp entkoppelt und muss für eine erneute Nutzung neu gekoppelt werden.
 
 ![Kartenleser koppeln](/img/screens/de/integrations-sumup-pair.png)
 
 ## An der Kasse
 
-Ist SumUp aktiv und ein Kartenleser gekoppelt, bietet die [Kasse](../kasse.md) beim Kassieren die Kartenzahlung an. Der Betrag erscheint auf dem Leser, und die Bestellung gilt als bezahlt, sobald SumUp die Zahlung bestätigt.
+Ist SumUp aktiv und ein Kartenleser gekoppelt, bietet die [Kasse](../kasse.md#kartenzahlung) beim Kassieren die Kartenzahlung an. Der Betrag erscheint auf dem Leser, und die Bestellung gilt als bezahlt, sobald SumUp die Zahlung bestätigt.
+
+Im **Testmodus** einer Veranstaltung löst die Kasse keine echten SumUp-Kartenzahlungen aus: Die Zahlart ist an der Kasse ausgegraut, und auf der SumUp-Seite steht **Testmodus aktiv – keine SumUp-Kartenzahlungen**. Bar und die manuelle Kartenbuchung bleiben möglich.
 
 ![Kasse mit Kartenzahlung](/img/screens/de/pos-card.png)
 

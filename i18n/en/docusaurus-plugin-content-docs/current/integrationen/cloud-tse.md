@@ -17,6 +17,18 @@ OpenEOS connects the **Swissbit Cloud TSE 2** for this. You don't need any hardw
 The cloud TSE is only available for organizations in Germany. In other countries the integration shows **Germany only** in the catalog. What applies there is described under [Austria, Switzerland and other countries](../betriebsarten.md#andere-laender).
 :::
 
+## Coming soon {/* #bald-verfuegbar */}
+
+As long as the Cloud TSE is announced but not yet switched on for your server, you see the following in the app:
+
+- In the catalog under **Integrations** the Cloud TSE is listed as **Coming soon**. Instead of **Activate**, the window shows the note "The cloud TSE for cash payments in Germany is coming soon. Until then you can use “Orders only” or “Cashless”."
+- Under **Settings → Organization → Operating mode**, **All features** is marked "Coming soon – with cloud TSE" and cannot be selected.
+- In an event's payment dialog there is no question about the Cloud TSE, only a **Coming soon** note.
+
+Until then, work with [Orders only](../betriebsarten.md#nur-bons) or [Cashless](../betriebsarten.md#bargeldlos) in Germany. Everything else on this page applies as soon as the Cloud TSE is available.
+
+On a [self-hosted installation](../selbst-betreiben/intro.md) without a contract with a TSE provider, the integration is instead listed as **Not available** in the catalog: "No cloud TSE is set up on this server. Ask the operator of your installation."
+
 ## What you need
 
 - an organization in **Germany**,

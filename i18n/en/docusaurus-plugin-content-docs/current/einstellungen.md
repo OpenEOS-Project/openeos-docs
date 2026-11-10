@@ -32,7 +32,7 @@ In the **Security** sub-section you set up two-factor authentication (**Enable 2
 
 ## Organization
 
-In the **Organization** tab you manage your organization's master data. It has the sub-tabs **General**, **Contact**, **Tax details**, **Operating mode**, **Assistant**, **Access**, **Webhooks** and **Legal information**. Only admins of the organization can change the details.
+In the **Organization** tab you manage your organization's master data. It has the sub-tabs **General**, **Contact**, **Tax details**, **Operating mode**, **Assistant**, **Access**, **Webhooks**, **Notifications** and **Legal information**. Only admins of the organization can change the details.
 
 ### General
 
@@ -71,6 +71,17 @@ Under **Access** admins create API tokens for scripts, automations and AI agents
 ### Webhooks
 
 Under **Webhooks** admins set up addresses to which OpenEOS sends a message right away on orders, payments and other events (**Create webhook**). Everything about it is under [Webhooks](./integrationen/webhooks.md).
+
+### Notifications {/* #benachrichtigungen */}
+
+Under **Notifications** you decide which **event reminders** OpenEOS sends to all admins of your organization (only admins can change this; everything is on by default):
+
+- **A week before – “Your event is coming up”:** a checklist from your real data, each item with ✓ or ✗ and a link to the right place: tills connected, printers online and a test print, servers and PIN slips, products and prices, imprint and privacy notice (if the shop or QR ordering is used), operating mode and country, Cloud TSE. Plus the note that everything runs in test mode until sales start.
+- **The day before – “Tomorrow is the day”:** when real sales start, that test orders are deleted then, the [emergency support](./support.md) number and the Cloud TSE status.
+- **After the event – “Thank you! This is how your event went”:** orders, revenue (quantities only with “Orders only”) and the three best-selling products, without test orders, with links to reports, CSV export and server settlements.
+- **Not activated yet:** a week before, if the event is still in test mode, with a link to activate it and the cancellation rule (free only until 7 days before the start).
+
+The e-mails go out at fixed times (usually 9 am) and are sent later if a run was missed, as long as they still make sense. If you move an event to another day, the reminders come again for the new date. To turn them off just for you, use **Personal → Preferences → Event reminders**; with **E-mail notifications** off you don't get them either. On a self-hosted installation the e-mails need configured e-mail delivery, and “Not activated yet” does not exist.
 
 ### Legal information {/* #rechtliche-angaben */}
 

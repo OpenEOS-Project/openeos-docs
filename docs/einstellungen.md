@@ -32,7 +32,7 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 ## Organisation
 
-Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat die Unterreiter **Allgemein**, **Kontakt**, **Steuerangaben**, **Betriebsart**, **Assistent**, **Zugänge**, **Webhooks** und **Rechtliche Angaben**. Ändern können die Angaben nur Admins der Organisation.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat die Unterreiter **Allgemein**, **Kontakt**, **Steuerangaben**, **Betriebsart**, **Assistent**, **Zugänge**, **Webhooks**, **Benachrichtigungen** und **Rechtliche Angaben**. Ändern können die Angaben nur Admins der Organisation.
 
 ### Allgemein
 
@@ -71,6 +71,17 @@ Unter **Zugänge** legen Admins API-Tokens für Skripte, Automatisierungen und K
 ### Webhooks
 
 Unter **Webhooks** richten Admins Adressen ein, an die OpenEOS bei Bestellungen, Zahlungen und anderen Ereignissen sofort eine Nachricht schickt (**Webhook anlegen**). Alles dazu unter [Webhooks](./integrationen/webhooks.md).
+
+### Benachrichtigungen {/* #benachrichtigungen */}
+
+Unter **Benachrichtigungen** legst du fest, welche **Erinnerungen zu Veranstaltungen** OpenEOS an alle Admins deiner Organisation schickt (nur Admins können das ändern, alles ist anfangs an):
+
+- **Eine Woche vorher – „Dein Fest rückt näher“:** eine Checkliste aus deinen echten Daten, jeder Punkt mit ✓ oder ✗ und einem Link an die richtige Stelle: Kassen verbunden, Drucker online und Testdruck, Bedienungen und PIN-Zettel, Produkte und Preise, Impressum und Datenschutzhinweis (wenn Shop oder QR-Bestellung genutzt werden), Betriebsart und Land, Cloud-TSE. Dazu der Hinweis, dass bis zum Verkaufsstart alles im Testbetrieb läuft.
+- **Am Vortag – „Morgen geht's los“:** ab wann echt verkauft wird, dass die Testbestellungen dann gelöscht werden, die Nummer des [Notfall-Supports](./support.md) und der Stand der Cloud-TSE.
+- **Nach dem Fest – „Danke! So lief dein Fest“:** Bestellungen, Umsatz (bei „Nur Bons“ nur Mengen) und die drei meistverkauften Produkte, ohne Testbestellungen, mit Links zu Berichten, CSV-Export und Kellnerabrechnungen.
+- **Noch nicht freigeschaltet:** eine Woche vorher, wenn die Veranstaltung noch im Testmodus ist, mit Link zum Freischalten und der Stornofrist (kostenlos nur bis 7 Tage vor Beginn).
+
+Die Mails gehen zu festen Zeiten (meist 9 Uhr) und werden nachgeholt, solange sie noch passen. Verschiebst du eine Veranstaltung auf einen anderen Tag, kommen die Erinnerungen für den neuen Termin noch einmal. Nur für dich schaltest du sie unter **Persönlich → Einstellungen → Erinnerungen zu Veranstaltungen** ab; ist dort **E-Mail-Benachrichtigungen** aus, bekommst du sie ebenfalls nicht. Auf einer eigenen Installation gibt es die Mails nur mit eingerichtetem E-Mail-Versand und ohne „Noch nicht freigeschaltet“.
 
 ### Rechtliche Angaben {/* #rechtliche-angaben */}
 

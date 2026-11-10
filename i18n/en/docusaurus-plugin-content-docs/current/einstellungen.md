@@ -29,7 +29,7 @@ In the **Security** sub-section you set up two-factor authentication and keep an
 
 ## Organization
 
-In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact**, **Operating mode** and **Assistant**.
+In the **Organization** tab you manage your organization's master data. Among others it has the sub-tabs **General**, **Contact**, **Operating mode**, **Assistant** and **Notifications**.
 
 ### General
 
@@ -56,6 +56,17 @@ Under **Operating mode** you choose how your organization works: **Orders only**
 ### Assistant
 
 Under **Assistant** you switch the **Assistant features** on or off (admins only): menu import and icon suggestions. Below it you see the daily quota. What the assistant does and what happens to your data is described under [Assistant](./assistent.md).
+
+### Notifications {/* #benachrichtigungen */}
+
+Under **Notifications** you decide which **event reminders** OpenEOS sends to all admins of your organization (only admins can change this; everything is on by default):
+
+- **A week before – “Your event is coming up”:** a checklist from your real data, each item with ✓ or ✗ and a link to the right place: tills connected, printers online and a test print, servers and PIN slips, products and prices, imprint and privacy notice (if the shop or QR ordering is used), operating mode and country, Cloud TSE. Plus the note that everything runs in test mode until sales start.
+- **The day before – “Tomorrow is the day”:** when real sales start, that test orders are deleted then, the [emergency support](./support.md) number and the Cloud TSE status.
+- **After the event – “Thank you! This is how your event went”:** orders, revenue (quantities only with “Orders only”) and the three best-selling products, without test orders, with links to reports, CSV export and server settlements.
+- **Not activated yet:** a week before, if the event is still in test mode, with a link to activate it and the cancellation rule (free only until 7 days before the start).
+
+The e-mails go out at fixed times (usually 9 am) and are sent later if a run was missed, as long as they still make sense. If you move an event to another day, the reminders come again for the new date. To turn them off just for you, use **Personal → Preferences → Event reminders**; with **E-mail notifications** off you don't get them either. On a self-hosted installation the e-mails need configured e-mail delivery, and “Not activated yet” does not exist.
 
 ### What you no longer find here
 

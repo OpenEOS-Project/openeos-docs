@@ -278,7 +278,7 @@ export const AUFNAHMEN = [
     vorbereiten: ohneBestandHinweis,
     hinweise: [
       {
-        auf: ['.oe-segment[data-tour="dashboard-range"]', '.dash-head__actions button:has-text("Anpassen"), .dash-head__actions button:has-text("Customise")'],
+        auf: ['.oe-segment[data-tour="dashboard-range"]', '.dash-head__actions button:has-text("Anpassen"), .dash-head__actions button:has-text("Customise"), .dash-head__actions button:has-text("Customize")'],
         text: { de: 'Zeitraum (Heute, 7 Tage, Veranstaltung) und Kacheln anpassen', en: 'Period (today, 7 days, event) and customise tiles' },
       },
       { auf: '.app-card--flat', text: { de: 'Letzte Aktivitäten: die neuesten Bestellungen', en: 'Recent activity: the latest orders' } },
@@ -866,8 +866,8 @@ export const AUFNAHMEN = [
     pfad: '/cashbook',
     hinweise: [
       { auf: '.app-card:has(input[type="date"])', text: { de: 'Geschäftstag wählen (6 bis 6 Uhr)', en: 'Pick the business day (6 am to 6 am)' } },
-      { auf: '.app-card:has(.oe-num), .app-card >> nth=1', text: { de: 'Soll-Bestand der ganzen Kasse und woraus er sich ergibt', en: 'Expected cash of the whole register and how it adds up' } },
-      { auf: karte('Buchen für die ganze Kasse', 'Book for the whole register'), text: { de: 'Anfangsbestand, Einlage, Entnahme, Kassensturz', en: 'Opening balance, cash in, cash out, cash count' } },
+      { auf: '.app-card:has(.oe-num), .app-card >> nth=1', text: { de: 'Soll-Bestand der ganzen Kasse und woraus er sich ergibt', en: 'Expected cash of the whole till and how it adds up' } },
+      { auf: karte('Buchen für die ganze Kasse', 'Book for the whole till'), text: { de: 'Anfangsbestand, Einlage, Entnahme, Kassensturz', en: 'Opening balance, cash in, cash out, cash count' } },
       { auf: karte('Je Gerät', 'Per device'), text: { de: 'Soll-Bestand je Gerät', en: 'Expected cash per device' } },
     ],
   },

@@ -67,7 +67,7 @@ Solange nichts kassiert wird, steht der Text im Ruhezustand da. Sobald an der zu
 
 Neue Bestellungen erscheinen, sobald sie an Küche und Theke gehen: beim [Kassiermodus](./veranstaltungen.md#kassiermodus) **Sofort kassieren** mit der Zahlung, bei **Auf Deckel buchen** mit **Senden**. Gezeigt wird nur, was die jeweilige Station betrifft — die Küche sieht keine Getränke, wenn diese der Theke zugeordnet sind. Welches Produkt zu welcher Station gehört, legst du unter [Standorte](./standorte.md) fest.
 
-Die Bestellungen stehen in zwei Spalten: **Bedienungen** (an den Tisch) und **Abholung**. Jede Karte ist gleich aufgebaut: oben die Nummer, bei Bedarf **Eilt** oder **Hoch**, und wie lange die Bestellung schon wartet; darunter, wohin sie geht — **Tisch A11**, **Abholung**, **To-go** oder **Theke**, dazu gegebenenfalls der Name des Gasts. Darunter folgen die Positionen mit Notizen.
+Die Bestellungen stehen in zwei Spalten: **Am Tisch** (wird an den Tisch gebracht) und **Abholung**. Jede Karte ist gleich aufgebaut: oben die Nummer, bei Bedarf **Eilt** oder **Hoch**, und wie lange die Bestellung schon wartet; darunter, wohin sie geht — **Tisch A11**, **Abholung**, **To-go** oder **Theke**, dazu gegebenenfalls der Name des Gasts. Darunter folgen die Positionen mit Notizen.
 
 Bei einem **Touchscreen** tippt die Küche bei jeder Position auf **Fertig**, sobald sie raus kann:
 

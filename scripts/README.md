@@ -180,6 +180,12 @@ anlegen würden (Assistent, Pfand-Rückgabe, Anmeldung einer Bedienung).
   Gebucht wird nie.
 - **Cloud-TSE:** `TSE_PROVIDER=none` und `TSE_COMING_SOON=true` – so wie
   gehostet bis zum Start („Bald verfügbar“).
+- **Beleg nach dem Bezahlen (seit 1.8):** `pos-done` zeigt den QR-Code des
+  digitalen Belegs; `/device-api/receipts/link` ist in `kassenRouten`
+  nachgestellt (Link auf `app.openeos.de/beleg/…`), es entsteht kein Beleg.
+- **`pos-tse-receipt`** ist kein Skriptbild: Ausschnitt (nur der Bon) aus
+  einer Aufnahme gegen die Swissbit-Entwicklungsumgebung. Ein neues braucht
+  eine echte TSE.
 - **Notfall-Support:** `OPERATOR_EMERGENCY_PHONE` mit einer ausgedachten
   Nummer (Bilder 2026: `+49 30 23125456` aus dem Bereich für Film und
   Fernsehen).

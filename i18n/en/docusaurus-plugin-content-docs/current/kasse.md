@@ -29,7 +29,7 @@ If the till is set to **Shared till**, the PIN screen "Who is serving?" comes fi
 
 The top bar always shows the same things:
 
-- **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the organization and the running event. On phones the logo and the event are dropped; what doesn't fit ends with "…".
+- **On the left** the name of the till and — if the device has a [default area](./geraete.md#standardbereich) — that area, e.g. "Till 3 · Zelt A". Below it the organization and the running event. On phones the logo is smaller and the event is dropped; what doesn't fit ends with "…".
 - **Table** — in the order view a green pill shows who you are booking for: "Table A10", "Counter" or "To go". Tapping it opens [Choose table](#tisch-wechseln).
 - **Status** — a dot: green **Online**, yellow **Connecting …** or **No live data**, red with a crossed-out Wi-Fi icon **Offline**. Next to it the till's receipt printer, e.g. "Printer Bar" (or "Printer Bar offline"), if one is assigned, and the time. On narrower screens only the dot remains.
 - **Menu** (the three lines) — **Order history**, **Open orders**, **Deposit return**, [Cash book](#kassenbuch), **Open cash drawer**, [Hand over table](#tisch-uebergeben), [Emergency support](#notfall-support), [Appearance](#darstellung), **Source code (AGPL-3.0)** and **Sign out device**. Only what is set up for this till and what the signed-in person is allowed to do appears.
@@ -39,12 +39,12 @@ Below the header there is at most **one** notice, the most important first:
 
 1. "Event ended – only settle open orders" after sales have ended,
 2. "Test operation – sales don't count. Real sales from … at …" while the event is **Planned**, or "Test mode – sales don't count and are deleted on activation" in test mode (shortened on phones),
-3. "No connection – sending and checkout work again once the register is online.",
+3. "No connection – sending and checkout work again once the till is online.",
 4. "TSE failed – you can keep selling, the receipt will be marked.",
 5. "Cash blocked – without an active TSE this till accepts no cash. Card and online keep working." if the Cloud TSE is missing in Germany in "All features",
 6. "Orders only – no checkout here. Payment happens outside OpenEOS." in the [Orders only](./betriebsarten.md#nur-bons) operating mode.
 
-At the very bottom there is a thin line with copyright, version, imprint and privacy; on phones and portrait tablets it sits at the end of the menu.
+At the very bottom there is a thin line with copyright, version, imprint and privacy; on phones and portrait tablets it sits at the end of the page, above the cart bar.
 
 ### Light or dark {/* #darstellung */}
 
@@ -54,7 +54,7 @@ In the **Menu**, under **Appearance**, you choose **Light**, **Dark** or **Syste
 
 ![Start view: open a table with the keypad and open tables](/img/screens/en/pos-start.png)
 
-With table service every order starts with the question: which table? How you find it — by **number**, from the **list** or on the **map** — is fixed per device: under **Devices → device → Settings** in [Table selection on the POS](./geraete.md#tischwahl). There is no switch at the till itself; it always shows exactly that view, both when opening a table and under [Choose table](#tisch-wechseln). That way staff in the tent can work with the map while the bar uses the keypad.
+With table service every order starts with the question: which table? How you find it — by **number**, from the **list** or on the **map** — is fixed per device: under **Devices → device → Settings** in [Table selection on the till](./geraete.md#tischwahl). There is no switch at the till itself; it always shows exactly that view, both when opening a table and under [Choose table](#tisch-wechseln). That way staff in the tent can work with the map while the bar uses the keypad.
 
 If the event uses freely entered table numbers, every till shows the keypad.
 
@@ -266,7 +266,7 @@ In the **Menu**, **Order history** opens the orders of the running event, groupe
 
 - **Search** by number, table or product.
 - **Status:** **All**, **In kitchen**, **Ready**, **Open – not paid**, **Completed**, **Cancelled** and **Refunded**.
-- Under **Filters**: **Payment**, **Register** (**This device** or **All registers**) and **Period** (**Today** or **Event**). **Reset filters** clears everything.
+- Under **Filters**: **Payment**, **Till** (**This device** or **All tills**) and **Period** (**Today** or **Event**). **Reset filters** clears everything.
 
 Tapping an order opens it with its items, payments and history. Depending on its state you find:
 
@@ -320,7 +320,7 @@ If your organization has booked the event, the menu shows **Emergency support** 
 The till adapts to the screen width:
 
 - **Tablet in landscape and PC** — categories on the left, items in the middle, cart on the right.
-- **Phone and tablet in portrait** — the categories are a bar at the top, the cart is a green **bar** at the bottom with the count and total. Tapping it opens the cart from below. Sheets such as checkout, options or choose table also open from below.
+- **Phone and tablet in portrait** — the categories are a bar at the top, the cart is a green **bar** at the bottom with the count and total. Tapping it opens the cart from below. Sheets such as checkout, options or choose table also open from below. The line with copyright, version, imprint and privacy sits at the end of the page.
 
 **Swipe to close:** you close any sheet — cart, checkout, options, choose table — by dragging it down by its handle or header (or by its content when that is scrolled to the top). Let go too early and the sheet springs back. Swiping is switched off on the map so that you can move it around.
 
@@ -330,7 +330,7 @@ The till needs a connection. The status at the top right shows how it is doing:
 
 - **Connecting …** — the live connection is briefly gone. You can carry on as normal.
 - **No live data** — the live connection has been missing for a while, so the till polls the server itself. Table states may lag a little; *Open tables* then shows "As of …" with the time.
-- **Offline** — no connection. Below the header it says "No connection – sending and checkout work again once the register is online." Typing in items, switching and parking tables still works; **Send**, **Check out** and paying out deposits are blocked.
+- **Offline** — no connection. Below the header it says "No connection – sending and checkout work again once the till is online." Typing in items, switching and parking tables still works; **Send**, **Check out** and paying out deposits are blocked.
 
 Orders are **not** stored and sent later. Plan for this: a marquee at the edge of the Wi-Fi is the most common reason for a till to stand still. Check the reception **before** the event wherever a till will stand.
 

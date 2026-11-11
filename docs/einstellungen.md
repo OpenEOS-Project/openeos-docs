@@ -17,7 +17,7 @@ Jeder Unterreiter besteht aus Karten mit demselben Kopf: einem Symbol, dem Titel
 Der Reiter **Persönlich** ist in mehrere Unterbereiche gegliedert:
 
 - **Profil** – Profilbild, Vorname und Nachname pflegen. Die E-Mail-Adresse steht hier nur zur Ansicht.
-- **Konto** – die Karten **E-Mail ändern** und **Passwort ändern** (beide mit deinem aktuellen Passwort), [Neuigkeiten per E-Mail](./daten-und-loeschung.md#newsletter) an- oder abbestellen und [Konto löschen](./daten-und-loeschung.md#konto-loeschen).
+- **Konto** – die Karten **E-Mail ändern** und **Passwort ändern** (beide mit deinem aktuellen Passwort). Meldest du dich nur per Anmeldelink an, fragt keine der beiden nach einem Passwort, und statt **Passwort ändern** steht **Passwort festlegen**. Eine neue E-Mail-Adresse gilt erst, wenn du den Bestätigungslink in der Mail an diese Adresse öffnest; bis dahin meldest du dich mit der bisherigen an. Außerdem: [Neuigkeiten per E-Mail](./daten-und-loeschung.md#newsletter) an- oder abbestellen und [Konto löschen](./daten-und-loeschung.md#konto-loeschen).
 - **Sicherheit** – **Zwei-Faktor-Authentifizierung**, **Vertrauenswürdige Geräte** und **Aktive Sitzungen**.
 - **Einstellungen** – **Erscheinungsbild** (**Hell**, **Dunkel** oder **System**), **Sprache**, **Benachrichtigungen** (**E-Mail-Benachrichtigungen**, **Push-Benachrichtigungen**) und der **Rundgang** durch die Oberfläche, den du mit **Erneut starten** noch einmal ansiehst.
 - **Über OpenEOS** – Version, Lizenz und ein Link zum Quellcode dieser Installation.
@@ -32,7 +32,7 @@ Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein
 
 ## Organisation
 
-Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat die Unterreiter **Allgemein**, **Kontakt**, **Steuerangaben**, **Betriebsart**, **Assistent**, **Zugänge**, **Webhooks**, **Benachrichtigungen** und **Rechtliche Angaben**. Ändern können die Angaben nur Admins der Organisation.
+Im Reiter **Organisation** verwaltest du die Stammdaten deiner Organisation. Er hat die Unterreiter **Allgemein**, **Kontakt**, **Steuerangaben**, **Betriebsart**, **Assistent**, **Zugänge**, **Webhooks**, **Benachrichtigungen** und **Rechtliche Angaben**. Ändern können die Angaben nur Admins der Organisation; andere Mitglieder sehen Allgemein, Kontakt, Steuerangaben und Rechtliche Angaben nur zum Nachlesen (mit Hinweis, ohne **Speichern**).
 
 ### Allgemein {/* #allgemein */}
 

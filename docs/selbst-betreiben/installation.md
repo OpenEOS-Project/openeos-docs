@@ -284,7 +284,11 @@ muss dafür aus dem Internet erreichbar sein:
       # … bestehende Variablen …
       SHOP_RETURN_URL_BASE: https://shop.verein.example
       API_PUBLIC_URL: https://api.verein.example
+      # Ziel der QR-Codes der API (<basis>/scan/<code>)
+      ONLINE_ORDER_BASE_URL: https://shop.verein.example
 ```
+
+Alle drei stehen ohne eigenen Wert auf den gehosteten Adressen von openeos.de (`shop.openeos.de`, `api.openeos.de`, `order.openeos.de`); kommentiert stehen sie auch in `.env.example` und `docker-compose.prod.yml` der API.
 
 :::note[Erst mit Impressum und Datenschutzhinweis]
 Der Shop und die Bestellung per QR-Code am Tisch nehmen erst Bestellungen an,

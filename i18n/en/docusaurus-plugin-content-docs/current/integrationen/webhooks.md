@@ -723,7 +723,7 @@ Webhooks can also be managed with an [API token](../api-zugaenge.md). There are 
 
 **Deleting** is not possible with a token, only in the app. As with all tokens, `webhooks:write` does not include reading.
 
-All endpoints live under `/organizations/{organizationId}/webhooks`:
+All endpoints live under `/organizations/{organizationId}/webhooks`. Copy the organization ID under **Settings → Organization → Webhooks** (or **Access**).
 
 | Method | Path | Scope | Purpose |
 |---|---|---|---|

@@ -69,7 +69,7 @@ So startet die Anmeldeseite auf app.openeos.de: Du gibst nur deine E-Mail-Adress
 Das ist besonders praktisch am Festtag: Wer sein Passwort gerade nicht parat hat, kommt trotzdem in Sekunden hinein.
 
 :::note[Konto ganz ohne Passwort]
-Ein Passwort ist nicht zwingend. Du kannst ein Konto ausschließlich über Anmeldelinks nutzen und ein Passwort später jederzeit in den [Einstellungen](./einstellungen.md) unter **Konto → Passwort ändern** setzen oder über **Passwort vergessen?** auf der Anmeldeseite.
+Ein Passwort ist nicht zwingend. Du kannst ein Konto ausschließlich über Anmeldelinks nutzen und ein Passwort später jederzeit in den [Einstellungen](./einstellungen.md) unter **Konto → Passwort festlegen** setzen oder über **Passwort vergessen?** auf der Anmeldeseite.
 :::
 
 ### Mit Passwort

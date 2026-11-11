@@ -94,7 +94,7 @@ Whether a table is actually requested also depends on the table mode of the [eve
 
 With **Table Service**, the **Tables** block appears below the choice. There you give the till a **default area**, such as *Tent A*. The till then shows the area in its header ("Till 3 · Tent A") and opens it first in the table list and on the floor plan. Without a default area the areas appear in their normal order. You create areas under [Tables](./tische.md).
 
-#### Table selection on the POS {/* #tischwahl */}
+#### Table selection on the till {/* #tischwahl */}
 
 Also in the **Tables** block you choose how this till opens a table:
 

@@ -22,7 +22,7 @@ Products always belong to an event. If none is active, the notice "No active eve
    - **Category** (required) — assign the product to a [category](./kategorien.md); the plus next to it creates a new one right away
    - **Description** — optional additional text (e.g. "Freshly tapped")
    - **Price** (required)
-   - **VAT** — standard rate, reduced rate or 0 %
+   - **VAT** — standard rate, reduced rate or **0% (not taxable)**, e.g. for donations or membership fees. If your organization does not charge VAT (small business), there is only **0% (tax-exempt, small business)**.
    - **Station** — leave empty to use the [station](./standorte.md) of the category
    - **Deposit type** — optional, see [Deposits](./pfand.md)
 3. Optional: choose a **product icon** or upload an **image** (see [Icons and images](#icons)).

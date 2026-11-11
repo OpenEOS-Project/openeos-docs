@@ -172,13 +172,13 @@ The **Templates** tab lets you define how receipts look — for example a kitche
 
 ![Printers – Templates](/img/screens/en/printers-templates.png)
 
-### Waiter and device on the ticket
+### Server and device on the ticket
 
-The **Waiter** and **Device** elements (group **Order**) show on the ticket who took the order, so the kitchen or bar knows whom to ask.
+The **Server** and **Device** elements (group **Order**) show on the ticket who took the order, so the kitchen or bar knows whom to ask.
 
 ![Receipt editor: “Server” and “Device” elements](/img/screens/en/printers-template-waiter.png)
 
-- **Waiter** – who took the order. If the till works with [servers](./bedienungen.md), this is the first available of: who sent the round ▸ responsible server of the table ▸ signed-in member ▸ device name. Whether the short name or the full name appears is set under [Name on tickets](./bedienungen.md#einstellungen). Without servers this shows the **name of the device**; if an ordering device belongs to one person, simply name it after them under **Devices**, e.g. "Markus's phone". For orders someone creates in the admin area (without a device) it shows their name.
+- **Server** – who took the order. If the till works with [servers](./bedienungen.md), this is the first available of: who sent the round ▸ responsible server of the table ▸ signed-in member ▸ device name. Whether the short name or the full name appears is set under [Name on tickets](./bedienungen.md#einstellungen). Without servers this shows the **name of the device**; if an ordering device belongs to one person, simply name it after them under **Devices**, e.g. "Markus's phone". For orders someone creates in the admin area (without a device) it shows their name.
 - **Device** – always the name of the device the order was taken on.
 
 Like other fields, both can be placed freely, aligned, printed **bold** or **big**, and their label can be changed (default: "Bedienung: " / "Gerät: "). Without a name – for example for online and QR orders – the line is left out, label included.

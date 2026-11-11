@@ -17,7 +17,7 @@ Every sub-tab consists of cards with the same header: an icon, the title and a s
 The **Personal** tab is divided into several sub-sections:
 
 - **Profile** – manage your profile picture, first name and last name. Your email address is shown here for reference only.
-- **Account** – the cards **Change email** and **Change password** (both with your current password), subscribe to or unsubscribe from [news by email](./daten-und-loeschung.md#newsletter) and [delete your account](./daten-und-loeschung.md#konto-loeschen).
+- **Account** – the cards **Change email** and **Change password** (both with your current password). If you only sign in with sign-in links, neither asks for a password, and **Change password** becomes **Set password**. A new email address only applies once you open the confirmation link in the email sent to it; until then you keep signing in with your current one. Also: subscribe to or unsubscribe from [news by email](./daten-und-loeschung.md#newsletter) and [delete your account](./daten-und-loeschung.md#konto-loeschen).
 - **Security** – **Two-Factor Authentication**, **Trusted Devices** and **Active Sessions**.
 - **Preferences** – **Appearance** (**Light**, **Dark** or **System**), **Language**, **Notifications** (**Email notifications**, **Push notifications**) and the **Tour** of the interface, which you watch again with **Restart**.
 - **About OpenEOS** – version, license and a link to the source code of this installation.
@@ -32,7 +32,7 @@ In the **Security** sub-section you set up two-factor authentication (**Enable 2
 
 ## Organization
 
-In the **Organization** tab you manage your organization's master data. It has the sub-tabs **General**, **Contact**, **Tax details**, **Operating mode**, **Assistant**, **Access**, **Webhooks**, **Notifications** and **Legal information**. Only admins of the organization can change the details.
+In the **Organization** tab you manage your organization's master data. It has the sub-tabs **General**, **Contact**, **Tax details**, **Operating mode**, **Assistant**, **Access**, **Webhooks**, **Notifications** and **Legal information**. Only admins of the organization can change the details; other members see General, Contact, Tax details and Legal information read-only (with a notice, without **Save**).
 
 ### General {/* #allgemein */}
 

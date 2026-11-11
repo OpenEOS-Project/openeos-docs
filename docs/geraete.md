@@ -163,7 +163,7 @@ Den Reiter **Drucker** gibt es nur bei Kassen. Hier verbindest du die Kasse mit 
 
 - **Standarddrucker** — der Bondrucker dieser Kasse. Auf ihm landen Kassenbons und alle Bons, für die kein Standort zuständig ist. Mit **Testdruck** prüfst du ihn direkt von hier aus.
 - **Druck-Routing** — **Fester Drucker**: alle Bons gehen auf den Standarddrucker, ohne Rücksicht auf Standorte; für eine Kasse, die direkt an ihrem Drucker hängt. **Dynamisches Routing**: die Routing-Kette — Drucker des Produkt-Standorts, sonst des Kategorie-Standorts, sonst der Standarddrucker; wenn mehrere Standorte eigene Drucker haben.
-- **Kassenschublade** — der Drucker, an dem die Lade hängt; sie öffnet sich bei Barzahlung. Zur Auswahl stehen nur Drucker, bei denen beim Übernehmen die Kassenlade angekreuzt wurde. In den [Betriebsarten](./betriebsarten.md) „Nur Bons“ und „Bargeldlos“ bleibt die Lade zu.
+- **Kassenlade** — der Drucker, an dem die Lade hängt; sie öffnet sich bei Barzahlung. Zur Auswahl stehen nur Drucker, bei denen beim Übernehmen die Kassenlade angekreuzt wurde. In den [Betriebsarten](./betriebsarten.md) „Nur Bons“ und „Bargeldlos“ bleibt die Lade zu.
 
 Mit **Speichern** übernimmst du die Auswahl. Ohne Standarddrucker nimmt die Kasse Bestellungen trotzdem an — sie druckt nur keine Kassenbons.
 

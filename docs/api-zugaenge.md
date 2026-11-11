@@ -60,7 +60,7 @@ curl https://api.openeos.de/api/organizations/ORGANISATIONS-ID/events \
   -H "Authorization: Bearer oeos_…"
 ```
 
-Welche Organisation gemeint ist, steht immer im Pfad; ein Token erreicht nur seine eigene. Die ID deiner Organisation zeigt die App nicht direkt an. Du findest sie im Feld `organizationId` jeder [Webhook-Zustellung](./integrationen/webhooks.md#aufbau), zum Beispiel nach **Test senden** im Zustellprotokoll unter **Inhalt (JSON)**. Ein verbundener [KI-Agent](./ki-agenten.md) nennt sie dir über `get_organization`.
+Welche Organisation gemeint ist, steht immer im Pfad; ein Token erreicht nur seine eigene. Die ID deiner Organisation steht unter **Einstellungen → Organisation → Zugänge** (und unter **Webhooks**) als **Organisations-ID** mit Knopf **Kopieren**. Sie steht außerdem im Feld `organizationId` jeder [Webhook-Zustellung](./integrationen/webhooks.md#aufbau), und ein verbundener [KI-Agent](./ki-agenten.md) nennt sie dir über `get_organization`.
 
 ## Grenzen
 

@@ -60,7 +60,7 @@ curl https://api.openeos.de/api/organizations/ORGANIZATION-ID/events \
   -H "Authorization: Bearer oeos_…"
 ```
 
-The organization is always part of the path; a token only reaches its own. The app does not show your organization's ID directly. You find it in the `organizationId` field of every [webhook delivery](./integrationen/webhooks.md#aufbau), for example after **Send test** in the delivery log under **Payload (JSON)**. A connected [AI agent](./ki-agenten.md) tells you via `get_organization`.
+The organization is always part of the path; a token only reaches its own. Your organization's ID is shown under **Settings → Organization → Access** (and under **Webhooks**) as **Organization ID** with a **Copy** button. It is also in the `organizationId` field of every [webhook delivery](./integrationen/webhooks.md#aufbau), and a connected [AI agent](./ki-agenten.md) tells you via `get_organization`.
 
 ## Limits
 

@@ -256,7 +256,7 @@ If the device is set to **Shared till** ([Devices](./geraete.md#pin-und-sperre))
 - **Automatic lock** — after a time without touch (2 minutes by default), but never during a running payment. Optionally the till locks after every payment.
 - **Reload** — afterwards the till asks for the PIN again.
 - **Offline** — unlocking does not work: "No connection – unlocking works again once online." A short connection drop does not sign anyone out.
-- **Wrong PINs** — after 5 failed attempts PIN entry is locked for 30 seconds, after 10 for five minutes, after 20 until an admin releases it ([Wrong PINs](./bedienungen.md#fehlversuche)).
+- **Wrong PINs** — after 5 failed attempts within 30 minutes PIN entry is locked for 30 seconds, each further one doubles the lock (at most 15 minutes), after 20 it stays locked until an admin releases it ([Wrong PINs](./bedienungen.md#fehlversuche)).
 
 With **Fixed server** there is no PIN screen; the chip shows the server the device belongs to and opens **My running total**. There is no switching or locking there. With **No servers** there is neither a chip nor a lock.
 

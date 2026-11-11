@@ -256,7 +256,7 @@ Steht das Gerät auf **Gemeinsame Kasse** ([Geräte](./geraete.md#pin-und-sperre
 - **Automatisch sperren** — nach einer Zeit ohne Berührung (Standard 2 Minuten), aber nie während einer laufenden Zahlung. Optional sperrt die Kasse nach jedem Kassieren.
 - **Neuladen** — Danach fragt die Kasse die PIN erneut ab.
 - **Offline** — Entsperren geht nicht: „Keine Verbindung – Entsperren ist erst wieder online möglich“. Ein kurzer Verbindungsabbruch meldet niemanden ab.
-- **Falsche PINs** — Nach 5 Fehlversuchen ist die PIN-Eingabe 30 Sekunden gesperrt, nach 10 fünf Minuten, nach 20 bis ein Admin sie freigibt ([Falsche PINs](./bedienungen.md#fehlversuche)).
+- **Falsche PINs** — Nach 5 Fehlversuchen in 30 Minuten ist die PIN-Eingabe 30 Sekunden gesperrt, jeder weitere verdoppelt die Sperre (höchstens 15 Minuten), nach 20 bleibt sie gesperrt, bis ein Admin sie freigibt ([Falsche PINs](./bedienungen.md#fehlversuche)).
 
 Bei **Feste Bedienung** gibt es keinen PIN-Bildschirm; der Chip zeigt die Bedienung, der das Gerät gehört, und öffnet **Mein Zwischenstand**. Wechseln und Sperren gibt es dort nicht. Bei **Ohne Bedienung** gibt es weder Chip noch Sperre.
 

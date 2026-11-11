@@ -157,13 +157,15 @@ So läuft es an einer **Gemeinsamen Kasse**. Mehr zum Ablauf steht unter [Kasse]
 
 ### Falsche PINs {/* #fehlversuche */}
 
-| Falsche PINs an einem Gerät | Folge |
+Gezählt werden die falschen PINs der letzten 30 Minuten an einem Gerät. Eine richtige PIN setzt den Zähler nicht zurück – ältere Fehlversuche fallen nach 30 Minuten von selbst heraus.
+
+| Falsche PINs an einem Gerät (30 Minuten) | Folge |
 |---|---|
 | 5 | PIN-Eingabe 30 Sekunden gesperrt |
-| 10 | PIN-Eingabe 5 Minuten gesperrt |
+| jede weitere | Sperre jeweils doppelt so lang (1, 2, 4, 8 Minuten …), höchstens 15 Minuten |
 | 20 | PIN-Eingabe gesperrt, bis ein Admin sie unter **Geräte → Gerät → Einstellungen** mit **PIN-Eingabe freigeben** wieder öffnet |
 
-Gibt es in der ganzen Organisation auffällig viele Fehlversuche, pausiert die PIN-Eingabe kurz an allen Geräten.
+Ist die Wartezeit vorbei, funktioniert eine richtige PIN sofort wieder. Gibt es in der ganzen Organisation auffällig viele Fehlversuche (mehr als 50 in einer Stunde), pausiert die PIN-Eingabe an allen Geräten – zuerst eine Minute, bei weiteren Fehlversuchen jeweils doppelt so lang, höchstens 15 Minuten.
 
 ### Tische {/* #tische */}
 

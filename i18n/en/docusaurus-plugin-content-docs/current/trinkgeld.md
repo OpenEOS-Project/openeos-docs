@@ -5,7 +5,7 @@ description: Who tips belong to, which VAT rate OpenEOS books them with, when th
 
 # Tips
 
-The till takes tips when [checking out](./kasse.md#kartenzahlung) – by card as a separate amount or by rounding up. OpenEOS then books them according to **who they belong to**: the club or an employed server. That decides whether they carry VAT and whether you may pay them out.
+The till takes tips when [checking out](./kasse.md#kartenzahlung) – by card as a separate amount or by rounding up. If a guest pays too much with [tokens](./wertmarken.md#ueberzahlung), the rest can also become a tip after confirmation. OpenEOS then books them according to **who they belong to**: the club or an employed server. That decides whether they carry VAT and whether you may pay them out.
 
 :::note[Not tax advice]
 We describe how OpenEOS books tips and the assessment this is based on. This is not tax advice. Check the rules for your club yourself or with your tax advisor.

@@ -27,7 +27,8 @@ At the top you filter the report by **Event** and **Time range**; the active eve
 ## Detailed Reports
 
 - **Top products** – your products with category, quantity, revenue and average price, net and sorted by revenue.
-- **Payment methods** – breakdown of revenue by payment method with count, total and share.
+- **Payment methods** – breakdown of revenue by payment method with count, total and share. Amounts paid with tokens appear in the line **Tokens**.
+- **Tokens** – sold, redeemed, returned, bought back and in circulation per token type and event, see [Tokens](./wertmarken.md#bericht).
 - **VAT** – goods, deposits and deposit returns per VAT rate, see [below](#umsatzsteuer).
 - **Revenue by channel** – till, online shop and QR order compared.
 - **Top categories** – quantity and revenue per category, net and sorted by revenue.
@@ -45,6 +46,7 @@ The **VAT** card shows per **VAT rate** the columns **Goods**, **Deposit**, **De
 
 - If your organization does not charge VAT (e.g. small business), all amounts are shown at 0 % without tax.
 - Deposits from before November 2026 were booked without VAT and stay unchanged at 0 %. Deposit returns against this [old balance](./pfand.md#altsaldo) are shown at 0 % too.
+- With [tokens](./wertmarken.md#umsatzsteuer): the column **Single-purpose tokens** shows single-purpose tokens, whose VAT arises when the tokens are sold. Multi-purpose tokens are not revenue when sold; an info line says so, and their VAT is included in the goods on redemption.
 - The card is also available as CSV (**Export CSV**) and in the PDF. In [Orders only](./betriebsarten.md#nur-bons) it is not shown.
 
 ## Servers {/* #bedienungen */}

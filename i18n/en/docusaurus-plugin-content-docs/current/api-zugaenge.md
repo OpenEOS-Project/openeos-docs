@@ -37,8 +37,8 @@ Every endpoint in the [API reference](/en/api) names the scope it requires (`x-a
 
 | Scope | In the app | Allows | Module permission the owner needs |
 |---|---|---|---|
-| `read` | **Read** | Read organization, events, categories, products, deposit types, tables, stations, receipt templates, printers, shift plans, devices, reports and orders (including the CSV export) | Membership; for reports `Reports`, for the order export `Orders` |
-| `catalog:write` | **Edit catalog** | Create and edit categories, products and deposit types | `Products`, `Deposit` |
+| `read` | **Read** | Read organization, events, categories, products, deposit types, [token types](./wertmarken.md), tables, stations, receipt templates, printers, shift plans, devices, reports (including the token report), token sales and buy-backs, and orders (including the CSV export) | Membership; for reports `Reports`, for the token report and token transactions `Reports` or `Products`, for the order export `Orders` |
+| `catalog:write` | **Edit catalog** | Create and edit categories, products, deposit types and token types – deleting token types only in the app | `Products`, `Deposit` |
 | `events:write` | **Edit events** | Create and edit events, copy products between events, edit production stations (no activation) | `Events` |
 | `tables:write` | **Edit tables** | Edit areas, tables and the table plan | `Events` |
 | `staff:write` | **Edit shift plans** | Edit shift plans, jobs, shifts and helper sign-ups (accept, decline, notes, create) | `Shift plans` |

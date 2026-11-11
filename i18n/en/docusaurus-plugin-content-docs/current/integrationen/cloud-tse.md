@@ -126,6 +126,7 @@ With an active Cloud TSE, OpenEOS signs every transaction that belongs to the ti
 - **orders without immediate payment** (table service, counter on a tab, admin area) – before the kitchen ticket, see [Receipts and the Cloud TSE](../kasse.md#tse),
 - **online payments** in the online shop and for QR code orders, as soon as the payment comes in, see [Online orders](../betriebsarten.md#online),
 - **refunds and cancellations** with a reference to the original receipt,
+- **selling and buying back [tokens](../wertmarken.md)** (accepting them as payment is part of the payment),
 - **deposit payouts**, **[cash book](../kassenbuch.md) entries** and **tip payouts** to employed servers ([Tips](../trinkgeld.md#auszahlung)),
 - **server settlements** with expected amount, counted amount and difference ([Servers](../bedienungen.md#abrechnung-tse)),
 - **training transactions** in test mode.

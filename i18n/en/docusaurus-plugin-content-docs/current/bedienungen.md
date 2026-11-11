@@ -203,6 +203,7 @@ Tap your chip at the top right of the till and choose **My running total**. You 
 | **Open tables** | e.g. "2 open tables": your tables that are not paid yet, with the open amount |
 
 - If you take payment at another server's table, the money counts for you.
+- **Tokens:** if you accepted [tokens](./wertmarken.md#kellnerabrechnung), the block **WERTMARKEN (abgeben)** (tokens – hand in) lists them per type. You hand them in like cash; they are not part of the **expected cash**. Cash from token sales increases the expected cash, a buy-back reduces it.
 - **Expected cash** is only a guide. The cash stays in the till's drawer and is counted at the device's [cash count](./kassenbuch.md) as before.
 - **Print running total** prints the figures on the till's receipt printer – not binding, without a number and without signature lines.
 

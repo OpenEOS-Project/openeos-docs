@@ -38,7 +38,8 @@ Organisationen, die es schon vor den Betriebsarten gab, laufen als **Alle Funkti
 | Erstattung | nein | nur auf Karte oder Online-Zahlung | ja |
 | [Pfand](./pfand.md) | nein | nur **Verrechnen** | **Auszahlen** und **Verrechnen** |
 | [Rabatt-Bons](./rabatt-bons.md) (nur kostenlos ausgegebene Bons) | nein | ja | ja |
-| Wertmarken, Gutscheine, Guthaben als Zahlung | nein | nein ([warum](#wertmarken)) | gibt es in OpenEOS nicht |
+| [Wertmarken](./wertmarken.md) verkaufen, als Zahlung annehmen, zurücktauschen | nein | nein ([warum](#wertmarken)) | ja – in Deutschland nur mit aktiver Cloud-TSE |
+| Gutscheine, Guthaben als Zahlung | nein | nein | gibt es in OpenEOS nicht |
 | Kassenlade | nein | nein | ja |
 | [Auswertung](./auswertung.md) | nur Mengen | Mengen und Umsätze | Mengen und Umsätze |
 
@@ -63,6 +64,7 @@ In **Nur Bons** arbeitet OpenEOS als reines Bestellsystem. Dein Team nimmt Beste
 - Kein **Rechnung teilen**, keine Sammelzahlung, kein **Trinkgeld**.
 - Keine **Erstattung**, keine **Kassenlade**, keine Quittung.
 - Kein **Pfand** und keine **Rabatt-Bons**.
+- Keine **[Wertmarken](./wertmarken.md)** in OpenEOS – kein Verkauf, keine Annahme, kein Rücktausch.
 - Keine Bestellungen im **Online-Shop** und per **QR-Code**. Der Shop zeigt statt Speisekarte und Warenkorb den Hinweis „Bestellungen nur vor Ort“.
 
 ### Bestellungen abschließen {/* #abschliessen */}
@@ -95,6 +97,7 @@ In **Bargeldlos** stehen alle Funktionen zur Verfügung, bezahlt wird aber nur m
 | Erstattung | Nur auf die ursprüngliche Karten- oder Online-Zahlung. Eine Barzahlung aus der Zeit vor dem Wechsel lässt sich über OpenEOS nicht mehr erstatten; die Kasse und die Verwaltung zeigen dann „Keine Bar-Erstattung“. |
 | Pfand-Rückgabe | **Auszahlen** gibt es nicht. Zurückgegebenes Pfand verrechnest du mit neuem Pfand im selben Verkauf (**Verrechnen**). Ohne Warenkorb ist die Pfand-Rückgabe gesperrt und erklärt das. |
 | Kassenlade | Öffnet sich nicht, der Menüpunkt **Kassenlade öffnen** fehlt. |
+| Wertmarken | Gesperrt: kein Verkauf, keine Annahme als Zahlung, kein Rücktausch (siehe [Wertmarken und Gutscheine](#wertmarken)). |
 
 Ohne SumUp kann die Kasse in dieser Betriebsart keine Zahlungen annehmen; abschließen lassen sich dann nur online oder vorab bezahlte Bestellungen. Das kann reichen, wenn du nur über den Shop verkaufst.
 
@@ -122,6 +125,8 @@ In **Alle Funktionen** nimmt die Kasse Bargeld, Karte und Online-Zahlung an: Bar
 - **In Deutschland** nimmt die Kasse in „Alle Funktionen“ Bargeld nur mit einer aktiven, zertifizierten **Cloud-TSE** an. Die ist im Preis der Veranstaltung inklusive und kommt automatisch: Schaltest du eine Veranstaltung frei, schaltet OpenEOS die Cloud-TSE ein und richtet sie zum ersten Veranstaltungstag ein – siehe [Cloud-TSE](./integrationen/cloud-tse.md#automatisch). „Alle Funktionen“ kannst du deshalb schon wählen, sobald eine bezahlte Veranstaltung ansteht; die Karte zeigt dann *Cloud-TSE wird am … automatisch eingerichtet*, und Bargeld geht ab diesem Tag. Ohne bezahlte Veranstaltung ist die Betriebsart ausgegraut („braucht eine freigeschaltete Veranstaltung“). Sobald die TSE aktiv ist, wird aus „Bargeldlos“ automatisch „Alle Funktionen“. Ist die TSE später nicht mehr aktiv, nimmt die Kasse kein Bargeld mehr an – der Server prüft das bei jeder Barzahlung –, und OpenEOS zeigt dir einen Hinweis.
 - **In allen anderen Ländern** kannst du „Alle Funktionen“ ohne TSE wählen. Welche Regeln dort gelten, steht unter [Österreich, Schweiz und andere Länder](#andere-laender).
 
+Nur in „Alle Funktionen“ gibt es außerdem [Wertmarken](./wertmarken.md): Marken verkaufen, beim Kassieren als Zahlung annehmen und zurücktauschen. Weil das Annehmen von Marken „an Geldes statt“ eine Kassenfunktion ist, gilt in Deutschland dieselbe Regel wie für Bargeld: nur mit aktiver Cloud-TSE – auch in **Alle Funktionen (Bestand)**. Außerhalb Deutschlands gehen Wertmarken wie Bargeld auch ohne TSE.
+
 ## Online-Bestellungen {/* #online */}
 
 Bestellungen im **Online-Shop** und per **QR-Code** am Tisch bezahlt der Gast online (Online-Vorkasse). Wie OpenEOS sie behandelt, hängt davon ab, ob deine Organisation eine Cloud-TSE hat:
@@ -138,8 +143,9 @@ Hintergrund: Ein Webshop ohne Zahlung vor Ort braucht keine TSE – aber nur, so
 ## Wertmarken und Gutscheine {/* #wertmarken */}
 
 - **Rabatt-Bons** in OpenEOS sind kostenlos ausgegebene Bons des Vereins, etwa Helfer- oder Freigetränk-Bons. Sie mindern den Preis (DSFinV-K „Rabatt“) und sind keine Zahlart. Siehe [Rabatt-Bons](./rabatt-bons.md).
-- **Verkaufte Wertmarken, Gutscheine oder Guthaben** gibt es in OpenEOS nicht. Nimmt ein Stand sie „an Geldes statt“ an, ist das Kassenfunktion und braucht eine TSE. In „Bargeldlos“ und „Nur Bons“ dürfen sie deshalb an OpenEOS-Geräten nicht als Zahlung angenommen werden. Verkaufte Wertmarken buchst du auch nicht als Rabatt-Bon.
-- In **Nur Bons** kann dein Verein Wertmarken außerhalb von OpenEOS verkaufen und annehmen und über die Rücklaufzählung abrechnen. Beschreibe Ausgabe, Einlösung, Rücktausch und Restmarken in deiner [Verfahrensdokumentation](./verfahrensdokumentation.md#wertmarken).
+- **Verkaufte Wertmarken** bildet OpenEOS mit der Funktion [Wertmarken](./wertmarken.md) ab: Verkauf, Annahme als Zahlung und Rücktausch, mit der richtigen Umsatzsteuer (Mehrzweck- oder Einzweckgutschein). Nimmt ein Stand Marken „an Geldes statt“ an, ist das Kassenfunktion und braucht in Deutschland eine TSE (AEAO zu § 146a Nr. 1.2). Deshalb gibt es Wertmarken nur in **Alle Funktionen** und in Deutschland nur mit aktiver Cloud-TSE; in „Bargeldlos“ und „Nur Bons“ weist der Server Verkauf, Annahme und Rücktausch ab.
+- **Gutscheine und Guthaben** (z. B. Guthabenkarten oder Kundenkonten) gibt es in OpenEOS nicht. Verkaufte Wertmarken oder Gutscheine buchst du auch nicht als Rabatt-Bon.
+- In **Nur Bons** kann dein Verein Wertmarken außerhalb von OpenEOS verkaufen und annehmen und über die Rücklaufzählung abrechnen. In **Bargeldlos** dürfen am selben Stand keine Marken als Zahlung angenommen werden, auch nicht nebenher (siehe [Bedingungen](#bargeldlos-bedingungen)). Beschreibe Ausgabe, Einlösung, Rücktausch und Restmarken in deiner [Verfahrensdokumentation](./verfahrensdokumentation.md#wertmarken).
 
 ## Bargeld und TSE {/* #tse */}
 
@@ -239,6 +245,7 @@ Betreibst du OpenEOS [selbst](./selbst-betreiben/intro.md), bist du selbst Betre
 
 - [An der Kasse verkaufen](./kasse.md)
 - [Pfand](./pfand.md)
+- [Wertmarken](./wertmarken.md)
 - [Cloud-TSE](./integrationen/cloud-tse.md)
 - [Verfahrensdokumentation – Vorlage](./verfahrensdokumentation.md)
 - [SumUp](./integrationen/sumup.md)

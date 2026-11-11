@@ -126,6 +126,7 @@ Mit aktiver Cloud-TSE signiert OpenEOS jeden Vorgang, der in die Kasse gehört:
 - **Bestellungen ohne sofortige Zahlung** (Tischbetrieb, Theke auf Deckel, Verwaltung) – vor dem Küchenbon, siehe [Bon und Cloud-TSE](../kasse.md#tse),
 - **Online-Zahlungen** im Online-Shop und bei der Bestellung per QR-Code, sobald die Zahlung eingegangen ist, siehe [Online-Bestellungen](../betriebsarten.md#online),
 - **Erstattungen und Stornos** mit Verweis auf den ursprünglichen Beleg,
+- **Verkauf und Rücktausch von [Wertmarken](../wertmarken.md)** (die Annahme als Zahlung steckt in der Zahlung),
 - **Pfand-Auszahlungen**, **Buchungen im [Kassenbuch](../kassenbuch.md)** und **Trinkgeld-Auszahlungen** an angestellte Bedienungen ([Trinkgeld](../trinkgeld.md#auszahlung)),
 - **Kellnerabrechnungen** mit Soll, Ist und Differenz ([Bedienungen](../bedienungen.md#abrechnung-tse)),
 - **Trainingsbuchungen** im Testmodus.

@@ -78,6 +78,7 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'pfand',
+        'wertmarken',
         'trinkgeld',
         'rabatt-bons',
         'mitglieder',

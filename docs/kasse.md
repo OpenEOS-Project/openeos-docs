@@ -188,6 +188,10 @@ Erst wird das Geld abgebucht, dann die Bestellung gespeichert. Scheitert das Spe
 
 Sind [Rabatt-Bons](./rabatt-bons.md) eingerichtet, erscheint **Rabatt**. Du wählst einen Bon — feste Bons ziehen ihren Betrag ab, bei „Betrag eingeben“ tippst du ihn ein. Angewandte Bons stehen links unter dem Betrag und lassen sich dort wieder entfernen. Danach wählst du Bar oder Karte für den Rest. Deckt der Rabatt alles, heißt der Knopf **Ohne Zahlung abschließen**.
 
+### Wertmarken {/* #wertmarken */}
+
+Hat deine Organisation [Wertmarken](./wertmarken.md) eingerichtet (nur in **Alle Funktionen**, in Deutschland mit aktiver Cloud-TSE), gibt es beim Kassieren den Bereich **Wertmarken**: Du tippst je Markentyp ein, wie viele Marken der Gast gibt, und kassierst den Rest bar oder mit Karte. Wechselgeld in Marken gibt es nicht; sind die Marken mehr wert als offen ist, bestätigst du **Rest als Trinkgeld** oder nimmst weniger Marken. Im Menü stehen außerdem **Wertmarken verkaufen** und **Wertmarken zurücktauschen**. Einzelheiten stehen unter [Wertmarken](./wertmarken.md).
+
 ### Rechnung teilen
 
 Am Tisch gibt es unter den Zahlarten **Rechnung teilen**. Du wählst die Positionen aus, die ein Gast bezahlt — nach Bestellung oder nach Kategorie sortiert — und kassierst sie bar oder mit Karte. Das wiederholst du, bis nichts mehr offen ist. Beim Kassiermodus **Auf Deckel buchen** werden neue, noch nicht gesendete Artikel vorher gesendet. Bei **Sofort kassieren** gibt es *Rechnung teilen* nur für Bestellungen, die schon offen sind (etwa Gastbestellungen), und nicht, solange neue Artikel im Warenkorb liegen.

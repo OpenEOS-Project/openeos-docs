@@ -5,7 +5,7 @@ description: Wem Trinkgeld gehört, mit welchem Steuersatz OpenEOS es bucht, wan
 
 # Trinkgeld
 
-Trinkgeld nimmt die Kasse beim [Kassieren](./kasse.md#kartenzahlung) an – mit der Karte als eigenen Betrag oder durch Aufrunden. OpenEOS bucht es danach, **wem es gehört**: dem Verein oder einer angestellten Bedienung. Davon hängt ab, ob es Umsatzsteuer trägt und ob du es auszahlen darfst.
+Trinkgeld nimmt die Kasse beim [Kassieren](./kasse.md#kartenzahlung) an – mit der Karte als eigenen Betrag oder durch Aufrunden. Zahlt ein Gast mit [Wertmarken](./wertmarken.md#ueberzahlung) zu viel, kann der Rest nach Rückfrage ebenfalls Trinkgeld werden. OpenEOS bucht es danach, **wem es gehört**: dem Verein oder einer angestellten Bedienung. Davon hängt ab, ob es Umsatzsteuer trägt und ob du es auszahlen darfst.
 
 :::note[Keine Steuerberatung]
 Wir beschreiben hier, wie OpenEOS Trinkgeld bucht, und die Einschätzung, auf der das beruht. Das ist keine Steuerberatung. Prüfe die Regeln für deinen Verein selbst bzw. mit deiner Steuerberatung.

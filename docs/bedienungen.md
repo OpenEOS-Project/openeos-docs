@@ -203,6 +203,7 @@ Tippe an der Kasse oben rechts auf deinen Chip und wähle **Mein Zwischenstand**
 | **Offene Tische** | etwa „2 offene Tische“: deine Tische, die noch nicht bezahlt sind, mit offenem Betrag |
 
 - Kassierst du an einem fremden Tisch, zählt das Geld für dich.
+- **Wertmarken:** Hast du [Wertmarken](./wertmarken.md#kellnerabrechnung) angenommen, zeigt der Block **WERTMARKEN (abgeben)** sie je Typ. Du gibst sie ab wie Bargeld; im **Soll bar** stecken sie nicht. Bargeld aus Markenverkäufen erhöht das Soll bar, ein Rücktausch mindert es.
 - **Soll bar** ist nur ein Richtwert. Das Bargeld bleibt in der Schublade der Kasse und wird wie bisher beim [Kassensturz](./kassenbuch.md) des Geräts gezählt.
 - **Zwischenstand drucken** gibt den Stand auf dem Bondrucker der Kasse aus – unverbindlich, ohne Nummer und ohne Unterschriftszeilen.
 

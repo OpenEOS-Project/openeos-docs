@@ -33,5 +33,5 @@ Discount vouchers are ideal for volunteer perks, free drinks for sponsors, or sp
 :::
 
 :::warning[Only for vouchers you give away]
-A discount voucher reduces the price (DSFinV-K "Rabatt"); it is not a payment method. Only use it for vouchers your club gives away for free. **Sold** tokens or vouchers are something different for tax purposes and must not go into the till as a discount; OpenEOS has no feature of its own for them. What this means for the operating modes without a TSE is described under [Tokens and vouchers](./betriebsarten.md#wertmarken). This is not tax advice.
+A discount voucher reduces the price (DSFinV-K "Rabatt"); it is not a payment method. Only use it for vouchers your club gives away for free. **Sold** tokens or vouchers are something different for tax purposes and must not go into the till as a discount. Sold tokens are handled in OpenEOS via [Tokens](./wertmarken.md) (only in "All features", in Germany with the Cloud TSE). What this means for the operating modes without a TSE is described under [Tokens and vouchers](./betriebsarten.md#wertmarken). This is not tax advice.
 :::

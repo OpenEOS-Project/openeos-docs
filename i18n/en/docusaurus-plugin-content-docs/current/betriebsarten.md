@@ -40,7 +40,8 @@ Organizations that existed before the operating modes keep running as **All feat
 | Refunds | no | only to card or online payment | yes |
 | [Deposits](./pfand.md) | no | only **Offset** | **Pay out** and **Offset** |
 | [Discount vouchers](./rabatt-bons.md) (free vouchers only) | no | yes | yes |
-| Tokens, vouchers, credit as payment | no | no ([why](#wertmarken)) | not available in OpenEOS |
+| [Tokens](./wertmarken.md): sell, accept as payment, buy back | no | no ([why](#wertmarken)) | yes – in Germany only with an active Cloud TSE |
+| Vouchers, credit as payment | no | no | not available in OpenEOS |
 | Cash drawer | no | no | yes |
 | [Reports](./auswertung.md) | quantities only | quantities and revenue | quantities and revenue |
 
@@ -65,6 +66,7 @@ In **Orders only**, OpenEOS works purely as an order system. Your team takes ord
 - No **split bill**, no combined payments, no **tips**.
 - No **refunds**, no **cash drawer**, no receipts.
 - No **deposit** and no **discount vouchers**.
+- No **[tokens](./wertmarken.md)** in OpenEOS – no selling, no accepting, no buy-back.
 - No orders in the **online shop** or via **QR code**. Instead of the menu and cart, the shop shows the notice “Orders on site only”.
 
 ### Completing orders {/* #abschliessen */}
@@ -97,6 +99,7 @@ In **Cashless** all features are available, but payment only works by card via [
 | Refund | Only back to the original card or online payment. A cash payment from before the switch can no longer be refunded through OpenEOS; the till and the admin area then show "No cash refund". |
 | Deposit return | There is no **Pay out**. You offset returned deposits against new deposits in the same sale (**Offset**). Without a cart the deposit return is blocked and explains why. |
 | Cash drawer | Does not open; the menu item **Open cash drawer** is missing. |
+| Tokens | Blocked: no selling, no accepting as payment, no buy-back (see [Tokens and vouchers](#wertmarken)). |
 
 Without SumUp the till cannot take payments in this mode; only orders paid online or in advance can be completed. That can be enough if you only sell through the shop.
 
@@ -124,6 +127,8 @@ In **All features** the till accepts cash, card and online payments: cash is the
 - **In Germany**, the till in “All features” only accepts cash with an active, certified **cloud TSE**. It is included in the event price and comes automatically: when you activate an event, OpenEOS switches the cloud TSE on and sets it up for the first event day – see [Cloud TSE](./integrationen/cloud-tse.md#automatisch). You can therefore choose “All features” as soon as a paid event is coming up; the card then shows *The cloud TSE will be set up automatically on …*, and cash works from that day on. Without a paid event the mode is greyed out (“needs an activated event”). Once the TSE is active, “Cashless” automatically becomes “All features”. If the TSE is no longer active later on, the till stops accepting cash – the server checks this on every cash payment – and OpenEOS shows you a notice.
 - **In all other countries** you can choose “All features” without a TSE. Which rules apply there is described under [Austria, Switzerland and other countries](#andere-laender).
 
+Only “All features” also offers [tokens](./wertmarken.md): selling tokens, accepting them as payment and buying them back. Because accepting tokens “instead of money” is a till function, the same rule as for cash applies in Germany: only with an active Cloud TSE – also in **All features (existing)**. Outside Germany tokens work like cash, also without a TSE.
+
 ## Online orders {/* #online */}
 
 Guests pay orders in the **online shop** and via **QR code** at the table online (online prepayment). How OpenEOS handles them depends on whether your organization has a Cloud TSE:
@@ -140,8 +145,9 @@ Background: a web shop without payment on site does not need a TSE – but only 
 ## Tokens and vouchers {/* #wertmarken */}
 
 - **Discount vouchers** in OpenEOS are vouchers the club gives away for free, e.g. helper or free-drink vouchers. They reduce the price (DSFinV-K "Rabatt") and are not a payment method. See [Discount vouchers](./rabatt-bons.md).
-- **Sold tokens, vouchers or credit** do not exist in OpenEOS. If a stand accepts them "instead of money", that is a till function and needs a TSE. In "Cashless" and "Orders only" they must therefore not be accepted as payment at OpenEOS devices. Don't book sold tokens as a discount voucher either.
-- In **Orders only** your club can sell and accept tokens outside OpenEOS and settle them by counting the returned tokens. Describe issuing, redemption, exchange and leftover tokens in your [procedure documentation](./verfahrensdokumentation.md#wertmarken).
+- **Sold tokens** are covered by the [Tokens](./wertmarken.md) feature: selling, accepting as payment and buying back, with the correct VAT (multi-purpose or single-purpose voucher). If a stand accepts tokens "instead of money", that is a till function and needs a TSE in Germany (AEAO zu § 146a Nr. 1.2). That is why tokens are only available in **All features**, and in Germany only with an active Cloud TSE; in "Cashless" and "Orders only" the server rejects selling, accepting and buying back tokens.
+- **Vouchers and credit** (e.g. prepaid cards or customer accounts) do not exist in OpenEOS. Don't book sold tokens or vouchers as a discount voucher either.
+- In **Orders only** your club can sell and accept tokens outside OpenEOS and settle them by counting the returned tokens. In **Cashless** no tokens may be accepted as payment at the same stand, not even on the side (see [conditions](#bargeldlos-bedingungen)). Describe issuing, redemption, buy-back and leftover tokens in your [procedure documentation](./verfahrensdokumentation.md#wertmarken).
 
 ## Cash and the TSE {/* #tse */}
 
@@ -241,6 +247,7 @@ If you run OpenEOS [yourself](./selbst-betreiben/intro.md), you are the operator
 
 - [Selling at the till](./kasse.md)
 - [Deposits](./pfand.md)
+- [Tokens](./wertmarken.md)
 - [Cloud TSE](./integrationen/cloud-tse.md)
 - [Procedure documentation – template](./verfahrensdokumentation.md)
 - [SumUp](./integrationen/sumup.md)

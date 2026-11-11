@@ -20,6 +20,7 @@ This manual guides you through the application step by step — from registratio
 - **Tables** laid out as a floor plan, opened, served and settled at the till
 - **Accept orders**, process payments, and forward them to the kitchen or serving station and to displays
 - **Manage deposits** — issue and collect deposit items at the till
+- **[Tokens](./wertmarken.md)** – sell them, accept them as payment and buy them back, with correct VAT (in "All features", in Germany with the Cloud TSE)
 - **Keep a cash book** – change, cash in, cash out and cash count wherever your till accepts cash
 - **Print receipts** via ESC/POS printers with your own templates
 - **Export reports** on revenue, top products, and payment methods
@@ -37,7 +38,7 @@ The handbook is a path, not a reference. Work through the chapters once from top
 4. **On the day** – sell, keep the cash book, and keep an eye on orders.
 5. **After the event** – report, take inventory and settle.
 
-What you need only occasionally — deposits, discount vouchers, members, servers, shift plans, the assistant, settings — sits under **Reference**. Connections to other systems are under **Integrations**, running OpenEOS on your own server under **Self-hosting**.
+What you need only occasionally — deposits, tokens, discount vouchers, members, servers, shift plans, the assistant, settings — sits under **Reference**. Connections to other systems are under **Integrations**, running OpenEOS on your own server under **Self-hosting**.
 
 :::tip[If you are in a hurry]
 Chapters 1 to 3 and one test order are enough to get a feel for it. The event stays in test mode and costs nothing.

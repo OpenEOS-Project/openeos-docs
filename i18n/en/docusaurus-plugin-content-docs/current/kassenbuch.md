@@ -13,7 +13,7 @@ The cash book is only available if your organization may accept cash: in the [op
 
 ## At the till {/* #kasse */}
 
-Tap **Cash book** in the till's menu. If the till works with [servers](./bedienungen.md), only those with the **Cash book** right see the menu item – shift leads have it. At the top you see the **Expected cash in this register**: the amount of cash that should be in the drawer right now, plus the last cash count. Below it you see how it is made up (opening balance, cash in, cash out, cash sales, cash refunds, deposit payouts, [tip payouts](./trinkgeld.md#auszahlung), differences) and the **Bookings today**. If you pay out card tips in cash to an employed server, this reduces the expected cash of the drawer the money comes from.
+Tap **Cash book** in the till's menu. If the till works with [servers](./bedienungen.md), only those with the **Cash book** right see the menu item – shift leads have it. At the top you see the **Expected cash in this register**: the amount of cash that should be in the drawer right now, plus the last cash count. Below it you see how it is made up (opening balance, cash in, cash out, cash sales, cash refunds, deposit payouts, [tip payouts](./trinkgeld.md#auszahlung), [token](./wertmarken.md) sales and buy-backs, differences) and the **Bookings today**. If you pay out card tips in cash to an employed server, this reduces the expected cash of the drawer the money comes from. Cash from selling tokens increases the expected cash, a buy-back reduces it; accepted tokens themselves are not cash and do not appear in the cash book.
 
 ![Cash book at the till: expected cash and entries](/img/screens/en/pos-cashbook.png)
 

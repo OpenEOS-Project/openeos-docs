@@ -20,6 +20,7 @@ Dieses Handbuch führt dich Schritt für Schritt durch die Anwendung – von der
 - **Tische** als Tischplan anlegen und an der Kasse Tische öffnen, bedienen und abrechnen
 - **Bestellungen** annehmen, abrechnen und an Küche/Ausgabe und Anzeigen weiterleiten
 - **Pfand** verwalten – mit Ausgabe und Rücknahme über die Kasse
+- **[Wertmarken](./wertmarken.md)** verkaufen, als Zahlung annehmen und zurücktauschen – mit richtiger Umsatzsteuer (in „Alle Funktionen“, in Deutschland mit Cloud-TSE)
 - **Kassenbuch** führen – Wechselgeld, Einlagen, Entnahmen und Kassensturz, wo deine Kasse Bargeld annimmt
 - **Bons drucken** über ESC/POS-Drucker mit eigenen Vorlagen
 - **Auswertungen** zu Umsatz, Top-Produkten und Zahlarten exportieren
@@ -37,7 +38,7 @@ Das Handbuch ist ein Weg, kein Nachschlagewerk. Arbeite die Kapitel einmal von o
 4. **Am Festtag** – verkaufen, Kassenbuch führen, Bestellungen im Blick behalten.
 5. **Nach dem Fest** – auswerten, Inventur machen und abrechnen.
 
-Was du nur gelegentlich brauchst — Pfand, Rabatt-Bons, Mitglieder, Bedienungen, Schichtpläne, Assistent, Einstellungen — steht unter **Nachschlagen**. Anbindungen an andere Systeme findest du unter **Integrationen**, den Betrieb auf einem eigenen Server unter **Selbst betreiben**.
+Was du nur gelegentlich brauchst — Pfand, Wertmarken, Rabatt-Bons, Mitglieder, Bedienungen, Schichtpläne, Assistent, Einstellungen — steht unter **Nachschlagen**. Anbindungen an andere Systeme findest du unter **Integrationen**, den Betrieb auf einem eigenen Server unter **Selbst betreiben**.
 
 :::tip[Wenn du es eilig hast]
 Für ein erstes Gefühl genügen die Kapitel 1 bis 3 und eine Testbestellung. Die Veranstaltung bleibt dabei im Testmodus und kostet nichts.

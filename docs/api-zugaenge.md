@@ -37,8 +37,8 @@ Jeder Endpunkt in der [API-Referenz](/api) nennt den Scope, den er verlangt (`x-
 
 | Scope | In der App | Erlaubt | Nötige Modul-Berechtigung des Besitzers |
 |---|---|---|---|
-| `read` | **Lesen** | Organisation, Veranstaltungen, Kategorien, Produkte, Pfandarten, Tische, Stationen, Bon-Vorlagen, Drucker, Schichtpläne, Geräte, Berichte und Bestellungen lesen (auch als CSV-Export) | Mitgliedschaft; für Berichte `Auswertung`, für den Bestellexport `Bestellungen` |
-| `catalog:write` | **Katalog bearbeiten** | Kategorien, Produkte und Pfandarten anlegen und ändern | `Produkte`, `Pfand` |
+| `read` | **Lesen** | Organisation, Veranstaltungen, Kategorien, Produkte, Pfandarten, [Markentypen (Wertmarken)](./wertmarken.md), Tische, Stationen, Bon-Vorlagen, Drucker, Schichtpläne, Geräte, Berichte (auch den Wertmarken-Bericht), Verkäufe und Rücktausch von Wertmarken und Bestellungen lesen (auch als CSV-Export) | Mitgliedschaft; für Berichte `Auswertung`, für den Wertmarken-Bericht und die Markenvorgänge `Auswertung` oder `Produkte`, für den Bestellexport `Bestellungen` |
+| `catalog:write` | **Katalog bearbeiten** | Kategorien, Produkte, Pfandarten und Markentypen (Wertmarken) anlegen und ändern – Markentypen löschen nur in der App | `Produkte`, `Pfand` |
 | `events:write` | **Veranstaltungen bearbeiten** | Veranstaltungen anlegen und ändern, Produkte zwischen Veranstaltungen kopieren, Produktionsstationen bearbeiten (keine Freischaltung) | `Veranstaltungen` |
 | `tables:write` | **Tische bearbeiten** | Bereiche, Tische und Tischplan bearbeiten | `Veranstaltungen` |
 | `staff:write` | **Schichtpläne bearbeiten** | Schichtpläne, Jobs, Schichten und Helfer-Anmeldungen bearbeiten (annehmen, ablehnen, Notizen, anlegen) | `Schichtpläne` |

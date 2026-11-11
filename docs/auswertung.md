@@ -27,7 +27,8 @@ Oben filterst du die Auswertung nach **Veranstaltung** und **Zeitraum**; voreing
 ## Detailauswertungen
 
 - **Top-Produkte** – deine Produkte mit Kategorie, Menge, Umsatz und Ø-Preis, netto und nach Umsatz sortiert.
-- **Zahlarten** – Aufschlüsselung des Umsatzes nach Zahlungsmethode mit Anzahl, Betrag und Anteil.
+- **Zahlarten** – Aufschlüsselung des Umsatzes nach Zahlungsmethode mit Anzahl, Betrag und Anteil. Mit Marken bezahlte Beträge stehen in der Zeile **Wertmarken**.
+- **Wertmarken** – verkauft, eingelöst, zurückgegeben, zurückgetauscht und im Umlauf je Markentyp und Veranstaltung, siehe [Wertmarken](./wertmarken.md#bericht).
 - **Umsatzsteuer** – Ware, Pfand und Pfand-Rückgaben je Steuersatz, siehe [unten](#umsatzsteuer).
 - **Umsatz nach Kanal** – Kasse, Online-Shop und QR-Bestellung im Vergleich.
 - **Top-Kategorien** – Menge und Umsatz je Kategorie, netto und nach Umsatz sortiert.
@@ -45,6 +46,7 @@ Die Karte **Umsatzsteuer** zeigt je **Steuersatz** die Spalten **Ware**, **Pfand
 
 - Weist deine Organisation keine Umsatzsteuer aus (z. B. Kleinunternehmer), stehen alle Beträge bei 0 % ohne Steuer.
 - Pfand von vor November 2026 wurde ohne Umsatzsteuer gebucht und steht unverändert bei 0 %. Pfand-Rückgaben gegen diesen [Altsaldo](./pfand.md#altsaldo) stehen ebenfalls bei 0 %.
+- Mit [Wertmarken](./wertmarken.md#umsatzsteuer): Die Spalte **Einzweck-Marken** zeigt Einzweckmarken, deren Umsatzsteuer beim Verkauf der Marken entsteht. Mehrzweckmarken sind beim Verkauf kein Umsatz; das zeigt eine Info-Zeile, ihre Umsatzsteuer steckt beim Einlösen in der Ware.
 - Die Karte gibt es auch als CSV (**CSV exportieren**) und im PDF. In [Nur Bons](./betriebsarten.md#nur-bons) fehlt sie.
 
 ## Bedienungen {/* #bedienungen */}

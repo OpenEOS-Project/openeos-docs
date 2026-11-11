@@ -1,6 +1,6 @@
 ---
 title: Procedure documentation – template
-description: Template for the procedure documentation (Verfahrensdokumentation) of your till with OpenEOS – to copy and fill in, covering operating mode, deposits, tips, server settlement, outage rule, receipts and retention.
+description: Template for the procedure documentation (Verfahrensdokumentation) of your till with OpenEOS – to copy and fill in, covering operating mode, deposits, tips, server settlement, tokens, outage rule, receipts and retention.
 ---
 
 # Procedure documentation – template
@@ -8,7 +8,7 @@ description: Template for the procedure documentation (Verfahrensdokumentation) 
 Anyone who runs an electronic till in Germany must be able to describe how it is set up and how it is used – the **procedure documentation** (Verfahrensdokumentation). The tax office asks for it during a [cash register inspection](./kassen-nachschau.md) or audit. The template below covers what belongs in it when you use OpenEOS. You find the technical details in OpenEOS; your club decides the rules itself.
 
 :::note[Not tax advice]
-The template is based on a tax assessment of OpenEOS from November 2026. It does not replace individual tax or legal advice. Agree on your procedure documentation with your tax advisor, especially the sections on operating without a TSE, online orders and the deposit transition. This is not tax advice.
+The template is based on a tax assessment of OpenEOS from November 2026. It does not replace individual tax or legal advice. Agree on your procedure documentation with your tax advisor, especially the sections on operating without a TSE, online orders, the deposit transition and tokens. This is not tax advice.
 :::
 
 :::info[Written in German]
@@ -84,7 +84,7 @@ The club works in the operating mode: ☐ **Orders only** · ☐ **Cashless** ·
 - **Reconciliation with the statements** of the payment provider: [weekly / after every event] by [name], using the orders export with payment and refund reference.
 - **Refunds** only to the original means of payment, no cash refunds.
 
-**All features (with Cloud TSE).** OpenEOS accepts cash, card and online payments. Every transaction is secured with the Cloud TSE, including online payments, orders before the kitchen ticket, cash book, server settlements and training transactions. Without an active TSE, cash is technically locked.
+**All features (with Cloud TSE).** OpenEOS accepts cash, card and online payments. Every transaction is secured with the Cloud TSE, including online payments, orders before the kitchen ticket, cash book, server settlements, selling, accepting and buying back tokens (section 13) and training transactions. Without an active TSE, cash is technically locked.
 
 ### 5. Deposits {/* #pfand */}
 
@@ -118,6 +118,7 @@ A netting procedure (Abschn. 10.1 Abs. 8 Satz 5 UStAE) is ☐ not used · ☐ us
 - **Securing:** with the Cloud TSE every settlement is a TSE-secured transaction with expected amount, counted amount and difference; the settlement cannot be changed, a reprint is marked "Kopie".
 - **Differences:** [e.g. differences up to [amount] are booked as a cash difference in the cash count; [name] clarifies larger differences with the server and records the result in [place].]
 - **Live cash check:** during a cash register inspection, the live cash check in OpenEOS shows the expected cash of every server since their last settlement.
+- **Tokens** (if used, section 13): servers hand in accepted tokens with their settlement (block "WERTMARKEN (abgeben)"); they are counted but are not part of the expected cash. Cash from token sales increases the expected cash, cash from a buy-back reduces it.
 - Server settlements are created and kept electronically only.
 
 ### 8. Outage rule {/* #ausfall */}
@@ -165,7 +166,36 @@ With the Cloud TSE every order without immediate payment is secured as an order 
 ### 13. Vouchers and tokens {/* #wertmarken */}
 
 - **Free vouchers** of the club (e.g. helper vouchers, free drinks) are booked in OpenEOS as discount vouchers; they are a discount, not a payment method. Issued by [name/role] to [group of people].
-- **Sold tokens or vouchers:** ☐ We do not sell any. ☐ We sell tokens outside OpenEOS: issued by [office], redeemed at [stands], exchange [yes/no, how], leftover tokens [handling]. In the operating modes without a TSE ("Cashless", "Orders only") tokens are not accepted as payment at OpenEOS devices (AEAO zu § 146a Nr. 1.2); they are settled outside OpenEOS by counting the returned tokens. Tokens valid for food and drinks are usually multi-purpose vouchers (§ 3 Abs. 15 UStG).
+- **Sold tokens or vouchers:** ☐ We do not sell any. ☐ We sell tokens outside OpenEOS: issued by [office], redeemed at [stands], exchange [yes/no, how], leftover tokens [handling]. In the operating modes without a TSE ("Cashless", "Orders only") tokens are not accepted as payment at OpenEOS devices (AEAO zu § 146a Nr. 1.2); they are settled outside OpenEOS by counting the returned tokens. Tokens valid for food and drinks are usually multi-purpose vouchers (§ 3 Abs. 15 UStG). ☐ We sell tokens **in OpenEOS** and accept them there as payment (operating mode "All features" with Cloud TSE), see below.
+
+*The following paragraphs only if you run tokens in OpenEOS. Background is under [Tokens](./wertmarken.md).*
+
+**Token types.** Tokens are set up in OpenEOS as token types. Face value, kind and VAT rate are locked as soon as tokens of a type are in circulation.
+
+| Token type | Face value | Marking of the token | Kind | Valid for | Buy-back |
+|---|---|---|---|---|---|
+| [2 € token] | [€2.00] | [yellow plastic chip with club logo, season 2026] | multi-purpose voucher | [all food, drinks and deposits] | [no / yes, see below] |
+| [Drink token] | [€2.50] | [ ] | [single-purpose voucher 19 %] | [all drinks at 19 %] | [ ] |
+
+*Reason for the kind:* tokens valid for goods with different VAT rates (food 7 %, drinks 19 %) are **multi-purpose vouchers** (§ 3 Abs. 15 UStG): the sale is not taxable (DSFinV-K `MehrzweckgutscheinKauf`, key 5); VAT arises on redemption at the rate of the goods. A **single-purpose voucher** (§ 3 Abs. 14 UStG) is only used if all items the token is valid for have the same VAT rate; then the sale is taxed at that rate (`EinzweckgutscheinKauf`) and the redemption carries no VAT. [Reason for each single-purpose voucher.] For small businesses OpenEOS books all tokens as multi-purpose vouchers.
+
+**Issuing.** The tokens themselves are [printed tokens / plastic chips], marked with [club name, value, colour of the season]. Available before the event: [number per type], kept by [name]. They are sold at [central cash desk / office] via OpenEOS (**Sell tokens**), in cash or by card. Every sale is a TSE-secured receipt "WERTMARKEN – Verkauf". Cash from the sale counts towards the expected balance of the drawer but is not revenue. Handed out to the sales points: [number or number ranges, to whom, when].
+
+**Redemption.** At [stands / all tills] the tills accept tokens when taking payment: the number per type is entered, the rest is paid in cash or by card. There is no change in tokens; an overpayment is only booked as a tip after confirming "Rest as tip" (as in section 6). Tokens with an item selection and single-purpose tokens only cover the items they are valid for. The redemption books revenue at the rate of the goods and the voucher redemption as a negative amount (`MehrzweckgutscheinEinloesung`, key 5, or `EinzweckgutscheinEinloesung` at the token's rate); if everything is paid with tokens, the payment type is "Keine" (none). On cancellation or refund the till gives back tokens, never cash.
+
+**Handing in and storage.** Servers or stand managers hand in accepted tokens [with the server settlement / at the end of the shift]. [Name] counts them per type, keeps them in [place] and [invalidates / destroys / reuses them at the next event].
+
+**Buy-back.** ☐ There is no buy-back for cash. ☐ For [token types] we buy back only [conditions, e.g. at the end of the event, at the info stand, whole tokens only]. The buy-back is booked in OpenEOS (**Buy back tokens**) by a person with the "Cancel & refund" permission: always in cash, at most up to the amount in circulation, with a TSE-secured receipt that the guest signs; the receipts are kept in [place]. There is no buy-back at any time without conditions (otherwise the token would rather be a prepaid card). For tax purposes a buy-back of a multi-purpose voucher is an exchange of means of payment (`MehrzweckgutscheinKauf` negative), for a single-purpose voucher a reduction under § 17 UStG.
+
+**Leftover tokens and stock.** The tokens are valid [only for this event / until [date] / indefinitely]. The token report in OpenEOS shows the amount in circulation per type. It is recorded [after every event / at the end of the financial year]: [amount per type]. No VAT arises for unredeemed multi-purpose tokens; their treatment in the club's accounts was [agreed with the tax advisor on [date]].
+
+**Control.** After every event [name] reconciles:
+
+1. counted returned tokens per type ↔ "Redeemed" in the token report and the "WERTMARKEN (abgeben)" blocks of the server settlements,
+2. physical token stock before − after ↔ "Sold" in the report,
+3. cash from token sales and buy-backs ↔ cash count of the tills.
+
+[Name] clarifies differences above [number / amount] and records the result in [place].
 
 ### 14. VAT status {/* #kleinunternehmer */}
 
@@ -186,6 +216,7 @@ Uniformly **ten years** (§ 147 Abs. 1 Nr. 1, Abs. 3 AO):
 - TSE exports (TAR), including the final exports of decommissioned TSEs (AEAO zu § 146a Nr. 1.15.2),
 - training transactions and data on TSE outages,
 - server settlements, cash book and order data,
+- signed buy-back receipts for tokens and the count records of returned tokens,
 - this procedure documentation in all versions with attachments.
 
 OpenEOS keeps the till data for ten years. Digital receipts a guest never fetched are not kept as images; they can be recreated with the same content from the stored data. Data is only deleted after the period has ended; we observe a suspension of expiry under § 147 Abs. 3 AO.
@@ -202,7 +233,7 @@ OpenEOS keeps the till data for ten years. Digital receipts a guest never fetche
 | Version | Date | Change | Who |
 |---|---|---|---|
 | 1 | [date] | First version | [name] |
-| [2] | [date] | [e.g. change of operating mode, new deposit type, change of tax status, new TSE] | [name] |
+| [2] | [date] | [e.g. change of operating mode, new deposit type, new token type, change of tax status, new TSE] | [name] |
 
 ---
 
@@ -211,4 +242,4 @@ OpenEOS keeps the till data for ten years. Digital receipts a guest never fetche
 - [Operating modes](./betriebsarten.md)
 - [Cloud TSE](./integrationen/cloud-tse.md)
 - [Cash register inspection and DSFinV-K](./kassen-nachschau.md)
-- [Cash book](./kassenbuch.md), [Deposits](./pfand.md), [Tips](./trinkgeld.md), [Servers](./bedienungen.md)
+- [Cash book](./kassenbuch.md), [Deposits](./pfand.md), [Tokens](./wertmarken.md), [Tips](./trinkgeld.md), [Servers](./bedienungen.md)

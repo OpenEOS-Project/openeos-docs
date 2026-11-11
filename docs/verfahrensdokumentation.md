@@ -1,6 +1,6 @@
 ---
 title: Verfahrensdokumentation – Vorlage
-description: Vorlage für die Verfahrensdokumentation deiner Kasse mit OpenEOS – zum Kopieren und Ausfüllen, mit Betriebsart, Pfand, Trinkgeld, Kellnerabrechnung, Ausfallregel, Belegausgabe und Aufbewahrung.
+description: Vorlage für die Verfahrensdokumentation deiner Kasse mit OpenEOS – zum Kopieren und Ausfüllen, mit Betriebsart, Pfand, Trinkgeld, Kellnerabrechnung, Wertmarken, Ausfallregel, Belegausgabe und Aufbewahrung.
 ---
 
 # Verfahrensdokumentation – Vorlage
@@ -8,7 +8,7 @@ description: Vorlage für die Verfahrensdokumentation deiner Kasse mit OpenEOS �
 Wer eine elektronische Kasse führt, muss beschreiben können, wie sie aufgebaut ist und wie damit gearbeitet wird – die **Verfahrensdokumentation** (VD). Bei einer [Kassen-Nachschau](./kassen-nachschau.md) oder Prüfung fragt das Finanzamt danach. Die Vorlage unten deckt ab, was beim Einsatz von OpenEOS dazugehört. Die technischen Angaben findest du in OpenEOS, die Regeln deines Vereins legst du selbst fest.
 
 :::note[Keine Steuerberatung]
-Die Vorlage beruht auf einer steuerlichen Einschätzung vom November 2026 zu OpenEOS. Sie ersetzt keine individuelle Steuer- oder Rechtsberatung. Stimm deine Verfahrensdokumentation mit deiner Steuerberatung ab, vor allem die Abschnitte zur Betriebsart ohne TSE, zu Online-Bestellungen und zum Pfand-Übergang. Das ist keine Steuerberatung.
+Die Vorlage beruht auf einer steuerlichen Einschätzung vom November 2026 zu OpenEOS. Sie ersetzt keine individuelle Steuer- oder Rechtsberatung. Stimm deine Verfahrensdokumentation mit deiner Steuerberatung ab, vor allem die Abschnitte zur Betriebsart ohne TSE, zu Online-Bestellungen, zum Pfand-Übergang und zu Wertmarken. Das ist keine Steuerberatung.
 :::
 
 ## So nutzt du die Vorlage {/* #nutzen */}
@@ -80,7 +80,7 @@ Der Verein arbeitet in der Betriebsart: ☐ **Nur Bons** · ☐ **Bargeldlos** �
 - **Abgleich mit den Abrechnungen** des Zahlungsdienstleisters: [wöchentlich / nach jeder Veranstaltung] durch [Name], anhand des Bestellexports mit Zahlungs- und Erstattungsreferenz.
 - **Erstattungen** nur auf das ursprüngliche Zahlungsmittel, keine Barerstattung.
 
-**Alle Funktionen (mit Cloud-TSE).** OpenEOS nimmt Bargeld, Karte und Online-Zahlungen an. Jeder Vorgang wird mit der Cloud-TSE abgesichert, auch Online-Zahlungen, Bestellungen vor dem Küchenbon, Kassenbuch, Kellnerabrechnungen und Trainingsbuchungen. Bargeld ist ohne aktive TSE technisch gesperrt.
+**Alle Funktionen (mit Cloud-TSE).** OpenEOS nimmt Bargeld, Karte und Online-Zahlungen an. Jeder Vorgang wird mit der Cloud-TSE abgesichert, auch Online-Zahlungen, Bestellungen vor dem Küchenbon, Kassenbuch, Kellnerabrechnungen, Verkauf, Annahme und Rücktausch von Wertmarken (Abschnitt 13) und Trainingsbuchungen. Bargeld ist ohne aktive TSE technisch gesperrt.
 
 ### 5. Pfand {/* #pfand */}
 
@@ -114,6 +114,7 @@ Ein Saldierungsverfahren (Abschn. 10.1 Abs. 8 Satz 5 UStAE) wird ☐ nicht angew
 - **Absicherung:** Mit Cloud-TSE ist jede Abrechnung ein TSE-gesicherter Vorgang mit Soll, gezähltem Ist und Differenz; die Abrechnung ist unveränderlich, ein Nachdruck trägt „Kopie“.
 - **Differenzen:** [z. B. Differenzen bis [Betrag] werden als Kassendifferenz beim Kassensturz gebucht; größere Differenzen klärt [Name] mit der Bedienung und vermerkt das Ergebnis in [Ort].]
 - **Live-Kassensturz:** Bei einer Kassen-Nachschau zeigt der Live-Kassensturz in OpenEOS für jede Bedienung das Soll bar seit der letzten Abrechnung.
+- **Wertmarken** (falls genutzt, Abschnitt 13): Angenommene Marken gibt die Bedienung mit der Abrechnung ab (Block „WERTMARKEN (abgeben)“); sie werden gezählt, stecken aber nicht im Soll bar. Bargeld aus Markenverkäufen erhöht das Soll bar, Bargeld aus einem Rücktausch mindert es.
 - Kellnerabrechnungen werden ausschließlich elektronisch erzeugt und aufbewahrt.
 
 ### 8. Ausfallregel {/* #ausfall */}
@@ -161,7 +162,36 @@ Mit Cloud-TSE wird jede Bestellung ohne sofortige Zahlung vor dem Küchenbon als
 ### 13. Gutscheine und Wertmarken {/* #wertmarken */}
 
 - **Kostenlose Bons** des Vereins (z. B. Helferbons, Freigetränke) werden in OpenEOS als Rabatt-Bon gebucht; sie sind ein Rabatt, keine Zahlart. Ausgegeben von [Name/Funktion] an [Personenkreis].
-- **Verkaufte Wertmarken oder Gutscheine:** ☐ Wir verkaufen keine. ☐ Wir verkaufen Wertmarken außerhalb von OpenEOS: Ausgabe durch [Stelle], Einlösung an [Ständen], Rücktausch [ja/nein, wie], Restmarken [Umgang]. In den Betriebsarten ohne TSE („Bargeldlos“, „Nur Bons“) werden Wertmarken an OpenEOS-Geräten nicht als Zahlung angenommen (AEAO zu § 146a Nr. 1.2); sie werden außerhalb von OpenEOS über die Rücklaufzählung abgerechnet. Marken, die für Speisen und Getränke gelten, sind in der Regel Mehrzweckgutscheine (§ 3 Abs. 15 UStG).
+- **Verkaufte Wertmarken oder Gutscheine:** ☐ Wir verkaufen keine. ☐ Wir verkaufen Wertmarken außerhalb von OpenEOS: Ausgabe durch [Stelle], Einlösung an [Ständen], Rücktausch [ja/nein, wie], Restmarken [Umgang]. In den Betriebsarten ohne TSE („Bargeldlos“, „Nur Bons“) werden Wertmarken an OpenEOS-Geräten nicht als Zahlung angenommen (AEAO zu § 146a Nr. 1.2); sie werden außerhalb von OpenEOS über die Rücklaufzählung abgerechnet. Marken, die für Speisen und Getränke gelten, sind in der Regel Mehrzweckgutscheine (§ 3 Abs. 15 UStG). ☐ Wir verkaufen Wertmarken **in OpenEOS** und nehmen sie dort als Zahlung an (Betriebsart „Alle Funktionen“ mit Cloud-TSE), siehe unten.
+
+*Die folgenden Absätze nur, wenn ihr Wertmarken in OpenEOS führt. Hintergrund steht unter [Wertmarken](./wertmarken.md).*
+
+**Markentypen.** Wertmarken sind in OpenEOS als Markentypen angelegt. Nennwert, Art und Steuersatz sind fest, sobald Marken eines Typs im Umlauf sind.
+
+| Markentyp | Nennwert | Kennzeichnung der Marke | Art | Gilt für | Rücktausch |
+|---|---|---|---|---|---|
+| [2-€-Marke] | [2,00 €] | [gelber Plastikchip mit Vereinslogo, Saison 2026] | Mehrzweckgutschein | [alle Speisen, Getränke und Pfand] | [nein / ja, siehe unten] |
+| [Getränkemarke] | [2,50 €] | [ ] | [Einzweckgutschein 19 %] | [alle Getränke zu 19 %] | [ ] |
+
+*Begründung der Art:* Marken, die für Waren mit unterschiedlichen Steuersätzen gelten (Speisen 7 %, Getränke 19 %), sind **Mehrzweckgutscheine** (§ 3 Abs. 15 UStG): Der Verkauf ist nicht steuerbar (DSFinV-K `MehrzweckgutscheinKauf`, Schlüssel 5); die Umsatzsteuer entsteht bei der Einlösung mit dem Satz der Ware. Ein **Einzweckgutschein** (§ 3 Abs. 14 UStG) wird nur geführt, wenn alle Artikel, für die die Marke gilt, denselben Steuersatz haben; dann wird der Verkauf mit diesem Satz versteuert (`EinzweckgutscheinKauf`) und die Einlösung ist ohne Steuer. [Begründung für jeden Einzweckgutschein.] Als Kleinunternehmer bucht OpenEOS alle Marken als Mehrzweckgutschein.
+
+**Ausgabe.** Die Marken selbst sind [gedruckte Marken / Plastikchips], gekennzeichnet mit [Vereinsname, Wert, Farbe der Saison]. Vor dem Fest vorhanden: [Anzahl je Typ], verwahrt von [Name]. Verkauft werden sie an [Zentralkasse / Stelle] über OpenEOS (**Wertmarken verkaufen**), bar oder mit Karte. Jeder Verkauf ist ein TSE-gesicherter Beleg „WERTMARKEN – Verkauf“. Bargeld aus dem Verkauf zählt zum Soll-Bestand der Schublade, ist aber kein Umsatz. An die Verkaufsstellen ausgegeben: [Anzahl bzw. Nummernkreise, an wen, wann].
+
+**Einlösung.** An [Ständen / allen Kassen] nehmen die Kassen Marken beim Kassieren an: Die Anzahl je Typ wird eingegeben, der Rest bar oder mit Karte bezahlt. Wechselgeld in Marken gibt es nicht; eine Überzahlung wird nur nach Bestätigung „Rest als Trinkgeld“ als Trinkgeld gebucht (wie Abschnitt 6). Marken mit Artikelauswahl und Einzweckmarken decken nur die Artikel, für die sie gelten. Die Einlösung bucht den Umsatz mit dem Satz der Ware und die Gutscheineinlösung negativ (`MehrzweckgutscheinEinloesung`, Schlüssel 5, bzw. `EinzweckgutscheinEinloesung` zum Satz der Marke); ist alles mit Marken bezahlt, lautet die Zahlart „Keine“. Bei Storno oder Erstattung gibt die Kasse Marken zurück, nie Bargeld.
+
+**Abgabe und Verwahrung.** Angenommene Marken geben die Bedienungen bzw. die Standverantwortlichen [mit der Kellnerabrechnung / am Schichtende] ab. [Name] zählt sie je Typ, verwahrt sie in [Ort] und [entwertet / vernichtet / verwendet sie bei der nächsten Veranstaltung wieder].
+
+**Rücktausch.** ☐ Ein Rücktausch gegen Bargeld findet nicht statt. ☐ Für [Markentypen] tauschen wir zurück, nur [Bedingungen, z. B. am Ende des Festes, am Infostand, nur ganze Marken]. Den Rücktausch bucht eine Person mit dem Recht „Stornieren & Erstatten“ in OpenEOS (**Wertmarken zurücktauschen**): immer bar, höchstens bis zum Bestand im Umlauf, mit TSE-gesichertem Beleg, den der Gast unterschreibt; die Belege werden in [Ort] aufbewahrt. Ein Rücktausch jederzeit und ohne Bedingungen findet nicht statt (sonst wäre die Marke eher eine Guthabenkarte). Steuerlich ist der Rücktausch beim Mehrzweckgutschein ein Tausch von Zahlungsmitteln (`MehrzweckgutscheinKauf` negativ), beim Einzweckgutschein eine Minderung nach § 17 UStG.
+
+**Restmarken und Bestand.** Die Marken gelten [nur für diese Veranstaltung / bis [Datum] / unbefristet]. Den Bestand im Umlauf je Typ zeigt der Bericht Wertmarken in OpenEOS. Er wird [nach jeder Veranstaltung / zum Ende des Geschäftsjahres] festgehalten: [Betrag je Typ]. Für nicht eingelöste Mehrzweckmarken entsteht keine Umsatzsteuer; ihre Behandlung in der Vereinsbuchhaltung ist [mit der Steuerberatung abgestimmt am [Datum]].
+
+**Kontrolle.** Nach jeder Veranstaltung gleicht [Name] ab:
+
+1. gezählter Markenrücklauf je Typ ↔ „Eingelöst“ im Bericht Wertmarken und die Blöcke „WERTMARKEN (abgeben)“ der Kellnerabrechnungen,
+2. physischer Markenbestand vorher − nachher ↔ „Verkauft“ im Bericht,
+3. Bargeld aus Markenverkauf und Rücktausch ↔ Kassensturz der Kassen.
+
+Differenzen über [Anzahl / Betrag] klärt [Name] und vermerkt das Ergebnis in [Ort].
 
 ### 14. Umsatzsteuerstatus {/* #kleinunternehmer */}
 
@@ -182,6 +212,7 @@ Einheitlich **zehn Jahre** (§ 147 Abs. 1 Nr. 1, Abs. 3 AO):
 - TSE-Exporte (TAR), auch die Abschlussexporte stillgelegter TSEs (AEAO zu § 146a Nr. 1.15.2),
 - Trainingsbuchungen und Daten zu TSE-Ausfällen,
 - Kellnerabrechnungen, Kassenbuch und Bestelldaten,
+- unterschriebene Rücktauschbelege für Wertmarken und die Zählprotokolle des Markenrücklaufs,
 - diese Verfahrensdokumentation in allen Fassungen mit Anlagen.
 
 OpenEOS bewahrt die Kassendaten zehn Jahre auf. Digitale Belege, die ein Gast nie abgerufen hat, werden nicht als Bild aufbewahrt; sie lassen sich aus den gespeicherten Daten inhaltsgleich neu erzeugen. Gelöscht wird erst nach Ablauf der Frist; eine Ablaufhemmung nach § 147 Abs. 3 AO beachten wir.
@@ -198,7 +229,7 @@ OpenEOS bewahrt die Kassendaten zehn Jahre auf. Digitale Belege, die ein Gast ni
 | Fassung | Datum | Änderung | Wer |
 |---|---|---|---|
 | 1 | [Datum] | Erstfassung | [Name] |
-| [2] | [Datum] | [z. B. Wechsel der Betriebsart, neue Pfandart, Wechsel des Steuerstatus, neue TSE] | [Name] |
+| [2] | [Datum] | [z. B. Wechsel der Betriebsart, neue Pfandart, neuer Markentyp, Wechsel des Steuerstatus, neue TSE] | [Name] |
 
 ---
 
@@ -207,4 +238,4 @@ OpenEOS bewahrt die Kassendaten zehn Jahre auf. Digitale Belege, die ein Gast ni
 - [Betriebsarten](./betriebsarten.md)
 - [Cloud-TSE](./integrationen/cloud-tse.md)
 - [Kassen-Nachschau und DSFinV-K](./kassen-nachschau.md)
-- [Kassenbuch](./kassenbuch.md), [Pfand](./pfand.md), [Trinkgeld](./trinkgeld.md), [Bedienungen](./bedienungen.md)
+- [Kassenbuch](./kassenbuch.md), [Pfand](./pfand.md), [Wertmarken](./wertmarken.md), [Trinkgeld](./trinkgeld.md), [Bedienungen](./bedienungen.md)

@@ -33,5 +33,5 @@ Rabatt-Bons eignen sich z. B. für Helferbons, Freigetränke für Sponsoren oder
 :::
 
 :::warning[Nur für kostenlos ausgegebene Bons]
-Ein Rabatt-Bon mindert den Preis (DSFinV-K „Rabatt“); er ist keine Zahlart. Verwende ihn nur für Bons, die dein Verein verschenkt. **Verkaufte** Wertmarken oder Gutscheine sind steuerlich etwas anderes und gehören nicht als Rabatt in die Kasse; OpenEOS hat dafür keine eigene Funktion. Was das für die Betriebsarten ohne TSE bedeutet, steht unter [Wertmarken und Gutscheine](./betriebsarten.md#wertmarken). Das ist keine Steuerberatung.
+Ein Rabatt-Bon mindert den Preis (DSFinV-K „Rabatt“); er ist keine Zahlart. Verwende ihn nur für Bons, die dein Verein verschenkt. **Verkaufte** Wertmarken oder Gutscheine sind steuerlich etwas anderes und gehören nicht als Rabatt in die Kasse. Verkaufte Wertmarken führst du in OpenEOS über [Wertmarken](./wertmarken.md) (nur in „Alle Funktionen“, in Deutschland mit Cloud-TSE). Was das für die Betriebsarten ohne TSE bedeutet, steht unter [Wertmarken und Gutscheine](./betriebsarten.md#wertmarken). Das ist keine Steuerberatung.
 :::

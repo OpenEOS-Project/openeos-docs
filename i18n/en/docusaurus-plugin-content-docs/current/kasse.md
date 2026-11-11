@@ -330,7 +330,7 @@ The till needs a connection. The status at the top right shows how it is doing:
 
 - **Connecting …** — the live connection is briefly gone. You can carry on as normal.
 - **No live data** — the live connection has been missing for a while, so the till polls the server itself. Table states may lag a little; *Open tables* then shows "As of …" with the time.
-- **Offline** — no connection. Below the header it says "No connection – sending and checkout work again once the register is online." Typing in items, switching and parking tables still works; **Send**, **Check out** and paying out deposits are blocked.
+- **Offline** — no connection. Below the header it says "No connection – sending and checkout work again once the till is online." Typing in items, switching and parking tables still works; **Send**, **Check out** and paying out deposits are blocked.
 
 Orders are **not** stored and sent later. Plan for this: a marquee at the edge of the Wi-Fi is the most common reason for a till to stand still. Check the reception **before** the event wherever a till will stand.
 

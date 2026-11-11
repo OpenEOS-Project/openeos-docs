@@ -367,6 +367,11 @@ export function kassenRouten({ modus = 'tab', pin = false, karte = false, leer =
         nummer += 1;
         return json(route, { id: `ord_neu_${nummer}`, orderNumber: `20260912-0${nummer}`, dailyNumber: nummer, items: [] }, 201);
       }
+      /* Digitaler Beleg (seit 1.8): der QR-Code steht nach dem Bezahlen
+         sofort da. Der Link ist nachgestellt, die Bestellung gibt es nicht. */
+      if (pfad === '/device-api/receipts/link') {
+        return json(route, { url: 'https://app.openeos.de/beleg/dk7Qm2xV9pL4sT8wZ3nR6yB1', expiresAt: new Date(Date.now() + 90 * 86400000).toISOString() }, 201);
+      }
       if (pfad === '/device-api/payments/batch') {
         return json(route, { orders: [], payments: [], totalPaid: 0, change: 0 }, 201);
       }

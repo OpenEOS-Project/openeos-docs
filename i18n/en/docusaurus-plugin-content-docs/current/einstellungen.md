@@ -95,6 +95,31 @@ As long as the imprint or the privacy notice is missing, your shop takes no orde
 OpenEOS does not check the texts and gives no legal advice. If in doubt, have them checked by a qualified body.
 :::
 
+#### Right of withdrawal for orders {/* #widerrufsrecht */}
+
+At the bottom there is the switch **Orders come with a right of withdrawal** – off by default. Since 19 June 2026, online shops whose customers have a right of withdrawal must offer an electronic **withdrawal function** (§ 356a BGB).
+
+For typical orders in a club shop there is **generally no right of withdrawal**:
+
+- Food and drinks that spoil quickly or are prepared are exempt (§ 312g (2) no. 2 BGB).
+- Supplying food and drinks and other services related to leisure events on a specific date are exempt as well (§ 312g (2) no. 9 BGB) – this includes pre-sale for a festival.
+- Only consumers have a right of withdrawal towards businesses. Whether your club acts as a business when selling depends on the individual case.
+
+It can be different if your shop sells goods without a fixed link to the event, such as club T-shirts or other merchandise. **You decide whether your orders come with a right of withdrawal, and you are responsible for it as the seller** – OpenEOS only provides the function and gives no legal advice.
+
+When the switch is on:
+
+- The footer of every shop page of your event clearly shows **Vertrag widerrufen** (withdraw from contract). The order confirmation e-mail contains the same link.
+- On the page **Vertrag widerrufen** guests enter their name, e-mail address and order number (further details optional) and send the withdrawal with **Widerruf bestätigen** (confirm withdrawal). The page stays reachable after the event while the withdrawal period runs.
+- The guest immediately gets a **confirmation of receipt** by e-mail with the content of the withdrawal and the date and time it was received.
+- The withdrawal goes by e-mail to your **contact for privacy questions** (if set) and to all admins of your organization, with a note whether order number and e-mail address match an order in your shop. You refund as usual via [Orders](./bestellungen.md) (cancel with refund), within 14 days.
+
+Withdrawals are deleted 36 months after receipt.
+
+#### Report content {/* #inhalt-melden */}
+
+The footer of the shop and the helper pages contains the link **Inhalt melden** (report content). Anyone can use it to report content they consider illegal (notice and action under the Digital Services Act). OpenEOS reviews every report. If content of your club is restricted – e.g. an item removed or the shop or helper page blocked – the admins of your organization receive a statement of reasons by e-mail: which action, based on which facts and which ground, and how you can object. We do not name the reporter. The single point of contact for authorities and users is hello@openeos.de (German, English).
+
 ### What you no longer find here
 
 Earlier versions had more sub-tabs. These settings now live where they are needed:
@@ -110,11 +135,12 @@ In the menu under your name at the bottom left, next to **Settings**, there is t
 
 ![Legal: contracts, ELSTER details, template for the shop](/img/screens/en/legal.png)
 
-- **OpenEOS contracts and legal texts** – terms and conditions (AGB), data processing agreement (AVV), privacy policy and imprint in the current version with PDF. For the AGB and AVV it shows which version you accepted and when. Older versions remain available under their date. The texts are in German. Also the link to the **Subprocessors (AVV annex B)**.
+- **OpenEOS contracts and legal texts** – terms and conditions (AGB) with **annex 1 (service description and price list)**, data processing agreement (AVV), privacy policy and imprint in the current version with PDF. For the AGB and AVV it shows which version you accepted and when. Older versions remain available under their date. The texts are in German. Also the links to the **Subprocessors (AVV annex B)** and to the **Data Act** page (where your data is processed, export formats, switching provider).
+- **Conditions of use of the Cloud-TSE (environmental protection concept)** – only when the Cloud-TSE is available: the conditions of the TSE manufacturer Swissbit that you follow when taking payments with the Cloud-TSE. Until Swissbit provides them, a note is shown.
 - **Details for the tax office notification (ELSTER)** – admins only: software, register serial number, business premises and TSE, i.e. the values you enter in ELSTER, each with a copy button. If the address or tax number is missing, the page points you to the settings.
 - **Legal texts for your shop** – a template for the privacy notice in your shop and on the helper pages. Your organization's name, address and email are prefilled; you fill in the places marked yellow yourself. Admins confirm **I have reviewed the text and adapted it to our club.** and adopt it with **Use as privacy notice** into the [Legal information](#rechtliche-angaben).
 
-When the AGB or AVV change, admins confirm the new versions once after signing in, see [Confirming new terms](./registrierung-login.md#neue-agb).
+You accept the current AGB and AVV at registration and with every paid booking. After a material change, OpenEOS may ask admins to confirm the new versions once after signing in, see [Confirming new terms](./registrierung-login.md#neue-agb).
 
 ## Appearance and language
 

@@ -80,7 +80,7 @@ Klicke auf **Doch mit Passwort anmelden**, gib E-Mail und Passwort ein und dann 
 
 **Passwort vergessen?** schickt dir einen Link zum Zurücksetzen. Alternativ meldest du dich einfach per Anmeldelink an.
 
-### Nach falschen Passwörtern {#fehlversuche}
+### Nach falschen Passwörtern {/* #fehlversuche */}
 
 Nach fünf falschen Passwörtern von derselben Verbindung pausiert die Anmeldung mit Passwort dort für 15 Minuten, bei weiteren Fehlversuchen jeweils doppelt so lange (höchstens einen Tag). Nach sehr vielen Fehlversuchen von verschiedenen Orten pausiert sie für 15 Minuten ganz. Die Anmeldeseite sagt dir, wie lange.
 

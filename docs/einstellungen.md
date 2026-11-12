@@ -95,6 +95,31 @@ Solange Impressum oder Datenschutzhinweis fehlen, nimmt dein Shop keine Bestellu
 OpenEOS prüft die Texte nicht und leistet keine Rechtsberatung. Im Zweifel lass sie von einer fachkundigen Stelle prüfen.
 :::
 
+#### Widerrufsrecht für Bestellungen {/* #widerrufsrecht */}
+
+Ganz unten steht der Schalter **Für Bestellungen besteht ein Widerrufsrecht** – standardmäßig aus. Seit dem 19. Juni 2026 müssen Online-Shops, deren Kunden ein Widerrufsrecht haben, eine elektronische **Widerrufsfunktion** anbieten (§ 356a BGB).
+
+Für die typischen Bestellungen im Vereinsshop besteht **in aller Regel kein Widerrufsrecht**:
+
+- Speisen und Getränke, die schnell verderben oder zubereitet werden, sind ausgenommen (§ 312g Abs. 2 Nr. 2 BGB).
+- Die Lieferung von Speisen und Getränken und andere Leistungen im Zusammenhang mit Freizeitveranstaltungen zu einem festen Termin sind ebenfalls ausgenommen (§ 312g Abs. 2 Nr. 9 BGB) – das gilt auch für den Vorverkauf zu einem Fest.
+- Ein Widerrufsrecht haben nur Verbraucher gegenüber Unternehmern. Ob dein Verein beim Verkauf als Unternehmer handelt, hängt vom Einzelfall ab.
+
+Anders kann es aussehen, wenn du im Shop Waren ohne festen Veranstaltungsbezug verkaufst, etwa Vereins-T-Shirts oder andere Fanartikel. Ob für deine Bestellungen ein Widerrufsrecht besteht, **entscheidest und verantwortest du als Verkäufer** – OpenEOS stellt nur die Funktion bereit und leistet keine Rechtsberatung.
+
+Ist der Schalter an:
+
+- Steht in der Fußzeile jeder Shop-Seite deiner Veranstaltung gut sichtbar **Vertrag widerrufen**. Die Bestellbestätigung per E-Mail enthält denselben Link.
+- Auf der Seite **Vertrag widerrufen** geben Gäste Name, E-Mail-Adresse und Bestellnummer an (weitere Angaben freiwillig) und schicken den Widerruf mit **Widerruf bestätigen** ab. Die Seite bleibt auch nach dem Ende der Veranstaltung erreichbar, solange die Widerrufsfrist läuft.
+- Der Gast bekommt sofort eine **Eingangsbestätigung** mit dem Inhalt seines Widerrufs sowie Datum und Uhrzeit des Eingangs per E-Mail.
+- Der Widerruf geht per E-Mail an deinen **Kontakt für Datenschutzfragen** (falls hinterlegt) und an alle Admins deiner Organisation, mit dem Hinweis, ob Bestellnummer und E-Mail-Adresse zu einer Bestellung in deinem Shop passen. Die Erstattung machst du wie gewohnt über die [Bestellungen](./bestellungen.md) (Stornieren mit Erstattung), innerhalb von 14 Tagen.
+
+Widerrufe werden 36 Monate nach dem Eingang gelöscht.
+
+#### Inhalt melden {/* #inhalt-melden */}
+
+In der Fußzeile des Shops und der Helferseiten steht der Link **Inhalt melden**. Darüber kann jeder Inhalte melden, die er für rechtswidrig hält (Melde- und Abhilfeverfahren nach dem Digital Services Act). OpenEOS prüft jede Meldung. Wird ein Inhalt deines Vereins eingeschränkt – etwa ein Artikel entfernt oder der Shop bzw. die Helferseite gesperrt –, bekommen die Admins deiner Organisation eine Begründung per E-Mail: welche Maßnahme, auf Grund welcher Tatsachen und welcher Grundlage, und wie du widersprechen kannst. Wer gemeldet hat, nennen wir nicht. Zentrale Kontaktstelle für Behörden und Nutzer ist hello@openeos.de (Deutsch, Englisch).
+
 ### Was du hier nicht mehr findest
 
 Frühere Versionen hatten weitere Unterreiter. Diese Einstellungen liegen jetzt dort, wo sie gebraucht werden:
@@ -110,11 +135,12 @@ Im Menü unter deinem Namen unten links steht neben **Einstellungen** der Eintra
 
 ![Rechtliches: Verträge, ELSTER-Angaben, Vorlage für den Shop](/img/screens/de/legal.png)
 
-- **Verträge und Rechtstexte von OpenEOS** – AGB, Auftragsverarbeitungsvertrag (AVV), Datenschutzerklärung und Impressum in der aktuellen Fassung mit PDF. Bei AGB und AVV steht, welche Fassung du wann akzeptiert hast. Ältere Fassungen bleiben unter ihrem Datum abrufbar. Dazu der Link zu den **Unterauftragsverarbeitern (AVV Anhang B)**.
+- **Verträge und Rechtstexte von OpenEOS** – AGB mit **Anlage 1 (Leistungsbeschreibung und Preisliste)**, Auftragsverarbeitungsvertrag (AVV), Datenschutzerklärung und Impressum in der aktuellen Fassung mit PDF. Bei AGB und AVV steht, welche Fassung du wann akzeptiert hast. Ältere Fassungen bleiben unter ihrem Datum abrufbar. Dazu die Links zu den **Unterauftragsverarbeitern (AVV Anhang B)** und zur Seite **Data Act** (wo deine Daten verarbeitet werden, Exportformate, Anbieterwechsel).
+- **Einsatzbedingungen der Cloud-TSE (Umgebungsschutzkonzept)** – nur, wenn die Cloud-TSE verfügbar ist: die Bedingungen des TSE-Herstellers Swissbit, die du beim Kassieren mit Cloud-TSE einhältst. Bis Swissbit sie bereitstellt, steht dort ein Hinweis.
 - **Angaben für die Finanzamt-Meldung (ELSTER)** – nur für Admins: Software, Seriennummer der Kasse, Betriebsstätte und TSE, also die Werte, die du in ELSTER einträgst, jeweils mit Kopierknopf. Fehlen Anschrift oder Steuernummer, verweist die Seite auf die Einstellungen.
 - **Rechtstexte für deinen Shop** – eine Vorlage für den Datenschutzhinweis im Shop und auf den Helferseiten. Name, Anschrift und E-Mail deiner Organisation sind vorbelegt; die gelb markierten Stellen füllst du selbst aus. Admins bestätigen **Ich habe den Text geprüft und an unseren Verein angepasst.** und übernehmen ihn mit **Als Datenschutzhinweis übernehmen** in die [Rechtlichen Angaben](#rechtliche-angaben).
 
-Ändern sich AGB oder AVV, bestätigen Admins die neuen Fassungen einmal nach der Anmeldung, siehe [Neue AGB bestätigen](./registrierung-login.md#neue-agb).
+Die geltenden Fassungen von AGB und AVV akzeptierst du bei der Registrierung und bei jeder kostenpflichtigen Buchung. Bei einer wesentlichen Änderung kann OpenEOS Admins bitten, die neuen Fassungen einmal nach der Anmeldung zu bestätigen, siehe [Neue AGB bestätigen](./registrierung-login.md#neue-agb).
 
 ## Darstellung und Sprache
 

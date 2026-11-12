@@ -129,7 +129,7 @@ Beim Sperren merkt sich die Kasse den Warenkorb je Bedienung auf diesem Gerät. 
 Den Schalter **PIN erforderlich** gibt es nicht mehr. Kassen, bei denen er an war, stehen automatisch auf **Gemeinsame Kasse**; alle anderen auf **Ohne Bedienung**. Mitglieder melden sich dort weiter mit ihrer Mitglieds-PIN an.
 :::
 
-**PIN-Eingabe freigeben:** Nach 20 falschen PINs sperrt das Gerät die PIN-Eingabe, bis ein Admin sie freigibt. Oben im Block steht dann „Die PIN-Eingabe an diesem Gerät ist nach zu vielen Fehlversuchen gesperrt.“ Mit **PIN-Eingabe freigeben** geht es weiter. Kürzere Sperren nach 5 und 10 Fehlversuchen laufen von selbst ab, siehe [Falsche PINs](./bedienungen.md#fehlversuche).
+**PIN-Eingabe freigeben:** Nach 20 falschen PINs sperrt das Gerät die PIN-Eingabe, bis ein Admin sie freigibt. Oben im Block steht dann „Die PIN-Eingabe an diesem Gerät ist nach zu vielen Fehlversuchen gesperrt.“ Mit **PIN-Eingabe freigeben** geht es weiter. Kürzere Sperren ab 5 Fehlversuchen laufen von selbst ab; die Freigabe hebt auch eine noch laufende kürzere Sperre auf, siehe [Falsche PINs](./bedienungen.md#fehlversuche).
 
 #### Stornieren & Erstatten {/* #storno-erstatten */}
 

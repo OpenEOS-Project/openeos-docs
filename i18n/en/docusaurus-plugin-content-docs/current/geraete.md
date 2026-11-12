@@ -129,7 +129,7 @@ When locking, the till keeps the cart per server on this device. What that looks
 The **Require PIN** switch is gone. Tills that had it on are automatically set to **Shared till**; all others to **No servers**. Members keep signing in there with their member PIN.
 :::
 
-**Release PIN entry:** after 20 wrong PINs the device locks PIN entry until an admin releases it. The top of the block then says "PIN entry on this device is locked after too many failed attempts." **Release PIN entry** opens it again. Shorter locks after 5 and 10 failed attempts expire by themselves, see [Wrong PINs](./bedienungen.md#fehlversuche).
+**Release PIN entry:** after 20 wrong PINs the device locks PIN entry until an admin releases it. The top of the block then says "PIN entry on this device is locked after too many failed attempts." **Release PIN entry** opens it again. Shorter locks from 5 failed attempts on expire by themselves; releasing also lifts a shorter lock that is still running, see [Wrong PINs](./bedienungen.md#fehlversuche).
 
 #### Cancel & refund {/* #storno-erstatten */}
 

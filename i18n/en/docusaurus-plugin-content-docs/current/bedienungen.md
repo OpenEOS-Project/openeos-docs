@@ -157,13 +157,15 @@ This is how a **Shared till** works. More on the flow is under [Till](./kasse.md
 
 ### Wrong PINs {/* #fehlversuche */}
 
-| Wrong PINs on one device | Result |
+Wrong PINs from the last 30 minutes on a device count. A correct PIN does not reset the counter – older failed attempts drop out by themselves after 30 minutes.
+
+| Wrong PINs on one device (30 minutes) | Result |
 |---|---|
 | 5 | PIN entry locked for 30 seconds |
-| 10 | PIN entry locked for 5 minutes |
+| each further one | lock twice as long each time (1, 2, 4, 8 minutes …), at most 15 minutes |
 | 20 | PIN entry locked until an admin releases it under **Devices → Device → Settings** with **Release PIN entry** |
 
-If there are unusually many failed attempts across the organization, PIN entry pauses briefly on all devices.
+Once the waiting time is over, a correct PIN works again right away. If there are unusually many failed attempts across the organization (more than 50 in an hour), PIN entry pauses on all devices – one minute at first, twice as long with each further failed attempt, at most 15 minutes.
 
 ### Tables {/* #tische */}
 

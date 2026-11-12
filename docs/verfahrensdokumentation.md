@@ -73,7 +73,7 @@ Der Verein arbeitet in der Betriebsart: ☐ **Nur Bons** · ☐ **Bargeldlos** �
 
 **Bargeldlos.** OpenEOS nimmt nur bargeldlose Zahlungen an; eine TSE wird nicht eingesetzt. Grundlage: Das System kann keine baren Zahlungsvorgänge vor Ort erfassen (BMF-FAQ; AEAO zu § 146a Nr. 1.2). Die Herstellerbescheinigung liegt bei. Es gilt:
 
-- **Positivliste der Zahlarten:** Karte über [SumUp-Kartenleser / externes Terminal], Online-Zahlung über [SumUp Online / PayPal / Google Pay / Apple Pay]. Andere Zahlarten weist OpenEOS serverseitig ab.
+- **Positivliste der Zahlarten:** Karte über [SumUp-Kartenleser / externes Terminal], Online-Zahlung über [SumUp Online / Google Pay / Apple Pay]. Andere Zahlarten weist OpenEOS serverseitig ab.
 - **Technische Sperre:** Bargeld lässt sich in der Organisation nicht einschalten; „Alle Funktionen“ ist in Deutschland nur mit aktiver Cloud-TSE möglich. Die Betriebsart ändern dürfen nur Admins der Organisation ([Namen]); jeder Wechsel wird mit Zeit und Person protokolliert.
 - **Keine Wertmarken, Gutscheine, Guthabenkarten oder Kundenkonten** als Zahlung, weder in OpenEOS noch am selben Stand außerhalb von OpenEOS.
 - **Trennung von anderen Kassen:** Die OpenEOS-Kasse hat eine eigene Kassen-ID. Bons und Bestellungen werden nicht an Kassen mit Bargeld übergeben, dort nicht nachbezahlt und nicht erstattet, und umgekehrt. Weitere Kassen beim Fest: [keine / Beschreibung].

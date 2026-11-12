@@ -80,6 +80,14 @@ Klicke auf **Doch mit Passwort anmelden**, gib E-Mail und Passwort ein und dann 
 
 **Passwort vergessen?** schickt dir einen Link zum Zurücksetzen. Alternativ meldest du dich einfach per Anmeldelink an.
 
+### Nach falschen Passwörtern {#fehlversuche}
+
+Nach fünf falschen Passwörtern von derselben Verbindung pausiert die Anmeldung mit Passwort dort für 15 Minuten, bei weiteren Fehlversuchen jeweils doppelt so lange (höchstens einen Tag). Nach sehr vielen Fehlversuchen von verschiedenen Orten pausiert sie für 15 Minuten ganz. Die Anmeldeseite sagt dir, wie lange.
+
+- Geräte, auf denen du schon angemeldet bist, bleiben angemeldet.
+- Mit dem **Anmeldelink** per E-Mail kommst du jederzeit rein.
+- Du bekommst eine E-Mail, wenn die Anmeldung mit Passwort pausiert. Warst das nicht du, ändere vorsichtshalber dein Passwort.
+
 ### Weitere Einstiege auf der Anmeldeseite
 
 - **Als Gerät verwenden (Kassen-Terminal)** — macht dieses Gerät zur Kasse, siehe [Geräte verbinden](./geraete.md)

@@ -80,6 +80,14 @@ Click **Use a password instead**, enter your email and password and choose **Sig
 
 **Forgot password?** sends you a reset link. Alternatively, just sign in with a link.
 
+### After wrong passwords {/* #fehlversuche */}
+
+After five wrong passwords from the same connection, password sign-in pauses there for 15 minutes, twice as long after each further round (at most one day). After a great many failures from different places it pauses everywhere for 15 minutes. The sign-in page tells you how long.
+
+- Devices you are already signed in on stay signed in.
+- The **sign-in link** by email always gets you in.
+- You get an email when password sign-in pauses. If that wasn't you, change your password to be safe.
+
 ### Other ways in from this page
 
 - **Use as device (POS terminal)** — turns this device into a till, see [Connecting devices](./geraete.md)

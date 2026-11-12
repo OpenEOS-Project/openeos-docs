@@ -22,7 +22,7 @@ Beide brauchen nur einen Browser und Strom. Tastatur, Zugangsdaten oder eine Ins
 Der Weg ist derselbe wie bei einer Kasse — das Gerät zeigt eine Zahl, verknüpft wird sie in deinem Konto.
 
 1. Öffne auf dem Bildschirm **app.openeos.de** und wähle unten **Als Anzeige verwenden (Monitor)**.
-2. Der Bildschirm zeigt eine **sechsstellige Zahl** am Stück und darunter einen QR-Code.
+2. Der Bildschirm zeigt eine **achtstellige Zahl** am Stück und darunter einen QR-Code. Die Zahl gilt 15 Minuten, danach erscheint von selbst eine neue.
 3. Melde dich an einem anderen Gerät bei OpenEOS an, geh auf **Geräte** und klick in der Karte **Neues Gerät registrieren** auf **Gerät verbinden**.
 4. Gib die Zahl als **Verifizierungscode** ein und klick auf **Gerät suchen**. Wer ein Telefon zur Hand hat, scannt stattdessen den QR-Code.
 

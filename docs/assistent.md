@@ -21,6 +21,12 @@ Wer einen eigenen Agenten wie Claude oder Cursor an OpenEOS anbinden möchte, fi
 Preise, Steuersätze oder Zuordnungen können danebenliegen – vor allem bei schlecht lesbaren Fotos. Prüfe die Vorschau, bevor du Produkte anlegst. Zeilen, bei denen sich der Assistent nicht sicher ist, sind in der Vorschau markiert.
 :::
 
+### Kennzeichnung „KI-generierter Vorschlag“
+
+Alles, was der Assistent mit dem Sprachmodell erzeugt, trägt bis zur Übernahme die Kennzeichnung **KI-generierter Vorschlag** – oben in der Vorschau des Speisekarten-Imports und bei den Icon-Vorschlägen im Produktformular, sobald ein Vorschlag vom Sprachmodell stammt. Vorschläge, die OpenEOS ohne Sprachmodell aus dem Icon-Verzeichnis findet, haben keine Kennzeichnung. So verlangt es die KI-Verordnung der EU (Art. 50) ab dem 2. Dezember 2026.
+
+Übernommen wird nichts von allein: Produkte entstehen erst, wenn du in der Vorschau auf **… Produkte anlegen** tippst, ein Icon erst mit deinem Tipp und dem Speichern. In den angelegten Produkten steht keine Kennzeichnung – ab dann sind es deine Angaben, für die du verantwortlich bist.
+
 ## Einschalten
 
 1. Öffne **Einstellungen → Organisation → Assistent**.

@@ -109,12 +109,12 @@ With SumUp in [test mode](./veranstaltungen.md) and while the event is [Planned]
 
 A till without cash does not need a TSE – but only if nothing is accepted that counts as cash. Under AEAO zu § 146a Nr. 1.2 this also covers credit, customer accounts and vouchers, tokens or tickets accepted on site "instead of money". "Cashless" is therefore only defensibly TSE-free if all of the following apply:
 
-- **Positive list of payment methods:** only card (SumUp card reader or external terminal) and online payment via a payment service provider (SumUp Online, PayPal, Google Pay, Apple Pay). The server rejects every other payment method in "Cashless", no matter where the transaction comes from.
+- **Positive list of payment methods:** only card (SumUp card reader or external terminal) and online payment via a payment service provider (SumUp Online with card, Google Pay or Apple Pay). The server rejects every other payment method in "Cashless", no matter where the transaction comes from.
 - **Technical lock:** cash cannot be switched on in your organization. Admins can change the operating mode, but in Germany "All features" with cash is only available with an active Cloud TSE – our support cannot bypass that either. Every change is in the [history](#verlauf).
 - **No tokens, vouchers or credit** as payment – neither in OpenEOS nor on the side at the same stand (see [Tokens and vouchers](#wertmarken)).
 - **Refunds only to the original means of payment**, never in cash.
 - **Separate from your tills with cash:** if tills with cash run alongside at the festival (e.g. an open cash box), no receipts or orders from OpenEOS may be handed over, paid or refunded there – and vice versa.
-- **Reconciliation with the statements** of SumUp or PayPal: the [orders export](./bestellungen.md) contains the payment provider, payment reference and refund reference per order for this.
+- **Reconciliation with the statements** of SumUp: the [orders export](./bestellungen.md) contains the payment provider, payment reference and refund reference per order for this.
 
 Individual recording and data export remain mandatory without a TSE too. Add the [manufacturer's certificate](#bescheinigung) and a chapter on these points to your [procedure documentation](./verfahrensdokumentation.md#betriebsart). There is no case law on this yet; only a binding ruling from your tax office (§ 89 AO) gives certainty.
 

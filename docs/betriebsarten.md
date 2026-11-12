@@ -107,12 +107,12 @@ Mit SumUp im [Testmodus](./veranstaltungen.md) und solange die Veranstaltung [Ge
 
 Eine Kasse ohne Bargeld braucht keine TSE – aber nur, wenn wirklich nichts angenommen wird, was dem Bargeld gleichsteht. Nach AEAO zu § 146a Nr. 1.2 zählen dazu auch Guthaben, Kundenkonten und Gutscheine, Wertmarken oder Bons, die vor Ort „an Geldes statt“ angenommen werden. „Bargeldlos“ ist deshalb nur vertretbar TSE-frei, wenn alles Folgende zutrifft:
 
-- **Positivliste der Zahlarten:** nur Karte (SumUp-Kartenleser oder externes Terminal) und Online-Zahlung über einen Zahlungsdienstleister (SumUp Online, PayPal, Google Pay, Apple Pay). Jede andere Zahlart weist der Server in „Bargeldlos“ ab, egal woher der Vorgang kommt.
+- **Positivliste der Zahlarten:** nur Karte (SumUp-Kartenleser oder externes Terminal) und Online-Zahlung über einen Zahlungsdienstleister (SumUp Online mit Karte, Google Pay oder Apple Pay). Jede andere Zahlart weist der Server in „Bargeldlos“ ab, egal woher der Vorgang kommt.
 - **Technische Sperre:** Bargeld lässt sich in deiner Organisation nicht einschalten. Admins können zwar die Betriebsart wechseln, „Alle Funktionen“ mit Bargeld gibt es in Deutschland aber nur mit aktiver Cloud-TSE – auch über unseren Support nicht anders. Jeder Wechsel steht im [Verlauf](#verlauf).
 - **Keine Wertmarken, Gutscheine oder Guthaben** als Zahlung – weder in OpenEOS noch nebenher am selben Stand (siehe [Wertmarken und Gutscheine](#wertmarken)).
 - **Erstattungen nur auf das ursprüngliche Zahlungsmittel**, nie bar.
 - **Getrennt von euren Kassen mit Bargeld:** Laufen beim Fest daneben Kassen mit Bargeld (z. B. eine offene Ladenkasse), dürfen keine Bons oder Bestellungen aus OpenEOS dorthin übergeben, dort nachbezahlt oder erstattet werden – und umgekehrt.
-- **Abgleich mit den Abrechnungen** von SumUp bzw. PayPal: Der [Export der Bestellungen](./bestellungen.md) enthält dafür je Bestellung Zahlungsanbieter, Zahlungsreferenz und Erstattungsreferenz.
+- **Abgleich mit den Abrechnungen** von SumUp: Der [Export der Bestellungen](./bestellungen.md) enthält dafür je Bestellung Zahlungsanbieter, Zahlungsreferenz und Erstattungsreferenz.
 
 Die Einzelaufzeichnung und der Datenexport bleiben auch ohne TSE Pflicht. Lege die [Herstellerbescheinigung](#bescheinigung) und ein Kapitel zu diesen Punkten in deine [Verfahrensdokumentation](./verfahrensdokumentation.md#betriebsart). Rechtsprechung dazu gibt es noch nicht; Sicherheit gibt nur eine verbindliche Auskunft deines Finanzamts (§ 89 AO).
 

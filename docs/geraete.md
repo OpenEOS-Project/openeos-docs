@@ -28,7 +28,7 @@ Der PC, an dem deine Bondrucker hängen, ist kein Gerät in diesem Sinn: Den **D
 Das Gerät zeigt eine Zahl, verknüpft wird sie in deinem Konto. Auf dem Gerät selbst brauchst du weder Zugangsdaten noch das Kürzel deiner Organisation.
 
 1. **Auf dem Gerät** öffnest du `app.openeos.de` und wählst unten **Als Gerät verwenden (Kassen-Terminal)** — bei einem Bildschirm stattdessen **Als Anzeige verwenden (Monitor)**.
-2. Das Gerät zeigt eine **sechsstellige Zahl** am Stück (etwa `573080`), darunter einen QR-Code als zweiten Weg.
+2. Das Gerät zeigt eine **achtstellige Zahl** am Stück (etwa `57308012`), darunter einen QR-Code als zweiten Weg. Die Zahl gilt **15 Minuten**; danach zeigt das Gerät von selbst eine neue.
 3. **In der Verwaltung** gehst du auf **Geräte**, klickst in der Karte **Neues Gerät registrieren** auf **Gerät verbinden**, gibst die Zahl als **Verifizierungscode** ein und klickst auf **Gerät suchen**. Du kannst die Zahl auch einfügen, etwa aus einer Nachricht: Leerzeichen und Bindestriche lässt OpenEOS weg.
 
 ![Die Zahl vom Gerät eintragen und das Gerät verknüpfen](/img/screens/de/device-verify.png)
@@ -38,12 +38,12 @@ Das Gerät zeigt eine Zahl, verknüpft wird sie in deinem Konto. Auf dem Gerät 
 Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 
 :::note[Warum eine Zahl]
-Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine sechsstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
+Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine achtstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
 :::
 
 Den Registrierungslink kannst du über **Kopieren** in die Zwischenablage übernehmen und z. B. per Nachricht an das Kassenpersonal verteilen.
 
-Steht ein Gerät in der Liste noch auf **Ausstehend**, gibst du es mit **Freigeben** frei: Im Dialog **Gerät freigeben** wählst du den **Gerätetyp** (Kasse oder Display) und gibst den 6-stelligen **Verifizierungscode** vom Gerät ein. Kassen starten im Betrieb „Bedienung“ (Tischservice), Displays als Kundendisplay. Beides passt du später jederzeit unter **Geräte → Gerät → Einstellungen** an.
+Steht ein Gerät in der Liste noch auf **Ausstehend**, gibst du es mit **Freigeben** frei: Im Dialog **Gerät freigeben** wählst du den **Gerätetyp** (Kasse oder Display) und gibst den achtstelligen **Verifizierungscode** vom Gerät ein. Kassen starten im Betrieb „Bedienung“ (Tischservice), Displays als Kundendisplay. Beides passt du später jederzeit unter **Geräte → Gerät → Einstellungen** an.
 
 ## Geräte verwalten
 

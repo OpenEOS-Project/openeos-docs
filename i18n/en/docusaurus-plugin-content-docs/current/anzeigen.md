@@ -22,7 +22,7 @@ Both need only a browser and power. No keyboard, no credentials, nothing to inst
 The route is the same as for a till — the device shows a number, and you link it from your account.
 
 1. On the screen, open **app.openeos.de** and choose **Use as a display (screen)** at the bottom.
-2. The screen shows a **six-digit number** in one piece with a QR code beneath it.
+2. The screen shows an **eight-digit number** in one piece with a QR code beneath it. The number is valid for 15 minutes; after that a new one appears by itself.
 3. On another device, sign in to OpenEOS, go to **Devices** and click **Connect device** in the **Register New Device** card.
 4. Enter the number as the **Verification Code** and click **Find Device**. With a phone to hand, scan the QR code instead.
 

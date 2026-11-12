@@ -37,7 +37,7 @@ Alle Dateien liegen auf der [Download-Seite](https://github.com/OpenEOS-Project/
 ### Windows
 
 1. Lege die EXE an einem festen Ort ab, z. B. `C:\Program Files\OpenEOS\`.
-2. Starte sie per Doppelklick. Ein Fenster öffnet sich und zeigt den **sechsstelligen Code** – gib ihn in OpenEOS ein (nächster Abschnitt). Danach schließt du das Fenster mit `Strg+C`.
+2. Starte sie per Doppelklick. Ein Fenster öffnet sich und zeigt den **achtstelligen Code** – gib ihn in OpenEOS ein (nächster Abschnitt). Danach schließt du das Fenster mit `Strg+C`.
 3. Damit der Agent künftig mit Windows startet, richtest du ihn als Dienst ein: Eingabeaufforderung **als Administrator** öffnen (Rechtsklick → *Als Administrator ausführen*) und ausführen:
    ```
    cd "C:\Program Files\OpenEOS"
@@ -64,9 +64,9 @@ Den Code liest du danach im Protokoll (`sudo journalctl -u openeos-printer -f`) 
 
 ### Der Code
 
-Beim ersten Start meldet sich der Agent bei OpenEOS an und zeigt einen **sechsstelligen Code** – im Fenster, im Protokoll und auf seiner Statusseite `http://localhost:8080`. Er wartet dann, bis du den Code eingegeben hast.
+Beim ersten Start meldet sich der Agent bei OpenEOS an und zeigt einen **achtstelligen Code** – im Fenster, im Protokoll und auf seiner Statusseite `http://localhost:8080`. Er wartet dann, bis du den Code eingegeben hast. Ein Code gilt 15 Minuten; danach zeigt der Agent von selbst einen neuen.
 
-![Statusseite des Agents mit dem sechsstelligen Code](/img/screens/de/printer-agent-status-page.png)
+![Statusseite des Agents mit dem Kopplungscode](/img/screens/de/printer-agent-status-page.png)
 
 :::note[Warum ein Code]
 Am Drucker-PC muss sich niemand anmelden. Der Agent zeigt eine Zahl, du gibst sie in deinem Konto ein – so gehört der Agent eindeutig zu deiner Organisation, und niemand sonst kann über ihn drucken.

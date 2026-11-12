@@ -28,7 +28,7 @@ The PC your receipt printers are attached to is not a device in this sense: you 
 The device shows a number and you link it from your account. On the device itself you need neither credentials nor your organization's short name.
 
 1. **On the device**, open `app.openeos.de` and choose **Use as device (POS terminal)** at the bottom — for a screen, **Use as a display (screen)** instead.
-2. The device shows a **six-digit number** in one piece (such as `573080`), with a QR code beneath it as a second route.
+2. The device shows an **eight-digit number** in one piece (such as `57308012`), with a QR code beneath it as a second route. The number is valid for **15 minutes**; after that the device shows a new one by itself.
 3. **In the admin area**, go to **Devices**, click **Connect device** in the **Register New Device** card, enter the number as the **Verification Code** and click **Find Device**. You can also paste the number, from a message for example: OpenEOS ignores spaces and dashes.
 
 ![Enter the number from the device and link it](/img/screens/en/device-verify.png)
@@ -38,12 +38,12 @@ The device shows a number and you link it from your account. On the device itsel
 The device then switches into the till or screen by itself.
 
 :::note[Why a number]
-Nobody at a tablet has the organization's short name to hand, and a TV rarely has a keyboard. A six-digit number can be read out and typed in — nothing more is needed.
+Nobody at a tablet has the organization's short name to hand, and a TV rarely has a keyboard. An eight-digit number can be read out and typed in — nothing more is needed.
 :::
 
 You can copy the registration link with **Copy** and send it to your till staff, by message for example.
 
-If a device in the list is still **Pending**, approve it with **Approve**: in the **Approve Device** dialog you choose the **device type** (POS or Display) and enter the 6-digit **verification code** from the device. Tills start in *Table Service* operation, displays as a customer display. You can change both at any time under **Devices → Device → Settings**.
+If a device in the list is still **Pending**, approve it with **Approve**: in the **Approve Device** dialog you choose the **device type** (POS or Display) and enter the eight-digit **verification code** from the device. Tills start in *Table Service* operation, displays as a customer display. You can change both at any time under **Devices → Device → Settings**.
 
 ## Managing devices
 

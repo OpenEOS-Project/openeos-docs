@@ -53,6 +53,9 @@ TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 INTEGRATION_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 # Empfohlen: Pepper für die Kassen-PINs (vor der ersten PIN setzen)
 PIN_PEPPER=$(openssl rand -base64 32 | tr -d '\n')
+# Optional: eigener Einrichtungscode für die Ersteinrichtung
+# (ohne ihn steht ein Code im Protokoll der API)
+SETUP_TOKEN=
 EOF
 ```
 
@@ -123,6 +126,8 @@ services:
       INTEGRATION_ENCRYPTION_KEY: ${INTEGRATION_ENCRYPTION_KEY:-}
       # Leer = aus TWO_FACTOR_ENCRYPTION_KEY abgeleitet; Wechsel macht alle PINs ungültig
       PIN_PEPPER: ${PIN_PEPPER:-}
+      # Leer = Code im Protokoll der API (Ersteinrichtung)
+      SETUP_TOKEN: ${SETUP_TOKEN:-}
       # Das Dashboard muss den Server aufrufen dürfen
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'

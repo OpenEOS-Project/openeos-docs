@@ -18,8 +18,29 @@ taken to the setup page automatically.
 In Single Organization mode the wizard goes straight to the **Single Organization** form;
 there is no choice between deployment modes, because there is only one here.
 
+### Setup code
+
+So that nobody else who happens to know the address can take over the fresh
+installation, the wizard asks for a **setup code**. The server writes it to
+its log on start while setup is still open:
+
+```bash
+docker compose logs api | grep Einrichtungscode
+```
+
+The line looks like `Ersteinrichtung offen. Einrichtungscode: K7QM-2XRT-9HCP`.
+Case, spaces and dashes don't matter when you type it. Alternatively, set the
+code yourself with the `SETUP_TOKEN` environment variable (see
+[installation](./installation.md)); it then doesn't appear in the log.
+
+Once setup is done, the wizard stays closed for good — even if all users were
+deleted later.
+
+### Form
+
 Enter:
 
+- **Setup code** — see above
 - **First Name, Last Name, Email Address** of the administrator
 - **Password** — at least 8 characters, with an uppercase letter, a lowercase letter and a digit —
   and the same again under **Confirm Password**

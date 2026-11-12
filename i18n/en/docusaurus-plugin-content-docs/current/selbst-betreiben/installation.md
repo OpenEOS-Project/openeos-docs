@@ -52,6 +52,9 @@ TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 INTEGRATION_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 # Recommended: pepper for the till PINs (set before the first PIN)
 PIN_PEPPER=$(openssl rand -base64 32 | tr -d '\n')
+# Optional: your own setup code for the first-run setup
+# (without it, the API prints a code to its log)
+SETUP_TOKEN=
 EOF
 ```
 
@@ -122,6 +125,8 @@ services:
       INTEGRATION_ENCRYPTION_KEY: ${INTEGRATION_ENCRYPTION_KEY:-}
       # Empty = derived from TWO_FACTOR_ENCRYPTION_KEY; changing it invalidates all PINs
       PIN_PEPPER: ${PIN_PEPPER:-}
+      # Empty = code in the API log (first-run setup)
+      SETUP_TOKEN: ${SETUP_TOKEN:-}
       # The dashboard must be allowed to call the server
       CORS_ORIGINS: ${APP_URL}
       EMAIL_ENABLED: 'false'

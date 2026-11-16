@@ -19,7 +19,7 @@ Drei Geheimnisse werden gebraucht. Erzeuge sie **jetzt** und bewahre
 sie auf — insbesondere `TWO_FACTOR_ENCRYPTION_KEY`: Geht er verloren, sind
 hinterlegte Zwei-Faktor-Geheimnisse nicht mehr entschlüsselbar, und ohne
 eigenen `INTEGRATION_ENCRYPTION_KEY` (siehe unten) auch gespeicherte
-Zugangsdaten für SumUp und PayPal und die Geheimnisse der Webhooks — die
+Zugangsdaten für SumUp und die Geheimnisse der Webhooks — die
 müssten dann neu eingetragen werden.
 
 Optional kannst du für diese Zugangsdaten einen eigenen Schlüssel
@@ -49,7 +49,7 @@ API_URL=http://192.168.1.50:3000
 DATABASE_PASSWORD=$(openssl rand -base64 24 | tr -d '/+=')
 JWT_SECRET=$(openssl rand -base64 64 | tr -d '\n')
 TWO_FACTOR_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
-# Optional: eigener Schlüssel für SumUp-/PayPal-Zugangsdaten und Webhooks
+# Optional: eigener Schlüssel für SumUp-Zugangsdaten und Webhooks
 INTEGRATION_ENCRYPTION_KEY=$(openssl rand -base64 32 | tr -d '\n')
 # Empfohlen: Pepper für die Kassen-PINs (vor der ersten PIN setzen)
 PIN_PEPPER=$(openssl rand -base64 32 | tr -d '\n')
@@ -119,7 +119,7 @@ services:
       REDIS_HOST: redis
       JWT_SECRET: ${JWT_SECRET:?JWT_SECRET fehlt}
       TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY:?TWO_FACTOR_ENCRYPTION_KEY fehlt}
-      # Optional; leer = TWO_FACTOR_ENCRYPTION_KEY verschlüsselt auch SumUp/PayPal
+      # Optional; leer = TWO_FACTOR_ENCRYPTION_KEY verschlüsselt auch SumUp
       INTEGRATION_ENCRYPTION_KEY: ${INTEGRATION_ENCRYPTION_KEY:-}
       # Leer = aus TWO_FACTOR_ENCRYPTION_KEY abgeleitet; Wechsel macht alle PINs ungültig
       PIN_PEPPER: ${PIN_PEPPER:-}

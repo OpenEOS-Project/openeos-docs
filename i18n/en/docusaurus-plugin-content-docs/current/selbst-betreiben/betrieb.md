@@ -28,7 +28,7 @@ sudo docker run --rm \
 Also back up the `.env` file — without
 `TWO_FACTOR_ENCRYPTION_KEY`, stored two-factor secrets are worthless after
 a restore. Without a dedicated `INTEGRATION_ENCRYPTION_KEY`, the same goes
-for saved SumUp and PayPal credentials and the webhook secrets, and without
+for saved SumUp credentials and the webhook secrets, and without
 a dedicated `PIN_PEPPER` for all till PINs. If these keys are set, they
 belong in the backup as well, with the Cloud TSE also `TSE_ENCRYPTION_KEY`.
 
@@ -230,7 +230,7 @@ and all variables are in the API README under "Aufbewahrung und Löschung".
 
 A self-hosted installation sends **nothing** to the outside. Optional
 integrations stay off as long as you do not store any credentials:
-error reports (Sentry), card payment (SumUp, PayPal), email delivery, the
+error reports (Sentry), card payment (SumUp), email delivery, the
 [assistant](./assistent.md) and the Cloud TSE. Webhooks only send data out
 when an admin adds a receiver under **Settings → Organization → Webhooks**.
 By default they only accept public `https://` addresses; you allow a receiver

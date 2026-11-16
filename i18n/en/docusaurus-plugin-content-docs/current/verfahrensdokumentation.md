@@ -77,7 +77,7 @@ The club works in the operating mode: ☐ **Orders only** · ☐ **Cashless** ·
 
 **Cashless.** OpenEOS only accepts cashless payments; no TSE is used. Basis: the system cannot record cash payments on site (BMF FAQ; AEAO zu § 146a Nr. 1.2). The manufacturer's certificate is attached. The following applies:
 
-- **Positive list of payment methods:** card via [SumUp card reader / external terminal], online payment via [SumUp Online / PayPal / Google Pay / Apple Pay]. OpenEOS rejects other payment methods on the server.
+- **Positive list of payment methods:** card via [SumUp card reader / external terminal], online payment via [SumUp Online / Google Pay / Apple Pay]. OpenEOS rejects other payment methods on the server.
 - **Technical lock:** cash cannot be switched on in the organization; in Germany "All features" is only possible with an active Cloud TSE. Only admins of the organization ([names]) may change the operating mode; every change is logged with time and person.
 - **No tokens, vouchers, credit cards or customer accounts** as payment, neither in OpenEOS nor at the same stand outside OpenEOS.
 - **Separation from other tills:** the OpenEOS till has its own till ID. Receipts and orders are not handed over to tills with cash, not paid there and not refunded there, and vice versa. Other tills at the festival: [none / description].

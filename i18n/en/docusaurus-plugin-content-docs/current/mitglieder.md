@@ -52,9 +52,9 @@ The following modules can be enabled individually for members:
 - **Products** (this includes **Stations**)
 - **Events** (this includes **Tables**)
 - **Devices** (this includes **Printers**)
-- **Members**
+- **Members** – see the member list with names and e-mail addresses, invite and assign permissions
 - **Servers** – add servers, assign PINs, print PIN sheets (see [Servers](./bedienungen.md))
-- **Orders** – cancel and refund, also by PIN at the till, and export orders
+- **Orders** – cancel and refund, also by PIN at the till, export orders, delete orders and edit paid or completed ones, record payments as paid in the admin area and complete orders without payment. Taking orders and payments at the till works for every member with access to the till.
 - **Shift Plans**
 - **Discount Vouchers**
 - **Deposit (Pfand)**

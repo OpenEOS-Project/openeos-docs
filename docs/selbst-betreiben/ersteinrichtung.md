@@ -18,8 +18,31 @@ automatisch auf der Einrichtungsseite.
 Der Assistent zeigt im Einzelbetrieb direkt das Formular **Einzelbetrieb**;
 eine Auswahl zwischen Betriebsarten gibt es nicht, weil es hier nur eine gibt.
 
+### Einrichtungscode
+
+Damit niemand anderes die frische Installation übernimmt, der zufällig ihre
+Adresse kennt, fragt der Assistent nach einem **Einrichtungscode**. Den
+schreibt der Server beim Start ins Protokoll, solange die Einrichtung offen
+ist:
+
+```bash
+docker compose logs api | grep Einrichtungscode
+```
+
+Die Zeile sieht so aus: `Ersteinrichtung offen. Einrichtungscode: K7QM-2XRT-9HCP`.
+Groß- und Kleinschreibung, Leerzeichen und Bindestriche spielen beim Eintippen
+keine Rolle. Alternativ legst du den Code selbst über die Umgebungsvariable
+`SETUP_TOKEN` fest (siehe [Installation](./installation.md)); dann steht er
+nicht im Protokoll.
+
+Nach der Einrichtung ist der Assistent dauerhaft geschlossen — auch wenn
+später alle Benutzer gelöscht würden.
+
+### Formular
+
 Trage ein:
 
+- **Einrichtungscode** — siehe oben
 - **Vorname, Nachname, E-Mail-Adresse** des Administrators
 - **Passwort** — mindestens 8 Zeichen, mit Groß-, Kleinbuchstabe und Ziffer —
   und dasselbe noch einmal unter **Passwort bestätigen**

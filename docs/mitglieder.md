@@ -52,9 +52,9 @@ Für Mitglieder lassen sich die folgenden Module einzeln freischalten:
 - **Produkte** (dazu gehören auch die **Standorte**)
 - **Veranstaltungen** (dazu gehören auch die **Tische**)
 - **Geräte** (dazu gehören auch die **Drucker**)
-- **Mitglieder**
+- **Mitglieder** – die Mitgliederliste mit Namen und E-Mail-Adressen sehen, einladen und Rechte vergeben
 - **Bedienungen** – Bedienungen anlegen, PINs vergeben, PIN-Zettel drucken (siehe [Bedienungen](./bedienungen.md))
-- **Bestellungen** – stornieren und erstatten, auch per PIN an der Kasse, und Bestellungen exportieren
+- **Bestellungen** – stornieren und erstatten, auch per PIN an der Kasse, Bestellungen exportieren, löschen und bezahlte oder abgeschlossene Bestellungen ändern, Zahlungen in der Verwaltung als bezahlt erfassen und Bestellungen ohne Zahlung abschließen. Bestellungen aufnehmen und an der Kasse kassieren kann jedes Mitglied mit Zugang zur Kasse.
 - **Schichtpläne**
 - **Rabatt-Bons**
 - **Pfand**

@@ -36,7 +36,7 @@ Also choose the **country** of your organization (required). Germany, Austria an
 
 Review your details. Below them there are two required checkboxes:
 
-- You confirm that you are acting as a business, a legal entity under public law or a registered association and that you are authorized to represent the organization.
+- You confirm that you are acting for a company, a public body, an association (registered or not), a foundation or another organization – not as a consumer – and that you are authorized to represent it.
 - You accept the [terms and conditions (AGB)](https://openeos.de/en/agb) and the [data processing agreement (AVV)](https://openeos.de/en/avv).
 
 How we process your data is described in our [privacy policy](https://openeos.de/en/datenschutz); you don't need to tick anything for it. The legal texts are available in German only; the German version is binding. Optionally you can sign up for occasional news by email. Then click **Create account**.
@@ -95,7 +95,7 @@ After five wrong passwords from the same connection, password sign-in pauses the
 
 ## Confirming new terms {/* #neue-agb */}
 
-When the terms and conditions (AGB) or the data processing agreement (AVV) change, the window **New terms and conditions and data processing agreement** appears once after you sign in. It only concerns admins of an organization; members without admin rights keep working without interruption.
+When OpenEOS asks for confirmation after a material change of the terms and conditions (AGB) or the data processing agreement (AVV), the window **New terms and conditions and data processing agreement** appears once after you sign in. It only concerns admins of an organization; members without admin rights keep working without interruption.
 
 1. Read the new versions via the links in the window (each also as a PDF). Below them you see which version you accepted previously.
 2. Tick **I have read and accept the terms and conditions and the data processing agreement.**

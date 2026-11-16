@@ -29,7 +29,7 @@ Sichere zusätzlich die Datei `.env` — ohne
 `TWO_FACTOR_ENCRYPTION_KEY` sind hinterlegte Zwei-Faktor-Geheimnisse nach
 einer Wiederherstellung wertlos. Ist kein eigener
 `INTEGRATION_ENCRYPTION_KEY` gesetzt, gilt das auch für gespeicherte
-SumUp- und PayPal-Zugangsdaten und die Webhook-Geheimnisse, und ohne eigenen
+SumUp-Zugangsdaten und die Webhook-Geheimnisse, und ohne eigenen
 `PIN_PEPPER` für alle Kassen-PINs. Sind diese Schlüssel gesetzt, gehören sie
 ebenso in die Sicherung, mit Cloud-TSE auch `TSE_ENCRYPTION_KEY`.
 
@@ -233,7 +233,7 @@ Löschung“.
 
 Eine selbst betriebene Installation sendet **nichts** nach außen. Optionale
 Anbindungen bleiben aus, solange du keine Zugangsdaten hinterlegst:
-Fehlerberichte (Sentry), Kartenzahlung (SumUp, PayPal), der Mailversand, der
+Fehlerberichte (Sentry), Kartenzahlung (SumUp), der Mailversand, der
 [Assistent](./assistent.md) und die Cloud-TSE. Webhooks schicken nur dann
 Daten hinaus, wenn ein Admin unter **Einstellungen → Organisation →
 Webhooks** einen Empfänger anlegt. Standardmäßig nehmen sie nur öffentliche

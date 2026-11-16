@@ -198,7 +198,7 @@ Tippe an der Kasse oben rechts auf deinen Chip und wähle **Mein Zwischenstand**
 
 | Block | Inhalt |
 |---|---|
-| **Kassiert** | je Zahlart – **Bar**, **Karte**, **Sonstige** (etwa PayPal oder online) – Betrag und Anzahl, dazu **Gesamt** und **davon Trinkgeld** |
+| **Kassiert** | je Zahlart – **Bar**, **Karte**, **Sonstige** (etwa online über SumUp Online) – Betrag und Anzahl, dazu **Gesamt** und **davon Trinkgeld** |
 | **Storno, Erstattung, Pfand** | **Storno/Erstattung bar**, **Storno/Erstattung unbar** und **Pfand ausgezahlt** |
 | **Aufgenommen** | **Bestellungen**, **Positionen**, **Umsatz brutto** und **Rabatte** – nur zur Information |
 | **Soll bar** | Barzahlungen − Bar-Erstattungen − Pfand-Auszahlungen, aufgeteilt nach Gerät, etwa „Schublade Kasse 2“ |

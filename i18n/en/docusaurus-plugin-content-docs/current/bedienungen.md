@@ -198,7 +198,7 @@ Tap your chip at the top right of the till and choose **My running total**. You 
 
 | Block | Content |
 |---|---|
-| **Collected** | per payment method – **Cash**, **Card**, **Other** (such as PayPal or online) – amount and count, plus **Total** and **of which tips** |
+| **Collected** | per payment method – **Cash**, **Card**, **Other** (such as online via SumUp Online) – amount and count, plus **Total** and **of which tips** |
 | **Cancellations, refunds, deposits** | **Cancellations/refunds in cash**, **Cancellations/refunds non-cash** and **Deposits paid out** |
 | **Taken** | **Orders**, **Items**, **Gross sales** and **Discounts** – for information only |
 | **Expected cash** | cash payments − cash refunds − deposit payouts, split by device, e.g. "Drawer Till 2" |

@@ -21,6 +21,12 @@ If you want to connect an agent of your own such as Claude or Cursor to OpenEOS,
 Prices, tax rates or categories can be off – especially with hard-to-read photos. Check the preview before creating products. Rows the assistant is unsure about are marked in the preview.
 :::
 
+### “AI-generated suggestion” label
+
+Everything the assistant generates with the language model carries the label **AI-generated suggestion** until you apply it – at the top of the menu import preview, and next to the icon suggestions in the product form as soon as one of them comes from the language model. Suggestions OpenEOS finds in the icon index without a language model are not labelled. This is what the EU AI Act (Art. 50) requires from 2 December 2026.
+
+Nothing is applied on its own: products are only created when you tap **Create … products** in the preview, and an icon only when you pick it and save. Created products carry no label – from then on they are your data, and you are responsible for them.
+
 ## Switching it on
 
 1. Open **Settings → Organization → Assistant**.

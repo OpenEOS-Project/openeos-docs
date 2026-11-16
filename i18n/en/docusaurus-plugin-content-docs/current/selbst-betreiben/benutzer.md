@@ -103,7 +103,7 @@ not help these accounts.
 
 ## If you have locked yourself out
 
-After five failed attempts, OpenEOS locks an account for 15 minutes. Waiting is enough.
+After five wrong passwords, password sign-in from that connection pauses for 15 minutes, then twice as long each time; after a great many failures from different places it pauses everywhere for 15 minutes. Devices already signed in stay signed in, and with email delivery you get in with a sign-in link. Otherwise waiting is enough, see [After wrong passwords](../registrierung-login.md#fehlversuche).
 
 If the administrator password is lost and no email delivery is set up,
 the only way is directly via the database. You set a new password like this

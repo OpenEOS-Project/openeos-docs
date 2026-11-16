@@ -169,6 +169,10 @@ The TSE obligation also applies to small businesses and tax-privileged clubs as 
 
 **Changing the tax status:** if you become VAT-liable (or a small business again), switch with the Cloud TSE via **Change tax status**. OpenEOS first creates a [cash point closing](../kassen-nachschau.md#abschluss) up to now, so that all earlier transactions are closed with the old status, and then changes the master data. The change is logged. Once there are transactions with the TSE, OpenEOS no longer lets you flip the simple **No VAT** switch.
 
+## Conditions of use {/* #einsatzbedingungen */}
+
+The manufacturer of the Cloud-TSE (Swissbit) defines in an environmental protection concept the conditions under which the TSE may be used. You find the **conditions of use of the Cloud-TSE** under [Legal](../einstellungen.md#rechtliches) once the Cloud-TSE is available; until Swissbit provides them, a note is shown there. Follow them when taking payments with the Cloud-TSE.
+
 ## Deactivation {/* #deaktivieren */}
 
 At the end of the month OpenEOS deactivates the TSE by itself (see [Lifetime](#laufzeit)) – you do not need to do anything for that. There is no pause for a TSE. Under **Danger zone → Deactivate TSE** you take it out of service **permanently**, for example when your club no longer uses OpenEOS with cash:

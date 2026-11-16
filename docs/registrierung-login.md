@@ -36,7 +36,7 @@ Wähle außerdem das **Land** deiner Organisation (Pflicht). Deutschland, Öster
 
 Prüfe deine Angaben. Darunter stehen zwei Pflicht-Häkchen:
 
-- Du bestätigst, dass du als Unternehmer, juristische Person des öffentlichen Rechts oder eingetragener Verein handelst und die Organisation vertreten darfst.
+- Du bestätigst, dass du für ein Unternehmen, eine Behörde, einen Verein (eingetragen oder nicht), eine Stiftung oder eine sonstige Organisation handelst – nicht als Verbraucher – und sie vertreten darfst.
 - Du akzeptierst die [AGB](https://openeos.de/agb) und den [Auftragsverarbeitungsvertrag](https://openeos.de/avv) (AVV).
 
 Wie wir deine Daten verarbeiten, steht in der [Datenschutzerklärung](https://openeos.de/datenschutz); dafür brauchst du nichts anzukreuzen. Freiwillig kannst du gelegentliche Neuigkeiten per E-Mail bestellen. Klicke dann auf **Konto erstellen**.
@@ -80,6 +80,14 @@ Klicke auf **Doch mit Passwort anmelden**, gib E-Mail und Passwort ein und dann 
 
 **Passwort vergessen?** schickt dir einen Link zum Zurücksetzen. Alternativ meldest du dich einfach per Anmeldelink an.
 
+### Nach falschen Passwörtern {/* #fehlversuche */}
+
+Nach fünf falschen Passwörtern von derselben Verbindung pausiert die Anmeldung mit Passwort dort für 15 Minuten, bei weiteren Fehlversuchen jeweils doppelt so lange (höchstens einen Tag). Nach sehr vielen Fehlversuchen von verschiedenen Orten pausiert sie für 15 Minuten ganz. Die Anmeldeseite sagt dir, wie lange.
+
+- Geräte, auf denen du schon angemeldet bist, bleiben angemeldet.
+- Mit dem **Anmeldelink** per E-Mail kommst du jederzeit rein.
+- Du bekommst eine E-Mail, wenn die Anmeldung mit Passwort pausiert. Warst das nicht du, ändere vorsichtshalber dein Passwort.
+
 ### Weitere Einstiege auf der Anmeldeseite
 
 - **Als Gerät verwenden (Kassen-Terminal)** — macht dieses Gerät zur Kasse, siehe [Geräte verbinden](./geraete.md)
@@ -87,7 +95,7 @@ Klicke auf **Doch mit Passwort anmelden**, gib E-Mail und Passwort ein und dann 
 
 ## Neue AGB bestätigen {/* #neue-agb */}
 
-Ändern sich die AGB oder der Auftragsverarbeitungsvertrag, erscheint nach der Anmeldung einmal das Fenster **Neue AGB und neuer Auftragsverarbeitungsvertrag**. Es betrifft nur Admins einer Organisation; Mitglieder ohne Adminrechte arbeiten ohne Unterbrechung weiter.
+Bittet OpenEOS nach einer wesentlichen Änderung der AGB oder des Auftragsverarbeitungsvertrags um Bestätigung, erscheint nach der Anmeldung einmal das Fenster **Neue AGB und neuer Auftragsverarbeitungsvertrag**. Es betrifft nur Admins einer Organisation; Mitglieder ohne Adminrechte arbeiten ohne Unterbrechung weiter.
 
 1. Lies die neuen Fassungen über die Links im Fenster (jeweils auch als PDF). Darunter steht, welche Fassung du bisher akzeptiert hast.
 2. Setze das Häkchen bei **Ich habe die AGB und den Auftragsverarbeitungsvertrag gelesen und akzeptiere sie.**

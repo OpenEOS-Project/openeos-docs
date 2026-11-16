@@ -107,7 +107,7 @@ diesen Konten dann nicht weiter.
 
 ## Wenn du dich ausgesperrt hast
 
-Nach fünf Fehlversuchen sperrt OpenEOS ein Konto für 15 Minuten. Warten genügt.
+Nach fünf falschen Passwörtern pausiert die Anmeldung mit Passwort von dieser Verbindung aus für 15 Minuten, danach jeweils doppelt so lange; nach sehr vielen Fehlversuchen von verschiedenen Orten für 15 Minuten ganz. Angemeldete Geräte bleiben angemeldet, und mit Mailversand kommst du per Anmeldelink rein. Sonst genügt Warten, siehe [Nach falschen Passwörtern](../registrierung-login.md#fehlversuche).
 
 Ist das Administrator-Passwort verloren und kein Mailversand eingerichtet,
 hilft nur der direkte Weg über die Datenbank. Ein neues Passwort setzt du so

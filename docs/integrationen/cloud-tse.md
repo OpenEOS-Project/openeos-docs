@@ -169,6 +169,10 @@ Die TSE-Pflicht gilt auch für Kleinunternehmer und steuerbegünstigte Vereine, 
 
 **Steuerstatus wechseln:** Wirst du umsatzsteuerpflichtig (oder wieder Kleinunternehmer), wechselst du mit Cloud-TSE über **Steuerstatus ändern**. OpenEOS erstellt dann zuerst einen [Kassenabschluss](../kassen-nachschau.md#abschluss) bis jetzt, damit alle bisherigen Vorgänge noch mit dem alten Status abgeschlossen sind, und ändert danach die Stammdaten. Der Wechsel steht im Protokoll. Den einfachen Schalter **Keine Umsatzsteuer** lässt OpenEOS nicht mehr umstellen, sobald es Vorgänge mit der TSE gibt.
 
+## Einsatzbedingungen {/* #einsatzbedingungen */}
+
+Der Hersteller der Cloud-TSE (Swissbit) legt in einem Umgebungsschutzkonzept fest, unter welchen Bedingungen die TSE eingesetzt werden darf. Du findest die **Einsatzbedingungen der Cloud-TSE** unter [Rechtliches](../einstellungen.md#rechtliches), sobald die Cloud-TSE verfügbar ist; bis Swissbit sie bereitstellt, steht dort ein Hinweis. Halte sie beim Kassieren mit der Cloud-TSE ein.
+
 ## Deaktivieren {/* #deaktivieren */}
 
 Zum Monatsende meldet OpenEOS die TSE selbst ab (siehe [Laufzeit](#laufzeit)) – dafür musst du nichts tun. Eine Pause gibt es bei der TSE nicht. Unter **Gefahrenzone → TSE deaktivieren** nimmst du sie **endgültig** außer Betrieb, zum Beispiel wenn dein Verein OpenEOS nicht mehr mit Bargeld nutzt:

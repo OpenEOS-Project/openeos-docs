@@ -3,7 +3,7 @@
 ############################################
 # Stage 1 – Build the static Docusaurus site
 ############################################
-FROM node:22-alpine AS build
+FROM node:24-alpine AS build
 
 # pnpm via corepack
 RUN corepack enable && corepack prepare pnpm@11.5.0 --activate
@@ -40,7 +40,7 @@ RUN node ./node_modules/@docusaurus/core/bin/docusaurus.mjs build
 ############################################
 # Stage 2 – Serve with nginx
 ############################################
-FROM nginx:1.27-alpine AS runtime
+FROM nginx:1.29-alpine AS runtime
 
 # Drop the default site config and add ours
 RUN rm /etc/nginx/conf.d/default.conf

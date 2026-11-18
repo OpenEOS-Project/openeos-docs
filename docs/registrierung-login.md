@@ -97,13 +97,13 @@ Nach fünf falschen Passwörtern von derselben Verbindung pausiert die Anmeldung
 
 Ändern sich die Rechtstexte von OpenEOS (AGB mit Leistungsbeschreibung, Auftragsverarbeitungsvertrag, Datenschutzerklärung oder Impressum), kündigen wir das vorher an:
 
-- **E-Mail an alle Admins** – was sich ändert, ab wann es gilt, Links auf die neue und die bisherige Fassung. Bei AGB und Auftragsverarbeitungsvertrag kommt die Mail mindestens sechs Wochen vorher (außer bei gesetzlich oder behördlich veranlassten Änderungen) und weist auf dein Widerspruchsrecht hin: Widersprichst du nicht innerhalb von sechs Wochen in Textform (z. B. per E-Mail an hello@openeos.de), gilt die Änderung für dein Kundenkonto als angenommen.
+- **E-Mail an alle Admins** – was sich ändert, ab wann es gilt, Links auf die neue und die bisherige Fassung. Bei den AGB kommt die Mail mindestens sechs Wochen vorher (außer bei gesetzlich oder behördlich veranlassten Änderungen) und weist auf dein Widerspruchsrecht hin: Widersprichst du nicht innerhalb von sechs Wochen in Textform (z. B. per E-Mail an hello@openeos.de), gilt die Änderung für dein Kundenkonto als angenommen. Änderungen des Auftragsverarbeitungsvertrags werden nur mit deiner Zustimmung wirksam – außer bei den Unterauftragsverarbeitern (Anhang B) und den technischen und organisatorischen Maßnahmen (Anhang C): Darüber informieren wir mindestens vier Wochen vorher, und du kannst innerhalb von vier Wochen widersprechen (AVV Ziffer 6.3).
 - **Hinweis im Dashboard** – bis zum Inkrafttreten steht oben ein Hinweis, z. B. **AGB: neue Fassung ab 15. Januar 2027**. **Was ändert sich?** zeigt die Zusammenfassung und die Links; mit dem **×** blendest du den Hinweis für dich aus.
 
-Ab dem Tag des Inkrafttretens erscheint nach der Anmeldung das Fenster **Neue AGB** bzw. **Neuer Auftragsverarbeitungsvertrag**. Es nennt, seit wann die neue Fassung gilt und was sich geändert hat. Es betrifft nur Admins einer Organisation; Mitglieder ohne Adminrechte arbeiten ohne Unterbrechung weiter.
+Ab dem Tag des Inkrafttretens erscheint nach der Anmeldung das Fenster **Neue AGB**, **Neuer Auftragsverarbeitungsvertrag** bzw. **Neue Leistungsbeschreibung und Preisliste** – es nennt nur die Dokumente, die sich geändert haben. Es nennt, seit wann die neue Fassung gilt und was sich geändert hat. Es betrifft nur Admins einer Organisation; Mitglieder ohne Adminrechte arbeiten ohne Unterbrechung weiter.
 
 1. Lies die neuen Fassungen über die Links im Fenster (jeweils auch als PDF). Darunter steht, welche Fassung du bisher akzeptiert hast.
-2. Setze das Häkchen bei **Ich habe die AGB und den Auftragsverarbeitungsvertrag gelesen und akzeptiere sie.**
+2. Setze das Häkchen, z. B. **Ich habe die AGB gelesen und akzeptiere sie.** (der Text nennt genau die geänderten Dokumente).
 3. Klicke auf **Akzeptieren und weiter**.
 
 Mit **Später erinnern** schließt du das Fenster für einen Tag. Braucht eine Änderung deine ausdrückliche Zustimmung (etwa bei Preisen oder dem Leistungsumfang), geht es erst nach der Bestätigung im Dashboard weiter; mit **Abmelden** verlässt du das Fenster. Welche Fassung du wann akzeptiert hast, siehst du später unter [Rechtliches](./einstellungen.md#rechtliches).

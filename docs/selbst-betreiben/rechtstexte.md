@@ -16,7 +16,11 @@ gibt es diese Texte und die Funktion nicht.
 1. **Neue Fassung veröffentlichen.** Lege die Datei auf der Website ab
    (`content/legal/de/<dokument>/<JJJJ-MM-TT>.md`). Das Datum der „Stand“-Zeile
    ist zugleich der Tag des Inkrafttretens. Die Fassung muss unter
-   `<Website>/<pfad>/<JJJJ-MM-TT>` abrufbar sein, bevor du ankündigst.
+   `<Website>/<pfad>/<JJJJ-MM-TT>` abrufbar sein, bevor du ankündigst. Die
+   Website zeigt sie bis zum Stichtag als künftige Fassung („Diese Fassung gilt
+   ab …“); unter `<Website>/<pfad>` und als `/rechtstexte/<dokument>.pdf` bleibt
+   bis dahin die geltende Fassung, danach wechselt die Website ohne neues
+   Deployment.
 2. **Ankündigen.** Im Super-Admin-Bereich unter **Rechtstexte** wählst du die
    geänderten Dokumente, das Datum und schreibst kurz auf Deutsch (optional auf
    Englisch), was sich ändert. **Prüfen und Vorschau** prüft die Regeln unten,
@@ -27,15 +31,17 @@ gibt es diese Texte und die Funktion nicht.
    ausblenden können.
 4. **Ab dem Stichtag** gilt die neue Fassung automatisch – ohne neues
    Deployment: bei Registrierung und Buchung angenommen wird dann sie, und
-   Admins werden nach der Anmeldung gebeten, neue AGB bzw. einen neuen
-   Auftragsverarbeitungsvertrag zu bestätigen.
+   Admins werden nach der Anmeldung gebeten, genau die geänderten Dokumente
+   (AGB, Auftragsverarbeitungsvertrag bzw. Anlage 1) zu bestätigen.
+   Festgehalten wird auch nur deren Annahme.
 
 ## Regeln beim Ankündigen
 
 - **Frist:** AGB, Anlage 1 und Auftragsverarbeitungsvertrag mindestens sechs
-  Wochen vor dem Stichtag. Kürzer nur mit der Option **Kürzere Frist** für
-  gesetzlich oder behördlich veranlasste Änderungen. Datenschutzerklärung und
-  Impressum dürfen jedes künftige Datum haben.
+  Wochen vor dem Stichtag; ändern sich vom Auftragsverarbeitungsvertrag nur
+  Anhang B oder C (siehe unten), vier Wochen. Kürzer nur mit der Option
+  **Kürzere Frist** für gesetzlich oder behördlich veranlasste Änderungen.
+  Datenschutzerklärung und Impressum dürfen jedes künftige Datum haben.
 - **Reihenfolge:** Das Datum muss nach der geltenden und nach jeder schon
   angekündigten Fassung des Dokuments liegen.
 - **Ausgangsfassung:** Die Fassungen bis zum 18. November 2026 sind die erste
@@ -47,6 +53,20 @@ gibt es diese Texte und die Funktion nicht.
   Änderungen die ausdrückliche Zustimmung (z. B. Hauptleistungen, Vergütung),
   wähle **Ausdrückliche Zustimmung nötig**: Die Mail bittet dann um Zustimmung,
   und der Bestätigungsdialog lässt sich nicht verschieben.
+- **Auftragsverarbeitungsvertrag:** Änderungen des AVV brauchen die Zustimmung
+  des Kunden in Textform (AVV Ziffer 12.4). Ist der AVV dabei, verlangt die
+  Prüfung deshalb **Ausdrückliche Zustimmung nötig** – außer du wählst **Nur
+  Anhang B/C geändert (Verfahren nach AVV Ziffer 6.3)**. Das gilt, wenn sich
+  nur die Unterauftragsverarbeiter (Anhang B) oder die technischen und
+  organisatorischen Maßnahmen (Anhang C) ändern. Dann reicht eine Information
+  mindestens vier Wochen vorher; die Mail weist auf das Widerspruchsrecht nach
+  AVV Ziffer 6.3 hin (Widerspruch in Textform binnen vier Wochen nach Zugang,
+  sonst gilt die Änderung als genehmigt; ohne Einigung binnen zwei Wochen kann
+  jede Seite nach Ziffer 6.4 mit einem Monat zum Monatsende kündigen). Bei
+  einem neuen Unterauftragsverarbeiter gehören Name, Anschrift, Leistung und
+  Verarbeitungsort in die Zusammenfassung. Kommen AGB oder Anlage 1 in
+  derselben Ankündigung mit, gelten für sie weiter sechs Wochen und ihr eigener
+  Hinweis.
 - Eine Ankündigung lässt sich nicht zurücknehmen oder ändern.
 
 ## Versand der E-Mails

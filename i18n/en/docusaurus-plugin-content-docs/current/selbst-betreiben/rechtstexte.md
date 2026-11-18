@@ -55,7 +55,7 @@ agreement, privacy policy, imprint). In **single mode**
   in text form (AVV clause 12.4). If the AVV is included, the check therefore
   requires **Explicit consent required** – unless you choose **Only annex B/C
   changed (procedure under AVV clause 6.3)**. That applies if only the
-  sub-processors (annex B) or the technical and organisational measures
+  sub-processors (annex B) or the technical and organizational measures
   (annex C) change. Then information at least four weeks ahead is enough; the
   e-mail points out the right to object under AVV clause 6.3 (objection in
   text form within four weeks of receipt, otherwise the change counts as

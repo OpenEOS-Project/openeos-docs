@@ -95,13 +95,20 @@ After five wrong passwords from the same connection, password sign-in pauses the
 
 ## Confirming new terms {/* #neue-agb */}
 
-When OpenEOS asks for confirmation after a material change of the terms and conditions (AGB) or the data processing agreement (AVV), the window **New terms and conditions and data processing agreement** appears once after you sign in. It only concerns admins of an organization; members without admin rights keep working without interruption.
+When the OpenEOS legal texts change (terms and conditions with the service description, data processing agreement, privacy policy or imprint), we announce it in advance:
+
+- **E-mail to all admins** – what changes, from when it applies, links to the new and the previous version. For the terms and the data processing agreement the e-mail arrives at least six weeks ahead (except for changes required by law or authorities) and points out your right to object: unless you object in text form within six weeks (e.g. by e-mail to hello@openeos.de), the change counts as accepted for your customer account.
+- **Notice in the dashboard** – until the change takes effect, a notice at the top says e.g. **Terms and conditions: new version from 15 January 2027**. **What changes?** shows the summary and the links; the **×** hides the notice for you.
+
+From the effective date the window **New terms and conditions** or **New data processing agreement** appears after you sign in. It says since when the new version applies and what has changed. It only concerns admins of an organization; members without admin rights keep working without interruption.
 
 1. Read the new versions via the links in the window (each also as a PDF). Below them you see which version you accepted previously.
 2. Tick **I have read and accept the terms and conditions and the data processing agreement.**
 3. Click **Accept and continue**.
 
-Until you have confirmed, you cannot continue in the dashboard; **Log out** leaves the window. Which version you accepted and when is shown later under [Legal](./einstellungen.md#rechtliches).
+**Remind me later** closes the window for a day. If a change needs your explicit consent (e.g. prices or the scope of services), you can only continue in the dashboard after confirming; **Log out** leaves the window. Which version you accepted and when is shown later under [Legal](./einstellungen.md#rechtliches).
+
+The version of 18 November 2026 is the first version of the legal texts – OpenEOS does not ask anyone to confirm it again.
 
 ## Switching the language
 

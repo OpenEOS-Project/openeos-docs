@@ -140,7 +140,7 @@ In the menu under your name at the bottom left, next to **Settings**, there is t
 - **Details for the tax office notification (ELSTER)** – admins only: software, register serial number, business premises and TSE, i.e. the values you enter in ELSTER, each with a copy button. If the address or tax number is missing, the page points you to the settings.
 - **Legal texts for your shop** – a template for the privacy notice in your shop and on the helper pages. Your organization's name, address and email are prefilled; you fill in the places marked yellow yourself. Admins confirm **I have reviewed the text and adapted it to our club.** and adopt it with **Use as privacy notice** into the [Legal information](#rechtliche-angaben).
 
-You accept the current AGB and AVV at registration and with every paid booking. After a material change, OpenEOS may ask admins to confirm the new versions once after signing in, see [Confirming new terms](./registrierung-login.md#neue-agb).
+You accept the current AGB and AVV at registration and with every paid booking. We announce changes in advance by e-mail and with a notice in the dashboard; from the effective date we ask admins to confirm the new versions once after signing in, see [Confirming new terms](./registrierung-login.md#neue-agb).
 
 ## Appearance and language
 

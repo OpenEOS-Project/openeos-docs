@@ -140,7 +140,7 @@ Im Menü unter deinem Namen unten links steht neben **Einstellungen** der Eintra
 - **Angaben für die Finanzamt-Meldung (ELSTER)** – nur für Admins: Software, Seriennummer der Kasse, Betriebsstätte und TSE, also die Werte, die du in ELSTER einträgst, jeweils mit Kopierknopf. Fehlen Anschrift oder Steuernummer, verweist die Seite auf die Einstellungen.
 - **Rechtstexte für deinen Shop** – eine Vorlage für den Datenschutzhinweis im Shop und auf den Helferseiten. Name, Anschrift und E-Mail deiner Organisation sind vorbelegt; die gelb markierten Stellen füllst du selbst aus. Admins bestätigen **Ich habe den Text geprüft und an unseren Verein angepasst.** und übernehmen ihn mit **Als Datenschutzhinweis übernehmen** in die [Rechtlichen Angaben](#rechtliche-angaben).
 
-Die geltenden Fassungen von AGB und AVV akzeptierst du bei der Registrierung und bei jeder kostenpflichtigen Buchung. Bei einer wesentlichen Änderung kann OpenEOS Admins bitten, die neuen Fassungen einmal nach der Anmeldung zu bestätigen, siehe [Neue AGB bestätigen](./registrierung-login.md#neue-agb).
+Die geltenden Fassungen von AGB und AVV akzeptierst du bei der Registrierung und bei jeder kostenpflichtigen Buchung. Änderungen kündigen wir vorher per E-Mail und mit einem Hinweis im Dashboard an; ab dem Inkrafttreten bitten wir Admins, die neuen Fassungen einmal nach der Anmeldung zu bestätigen, siehe [Neue AGB bestätigen](./registrierung-login.md#neue-agb).
 
 ## Darstellung und Sprache
 

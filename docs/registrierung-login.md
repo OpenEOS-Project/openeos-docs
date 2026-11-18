@@ -95,13 +95,20 @@ Nach fünf falschen Passwörtern von derselben Verbindung pausiert die Anmeldung
 
 ## Neue AGB bestätigen {/* #neue-agb */}
 
-Bittet OpenEOS nach einer wesentlichen Änderung der AGB oder des Auftragsverarbeitungsvertrags um Bestätigung, erscheint nach der Anmeldung einmal das Fenster **Neue AGB und neuer Auftragsverarbeitungsvertrag**. Es betrifft nur Admins einer Organisation; Mitglieder ohne Adminrechte arbeiten ohne Unterbrechung weiter.
+Ändern sich die Rechtstexte von OpenEOS (AGB mit Leistungsbeschreibung, Auftragsverarbeitungsvertrag, Datenschutzerklärung oder Impressum), kündigen wir das vorher an:
+
+- **E-Mail an alle Admins** – was sich ändert, ab wann es gilt, Links auf die neue und die bisherige Fassung. Bei AGB und Auftragsverarbeitungsvertrag kommt die Mail mindestens sechs Wochen vorher (außer bei gesetzlich oder behördlich veranlassten Änderungen) und weist auf dein Widerspruchsrecht hin: Widersprichst du nicht innerhalb von sechs Wochen in Textform (z. B. per E-Mail an hello@openeos.de), gilt die Änderung für dein Kundenkonto als angenommen.
+- **Hinweis im Dashboard** – bis zum Inkrafttreten steht oben ein Hinweis, z. B. **AGB: neue Fassung ab 15. Januar 2027**. **Was ändert sich?** zeigt die Zusammenfassung und die Links; mit dem **×** blendest du den Hinweis für dich aus.
+
+Ab dem Tag des Inkrafttretens erscheint nach der Anmeldung das Fenster **Neue AGB** bzw. **Neuer Auftragsverarbeitungsvertrag**. Es nennt, seit wann die neue Fassung gilt und was sich geändert hat. Es betrifft nur Admins einer Organisation; Mitglieder ohne Adminrechte arbeiten ohne Unterbrechung weiter.
 
 1. Lies die neuen Fassungen über die Links im Fenster (jeweils auch als PDF). Darunter steht, welche Fassung du bisher akzeptiert hast.
 2. Setze das Häkchen bei **Ich habe die AGB und den Auftragsverarbeitungsvertrag gelesen und akzeptiere sie.**
 3. Klicke auf **Akzeptieren und weiter**.
 
-Solange du nicht bestätigt hast, geht es im Dashboard nicht weiter; mit **Abmelden** verlässt du das Fenster. Welche Fassung du wann akzeptiert hast, siehst du später unter [Rechtliches](./einstellungen.md#rechtliches).
+Mit **Später erinnern** schließt du das Fenster für einen Tag. Braucht eine Änderung deine ausdrückliche Zustimmung (etwa bei Preisen oder dem Leistungsumfang), geht es erst nach der Bestätigung im Dashboard weiter; mit **Abmelden** verlässt du das Fenster. Welche Fassung du wann akzeptiert hast, siehst du später unter [Rechtliches](./einstellungen.md#rechtliches).
+
+Die Fassung vom 18. November 2026 ist die erste Fassung der Rechtstexte – dafür fragt OpenEOS niemanden erneut.
 
 ## Sprache umstellen
 

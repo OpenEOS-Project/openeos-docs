@@ -97,13 +97,13 @@ After five wrong passwords from the same connection, password sign-in pauses the
 
 When the OpenEOS legal texts change (terms and conditions with the service description, data processing agreement, privacy policy or imprint), we announce it in advance:
 
-- **E-mail to all admins** – what changes, from when it applies, links to the new and the previous version. For the terms and the data processing agreement the e-mail arrives at least six weeks ahead (except for changes required by law or authorities) and points out your right to object: unless you object in text form within six weeks (e.g. by e-mail to hello@openeos.de), the change counts as accepted for your customer account.
+- **E-mail to all admins** – what changes, from when it applies, links to the new and the previous version. For the terms the e-mail arrives at least six weeks ahead (except for changes required by law or authorities) and points out your right to object: unless you object in text form within six weeks (e.g. by e-mail to hello@openeos.de), the change counts as accepted for your customer account. Changes of the data processing agreement only take effect with your consent – except for the sub-processors (annex B) and the technical and organizational measures (annex C): we inform you about those at least four weeks ahead, and you can object within four weeks (AVV clause 6.3).
 - **Notice in the dashboard** – until the change takes effect, a notice at the top says e.g. **Terms and conditions: new version from 15 January 2027**. **What changes?** shows the summary and the links; the **×** hides the notice for you.
 
-From the effective date the window **New terms and conditions** or **New data processing agreement** appears after you sign in. It says since when the new version applies and what has changed. It only concerns admins of an organization; members without admin rights keep working without interruption.
+From the effective date the window **New terms and conditions**, **New data processing agreement** or **New service description and price list** appears after you sign in – it only names the documents that have changed. It says since when the new version applies and what has changed. It only concerns admins of an organization; members without admin rights keep working without interruption.
 
 1. Read the new versions via the links in the window (each also as a PDF). Below them you see which version you accepted previously.
-2. Tick **I have read and accept the terms and conditions and the data processing agreement.**
+2. Tick the box, e.g. **I have read and accept the terms and conditions.** (the text names exactly the changed documents).
 3. Click **Accept and continue**.
 
 **Remind me later** closes the window for a day. If a change needs your explicit consent (e.g. prices or the scope of services), you can only continue in the dashboard after confirming; **Log out** leaves the window. Which version you accepted and when is shown later under [Legal](./einstellungen.md#rechtliches).

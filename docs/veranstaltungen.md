@@ -71,6 +71,30 @@ Solange etwas fehlt, steht im Veranstaltungsdialog unter **Online-Shop aktiviere
 
 Sobald beides gespeichert ist, verschwindet der Hinweis und der Shop nimmt Bestellungen an.
 
+## Was Gäste im Shop sehen {/* #shop-gaeste */}
+
+Den Shop deiner Veranstaltung öffnest du über **Shop öffnen** in der Liste der Veranstaltungen; den Link gibst du an deine Gäste weiter. Gäste brauchen kein Konto.
+
+1. Der Gast legt Produkte in den Warenkorb, wählt bei Bedarf Optionen und geht zur Kasse.
+2. Er wählt **Abholung (To Go)** oder – falls angeboten – die Lieferung an den Tisch mit Tischnummer und gibt **E-Mail**, **Vor- und Nachname** an. An die E-Mail-Adresse geht die Bestellbestätigung.
+3. Über dem Bestellknopf steht, bei wem er bestellt („Du bestellst bei …“), mit einem Link zu deinem Datenschutzhinweis. Der Knopf heißt **Zahlungspflichtig bestellen**, wie es § 312j BGB verlangt. Bezahlt wird online über [SumUp](./integrationen/sumup.md) mit Karte, Google Pay oder Apple Pay.
+
+**Servicegebühr:** Hast du eine Servicegebühr eingetragen, kommt sie pauschal zu jeder Shop-Bestellung dazu. Auf Bon und digitalem Beleg steht sie als eigene Zeile „Servicegebühr“ und wird als eigene Leistung mit 19 % versteuert – genauso im DSFinV-K-Export und im Bericht [Umsatzsteuer](./auswertung.md#umsatzsteuer). Weist deine Organisation keine Umsatzsteuer aus, bleibt es beim Hinweis nach § 19 UStG.
+
+Je nach Phase und Einstellung zeigt der Shop statt des Warenkorbs einen Hinweis:
+
+| Situation | Der Shop zeigt |
+|---|---|
+| [Vorverkauf](#vorverkauf) läuft | ein Banner „Vorverkauf. Du kannst schon jetzt bestellen – bis …“ |
+| außerhalb der Öffnungszeiten | „Shop ist noch nicht geöffnet“ bzw. „Shop ist gerade geschlossen“ mit der nächsten Öffnung |
+| Veranstaltung [beendet](#phasen) | „Veranstaltung ist beendet“, keine Bestellungen mehr |
+| Betriebsart [Nur Bons](./betriebsarten.md) | „Bestellungen nur vor Ort“ statt Speisekarte und Warenkorb |
+| Impressum oder Datenschutzhinweis fehlen | die Speisekarte, aber keine Bestellmöglichkeit ([oben](#shop-rechtliches)) |
+
+In der Fußzeile jeder Shop-Seite stehen Impressum und Datenschutzhinweis deines Vereins, **Inhalt melden** ([Einstellungen](./einstellungen.md#inhalt-melden)), bei eingeschaltetem Widerrufsrecht **Vertrag widerrufen** ([Einstellungen](./einstellungen.md#widerrufsrecht)) und die Zeile „Bereitgestellt mit OpenEOS“ mit Impressum, Datenschutz und Quellcode der Plattform.
+
+Der Shop ist auf Barrierefreiheit ausgelegt (Ziel: WCAG 2.1 AA): Er lässt sich vollständig mit der Tastatur bedienen, Bildschirmleser sagen Änderungen am Warenkorb und den Zahlungsstatus an, und Fehler im Formular stehen direkt am betroffenen Feld.
+
 ## Was eine Veranstaltung kostet
 
 OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nicht im Abo. Beim Anlegen steht der Betrag direkt unter dem Zeitraum, zum Beispiel:

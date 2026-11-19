@@ -143,6 +143,8 @@ Antwortet die TSE nicht rechtzeitig (z. B. kein Internet oder eine Störung beim
 
 OpenEOS trägt den Ausfall ins **Ausfallprotokoll** ein und schickt den Admins einmal eine E-Mail. Sobald der nächste Vorgang wieder signiert ist, endet der Ausfall und der Hinweis an der Kasse verschwindet. Nachträglich signiert wird nicht – das ist so vorgesehen: Ausfallzeiten werden dokumentiert, der Bon ist gekennzeichnet, und es geht weiter (AEAO zu § 146a Nr. 1.14).
 
+**Küchenbons während eines Ausfalls:** Solange der Ausfall andauert, wartet die Kasse vor dem Küchenbon höchstens anderthalb Sekunden auf die Absicherung der Bestellung statt der üblichen Wartezeit. Kommt keine Antwort, druckt der Küchenbon trotzdem, mit dem Vermerk **TSE-AUSFALL**. So staut sich in der Küche nichts. Kassenbons warten weiter die volle Zeit; sobald einer wieder signiert ist, gilt auch für Bestellungen wieder das normale Zeitlimit.
+
 ### Signatur nach Belegausgabe {/* #spaete-signatur */}
 
 Manchmal hat die TSE einen Vorgang doch signiert, die Antwort kam aber erst nach dem Druck an – etwa weil die Verbindung im falschen Moment abriss. OpenEOS gleicht das regelmäßig ab und speichert die Signatur dann trotzdem. Der Bon **bleibt ein Ausfallbeleg**:

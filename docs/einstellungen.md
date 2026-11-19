@@ -24,9 +24,11 @@ Der Reiter **Persönlich** ist in mehrere Unterbereiche gegliedert:
 
 In **Profil** und **Konto** übernimmst du Änderungen über den Knopf der jeweiligen Karte, etwa **Änderungen speichern**. Unter **Einstellungen** wirkt eine Auswahl sofort.
 
-### Sicherheit
+### Sicherheit {/* #sicherheit */}
 
-Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein (**2FA aktivieren**, per **Authenticator App** oder **E-Mail**), entfernst vertrauenswürdige Geräte und meldest Sitzungen ab – einzeln mit **Abmelden** oder mit **Alle anderen Sitzungen beenden**. Dein Passwort änderst du unter **Konto**.
+Im Unterbereich **Sicherheit** richtest du die Zwei-Faktor-Authentifizierung ein (**2FA aktivieren**, per **Authenticator App** oder **E-Mail**), entfernst vertrauenswürdige Geräte und meldest Sitzungen ab – einzeln mit **Abmelden** oder mit **Alle anderen Sitzungen beenden**. Wie die Abfrage bei der Anmeldung aussieht, steht unter [Zwei-Faktor-Code](./registrierung-login.md#zwei-faktor).
+
+Dein Passwort änderst du unter **Konto**. Danach bleibt nur das Gerät angemeldet, an dem du es geändert hast: Alle anderen Sitzungen enden (spätestens, wenn sie ihre Anmeldung das nächste Mal erneuern), und OpenEOS vertraut keinem Gerät mehr, fragt also bei aktiver Zwei-Faktor-Authentifizierung überall wieder nach dem Code.
 
 ![Einstellungen – Sicherheit](/img/screens/de/settings-security.png)
 

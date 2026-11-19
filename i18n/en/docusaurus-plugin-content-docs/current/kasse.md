@@ -192,7 +192,7 @@ If [discount vouchers](./rabatt-bons.md) are set up, **Discount** appears. Choos
 
 If your organization has set up [tokens](./wertmarken.md) (only in **All features**, in Germany with an active Cloud TSE), the checkout sheet has a **Tokens** section: you enter how many tokens of each type the guest gives you and take the rest in cash or by card. There is no change in tokens; if the tokens are worth more than what is open, confirm **Rest as tip** or take fewer tokens. The menu also has **Sell tokens** and **Buy back tokens**. Details are under [Tokens](./wertmarken.md).
 
-### Split bill
+### Split bill {/* #rechnung-teilen */}
 
 At a table, **Split bill** sits below the payment methods. You select the items one guest pays for — sorted by order or by category — and take payment in cash or by card. Repeat until nothing is left. With the **Run a tab** checkout mode, new items that have not been sent yet are sent first. With **Pay immediately**, *Split bill* is only offered for orders that are already open (guest orders, for example), and not while new items are in the cart.
 

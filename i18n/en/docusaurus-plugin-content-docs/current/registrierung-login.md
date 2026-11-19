@@ -76,9 +76,17 @@ A password is not required. You can run an account entirely on sign-in links and
 
 Click **Use a password instead**, enter your email and password and choose **Sign in**. **Stay signed in** keeps the session on that device. **Rather skip the password? Get a link by email** takes you back to the link. On a [self-hosted installation](./selbst-betreiben/intro.md) the sign-in page starts with the password right away.
 
+### Two-factor code {/* #zwei-faktor */}
+
+If you have turned on [two-factor authentication](./einstellungen.md#sicherheit), OpenEOS asks for a **verification code** after the password or sign-in link – from your authenticator app or by email, depending on what you set up. If you don't have your phone with you, choose **Use a recovery code** and enter one of your recovery codes.
+
+- **Trust this device for 30 days:** if you tick it, OpenEOS stops asking for the code on this device for 30 days when you sign in with your password. With the sign-in link it still asks. You see and remove these devices under **Settings → Personal → Security → Trusted Devices**.
+- **Wrong codes:** after five wrong codes this sign-in is no longer valid and you start again. After ten wrong codes for your account, the check is locked for 15 minutes.
+- If you change or reset your password, OpenEOS no longer trusts any device; the next time you sign in it asks for the code everywhere again.
+
 ### Forgotten password
 
-**Forgot password?** sends you a reset link. Alternatively, just sign in with a link.
+**Forgot password?** sends you a reset link. Alternatively, just sign in with a link. After the reset you are signed out on all devices.
 
 ### After wrong passwords {/* #fehlversuche */}
 

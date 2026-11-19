@@ -76,9 +76,17 @@ Ein Passwort ist nicht zwingend. Du kannst ein Konto ausschließlich über Anmel
 
 Klicke auf **Doch mit Passwort anmelden**, gib E-Mail und Passwort ein und dann **Anmelden**. Mit **Eingeloggt bleiben** bleibt die Sitzung auf diesem Gerät bestehen. Zurück zum Link geht es über **Lieber ohne Passwort? Link per E-Mail anfordern**. Auf einer [eigenen Installation](./selbst-betreiben/intro.md) startet die Anmeldeseite gleich mit dem Passwort.
 
+### Zwei-Faktor-Code {/* #zwei-faktor */}
+
+Hast du die [Zwei-Faktor-Authentifizierung](./einstellungen.md#sicherheit) eingeschaltet, fragt OpenEOS nach Passwort oder Anmeldelink noch einen **Verifizierungscode** ab – aus deiner Authenticator-App oder per E-Mail, je nachdem, was du eingerichtet hast. Hast du das Handy nicht dabei, nimmst du über **Wiederherstellungscode verwenden** einen deiner Wiederherstellungscodes.
+
+- **Diesem Gerät für 30 Tage vertrauen:** Setzt du das Häkchen, fragt OpenEOS bei der Anmeldung mit Passwort auf diesem Gerät 30 Tage lang nicht mehr nach dem Code. Über den Anmeldelink kommt die Abfrage weiterhin. Die Geräte siehst und entfernst du unter **Einstellungen → Persönlich → Sicherheit → Vertrauenswürdige Geräte**.
+- **Falsche Codes:** Nach fünf falschen Codes gilt diese Anmeldung nicht mehr, und du fängst neu an. Nach zehn falschen Codes für dein Konto ist die Abfrage für 15 Minuten gesperrt.
+- Änderst du dein Passwort oder setzt es zurück, vertraut OpenEOS keinem Gerät mehr; beim nächsten Anmelden fragt es überall wieder nach dem Code.
+
 ### Passwort vergessen
 
-**Passwort vergessen?** schickt dir einen Link zum Zurücksetzen. Alternativ meldest du dich einfach per Anmeldelink an.
+**Passwort vergessen?** schickt dir einen Link zum Zurücksetzen. Alternativ meldest du dich einfach per Anmeldelink an. Nach dem Zurücksetzen bist du auf allen Geräten abgemeldet.
 
 ### Nach falschen Passwörtern {/* #fehlversuche */}
 

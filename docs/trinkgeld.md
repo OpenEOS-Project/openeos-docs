@@ -42,6 +42,7 @@ So steht es überall gleich:
 - **Cloud-TSE und DSFinV-K:** `TrinkgeldAG` anteilig bei USt-Schlüssel 1 (19 %) und 2 (7 %).
 - **Auswertung:** Der Bericht [Umsatzsteuer](./auswertung.md) zeigt das Trinkgeld an den Verein je Steuersatz.
 - **Erstattung:** Eine Erstattung spiegelt die Aufteilung des ursprünglichen Bons.
+- **Geteilte Rechnung:** Bei [Rechnung teilen](./kasse.md#rechnung-teilen) steht das Trinkgeld nur auf dem Teilbeleg, mit dessen Zahlung es gegeben wurde – nicht auf jedem Teilbeleg.
 
 Für gemischte Bons gibt es keine ausdrückliche Regel der Finanzverwaltung. Die Aufteilung nach dem Verhältnis der Entgelte gilt als sachgerecht und kaum angreifbar.
 

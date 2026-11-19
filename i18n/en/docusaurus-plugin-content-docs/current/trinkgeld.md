@@ -42,6 +42,7 @@ It shows up the same everywhere:
 - **Cloud TSE and DSFinV-K:** `TrinkgeldAG` split onto VAT key 1 (19 %) and 2 (7 %).
 - **Reports:** the [VAT](./auswertung.md) report shows tips to the club per VAT rate.
 - **Refund:** a refund mirrors the split of the original receipt.
+- **Split bill:** with [Split bill](./kasse.md#rechnung-teilen) the tip appears only on the partial receipt whose payment it came with – not on every partial receipt.
 
 There is no explicit rule from the tax authorities for mixed receipts. Splitting by the ratio of the consideration is considered appropriate and hard to challenge.
 

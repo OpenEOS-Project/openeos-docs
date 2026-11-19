@@ -71,6 +71,30 @@ While something is missing, the event dialog under **Enable online shop** and th
 
 Once both are saved, the notice disappears and the shop takes orders.
 
+## What guests see in the shop {/* #shop-gaeste */}
+
+You open your event's shop with **Open shop** in the list of events; pass the link on to your guests. Guests do not need an account.
+
+1. The guest puts products in the cart, picks options where needed and goes to checkout.
+2. They choose **Abholung (To Go)** (pickup) or – if offered – delivery to the table with a table number, and enter **email**, **first and last name**. The order confirmation goes to the email address.
+3. Above the order button it says who they are ordering from ("Du bestellst bei …"), with a link to your privacy notice. The button reads **Zahlungspflichtig bestellen** (order with obligation to pay), as § 312j BGB requires. Payment is made online via [SumUp](./integrationen/sumup.md) with card, Google Pay or Apple Pay.
+
+**Service fee:** if you have entered a service fee, it is added as a flat amount to every shop order. On the receipt and the digital receipt it appears as its own line "Servicegebühr" and is taxed as a separate service at 19 % – the same in the DSFinV-K export and in the [VAT](./auswertung.md#umsatzsteuer) report. If your organization does not charge VAT, the § 19 UStG note applies as before.
+
+Depending on the phase and settings, the shop shows a notice instead of the cart:
+
+| Situation | The shop shows |
+|---|---|
+| [Pre-sale](#vorverkauf) running | a banner "Vorverkauf. Du kannst schon jetzt bestellen – bis …" (pre-sale, you can order now until …) |
+| outside the opening hours | "Shop ist noch nicht geöffnet" or "Shop ist gerade geschlossen" (not open yet / closed right now) with the next opening |
+| event [ended](#phasen) | "Veranstaltung ist beendet" (event has ended), no more orders |
+| operating mode [Orders only](./betriebsarten.md) | "Bestellungen nur vor Ort" (orders on site only) instead of menu and cart |
+| imprint or privacy notice missing | the menu, but no way to order ([above](#shop-rechtliches)) |
+
+The footer of every shop page shows your club's imprint and privacy notice, **Inhalt melden** (report content, see [Settings](./einstellungen.md#inhalt-melden)), **Vertrag widerrufen** (withdraw from contract) if the right of withdrawal is switched on ([Settings](./einstellungen.md#widerrufsrecht)), and the line "Bereitgestellt mit OpenEOS" with the platform's imprint, privacy policy and source code.
+
+The shop is built for accessibility (target: WCAG 2.1 AA): it can be used entirely with the keyboard, screen readers announce cart changes and the payment status, and form errors appear right at the field concerned.
+
 ## What an event costs
 
 OpenEOS is billed **per event day** — not per order, and not as a subscription. The amount appears right under the date range as you create it:

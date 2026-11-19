@@ -41,6 +41,8 @@ Danach wechselt das Gerät von selbst in die Kasse bzw. Anzeige.
 Am Tablet hat niemand das Kürzel der Organisation zur Hand, und an einem Fernseher hängt selten eine Tastatur. Eine achtstellige Zahl lässt sich ablesen und durchsagen — mehr ist nicht nötig.
 :::
 
+Damit niemand Codes durchprobiert, gibt es Grenzen: Nach zehn falschen Versuchen mit einem Code meldet OpenEOS „Mit diesem Code gab es zu viele Versuche“ – warte dann, bis das Gerät einen neuen Code zeigt. Warten von einem Anschluss aus sehr viele Geräte gleichzeitig auf die Kopplung, nimmt OpenEOS vorübergehend keine weiteren an; verknüpfe zuerst die wartenden Geräte. Ein Gerät, dessen Code abgelaufen ist, holt sich von selbst einen neuen.
+
 Den Registrierungslink kannst du über **Kopieren** in die Zwischenablage übernehmen und z. B. per Nachricht an das Kassenpersonal verteilen.
 
 Steht ein Gerät in der Liste noch auf **Ausstehend**, gibst du es mit **Freigeben** frei: Im Dialog **Gerät freigeben** wählst du den **Gerätetyp** (Kasse oder Display) und gibst den achtstelligen **Verifizierungscode** vom Gerät ein. Kassen starten im Betrieb „Bedienung“ (Tischservice), Displays als Kundendisplay. Beides passt du später jederzeit unter **Geräte → Gerät → Einstellungen** an.

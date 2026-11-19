@@ -41,6 +41,8 @@ The device then switches into the till or screen by itself.
 Nobody at a tablet has the organization's short name to hand, and a TV rarely has a keyboard. An eight-digit number can be read out and typed in — nothing more is needed.
 :::
 
+To stop anyone from trying codes at random, there are limits: after ten wrong attempts with one code, OpenEOS reports "Too many attempts with this code" – wait until the device shows a new code. If a great many devices from one connection are waiting to be paired at the same time, OpenEOS temporarily accepts no more; link the waiting devices first. A device whose code has expired fetches a new one by itself.
+
 You can copy the registration link with **Copy** and send it to your till staff, by message for example.
 
 If a device in the list is still **Pending**, approve it with **Approve**: in the **Approve Device** dialog you choose the **device type** (POS or Display) and enter the eight-digit **verification code** from the device. Tills start in *Table Service* operation, displays as a customer display. You can change both at any time under **Devices → Device → Settings**.

@@ -24,9 +24,11 @@ The **Personal** tab is divided into several sub-sections:
 
 In **Profile** and **Account** you apply changes with the button of the respective card, for example **Save changes**. Under **Preferences** a choice takes effect immediately.
 
-### Security
+### Security {/* #sicherheit */}
 
-In the **Security** sub-section you set up two-factor authentication (**Enable 2FA**, with an **Authenticator App** or **Email**), remove trusted devices and sign out sessions – one at a time with **Sign out** or with **Sign out all other sessions**. You change your password under **Account**.
+In the **Security** sub-section you set up two-factor authentication (**Enable 2FA**, with an **Authenticator App** or **Email**), remove trusted devices and sign out sessions – one at a time with **Sign out** or with **Sign out all other sessions**. What the check looks like when you sign in is described under [Two-factor code](./registrierung-login.md#zwei-faktor).
+
+You change your password under **Account**. Afterwards only the device you changed it on stays signed in: all other sessions end (at the latest when they next renew their sign-in), and OpenEOS no longer trusts any device, so with two-factor authentication on it asks for the code everywhere again.
 
 ![Settings – Security](/img/screens/en/settings-security.png)
 

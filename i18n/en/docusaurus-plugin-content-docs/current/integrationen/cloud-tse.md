@@ -143,6 +143,8 @@ If the TSE does not respond in time (e.g. no internet or a disruption at the pro
 
 OpenEOS records the outage in the **outage log** and emails the admins once. As soon as the next transaction is signed again, the outage ends and the hint at the till disappears. Transactions are not signed afterwards – this is intended: outage times are documented, the receipt is marked, and business goes on (AEAO zu § 146a Nr. 1.14).
 
+**Kitchen tickets during an outage:** while the outage lasts, the till waits at most one and a half seconds for the order to be secured before the kitchen ticket, instead of the usual time. If there is no answer, the kitchen ticket prints anyway, marked **TSE-AUSFALL** (TSE outage). That way nothing piles up in the kitchen. Receipts still wait the full time; as soon as one is signed again, orders go back to the normal time limit.
+
 ### Signature after the receipt was issued {/* #spaete-signatur */}
 
 Sometimes the TSE did sign a transaction but the answer only arrived after printing – for example because the connection dropped at the wrong moment. OpenEOS reconciles this regularly and still stores the signature. The receipt **stays an outage receipt**:

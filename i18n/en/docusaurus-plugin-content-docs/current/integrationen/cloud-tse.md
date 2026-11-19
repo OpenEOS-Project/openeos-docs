@@ -21,11 +21,11 @@ The cloud TSE is only available for organizations in Germany. In other countries
 
 As long as the Cloud TSE is announced but not yet switched on for your server, you see the following in the app:
 
-- In the catalog under **Integrations** the Cloud TSE is listed as **Coming soon**. Instead of **Activate**, the window shows the note "The cloud TSE for cash payments in Germany is coming soon. Until then you can use “Orders only” or “Cashless”."
-- Under **Settings → Organization → Operating mode**, **All features** is marked "Coming soon – with cloud TSE" and cannot be selected.
+- In the catalog under **Integrations** the Cloud TSE is listed as **Coming soon**. Instead of **Activate**, the window shows the note "The cloud TSE for cash payments in Germany is coming soon. Until then you take card and online payments in “All features”."
+- Under **Settings → Organization → Operating mode**, **All features** is no longer greyed out: you can choose the mode, but cash waits for the Cloud TSE. Card and online payments work.
 - In an event's payment dialog there is no question about the Cloud TSE, only a **Coming soon** note.
 
-Until then, work with [Orders only](../betriebsarten.md#nur-bons) or [Cashless](../betriebsarten.md#bargeldlos) in Germany. Everything else on this page applies as soon as the Cloud TSE is available.
+Until then you take card and online payments in [“All features”](../betriebsarten.md#alle-funktionen) (or use [“Orders only”](../betriebsarten.md#nur-bons)/[“Cashless”](../betriebsarten.md#bargeldlos)). Everything else on this page applies as soon as the Cloud TSE is available.
 
 On a [self-hosted installation](../selbst-betreiben/intro.md) without a contract with a TSE provider, the integration is instead listed as **Not available** in the catalog: "No cloud TSE is set up on this server. Ask the operator of your installation."
 
@@ -41,7 +41,7 @@ On a [self-hosted installation](../selbst-betreiben/intro.md) without a contract
 Usually you do not have to do anything: if you activate an event in the operating mode **All features** (paid, on invoice or waived by support), OpenEOS switches the **Cloud TSE** integration on by itself. The payment dialog says *Includes the cloud TSE for cash – set up automatically*, and afterwards the **Cloud TSE** page says *Switched on automatically when you bought “…”*. The TSE itself is set up for the first event day (see [Setup](#einrichtung)) – right away if the event is already running.
 
 - **All features (existing):** the payment dialog asks *With cloud TSE (legally compliant cash)?* With **Yes** your operating mode becomes **All features** on activation and the TSE follows automatically. With **No** nothing changes.
-- **Cashless:** if you switch to **All features** with a paid event, OpenEOS also switches the integration on by itself (see [Operating modes](../betriebsarten.md#alle-funktionen)).
+- **Cashless:** you can switch to **All features** at any time. If a paid event is coming up, OpenEOS also switches the integration on by itself (see [Operating modes](../betriebsarten.md#alle-funktionen)).
 - **Orders only** and organizations outside Germany do not get a TSE.
 
 **Cost:** the cloud TSE is currently **included** in the event price – there is no surcharge.
@@ -114,7 +114,7 @@ The TSE data cannot be deselected. If you designed your own receipt template, Op
 
 If your organization works **without VAT** (small business), every receipt says „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ instead of the VAT lines, see [Small businesses](#kleinunternehmer).
 
-In **test mode** of an event, transactions are signed as **training**. The receipt then says **TRAININGSBUCHUNG – KEIN VERKAUF** (training – not a sale). Training transactions are kept, even when the test orders are deleted on activating the event.
+In **test mode** of an event, transactions are signed as **training**. The receipt then says **TRAININGSBUCHUNG – KEIN VERKAUF** (training – not a sale). Training transactions are kept, even when the test orders are deleted on activating the event. The [test payments](../betriebsarten.md#testzahlungen) “Cash (test)” and “Card (test)” are simulations without money; the TSE does not sign them.
 
 Under **Orders**, admins see a **Cloud TSE** section in every order with its TSE transactions and the QR code.
 

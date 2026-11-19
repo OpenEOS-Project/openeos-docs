@@ -89,9 +89,9 @@ Organisation festzulegen:
 Das Land legst du nur einmal fest. Die Betriebsart wählst du unter
 **Einstellungen → Organisation → Betriebsart**. Als Betreiber der eigenen
 Installation verantwortest du selbst, ob deine Kasse in Deutschland Bargeld
-ohne TSE erfassen darf. Wechselst du in Deutschland zu **Nur Bons** oder
-**Bargeldlos**, kommst du ohne eingerichtete Cloud-TSE nicht mehr zu **Alle
-Funktionen** zurück. Mehr unter [Betriebsarten](../betriebsarten.md#selbst-betreiben).
+ohne TSE erfassen darf. Wählst du in Deutschland ohne eingerichtete Cloud-TSE
+eine Betriebsart, endet der Bestand: **Alle Funktionen** kannst du weiter
+wählen, Bargeld nimmt die Kasse dann aber erst mit Cloud-TSE an. Mehr unter [Betriebsarten](../betriebsarten.md#selbst-betreiben).
 
 ## Die erste Veranstaltung
 

@@ -126,9 +126,9 @@ Events that are already activated keep the days and the amount they were paid fo
 
 ### Test first, pay later
 
-A new event is **Inactive** at first. **Test Mode** in the list (or **Try it** in the [First steps](./dashboard.md#erste-schritte) card on the dashboard) switches it to **test mode**. Everything works in it — tills, screens, printers, reporting — capped at **25 orders**. That way you can run the whole thing before any money changes hands.
+A new event is **Inactive** at first. **Test Mode** in the list (or **Try it** in the [First steps](./dashboard.md#erste-schritte) card on the dashboard) switches it to **test mode**. Everything works in it — tills, screens, printers, reporting — capped at **25 orders**. That way you can run the whole thing before any money changes hands. At the till you check out with **Cash (test)** and **Card (test)** – simulations without money, also without a TSE and without a card reader (see [Test payments in test mode](./betriebsarten.md#testzahlungen)).
 
-Activating deletes the test orders. Until sales start the event then stays **Planned** and you can keep testing (see [Phases](#phasen)). **Your setup stays**: products, categories, prices, stations, devices and printers do not have to be entered again.
+Activating deletes the test orders together with their test payments. Until sales start the event then stays **Planned** and you can keep testing (see [Phases](#phasen)). **Your setup stays**: products, categories, prices, stations, devices and printers do not have to be entered again.
 
 :::tip[Our advice for a first event]
 Set everything up calmly beforehand and play one round through in test mode: take an order at the till, acknowledge it on the kitchen screen, print a ticket. Then you know on the day that the chain holds.

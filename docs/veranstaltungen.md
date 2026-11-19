@@ -126,9 +126,9 @@ Bereits freigeschaltete Veranstaltungen behalten die Tage und den Betrag, mit de
 
 ### Erst testen, dann bezahlen
 
-Eine neue Veranstaltung ist zunächst **Inaktiv**. Über **Testmodus** in der Liste (oder **Testen** in der Karte [Erste Schritte](./dashboard.md#erste-schritte) im Dashboard) schaltest du sie in den **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt.
+Eine neue Veranstaltung ist zunächst **Inaktiv**. Über **Testmodus** in der Liste (oder **Testen** in der Karte [Erste Schritte](./dashboard.md#erste-schritte) im Dashboard) schaltest du sie in den **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt. An der Kasse kassierst du dabei mit **Bar (Test)** und **Karte (Test)** – Simulationen ohne Geld, auch ohne TSE und ohne Kartenleser (siehe [Testzahlungen im Testmodus](./betriebsarten.md#testzahlungen)).
 
-Beim Freischalten werden die Testbestellungen gelöscht. Bis zum Verkaufsstart bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
+Beim Freischalten werden die Testbestellungen mit ihren Testzahlungen gelöscht. Bis zum Verkaufsstart bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
 
 :::tip[Unser Rat für das erste Fest]
 Richte alles in Ruhe vorher ein und spiele im Testmodus einen Durchgang durch: eine Bestellung an der Kasse aufnehmen, auf der Küchenanzeige quittieren, einen Bon drucken. Dann weißt du am Festtag, dass die Kette steht.

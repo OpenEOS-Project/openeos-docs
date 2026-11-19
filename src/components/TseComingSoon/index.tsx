@@ -28,7 +28,7 @@ export default function TseComingSoon(): ReactNode {
         {translate({
           id: 'tseComingSoon.text',
           message:
-            'Die Cloud-TSE wird gerade eingeführt und ist auf openeos.de bald verfügbar. Bis dahin kannst du in Deutschland „Nur Bons“ oder „Bargeldlos“ nutzen – Bargeld braucht eine Cloud-TSE.',
+            'Die Cloud-TSE wird gerade eingeführt und ist auf openeos.de bald verfügbar. Bis dahin kassierst du in Deutschland in „Alle Funktionen“ mit Karte und online (oder nutzt „Nur Bons“/„Bargeldlos“) – Bargeld kommt mit der Cloud-TSE.',
           description: 'Body of the Cloud-TSE "coming soon" note',
         })}
       </p>

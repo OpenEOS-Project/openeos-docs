@@ -48,7 +48,7 @@ Mit **Verbindung testen** prüfst du die Angaben, mit **Speichern** übernimmst 
 
 Ist SumUp aktiv und ein Kartenleser gekoppelt, bietet die [Kasse](../kasse.md#kartenzahlung) beim Kassieren die Kartenzahlung an. Der Betrag erscheint auf dem Leser, und die Bestellung gilt als bezahlt, sobald SumUp die Zahlung bestätigt.
 
-Im **Testmodus** einer Veranstaltung löst die Kasse keine echten SumUp-Kartenzahlungen aus: Die Zahlart ist an der Kasse ausgegraut, und auf der SumUp-Seite steht **Testmodus aktiv – keine SumUp-Kartenzahlungen**. Bar und die manuelle Kartenbuchung bleiben möglich.
+Im **Testmodus** einer Veranstaltung löst die Kasse keine echten SumUp-Kartenzahlungen aus: Die Kasse spricht den Kartenleser nie an, und auf der SumUp-Seite steht **Testmodus aktiv – keine SumUp-Kartenzahlungen**. Statt echter Zahlarten kassierst du mit **Bar (Test)** und **Karte (Test)**, Simulationen ohne Geld (siehe [Testzahlungen im Testmodus](../betriebsarten.md#testzahlungen)).
 
 ![Kasse mit Kartenzahlung](/img/screens/de/pos-card.png)
 

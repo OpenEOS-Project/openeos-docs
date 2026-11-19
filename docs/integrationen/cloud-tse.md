@@ -21,11 +21,11 @@ Die Cloud-TSE gibt es nur für Organisationen in Deutschland. In anderen Länder
 
 Solange die Cloud-TSE angekündigt, aber auf deinem Server noch nicht freigeschaltet ist, siehst du in der App Folgendes:
 
-- Im Katalog unter **Integrationen** steht die Cloud-TSE als **Bald verfügbar**. Das Fenster zeigt statt **Aktivieren** den Hinweis „Die Cloud-TSE für Barzahlungen in Deutschland kommt in Kürze. Bis dahin kannst du „Nur Bons“ oder „Bargeldlos“ nutzen.“
-- Unter **Einstellungen → Organisation → Betriebsart** ist **Alle Funktionen** mit „Bald verfügbar – mit Cloud-TSE“ markiert und lässt sich nicht wählen.
+- Im Katalog unter **Integrationen** steht die Cloud-TSE als **Bald verfügbar**. Das Fenster zeigt statt **Aktivieren** den Hinweis „Die Cloud-TSE für Barzahlungen in Deutschland kommt in Kürze. Bis dahin kassierst du in „Alle Funktionen“ mit Karte und online.“
+- Unter **Einstellungen → Organisation → Betriebsart** ist **Alle Funktionen** nicht mehr ausgegraut: Du kannst die Betriebsart wählen, Bargeld wartet aber auf die Cloud-TSE. Karte und online gehen.
 - Im Bezahldialog einer Veranstaltung gibt es keine Frage nach der Cloud-TSE, nur einen Hinweis **Bald verfügbar**.
 
-Arbeite bis dahin in Deutschland mit [Nur Bons](../betriebsarten.md#nur-bons) oder [Bargeldlos](../betriebsarten.md#bargeldlos). Alles Weitere auf dieser Seite gilt, sobald die Cloud-TSE verfügbar ist.
+Bis dahin kassierst du in [„Alle Funktionen“](../betriebsarten.md#alle-funktionen) mit Karte und online (oder nutzt [„Nur Bons“](../betriebsarten.md#nur-bons)/[„Bargeldlos“](../betriebsarten.md#bargeldlos)). Alles Weitere auf dieser Seite gilt, sobald die Cloud-TSE verfügbar ist.
 
 Auf einer [eigenen Installation](../selbst-betreiben/intro.md) ohne Vertrag mit einem TSE-Anbieter steht die Integration dagegen als **Nicht verfügbar** im Katalog: „Auf diesem Server ist keine Cloud-TSE eingerichtet. Frag den Betreiber deiner Installation.“
 
@@ -41,7 +41,7 @@ Auf einer [eigenen Installation](../selbst-betreiben/intro.md) ohne Vertrag mit 
 Meist musst du gar nichts tun: Schaltest du in der Betriebsart **Alle Funktionen** eine Veranstaltung frei (bezahlt, auf Rechnung oder vom Support erlassen), schaltet OpenEOS die Integration **Cloud-TSE** selbst ein. Im Bezahldialog steht dazu *Inklusive Cloud-TSE für Bargeld – wird automatisch eingerichtet*, und auf der Seite **Cloud-TSE** steht danach *Automatisch eingeschaltet beim Kauf von „…“*. Die TSE selbst wird zum ersten Veranstaltungstag eingerichtet (siehe [Einrichtung](#einrichtung)) – sofort, wenn die Veranstaltung schon läuft.
 
 - **Alle Funktionen (Bestand):** Der Bezahldialog fragt *Mit Cloud-TSE (Bargeld rechtssicher)?* Mit **Ja** wird deine Betriebsart beim Freischalten zu **Alle Funktionen** und die TSE folgt automatisch. Mit **Nein** bleibt alles, wie es ist.
-- **Bargeldlos:** Wechselst du mit einer bezahlten Veranstaltung zu **Alle Funktionen**, schaltet OpenEOS die Integration ebenfalls selbst ein (siehe [Betriebsarten](../betriebsarten.md#alle-funktionen)).
+- **Bargeldlos:** Zu **Alle Funktionen** wechselst du jederzeit. Steht eine bezahlte Veranstaltung an, schaltet OpenEOS die Integration dabei ebenfalls selbst ein (siehe [Betriebsarten](../betriebsarten.md#alle-funktionen)).
 - **Nur Bons** und Organisationen außerhalb Deutschlands bekommen keine TSE.
 
 **Kosten:** Die Cloud-TSE ist derzeit im Preis der Veranstaltung **inklusive** – es gibt keinen Aufschlag.
@@ -114,7 +114,7 @@ Die TSE-Angaben lassen sich nicht abwählen. Hast du eine eigene Bon-Vorlage ges
 
 Ist deine Organisation **ohne Umsatzsteuer** (Kleinunternehmer), steht auf jedem Bon „Steuerfrei nach § 19 Abs. 1 UStG (Kleinunternehmer)“ statt der MwSt-Zeilen, siehe [Kleinunternehmer](#kleinunternehmer).
 
-Im **Testmodus** einer Veranstaltung werden Buchungen als **Training** signiert. Auf dem Bon steht dann **TRAININGSBUCHUNG – KEIN VERKAUF**. Trainingsbuchungen bleiben gespeichert, auch wenn die Testbestellungen beim Aktivieren der Veranstaltung gelöscht werden.
+Im **Testmodus** einer Veranstaltung werden Buchungen als **Training** signiert. Auf dem Bon steht dann **TRAININGSBUCHUNG – KEIN VERKAUF**. Trainingsbuchungen bleiben gespeichert, auch wenn die Testbestellungen beim Aktivieren der Veranstaltung gelöscht werden. Die [Testzahlungen](../betriebsarten.md#testzahlungen) „Bar (Test)“ und „Karte (Test)“ sind Simulationen ohne Geld; die TSE signiert sie nicht.
 
 Unter **Bestellungen** siehst du als Admin in jeder Bestellung den Abschnitt **Cloud-TSE** mit den Vorgängen dieser Bestellung und dem QR-Code.
 

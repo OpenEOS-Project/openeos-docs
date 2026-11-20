@@ -26,7 +26,10 @@ deine Installation gibst du beim ersten Start die Adresse **deiner** API an,
 # Linux, Dienst über install.sh
 sudo ./install.sh --server-url https://kasse.mein-verein.de/api --binary ./openeos-printer-agent-linux-x64
 
-# Windows, Dienst (Eingabeaufforderung als Administrator)
+# Windows, Installer: Adresse im Schritt „Server“ eintragen – oder still installieren:
+openeos-printer-agent-setup-windows-x64.exe /VERYSILENT /SERVER=https://kasse.mein-verein.de/api
+
+# Windows, nur Dienst (Eingabeaufforderung als Administrator)
 openeos-printer-agent-windows-x64.exe install-service --server-url https://kasse.mein-verein.de/api
 ```
 
@@ -61,9 +64,16 @@ dauerhaft erreichen – auch per WebSocket, siehe
 Die Verzeichnisse lassen sich mit den Umgebungsvariablen
 `OPENEOS_PRINTER_DATA_DIR` (Daten) und `OPENEOS_PRINTER_LOG_DIR` (Protokoll)
 verlegen. Bei einem Update wird nur die Programmdatei getauscht; Kopplung
-und Konfiguration bleiben (Windows: `remove-service`, Datei ersetzen,
-`install-service`; Linux: Binärdatei nach `/opt/openeos-printer-agent/`
-kopieren und `systemctl restart openeos-printer`).
+und Konfiguration bleiben (Windows mit Installer: neuen Installer starten;
+Windows ohne Installer: `remove-service`, Datei ersetzen, `install-service`;
+Linux: Binärdatei nach `/opt/openeos-printer-agent/` kopieren und
+`systemctl restart openeos-printer`).
+
+Den Dienst steuerst du auch ohne Fenster mit `openeos-printer-agent start-service`,
+`stop-service` und `restart-service` (Windows-Dienst bzw. systemd-Unit). Der
+Installer erlaubt angemeldeten Benutzern, den Dienst zu starten und zu
+stoppen; unter Linux tut das eine polkit-Regel von `install.sh`, wenn ein
+Desktop gefunden wurde.
 
 ## Die Konfiguration
 
@@ -78,6 +88,12 @@ logging:
 
 local_server:
   port: 8080                    # Statusseite und Code
+  # allow_remote_ui: false      # /api/ui/* (Fenster: Zustand, Testdruck) nur von diesem Rechner
+
+power:
+  keep_awake: true              # wach halten, solange verbunden (Vorgabe: Windows ja, Linux nein)
+
+# web_app_url: "https://kasse.mein-verein.de"   # für „OpenEOS öffnen“; Vorgabe: aus server_url abgeleitet
 
 discovery:
   interval_s: 300               # automatische Suche alle 5 Minuten

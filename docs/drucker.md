@@ -1,7 +1,7 @@
 ---
 sidebar_position: 12
 title: Drucker
-description: Drucker-Agent installieren und verbinden, gefundene Drucker übernehmen, Testdruck, Zuordnung zu Standorten und Kassen.
+description: Drucker-Agent installieren (Windows-Installer, Linux), Fenster und Infobereich, verbinden, gefundene Drucker übernehmen, Testdruck, Zuordnung zu Standorten und Kassen.
 ---
 
 # Drucker
@@ -30,43 +30,71 @@ Alle Dateien liegen auf der [Download-Seite](https://github.com/OpenEOS-Project/
 
 | Datei | Für |
 |---|---|
-| `openeos-printer-agent-windows-x64.exe` | Windows 10/11, 64 Bit |
-| `openeos-printer-agent-linux-x64` | Linux-PC, 64 Bit |
+| `openeos-printer-agent-setup-windows-x64.exe` | **Windows 10/11 – empfohlen:** Installer mit Hintergrunddienst und Programmfenster |
+| `openeos-printer-agent-windows-x64.exe` | Windows, nur der Dienst ohne Fenster (für Admins, Kommandozeile) |
+| `openeos-printer-agent-linux-x64` | Linux-PC, 64 Bit (Ubuntu 22.04 oder neuer, Debian 11 oder neuer) |
 | `openeos-printer-agent-linux-arm64` | Raspberry Pi 4/5 mit 64-Bit-Raspberry-Pi-OS |
+| `openeos-printer-agent-ui-linux-x64` / `-arm64` | Programmfenster für Linux-Rechner mit Bildschirm (Ubuntu 22.04+, Debian 12+, Raspberry Pi OS Bookworm mit Desktop) |
 
 ### Windows
 
-1. Lege die EXE an einem festen Ort ab, z. B. `C:\Program Files\OpenEOS\`.
-2. Starte sie per Doppelklick. Ein Fenster öffnet sich und zeigt den **achtstelligen Code** – gib ihn in OpenEOS ein (nächster Abschnitt). Danach schließt du das Fenster mit `Strg+C`.
-3. Damit der Agent künftig mit Windows startet, richtest du ihn als Dienst ein: Eingabeaufforderung **als Administrator** öffnen (Rechtsklick → *Als Administrator ausführen*) und ausführen:
-   ```
-   cd "C:\Program Files\OpenEOS"
-   openeos-printer-agent-windows-x64.exe install-service
-   ```
-   Der Dienst **OpenEOS Printer Agent** läuft ab sofort im Hintergrund und merkt sich die Verbindung aus Schritt 2. Hast du den Code noch nicht eingegeben, zeigt ihn der Dienst in `%ProgramData%\OpenEOS Printer Agent\logs\agent.log` und auf `http://localhost:8080`.
+1. Lade `openeos-printer-agent-setup-windows-x64.exe` herunter und starte die Datei per Doppelklick. Windows fragt, ob die App Änderungen vornehmen darf – bestätige mit **Ja**.
+
+   :::note[„Der Computer wurde durch Windows geschützt“]
+   Der Installer ist noch nicht digital signiert. Erscheint diese Meldung, klickst du auf **Weitere Informationen** und dann auf **Trotzdem ausführen**.
+   :::
+
+2. Lass **Beim Anmelden im Infobereich starten** angehakt – dann ist das Fenster nach jedem Neustart unten rechts in der Taskleiste. Eine Verknüpfung auf dem Desktop ist optional.
+
+   ![Installer: Aufgaben auswählen](/img/screens/de/printer-agent-setup-tasks.png)
+
+3. **Server:** Nutzt du app.openeos.de, lässt du die Adresse so. Nur wenn du OpenEOS selbst betreibst, trägst du hier die Adresse deiner API ein (siehe [Drucker-Agent für die eigene Installation](./selbst-betreiben/drucker.md)).
+
+   ![Installer: Server-Adresse](/img/screens/de/printer-agent-setup-server.png)
+
+4. Klicke auf **Installieren** und am Ende auf **Fertigstellen**. Der Installer richtet den Hintergrunddienst **OpenEOS Printer Agent** ein (er startet mit Windows und druckt auch, wenn niemand angemeldet ist) und öffnet das Fenster **OpenEOS Drucker-Agent**.
+
+   ![Installer: fertig](/img/screens/de/printer-agent-setup-finish.png)
+
+Für ein Update startest du einfach den neuen Installer: Kopplung, Server und Drucker bleiben erhalten. Deinstallieren kannst du den Agent unter **Einstellungen → Apps**; auch dann bleiben Kopplung und Einstellungen in `%ProgramData%\OpenEOS Printer Agent` liegen, ein späteres Neuinstallieren braucht keinen neuen Code.
 
 USB-Drucker bindest du unter Windows über die **Windows-Druckereinrichtung** an: Richte den Drucker in Windows ein – mit dem Treiber des Herstellers oder dem eingebauten Treiber **Generic / Text Only** am USB-Anschluss – und drucke eine Windows-Testseite. Der Agent meldet ihn dann als Windows-Drucker.
 
-### Linux und Raspberry Pi
+### Linux-PC oder Laptop mit Bildschirm
 
-`install.sh` aus dem Quellverzeichnis richtet den Agent als Dienst ein (Autostart, USB-Rechte), wahlweise mit der fertigen Binärdatei oder aus dem Quellcode:
+`install.sh` aus dem Quellverzeichnis richtet den Agent als Dienst ein (Autostart, USB-Rechte). Findet es einen Desktop, installiert es zusätzlich das Programmfenster mit Eintrag im Anwendungsmenü und Autostart im Infobereich. Lege dafür beide Dateien in denselben Ordner:
 
 ```bash
 git clone https://github.com/OpenEOS-Project/openeos-printer-agent.git
 cd openeos-printer-agent
-sudo ./install.sh --binary ./openeos-printer-agent-linux-x64   # oder -linux-arm64 auf dem Pi
-# ohne --binary: Installation aus dem Quellcode (Python ≥ 3.11)
+# openeos-printer-agent-linux-x64 und openeos-printer-agent-ui-linux-x64 hierher herunterladen
+sudo ./install.sh --binary ./openeos-printer-agent-linux-x64
 ```
 
-Den Code liest du danach im Protokoll (`sudo journalctl -u openeos-printer -f`) oder im Browser auf `http://<ip-des-pcs>:8080` ab. Zum Ausprobieren reicht auch die Binärdatei allein – `chmod +x`, starten, fertig.
+Danach findest du **OpenEOS Drucker-Agent** im Anwendungsmenü; nach der nächsten Anmeldung startet es von selbst im Infobereich. Das Fenster ist dasselbe wie unter Windows:
 
-**Raspberry Pi:** Auf einem Pi 4 oder 5 mit 64-Bit-System nimm die `arm64`-Datei. Auf einem Pi 3 oder einem 32-Bit-System installierst du aus dem Quellcode (`install.sh` ohne `--binary`).
+![Das Fenster des Drucker-Agents unter Linux (Xfce)](/img/screens/de/printer-agent-linux.png)
+
+Unter GNOME braucht der Infobereich die Erweiterung *AppIndicator* (bei Ubuntu schon dabei).
+
+### Raspberry Pi ohne Bildschirm
+
+Auf einem Pi, der nur neben dem Drucker steht, läuft der Agent ohne Fenster als Dienst – genau wie bisher:
+
+```bash
+git clone https://github.com/OpenEOS-Project/openeos-printer-agent.git
+cd openeos-printer-agent
+sudo ./install.sh --binary ./openeos-printer-agent-linux-arm64
+# ohne --binary: Installation aus dem Quellcode (Python ≥ 3.11), z. B. auf einem Pi 3 oder 32-Bit-System
+```
+
+Den Code liest du danach im Protokoll (`sudo journalctl -u openeos-printer -f`) oder im Browser eines anderen Geräts im selben Netz auf `http://<ip-des-pi>:8080`. Auf einem Pi 4 oder 5 mit 64-Bit-System nimm die `arm64`-Datei.
 
 ### Der Code
 
-Beim ersten Start meldet sich der Agent bei OpenEOS an und zeigt einen **achtstelligen Code** – im Fenster, im Protokoll und auf seiner Statusseite `http://localhost:8080`. Er wartet dann, bis du den Code eingegeben hast. Ein Code gilt 15 Minuten; danach zeigt der Agent von selbst einen neuen.
+Beim ersten Start meldet sich der Agent bei OpenEOS an und zeigt einen **achtstelligen Code** – groß im Fenster, dazu im Protokoll und auf seiner Statusseite. Er wartet dann, bis du den Code eingegeben hast. Ein Code gilt 15 Minuten; danach zeigt der Agent von selbst einen neuen.
 
-![Statusseite des Agents mit dem Kopplungscode](/img/screens/de/printer-agent-status-page.png)
+![Das Fenster des Drucker-Agents zeigt den Code](/img/screens/de/printer-agent-window-code.png)
 
 :::note[Warum ein Code]
 Am Drucker-PC muss sich niemand anmelden. Der Agent zeigt eine Zahl, du gibst sie in deinem Konto ein – so gehört der Agent eindeutig zu deiner Organisation, und niemand sonst kann über ihn drucken.
@@ -84,7 +112,9 @@ Solange kein Agent verbunden ist, zeigt der Reiter **Drucker** die Schritte und 
 
 ![Dialog „Drucker-Agent verbinden“ mit eingegebenem Code](/img/screens/de/printers-connect-agent.png)
 
-Nach wenigen Sekunden erscheint der Agent in der Liste mit Rechnername, Betriebssystem und Version, meldet sich **Online** und sucht sofort nach Druckern. Beim nächsten Start braucht er keinen Code mehr.
+Nach wenigen Sekunden erscheint der Agent in der Liste mit Rechnername, Betriebssystem und Version, meldet sich **Online** und sucht sofort nach Druckern. Das Fenster auf dem PC wechselt gleichzeitig von selbst zur Übersicht: **Verbunden**, mit dem Namen deiner Organisation. Beim nächsten Start braucht er keinen Code mehr.
+
+![Zwei verbundene Agents: ein Windows-Laptop und ein Raspberry Pi, jeweils mit übernommenem Drucker](/img/screens/de/printers-agent-online.png)
 
 ## Gefundene Drucker
 
@@ -128,6 +158,51 @@ Neben jedem übernommenen Drucker steht **Testdruck**. OpenEOS schickt einen kur
 
 ![Übernommener Drucker online, Testdruck gesendet](/img/screens/de/printers-test-print.png)
 
+Den gleichen Testdruck startest du auch direkt am PC: im Fenster des Agents über **Testdruck** neben dem Drucker. Der kommt ohne Umweg über den Server heraus – praktisch, um beim Aufbau zu prüfen, welcher Drucker welcher ist.
+
+## Das Fenster des Drucker-Agents
+
+Das Fenster zeigt auf einen Blick, ob am PC alles läuft:
+
+![Fenster des Drucker-Agents: verbunden, ein Drucker online](/img/screens/de/printer-agent-window-connected.png)
+
+- **Oben rechts** der Zustand: *Verbunden* (grün), *Noch nicht verbunden* mit Code (blau), *Drucker-Problem* (orange) oder *Keine Verbindung* / *Agent läuft nicht* (rot).
+- **Verbindung:** Organisation, Server und ob der Hintergrunddienst läuft.
+- **Drucker:** alle übernommenen Drucker mit Anschluss, *Online*/*Offline*, offenen, gedruckten und fehlgeschlagenen Aufträgen seit dem Start, wann zuletzt gedruckt wurde – und je Drucker der Knopf **Testdruck**.
+- **Fehler und Warnungen:** die letzten Meldungen der vergangenen 24 Stunden, etwa „Drucker nicht erreichbar“.
+- **Ruhezustand:** ob der Agent den Rechner gerade wach hält (siehe unten).
+- Unten **OpenEOS öffnen** (die Web-App, Reiter Drucker), **Statusseite**, **Protokolle** (öffnet den Ordner mit den Protokolldateien) und **Dienst neu starten** – über den kleinen Pfeil daneben auch *Dienst starten* und *Dienst stoppen*.
+
+Das Fenster ist nur die Anzeige. Gedruckt wird vom **Hintergrunddienst** – auch wenn das Fenster geschlossen ist oder niemand angemeldet ist. Ist der Dienst gestoppt, sagt das Fenster das deutlich und bietet **Dienst starten** an:
+
+![Fenster: der Hintergrunddienst ist gestoppt](/img/screens/de/printer-agent-window-stopped.png)
+
+### Infobereich
+
+Schließt du das Fenster mit dem **X**, verschwindet es nur in den **Infobereich** unten rechts neben der Uhr. Das Symbol zeigt den Zustand mit einem farbigen Punkt – grün, orange, blau oder rot wie oben. Ein Klick auf das Symbol öffnet das Fenster wieder, ein Rechtsklick zeigt das Menü:
+
+![Infobereich mit dem Symbol des Drucker-Agents und seinem Menü](/img/screens/de/printer-agent-tray.png)
+
+**Beenden** schließt nur das Fenster-Programm; gedruckt wird weiter. Siehst du das Symbol nicht, steckt es hinter dem kleinen Pfeil **^** – zieh es von dort in die Taskleiste, dann hast du es immer im Blick. Geht die Verbindung verloren oder fällt ein Drucker aus, meldet sich der Agent dort auch mit einer kurzen Nachricht.
+
+## Laptop und Ruhezustand
+
+Ein Laptop, der in den Ruhezustand geht, druckt nicht. Unter Windows verhindert der Agent deshalb, dass der Rechner **von selbst** einschläft, solange er mit OpenEOS verbunden ist; der Bildschirm darf trotzdem ausgehen. Im Fenster steht das im Reiter **Ruhezustand**:
+
+![Reiter Ruhezustand im Fenster des Agents](/img/screens/de/printer-agent-window-power.png)
+
+Was der Agent **nicht** verhindern kann – Windows schickt den Laptop trotzdem schlafen, wenn
+
+- du den **Deckel zuklappst** und in den Energieoptionen für das Zuklappen „Energie sparen“ eingestellt ist,
+- jemand den **Ein-/Aus-Knopf** drückt oder **Start → Energie sparen** wählt,
+- der **Akku** leer wird.
+
+Für das Fest stellst du deshalb einmal in Windows unter **Systemsteuerung → Energieoptionen → Auswählen, was beim Zuklappen des Computers geschehen soll** „Beim Zuklappen: **Nichts unternehmen**“ (mit Netzteil) ein – der Knopf **Energieoptionen** im Reiter Ruhezustand führt direkt dorthin – und lässt den Laptop am Netzteil. Bei manchen WLAN- und Netzwerkadaptern lohnt außerdem: **Geräte-Manager → Netzwerkadapter → Eigenschaften → Energieverwaltung**, Haken bei „Computer kann das Gerät ausschalten, um Energie zu sparen“ entfernen.
+
+Ist der Laptop doch eingeschlafen, verbindet sich der Agent nach dem Aufwachen sofort neu und druckt, was inzwischen wartet.
+
+Unter Linux hält der Agent den Rechner nur wach, wenn `install.sh` einen Desktop gefunden hat (oder `power.keep_awake: true` in der Konfiguration steht); das Zuklappen schickt den Laptop auch dort trotzdem schlafen.
+
 ## Drucker bearbeiten und entfernen
 
 Über **Bearbeiten** änderst du Name, Typ, Papierbreite und Kassenlade jederzeit; bei Netzwerkdruckern auch IP-Adresse und Port. Mit dem Schalter **Drucker aktiv** nimmst du einen Drucker vorübergehend aus dem Betrieb: Deaktivierte Drucker bekommen keine Bons und lassen sich nicht mehr zuordnen.
@@ -164,7 +239,7 @@ Die Seite funktioniert auch auf dem Telefon – praktisch, um am Festtag kurz na
 
 **Agent entfernen** löscht den Agent mit allen seinen Druckern aus deiner Organisation; Zuordnungen in Standorten, Bon-Workflows, Kassen und Produkten werden gelöst. Der Agent auf dem PC kann danach nicht mehr drucken.
 
-Soll derselbe PC später wieder drucken, musst du dort nichts löschen oder neu starten: Der laufende Agent merkt, dass er entfernt wurde, und zeigt von selbst einen **neuen Code** – im Protokoll und auf `http://localhost:8080`. Den gibst du wie oben ein. Ein in der Geräteliste **gesperrter** Agent koppelt sich dagegen nicht neu: Er wartet, prüft alle 60 Sekunden, ob die Sperre aufgehoben wurde, und verbindet sich dann wieder.
+Soll derselbe PC später wieder drucken, musst du dort nichts löschen oder neu starten: Der laufende Agent merkt, dass er entfernt wurde, und zeigt von selbst einen **neuen Code** – im Fenster, im Protokoll und auf seiner Statusseite. Den gibst du wie oben ein. Ein in der Geräteliste **gesperrter** Agent koppelt sich dagegen nicht neu: Er wartet, prüft alle 60 Sekunden, ob die Sperre aufgehoben wurde, und verbindet sich dann wieder.
 
 ## Vorlagen
 
@@ -204,7 +279,11 @@ Mit **Speichern** übernimmst du die Einstellungen einer Bon-Art.
 
 ## Wenn etwas nicht klappt
 
-**Der Agent erscheint nach der Code-Eingabe nicht oder bleibt Offline.** Läuft der Agent noch? Beim Handstart beendet ihn das Schließen des Fensters – richte ihn als Dienst ein. Prüfe, ob der PC ins Internet kommt. Den Code findest du jederzeit auf der Statusseite `http://localhost:8080` des Agents oder in seinem Protokoll (Windows: `%ProgramData%\OpenEOS Printer Agent\logs\agent.log`, Linux: `journalctl -u openeos-printer`).
+**Der Agent erscheint nach der Code-Eingabe nicht oder bleibt Offline.** Schau ins Fenster des Agents: Steht dort *Agent läuft nicht*, klicke auf **Dienst starten**; steht dort *Keine Verbindung*, kommt der PC nicht ins Internet. Den Code zeigt das Fenster, solange der Agent nicht verbunden ist. Ohne Fenster findest du ihn auf der Statusseite `http://localhost:8080` oder im Protokoll (Windows: `%ProgramData%\OpenEOS Printer Agent\logs\agent.log`, Linux: `journalctl -u openeos-printer`).
+
+**Der Agent ist abends Offline, morgens wieder da.** Fast immer ist der Laptop eingeschlafen – siehe [Laptop und Ruhezustand](#laptop-und-ruhezustand).
+
+**Das Fenster sagt „Agent antwortet nicht“, obwohl der Dienst läuft.** Ein anderes Programm belegt wahrscheinlich Port 8080. Klicke auf **Dienst neu starten**; hilft das nicht, schau mit **Protokolle** in `agent.log`, und stelle bei Bedarf in der Konfiguration einen anderen Port ein (`local_server.port`).
 
 **USB-Drucker wird unter Linux nicht gefunden oder druckt nicht.** Meist fehlen die Rechte. `install.sh` legt dafür udev-Regeln für die gängigen Hersteller an; ohne passende Regel sieht der Agent den Drucker höchstens als Kennung, kann aber nicht drucken. `lsusb` zeigt, ob der Drucker überhaupt da ist und welche Kennung er hat. Fehlt sein Hersteller in der Regel, ergänzt du ihn – wie, steht unter [USB-Rechte unter Linux](./selbst-betreiben/drucker.md#usb-rechte-unter-linux).
 

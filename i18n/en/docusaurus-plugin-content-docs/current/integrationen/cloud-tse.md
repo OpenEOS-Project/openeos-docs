@@ -36,12 +36,12 @@ On a [self-hosted installation](../selbst-betreiben/intro.md) without a contract
 - **internet** at the tills. If the TSE fails, you keep selling (see [Outage](#ausfall)),
 - the German **tax number** or **VAT ID** and the **address** of your organization ([tax details](../organisation.md#steuerangaben)). They go into every cash point closing. We do not ask for them when you register: if they are missing, the **payment dialog** asks for them when you buy the event (see [Details at your first purchase](../veranstaltungen.md#pflichtangaben)), otherwise the Cloud TSE page before setup.
 
-## Automatically when you buy an event {/* #automatisch */}
+## Add it when you buy an event {/* #automatisch */}
 
-Usually you do not have to do anything: if you activate an event in the operating mode **All features** (paid, on invoice or waived by support), OpenEOS switches the **Cloud TSE** integration on by itself. The payment dialog says *Includes the cloud TSE for cash – set up automatically*, and afterwards the **Cloud TSE** page says *Switched on automatically when you bought “…”*. The TSE itself is set up for the first event day (see [Setup](#einrichtung)) – right away if the event is already running.
+You add the cloud TSE explicitly when you buy an event: in the operating mode **All features** the payment dialog asks *With cloud TSE (legally compliant cash)?* – **No, without cloud TSE** is preselected. Only with **Yes, with cloud TSE** does OpenEOS switch the **Cloud TSE** integration on by itself on activation (paid, on invoice or waived by support); afterwards the **Cloud TSE** page says *Switched on automatically when you bought “…”*. Without a yes there is no TSE and no surcharge – your tills take card and online payments, but no cash. The TSE itself is set up for the first event day (see [Setup](#einrichtung)) – right away if the event is already running.
 
-- **All features (existing):** the payment dialog asks *With cloud TSE (legally compliant cash)?* With **Yes** your operating mode becomes **All features** on activation and the TSE follows automatically. With **No** nothing changes.
-- **Cashless:** you can switch to **All features** at any time. If a paid event is coming up, OpenEOS also switches the integration on by itself (see [Operating modes](../betriebsarten.md#alle-funktionen)).
+- **All features (existing):** the same question. With **Yes** your operating mode becomes **All features** on activation and the TSE follows automatically. With **No** nothing changes.
+- **Cashless:** you can switch to **All features** at any time. If an event you bought **with the cloud TSE** is coming up, OpenEOS switches the integration on by itself (see [Operating modes](../betriebsarten.md#alle-funktionen)).
 - **Orders only** and organizations outside Germany do not get a TSE.
 
 **Cost:** the cloud TSE is currently **included** in the event price – there is no surcharge.

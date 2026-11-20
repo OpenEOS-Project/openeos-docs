@@ -60,7 +60,7 @@ Under **Tax details** you enter the **Official name** (if it differs from the or
 
 ### Operating mode {/* #betriebsart */}
 
-Under **Operating mode** you choose how your organization works: **Orders only**, **Cashless** or **All features** (admins only). Below it you see the history of all switches and – in Germany with “Orders only” and “Cashless” – the button for the manufacturer's certificate. Everything about it is under [Operating modes](./betriebsarten.md).
+Under **Operating mode** you choose how your organization works: **Orders only**, **Cashless** or **All features** (admins only). Below it you see the history of all switches and – in Germany with “Orders only”, “Cashless” and “All features” without an active TSE – the button for the manufacturer's certificate. Everything about it is under [Operating modes](./betriebsarten.md).
 
 ### Assistant
 

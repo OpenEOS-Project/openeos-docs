@@ -87,9 +87,9 @@ organization's country:
 You set the country only once. You choose the operating mode under
 **Settings → Organization → Operating mode**. As the operator of your own
 installation, you are responsible for whether your till may record cash
-without a TSE in Germany. If you switch to **Orders only** or **Cashless** in
-Germany, you cannot go back to **All features** without a configured Cloud
-TSE. More under [Operating modes](../betriebsarten.md#selbst-betreiben).
+without a TSE in Germany. If you pick an operating mode in Germany without a
+configured Cloud TSE, the existing status ends: you can still choose **All
+features**, but the till then only accepts cash with a Cloud TSE. More under [Operating modes](../betriebsarten.md#selbst-betreiben).
 
 ## The first event
 

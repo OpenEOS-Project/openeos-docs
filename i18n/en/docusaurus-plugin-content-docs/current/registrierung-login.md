@@ -28,7 +28,7 @@ Enter your **first name** and **last name**. These details appear later on invoi
 
 Under **Organization name** enter your club, promoter or business. Your events, products and tills run under this name. It appears on invoices and receipts and can be changed at any time.
 
-Also choose the **country** of your organization (required). Germany, Austria and Switzerland are at the top of the list. The country decides which [operating modes](./betriebsarten.md) you can choose – in Germany, for example, whether cash can be recorded. You set the country once; afterwards only our support can change it. More under [Operating modes: country of the organization](./betriebsarten.md#land).
+Also choose the **country** of your organization (required). Germany, Austria and Switzerland are at the top of the list. The country decides which till rules apply to the [operating modes](./betriebsarten.md) – in Germany, for example, that cash can only be recorded with a TSE. You set the country once; afterwards only our support can change it. More under [Operating modes: country of the organization](./betriebsarten.md#land).
 
 ![Registration step 3 – Organization](/img/screens/en/reg-step3.png)
 

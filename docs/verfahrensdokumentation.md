@@ -65,7 +65,7 @@ Alle Geräte sind Eingabegeräte **einer** Kasse mit **einer** TSE (AEAO zu § 1
 
 ### 4. Betriebsart {/* #betriebsart */}
 
-Der Verein arbeitet in der Betriebsart: ☐ **Nur Bons** · ☐ **Bargeldlos** · ☐ **Alle Funktionen** (mit Cloud-TSE). Seit: [Datum]. Der Verlauf der Betriebsarten aus OpenEOS liegt als Anlage bei.
+Der Verein arbeitet in der Betriebsart: ☐ **Nur Bons** · ☐ **Bargeldlos** · ☐ **Alle Funktionen ohne aktive TSE** (Karte und online, Bargeld gesperrt) · ☐ **Alle Funktionen** (mit Cloud-TSE). Seit: [Datum]. Der Verlauf der Betriebsarten aus OpenEOS liegt als Anlage bei.
 
 *Streiche die Absätze, die nicht zutreffen.*
 
@@ -74,13 +74,17 @@ Der Verein arbeitet in der Betriebsart: ☐ **Nur Bons** · ☐ **Bargeldlos** �
 **Bargeldlos.** OpenEOS nimmt nur bargeldlose Zahlungen an; eine TSE wird nicht eingesetzt. Grundlage: Das System kann keine baren Zahlungsvorgänge vor Ort erfassen (BMF-FAQ; AEAO zu § 146a Nr. 1.2). Die Herstellerbescheinigung liegt bei. Es gilt:
 
 - **Positivliste der Zahlarten:** Karte über [SumUp-Kartenleser / externes Terminal], Online-Zahlung über [SumUp Online / Google Pay / Apple Pay]. Andere Zahlarten weist OpenEOS serverseitig ab.
-- **Technische Sperre:** Bargeld lässt sich in der Organisation nicht einschalten; „Alle Funktionen“ ist in Deutschland nur mit aktiver Cloud-TSE möglich. Die Betriebsart ändern dürfen nur Admins der Organisation ([Namen]); jeder Wechsel wird mit Zeit und Person protokolliert.
+- **Technische Sperre:** Bargeld lässt sich ohne aktive Cloud-TSE in keiner Betriebsart einschalten; der Server prüft das bei jeder Barzahlung. Die Betriebsart ändern dürfen nur Admins der Organisation ([Namen]); jeder Wechsel wird mit Zeit und Person protokolliert.
 - **Keine Wertmarken, Gutscheine, Guthabenkarten oder Kundenkonten** als Zahlung, weder in OpenEOS noch am selben Stand außerhalb von OpenEOS.
 - **Trennung von anderen Kassen:** Die OpenEOS-Kasse hat eine eigene Kassen-ID. Bons und Bestellungen werden nicht an Kassen mit Bargeld übergeben, dort nicht nachbezahlt und nicht erstattet, und umgekehrt. Weitere Kassen beim Fest: [keine / Beschreibung].
 - **Abgleich mit den Abrechnungen** des Zahlungsdienstleisters: [wöchentlich / nach jeder Veranstaltung] durch [Name], anhand des Bestellexports mit Zahlungs- und Erstattungsreferenz.
 - **Erstattungen** nur auf das ursprüngliche Zahlungsmittel, keine Barerstattung.
 
 **Alle Funktionen (mit Cloud-TSE).** OpenEOS nimmt Bargeld, Karte und Online-Zahlungen an. Jeder Vorgang wird mit der Cloud-TSE abgesichert, auch Online-Zahlungen, Bestellungen vor dem Küchenbon, Kassenbuch, Kellnerabrechnungen, Verkauf, Annahme und Rücktausch von Wertmarken (Abschnitt 13) und Trainingsbuchungen. Bargeld ist ohne aktive TSE technisch gesperrt.
+
+**Alle Funktionen ohne aktive TSE.** OpenEOS nimmt nur Karte und Online-Zahlungen an; Bargeld und Wertmarken sind technisch gesperrt, bis die Cloud-TSE aktiv ist. Bis dahin gelten die Punkte unter „Bargeldlos“ entsprechend. Die Herstellerbescheinigung für den Zeitraum ohne aktive TSE liegt bei. Ab der Aktivierung der TSE am [Datum] gilt der Absatz „Alle Funktionen (mit Cloud-TSE)“.
+
+**Testmodus.** Testzahlungen im Testmodus („Bar (Test)“, „Karte (Test)“) sind Simulationen ohne Geld: Sie öffnen keine Kassenlade, stehen nicht im Kassenbuch und nicht im DSFinV-K-Export und werden mit den Testbestellungen beim Aktivieren der Veranstaltung gelöscht.
 
 ### 5. Pfand {/* #pfand */}
 

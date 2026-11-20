@@ -60,7 +60,7 @@ Unter **Steuerangaben** trägst du **Offizieller Name** (nur wenn er vom Namen d
 
 ### Betriebsart {/* #betriebsart */}
 
-Unter **Betriebsart** wählst du, wie deine Organisation arbeitet: **Nur Bons**, **Bargeldlos** oder **Alle Funktionen** (nur Admins). Darunter stehen der Verlauf aller Wechsel und – in Deutschland bei „Nur Bons“ und „Bargeldlos“ – der Knopf für die Herstellerbescheinigung. Alles dazu unter [Betriebsarten](./betriebsarten.md).
+Unter **Betriebsart** wählst du, wie deine Organisation arbeitet: **Nur Bons**, **Bargeldlos** oder **Alle Funktionen** (nur Admins). Darunter stehen der Verlauf aller Wechsel und – in Deutschland bei „Nur Bons“, „Bargeldlos“ und „Alle Funktionen“ ohne aktive TSE – der Knopf für die Herstellerbescheinigung. Alles dazu unter [Betriebsarten](./betriebsarten.md).
 
 ### Assistent
 

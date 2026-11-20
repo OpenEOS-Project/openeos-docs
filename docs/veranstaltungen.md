@@ -105,7 +105,7 @@ OpenEOS wird **pro Veranstaltungstag** abgerechnet, nicht pro Bestellung und nic
 
 Änderst du das Datum, ändert sich der Betrag mit.
 
-In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. OpenEOS richtet sie nach dem Freischalten automatisch ein. Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet – außer du hast im Folgemonat schon eine bezahlte Veranstaltung, dann bleibt sie aktiv (siehe [Laufzeit der Cloud-TSE](./integrationen/cloud-tse.md#laufzeit)).
+In Deutschland ist die [Cloud-TSE](./integrationen/cloud-tse.md#automatisch) für Bargeld (Betriebsart **Alle Funktionen**) derzeit **inklusive** – es gibt nur diesen einen Preis. Du nimmst sie beim Kauf ausdrücklich dazu (*Mit Cloud-TSE?* – vorausgewählt ist „Nein“); dann richtet OpenEOS sie nach dem Freischalten automatisch ein. Die TSE läuft für den Monat deiner Veranstaltung und wird zum Monatsende automatisch abgemeldet – außer du hast im Folgemonat schon eine bezahlte Veranstaltung, dann bleibt sie aktiv (siehe [Laufzeit der Cloud-TSE](./integrationen/cloud-tse.md#laufzeit)).
 
 <TseComingSoon />
 
@@ -126,9 +126,9 @@ Bereits freigeschaltete Veranstaltungen behalten die Tage und den Betrag, mit de
 
 ### Erst testen, dann bezahlen
 
-Eine neue Veranstaltung ist zunächst **Inaktiv**. Über **Testmodus** in der Liste (oder **Testen** in der Karte [Erste Schritte](./dashboard.md#erste-schritte) im Dashboard) schaltest du sie in den **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt.
+Eine neue Veranstaltung ist zunächst **Inaktiv**. Über **Testmodus** in der Liste (oder **Testen** in der Karte [Erste Schritte](./dashboard.md#erste-schritte) im Dashboard) schaltest du sie in den **Testmodus**. Darin ist alles benutzbar — Kassen, Anzeigen, Drucker, Auswertung — begrenzt auf **25 Bestellungen**. So probierst du den kompletten Ablauf aus, bevor Geld fließt. An der Kasse kassierst du dabei mit **Bar (Test)** und **Karte (Test)** – Simulationen ohne Geld, auch ohne TSE und ohne Kartenleser (siehe [Testzahlungen im Testmodus](./betriebsarten.md#testzahlungen)).
 
-Beim Freischalten werden die Testbestellungen gelöscht. Bis zum Verkaufsstart bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
+Beim Freischalten werden die Testbestellungen mit ihren Testzahlungen gelöscht. Bis zum Verkaufsstart bleibt die Veranstaltung dann **Geplant** und du kannst weiter testen (siehe [Phasen](#phasen)). **Deine Einrichtung bleibt**: Produkte, Kategorien, Preise, Standorte, Geräte und Drucker musst du nicht erneut anlegen.
 
 :::tip[Unser Rat für das erste Fest]
 Richte alles in Ruhe vorher ein und spiele im Testmodus einen Durchgang durch: eine Bestellung an der Kasse aufnehmen, auf der Küchenanzeige quittieren, einen Bon drucken. Dann weißt du am Festtag, dass die Kette steht.

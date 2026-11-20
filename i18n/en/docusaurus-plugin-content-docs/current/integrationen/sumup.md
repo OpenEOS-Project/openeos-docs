@@ -48,7 +48,7 @@ On the **SumUp** page:
 
 Once SumUp is active and a card reader is paired, the [till](../kasse.md#kartenzahlung) offers card payment at checkout. The amount appears on the reader, and the order counts as paid as soon as SumUp confirms the payment.
 
-While an event is in **test mode**, the till does not start real SumUp card payments: the payment method is greyed out at the till, and the SumUp page shows **Test mode active – no SumUp card payments**. Cash and manual card bookings keep working.
+While an event is in **test mode**, the till does not start real SumUp card payments: the till never calls the card reader, and the SumUp page shows **Test mode active – no SumUp card payments**. Instead of real payment methods you check out with **Cash (test)** and **Card (test)**, simulations without money (see [Test payments in test mode](../betriebsarten.md#testzahlungen)).
 
 ![Till with card payment](/img/screens/en/pos-card.png)
 

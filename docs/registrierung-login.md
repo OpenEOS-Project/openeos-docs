@@ -28,7 +28,7 @@ Trage **Vorname** und **Nachname** ein. Diese Angaben erscheinen später z. B. a
 
 Gib unter **Name der Organisation** den Namen deines Vereins, Veranstalters oder Betriebs an. Unter diesem Namen laufen später deine Veranstaltungen, Produkte und Kassen. Er erscheint auf Rechnungen und Bons und lässt sich jederzeit ändern.
 
-Wähle außerdem das **Land** deiner Organisation (Pflicht). Deutschland, Österreich und die Schweiz stehen oben in der Liste. Vom Land hängt ab, welche [Betriebsarten](./betriebsarten.md) du wählen kannst – in Deutschland zum Beispiel, ob Bargeld erfasst werden kann. Das Land legst du einmal fest; ändern kann es danach nur unser Support. Mehr unter [Betriebsarten: Land der Organisation](./betriebsarten.md#land).
+Wähle außerdem das **Land** deiner Organisation (Pflicht). Deutschland, Österreich und die Schweiz stehen oben in der Liste. Vom Land hängt ab, welche Kassenregeln für die [Betriebsarten](./betriebsarten.md) gelten – in Deutschland zum Beispiel, dass Bargeld nur mit TSE erfasst werden kann. Das Land legst du einmal fest; ändern kann es danach nur unser Support. Mehr unter [Betriebsarten: Land der Organisation](./betriebsarten.md#land).
 
 ![Registrierung Schritt 3 – Organisation](/img/screens/de/reg-step3.png)
 

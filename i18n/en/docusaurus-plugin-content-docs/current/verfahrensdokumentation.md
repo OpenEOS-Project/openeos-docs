@@ -69,7 +69,7 @@ All devices are input devices of **one** till with **one** TSE (AEAO zu § 146a 
 
 ### 4. Operating mode {/* #betriebsart */}
 
-The club works in the operating mode: ☐ **Orders only** · ☐ **Cashless** · ☐ **All features** (with Cloud TSE). Since: [date]. The history of operating modes from OpenEOS is attached.
+The club works in the operating mode: ☐ **Orders only** · ☐ **Cashless** · ☐ **All features without an active TSE** (card and online, cash locked) · ☐ **All features** (with Cloud TSE). Since: [date]. The history of operating modes from OpenEOS is attached.
 
 *Delete the paragraphs that do not apply.*
 
@@ -78,13 +78,17 @@ The club works in the operating mode: ☐ **Orders only** · ☐ **Cashless** ·
 **Cashless.** OpenEOS only accepts cashless payments; no TSE is used. Basis: the system cannot record cash payments on site (BMF FAQ; AEAO zu § 146a Nr. 1.2). The manufacturer's certificate is attached. The following applies:
 
 - **Positive list of payment methods:** card via [SumUp card reader / external terminal], online payment via [SumUp Online / Google Pay / Apple Pay]. OpenEOS rejects other payment methods on the server.
-- **Technical lock:** cash cannot be switched on in the organization; in Germany "All features" is only possible with an active Cloud TSE. Only admins of the organization ([names]) may change the operating mode; every change is logged with time and person.
+- **Technical lock:** without an active Cloud TSE, cash cannot be switched on in any operating mode; the server checks this on every cash payment. Only admins of the organization ([names]) may change the operating mode; every change is logged with time and person.
 - **No tokens, vouchers, credit cards or customer accounts** as payment, neither in OpenEOS nor at the same stand outside OpenEOS.
 - **Separation from other tills:** the OpenEOS till has its own till ID. Receipts and orders are not handed over to tills with cash, not paid there and not refunded there, and vice versa. Other tills at the festival: [none / description].
 - **Reconciliation with the statements** of the payment provider: [weekly / after every event] by [name], using the orders export with payment and refund reference.
 - **Refunds** only to the original means of payment, no cash refunds.
 
 **All features (with Cloud TSE).** OpenEOS accepts cash, card and online payments. Every transaction is secured with the Cloud TSE, including online payments, orders before the kitchen ticket, cash book, server settlements, selling, accepting and buying back tokens (section 13) and training transactions. Without an active TSE, cash is technically locked.
+
+**All features without an active TSE.** OpenEOS only accepts card and online payments; cash and tokens are technically locked until the Cloud TSE is active. Until then the points under "Cashless" apply accordingly. The manufacturer's certificate for the period without an active TSE is attached. From the activation of the TSE on [date], the paragraph "All features (with Cloud TSE)" applies.
+
+**Test mode.** Test payments in test mode ("Cash (test)", "Card (test)") are simulations without money: they open no cash drawer, are not in the cash book or the DSFinV-K export and are deleted together with the test orders when the event is activated.
 
 ### 5. Deposits {/* #pfand */}
 

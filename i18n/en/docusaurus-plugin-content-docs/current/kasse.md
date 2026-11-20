@@ -9,7 +9,7 @@ description: Open a table, order, send, check out — how the till works on the 
 This page covers the till itself — what your team does on the day. For how a device becomes a till, see [Connecting devices](./geraete.md); for how tables and the floor plan are set up, see [Tables](./tische.md).
 
 :::tip[Try it first]
-While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode – sales don't count and are deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – sales don't count. Real sales from … at …"; after the end it shows "Event ended – only settle open orders" (see [Phases](./veranstaltungen.md#phasen)).
+While the event is in **test mode** you can run through the whole thing: up to 25 orders cost nothing. The till then shows a slim warning strip below the header: "Test mode – sales don't count and are deleted on activation". It cannot be dismissed and stays in place on a phone while you scroll. You check out with **Cash (test)** and **Card (test)** – simulations without money, also without a TSE and without a card reader (see [Test payments in test mode](./betriebsarten.md#testzahlungen)). Activating the event deletes the test orders but keeps your setup. Until sales start the unlocked event is **Planned**: the till keeps booking test orders and shows "Test operation – sales don't count. Real sales from … at …"; after the end it shows "Event ended – only settle open orders" (see [Phases](./veranstaltungen.md#phasen)).
 :::
 
 ## How the till starts {/* #start */}
@@ -178,7 +178,7 @@ In the [Cashless](./betriebsarten.md#bargeldlos) operating mode **Cash** is gone
 
 With an assigned SumUp card reader, **Card** appears. Choose a **tip** (none, round up, fixed amounts or a custom amount) and tap **Start card payment**. The guest presents the card at the reader; the till waits for the confirmation. More under [SumUp](./integrationen/sumup.md).
 
-In test mode and while the event is **Planned**, the till does not address the reader: **Card** is greyed out with the hint "No real card payments in test mode". In the [Cashless](./betriebsarten.md#bargeldlos) operating mode the till then just records the card payment, like an external terminal, so you can still run through the flow.
+In test mode and while the event is **Planned**, the till never addresses the reader. Instead of **Cash** and **Card** it then offers **Cash (test)** and **Card (test)**: **Cash (test)** has the change calculator but never opens the cash drawer; **Card (test)** books a simulated card payment without a reader and without a charge. The receipt shows „Bar (Test – kein Geld)“ or „Karte (Test – kein Geld)“ (test – no money). More under [Test payments in test mode](./betriebsarten.md#testzahlungen).
 
 :::warning[Card charged, order not saved]
 The money is taken first, then the order is saved. If saving fails (for instance because the connection drops), the till shows "Card payment successful, order not saved" with the transaction number. Tap **Save again** — and **do not charge the card again**. The notice stays even after a reload.

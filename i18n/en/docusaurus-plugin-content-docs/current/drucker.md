@@ -197,7 +197,7 @@ What the agent **cannot** prevent – Windows still puts the laptop to sleep whe
 
 For the event, set once in Windows under **Control Panel → Power Options → Choose what closing the lid does** "When I close the lid: **Do nothing**" (plugged in) – the **Power options** button in the Sleep tab takes you there – and keep the laptop plugged in. With some Wi-Fi and network adapters it also helps to open **Device Manager → Network adapters → Properties → Power Management** and untick "Allow the computer to turn off this device to save power".
 
-If the laptop did fall asleep, the agent reconnects right after waking up and prints whatever is waiting.
+If the laptop did fall asleep or the network was gone for a while, the tickets wait in OpenEOS. After waking up the agent reconnects within a few seconds and prints everything that came in meanwhile – each ticket exactly once.
 
 On Linux the agent only keeps the computer awake if `install.sh` found a desktop (or `power.keep_awake: true` is in the configuration); closing the lid still puts the laptop to sleep there, too.
 

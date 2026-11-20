@@ -199,7 +199,7 @@ Was der Agent **nicht** verhindern kann – Windows schickt den Laptop trotzdem 
 
 Für das Fest stellst du deshalb einmal in Windows unter **Systemsteuerung → Energieoptionen → Auswählen, was beim Zuklappen des Computers geschehen soll** „Beim Zuklappen: **Nichts unternehmen**“ (mit Netzteil) ein – der Knopf **Energieoptionen** im Reiter Ruhezustand führt direkt dorthin – und lässt den Laptop am Netzteil. Bei manchen WLAN- und Netzwerkadaptern lohnt außerdem: **Geräte-Manager → Netzwerkadapter → Eigenschaften → Energieverwaltung**, Haken bei „Computer kann das Gerät ausschalten, um Energie zu sparen“ entfernen.
 
-Ist der Laptop doch eingeschlafen, verbindet sich der Agent nach dem Aufwachen sofort neu und druckt, was inzwischen wartet.
+Ist der Laptop doch eingeschlafen oder war das Netz kurz weg, warten die Bons in OpenEOS. Nach dem Aufwachen verbindet sich der Agent nach wenigen Sekunden neu und druckt alles, was inzwischen gekommen ist – jeden Bon genau einmal.
 
 Unter Linux hält der Agent den Rechner nur wach, wenn `install.sh` einen Desktop gefunden hat (oder `power.keep_awake: true` in der Konfiguration steht); das Zuklappen schickt den Laptop auch dort trotzdem schlafen.
 

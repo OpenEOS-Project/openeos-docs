@@ -1,7 +1,7 @@
 ---
 sidebar_position: 12
 title: Printers
-description: Install and connect the printer agent, adopt discovered printers, test print, assign printers to stations and tills.
+description: Install the printer agent (Windows installer, Linux), its window and tray icon, connect it, adopt discovered printers, test print, assign printers to stations and tills.
 ---
 
 # Printers
@@ -30,43 +30,69 @@ All files are on the [download page](https://github.com/OpenEOS-Project/openeos-
 
 | File | For |
 |---|---|
-| `openeos-printer-agent-windows-x64.exe` | Windows 10/11, 64-bit |
-| `openeos-printer-agent-linux-x64` | Linux PC, 64-bit |
+| `openeos-printer-agent-setup-windows-x64.exe` | **Windows 10/11 – recommended:** installer with background service and program window |
+| `openeos-printer-agent-windows-x64.exe` | Windows, just the service without a window (for admins, command line) |
+| `openeos-printer-agent-linux-x64` | Linux PC, 64-bit (Ubuntu 22.04 or later, Debian 11 or later) |
 | `openeos-printer-agent-linux-arm64` | Raspberry Pi 4/5 with 64-bit Raspberry Pi OS |
+| `openeos-printer-agent-ui-linux-x64` / `-arm64` | Program window for Linux computers with a screen (Ubuntu 22.04+, Debian 12+, Raspberry Pi OS Bookworm with desktop) |
 
 ### Windows
 
-1. Put the EXE somewhere permanent, e.g. `C:\Program Files\OpenEOS\`.
-2. Double-click it. A window opens and shows the **eight-digit code** — enter it in OpenEOS (next section). Then close the window with `Ctrl+C`.
-3. So that the agent starts with Windows from now on, install it as a service: open a Command Prompt **as Administrator** (right-click → *Run as administrator*) and run:
-   ```
-   cd "C:\Program Files\OpenEOS"
-   openeos-printer-agent-windows-x64.exe install-service
-   ```
-   The **OpenEOS Printer Agent** service now runs in the background and keeps the pairing from step 2. If you have not entered the code yet, the service shows it in `%ProgramData%\OpenEOS Printer Agent\logs\agent.log` and on `http://localhost:8080`.
+1. Download `openeos-printer-agent-setup-windows-x64.exe` and double-click it. Windows asks whether the app may make changes – confirm with **Yes**.
 
-On Windows, USB printers are connected through the **Windows printer setup**: set up the printer in Windows — with the vendor driver or the built-in **Generic / Text Only** driver on the USB port — and print a Windows test page. The agent then reports it as a Windows printer.
+   :::note["Windows protected your PC"]
+   The installer is not digitally signed yet. If this message appears, click **More info** and then **Run anyway**.
+   :::
 
-### Linux and Raspberry Pi
+2. Keep **Start in the notification area at login** ticked – then the window sits at the bottom right of the taskbar after every restart. A desktop shortcut is optional.
 
-`install.sh` from the source checkout sets the agent up as a service (auto-start, USB permissions), either with the ready-made binary or from source:
+   ![Installer: select additional tasks](/img/screens/en/printer-agent-setup-tasks.png)
+
+3. **Server:** if you use app.openeos.de, leave the address as it is. Only if you host OpenEOS yourself, enter the address of your API here (see [Printer agent for your own installation](./selbst-betreiben/drucker.md)).
+
+   ![Installer: server address](/img/screens/de/printer-agent-setup-server.png)
+
+4. Click **Install** and finally **Finish**. The installer sets up the background service **OpenEOS Printer Agent** (it starts with Windows and prints even when nobody is logged in) and opens the **OpenEOS Printer Agent** window.
+
+For an update just run the new installer: pairing, server and printers are kept. You can uninstall the agent under **Settings → Apps**; pairing and settings stay in `%ProgramData%\OpenEOS Printer Agent` even then, so a later reinstall needs no new code.
+
+On Windows, USB printers are connected through the **Windows printer setup**: set up the printer in Windows – with the vendor driver or the built-in **Generic / Text Only** driver on the USB port – and print a Windows test page. The agent then reports it as a Windows printer.
+
+### Linux PC or laptop with a screen
+
+`install.sh` from the source checkout sets the agent up as a service (auto-start, USB permissions). If it finds a desktop, it also installs the program window with an entry in the application menu and auto-start in the notification area. Put both files in the same folder:
 
 ```bash
 git clone https://github.com/OpenEOS-Project/openeos-printer-agent.git
 cd openeos-printer-agent
-sudo ./install.sh --binary ./openeos-printer-agent-linux-x64   # or -linux-arm64 on the Pi
-# without --binary: install from source (Python ≥ 3.11)
+# download openeos-printer-agent-linux-x64 and openeos-printer-agent-ui-linux-x64 into this folder
+sudo ./install.sh --binary ./openeos-printer-agent-linux-x64
 ```
 
-Afterwards read the code from the log (`sudo journalctl -u openeos-printer -f`) or in the browser at `http://<ip-of-the-pc>:8080`. For a quick try the binary alone is enough — `chmod +x`, start it, done.
+Afterwards **OpenEOS Printer Agent** is in the application menu; from the next login on it starts by itself in the notification area. The window is the same as on Windows:
 
-**Raspberry Pi:** on a Pi 4 or 5 with a 64-bit OS use the `arm64` file. On a Pi 3 or a 32-bit OS install from source (`install.sh` without `--binary`).
+![The printer agent window on Linux (Xfce)](/img/screens/en/printer-agent-linux.png)
+
+On GNOME the notification area needs the *AppIndicator* extension (included in Ubuntu).
+
+### Raspberry Pi without a screen
+
+On a Pi that only sits next to the printer, the agent runs as a service without a window – exactly as before:
+
+```bash
+git clone https://github.com/OpenEOS-Project/openeos-printer-agent.git
+cd openeos-printer-agent
+sudo ./install.sh --binary ./openeos-printer-agent-linux-arm64
+# without --binary: install from source (Python ≥ 3.11), e.g. on a Pi 3 or a 32-bit OS
+```
+
+Afterwards read the code from the log (`sudo journalctl -u openeos-printer -f`) or in the browser of another device on the same network at `http://<ip-of-the-pi>:8080`. On a Pi 4 or 5 with a 64-bit OS use the `arm64` file.
 
 ### The code
 
-On its first start the agent registers with OpenEOS and shows an **eight-digit code** — in the window, in the log and on its status page `http://localhost:8080`. It then waits until you have entered the code. A code is valid for 15 minutes; after that the agent shows a new one by itself.
+On its first start the agent registers with OpenEOS and shows an **eight-digit code** – large in the window, and also in the log and on its status page. It then waits until you have entered the code. A code is valid for 15 minutes; after that the agent shows a new one by itself.
 
-![The agent's status page with the pairing code](/img/screens/de/printer-agent-status-page.png)
+![The printer agent window shows the code](/img/screens/en/printer-agent-window-code.png)
 
 :::note[Why a code]
 Nobody has to sign in on the printer PC. The agent shows a number, you enter it in your account — that ties the agent to your organization, and nobody else can print through it.
@@ -82,9 +108,11 @@ As long as no agent is connected, the **Printers** tab shows the steps and the d
 2. Enter the code and click **Find device**.
 3. Give it a name, such as "Printer PC kitchen", and click **Link**.
 
-![The "Connect printer agent" dialog with the code entered](/img/screens/de/printers-connect-agent.png)
+![The "Connect printer agent" dialog with the code entered](/img/screens/en/printers-connect-agent.png)
 
-A few seconds later the agent appears in the list with its host name, operating system and version, reports **Online** and immediately scans for printers. It needs no code on the next start.
+A few seconds later the agent appears in the list with its host name, operating system and version, reports **Online** and immediately scans for printers. At the same time the window on the PC switches to the overview by itself: **Connected**, with the name of your organization. It needs no code on the next start.
+
+![Two connected agents: a Windows laptop and a Raspberry Pi, each with an adopted printer](/img/screens/en/printers-agent-online.png)
 
 ## Discovered printers
 
@@ -128,6 +156,51 @@ Next to every adopted printer there is **Test print**. OpenEOS sends a short tic
 
 ![Adopted printer online, test print sent](/img/screens/de/printers-test-print.png)
 
+You can start the same test print right at the PC: in the agent's window via **Test print** next to the printer. It comes out without a detour through the server – handy during setup to check which printer is which.
+
+## The printer agent window
+
+The window shows at a glance whether everything on the PC works:
+
+![Printer agent window: connected, one printer online](/img/screens/en/printer-agent-window-connected.png)
+
+- **Top right** the state: *Connected* (green), *Not connected yet* with the code (blue), *Printer problem* (orange) or *No connection* / *Agent not running* (red).
+- **Connection:** organization, server and whether the background service is running.
+- **Printers:** all adopted printers with connection, *Online*/*Offline*, pending, printed and failed jobs since the start, when it last printed – and a **Test print** button for each printer.
+- **Errors and warnings:** the latest messages of the past 24 hours, such as "printer not reachable".
+- **Sleep:** whether the agent is currently keeping the computer awake (see below).
+- At the bottom **Open OpenEOS** (the web app, Printers tab), **Status page**, **Logs** (opens the folder with the log files) and **Restart service** – the small arrow next to it also offers *Start service* and *Stop service*.
+
+The window only displays. Printing is done by the **background service** – also when the window is closed or nobody is logged in. If the service is stopped, the window says so clearly and offers **Start service**:
+
+![Window: the background service is stopped](/img/screens/en/printer-agent-window-stopped.png)
+
+### Notification area
+
+Closing the window with the **X** only hides it in the **notification area** at the bottom right next to the clock. The icon shows the state with a coloured dot – green, orange, blue or red as above. A click on the icon opens the window again, a right click shows the menu:
+
+![Notification area with the printer agent icon and its menu](/img/screens/en/printer-agent-tray.png)
+
+**Quit** only closes the window program; printing continues. If you do not see the icon, it is hidden behind the small arrow **^** – drag it from there into the taskbar to always keep it in view. If the connection drops or a printer fails, the agent also shows a short notification there.
+
+## Laptops and sleep
+
+A laptop that goes to sleep does not print. On Windows the agent therefore prevents the computer from falling asleep **by itself** while it is connected to OpenEOS; the screen may still turn off. The window shows this in the **Sleep** tab:
+
+![Sleep tab in the agent window](/img/screens/en/printer-agent-window-power.png)
+
+What the agent **cannot** prevent – Windows still puts the laptop to sleep when
+
+- you **close the lid** and the power options say "Sleep" for closing the lid,
+- someone presses the **power button** or chooses **Start → Sleep**,
+- the **battery** runs empty.
+
+For the event, set once in Windows under **Control Panel → Power Options → Choose what closing the lid does** "When I close the lid: **Do nothing**" (plugged in) – the **Power options** button in the Sleep tab takes you there – and keep the laptop plugged in. With some Wi-Fi and network adapters it also helps to open **Device Manager → Network adapters → Properties → Power Management** and untick "Allow the computer to turn off this device to save power".
+
+If the laptop did fall asleep or the network was gone for a while, the tickets wait in OpenEOS. After waking up the agent reconnects within a few seconds and prints everything that came in meanwhile – each ticket exactly once.
+
+On Linux the agent only keeps the computer awake if `install.sh` found a desktop (or `power.keep_awake: true` is in the configuration); closing the lid still puts the laptop to sleep there, too.
+
 ## Edit and remove printers
 
 **Edit** lets you change name, type, paper width and cash drawer at any time; for network printers also IP address and port. The **Printer active** switch takes a printer out of service temporarily: deactivated printers receive no tickets and can no longer be assigned.
@@ -164,7 +237,7 @@ The page works on a phone as well — handy for a quick check on the day that ev
 
 **Remove agent** deletes the agent with all its printers from your organization; assignments in stations, print workflows, tills and products are cleared. The agent on the PC can no longer print afterwards.
 
-If the same PC is to print again later, there is nothing to delete or restart: the running agent notices that it was removed and shows a **new code** on its own — in the log and on `http://localhost:8080`. Enter it as above. An agent **blocked** in the device list does not pair again: it waits, checks every 60 seconds whether it has been unblocked, and then reconnects.
+If the same PC is to print again later, there is nothing to delete or restart: the running agent notices that it was removed and shows a **new code** on its own — in the window, in the log and on its status page. Enter it as above. An agent **blocked** in the device list does not pair again: it waits, checks every 60 seconds whether it has been unblocked, and then reconnects.
 
 ## Templates
 
@@ -204,7 +277,11 @@ While a ticket type is switched off, it reads **These tickets are not printed au
 
 ## If something does not work
 
-**The agent does not appear after entering the code, or stays offline.** Is the agent still running? When started by hand, closing the window stops it — set it up as a service. Check that the PC can reach the internet. You can always find the code on the agent's status page `http://localhost:8080` or in its log (Windows: `%ProgramData%\OpenEOS Printer Agent\logs\agent.log`, Linux: `journalctl -u openeos-printer`).
+**The agent does not appear after entering the code, or stays offline.** Look at the agent's window: if it says *Agent not running*, click **Start service**; if it says *No connection*, the PC cannot reach the internet. The window shows the code as long as the agent is not connected. Without the window you find it on the status page `http://localhost:8080` or in the log (Windows: `%ProgramData%\OpenEOS Printer Agent\logs\agent.log`, Linux: `journalctl -u openeos-printer`).
+
+**The agent is offline in the evening and back in the morning.** Almost always the laptop fell asleep – see [Laptops and sleep](#laptops-and-sleep).
+
+**The window says "Agent not responding" although the service is running.** Another program probably uses port 8080. Click **Restart service**; if that does not help, check `agent.log` via **Logs** and set another port in the configuration if needed (`local_server.port`).
 
 **A USB printer is not found or does not print on Linux.** Usually permissions are missing. `install.sh` installs udev rules for the common vendors; without a matching rule the agent sees the printer as an ID at best but cannot print. `lsusb` shows whether the printer is there at all and which ID it has. If its vendor is missing from the rule, add it — how is described under [USB permissions on Linux](./selbst-betreiben/drucker.md#usb-permissions-on-linux).
 

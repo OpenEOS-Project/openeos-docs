@@ -26,7 +26,10 @@ ending **with** `/api`:
 # Linux, service via install.sh
 sudo ./install.sh --server-url https://pos.my-club.org/api --binary ./openeos-printer-agent-linux-x64
 
-# Windows, service (Command Prompt as Administrator)
+# Windows, installer: enter the address in the "Server" step – or install silently:
+openeos-printer-agent-setup-windows-x64.exe /VERYSILENT /SERVER=https://pos.my-club.org/api
+
+# Windows, service only (Command Prompt as Administrator)
 openeos-printer-agent-windows-x64.exe install-service --server-url https://pos.my-club.org/api
 ```
 
@@ -61,9 +64,14 @@ permanently — including over WebSocket, see
 The directories can be moved with the environment variables
 `OPENEOS_PRINTER_DATA_DIR` (data) and `OPENEOS_PRINTER_LOG_DIR` (log). An
 update only replaces the program file; pairing and configuration are kept
-(Windows: `remove-service`, replace the file, `install-service`; Linux: copy
-the binary to `/opt/openeos-printer-agent/` and
-`systemctl restart openeos-printer`).
+(Windows with installer: run the new installer; Windows without installer:
+`remove-service`, replace the file, `install-service`; Linux: copy the
+binary to `/opt/openeos-printer-agent/` and `systemctl restart openeos-printer`).
+
+Without the window you control the service with `openeos-printer-agent start-service`,
+`stop-service` and `restart-service` (Windows service or systemd unit). The
+installer lets logged-in users start and stop the service; on Linux a
+polkit rule from `install.sh` does the same when a desktop was found.
 
 ## The configuration
 
@@ -78,6 +86,12 @@ logging:
 
 local_server:
   port: 8080                    # status page and code
+  # allow_remote_ui: false      # /api/ui/* (window: state, test print) only from this computer
+
+power:
+  keep_awake: true              # stay awake while connected (default: Windows yes, Linux no)
+
+# web_app_url: "https://pos.my-club.org"   # for "Open OpenEOS"; default: derived from server_url
 
 discovery:
   interval_s: 300               # automatic scan every 5 minutes

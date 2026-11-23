@@ -21,6 +21,7 @@ Du findest den Bereich über **Veranstaltungen** in der Seitenleiste.
    - **Name** (Pflicht) – z. B. „Sommerfest 2026“
    - **Beschreibung** – optionaler Zusatztext
    - **Startdatum** und **Enddatum** – ohne Enddatum dauert die Veranstaltung einen Tag
+   - **Übernehmen aus** – welche Karte die neue Veranstaltung mitbekommt, siehe [unten](#uebernehmen)
    - **Kassiermodus** – sofort kassieren oder auf Deckel buchen, siehe [unten](#kassiermodus)
    - **Echter Verkauf beginnt vorher** – wie viele Stunden vor dem ersten Tag echt verkauft wird, siehe [Verkaufsstart am Vorabend](#verkaufsstart)
    - **Tische** – ob und wie die Kassen nach einem Tisch fragen, siehe [unten](#tische)
@@ -30,6 +31,28 @@ Du findest den Bereich über **Veranstaltungen** in der Seitenleiste.
 ![Veranstaltung erstellen](/img/screens/de/events-dialog.png)
 
 Alle Angaben lassen sich später über **Bearbeiten** ändern. Änderst du Kassiermodus oder Tische während des Betriebs, übernehmen die Kassen die neue Einstellung von selbst.
+
+### Karte aus einer anderen Veranstaltung {/* #uebernehmen */}
+
+Beim Anlegen übernimmt OpenEOS **Kategorien, Produkte und Standorte** aus einer früheren Veranstaltung – voreingestellt ist die mit dem jüngsten Beginn. Im Dialog steht zum Beispiel *Karte, Kategorien und Standorte werden aus „Sommerfest 2026“ übernommen*; daneben wählst du eine andere Veranstaltung oder **Nichts übernehmen**.
+
+Mit dabei sind Preise, Steuersätze, Pfand, Optionen, Bilder, Favoriten, Druckeinstellungen und die Zuordnung zu den Standorten samt deren Druckern. Der **Bestand** beginnt bei 0. Bestellungen, Zahlungen und Auswertungen bleiben bei der alten Veranstaltung. Nachträglich einzelne Produkte holst du auf der Seite [Produkte](./produkte.md#aus-veranstaltung).
+
+### Veranstaltung duplizieren {/* #duplizieren */}
+
+Für ein Fest, das sich wiederholt, wählst du im Menü **⋯** der Zeile **Veranstaltung duplizieren** und gibst **Name** und **Zeitraum** der neuen Veranstaltung an.
+
+![Veranstaltung duplizieren](/img/screens/de/events-duplicate.png)
+
+| Kommt mit | Bleibt bei der alten Veranstaltung |
+|---|---|
+| Kategorien, Produkte und Standorte | Bestand (außer du wählst **Bestand der Produkte übernehmen**) |
+| Einstellungen: Kassiermodus, Tische und Bereiche, Vorlauf, Vorverkauf, Shop – die Öffnungstage um denselben Abstand verschoben | Freischaltung und Bezahlung, TSE |
+| Schichtpläne als **Entwurf**, Aufgaben und Schichten verschoben | Anmeldungen und Helfer |
+| Wertmarken nur für diese Veranstaltung | Verkaufte und eingelöste Marken |
+| Bedienungen nur für diese Veranstaltung – mit **neuen PINs** | Bestellungen, Zahlungen, Abrechnungen, Inventuren |
+
+Gibt es Bedienungen, zeigt OpenEOS ihre neuen PINs direkt danach **einmalig** an; von dort druckst du den PIN-Zettel. Schichtpläne und Bedienungen kommen nur mit, wenn du das jeweilige Recht hast. Liegt ein Öffnungstag des Shops nicht im neuen Zeitraum, fällt er weg – prüfe die Zeiten, wenn das neue Fest länger oder kürzer ist.
 
 ## Kassiermodus {/* #kassiermodus */}
 
@@ -215,6 +238,7 @@ Neu angelegte Veranstaltungen sind zunächst **Inaktiv**. In der Tabelle findest
 | **Aktivieren** | macht die Veranstaltung aktiv; ist sie noch nicht bezahlt, öffnet sich zuerst der Dialog **Veranstaltung aktivieren** (siehe [Bezahlen](#bezahlen)) |
 | **Testmodus** | schaltet eine inaktive Veranstaltung in den Testmodus |
 | **Deaktivieren** | setzt die Veranstaltung wieder auf **Inaktiv** |
+| **Veranstaltung duplizieren** | legt eine Kopie für einen neuen Termin an, siehe [oben](#duplizieren) |
 | **Löschen** | löscht die Veranstaltung nach einer Rückfrage |
 
 Aktiviere die gewünschte Veranstaltung – sie erscheint dann mit ihrer Phase (zum Beispiel **Geplant** oder **Aktiv**) und wird oben links in der Seitenleiste als aktive Veranstaltung angezeigt. Erst danach lassen sich Produkte pflegen und Bestellungen erfassen.

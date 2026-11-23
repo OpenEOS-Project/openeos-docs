@@ -154,7 +154,7 @@
         "x-api-token-scope": "read"
       },
       "patch": {
-        "description": "Ändert Name, Kontaktdaten oder Einstellungen (z. B. bargeldloser Modus). Scope `settings:write`, nur für Administratoren; geänderte Einstellungen gehen sofort an die Kassen.",
+        "description": "Ändert Name, Kontaktdaten oder Einstellungen. In `settings` sind nur diese Abschnitte änderbar: `currency`, `timezone`, `locale`, `description`, `taxId`, `legalName`, `taxNumber`, `vatId`, `vatExempt`, `address`, `contact`, `receipt`, `legal`, `pos`, `pfand`, `onlineOrdering`, `orderFlow`, `sumup`, `waiters`, `eventReminders`. Unverändert mitgeschickte andere Abschnitte werden ignoriert; Änderungen daran (z. B. `assistant`, `integrations`, Betriebsart) → 400 ORGANIZATION_SETTING_NOT_UPDATABLE, dafür gibt es eigene Endpunkte. Drucker und Vorlagen in `orderFlow` müssen zur Organisation gehören (400 ORGANIZATION_SETTINGS_INVALID). Die Betriebsart und das Land ändern sich nur über ihre eigenen Endpunkte. Scope `settings:write`, nur für Administratoren; geänderte Einstellungen gehen sofort an die Kassen.",
         "operationId": "updateOrganization",
         "parameters": [
           {
@@ -353,7 +353,7 @@
     },
     "/api/organizations/{organizationId}/devices/online/ids": {
       "get": {
-        "description": "Liefert die IDs der Geräte, die gerade per WebSocket mit der API verbunden sind. Scope `read`.",
+        "description": "Liefert die IDs der Geräte, die gerade per WebSocket mit der API verbunden sind. Scope `read`, für Administratoren und Mitglieder mit Geräterecht.",
         "operationId": "listOnlineDeviceIds",
         "parameters": [
           {
@@ -525,11 +525,11 @@
             "name": "limit",
             "required": false,
             "in": "query",
-            "description": "Anzahl pro Seite (max. 100)",
+            "description": "Einträge je Seite (höchstens 100)",
             "schema": {
               "minimum": 1,
-              "maximum": 500,
-              "default": 20,
+              "maximum": 100,
+              "default": 50,
               "example": 50,
               "type": "number"
             }
@@ -673,6 +673,16 @@
             "description": "Nur Bestellungen dieses Geräts",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "isTest",
+            "required": false,
+            "in": "query",
+            "description": "Testbestellungen (Veranstaltung im Testmodus): `true` nur Testbestellungen, `false` nur echte; ohne Angabe beide",
+            "schema": {
+              "example": false,
+              "type": "boolean"
             }
           }
         ],
@@ -876,11 +886,11 @@
             "name": "limit",
             "required": false,
             "in": "query",
-            "description": "Anzahl pro Seite (max. 100)",
+            "description": "Einträge je Seite (höchstens 100)",
             "schema": {
               "minimum": 1,
-              "maximum": 500,
-              "default": 20,
+              "maximum": 100,
+              "default": 50,
               "example": 50,
               "type": "number"
             }
@@ -1025,6 +1035,16 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "isTest",
+            "required": false,
+            "in": "query",
+            "description": "Testbestellungen (Veranstaltung im Testmodus): `true` nur Testbestellungen, `false` nur echte; ohne Angabe beide",
+            "schema": {
+              "example": false,
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -1041,6 +1061,205 @@
           }
         ],
         "summary": "Bestellstatistik",
+        "tags": [
+          "Bestellungen (nur lesen)"
+        ],
+        "x-api-token-scope": "read"
+      }
+    },
+    "/api/organizations/{organizationId}/orders/export": {
+      "get": {
+        "description": "Alle Bestellungen, die zu den Filtern passen (dieselben wie bei `GET …/orders`, ohne Seiten), als CSV-Download für Excel: Semikolon, UTF-8 mit BOM, Dezimalkomma, Datum und Uhrzeit in deutscher Zeit (Europe/Berlin), älteste zuerst. `variant=orders` liefert eine Zeile je Bestellung, `variant=items` eine Zeile je Position. In der Betriebsart „Nur Bons“ (`orders_only`) nur Mengen, keine Beträge. Gastname und Anmerkungen stehen nur, solange sie gespeichert sind (sie werden 30 Tage nach der Veranstaltung gelöscht); Telefonnummern nie. Scope `read`; der Token-Besitzer braucht Admin oder das Recht „Bestellungen“.",
+        "operationId": "exportOrders",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventId",
+            "required": false,
+            "in": "query",
+            "description": "Filter nach Event-ID",
+            "schema": {
+              "example": "550e8400-e29b-41d4-a716-446655440000",
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "Filter nach Bestellstatus",
+            "schema": {
+              "example": "open",
+              "type": "string",
+              "enum": [
+                "open",
+                "in_progress",
+                "ready",
+                "completed",
+                "cancelled"
+              ]
+            }
+          },
+          {
+            "name": "paymentStatus",
+            "required": false,
+            "in": "query",
+            "description": "Filter nach Zahlungsstatus",
+            "schema": {
+              "example": "pending",
+              "type": "string",
+              "enum": [
+                "unpaid",
+                "partly_paid",
+                "paid",
+                "refunded"
+              ]
+            }
+          },
+          {
+            "name": "source",
+            "required": false,
+            "in": "query",
+            "description": "Filter nach Bestellquelle",
+            "schema": {
+              "example": "pos",
+              "type": "string",
+              "enum": [
+                "pos",
+                "online",
+                "qr_order"
+              ]
+            }
+          },
+          {
+            "name": "fulfillmentType",
+            "required": false,
+            "in": "query",
+            "description": "Filter nach Erfüllungstyp",
+            "schema": {
+              "example": "counter_pickup",
+              "type": "string",
+              "enum": [
+                "table_service",
+                "counter_pickup"
+              ]
+            }
+          },
+          {
+            "name": "dateFrom",
+            "required": false,
+            "in": "query",
+            "description": "Startdatum für Filterung",
+            "schema": {
+              "example": "2024-01-01T00:00:00.000Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "dateTo",
+            "required": false,
+            "in": "query",
+            "description": "Enddatum für Filterung",
+            "schema": {
+              "example": "2024-12-31T23:59:59.000Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "q",
+            "required": false,
+            "in": "query",
+            "description": "Suche: Bestell-/Tagesnummer, Tisch, Name oder Produkt",
+            "schema": {
+              "example": "Burger",
+              "type": "string"
+            }
+          },
+          {
+            "name": "displayStatus",
+            "required": false,
+            "in": "query",
+            "description": "Status wie in der Kasse (kommagetrennt): in_kitchen, ready, completed, unpaid, cancelled, partly_refunded, refunded",
+            "schema": {
+              "example": "unpaid,refunded",
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentMethod",
+            "required": false,
+            "in": "query",
+            "description": "Zahlart (kommagetrennt): cash, card, sumup, discount",
+            "schema": {
+              "example": "cash,sumup",
+              "type": "string"
+            }
+          },
+          {
+            "name": "deviceId",
+            "required": false,
+            "in": "query",
+            "description": "Nur Bestellungen dieses Geräts",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isTest",
+            "required": false,
+            "in": "query",
+            "description": "Testbestellungen (Veranstaltung im Testmodus): `true` nur Testbestellungen, `false` nur echte; ohne Angabe beide",
+            "schema": {
+              "example": false,
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "variant",
+            "required": false,
+            "in": "query",
+            "description": "`orders`: eine Zeile je Bestellung; `items`: eine Zeile je Position",
+            "schema": {
+              "default": "orders",
+              "type": "string",
+              "enum": [
+                "orders",
+                "items"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "CSV-Datei als Download (`Content-Disposition: attachment; filename=\"bestellungen_JJJJ-MM-TT.csv\"`)",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Bestellnummer;Tagesnummer;Datum;Uhrzeit;Veranstaltung;Status;Kanal;Ausgabe;Tisch;Gerät;Artikel;Zahlart;Zwischensumme;Rabatt;Pfand;Trinkgeld;Gesamt;Bezahlt;Erstattet;Enthaltene MwSt;Testbestellung;Gastname;Anmerkung\r\nSF-0042;42;11.07.2026;20:04:58;Sommerfest;Abgeschlossen;Kasse;Am Tisch;A03;Kasse Festzelt 1;3;Bar;12,50;0,00;2,00;0,00;14,50;14,50;0,00;1,49;Nein;;\r\n"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Bestellungen als CSV exportieren",
         "tags": [
           "Bestellungen (nur lesen)"
         ],
@@ -1171,6 +1390,42 @@
           "Pfand"
         ],
         "x-api-token-scope": "catalog:write"
+      }
+    },
+    "/api/organizations/{organizationId}/pfand-types/legacy-balance": {
+      "get": {
+        "description": "Offener Altsaldo: Pfand, das vor der Umstellung (2026-11) ohne Umsatzsteuer verkauft und noch nicht zurückgegeben wurde. Rückgaben werden zuerst dagegen gebucht (ohne Steuerminderung, DSFinV-K Schlüssel 5). Beträge in Euro; `applies` = false bei steuerbefreiten Organisationen. Scope `read`.",
+        "operationId": "getPfandLegacyBalance",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Pfand-Altsaldo",
+        "tags": [
+          "Pfand"
+        ],
+        "x-api-token-scope": "read"
       }
     },
     "/api/organizations/{organizationId}/pfand-types/{pfandTypeId}": {
@@ -1763,7 +2018,11 @@
                         "orderingMode": "immediate",
                         "enableOnlineOrdering": false,
                         "enableTableService": true,
-                        "enableTakeaway": true
+                        "enableTakeaway": true,
+                        "sales": {
+                          "earlyStartHours": 12,
+                          "presale": false
+                        }
                       },
                       "billingStatus": "paid",
                       "paidAt": "2026-06-01T09:12:44.000Z",
@@ -1775,8 +2034,23 @@
                       "invoiceHostedUrl": null,
                       "invoicePdfUrl": null,
                       "unlockedStartDate": "2026-07-10T00:00:00.000Z",
+                      "salesStartedAt": "2026-07-09T16:00:00.000Z",
                       "createdAt": "2026-05-20T18:30:12.000Z",
-                      "updatedAt": "2026-07-10T15:58:03.000Z"
+                      "updatedAt": "2026-07-10T15:58:03.000Z",
+                      "phase": "active",
+                      "realSalesFrom": "2026-07-09T16:00:00.000Z",
+                      "realSalesUntil": "2026-07-13T10:00:00.000Z",
+                      "presaleEnabled": false,
+                      "phaseDetails": {
+                        "datePhases": true,
+                        "businessDaysFrom": "2026-07-10T04:00:00.000Z",
+                        "businessDaysUntil": "2026-07-13T04:00:00.000Z",
+                        "earlyStartHours": 12,
+                        "graceHours": 6,
+                        "earlyStartLimitedByMonth": false,
+                        "presaleActive": false,
+                        "datesLocked": true
+                      }
                     },
                     {
                       "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
@@ -1801,8 +2075,23 @@
                       "invoiceHostedUrl": null,
                       "invoicePdfUrl": null,
                       "unlockedStartDate": "2025-12-06T00:00:00.000Z",
+                      "salesStartedAt": "2026-07-09T16:00:00.000Z",
                       "createdAt": "2025-10-28T19:02:40.000Z",
-                      "updatedAt": "2025-12-07T21:10:00.000Z"
+                      "updatedAt": "2025-12-07T21:10:00.000Z",
+                      "phase": "inactive",
+                      "realSalesFrom": "2026-07-09T16:00:00.000Z",
+                      "realSalesUntil": "2026-07-13T10:00:00.000Z",
+                      "presaleEnabled": false,
+                      "phaseDetails": {
+                        "datePhases": true,
+                        "businessDaysFrom": "2026-07-10T04:00:00.000Z",
+                        "businessDaysUntil": "2026-07-13T04:00:00.000Z",
+                        "earlyStartHours": 12,
+                        "graceHours": 6,
+                        "earlyStartLimitedByMonth": false,
+                        "presaleActive": false,
+                        "datesLocked": true
+                      }
                     }
                   ],
                   "meta": {
@@ -1915,7 +2204,7 @@
     },
     "/api/organizations/{organizationId}/events/{eventId}": {
       "get": {
-        "description": "Eine Veranstaltung mit Einstellungen und Abrechnungsstand. Scope `read`.",
+        "description": "Eine Veranstaltung mit Einstellungen und Abrechnungsstand. Dazu die abgeleitete Phase: `phase` (`inactive`, `test`, `planned` = freigeschaltet, vor dem Verkaufsfenster – Kasse bucht Testbestellungen –, `active`, `ended` = keine neuen Bestellungen), `realSalesFrom`/`realSalesUntil` (Verkaufsfenster samt Vorlauf und Kulanz), `presaleEnabled` und `phaseDetails`. Scope `read`.",
         "operationId": "getEvent",
         "parameters": [
           {
@@ -1959,7 +2248,7 @@
         "x-api-token-scope": "read"
       },
       "patch": {
-        "description": "Ändert Name, Beschreibung, Zeitraum oder Einstellungen. Scope `events:write`; der Status (aktiv, Test) lässt sich hier nicht setzen.",
+        "description": "Ändert Name, Beschreibung, Zeitraum oder Einstellungen. Scope `events:write`; der Status (aktiv, Test) lässt sich hier nicht setzen. Freigeschaltete Veranstaltungen lassen sich nur verschieben, solange sie „Geplant“ sind (`phase: planned`); danach ist der Beginn fest und das Ende kann nur noch vorgezogen werden (400 `EVENT_DATES_LOCKED`). `settings.sales`: `earlyStartHours` (Vorlauf vor dem ersten Geschäftstag, 0 bis `EVENT_EARLY_START_MAX_HOURS`, Standard `EVENT_EARLY_START_HOURS`) und `presale` (Vorverkauf im Shop schon vor dem Verkaufsfenster).",
         "operationId": "updateEvent",
         "parameters": [
           {
@@ -3135,6 +3424,124 @@
         "x-api-token-scope": "read"
       }
     },
+    "/api/organizations/{organizationId}/reports/vat": {
+      "get": {
+        "description": "Je Steuersatz: Warenwert, Pfand aus Verkäufen, Pfand-Rückgaben (negativ), Trinkgeld an den Verein, Brutto, enthaltene Umsatzsteuer und Netto im Zeitraum, optional je Veranstaltung. Pfand gehört zum Entgelt und steht beim Satz seiner Pfandart; Buchungen von vor 2026-11 ohne Satz und Rückgaben gegen den Pfand-Altsaldo stehen bei 0 %. Trinkgeld an den Verein (TrinkgeldAG) steht anteilig beim Satz der Ware, Trinkgeld angestellter Bedienungen (TrinkgeldAN) nur nachrichtlich in `employeeTips`. Steuerbefreite Organisationen (`vatExempt: true`): alles bei 0 % ohne Steuer. Scope `read` und Modulrecht Auswertung.",
+        "operationId": "getVatReport",
+        "parameters": [
+          {
+            "name": "eventId",
+            "required": false,
+            "in": "query",
+            "description": "Filter nach Event-ID",
+            "schema": {
+              "example": "550e8400-e29b-41d4-a716-446655440000",
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "required": false,
+            "in": "query",
+            "description": "Startdatum für den Bericht",
+            "schema": {
+              "example": "2024-01-01T00:00:00.000Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "required": false,
+            "in": "query",
+            "description": "Enddatum für den Bericht",
+            "schema": {
+              "example": "2024-12-31T23:59:59.000Z",
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupBy",
+            "required": false,
+            "in": "query",
+            "description": "Gruppierung der Berichtsdaten",
+            "schema": {
+              "example": "day",
+              "type": "string",
+              "enum": [
+                "day",
+                "week",
+                "month",
+                "category",
+                "product",
+                "payment_method"
+              ]
+            }
+          },
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Umsatz und Umsatzsteuer je Steuersatz",
+        "tags": [
+          "Berichte"
+        ],
+        "x-api-token-scope": "read"
+      }
+    },
+    "/api/organizations/{organizationId}/reports/small-business": {
+      "get": {
+        "description": "Umsatz in OpenEOS im laufenden und im Vorjahr (Zahlungen ohne Test, abzüglich Erstattungen und Pfand-Auszahlungen, Kalenderjahr Europe/Berlin) gegen die Grenzen des § 19 UStG (25.000 € Vorjahr, 100.000 € laufendes Jahr). `warning`: `approaching` ab 80 % der 100.000 €, `exceeded` darüber bzw. Vorjahr über 25.000 €. Nur ein Anhaltspunkt: Umsätze außerhalb von OpenEOS fehlen. Scope `read` und Modulrecht Auswertung.",
+        "operationId": "getSmallBusinessStatus",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Kleinunternehmer-Grenzen (§ 19 UStG)",
+        "tags": [
+          "Berichte"
+        ],
+        "x-api-token-scope": "read"
+      }
+    },
     "/api/organizations/{organizationId}/reports/products": {
       "get": {
         "description": "Verkaufte Menge und Umsatz je Produkt im Zeitraum, optional je Veranstaltung. Scope `read` und Modulrecht Auswertung.",
@@ -3916,7 +4323,8 @@
                 "channels",
                 "categories",
                 "devices",
-                "inventory"
+                "inventory",
+                "vat"
               ],
               "type": "string"
             }
@@ -5225,6 +5633,303 @@
         "x-api-token-scope": "events:write"
       }
     },
+    "/api/organizations/{organizationId}/token-types": {
+      "get": {
+        "description": "Alle Markentypen der Organisation; mit `eventId` die der Veranstaltung und die organisationsweiten. `inUse` = schon verkauft oder angenommen (Nennwert/Art fest). Scope `read`.",
+        "operationId": "listTokenTypes",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventId",
+            "required": false,
+            "in": "query",
+            "description": "Nur Typen dieser Veranstaltung und die organisationsweiten",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Markentypen (Wertmarken) auflisten",
+        "tags": [
+          "Wertmarken"
+        ],
+        "x-api-token-scope": "read"
+      },
+      "post": {
+        "description": "Mehrzweckgutschein (Standard) oder Einzweckgutschein (nur mit genau einem Steuersatz: 400 TOKEN_SINGLE_PURPOSE_MIXED_RATES, als Kleinunternehmer 400 TOKEN_SINGLE_PURPOSE_SMALL_BUSINESS). Kategorien/Artikel nur mit Veranstaltung (400 TOKEN_RESTRICTION_REQUIRES_EVENT). Recht „Produkte“, Scope `catalog:write`.",
+        "operationId": "createTokenType",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTokenTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Markentyp anlegen",
+        "tags": [
+          "Wertmarken"
+        ],
+        "x-api-token-scope": "catalog:write"
+      }
+    },
+    "/api/organizations/{organizationId}/token-types/{tokenTypeId}": {
+      "patch": {
+        "description": "Sind schon Marken im Umlauf, bleiben Nennwert, Art, Satz und Artikelauswahl eines Einzweckgutscheins fest (409 TOKEN_TYPE_LOCKED). Name, Farbe, Aktiv, Rücktausch und Reihenfolge gehen immer.",
+        "operationId": "updateTokenType",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "tokenTypeId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Markentyps",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTokenTypeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Markentyp ändern",
+        "tags": [
+          "Wertmarken"
+        ],
+        "x-api-token-scope": "catalog:write"
+      }
+    },
+    "/api/organizations/{organizationId}/reports/tokens": {
+      "get": {
+        "description": "Je Markentyp und je Veranstaltung, ohne Testbuchungen. Verkaufte Marken sind kein Umsatz (Mehrzweckgutschein: Umsatz entsteht bei der Einlösung). Recht „Berichte“ oder „Produkte“.",
+        "operationId": "getTokenReport",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventId",
+            "required": false,
+            "in": "query",
+            "description": "Nur diese Veranstaltung",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "required": false,
+            "in": "query",
+            "description": "Ab diesem Tag (Datum der Buchung)",
+            "schema": {
+              "example": "2026-11-01",
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "required": false,
+            "in": "query",
+            "description": "Bis einschließlich diesem Tag",
+            "schema": {
+              "example": "2026-11-30",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Wertmarken: verkauft, eingelöst, zurückgegeben, Rücktausch, im Umlauf",
+        "tags": [
+          "Wertmarken"
+        ],
+        "x-api-token-scope": "read"
+      }
+    },
+    "/api/organizations/{organizationId}/token-transactions": {
+      "get": {
+        "description": "Neueste zuerst (höchstens `limit`, Standard 50).",
+        "operationId": "listTokenTransactions",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "eventId",
+            "required": false,
+            "in": "query",
+            "description": "Nur diese Veranstaltung",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "required": false,
+            "in": "query",
+            "description": "Ab diesem Tag (Datum der Buchung)",
+            "schema": {
+              "example": "2026-11-01",
+              "type": "string"
+            }
+          },
+          {
+            "name": "endDate",
+            "required": false,
+            "in": "query",
+            "description": "Bis einschließlich diesem Tag",
+            "schema": {
+              "example": "2026-11-30",
+              "type": "string"
+            }
+          },
+          {
+            "name": "kind",
+            "required": false,
+            "in": "query",
+            "description": "Nur Verkauf (`sale`) oder Rücktausch (`buyback`)",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "sale",
+                "buyback"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Höchstens so viele (1–200)",
+            "schema": {
+              "default": 50,
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Verkäufe und Rücktausch von Wertmarken",
+        "tags": [
+          "Wertmarken"
+        ],
+        "x-api-token-scope": "read"
+      }
+    },
     "/api/organizations/{organizationId}/assistant/icon-suggestions": {
       "post": {
         "description": "Schlägt zu Produktnamen passende Icons aus @openeos/pos-icons vor: Stufe 1 ohne Modell (Namen und Suchbegriffe der Icons), Stufe 2 fragt bei unklaren Namen das Klassifikationsmodell. `icon` ist die Referenz `pos-icon:<id>`. Scope `read`; `404 AI_DISABLED` ohne Anbieter, `403 ASSISTANT_DISABLED` ohne Opt-in der Organisation.",
@@ -5270,11 +5975,702 @@
         ],
         "x-api-token-scope": "read"
       }
+    },
+    "/api/organizations/{organizationId}/webhooks/info": {
+      "get": {
+        "description": "Ob Webhooks auf diesem Server eingeschaltet sind, Grenzen (Endpunkte je Organisation, Versuche, Aufbewahrung des Protokolls), die aktuelle `apiVersion` der Nutzlast und alle abonnierbaren Ereignisse mit Beschreibung. Scope `webhooks:read`.",
+        "operationId": "getWebhookInfo",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Webhook-Einstellungen des Servers",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:read"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks": {
+      "get": {
+        "description": "Alle Webhook-Endpunkte der Organisation, neueste zuerst, mit Zustand der letzten Zustellung und Fehlerserie. Vom Signatur-Geheimnis ist nur `secretHint` sichtbar. Scope `webhooks:read`, Besitzer Administrator.",
+        "operationId": "listWebhooks",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Webhook-Endpunkte",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": "0d2f6a4e-5b8c-4d0e-9a51-3c7e2b9f1a10",
+                      "organizationId": "b1e7c9d2-4f3a-4e8b-9c6d-2a5f8e1b7c30",
+                      "url": "https://example.org/openeos/webhook",
+                      "description": "Buchhaltung",
+                      "eventTypes": [
+                        "order.paid",
+                        "refund.created"
+                      ],
+                      "active": true,
+                      "includeGuestData": false,
+                      "includeTestOrders": false,
+                      "secretHint": "whsec_3fA9…",
+                      "previousSecretExpiresAt": null,
+                      "consecutiveFailures": 0,
+                      "failingSince": null,
+                      "disabledReason": null,
+                      "disabledAt": null,
+                      "lastDeliveryAt": "2026-11-10T18:04:13.511Z",
+                      "lastDeliveryStatus": "succeeded",
+                      "lastSuccessAt": "2026-11-10T18:04:13.511Z",
+                      "createdBy": {
+                        "id": "7c4e…",
+                        "firstName": "Alex",
+                        "lastName": "Muster"
+                      },
+                      "createdAt": "2026-11-10T17:55:02.000Z",
+                      "updatedAt": "2026-11-10T18:04:13.511Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Webhooks auflisten",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:read"
+      },
+      "post": {
+        "description": "Legt einen Endpunkt an. Die Adresse muss mit `https://` beginnen und auf öffentliche Adressen zeigen (`400 WEBHOOK_URL_INVALID`, `params.reason`). Das Signatur-Geheimnis (`data.secret`, `whsec_…`) kommt genau einmal in dieser Antwort. Höchstens 10 Endpunkte je Organisation (`409 WEBHOOK_LIMIT_REACHED`). Scope `webhooks:write`.",
+        "operationId": "createWebhook",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Angelegt; `data.secret` ist das Geheimnis",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": "0d2f6a4e-5b8c-4d0e-9a51-3c7e2b9f1a10",
+                    "organizationId": "b1e7c9d2-4f3a-4e8b-9c6d-2a5f8e1b7c30",
+                    "url": "https://example.org/openeos/webhook",
+                    "description": "Buchhaltung",
+                    "eventTypes": [
+                      "order.paid",
+                      "refund.created"
+                    ],
+                    "active": true,
+                    "includeGuestData": false,
+                    "includeTestOrders": false,
+                    "secretHint": "whsec_3fA9…",
+                    "previousSecretExpiresAt": null,
+                    "consecutiveFailures": 0,
+                    "failingSince": null,
+                    "disabledReason": null,
+                    "disabledAt": null,
+                    "lastDeliveryAt": null,
+                    "lastDeliveryStatus": null,
+                    "lastSuccessAt": null,
+                    "createdBy": {
+                      "id": "7c4e…",
+                      "firstName": "Alex",
+                      "lastName": "Muster"
+                    },
+                    "createdAt": "2026-11-10T17:55:02.000Z",
+                    "updatedAt": "2026-11-10T18:04:13.511Z",
+                    "secret": "whsec_3fA9pQ…"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "WEBHOOK_URL_INVALID, WEBHOOK_EVENT_TYPE_INVALID"
+          },
+          "409": {
+            "description": "WEBHOOK_LIMIT_REACHED"
+          },
+          "503": {
+            "description": "WEBHOOKS_DISABLED"
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Webhook anlegen",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:write"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks/{webhookId}": {
+      "get": {
+        "description": "Ein Endpunkt der Organisation. Scope `webhooks:read`.",
+        "operationId": "getWebhook",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Webhook abrufen",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:read"
+      },
+      "delete": {
+        "description": "Löscht den Endpunkt samt Zustellprotokoll. Nur mit Anmeldung (JWT) als Administrator — nicht per Token.",
+        "operationId": "deleteWebhook",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          }
+        ],
+        "summary": "Webhook löschen",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "patch": {
+        "description": "Ändert Adresse, Beschreibung, Ereignisse oder Schalter. `active: true` schaltet einen automatisch abgeschalteten Endpunkt wieder ein und setzt die Fehlerserie zurück; `active: false` beendet offene Zustellungen. Scope `webhooks:write`.",
+        "operationId": "updateWebhook",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Webhook ändern",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:write"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks/{webhookId}/rotate-secret": {
+      "post": {
+        "description": "Erzeugt ein neues Geheimnis (`data.secret`, genau einmal). Das alte signiert noch 24 Stunden mit (zweites `v1=` in `OpenEOS-Signature`, bis `previousSecretExpiresAt`), damit du den Empfänger ohne Ausfall umstellen kannst. Scope `webhooks:write`.",
+        "operationId": "rotateWebhookSecret",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Signatur-Geheimnis erneuern",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:write"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks/{webhookId}/test": {
+      "post": {
+        "description": "Sendet ein Ereignis `ping` (ein Versuch, auch an ausgeschaltete Endpunkte). Das Ergebnis steht nach wenigen Sekunden im Zustellprotokoll. Scope `webhooks:write`.",
+        "operationId": "testWebhook",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Zustellung angelegt",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": "5a0f3c1e-2d4b-4b7a-8e9f-1c2d3e4f5a6b",
+                    "webhookId": "0d2f6a4e-5b8c-4d0e-9a51-3c7e2b9f1a10",
+                    "eventId": "6f1c2b3a-4d5e-4f60-8a9b-0c1d2e3f4a5b",
+                    "eventType": "ping",
+                    "status": "pending",
+                    "attempts": 0,
+                    "maxAttempts": 1,
+                    "nextAttemptAt": null,
+                    "lastAttemptAt": null,
+                    "responseStatus": null,
+                    "durationMs": null,
+                    "error": null,
+                    "manual": true,
+                    "redeliveryOf": null,
+                    "createdAt": "2026-11-10T18:04:13.250Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Test senden",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:write"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks/{webhookId}/deliveries": {
+      "get": {
+        "description": "Zustellungen des Endpunkts, neueste zuerst, seitenweise (`page`, `limit` ≤ 100), optional nach `status` und `eventType` gefiltert. Das Protokoll wird nach 30 Tagen gelöscht. Scope `webhooks:read`.",
+        "operationId": "listWebhookDeliveries",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "Seite, beginnend bei 1",
+            "schema": {
+              "minimum": 1,
+              "default": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Einträge je Seite (höchstens 100)",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20,
+              "type": "number"
+            }
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "Nur Zustellungen in diesem Zustand",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "delivering",
+                "succeeded",
+                "failed"
+              ]
+            }
+          },
+          {
+            "name": "eventType",
+            "required": false,
+            "in": "query",
+            "description": "Nur Zustellungen dieses Ereignisses (auch `ping`)",
+            "schema": {
+              "example": "order.paid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Zustellungen",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": [
+                    {
+                      "id": "5a0f3c1e-2d4b-4b7a-8e9f-1c2d3e4f5a6b",
+                      "webhookId": "0d2f6a4e-5b8c-4d0e-9a51-3c7e2b9f1a10",
+                      "eventId": "6f1c2b3a-4d5e-4f60-8a9b-0c1d2e3f4a5b",
+                      "eventType": "order.paid",
+                      "status": "succeeded",
+                      "attempts": 1,
+                      "maxAttempts": 8,
+                      "nextAttemptAt": null,
+                      "lastAttemptAt": "2026-11-10T18:04:13.300Z",
+                      "responseStatus": 200,
+                      "durationMs": 211,
+                      "error": null,
+                      "manual": false,
+                      "redeliveryOf": null,
+                      "createdAt": "2026-11-10T18:04:13.250Z"
+                    }
+                  ],
+                  "meta": {
+                    "page": 1,
+                    "limit": 20,
+                    "total": 1,
+                    "totalPages": 1,
+                    "hasNext": false,
+                    "hasPrev": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Zustellprotokoll",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:read"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks/{webhookId}/deliveries/{deliveryId}": {
+      "get": {
+        "description": "Eine Zustellung mit dem gesendeten Inhalt (`payload`), den ersten 1 024 Zeichen der Antwort (`responseBody`) und allen Versuchen (`attemptLog`). Scope `webhooks:read`.",
+        "operationId": "getWebhookDelivery",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "deliveryId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Zustellung",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Zustellung abrufen",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:read"
+      }
+    },
+    "/api/organizations/{organizationId}/webhooks/{webhookId}/deliveries/{deliveryId}/redeliver": {
+      "post": {
+        "description": "Sendet eine Zustellung noch einmal (ein Versuch) — mit derselben Ereignis-ID und demselben Inhalt, damit der Empfänger Doppelte erkennt. Scope `webhooks:write`.",
+        "operationId": "redeliverWebhook",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Organisation",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "webhookId",
+            "required": true,
+            "in": "path",
+            "description": "ID des Webhooks",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          },
+          {
+            "name": "deliveryId",
+            "required": true,
+            "in": "path",
+            "description": "ID der Zustellung",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT-auth": []
+          },
+          {
+            "API-token": []
+          }
+        ],
+        "summary": "Erneut senden",
+        "tags": [
+          "Webhooks"
+        ],
+        "x-api-token-scope": "webhooks:write"
+      }
     }
   },
   "info": {
     "title": "OpenEOS API",
-    "description": "OpenEOS ist ein Kassen- und Bestellsystem für Vereinsfeste. Diese Referenz beschreibt die REST-API unter `https://api.openeos.de/api` (selbst gehostet: `https://<deine-api>/api`).\n\n## Zugang mit API-Token\n\nFür Skripte, Automatisierungen (z. B. Zapier) und KI-Agenten gibt es **API-Tokens je Organisation**. Dieselben Tokens öffnen den **MCP-Server** unter `https://api.openeos.de/mcp` (Streamable HTTP, außerhalb von `/api`) für Claude, Cursor und eigene Agenten — die Werkzeuge dort folgen denselben Scopes. Ein Token wirkt wie die Person, die ihn ausgestellt hat — beschränkt auf eine Organisation, auf die gewählten Scopes und auf die hier mit *API-token* markierten Endpunkte. Alles andere (Kasse, Zahlungen, Mitglieder, Abrechnung, Löschen, Freischaltung) bleibt der Anmeldung in der App vorbehalten.\n\n**Token anlegen:** In der Web-App unter *Einstellungen → Organisation → Zugänge* (Organisations-Admin) oder per `POST /api/organizations/{organizationId}/api-tokens` mit einer angemeldeten Sitzung. Der Token (`oeos_…`) wird genau einmal angezeigt; gespeichert wird nur ein Hash. Höchstens 20 aktive Tokens je Organisation.\n\n**Verwenden:** `Authorization: Bearer oeos_…` — derselbe Header wie für Sitzungs-JWTs. Welche Organisation gemeint ist, steht im Pfad; ein Token erreicht nur seine eigene (sonst `403 API_TOKEN_WRONG_ORGANIZATION`).\n\n### Scopes\n\n| Scope | Erlaubt |\n|---|---|\n| `read` | Organisation, Veranstaltungen, Kategorien, Produkte, Pfandarten, Tische, Stationen, Bon-Vorlagen, Drucker, Schichtpläne, Geräte, Berichte und Bestellungen lesen |\n| `catalog:write` | Kategorien, Produkte und Pfandarten anlegen und ändern |\n| `events:write` | Veranstaltungen und Produktionsstationen anlegen und ändern (keine Freischaltung) |\n| `tables:write` | Bereiche, Tische und Tischplan bearbeiten |\n| `staff:write` | Schichtpläne, Jobs, Schichten und Helfer-Anmeldungen bearbeiten |\n| `devices:write` | Bon-Vorlagen anlegen und ändern |\n| `settings:write` | Organisationseinstellungen ändern |\n\nSchreib-Scopes schließen `read` nicht ein. Jeder Endpunkt nennt den nötigen Scope als `x-api-token-scope`; fehlt er am Token, antwortet die API mit `403 API_TOKEN_SCOPE_MISSING`, bei nicht freigegebenen Endpunkten mit `403 API_TOKEN_NOT_ALLOWED`.\n\n### Grenzen\n\nJe Token:\n- 120 Aufrufe je Minute\n- 5000 Aufrufe je Tag\n\nDarüber hinaus `429 API_TOKEN_RATE_LIMITED` mit `Retry-After`. Zusätzlich gilt die allgemeine Grenze je IP-Adresse.\n\n### Fehler\n\nJede Fehlerantwort hat die Form `{ \"error\": { \"code\", \"reason\", \"message\", \"params\", \"details\", \"requestId\", \"timestamp\" } }`. `code` ist die allgemeine Klasse (`FORBIDDEN`, `NOT_FOUND`, …), `reason` der konkrete Fall (`API_TOKEN_SCOPE_MISSING`, `EVENT_NOT_FOUND`, …).\n\n## Was diese Referenz zeigt\n\nNur die Endpunkte, die ein API-Token erreichen kann, plus die Verwaltung der Tokens selbst (nur mit Anmeldung). Alle anderen Teile der API — Anmeldung und Sitzungen der Web-App, Kasse und Geräte-API (`/api/device-api/*`), Zahlungen, Mitglieder, Abrechnung, Admin — sind absichtlich nicht dokumentiert: Sie sind für die Apps von OpenEOS gedacht und keine stabile Schnittstelle für Integrationen. Wer OpenEOS selbst betreibt, findet die vollständige Beschreibung im Repository (`docs/openapi.json`) und außerhalb der Produktion unter `/docs`.\n\nZu jedem Endpunkt steht der nötige Scope (`x-api-token-scope`). Die Texte sind auf Deutsch; die Referenz ist für beide Sprachen der Doku-Seite dieselbe.",
+    "description": "OpenEOS ist ein Kassen- und Bestellsystem für Vereinsfeste. Diese Referenz beschreibt die REST-API unter `https://api.openeos.de/api` (selbst gehostet: `https://<deine-api>/api`).\n\n## Zugang mit API-Token\n\nFür Skripte, Automatisierungen (z. B. Zapier) und KI-Agenten gibt es **API-Tokens je Organisation**. Dieselben Tokens öffnen den **MCP-Server** unter `https://api.openeos.de/mcp` (Streamable HTTP, außerhalb von `/api`) für Claude, Cursor und eigene Agenten — die Werkzeuge dort folgen denselben Scopes. Ein Token wirkt wie die Person, die ihn ausgestellt hat — beschränkt auf eine Organisation, auf die gewählten Scopes und auf die hier mit *API-token* markierten Endpunkte. Alles andere (Kasse, Zahlungen, Mitglieder, Abrechnung, Löschen, Freischaltung) bleibt der Anmeldung in der App vorbehalten.\n\n**Token anlegen:** In der Web-App unter *Einstellungen → Organisation → Zugänge* (Organisations-Admin) oder per `POST /api/organizations/{organizationId}/api-tokens` mit einer angemeldeten Sitzung. Der Token (`oeos_…`) wird genau einmal angezeigt; gespeichert wird nur ein Hash. Höchstens 20 aktive Tokens je Organisation.\n\n**Verwenden:** `Authorization: Bearer oeos_…` — derselbe Header wie für Sitzungs-JWTs. Welche Organisation gemeint ist, steht im Pfad; ein Token erreicht nur seine eigene (sonst `403 API_TOKEN_WRONG_ORGANIZATION`).\n\n### Scopes\n\n| Scope | Erlaubt |\n|---|---|\n| `read` | Organisation, Veranstaltungen, Kategorien, Produkte, Pfandarten, Tische, Stationen, Bon-Vorlagen, Drucker, Schichtpläne, Geräte, Berichte und Bestellungen lesen |\n| `catalog:write` | Kategorien, Produkte und Pfandarten anlegen und ändern |\n| `events:write` | Veranstaltungen und Produktionsstationen anlegen und ändern (keine Freischaltung) |\n| `tables:write` | Bereiche, Tische und Tischplan bearbeiten |\n| `staff:write` | Schichtpläne, Jobs, Schichten und Helfer-Anmeldungen bearbeiten |\n| `devices:write` | Bon-Vorlagen anlegen und ändern |\n| `settings:write` | Organisationseinstellungen ändern |\n| `webhooks:read` | Webhooks und ihre Zustellungen lesen |\n| `webhooks:write` | Webhooks anlegen, ändern, testen und erneut senden (kein Löschen) |\n\nSchreib-Scopes schließen `read` nicht ein. Jeder Endpunkt nennt den nötigen Scope als `x-api-token-scope`; fehlt er am Token, antwortet die API mit `403 API_TOKEN_SCOPE_MISSING`, bei nicht freigegebenen Endpunkten mit `403 API_TOKEN_NOT_ALLOWED`.\n\n### Grenzen\n\nJe Token:\n- 120 Aufrufe je Minute\n- 5000 Aufrufe je Tag\n\nDarüber hinaus `429 API_TOKEN_RATE_LIMITED` mit `Retry-After`. Zusätzlich gilt die allgemeine Grenze je IP-Adresse.\n\n## Webhooks\n\nStatt regelmäßig abzufragen, kann OpenEOS Ereignisse (z. B. `order.paid`, `refund.created`, `event.phase_changed`) als signierten `POST` an deine HTTPS-Adresse senden — mit `OpenEOS-Signature` (HMAC-SHA256), Wiederholungen bis etwa 24 Stunden und Zustellprotokoll. Einrichten in der App unter *Einstellungen → Webhooks* oder über die Endpunkte unter *Webhooks* (Scopes `webhooks:read` und `webhooks:write`). Ereignisse, Inhalte und Prüfung der Signatur: https://docs.openeos.de/integrationen/webhooks\n\n### Fehler\n\nJede Fehlerantwort hat die Form `{ \"error\": { \"code\", \"reason\", \"message\", \"params\", \"details\", \"requestId\", \"timestamp\" } }`. `code` ist die allgemeine Klasse (`FORBIDDEN`, `NOT_FOUND`, …), `reason` der konkrete Fall (`API_TOKEN_SCOPE_MISSING`, `EVENT_NOT_FOUND`, …).\n\n## Was diese Referenz zeigt\n\nNur die Endpunkte, die ein API-Token erreichen kann, plus die Verwaltung der Tokens selbst und das Löschen von Webhooks (beides nur mit Anmeldung). Alle anderen Teile der API — Anmeldung und Sitzungen der Web-App, Kasse und Geräte-API (`/api/device-api/*`), Zahlungen, Mitglieder, Abrechnung, Admin — sind absichtlich nicht dokumentiert: Sie sind für die Apps von OpenEOS gedacht und keine stabile Schnittstelle für Integrationen. Wer OpenEOS selbst betreibt, findet die vollständige Beschreibung im Repository (`docs/openapi.json`) und außerhalb der Produktion unter `/docs`.\n\nZu jedem Endpunkt steht der nötige Scope (`x-api-token-scope`). Die Texte sind auf Deutsch; die Referenz ist für beide Sprachen der Doku-Seite dieselbe.",
     "version": "1.0",
     "contact": {
       "name": "OpenEOS",
@@ -5306,6 +6702,10 @@
     {
       "name": "Pfand",
       "description": "Pfandarten der Organisation (z. B. Glas, Becher)"
+    },
+    {
+      "name": "Wertmarken",
+      "description": "Markentypen (Mehrzweck-/Einzweckgutschein), Verkauf, Einlösung, Rücktausch und Bestand im Umlauf"
     },
     {
       "name": "Tische & Bereiche",
@@ -5346,6 +6746,10 @@
     {
       "name": "API-Zugänge",
       "description": "API-Tokens der Organisation ausstellen und widerrufen — nur mit Anmeldung (JWT) als Administrator, nicht per Token."
+    },
+    {
+      "name": "Webhooks",
+      "description": "Ausgehende Webhooks: Endpunkte anlegen, testen, Geheimnis erneuern, Zustellprotokoll und erneut senden. Nur für Administratoren; per Token mit `webhooks:read` bzw. `webhooks:write`, Löschen nur mit Anmeldung. Ereignisse, Inhalt und Signatur: https://docs.openeos.de/integrationen/webhooks"
     }
   ],
   "servers": [
@@ -5399,7 +6803,9 @@
                 "tables:write",
                 "staff:write",
                 "devices:write",
-                "settings:write"
+                "settings:write",
+                "webhooks:read",
+                "webhooks:write"
               ]
             }
           },
@@ -5455,6 +6861,17 @@
             "example": 2,
             "description": "Pfandbetrag pro Einheit in EUR"
           },
+          "vatRate": {
+            "type": "number",
+            "example": 19,
+            "enum": [
+              19,
+              7,
+              0
+            ],
+            "default": 19,
+            "description": "Umsatzsteuersatz des Pfands in Prozent: der Satz der Getränke/Waren, für die dieses Pfand gilt (meist 19). Pfand gehört zum Entgelt; die Rückgabe mindert Umsatz und Umsatzsteuer zum selben Satz. Steuerbefreite Organisationen (Kleinunternehmer) weisen trotzdem keine MwSt aus."
+          },
           "isActive": {
             "type": "boolean",
             "example": true,
@@ -5483,6 +6900,17 @@
             "type": "number",
             "example": 2,
             "description": "Pfandbetrag pro Einheit in EUR"
+          },
+          "vatRate": {
+            "type": "number",
+            "example": 19,
+            "enum": [
+              19,
+              7,
+              0
+            ],
+            "default": 19,
+            "description": "Umsatzsteuersatz des Pfands in Prozent: der Satz der Getränke/Waren, für die dieses Pfand gilt (meist 19). Pfand gehört zum Entgelt; die Rückgabe mindert Umsatz und Umsatzsteuer zum selben Satz. Steuerbefreite Organisationen (Kleinunternehmer) weisen trotzdem keine MwSt aus."
           },
           "isActive": {
             "type": "boolean",
@@ -6849,6 +8277,136 @@
           }
         }
       },
+      "CreateTokenTypeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "2-€-Marke"
+          },
+          "value": {
+            "type": "number",
+            "example": 2,
+            "description": "Nennwert in Euro (Verkaufspreis = Einlösewert)"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "multi_purpose",
+              "single_purpose"
+            ],
+            "default": "multi_purpose",
+            "description": "`multi_purpose` = Mehrzweckgutschein (Standard, § 3 Abs. 15 UStG: Steuer bei Einlösung); `single_purpose` = Einzweckgutschein (§ 3 Abs. 14 UStG: nur für Artikel mit genau einem Steuersatz, Steuer beim Verkauf)."
+          },
+          "vatRate": {
+            "type": "object",
+            "example": 19,
+            "description": "Nur Einzweckgutschein: der eine Steuersatz, für den die Marke gilt."
+          },
+          "eventId": {
+            "type": "object",
+            "description": "Nur für diese Veranstaltung (leer = alle). Pflicht, wenn Kategorien oder Artikel ausgewählt sind (die gehören zu einer Veranstaltung)."
+          },
+          "allowedCategoryIds": {
+            "description": "Nur für Artikel dieser Kategorien",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowedProductIds": {
+            "description": "Nur für diese Artikel",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "color": {
+            "type": "object",
+            "example": "#f59e0b"
+          },
+          "buybackAllowed": {
+            "type": "boolean",
+            "default": false,
+            "description": "Rücktausch gegen Bargeld an der Kasse erlauben (bewusste Aktion mit Beleg). Ein Rücktausch jederzeit ohne Bedingungen macht die Marke zur Guthabenkarte – beschreibe die Bedingungen in deiner Verfahrensdokumentation."
+          },
+          "isActive": {
+            "type": "boolean",
+            "default": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "default": 0
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      },
+      "UpdateTokenTypeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "2-€-Marke"
+          },
+          "value": {
+            "type": "number",
+            "example": 2,
+            "description": "Nennwert in Euro (Verkaufspreis = Einlösewert)"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "multi_purpose",
+              "single_purpose"
+            ],
+            "default": "multi_purpose",
+            "description": "`multi_purpose` = Mehrzweckgutschein (Standard, § 3 Abs. 15 UStG: Steuer bei Einlösung); `single_purpose` = Einzweckgutschein (§ 3 Abs. 14 UStG: nur für Artikel mit genau einem Steuersatz, Steuer beim Verkauf)."
+          },
+          "vatRate": {
+            "type": "object",
+            "example": 19,
+            "description": "Nur Einzweckgutschein: der eine Steuersatz, für den die Marke gilt."
+          },
+          "eventId": {
+            "type": "object",
+            "description": "Nur für diese Veranstaltung (leer = alle). Pflicht, wenn Kategorien oder Artikel ausgewählt sind (die gehören zu einer Veranstaltung)."
+          },
+          "allowedCategoryIds": {
+            "description": "Nur für Artikel dieser Kategorien",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowedProductIds": {
+            "description": "Nur für diese Artikel",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "color": {
+            "type": "object",
+            "example": "#f59e0b"
+          },
+          "buybackAllowed": {
+            "type": "boolean",
+            "default": false,
+            "description": "Rücktausch gegen Bargeld an der Kasse erlauben (bewusste Aktion mit Beleg). Ein Rücktausch jederzeit ohne Bedingungen macht die Marke zur Guthabenkarte – beschreibe die Bedingungen in deiner Verfahrensdokumentation."
+          },
+          "isActive": {
+            "type": "boolean",
+            "default": true
+          },
+          "sortOrder": {
+            "type": "number",
+            "default": 0
+          }
+        }
+      },
       "IconSuggestionsDto": {
         "type": "object",
         "properties": {
@@ -6867,6 +8425,111 @@
         "required": [
           "names"
         ]
+      },
+      "CreateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "example": "https://example.org/openeos/webhook",
+            "description": "Ziel der Zustellungen. Nur `https://`, ohne Zugangsdaten in der Adresse; der Name muss sich auf öffentliche Adressen auflösen lassen.",
+            "maxLength": 2048
+          },
+          "description": {
+            "type": "object",
+            "example": "Buchhaltung",
+            "description": "Wofür der Webhook gedacht ist",
+            "maxLength": 255,
+            "nullable": true
+          },
+          "eventTypes": {
+            "type": "array",
+            "example": [
+              "order.paid",
+              "refund.created"
+            ],
+            "description": "Abonnierte Ereignisse (mindestens eines)",
+            "items": {
+              "type": "string",
+              "enum": [
+                "order.created",
+                "order.paid",
+                "order.completed",
+                "order.cancelled",
+                "payment.created",
+                "refund.created",
+                "shop.order.created",
+                "pfand_return.created",
+                "event.activated",
+                "event.phase_changed",
+                "cash_point_closing.created",
+                "product.updated"
+              ]
+            }
+          },
+          "active": {
+            "type": "boolean",
+            "default": true
+          },
+          "includeGuestData": {
+            "type": "boolean",
+            "default": false,
+            "description": "„Gästedaten mitsenden“: Name, Telefon und Notizen der Gäste in Bestellungen. Nur einschalten, wenn der Empfänger sie braucht."
+          },
+          "includeTestOrders": {
+            "type": "boolean",
+            "default": false,
+            "description": "„Testbestellungen mitsenden“ (Testmodus und Phase „Geplant“); sie tragen dann `isTest: true`."
+          }
+        },
+        "required": [
+          "url",
+          "eventTypes"
+        ]
+      },
+      "UpdateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "maxLength": 2048
+          },
+          "description": {
+            "type": "object",
+            "maxLength": 255,
+            "nullable": true
+          },
+          "eventTypes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "order.created",
+                "order.paid",
+                "order.completed",
+                "order.cancelled",
+                "payment.created",
+                "refund.created",
+                "shop.order.created",
+                "pfand_return.created",
+                "event.activated",
+                "event.phase_changed",
+                "cash_point_closing.created",
+                "product.updated"
+              ]
+            }
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Ein- oder ausschalten. Einschalten setzt eine automatische Abschaltung und die Fehlerserie zurück."
+          },
+          "includeGuestData": {
+            "type": "boolean"
+          },
+          "includeTestOrders": {
+            "type": "boolean"
+          }
+        }
       }
     }
   }

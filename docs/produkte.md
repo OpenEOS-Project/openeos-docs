@@ -96,6 +96,24 @@ Im Reiter **CSV**:
 3. Klicke auf **Vorschau**. Die Tabelle zeigt je Zeile, ob angelegt, aktualisiert, übersprungen wird oder ein Fehler vorliegt, und welche Kategorien und Pfand-Typen neu angelegt werden.
 4. Klicke auf **Import durchführen**.
 
+Die Spalte `taxRate` (Steuersatz in Prozent) ist optional; erlaubt sind nur Sätze, die deine Organisation führen darf. Beim **Aktualisieren** lässt eine leere Spalte `icon` das vorhandene Symbol oder Foto stehen.
+
+## Als CSV exportieren {/* #csv-export */}
+
+Das Symbol **Als CSV exportieren** lädt alle Produkte der aktiven Veranstaltung als Datei für Excel (Semikolon, Dezimalkomma). Sie hat genau das Format des Imports: Du kannst Preise in Excel ändern und die Datei mit **Aktualisieren** wieder einlesen. Optionsgruppen mit Aufpreisen und Vorauswahl sind dabei; nicht in der Datei stehen Fotos, Standorte, Favoriten und die Verschachtelung von Unterkategorien.
+
+## Aus Veranstaltung übernehmen {/* #aus-veranstaltung */}
+
+Mit **Aus Veranstaltung übernehmen** holst du Produkte aus einer anderen Veranstaltung deiner Organisation in die aktive. Du brauchst dafür das Recht **Veranstaltungen**.
+
+![Aus Veranstaltung übernehmen](/img/screens/de/products-copy-from.png)
+
+1. Wähle die **Veranstaltung**.
+2. Wähle Kategorien oder einzelne Produkte aus; am Anfang ist alles ausgewählt.
+3. Klicke auf **Produkte übernehmen**. Danach steht da, wie viele Produkte übernommen und wie viele übersprungen wurden.
+
+Kategorien mit gleichem Namen (auf derselben Ebene) werden zusammengeführt, ebenso [Standorte](./standorte.md). Gibt es ein Produkt in der Kategorie schon, wird es übersprungen – außer du wählst **Doppelte trotzdem übernehmen**. Der Bestand wird nicht übernommen. Schon beim Anlegen einer Veranstaltung geht das [automatisch](./veranstaltungen.md#uebernehmen).
+
 ## Aus Speisekarte importieren
 
 Hast du deine Speisekarte schon – als Aushang, Flyer oder PDF –, musst du sie nicht abtippen. Im Reiter **Speisekarte** liest OpenEOS sie ein und macht daraus einen Vorschlag für Kategorien und Produkte, den du prüfst und dann in einem Schritt anlegst. Diese Funktion gehört zum [Assistenten](./assistent.md); ein Admin schaltet ihn unter **Einstellungen → Organisation → Assistent** ein. Solange er aus ist, sehen Admins über der Produktliste den Hinweis *Speisekarte importieren? Schalte dafür die Assistent-Funktionen ein.* mit dem Link **Zu den Einstellungen**.

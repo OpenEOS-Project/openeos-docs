@@ -21,6 +21,7 @@ You can find this section via **Events** in the sidebar.
    - **Name** (required) — e.g. "Sommerfest 2026"
    - **Description** — optional additional text
    - **Start date** and **End date** — without an end date the event lasts one day
+   - **Take over from** — which menu the new event starts with, see [below](#uebernehmen)
    - **Checkout mode** — pay immediately or run a tab, see [below](#kassiermodus)
    - **Real sales start earlier** — how many hours before the first day real sales start, see [Sales start the evening before](#verkaufsstart)
    - **Tables** — whether and how the tills ask for a table, see [below](#tische)
@@ -30,6 +31,28 @@ You can find this section via **Events** in the sidebar.
 ![Create event](/img/screens/en/events-dialog.png)
 
 You can change everything later via **Edit**. If you change the checkout mode or tables while the event is running, the tills pick up the new setting by themselves.
+
+### Menu from another event {/* #uebernehmen */}
+
+When you create an event, OpenEOS takes over **categories, products and stations** from an earlier event — by default the one with the latest start. The dialog says, for example, *Menu, categories and stations are taken over from "Summer Fest 2026"*; next to it you choose another event or **Take over nothing**.
+
+This includes prices, tax rates, deposits, options, images, favorites, print settings and the assignment to stations with their printers. **Stock** starts at 0. Orders, payments and reports stay with the old event. To fetch individual products later, use the [Products](./produkte.md#aus-veranstaltung) page.
+
+### Duplicating an event {/* #duplizieren */}
+
+For a festival that takes place again, choose **Duplicate event** in the row's **⋯** menu and enter the **name** and **dates** of the new event.
+
+![Duplicate event](/img/screens/en/events-duplicate.png)
+
+| Taken over | Stays with the old event |
+|---|---|
+| Categories, products and stations | Stock (unless you choose **Take over product stock**) |
+| Settings: checkout mode, tables and areas, lead time, pre-sale, shop – opening days moved by the same number of days | Activation and payment, TSE |
+| Shift plans as **drafts**, jobs and shifts moved | Sign-ups and helpers |
+| Tokens that belong only to this event | Tokens sold and redeemed |
+| Servers that belong only to this event – with **new PINs** | Orders, payments, settlements, stocktakes |
+
+If there are servers, OpenEOS shows their new PINs right afterwards, **once only**; you can print the PIN sheet from there. Shift plans and servers come along only if you have the respective permission. Shop opening days outside the new dates are dropped – check the times if the new event is longer or shorter.
 
 ## Checkout mode {/* #kassiermodus */}
 
@@ -215,6 +238,7 @@ Newly created events are initially **Inactive**. In the table each row has icons
 | **Activate** | makes the event active; if it has not been paid yet, the **Activate event** dialog opens first (see [Paying](#paying)) |
 | **Test Mode** | switches an inactive event to test mode |
 | **Deactivate** | sets the event back to **Inactive** |
+| **Duplicate event** | creates a copy for a new date, see [above](#duplizieren) |
 | **Delete** | deletes the event after asking once more |
 
 Activate the desired event — it then appears with its phase (for example **Planned** or **Active**) and is displayed as the active event in the top left of the sidebar. Only after activation can you maintain products and record orders.

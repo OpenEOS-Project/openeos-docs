@@ -96,6 +96,24 @@ In the **CSV** tab:
 3. Click **Preview**. The table shows per row whether it will be created, updated, skipped or has an error, and which categories and deposit types will be created.
 4. Click **Run import**.
 
+The `taxRate` column (VAT rate in percent) is optional; only rates your organization may use are accepted. With **Update**, an empty `icon` column keeps the existing icon or photo.
+
+## Exporting as CSV {/* #csv-export */}
+
+The **Export as CSV** icon downloads all products of the active event as a file for Excel (semicolon, decimal comma). It has exactly the import format: change prices in Excel and read the file back in with **Update**. Option groups with surcharges and preselection are included; photos, stations, favorites and the nesting of subcategories are not part of the file.
+
+## Taking products over from an event {/* #aus-veranstaltung */}
+
+**Take over from event** brings products from another event of your organization into the active one. You need the **Events** permission.
+
+![Take over from event](/img/screens/en/products-copy-from.png)
+
+1. Choose the **event**.
+2. Select categories or individual products; everything is selected at first.
+3. Click **Take over products**. Afterwards you see how many products were taken over and how many were skipped.
+
+Categories with the same name (on the same level) are merged, and so are [stations](./standorte.md). A product that already exists in the category is skipped – unless you choose **Take over duplicates anyway**. Stock is not taken over. When creating an event, this happens [automatically](./veranstaltungen.md#uebernehmen).
+
 ## Importing from a menu
 
 If you already have your menu – as a poster, flyer or PDF – you do not have to type it in. In the **Menu** tab, OpenEOS reads it and turns it into a suggestion for categories and products that you review and then create in one step. This feature is part of the [assistant](./assistent.md); an admin switches it on under **Settings → Organization → Assistant**. While it is off, admins see the note *Want to import a menu? Switch on the assistant features first.* with the link **Go to settings** above the product list.
